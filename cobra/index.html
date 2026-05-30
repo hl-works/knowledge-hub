@@ -139,30 +139,21 @@
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
-      <li class="entry" data-tags="odoo-dev meta en-prod">
-        <time datetime="2026-05-30">2026-05-30</time>
-        <div>
-          <h3 class="entry__title"><a href="../journal/audit-ui-cobra-design-ref.html">Audit UI Cobra + mise à jour odoo18_design_reference</a></h3>
-          <p class="entry__excerpt">Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.</p>
-          <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="meta">meta</span><span class="tag" data-tag="en-prod">en-prod</span></div>
-        </div>
-        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
-      </li>
       <li class="entry" data-tags="odoo-admin en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
           <h3 class="entry__title"><a href="../journal/sony-bravia-prix-marge.html">Mise à jour prix Sony Bravia II + diagnostic marge nulle</a></h3>
-          <p class="entry__excerpt">19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d&#x27;une marge à 0 % : l&#x27;UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.</p>
+          <p class="entry__excerpt">19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d&amp;#x27;une marge à 0 % : l&amp;#x27;UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.</p>
           <div class="tags"><span class="tag" data-tag="odoo-admin">odoo-admin</span><span class="tag" data-tag="en-prod">en-prod</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
-      <li class="entry" data-tags="data odoo-admin en-prod">
+      <li class="entry" data-tags="odoo-dev en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="../journal/epson-declaratif-ventes.html">Déclaratif ventes Epson : export Odoo → Google Sheets</a></h3>
-          <p class="entry__excerpt">Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.</p>
-          <div class="tags"><span class="tag" data-tag="data">data</span><span class="tag" data-tag="odoo-admin">odoo-admin</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+          <h3 class="entry__title"><a href="../journal/sogetronic-import-prod.html">Profil Sogetronic : import stock dropshipping par code fournisseur</a></h3>
+          <p class="entry__excerpt">Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l&amp;#x27;EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.</p>
+          <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
@@ -175,21 +166,39 @@
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
-      <li class="entry" data-tags="odoo-dev en-prod">
+      <li class="entry" data-tags="data odoo-admin en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="../journal/cdc18-stabilisation.html">Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR</a></h3>
-          <p class="entry__excerpt">Deux bugs résiduels du dashboard achats : boutons qui n&#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.</p>
-          <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+          <h3 class="entry__title"><a href="../journal/epson-declaratif-ventes.html">Déclaratif ventes Epson : export Odoo → Google Sheets</a></h3>
+          <p class="entry__excerpt">Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&amp;#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.</p>
+          <div class="tags"><span class="tag" data-tag="data">data</span><span class="tag" data-tag="odoo-admin">odoo-admin</span><span class="tag" data-tag="en-prod">en-prod</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="cobra strat admin en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/discours-fiche-poste-vendeur-cobra.html">Discours &amp;amp; fiche de poste vendeur magasin Cobra</a></h3>
+          <p class="entry__excerpt">Transformer un discours managérial brut en trois livrables exécutables (bullet points, prose, fiche de poste Word à signer) après une restructuration d&amp;#x27;équipe.</p>
+          <div class="tags"><span class="tag tag--cobra" data-tag="cobra">cobra</span><span class="tag" data-tag="strat">strat</span><span class="tag" data-tag="admin">admin</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+        </div>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
       </li>
       <li class="entry" data-tags="odoo-dev en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="../journal/sogetronic-import-prod.html">Profil Sogetronic : import stock dropshipping par code fournisseur</a></h3>
-          <p class="entry__excerpt">Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l&#x27;EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.</p>
+          <h3 class="entry__title"><a href="../journal/cdc18-stabilisation.html">Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR</a></h3>
+          <p class="entry__excerpt">Deux bugs résiduels du dashboard achats : boutons qui n&amp;#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.</p>
           <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev meta en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/audit-ui-cobra-design-ref.html">Audit UI Cobra + mise à jour odoo18_design_reference</a></h3>
+          <p class="entry__excerpt">Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.</p>
+          <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="meta">meta</span><span class="tag" data-tag="en-prod">en-prod</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
@@ -197,7 +206,7 @@
         <time datetime="2026-05-29">2026-05-29</time>
         <div>
           <h3 class="entry__title"><a href="../journal/agent-factures-architecture.html">Agent autonome de traitement des factures fournisseurs</a></h3>
-          <p class="entry__excerpt">Cadrer toute l&#x27;architecture d&#x27;un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d&#x27;écrire une ligne de code. Ne toucher Odoo qu&#x27;une fois/semaine.</p>
+          <p class="entry__excerpt">Cadrer toute l&amp;#x27;architecture d&amp;#x27;un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d&amp;#x27;écrire une ligne de code. Ne toucher Odoo qu&amp;#x27;une fois/semaine.</p>
           <div class="tags"><span class="tag" data-tag="agent">agent</span><span class="tag" data-tag="en-cours">en-cours</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -211,24 +220,6 @@
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
-      <li class="entry" data-tags="email odoo-dev en-prod">
-        <time datetime="2026-05-28">2026-05-28</time>
-        <div>
-          <h3 class="entry__title"><a href="../journal/routing-po-drop-reassort.html">Routing email PO Drop vs Réassort + templates Cobra</a></h3>
-          <p class="entry__excerpt">Router l&#x27;email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.</p>
-          <div class="tags"><span class="tag" data-tag="email">email</span><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
-        </div>
-        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
-      </li>
-      <li class="entry" data-tags="shopify data en-cours">
-        <time datetime="2026-05-28">2026-05-28</time>
-        <div>
-          <h3 class="entry__title"><a href="../journal/dynaudio-analyse-ventes.html">Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés</a></h3>
-          <p class="entry__excerpt">Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l&#x27;édition de fichiers.</p>
-          <div class="tags"><span class="tag" data-tag="shopify">shopify</span><span class="tag" data-tag="data">data</span><span class="tag" data-tag="en-cours">en-cours</span></div>
-        </div>
-        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
-      </li>
       <li class="entry" data-tags="infra odoo-dev en-prod">
         <time datetime="2026-05-28">2026-05-28</time>
         <div>
@@ -238,10 +229,28 @@
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
+      <li class="entry" data-tags="email odoo-dev en-prod">
+        <time datetime="2026-05-28">2026-05-28</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/routing-po-drop-reassort.html">Routing email PO Drop vs Réassort + templates Cobra</a></h3>
+          <p class="entry__excerpt">Router l&amp;#x27;email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.</p>
+          <div class="tags"><span class="tag" data-tag="email">email</span><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="shopify data en-cours">
+        <time datetime="2026-05-28">2026-05-28</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/dynaudio-analyse-ventes.html">Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés</a></h3>
+          <p class="entry__excerpt">Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l&amp;#x27;édition de fichiers.</p>
+          <div class="tags"><span class="tag" data-tag="shopify">shopify</span><span class="tag" data-tag="data">data</span><span class="tag" data-tag="en-cours">en-cours</span></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
       <li class="entry" data-tags="agent en-cours">
         <time datetime="2026-05-27">2026-05-27</time>
         <div>
-          <h3 class="entry__title"><a href="../journal/mission-dm-france.html">Brief mission Claude Code : vérification factures D&amp;M France</a></h3>
+          <h3 class="entry__title"><a href="../journal/mission-dm-france.html">Brief mission Claude Code : vérification factures D&amp;amp;M France</a></h3>
           <p class="entry__excerpt">14 factures PDF importées en brouillon Odoo, non fiables. Un brief structuré et sécurisé (matching PO, DEEE, escompte, garde-fous) pour que Claude Code travaille en autonomie.</p>
           <div class="tags"><span class="tag" data-tag="agent">agent</span><span class="tag" data-tag="en-cours">en-cours</span></div>
         </div>
@@ -251,7 +260,7 @@
         <time datetime="2026-05-27">2026-05-27</time>
         <div>
           <h3 class="entry__title"><a href="../journal/cdc18-form-view.html">CDC-18 form view : déploiement chirurgical en prod</a></h3>
-          <p class="entry__excerpt">Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d&#x27;un commit propre depuis une pile preprod3 mélangée.</p>
+          <p class="entry__excerpt">Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d&amp;#x27;un commit propre depuis une pile preprod3 mélangée.</p>
           <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -260,7 +269,7 @@
         <time datetime="2026-05-26">2026-05-26</time>
         <div>
           <h3 class="entry__title"><a href="../journal/statuts-livree-facturee-payee.html">Statuts Livrée / Facturée / Payée sur les bons de commande</a></h3>
-          <p class="entry__excerpt">3 statuts consolidés (Livrée/Facturée/Payée) en badges sur la fiche PO et les listes, pour connaître l&#x27;état réel d&#x27;une commande d&#x27;un coup d&#x27;œil. Pièges xpath multi-list.</p>
+          <p class="entry__excerpt">3 statuts consolidés (Livrée/Facturée/Payée) en badges sur la fiche PO et les listes, pour connaître l&amp;#x27;état réel d&amp;#x27;une commande d&amp;#x27;un coup d&amp;#x27;œil. Pièges xpath multi-list.</p>
           <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -283,21 +292,21 @@
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
-      <li class="entry" data-tags="infra en-cours">
-        <time datetime="2026-05-21">2026-05-21</time>
-        <div>
-          <h3 class="entry__title"><a href="../journal/infra-sftp-phase1.html">Infrastructure SFTP Cobra : phase 1 setup serveur</a></h3>
-          <p class="entry__excerpt">Poser une infra SFTP pérenne (Scaleway/Ubuntu) où chaque fournisseur dépose ses fichiers stock, récupérés automatiquement par Odoo. Setup serveur guidé pas à pas.</p>
-          <div class="tags"><span class="tag" data-tag="infra">infra</span><span class="tag" data-tag="en-cours">en-cours</span></div>
-        </div>
-        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
-      </li>
       <li class="entry" data-tags="data meta en-prod">
         <time datetime="2026-05-21">2026-05-21</time>
         <div>
           <h3 class="entry__title"><a href="../journal/sogetronic-seed-21mai.html">Sogetronic seed + restructuration Knowledge Hub Claude</a></h3>
           <p class="entry__excerpt">Deux besoins dans une session : charger les Codes Sage Sogetronic sur 175 fiches produit, et restructurer les fichiers de contexte Claude pour un usage double chat + Code.</p>
           <div class="tags"><span class="tag" data-tag="data">data</span><span class="tag" data-tag="meta">meta</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="infra en-cours">
+        <time datetime="2026-05-21">2026-05-21</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/infra-sftp-phase1.html">Infrastructure SFTP Cobra : phase 1 setup serveur</a></h3>
+          <p class="entry__excerpt">Poser une infra SFTP pérenne (Scaleway/Ubuntu) où chaque fournisseur dépose ses fichiers stock, récupérés automatiquement par Odoo. Setup serveur guidé pas à pas.</p>
+          <div class="tags"><span class="tag" data-tag="infra">infra</span><span class="tag" data-tag="en-cours">en-cours</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
@@ -337,11 +346,20 @@
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
+      <li class="entry" data-tags="cobra email en-cours">
+        <time datetime="2026-05-08">2026-05-08</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/audit-filtrage-mail-cobra.html">Audit &amp;amp; filtrage de la boîte mail Cobra (Outlook)</a></h3>
+          <p class="entry__excerpt">Reprendre la main sur l&amp;#x27;inbox hlahutte@cobra.fr noyée par le bruit (catchall Odoo, EDI, notifications) : audit sur 30 jours, règles serveur/client, backlog des urgents.</p>
+          <div class="tags"><span class="tag tag--cobra" data-tag="cobra">cobra</span><span class="tag" data-tag="email">email</span><span class="tag" data-tag="en-cours">en-cours</span></div>
+        </div>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
+      </li>
       <li class="entry" data-tags="shopify data en-cours">
         <time datetime="2026-04-15">2026-04-15</time>
         <div>
           <h3 class="entry__title"><a href="../journal/audit-shopify-odoo-803.html">Audit Shopify/Odoo : 803 produits, 3 mois de travail</a></h3>
-          <p class="entry__excerpt">Croiser le catalogue Shopify (front) et Odoo (back) : cohérence des références, prix, stocks, métadonnées sur 803 produits. Le cas B&amp;W AM-1 paire vs pièce.</p>
+          <p class="entry__excerpt">Croiser le catalogue Shopify (front) et Odoo (back) : cohérence des références, prix, stocks, métadonnées sur 803 produits. Le cas B&amp;amp;W AM-1 paire vs pièce.</p>
           <div class="tags"><span class="tag" data-tag="shopify">shopify</span><span class="tag" data-tag="data">data</span><span class="tag" data-tag="en-cours">en-cours</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -349,8 +367,8 @@
       <li class="entry" data-tags="meta en-cours">
         <time datetime="2025-09-01">2025-09-01</time>
         <div>
-          <h3 class="entry__title"><a href="../journal/collegues-sur-claude.html">L&#x27;arrivée des collègues sur Claude</a></h3>
-          <p class="entry__excerpt">Claude ne reste pas un outil solo : des collègues chez Cobra commencent à l&#x27;utiliser. Partage de contexte sans credentials, bon CLAUDE.md, éviter de réinventer la roue.</p>
+          <h3 class="entry__title"><a href="../journal/collegues-sur-claude.html">L&amp;#x27;arrivée des collègues sur Claude</a></h3>
+          <p class="entry__excerpt">Claude ne reste pas un outil solo : des collègues chez Cobra commencent à l&amp;#x27;utiliser. Partage de contexte sans credentials, bon CLAUDE.md, éviter de réinventer la roue.</p>
           <div class="tags"><span class="tag" data-tag="meta">meta</span><span class="tag" data-tag="en-cours">en-cours</span></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -358,7 +376,7 @@
       <li class="entry" data-tags="odoo-dev meta en-prod">
         <time datetime="2025-01-15">2025-01-15</time>
         <div>
-          <h3 class="entry__title"><a href="../journal/claude-arrivee-workflow-cobra.html">L&#x27;arrivée de Claude dans le workflow Cobra</a></h3>
+          <h3 class="entry__title"><a href="../journal/claude-arrivee-workflow-cobra.html">L&amp;#x27;arrivée de Claude dans le workflow Cobra</a></h3>
           <p class="entry__excerpt">Avant Claude, le dev Odoo se faisait à la main : forums OCA, doc, essais/erreurs. Le pivot — traiter Claude comme un collègue senior qui amplifie, ne remplace pas.</p>
           <div class="tags"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="meta">meta</span><span class="tag" data-tag="en-prod">en-prod</span></div>
         </div>

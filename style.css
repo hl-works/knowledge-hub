@@ -187,6 +187,8 @@ button.tag:hover{border-color:var(--c-red); color:var(--c-red);}
 .tag[data-tag="en-cours"]{color:#9a6a00; border-color:var(--c-gold);}
 .tag[data-tag="agent"]{color:var(--c-violet); border-color:var(--c-violet);}
 .tag[data-tag="meta"]{color:var(--c-indigo); border-color:var(--c-indigo);}
+.tag[data-tag="strat"]{color:var(--c-indigo); border-color:var(--c-indigo);}
+.tag[data-tag="marketing"]{color:var(--c-violet); border-color:var(--c-violet);}
 
 /* --------------------------- Callout ------------------------------ */
 .callout{background:var(--surface-alt); border-radius:var(--radius); padding:var(--space-8); margin-block:var(--space-8);}
