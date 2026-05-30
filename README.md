@@ -19,7 +19,7 @@ framework**, publié sur GitHub Pages.
 
 ```
 knowledge-hub/
-├── index.html              ← accueil (méthode + projets + journal + consulting)
+├── index.html              ← accueil (méthode + projets + journal + contact)
 ├── style.css               ← feuille de style unique partagée
 ├── README.md
 ├── llms.txt / llms-full.txt← pointeurs GEO pour les LLMs
@@ -101,4 +101,4 @@ python3 -m http.server 8000   # puis http://localhost:8000
 
 ---
 
-© 2026 Hugo Lahutte — Build in public avec Claude. Conseil : **HL Consulting** · hugo.lahutte@gmail.com
+© 2026 Hugo Lahutte — Build in public avec Claude. Contact : hugo@hl-consulting.tech
