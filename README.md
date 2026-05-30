@@ -30,7 +30,7 @@ knowledge-hub/
 │   ├── index.html          ← liste chronologique
 │   ├── _template.html      ← template à copier pour une nouvelle entrée
 │   └── AAAA-MM-JJ-slug.html
-├── cobra/ haute-fidelite/ hifi-lovers/ total-cinema/ perso/
+├── cobra/ haute-fidelite/ hifi-lovers/ perso/
 │   └── index.html          ← pages verticales (description + entrées liées)
 └── docs/                   ← NON référencé, NON linké depuis le site
     └── CLAUDE.md
