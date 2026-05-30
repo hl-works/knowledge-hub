@@ -153,8 +153,20 @@ section{padding-block:var(--space-16);}
 .btn--ghost:hover{background:var(--c-black); color:var(--c-white);}
 .btn-row{display:flex; gap:var(--space-4); flex-wrap:wrap; margin-top:var(--space-8);}
 
-/* ---------------------- Figures / photos -------------------------- */
-/* Emplacements photo : ratio réservé pour éviter le CLS (perf SEO). */
+/* ----------------------- Liens externes --------------------------- */
+.linklist{list-style:none; margin:var(--space-6) 0 0; padding:0; display:flex; flex-wrap:wrap; gap:var(--space-2);}
+.linklist a{
+  display:inline-flex; align-items:center; gap:var(--space-2);
+  text-decoration:none; font-weight:700; font-size:.8125rem;
+  text-transform:uppercase; letter-spacing:.06em;
+  padding:var(--space-2) var(--space-3); border:1px solid var(--border); border-radius:var(--radius);
+  color:var(--text); transition:border-color .15s ease, color .15s ease;
+}
+.linklist a:hover{border-color:var(--c-red); color:var(--c-red);}
+.linklist a[data-primary]{background:var(--c-black); color:var(--c-white); border-color:var(--c-black);}
+.linklist a[data-primary]:hover{background:var(--c-red); border-color:var(--c-red); color:#fff;}
+
+/* ---------------------- Figures / photos -------------------------- *//* Emplacements photo : ratio réservé pour éviter le CLS (perf SEO). */
 .figure{margin:0;}
 .figure img{width:100%; height:100%; object-fit:cover; border-radius:var(--radius);}
 .figure figcaption{margin-top:var(--space-2);}
