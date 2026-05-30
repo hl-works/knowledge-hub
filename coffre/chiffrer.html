@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chiffrer — Coffre (privé)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<style>
+  textarea,input{width:100%;font-family:var(--font-mono);font-size:.9rem;padding:var(--space-3);
+    border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);}
+  textarea{min-height:200px;resize:vertical;}
+  label{display:block;font-weight:700;margin:var(--space-6) 0 var(--space-2);font-size:.9rem;}
+  .doc{border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);margin-top:var(--space-4);}
+  .doc input{margin-bottom:var(--space-2);}
+  #out{font-family:var(--font-mono);font-size:.75rem;white-space:pre-wrap;word-break:break-all;
+    background:var(--c-black);color:#9fe6a0;padding:var(--space-4);border-radius:var(--radius);max-height:300px;overflow:auto;}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale"><ul class="nav__links"><li><a href="./">← Coffre</a></li></ul></nav>
+</header>
+
+<main id="main">
+<section class="article">
+  <div class="container" style="max-width:820px;">
+    <p class="kicker" style="color:var(--c-red);">Outil privé · ne pas linker</p>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);">Chiffrer le coffre</h1>
+    <hr class="rule--accent">
+    <div class="prose">
+      <p>Cet outil chiffre tes documents <strong>entièrement dans ton navigateur</strong> (AES-256-GCM + PBKDF2). Rien n'est envoyé sur le réseau. Le résultat <code>vault.json</code> ne contient que du texte chiffré — à déposer dans <code>coffre/vault.json</code> du repo.</p>
+      <div class="callout"><p>⚠️ <strong>Jamais de secrets critiques ici</strong> (clés API, mots de passe, identifiants Odoo) : le fichier chiffré est public et attaquable hors-ligne. Réserve ce coffre à des <code>.md</code> confidentiels mais non critiques (prompts, méthodo, notes).</p></div>
+    </div>
+
+    <label for="pass">Passphrase (mémorise-la — elle n'est stockée nulle part)</label>
+    <input type="password" id="pass" autocomplete="new-password" placeholder="Une phrase longue et robuste">
+
+    <div id="docs"></div>
+    <p class="btn-row">
+      <button type="button" class="btn btn--ghost" id="add">+ Ajouter un document</button>
+      <button type="button" class="btn btn--primary" id="go">Chiffrer →</button>
+    </p>
+
+    <label>Résultat — copie ça dans <code>coffre/vault.json</code></label>
+    <div id="out">(le vault.json chiffré apparaîtra ici)</div>
+    <p class="btn-row"><button type="button" class="btn btn--ghost" id="copy">Copier</button>
+      <button type="button" class="btn btn--ghost" id="dl">Télécharger vault.json</button></p>
+  </div>
+</section>
+</main>
+
+<script>
+const enc=new TextEncoder();
+function b64(buf){return btoa(String.fromCharCode(...new Uint8Array(buf)));}
+const ITER=310000;
+async function deriveKey(pass,salt){
+  const base=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:ITER,hash:'SHA-256'},
+    base,{name:'AES-GCM',length:256},false,['encrypt']);
+}
+function docRow(t='',b=''){
+  const d=document.createElement('div');d.className='doc';
+  d.innerHTML='<input class="t" placeholder="Titre du document (ex. CLAUDE.md principal)">'+
+    '<textarea class="b" placeholder="Colle ici le contenu Markdown…"></textarea>'+
+    '<p style="margin:.5rem 0 0"><button type="button" class="btn btn--ghost rm" style="font-size:.7rem;padding:.3rem .6rem">Retirer</button></p>';
+  d.querySelector('.t').value=t;d.querySelector('.b').value=b;
+  d.querySelector('.rm').onclick=()=>d.remove();
+  return d;
+}
+const docs=document.getElementById('docs');
+docs.appendChild(docRow());
+document.getElementById('add').onclick=()=>docs.appendChild(docRow());
+
+document.getElementById('go').onclick=async()=>{
+  const pass=document.getElementById('pass').value;
+  if(pass.length<8){alert('Passphrase trop courte (8+ caractères).');return;}
+  const items=[...docs.querySelectorAll('.doc')].map(d=>({
+    title:d.querySelector('.t').value.trim()||'Sans titre',
+    body:d.querySelector('.b').value})).filter(x=>x.body.trim());
+  if(!items.length){alert('Ajoute au moins un document.');return;}
+  const salt=crypto.getRandomValues(new Uint8Array(16));
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const key=await deriveKey(pass,salt);
+  const plaintext=enc.encode(JSON.stringify(items));
+  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,plaintext);
+  const vault={v:1,kdf:'PBKDF2-SHA256',iter:ITER,
+    salt:b64(salt),iv:b64(iv),ct:b64(ct)};
+  document.getElementById('out').textContent=JSON.stringify(vault,null,2);
+};
+document.getElementById('copy').onclick=()=>{navigator.clipboard.writeText(document.getElementById('out').textContent);};
+document.getElementById('dl').onclick=()=>{
+  const blob=new Blob([document.getElementById('out').textContent],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='vault.json';a.click();
+};
+</script>
+</body>
+</html>

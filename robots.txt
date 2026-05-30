@@ -1,17 +1,32 @@
 User-agent: *
 Allow: /
 Disallow: /docs/
+Disallow: /coffre/
 
 # Agents IA / LLMs explicitement bienvenus (GEO)
 User-agent: GPTBot
 Allow: /
+Disallow: /coffre/
+Disallow: /docs/
+
 User-agent: ClaudeBot
 Allow: /
+Disallow: /coffre/
+Disallow: /docs/
+
 User-agent: anthropic-ai
 Allow: /
+Disallow: /coffre/
+Disallow: /docs/
+
 User-agent: PerplexityBot
 Allow: /
+Disallow: /coffre/
+Disallow: /docs/
+
 User-agent: Google-Extended
 Allow: /
+Disallow: /coffre/
+Disallow: /docs/
 
 Sitemap: https://hugolahutte.github.io/knowledge-hub/sitemap.xml
