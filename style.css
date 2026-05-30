@@ -149,6 +149,19 @@ section{padding-block:var(--space-16);}
 .filter-count{font-size:.8125rem; color:var(--text-muted); margin-left:auto; align-self:center;}
 .entry.is-hidden{display:none;}
 
+/* Champ de recherche journal */
+.search-box{position:relative; margin:var(--space-6) 0 var(--space-2);}
+.search-box input{
+  width:100%; font-family:var(--font-body); font-size:1rem; color:var(--text);
+  padding:var(--space-3) var(--space-4); padding-left:2.6rem;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  transition:border-color .15s ease;
+}
+.search-box input:focus{outline:none; border-color:var(--c-red);}
+.search-box input::placeholder{color:var(--text-muted);}
+.search-box svg{position:absolute; left:var(--space-3); top:50%; transform:translateY(-50%); width:18px; height:18px; stroke:var(--text-muted); pointer-events:none;}
+mark{background:var(--c-gold); color:var(--c-black); padding:0 .1em; border-radius:1px;}
+
 /* Tags cliquables (boutons) — héritent du style .tag */
 button.tag{font-family:var(--font-body); cursor:pointer; background:transparent;}
 button.tag:hover{border-color:var(--c-red); color:var(--c-red);}

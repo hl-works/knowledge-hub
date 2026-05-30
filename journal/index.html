@@ -17,6 +17,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#0C0C0C">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -50,12 +55,16 @@
     <p class="kicker">Le détail, daté</p>
     <h1>Journal</h1>
     <hr class="rule--accent">
-    <p class="lead">28 sessions de travail avec Claude : décisions, archi, bouts de code, leçons. Deux agents contribuent — <strong>Claude · HL</strong> (perso) et <strong>Claude · Cobra</strong> (dev). Filtre par tag ci-dessous.</p>
+    <p class="lead">28 sessions de travail avec Claude : décisions, archi, bouts de code, leçons. Deux agents contribuent — <strong>Claude · HL</strong> (perso) et <strong>Claude · Cobra</strong> (dev). Cherche ou filtre par tag ci-dessous.</p>
   </div>
 </section>
 
 <section style="padding-top:0;">
   <div class="container">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="search" id="journal-search" placeholder="Rechercher une session (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
+    </div>
     <div class="filter-bar" role="group" aria-label="Filtrer par tag">
       <button type="button" class="chip" data-filter="*" aria-pressed="true">Tout</button>
       <button type="button" class="chip" data-filter="odoo-dev" aria-pressed="false">odoo-dev</button>
@@ -345,24 +354,46 @@
   var chips=[].slice.call(document.querySelectorAll('.chip'));
   var count=document.getElementById('filter-count');
   var empty=document.getElementById('empty-msg');
-  function apply(tag){
-    var shown=0;
-    entries.forEach(function(el){
-      var ok = tag==='*' || (' '+el.getAttribute('data-tags')+' ').indexOf(' '+tag+' ')>-1;
-      el.classList.toggle('is-hidden', !ok);
+  var search=document.getElementById('journal-search');
+  var tag='*', q='';
+  // index : texte recherchable + refs des noeuds à surligner par entrée
+  var idx=entries.map(function(el){
+    var title=el.querySelector('.entry__title a');
+    var exc=el.querySelector('.entry__excerpt');
+    return {el:el, title:title, exc:exc,
+      tTxt:title?title.textContent:'', eTxt:exc?exc.textContent:'',
+      hay:((title?title.textContent:'')+' '+(exc?exc.textContent:'')+' '+el.getAttribute('data-tags')).toLowerCase()};
+  });
+  function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+  function hl(node,txt,needle){
+    if(!node) return;
+    if(!needle){ node.textContent=txt; return; }
+    var re=new RegExp('('+esc(needle)+')','ig');
+    node.innerHTML=txt.replace(re,'<mark>$1</mark>');
+  }
+  function apply(){
+    var shown=0, needle=q.trim().toLowerCase();
+    idx.forEach(function(it){
+      var okTag = tag==='*' || (' '+it.el.getAttribute('data-tags')+' ').indexOf(' '+tag+' ')>-1;
+      var okQ = !needle || it.hay.indexOf(needle)>-1;
+      var ok=okTag&&okQ;
+      it.el.classList.toggle('is-hidden', !ok);
+      // surlignage (uniquement sur les visibles)
+      hl(it.title, it.tTxt, ok?needle:'');
+      hl(it.exc, it.eTxt, ok?needle:'');
       if(ok) shown++;
     });
     chips.forEach(function(c){ c.setAttribute('aria-pressed', c.getAttribute('data-filter')===tag ? 'true':'false'); });
     count.textContent = shown+' / '+entries.length;
     empty.style.display = shown===0 ? 'block':'none';
   }
-  chips.forEach(function(c){ c.addEventListener('click', function(){ apply(c.getAttribute('data-filter')); }); });
-  // tags cliquables dans les cartes
+  chips.forEach(function(c){ c.addEventListener('click', function(){ tag=c.getAttribute('data-filter'); apply(); }); });
   list.addEventListener('click', function(ev){
     var b=ev.target.closest('button.tag'); if(!b) return;
-    var t=b.getAttribute('data-tag'); if(t && t!=='vert') apply(t);
+    var t=b.getAttribute('data-tag'); if(t && t!=='vert'){ tag=t; apply(); }
   });
-  apply('*');
+  if(search){ search.addEventListener('input', function(){ q=search.value; apply(); }); }
+  apply();
 })();
 </script>
 </body>
