@@ -394,7 +394,13 @@
     var t=b.getAttribute('data-tag'); if(t && t!=='vert'){ tag=t; apply(); }
   });
   if(search){ search.addEventListener('input', function(){ q=search.value; apply(); }); }
+  // pré-remplissage depuis ?q= (recherche venue de l'accueil ou d'une verticale)
+  try{
+    var pq=new URLSearchParams(location.search).get('q');
+    if(pq && search){ search.value=pq; q=pq; }
+  }catch(e){}
   apply();
+  if(q && search){ search.focus(); }
 })();
 </script>
 </body>
