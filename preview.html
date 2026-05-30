@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Hub — Preview (HiFi Lovers Design System)</title>
+<meta name="description" content="Journal de bord de tout ce que je construis avec Claude — mi-portfolio IA, mi-documentation opérationnelle.">
+
+<!-- Satoshi (libre, Fontshare) -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<!-- Archivo (fallback libre du Transducer Extended Black) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* Couleurs primaires (littéral) */
+  --c-red:#C6121F; --c-black:#0C0C0C; --c-platinum:#E7E9ED; --c-white:#FFFFFF;
+  /* Neutres secondaires */
+  --c-offwhite:#FFFCF8; --c-sand:#E2D2BF;
+  /* Accents secondaires */
+  --c-gold:#FAB62F; --c-indigo:#39359E; --c-sunset:#EA5045; --c-violet:#926FC1;
+  /* Rôles sémantiques */
+  --bg:var(--c-offwhite); --surface:var(--c-white); --surface-alt:var(--c-sand);
+  --text:var(--c-black); --text-muted:#6B6B6B;
+  --border:rgba(12,12,12,.12); --border-strong:var(--c-black);
+  --accent:var(--c-red); --link:var(--c-black); --link-hover:var(--c-red);
+  /* Typo */
+  --font-display:"Archivo","Transducer Extended",system-ui,sans-serif;
+  --font-body:"Satoshi",system-ui,-apple-system,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  /* Espacement (base 4px) */
+  --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem;
+  --space-6:1.5rem; --space-8:2rem; --space-12:3rem; --space-16:4rem; --space-24:6rem;
+  /* Layout */
+  --content-max:1200px; --prose-max:68ch; --radius:2px;
+  --shadow-sm:0 1px 2px rgba(12,12,12,.06);
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--font-body); font-weight:400;
+  font-size:1.0625rem; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Display = Archivo en expanded black pour approcher le Transducer Extended */
+h1,h2{
+  font-family:var(--font-display); font-weight:900;
+  text-transform:uppercase; font-stretch:125%;
+  letter-spacing:-.01em; margin:0;
+}
+h1{font-size:clamp(2.75rem,6vw,5rem); line-height:1.0;}
+h2{font-size:clamp(2rem,3.5vw,3rem); line-height:1.05;}
+h3{font-family:var(--font-body); font-weight:700; font-size:clamp(1.25rem,2vw,1.6rem); line-height:1.25; letter-spacing:.01em; margin:0;}
+p{max-width:var(--prose-max);}
+
+a{color:var(--link); text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px; transition:color .15s ease;}
+a:hover{color:var(--link-hover);}
+
+.container{max-width:var(--content-max); margin-inline:auto; padding-inline:var(--space-6);}
+.caption{font-size:.8125rem; line-height:1.4; color:var(--text-muted); letter-spacing:.01em;}
+.rule{border:0; border-top:1px solid var(--border); margin:0;}
+.rule--accent{border:0; border-top:3px solid var(--c-red); width:64px; margin:var(--space-4) 0 var(--space-8);}
+
+/* ---------- NAV ---------- */
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:var(--space-4) var(--space-6); border-bottom:1px solid var(--border);
+  position:sticky; top:0; background:rgba(255,252,248,.9); backdrop-filter:blur(8px); z-index:10;
+}
+.nav__wordmark{font-family:var(--font-display); text-transform:uppercase; font-size:1.15rem; font-stretch:125%; letter-spacing:-.01em; text-decoration:none; color:var(--text);}
+.nav__wordmark b{font-weight:900;}
+.nav__wordmark span{font-weight:600; letter-spacing:.04em; color:var(--text-muted);}
+.nav__links{display:flex; gap:var(--space-6); list-style:none; margin:0; padding:0;}
+.nav__links a{text-decoration:none; text-transform:uppercase; font-weight:700; font-size:.8125rem; letter-spacing:.08em;}
+.nav__links a:hover{color:var(--c-red);}
+
+/* ---------- HERO ---------- */
+.hero{padding:var(--space-24) 0 var(--space-16);}
+.hero .kicker{font-weight:700; font-size:.8125rem; text-transform:uppercase; letter-spacing:.08em; color:var(--c-red); margin:0 0 var(--space-4);}
+.hero p.lead{font-size:1.25rem; line-height:1.55; color:var(--text); margin-top:var(--space-6); max-width:60ch;}
+.hero .meta{margin-top:var(--space-8); display:flex; gap:var(--space-6); flex-wrap:wrap;}
+.stat{border-left:3px solid var(--c-red); padding-left:var(--space-3);}
+.stat b{font-family:var(--font-display); font-weight:900; font-stretch:125%; font-size:1.5rem; display:block; line-height:1;}
+.stat span{font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--text-muted);}
+
+/* ---------- SECTIONS ---------- */
+section{padding-block:var(--space-16);}
+.section-head{display:flex; align-items:baseline; justify-content:space-between; gap:var(--space-4); flex-wrap:wrap;}
+.section-head a{font-size:.8125rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700; text-decoration:none;}
+
+/* Grilles */
+.card-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--space-6);}
+
+/* Cards verticales */
+.card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:var(--space-6); box-shadow:var(--shadow-sm);
+  transition:border-color .15s ease, transform .15s ease;
+  display:flex; flex-direction:column; min-height:200px; text-decoration:none; color:var(--text);
+}
+.card:hover{border-color:var(--c-red); transform:translateY(-2px);}
+.card__kicker{font-weight:700; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--c-red);}
+.card__title{font-weight:700; font-size:1.25rem; line-height:1.25; margin:var(--space-2) 0;}
+.card__desc{font-size:.95rem; color:var(--text-muted); line-height:1.5; flex:1;}
+.card__foot{margin-top:var(--space-4); font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted);}
+
+/* Journal — liste chronologique */
+.entry-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--border);}
+.entry{display:grid; grid-template-columns:120px 1fr auto; gap:var(--space-6); align-items:baseline; padding:var(--space-6) 0; border-bottom:1px solid var(--border); transition:background .15s ease;}
+.entry:hover{background:rgba(198,18,31,.03);}
+.entry time{font-family:var(--font-mono); font-size:.8125rem; color:var(--text-muted);}
+.entry__title{font-weight:700; font-size:1.15rem; line-height:1.3; margin:0 0 var(--space-2);}
+.entry__title a{text-decoration:none;}
+.entry__title a:hover{color:var(--c-red);}
+.entry__excerpt{font-size:.95rem; color:var(--text-muted); margin:0; max-width:62ch;}
+.tags{display:flex; gap:var(--space-2); flex-wrap:wrap; margin-top:var(--space-3);}
+.tag{font-size:.6875rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; padding:2px 8px; border:1px solid var(--border); border-radius:var(--radius); color:var(--text-muted);}
+.tag--cobra{color:var(--c-indigo); border-color:var(--c-indigo);}
+.tag--perso{color:var(--c-red); border-color:var(--c-red);}
+.author{justify-self:end; align-self:start;}
+.author span{display:inline-block; font-size:.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:var(--radius);}
+.author--hl{background:var(--c-black); color:var(--c-white);}
+.author--cobra{background:var(--c-indigo); color:var(--c-white);}
+
+/* Bloc encart sable */
+.callout{background:var(--surface-alt); border-radius:var(--radius); padding:var(--space-8); margin-top:var(--space-8);}
+.callout code{font-family:var(--font-mono); font-size:.85em; background:rgba(12,12,12,.06); padding:.1em .4em; border-radius:var(--radius);}
+
+/* Boutons */
+.btn{display:inline-flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-6); font-weight:700; font-size:.875rem; text-transform:uppercase; letter-spacing:.06em; text-decoration:none; border-radius:var(--radius); border:1px solid transparent; transition:background .15s ease,color .15s ease,border-color .15s ease;}
+.btn--primary{background:var(--c-black); color:var(--c-white);}
+.btn--primary:hover{background:var(--c-red); color:var(--c-white);}
+.btn--ghost{background:transparent; color:var(--c-black); border-color:var(--c-black);}
+.btn--ghost:hover{background:var(--c-black); color:var(--c-white);}
+
+/* ---------- FOOTER ---------- */
+.footer{border-top:1px solid var(--border); margin-top:var(--space-24); padding-block:var(--space-16);}
+.footer__grid{display:flex; justify-content:space-between; gap:var(--space-8); flex-wrap:wrap; align-items:flex-end;}
+.footer__kata{font-size:1.1rem; color:var(--text-muted); letter-spacing:.1em;}
+
+/* Responsive */
+@media (max-width:720px){
+  .nav__links{gap:var(--space-4); font-size:.75rem;}
+  .nav__links li:nth-child(n+4){display:none;}
+  .entry{grid-template-columns:1fr; gap:var(--space-2);}
+  .author{justify-self:start;}
+}
+
+/* Mini bandeau "preview" */
+.preview-banner{background:var(--c-black); color:var(--c-white); text-align:center; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; padding:var(--space-2);}
+.preview-banner b{color:var(--c-gold);}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">Aperçu de design — <b>contenu fictif</b> · HiFi Lovers Design System v1.0</div>
+
+<!-- NAV -->
+<header class="nav">
+  <a class="nav__wordmark" href="#"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav>
+    <ul class="nav__links">
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#verticales">Verticales</a></li>
+      <li><a href="#cobra">Cobra</a></li>
+      <li><a href="#hifi">HiFi Lovers</a></li>
+      <li><a href="#perso">Perso</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="kicker">Journal de bord · Build in public avec Claude</p>
+    <h1>Tout ce que<br>je construis</h1>
+    <hr class="rule--accent">
+    <p class="lead">Mi-portfolio IA, mi-documentation opérationnelle. Chaque session de travail avec Claude laisse une trace ici — décisions, archi, bouts de code, leçons. Indexable par les moteurs et les LLMs.</p>
+    <div class="meta">
+      <div class="stat"><b>47</b><span>Entrées</span></div>
+      <div class="stat"><b>6</b><span>Verticales</span></div>
+      <div class="stat"><b>2</b><span>Agents Claude</span></div>
+      <div class="stat"><b>2026</b><span>Depuis</span></div>
+    </div>
+    <p style="margin-top:var(--space-8);">
+      <a class="btn btn--primary" href="#journal">Lire le journal</a>
+      &nbsp;
+      <a class="btn btn--ghost" href="#verticales">Voir les verticales</a>
+    </p>
+  </div>
+</section>
+
+<!-- VERTICALES -->
+<section id="verticales">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Verticales</h2>
+        <p class="caption">Les chantiers actifs — chacun avec sa page et ses entrées liées.</p>
+      </div>
+    </div>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <div class="card-grid">
+      <a class="card" id="cobra" href="#">
+        <span class="card__kicker">Dev · Odoo / Shopify</span>
+        <span class="card__title">Cobra</span>
+        <span class="card__desc">Refonte ERP et synchro catalogue Shopify ↔ Odoo. Migrations, webhooks, scripts de réconciliation. Piloté avec un Claude dédié.</span>
+        <span class="card__foot">18 entrées · MAJ il y a 2 jours</span>
+      </a>
+      <a class="card" id="hifi" href="#">
+        <span class="card__kicker">E-commerce · Audio</span>
+        <span class="card__title">Haute-Fidélité</span>
+        <span class="card__desc">Boutique d'électronique haut de gamme. Fiches produits, automatisations stock, tunnel d'achat.</span>
+        <span class="card__foot">9 entrées · MAJ il y a 6 jours</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__kicker">Communauté · Marque</span>
+        <span class="card__title">HiFi Lovers</span>
+        <span class="card__desc">Brand et merch néo-rétro audiophile. Design system, drops de t-shirts, contenu éditorial.</span>
+        <span class="card__foot">11 entrées · MAJ hier</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__kicker">E-commerce · Vidéo</span>
+        <span class="card__title">Total Cinéma</span>
+        <span class="card__desc">Home cinéma et vidéoprojection. Configurateur de salles, guides d'achat, SAV.</span>
+        <span class="card__foot">5 entrées · MAJ il y a 11 jours</span>
+      </a>
+      <a class="card" id="perso" href="#">
+        <span class="card__kicker">Perso · Outils</span>
+        <span class="card__title">Perso</span>
+        <span class="card__desc">Side-projects, scripts du quotidien, expérimentations. Le bac à sable.</span>
+        <span class="card__foot">4 entrées · MAJ il y a 4 jours</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section id="journal">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Journal</h2>
+        <p class="caption">Chronologique, la plus récente en haut.</p>
+      </div>
+      <a href="#">Toutes les entrées →</a>
+    </div>
+    <hr class="rule" style="margin:var(--space-6) 0 0;">
+    <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="#">Mise en place du Knowledge Hub en HTML statique</a></h3>
+          <p class="entry__excerpt">Architecture du repo GitHub Pages, design system extrait des guidelines HiFi Lovers, intégration JSON-LD authorship + llms.txt pour le GEO.</p>
+          <div class="tags"><span class="tag tag--perso">perso</span><span class="tag">github-pages</span><span class="tag">design-system</span><span class="tag">geo</span></div>
+        </div>
+        <div class="author"><span class="author--hl">Claude · HL</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-05-29">2026-05-29</time>
+        <div>
+          <h3 class="entry__title"><a href="#">Webhook Shopify → Odoo : dédup des commandes</a></h3>
+          <p class="entry__excerpt">Idempotency key sur le payload, file d'attente avec retry exponentiel, et un garde-fou pour les doublons de fulfillment. Bug résiduel sur les commandes partielles documenté.</p>
+          <div class="tags"><span class="tag tag--cobra">cobra</span><span class="tag">shopify</span><span class="tag">odoo</span><span class="tag">webhooks</span></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-05-26">2026-05-26</time>
+        <div>
+          <h3 class="entry__title"><a href="#">Configurateur de salle home cinéma — V1</a></h3>
+          <p class="entry__excerpt">Calcul de la distance de recul idéale selon la diagonale, recommandation de vidéoprojecteur, export PDF du devis. Logique pure côté client, zéro backend.</p>
+          <div class="tags"><span class="tag">total-cinema</span><span class="tag">js-vanilla</span><span class="tag">ux</span></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-05-24">2026-05-24</time>
+        <div>
+          <h3 class="entry__title"><a href="#">Design system HiFi Lovers porté en tokens CSS</a></h3>
+          <p class="entry__excerpt">Extraction des couleurs primaires/secondaires, échelle typo fluide à partir des plages print, composants cards & boutons. Transducer remplacé par Archivo expanded en fallback libre.</p>
+          <div class="tags"><span class="tag">hifi-lovers</span><span class="tag">css</span><span class="tag">branding</span></div>
+        </div>
+        <div class="author"><span class="author--hl">Claude · HL</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-05-21">2026-05-21</time>
+        <div>
+          <h3 class="entry__title"><a href="#">Script de réconciliation stock multi-entrepôts</a></h3>
+          <p class="entry__excerpt">Comparaison des niveaux Odoo vs Shopify par SKU, rapport des écarts en CSV, correction en lot via l'API Admin GraphQL avec rate-limiting.</p>
+          <div class="tags"><span class="tag tag--cobra">cobra</span><span class="tag">inventaire</span><span class="tag">graphql</span></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+    </ul>
+
+    <!-- Callout workflow -->
+    <div class="callout">
+      <h3>Comment une entrée est créée</h3>
+      <p style="margin-top:var(--space-3);">Copier <code>journal/_template.html</code> → renommer en <code>journal/AAAA-MM-JJ-slug.html</code> → remplir le contenu et le JSON-LD → ajouter la ligne dans <code>journal/index.html</code> → commit & push. Deux agents contribuent : <b>Claude · HL</b> (perso) et <b>Claude · Cobra</b> (dev Odoo/Shopify).</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="nav__wordmark" href="#" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+      <p class="caption" style="margin-top:var(--space-3);">Build in public avec Claude · © 2026</p>
+    </div>
+    <div style="text-align:right;">
+      <p class="footer__kata">ナレッジ・ハブ</p>
+      <p class="caption">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
