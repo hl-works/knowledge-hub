@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Déclaratif ventes Epson : export Odoo → Google Sheets — Journal · Hugo Lahutte</title>
+<meta name="description" content="Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.">
+<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/journal/epson-declaratif-ventes.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Déclaratif ventes Epson : export Odoo → Google Sheets">
+<meta property="og:description" content="Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.">
+<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/journal/epson-declaratif-ventes.html">
+<meta property="article:published_time" content="2026-05-30">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Déclaratif ventes Epson : export Odoo → Google Sheets",
+  "description": "Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d'Odoo. Mapping via supplierinfo, export Sheets formaté.",
+  "inLanguage": "fr-FR",
+  "datePublished": "2026-05-30",
+  "dateModified": "2026-05-30",
+  "url": "https://hugolahutte.github.io/knowledge-hub/journal/epson-declaratif-ventes.html",
+  "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/"},
+  "publisher": {"@type": "Organization", "name": "HL Consulting"},
+  "keywords": "data, odoo-admin, en-prod",
+  "isPartOf": {"@type": "Blog", "name": "Knowledge Hub — Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"},
+  "about": {"@type": "Thing", "name": "Cobra"}
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale">
+    <ul class="nav__links">
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="./" aria-current="page">Journal</a></li>
+      <li><a href="../#consulting">Consulting</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+  <div class="container">
+    <p class="caption"><a href="./">← Journal</a></p>
+    <p class="kicker">Cobra · Script data + API</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Déclaratif ventes Epson : export Odoo → Google Sheets</h1>
+    <hr class="rule--accent">
+    <div class="meta-bar">
+      <span><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></span>
+      <span>·</span>
+      <time datetime="2026-05-30">30 mai 2026</time>
+      <span>·</span>
+      <a href="../cobra/">Cobra</a>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);"><span class="tag" data-tag="data">data</span><span class="tag" data-tag="odoo-admin">odoo-admin</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+
+    <div class="prose" style="margin-top:var(--space-8);">
+      <h3>Contexte</h3>
+      <p>Epson demande un déclaratif de ventes sur plusieurs périodes promotionnelles (août 2025 → mars 2026) pour une dizaine de projecteurs. Les SKU Epson (<code>V11H...</code>) ne correspondent pas aux codes internes Odoo (<code>EPSO-...</code>) — impossible sans mapping.</p>
+      <h3>Ce qui a été construit</h3>
+      <ul>
+        <li>Script <code>epson_declaratif.py</code> : Odoo XML-RPC → Google Sheets API</li>
+        <li>Mapping SKU Epson → produit Odoo via <code>product.supplierinfo</code></li>
+        <li>7 périodes, 10 SKUs, requêtes <code>sale.order.line</code> filtrées par période et état</li>
+        <li>Déduplication des variantes, onglet « Déclaratif » formaté auto, SKU sans mapping ignorés proprement</li>
+      </ul>
+      <h3>Ce qui était difficile</h3>
+      <ul>
+        <li>Les SKU Epson n&#x27;existaient nulle part dans Odoo — saisie manuelle en créant le fournisseur EPSON dans chaque fiche, aller-retour pendant la session</li>
+        <li>Script v1 retournait tout à 0 sans erreur : mauvais champ (<code>supplierinfo</code> au lieu de <code>default_code</code>)</li>
+        <li>Google Sheets API non activée — service account <code>claude-bq-reader</code> (BigQuery) réutilisé</li>
+      </ul>
+      <h3>Stack</h3>
+      <p>Python 3.9, xmlrpc.client, google-auth, google-api-python-client, Odoo XML-RPC, Google Sheets API v4, GCP <code>cobra-analytics</code>.</p>
+      <h3>Ce que ça illustre</h3>
+      <p>Session « diagnostic + build » itérative — le script initial retournait 0 sans erreur, forçant à investiguer la structure des données avant de coder. Claude a identifié le mauvais champ, proposé le bon modèle, attendu que l&#x27;humain complète les données manquantes.</p>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn--ghost" href="./">← Toutes les entrées</a>
+      <a class="btn btn--primary" href="../cobra/">Projet Cobra →</a>
+    </div>
+  </div>
+</article>
+</main>
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="nav__wordmark" href="../" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+      <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+    </div>
+    <div style="text-align:right;"><p class="footer__kata">ナレッジ・ハブ</p></div>
+  </div>
+</footer>
+</body>
+</html>

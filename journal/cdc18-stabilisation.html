@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR — Journal · Hugo Lahutte</title>
+<meta name="description" content="Deux bugs résiduels du dashboard achats : boutons qui n&#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.">
+<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR">
+<meta property="og:description" content="Deux bugs résiduels du dashboard achats : boutons qui n&#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.">
+<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html">
+<meta property="article:published_time" content="2026-05-30">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR",
+  "description": "Deux bugs résiduels du dashboard achats : boutons qui n'activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.",
+  "inLanguage": "fr-FR",
+  "datePublished": "2026-05-30",
+  "dateModified": "2026-05-30",
+  "url": "https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html",
+  "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/"},
+  "publisher": {"@type": "Organization", "name": "HL Consulting"},
+  "keywords": "odoo-dev, en-prod",
+  "isPartOf": {"@type": "Blog", "name": "Knowledge Hub — Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"},
+  "about": {"@type": "Thing", "name": "Cobra"}
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale">
+    <ul class="nav__links">
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="./" aria-current="page">Journal</a></li>
+      <li><a href="../#consulting">Consulting</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+  <div class="container">
+    <p class="caption"><a href="./">← Journal</a></p>
+    <p class="kicker">Cobra · Debug post-prod en couches</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR</h1>
+    <hr class="rule--accent">
+    <div class="meta-bar">
+      <span><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></span>
+      <span>·</span>
+      <time datetime="2026-05-30">24–30 mai 2026</time>
+      <span>·</span>
+      <a href="../cobra/">Cobra</a>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);"><span class="tag" data-tag="odoo-dev">odoo-dev</span><span class="tag" data-tag="en-prod">en-prod</span></div>
+
+    <div class="prose" style="margin-top:var(--space-8);">
+      <h3>Contexte</h3>
+      <p>Le dashboard achats CDC-18 (en prod le 24 mai) avait deux problèmes : les boutons n&#x27;activaient pas les filtres search, et les menus renommés affichaient toujours les anciens noms FR après upgrade.</p>
+      <h3>Ce qui a été construit</h3>
+      <ul>
+        <li><strong>Fix filtre invisible Odoo 18</strong> : <code>getSearchItems()</code> exclut les filtres <code>invisible=&quot;1&quot;</code> — remplacement par accès direct à <code>searchModel.searchItems</code>, pattern mémorisé</li>
+        <li><strong>Fix domaines XML</strong> : suppression de <code>(&#x27;picking_type_id&#x27;,&#x27;!=&#x27;,False)</code> (0 résultat) ; <code>ilike &#x27;Cobra&#x27;</code> → <code>not ilike &#x27;Dropship&#x27;</code></li>
+        <li><strong>Fix immédiat prod</strong> : <code>ir.ui.menu.write()</code> avec <code>lang=fr_FR</code> via XML-RPC</li>
+        <li><strong>Fix pérenne</strong> : 4 entrées ajoutées dans <code>cobra_purchase/i18n/fr.po</code></li>
+        <li>Bump 1.3.3 → 1.3.4 ; CLAUDE.md piège n°8 + mémoire <code>odoo18_menu_rename_translations.md</code></li>
+      </ul>
+      <h3>Ce qui était difficile</h3>
+      <ul>
+        <li><strong>Piège traduction fr_FR</strong> : l&#x27;API XML-RPC sans contexte langue retournait les bons noms → fausse piste « cache navigateur » pendant plusieurs échanges. La navigation privée a forcé le vrai diagnostic (couche de traduction distincte, invisible sans <code>context={&quot;lang&quot;:&quot;fr_FR&quot;}</code>)</li>
+        <li><strong><code>getSearchItems()</code> silencieux</strong> : aucune erreur, appel réussi, tableau vide — indiagnosticable sans connaître l&#x27;interne Odoo 18</li>
+      </ul>
+      <h3>Stack</h3>
+      <p>OWL 2, XML-RPC Python, XML views Odoo 18 Enterprise, PO/gettext (i18n), Git worktrees.</p>
+      <h3>Ce que ça illustre</h3>
+      <p>Debugging en couches avec élimination méthodique des hypothèses (cache → API neutre → API avec lang → traduction séparée), fix immédiat en prod sans shell, puis fix pérenne. La mémoire inter-session a de la valeur.</p>
+    </div>
+
+    <aside class="callout" style="margin-top:var(--space-12);">
+      <h3>Voir aussi</h3>
+      <ul style="margin-top:var(--space-3);">
+        <li><a href="cdc18-build.html">CDC-18 : workflow achats Cobra (cobra_purchase)</a></li>
+        <li><a href="cdc18-form-view.html">CDC-18 form view : déploiement chirurgical en prod</a></li>
+        <li><a href="cdc19-liste-po.html">CDC-19 : vue liste Bons de commande améliorée</a></li>
+      </ul>
+    </aside>
+    <div class="btn-row">
+      <a class="btn btn--ghost" href="./">← Toutes les entrées</a>
+      <a class="btn btn--primary" href="../cobra/">Projet Cobra →</a>
+    </div>
+  </div>
+</article>
+</main>
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="nav__wordmark" href="../" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+      <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+    </div>
+    <div style="text-align:right;"><p class="footer__kata">ナレッジ・ハブ</p></div>
+  </div>
+</footer>
+</body>
+</html>

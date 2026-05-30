@@ -1,34 +1,60 @@
 # Knowledge Hub — Hugo Lahutte
 
-> Journal de bord et méthode de Hugo Lahutte — DG de Cobra (enseigne HiFi & Home Cinéma), éditeur du magazine Haute Fidélité et fondateur de HL Consulting. 17 ans chez Son-Vidéo.com (de 10 à 62 M€). Le site documente sa façon de travailler avec l'IA (fichiers de contexte CLAUDE.md, Compound Engineering, Claude Code), ses projets, et un journal daté des avancées. Build in public.
+> Journal de bord et méthode de Hugo Lahutte — DG de Cobra (enseigne HiFi & Home Cinéma), éditeur du magazine Haute Fidélité et fondateur de HL Consulting. 17 ans chez Son-Vidéo.com (de 10 à 62 M€). Le site documente sa façon de travailler avec l'IA (CLAUDE.md, Compound Engineering, Claude Code), ses projets, et un journal daté. Build in public.
 
-Auteur : Hugo Lahutte (hugo@hl-consulting.tech) — DG de Cobra, éditeur de Haute Fidélité, fondateur de HL Consulting. LinkedIn : https://www.linkedin.com/in/hugo-lahutte · X : https://x.com/hugolh_ai
+Auteur : Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn : https://www.linkedin.com/in/hugo-lahutte · X : https://x.com/hugolh_ai
 
-## Méthode (le plus important)
+## Méthode
 
-- [Comment j'utilise Claude](https://hugolahutte.github.io/knowledge-hub/how-to/): méthode complète — CLAUDE.md principal + fichiers d'extension, Compound Engineering, fichier d'ADN de marque, Claude Chat vs Claude Code, et le prompt à copier pour générer son propre CLAUDE.md.
+- [Comment j'utilise Claude](https://hugolahutte.github.io/knowledge-hub/how-to/): CLAUDE.md + extensions, Compound Engineering, fichier d'ADN de marque, Claude Chat vs Claude Code, prompt à copier.
 
 ## À propos
 
-- [Qui est Hugo Lahutte](https://hugolahutte.github.io/knowledge-hub/a-propos/): parcours, projets et vision sur l'IA appliquée.
+- [Qui est Hugo Lahutte](https://hugolahutte.github.io/knowledge-hub/a-propos/): parcours (Son-Vidéo, Cobra, Haute Fidélité), projets, vision.
 
 ## Projets
 
-- [Cobra](https://hugolahutte.github.io/knowledge-hub/cobra/): socle technique — ERP Odoo, synchro Shopify, automatisations (piloté avec Claude Code).
-- [Haute-Fidélité](https://hugolahutte.github.io/knowledge-hub/haute-fidelite/): boutique d'électronique audio haut de gamme.
-- [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/hifi-lovers/): marque néo-rétro audiophile (design, merch, éditorial).
+- [Cobra](https://hugolahutte.github.io/knowledge-hub/cobra/): socle technique Odoo/Shopify, automatisations.
+- [Haute Fidélité](https://hugolahutte.github.io/knowledge-hub/haute-fidelite/): magazine HiFi de référence relancé.
+- [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/hifi-lovers/): marque néo-rétro audiophile.
 - [Total Cinéma](https://hugolahutte.github.io/knowledge-hub/total-cinema/): home cinéma et vidéoprojection.
 - [Perso](https://hugolahutte.github.io/knowledge-hub/perso/): side-projects et expérimentations.
 
-## Journal
+## Journal (28 entrées)
 
-- [Journal complet](https://hugolahutte.github.io/knowledge-hub/journal/): entrées datées, une page HTML par session, contribuées par deux agents Claude (HL/perso et Cobra/dev).
-- [Mise en place du Knowledge Hub (2026-05-30)](https://hugolahutte.github.io/knowledge-hub/journal/2026-05-30-mise-en-place-knowledge-hub.html): première entrée — archi du site, design system, socle SEO/GEO.
+- [Ce Knowledge Hub lui-même](https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub.html): Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO. Une page par entrée, llms.txt + JSON-LD authorship.
+- [Double Claude Code : Cobra vs HL](https://hugolahutte.github.io/knowledge-hub/journal/double-claude-code.html): Deux Claude Code : le compte Cobra (dev Odoo/Shopify) et un nouveau compte HL (perso, stratégie, Knowledge Hub). Les deux peuvent écrire dans le même journal.
+- [Setup Claude : documentation, onboarding et Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/journal/setup-claude-onboarding.html): Documenter la logique du setup Claude (fichiers .md, projets, deux comptes) pour la transmettre à un ami qui démarre et capitaliser session après session.
+- [Audit UI Cobra + mise à jour odoo18_design_reference](https://hugolahutte.github.io/knowledge-hub/journal/audit-ui-cobra-design-ref.html): Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.
+- [Mise à jour prix Sony Bravia II + diagnostic marge nulle](https://hugolahutte.github.io/knowledge-hub/journal/sony-bravia-prix-marge.html): 19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d'une marge à 0 % : l'UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.
+- [Déclaratif ventes Epson : export Odoo → Google Sheets](https://hugolahutte.github.io/knowledge-hub/journal/epson-declaratif-ventes.html): Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d'Odoo. Mapping via supplierinfo, export Sheets formaté.
+- [Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery](https://hugolahutte.github.io/knowledge-hub/journal/gsc-json-ld-fix.html): 7 pages produit en erreur « extraits de produits » dans GSC. Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.
+- [Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR](https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html): Deux bugs résiduels du dashboard achats : boutons qui n'activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.
+- [Profil Sogetronic : import stock dropshipping par code fournisseur](https://hugolahutte.github.io/knowledge-hub/journal/sogetronic-import-prod.html): Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l'EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.
+- [Agent autonome de traitement des factures fournisseurs](https://hugolahutte.github.io/knowledge-hub/journal/agent-factures-architecture.html): Cadrer toute l'architecture d'un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d'écrire une ligne de code. Ne toucher Odoo qu'une fois/semaine.
+- [Agent de création automatique de produits Odoo](https://hugolahutte.github.io/knowledge-hub/journal/agent-creation-produits.html): Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.
+- [Routing email PO Drop vs Réassort + templates Cobra](https://hugolahutte.github.io/knowledge-hub/journal/routing-po-drop-reassort.html): Router l'email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.
+- [Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés](https://hugolahutte.github.io/knowledge-hub/journal/dynaudio-analyse-ventes.html): Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l'édition de fichiers.
+- [Serveur SFTP + pipeline automatique stock drop](https://hugolahutte.github.io/knowledge-hub/journal/sftp-pipeline-complet.html): Hardening SSH (fail2ban, ufw, chroot) + script qui injecte tout fichier déposé dans Odoo via le module existant. Le branchement sur action_run_import : gain ×60.
+- [Brief mission Claude Code : vérification factures D&M France](https://hugolahutte.github.io/knowledge-hub/journal/mission-dm-france.html): 14 factures PDF importées en brouillon Odoo, non fiables. Un brief structuré et sécurisé (matching PO, DEEE, escompte, garde-fous) pour que Claude Code travaille en autonomie.
+- [CDC-18 form view : déploiement chirurgical en prod](https://hugolahutte.github.io/knowledge-hub/journal/cdc18-form-view.html): Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d'un commit propre depuis une pile preprod3 mélangée.
+- [Statuts Livrée / Facturée / Payée sur les bons de commande](https://hugolahutte.github.io/knowledge-hub/journal/statuts-livree-facturee-payee.html): 3 statuts consolidés (Livrée/Facturée/Payée) en badges sur la fiche PO et les listes, pour connaître l'état réel d'une commande d'un coup d'œil. Pièges xpath multi-list.
+- [CDC-19 : vue liste Bons de commande améliorée](https://hugolahutte.github.io/knowledge-hub/journal/cdc19-liste-po.html): Badge Drop/Réassort, date de livraison confirmée, dates sans heure dans la liste BC. Deux pièges OWL 18 : position=attributes ignoré, rollback XML silencieux.
+- [CDC-18 : workflow achats Cobra (cobra_purchase)](https://hugolahutte.github.io/knowledge-hub/journal/cdc18-build.html): Un module achats complet pour Cobra : dashboards RFQ/PO, détection de réponse fournisseur, filtres entrepôts. 6 bugs Odoo 18 SaaS transformés en 7 règles réutilisables.
+- [Infrastructure SFTP Cobra : phase 1 setup serveur](https://hugolahutte.github.io/knowledge-hub/journal/infra-sftp-phase1.html): Poser une infra SFTP pérenne (Scaleway/Ubuntu) où chaque fournisseur dépose ses fichiers stock, récupérés automatiquement par Odoo. Setup serveur guidé pas à pas.
+- [Sogetronic seed + restructuration Knowledge Hub Claude](https://hugolahutte.github.io/knowledge-hub/journal/sogetronic-seed-21mai.html): Deux besoins dans une session : charger les Codes Sage Sogetronic sur 175 fiches produit, et restructurer les fichiers de contexte Claude pour un usage double chat + Code.
+- [Refonte GTM cobra.fr : purge 71 → 20 balises + Consent Mode v2](https://hugolahutte.github.io/knowledge-hub/journal/gtm-refonte-cobra.html): 71 balises accumulées, CMP obsolète, Consent Mode bricolé. Migration vers Consent Mode v2 natif Shopify, purge à 20 balises, ~70 variables orphelines supprimées.
+- [Correctif SEO collections Shopify (audit Guillaume)](https://hugolahutte.github.io/knowledge-hub/journal/seo-collections-shopify.html): 11 problèmes systémiques sur ~175 collections après une mass-optimisation. 182 suffixes « | Cobra.fr » retirés en 26 batches GraphQL, 0 erreur. Reprise post-compaction.
+- [Refonte templates email commande fournisseur (FR + EN)](https://hugolahutte.github.io/knowledge-hub/journal/templates-email-refonte.html): Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.
+- [Structuration projet Claude « Odoo » : docs de référence écosystème](https://hugolahutte.github.io/knowledge-hub/journal/structuration-projet-odoo.html): Consolider toutes les connexions techniques validées dans un doc de référence pour que chaque nouvelle conversation démarre avec le bon contexte.
+- [Audit Shopify/Odoo : 803 produits, 3 mois de travail](https://hugolahutte.github.io/knowledge-hub/journal/audit-shopify-odoo-803.html): Croiser le catalogue Shopify (front) et Odoo (back) : cohérence des références, prix, stocks, métadonnées sur 803 produits. Le cas B&W AM-1 paire vs pièce.
+- [L'arrivée des collègues sur Claude](https://hugolahutte.github.io/knowledge-hub/journal/collegues-sur-claude.html): Claude ne reste pas un outil solo : des collègues chez Cobra commencent à l'utiliser. Partage de contexte sans credentials, bon CLAUDE.md, éviter de réinventer la roue.
+- [L'arrivée de Claude dans le workflow Cobra](https://hugolahutte.github.io/knowledge-hub/journal/claude-arrivee-workflow-cobra.html): Avant Claude, le dev Odoo se faisait à la main : forums OCA, doc, essais/erreurs. Le pivot — traiter Claude comme un collègue senior qui amplifie, ne remplace pas.
 
 ## Conseil
 
-- [HL Consulting](https://hugolahutte.github.io/knowledge-hub/#consulting): accompagnement à la mise en place de Claude pour entrepreneurs et équipes.
+- [HL Consulting](https://hugolahutte.github.io/knowledge-hub/#consulting): accompagnement à la mise en place de Claude.
 
 ## Optional
 
-- [llms-full.txt](https://hugolahutte.github.io/knowledge-hub/llms-full.txt): version étendue avec le contenu intégral de la méthode.
+- [llms-full.txt](https://hugolahutte.github.io/knowledge-hub/llms-full.txt): version étendue.
