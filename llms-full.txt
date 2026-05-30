@@ -1,0 +1,97 @@
+# Knowledge Hub — Hugo Lahutte (version étendue)
+
+> Journal de bord et méthode de Hugo Lahutte, entrepreneur dans l'audio/vidéo haut de gamme qui construit ses projets e-commerce et ses outils internes avec Claude. Build in public.
+
+Auteur : Hugo Lahutte — hugo.lahutte@gmail.com — fondateur de HL Consulting.
+
+================================================================
+MÉTHODE : COMMENT HUGO LAHUTTE UTILISE CLAUDE
+URL : https://hugolahutte.github.io/knowledge-hub/how-to/
+Publié : 2026-05-30
+================================================================
+
+De plus en plus de gens demandent à Hugo comment il travaille avec Claude.
+Voici son setup, celui qu'il passe à ses amis quand ils s'y mettent.
+
+1. C'EST QUOI CES FICHIERS ?
+Le cœur du système, ce sont des fichiers .md (Markdown) collés dans les
+« Project Instructions » d'un projet Claude. Dès que c'est fait, chaque
+conversation dans ce projet repart avec ce contexte : Claude connaît le
+style, le secteur, les règles du jeu. Plus besoin de se réexpliquer à
+chaque fois.
+
+2. LE PRINCIPE : LE COMPOUND ENGINEERING
+Chaque fois que Claude se plante sur le style, on ajoute une règle. Le
+fichier s'améliore avec l'usage et tous les échanges futurs en bénéficient.
+Le levier n'est pas un meilleur prompt ponctuel mais un actif qui compose
+dans le temps.
+
+3. COMMENT ÇA MARCHE CONCRÈTEMENT
+- Un fichier principal CLAUDE.md : ton, format de réponse, règles de
+  comportement, contexte pro. Tourne en permanence.
+- Des fichiers d'extension chargés à la demande :
+  - CLAUDE-strat.md — business / com / marketing
+  - CLAUDE-dev.md — code
+  Le CLAUDE.md principal sait quand appeler l'un ou l'autre.
+- Un fichier d'ADN de marque : histoire, positionnement, ton, ce qu'on dit
+  et ne dit pas. Chargé quand Claude rédige ou communique. ~1 h à écrire,
+  impact majeur sur la qualité.
+
+4. CLAUDE CHAT VS CLAUDE CODE
+- Claude Chat (claude.ai) : interface web, on crée un Project et on colle
+  les instructions. C'est là que vit le système de fichiers ci-dessus.
+- Claude Code : outil en ligne de commande dans le terminal, dans le repo.
+  Il voit les fichiers, comprend la codebase, exécute du code. Usage 100 %
+  technique. Même principe de config.
+
+5. PAR OÙ COMMENCER
+   a. Créer un Project sur claude.ai.
+   b. Demander à Claude de construire son CLAUDE.md avec un prompt cadré
+      (ton, format, contexte pro, règles, ce qu'on ne veut pas, logique
+      d'appel des extensions ; + un fichier d'ADN de marque ; méthode :
+      une question à la fois, section par section).
+   c. Une fois le socle solide, écrire le fichier d'ADN de marque.
+
+PROMPT FOURNI POUR GÉNÉRER SON CLAUDE.md :
+« Je veux créer mon fichier CLAUDE.md — un fichier de configuration
+personnelle pour mes projets Claude. [...] Méthode : pose-moi UNE question
+à la fois. On construit section par section. Quand on a tout couvert, tu
+génères chaque fichier complet en markdown, séparément. »
+(Prompt intégral sur la page how-to.)
+
+================================================================
+À PROPOS — HUGO LAHUTTE
+URL : https://hugolahutte.github.io/knowledge-hub/a-propos/
+================================================================
+Entrepreneur dans l'audio/vidéo haut de gamme. Construit un écosystème
+cohérent : boutique audio (Haute-Fidélité), home cinéma (Total Cinéma),
+marque communautaire (HiFi Lovers), socle technique (Cobra — Odoo/Shopify).
+Fil rouge : une même méthode de travail avec Claude appliquée partout.
+[Parcours détaillé et vision : à compléter par Hugo.]
+
+================================================================
+PROJETS
+================================================================
+- Cobra — socle technique, ERP Odoo, synchro Shopify, automatisations,
+  piloté avec un Claude Code dédié.
+- Haute-Fidélité — boutique d'électronique audio haut de gamme.
+- HiFi Lovers — marque néo-rétro audiophile (design, merch, éditorial).
+- Total Cinéma — home cinéma et vidéoprojection (configurateur, guides, SAV).
+- Perso — side-projects et expérimentations.
+
+Cohérence : le dev (Cobra) alimente les boutiques, les boutiques nourrissent
+la communauté (HiFi Lovers), le perso sert de laboratoire.
+
+================================================================
+JOURNAL
+================================================================
+Entrées datées, une page HTML par session. Deux agents Claude contribuent :
+- Claude · HL (perso) : pilotage, sessions perso.
+- Claude · Cobra (dev) : sessions Odoo / Shopify / dev.
+
+================================================================
+CONSEIL — HL CONSULTING
+================================================================
+Hugo accompagne entrepreneurs et équipes pour mettre en place Claude :
+fichiers de contexte, ADN de marque, automatisations, Claude Code dans le
+repo. Contact : hugo.lahutte@gmail.com.

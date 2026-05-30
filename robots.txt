@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /docs/
+
+# Agents IA / LLMs explicitement bienvenus (GEO)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://hugolahutte.github.io/knowledge-hub/sitemap.xml
