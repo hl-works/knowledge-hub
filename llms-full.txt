@@ -246,6 +246,27 @@ Publié : 2026-05-31
   trompe (vérifier les chiffres), garder l'humain sur la relation client, ne pas
   sur-automatiser ce qui n'est pas cassé.
 
+GUIDE 12 — MES DONNÉES SONT-ELLES EN SÉCURITÉ AVEC L'IA ?
+URL : https://hugolahutte.github.io/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html
+Publié : 2026-05-31
+
+- Où vont les données : sur les serveurs du fournisseur (cloud), chiffrées en
+  transit (HTTPS). Par défaut un assistant ne « retient » pas d'une conversation
+  à l'autre (sauf fonction mémoire) et n'accède pas à tes outils sans connexion.
+  La vraie question : qui peut les voir et qu'en fait le fournisseur.
+- Entraînement : dépend de l'offre. Grand public (gratuit) — les conversations
+  peuvent servir à améliorer les modèles, en général désactivable dans les
+  réglages. Pro / entreprise / API — pas d'entraînement sur tes données par
+  défaut, souvent contractuel. Les politiques varient et évoluent : vérifier la
+  clause « entraînement » de son offre (Anthropic met la confidentialité en avant,
+  mais ça se vérifie).
+- Souveraineté / RGPD (pour données réglementées ou stratégiques) : hébergement
+  en Europe, acteur européen comme Mistral, ou modèle ouvert auto-hébergé — plus
+  de contrôle, plus de complexité.
+- 4 réflexes : 1) la bonne offre (pro pour le travail) ; 2) couper l'entraînement
+  si l'option existe ; 3) pas de secrets inutiles (anonymiser) ; 4) souverain
+  réservé au sensible. Repères généraux, pas un avis juridique.
+
 ================================================================
 LEXIQUE IA — DÉFINITIONS SANS JARGON
 URL : https://hugolahutte.github.io/knowledge-hub/lexique/
