@@ -267,6 +267,51 @@ Publié : 2026-05-31
   si l'option existe ; 3) pas de secrets inutiles (anonymiser) ; 4) souverain
   réservé au sensible. Repères généraux, pas un avis juridique.
 
+GUIDE 13 — COMMENT BIEN PARLER À L'IA : ÉCRIRE UN BON PROMPT
+URL : https://hugolahutte.github.io/knowledge-hub/guides/ecrire-un-bon-prompt.html
+Publié : 2026-05-31
+
+- Un prompt = la consigne donnée à l'IA ; c'est l'élément qui pèse le plus sur
+  le résultat. Pas de « formule magique » : la clarté gagne.
+- Recette d'un bon prompt : contexte (qui/situation) + tâche précise + format de
+  sortie + contraintes (longueur, ton, à éviter), et un exemple du résultat voulu.
+- Réflexes : donner un exemple, itérer (dire ce qui cloche), demander à l'IA de
+  poser ses questions, lui faire jouer un rôle, découper une grosse demande.
+- Quand on retape les mêmes consignes à chaque fois, on les fige dans un
+  CLAUDE.md.
+
+GUIDE 14 — ÊTRE VISIBLE DANS L'IA : LE GEO EXPLIQUÉ
+URL : https://hugolahutte.github.io/knowledge-hub/guides/etre-visible-dans-lia-geo.html
+Publié : 2026-05-31
+
+- SEO = être trouvé sur un moteur (liste de liens, on vise le clic). GEO
+  (Generative Engine Optimization) = être cité dans la réponse rédigée par une
+  IA (ChatGPT, Perplexity, Claude, AI Overviews).
+- Pourquoi c'est vital : de plus en plus de gens demandent à une IA au lieu de
+  googler ; si elle ne te cite pas, tu n'existes pas dans cette réponse — même
+  bien classé sur Google.
+- Comment être cité : structure en questions/réponses, affirmations factuelles
+  et citables, données structurées (schema.org, FAQPage), entité identifiable
+  (auteur, autorité), fichier llms.txt. Recoupe largement le bon SEO.
+- Domaine émergent et opaque : pas de garantie, des principes solides. Ce site
+  est construit comme exemple (1 page/question, JSON-LD, llms.txt/full).
+
+GUIDE 15 — COMBIEN COÛTE L'IA : ABONNEMENTS, API ET FACTURE MAÎTRISÉE
+URL : https://hugolahutte.github.io/knowledge-hub/guides/combien-coute-lia.html
+Publié : 2026-05-31
+
+- Tout se compte en tokens (bouts de mots lus + produits) : plus l'échange est
+  long, plus ça coûte ; un modèle puissant coûte plus qu'un rapide.
+- 4 modèles de prix : gratuit (limité, données possiblement utilisées) ;
+  abonnement perso (forfait fixe, souvent ~20 €/mois) ; API à l'usage (au token,
+  pour automatiser) ; entreprise (par siège, avec garanties). Prix évolutifs :
+  raisonner en ordres de grandeur.
+- Abonnement pour discuter au quotidien ; API pour automatiser / brancher des
+  outils / agents.
+- Maîtriser la facture : plafonds de dépense sur l'API, bon modèle pour la tâche,
+  agents encadrés (budget, fréquence). Exemple : la veille hi-fi quotidienne
+  tourne sur l'API pour quelques euros/mois parce qu'elle est cadrée.
+
 ================================================================
 LEXIQUE IA — DÉFINITIONS SANS JARGON
 URL : https://hugolahutte.github.io/knowledge-hub/lexique/
