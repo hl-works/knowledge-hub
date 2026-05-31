@@ -63,6 +63,93 @@ génères chaque fichier complet en markdown, séparément. »
 (Prompt intégral sur la page how-to.)
 
 ================================================================
+GUIDES (EVERGREEN) — COMPRENDRE L'IA POUR DÉCIDER
+URL : https://hugolahutte.github.io/knowledge-hub/guides/
+================================================================
+
+Série de guides clairs sur l'IA et les outils utilisés, pensés pour des
+marchands et des dirigeants qui veulent capter vite, mais lisibles à tous
+les niveaux. Chaque guide a trois profondeurs de lecture : « en 30 secondes »,
+le corps visuel, et « pour aller plus loin ».
+
+GUIDE 01 — C'EST QUOI L'IA, ET C'EST QUOI UN « LLM » ?
+URL : https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-ia-llm.html
+Publié : 2026-05-31
+
+- IA vs LLM : « IA » est un terme large ; un LLM (large language model / grand
+  modèle de langage) en est un sous-ensemble précis. Imbrication : IA ⊃ Machine
+  Learning ⊃ Deep Learning ⊃ LLM.
+- IA classique (spécialisée, codée pour une tâche) vs IA générative (un même
+  système écrit, résume, traduit, code) ; le LLM est le moteur texte de cette
+  IA générative.
+- Ce qu'est un LLM : un modèle entraîné sur d'énormes volumes de texte qui
+  prédit le mot suivant le plus probable, token après token. Il ne récite pas
+  une base de données : il génère/reconstruit chaque réponse à la volée.
+- Les grands acteurs : OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini),
+  Meta (Llama, poids ouverts), Mistral (français, souveraineté), DeepSeek
+  (chinois, ouvert, perf/prix), xAI (Grok), Microsoft (Copilot, fort sur le
+  code), Perplexity (moteur de réponse à sources citées). Les versions changent
+  vite : raisonner au niveau des familles.
+- Ce qu'un LLM ne sait PAS faire : ce n'est ni un moteur de recherche ni une
+  base de données — il peut halluciner (inventer faux avec aplomb), donc on
+  vérifie chiffres/dates/références ; par défaut il n'est branché ni sur
+  internet en temps réel ni sur tes données (il faut le connecter) ; c'est un
+  copilote, pas un oracle.
+
+GUIDE 02 — C'EST QUOI CLAUDE, ET POURQUOI J'AI TOUT BÂTI DESSUS ?
+URL : https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-claude.html
+Publié : 2026-05-31
+
+- Claude est l'assistant IA d'Anthropic (labo américain fondé par d'anciens
+  d'OpenAI), avec une obsession de fiabilité et de sécurité.
+- Pas un seul modèle mais une famille de trois gabarits : Opus (le costaud,
+  tâches complexes), Sonnet (l'équilibré, usage quotidien), Haiku (le rapide,
+  le volume). Les numéros de version changent ; la logique reste.
+- Pourquoi c'est un champion : les éditeurs de code IA des pros s'appuient sur
+  Claude ; Anthropic attire les meilleurs (Andrej Karpathy, co-fondateur
+  d'OpenAI, l'a rejoint en mai 2026) ; modèle taillé pour le sérieux (rédaction,
+  analyse, raisonnement, code).
+- Pourquoi Hugo a tout bâti dessus : Cobra (modules de gestion + SEO technique),
+  Haute Fidélité (boutique + logistique), veille hi-fi quotidienne automatique,
+  et ce Knowledge Hub — livrés en production par un non-développeur.
+
+GUIDE 03 — POURQUOI L'IA CHANGE VRAIMENT LA FAÇON DE TRAVAILLER
+URL : https://hugolahutte.github.io/knowledge-hub/guides/pourquoi-lia-change-le-travail.html
+Publié : 2026-05-31
+
+- L'IA générative est une technologie à usage général, comme l'électricité
+  (« AI is the new electricity », Andrew Ng, 2017) : elle se branche partout,
+  dans tous les métiers.
+- Signaux que ce n'est pas du buzz (exemples à jour mai 2026) : des fondateurs
+  réorientent tout dessus (Jeff Bezos co-fonde Project Prometheus), des
+  chercheurs de premier plan changent de maison, les géants engagent des
+  centaines de milliards par an dans l'infrastructure IA.
+- Ce que ça change : le travail passe de l'exécution à la supervision (décrire
+  et vérifier) ; un non-technique peut faire du technique ; la vitesse change
+  d'échelle (semaines -> heures).
+- Ce que ça ne change pas : le jugement reste humain (l'IA propose, on tranche,
+  elle peut se tromper avec aplomb) ; la valeur va à ceux qui posent le bon
+  problème et vérifient ; l'avantage est aux early adopters qui pratiquent.
+
+GUIDE 04 — CHAT, COWORK OU CODE : LEQUEL UTILISER (ET LE « TERMINAL »)
+URL : https://hugolahutte.github.io/knowledge-hub/guides/chat-cowork-code-terminal.html
+Publié : 2026-05-31
+
+- Trois portes d'entrée vers le même Claude : Chat (discuter : réfléchir,
+  rédiger, analyser), Cowork (déléguer un travail de bureau en autonomie, pour
+  non-développeurs), Code (agir directement sur fichiers/projet/site, lancer
+  des commandes, déployer).
+- Le terminal est juste une fenêtre où l'on tape des commandes ; pas besoin de
+  le maîtriser : copier-coller-valider, et coller l'erreur à Claude si ça coince.
+- Installer Claude Code en une commande : Mac/Linux « curl -fsSL
+  https://claude.ai/install.sh | bash » ; Windows (PowerShell) « irm
+  https://claude.ai/install.ps1 | iex » ; puis « claude » (abonnement payant).
+  Une appli Desktop existe, sans terminal. Doc : code.claude.com/docs/en/setup.
+- Pas besoin d'un ordi puissant : tout le calcul est sur les serveurs
+  d'Anthropic. Un bon ordi sert au confort et à héberger des automatisations
+  (machine allumée 24/7).
+
+================================================================
 À PROPOS — HUGO LAHUTTE
 URL : https://hugolahutte.github.io/knowledge-hub/a-propos/
 ================================================================

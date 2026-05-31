@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Guides — Comprendre l'IA pour décider, par Hugo Lahutte</title>
+<meta name="description" content="Une série de guides clairs sur l'IA et les LLM : c'est quoi, à quoi ça sert, ce que ça change. Pour marchands et dirigeants qui veulent capter vite — lisible à tous les niveaux.">
+<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/guides/">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guides — Comprendre l'IA pour décider">
+<meta property="og:description" content="Une série de guides evergreen sur l'IA et les LLM, pour capter vite et bien.">
+<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/guides/">
+<meta property="og:locale" content="fr_FR">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#0C0C0C">
+<link rel="stylesheet" href="../style.css?v=20260531c">
+
+<!-- ===== JSON-LD : CollectionPage + Breadcrumb (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Guides — Knowledge Hub",
+      "description": "Série de guides clairs sur l'IA et les LLM : c'est quoi, à quoi ça sert, ce que ça change.",
+      "inLanguage": "fr-FR",
+      "url": "https://hugolahutte.github.io/knowledge-hub/guides/",
+      "isPartOf": {"@type": "WebSite", "name": "Knowledge Hub — Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/"},
+      "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/"},
+      "hasPart": [
+        {"@type": "TechArticle", "headline": "C'est quoi l'IA, et c'est quoi un « LLM » ?", "url": "https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-ia-llm.html", "datePublished": "2026-05-31"},
+        {"@type": "TechArticle", "headline": "C'est quoi Claude, et pourquoi j'ai tout bâti dessus ?", "url": "https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-claude.html", "datePublished": "2026-05-31"},
+        {"@type": "TechArticle", "headline": "Pourquoi l'IA change vraiment la façon de travailler", "url": "https://hugolahutte.github.io/knowledge-hub/guides/pourquoi-lia-change-le-travail.html", "datePublished": "2026-05-31"},
+        {"@type": "TechArticle", "headline": "Chat, Cowork ou Code : lequel utiliser", "url": "https://hugolahutte.github.io/knowledge-hub/guides/chat-cowork-code-terminal.html", "datePublished": "2026-05-31"}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hugolahutte.github.io/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hugolahutte.github.io/knowledge-hub/guides/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-block:var(--space-16) var(--space-8);">
+  <div class="container">
+    <p class="kicker">Méthode · Comprendre pour décider</p>
+    <h1>Guides</h1>
+    <hr class="rule--accent">
+    <p class="lead">Des guides clairs sur l'IA et les outils que j'utilise : <strong>c'est quoi, à quoi ça sert, ce que ça change.</strong> Pensés pour des marchands et des dirigeants qui veulent capter vite — mais lisibles à tous les niveaux. Trois niveaux de lecture dans chaque page : <em>en 30 secondes</em>, le corps visuel, et <em>pour aller plus loin</em>.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="guide-grid">
+
+      <a class="guide-card" href="cest-quoi-ia-llm.html">
+        <span class="guide-card__num">Guide 01 · 31 mai 2026</span>
+        <span class="guide-card__title">C'est quoi l'IA, et c'est quoi un « LLM » ?</span>
+        <span class="guide-card__desc">L'IA générative et les LLM sans jargon : ce qu'ils font, qui sont les grands acteurs (OpenAI, Anthropic, Google, Mistral…), et ce qu'ils ne savent pas faire.</span>
+        <span class="guide-card__foot">Lire le guide →</span>
+      </a>
+
+      <a class="guide-card" href="cest-quoi-claude.html">
+        <span class="guide-card__num">Guide 02 · 31 mai 2026</span>
+        <span class="guide-card__title">C'est quoi Claude, et pourquoi j'ai tout bâti dessus</span>
+        <span class="guide-card__desc">L'assistant d'Anthropic : les gabarits Opus/Sonnet/Haiku, pourquoi il est dans le peloton de tête, et tout ce qui tourne dessus chez moi.</span>
+        <span class="guide-card__foot">Lire le guide →</span>
+      </a>
+
+      <a class="guide-card" href="pourquoi-lia-change-le-travail.html">
+        <span class="guide-card__num">Guide 03 · 31 mai 2026</span>
+        <span class="guide-card__title">Pourquoi l'IA change vraiment la façon de travailler</span>
+        <span class="guide-card__desc">Une rupture du même ordre que l'électricité : ce qui bascule pour un dirigeant (faire → piloter), et ce que ça ne change pas.</span>
+        <span class="guide-card__foot">Lire le guide →</span>
+      </a>
+
+      <a class="guide-card" href="chat-cowork-code-terminal.html">
+        <span class="guide-card__num">Guide 04 · 31 mai 2026</span>
+        <span class="guide-card__title">Chat, Cowork ou Code : lequel utiliser</span>
+        <span class="guide-card__desc">Trois façons d'utiliser Claude selon la tâche, la vérité sur le « terminal », et comment installer Claude Code en une commande.</span>
+        <span class="guide-card__foot">Lire le guide →</span>
+      </a>
+
+      <div class="guide-card guide-card--soon">
+        <span class="guide-card__badge">Bientôt</span>
+        <span class="guide-card__num">Guide 05</span>
+        <span class="guide-card__title">GitHub : le truc gratuit qui sauvegarde tout tout seul</span>
+        <span class="guide-card__desc">Versionner et sauvegarder ses projets sans rien y connaître : à quoi sert GitHub et pourquoi c'est le filet de sécurité.</span>
+        <span class="guide-card__foot">En préparation</span>
+      </div>
+
+      <div class="guide-card guide-card--soon">
+        <span class="guide-card__badge">Bientôt</span>
+        <span class="guide-card__num">Guide 06</span>
+        <span class="guide-card__title">Mes données sont-elles en sécurité ?</span>
+        <span class="guide-card__desc">Confidentialité, hébergement, souveraineté : ce qu'il faut comprendre avant de brancher l'IA sur ses outils et ses données.</span>
+        <span class="guide-card__foot">En préparation</span>
+      </div>
+
+    </div>
+    <p class="caption" style="margin-top:var(--space-8);">La série s'étoffe au fil de l'eau. Pour le détail daté de ce que je construis, file au <a href="../journal/">journal</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="nav__wordmark" href="../" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+      <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+    </div>
+    <div style="text-align:right;">
+      <p class="footer__kata">ナレッジ・ハブ</p>
+      <p class="caption" style="margin-top:var(--space-2);"><a href="../coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      <p class="caption">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../search.js?v=20260531c" defer></script>
+</body>
+</html>
