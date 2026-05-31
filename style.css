@@ -263,6 +263,8 @@ button.tag:hover{border-color:var(--c-red); color:var(--c-red);}
 .lex-entry__links{display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-6); margin-top:var(--space-3);}
 .lex-entry__links .lk{font-size:.75rem; color:var(--text-muted);}
 .lex-entry__links .lk b{color:var(--c-red); text-transform:uppercase; letter-spacing:.06em; font-size:.68rem; margin-right:var(--space-2);}
+.lex-entry__links .lk a{color:var(--text); text-decoration:none; border-bottom:1px solid var(--border); transition:border-color .15s, color .15s;}
+.lex-entry__links .lk a:hover{color:var(--c-red); border-bottom-color:var(--c-red);}
 .lex-az{display:flex; flex-wrap:wrap; gap:var(--space-1); margin:var(--space-4) 0;}
 .lex-az a{font-family:var(--font-mono); font-size:.8rem; text-decoration:none; color:var(--text-muted); padding:2px 7px; border:1px solid var(--border); border-radius:var(--radius);}
 .lex-az a:hover{border-color:var(--c-red); color:var(--c-red);}
