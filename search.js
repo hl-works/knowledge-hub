@@ -72,11 +72,11 @@
   }
   function focusActive(links){ links.forEach(function(a,i){ a.classList.toggle('is-active',i===active); }); if(links[active]) links[active].scrollIntoView({block:'nearest'}); }
 
-  function open(){
+  function open(q){
     loadIndex().then(function(){
       overlay.classList.add('is-open');
       document.body.style.overflow='hidden';
-      input.value=''; render(''); input.focus();
+      input.value=q||''; render(input.value); input.focus(); if(q) input.select();
     });
   }
   function close(){ overlay.classList.remove('is-open'); document.body.style.overflow=''; }
@@ -85,11 +85,16 @@
     build();
     // boutons loupe
     [].slice.call(document.querySelectorAll('[data-search-open]')).forEach(function(btn){
-      btn.addEventListener('click', open);
+      btn.addEventListener('click', function(){ open(); });
     });
     // raccourci clavier "/"
     document.addEventListener('keydown', function(e){
       if(e.key==='/' && !/input|textarea|select/i.test((e.target.tagName||''))){ e.preventDefault(); open(); }
+    });
+    // étiquettes "transversales" (tags hors taxonomie journal) : ouvre la recherche sur le tag
+    document.addEventListener('click', function(e){
+      var t=e.target.closest('[data-tagsearch]'); if(!t) return;
+      e.preventDefault(); open(t.getAttribute('data-tagsearch')||'');
     });
     // burger menu
     var nav=document.querySelector('.nav');
