@@ -166,8 +166,7 @@ section{padding-block:var(--space-16);}
 /* ------------------------- Tags & auteurs ------------------------- */
 .tags{display:flex; gap:var(--space-2); flex-wrap:wrap; margin-top:var(--space-3);}
 .tag{font-size:.6875rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; padding:2px 8px; border:1px solid var(--border); border-radius:var(--radius); color:var(--text-muted); --tag-c:var(--c-black);}
-.tag--cobra{--tag-c:var(--c-indigo); color:var(--c-indigo); border-color:var(--c-indigo);}
-.tag--perso{--tag-c:var(--c-red); color:var(--c-red); border-color:var(--c-red);}
+/* couleur de marque/outil portée par --tag-c (révélée au survol) — voir bloc palette plus bas */
 .author{justify-self:end; align-self:start;}
 .author span{display:inline-block; font-size:.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:var(--radius);}
 .author--hl{background:var(--c-black); color:var(--c-white);}
@@ -212,13 +211,48 @@ mark{background:var(--c-gold); color:var(--c-black); padding:0 .1em; border-radi
 .li-embed iframe{width:100%; max-width:504px; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface);}
 .li-embed figcaption{margin-top:var(--space-2);}
 
-/* Couleurs par tag (texte + bordure + variable de remplissage au survol) */
-.tag[data-tag="en-prod"]{--tag-c:#1f7a3d; color:#1f7a3d; border-color:#1f7a3d;}
-.tag[data-tag="en-cours"]{--tag-c:#9a6a00; color:#9a6a00; border-color:var(--c-gold);}
-.tag[data-tag="agent"]{--tag-c:var(--c-violet); color:var(--c-violet); border-color:var(--c-violet);}
-.tag[data-tag="meta"]{--tag-c:var(--c-indigo); color:var(--c-indigo); border-color:var(--c-indigo);}
-.tag[data-tag="strat"]{--tag-c:var(--c-indigo); color:var(--c-indigo); border-color:var(--c-indigo);}
-.tag[data-tag="marketing"]{--tag-c:var(--c-violet); color:var(--c-violet); border-color:var(--c-violet);}
+/* ----- Palette des tags : couleur de marque/outil, révélée au survol ----- */
+/* Marques & verticales */
+.tag[data-tag="cobra"]{--tag-c:#C6121F;}            /* Cobra — rouge */
+.tag[data-tag="hifi-lovers"]{--tag-c:#EA5045;}      /* HiFi Lovers — rouge */
+.tag[data-tag="haute-fidelite"]{--tag-c:#D17A1F;}   /* Haute Fidélité — orange */
+.tag[data-tag="perso"]{--tag-c:var(--c-indigo);}    /* Perso — indigo */
+/* Outils */
+.tag[data-tag="shopify"]{--tag-c:#5E8E3E;}          /* Shopify — vert */
+.tag[data-tag="odoo-dev"],
+.tag[data-tag="odoo-admin"]{--tag-c:#714B67;}       /* Odoo — violet/prune */
+.tag[data-tag="github"]{--tag-c:#1F2328;}           /* GitHub — anthracite */
+/* IA & écosystème Claude */
+.tag[data-tag="ia"],
+.tag[data-tag="llm"],
+.tag[data-tag="claude"],
+.tag[data-tag="claude-code"],
+.tag[data-tag="anthropic"],
+.tag[data-tag="mcp"],
+.tag[data-tag="karpathy"],
+.tag[data-tag="compound-engineering"]{--tag-c:var(--c-indigo);}
+.tag[data-tag="agent"]{--tag-c:var(--c-violet);}
+/* Contenu / méthode */
+.tag[data-tag="meta"],
+.tag[data-tag="strat"]{--tag-c:var(--c-indigo);}
+.tag[data-tag="marketing"],
+.tag[data-tag="methode"],
+.tag[data-tag="vulgarisation"],
+.tag[data-tag="prompt"]{--tag-c:var(--c-violet);}
+/* SEO / GEO / data */
+.tag[data-tag="seo-gtm"],
+.tag[data-tag="seo"],
+.tag[data-tag="geo"]{--tag-c:#1F7A8C;}              /* teal */
+.tag[data-tag="data"]{--tag-c:#2D6CDF;}             /* bleu */
+.tag[data-tag="commerce"]{--tag-c:#B8702A;}         /* ambre */
+/* Statut */
+.tag[data-tag="en-prod"]{--tag-c:#1F7A3D;}          /* vert */
+.tag[data-tag="en-cours"]{--tag-c:#9A6A00;}         /* ambre */
+/* Sécurité / données */
+.tag[data-tag="securite"],
+.tag[data-tag="donnees"]{--tag-c:#5B6470;}          /* ardoise */
+.tag[data-tag="cout"]{--tag-c:#2F7A52;}             /* vert sapin */
+/* (email, infra, admin, doc, logistique, design : noir par défaut) */
 
 /* Tags cliquables : remplissage complet de leur couleur au survol/focus */
 a.tag, button.tag{font-family:var(--font-body); cursor:pointer; background:transparent; text-decoration:none; transition:background-color .15s ease, color .15s ease, border-color .15s ease;}
