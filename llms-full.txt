@@ -63,6 +63,40 @@ génères chaque fichier complet en markdown, séparément. »
 (Prompt intégral sur la page how-to.)
 
 ================================================================
+GUIDES (EVERGREEN) — COMPRENDRE L'IA POUR DÉCIDER
+URL : https://hugolahutte.github.io/knowledge-hub/guides/
+================================================================
+
+Série de guides clairs sur l'IA et les outils utilisés, pensés pour des
+marchands et des dirigeants qui veulent capter vite, mais lisibles à tous
+les niveaux. Chaque guide a trois profondeurs de lecture : « en 30 secondes »,
+le corps visuel, et « pour aller plus loin ».
+
+GUIDE 01 — C'EST QUOI L'IA, ET C'EST QUOI UN « LLM » ?
+URL : https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-ia-llm.html
+Publié : 2026-05-31
+
+- IA vs LLM : « IA » est un terme large ; un LLM (large language model / grand
+  modèle de langage) en est un sous-ensemble précis. Imbrication : IA ⊃ Machine
+  Learning ⊃ Deep Learning ⊃ LLM.
+- IA classique (spécialisée, codée pour une tâche) vs IA générative (un même
+  système écrit, résume, traduit, code) ; le LLM est le moteur texte de cette
+  IA générative.
+- Ce qu'est un LLM : un modèle entraîné sur d'énormes volumes de texte qui
+  prédit le mot suivant le plus probable, token après token. Il ne récite pas
+  une base de données : il génère/reconstruit chaque réponse à la volée.
+- Les grands acteurs : OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini),
+  Meta (Llama, poids ouverts), Mistral (français, souveraineté), DeepSeek
+  (chinois, ouvert, perf/prix), xAI (Grok), Microsoft (Copilot, fort sur le
+  code), Perplexity (moteur de réponse à sources citées). Les versions changent
+  vite : raisonner au niveau des familles.
+- Ce qu'un LLM ne sait PAS faire : ce n'est ni un moteur de recherche ni une
+  base de données — il peut halluciner (inventer faux avec aplomb), donc on
+  vérifie chiffres/dates/références ; par défaut il n'est branché ni sur
+  internet en temps réel ni sur tes données (il faut le connecter) ; c'est un
+  copilote, pas un oracle.
+
+================================================================
 À PROPOS — HUGO LAHUTTE
 URL : https://hugolahutte.github.io/knowledge-hub/a-propos/
 ================================================================
