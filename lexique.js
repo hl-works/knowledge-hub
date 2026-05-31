@@ -49,8 +49,9 @@
         if(idx<0) continue;
         // découpe le nœud : avant | match | après
         var before=txt.slice(0,idx), match=txt.slice(idx, idx+e.alias.length), after=txt.slice(idx+e.alias.length);
-        var span=document.createElement('span');
-        span.className='lex-term'; span.setAttribute('tabindex','0');
+        var span=document.createElement('a');
+        span.className='lex-term';
+        span.setAttribute('href', BASE+'/lexique/#lex-'+e.term.id);
         span.setAttribute('data-term', e.term.id);
         span.setAttribute('data-def', e.term.definition);
         span.textContent=match;
@@ -80,27 +81,37 @@
     // ---- popover ----
     var pop=document.createElement('div'); pop.className='lex-pop'; document.body.appendChild(pop);
     var isTouch=window.matchMedia('(hover: none)').matches;
-    var current=null;
+    var current=null, hideTimer=null;
+    function mdBold(s){ return (s||'').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>'); }
     function show(el){
+      clearTimeout(hideTimer);
       var id=el.getAttribute('data-term'), def=el.getAttribute('data-def');
-      pop.innerHTML='<b>'+el.textContent+'</b> — '+def+'<br><a href="'+BASE+'/lexique/#lex-'+id+'">voir dans le lexique →</a>';
+      pop.innerHTML='<b>'+el.textContent+'</b> — '+mdBold(def)+'<br><a href="'+BASE+'/lexique/#lex-'+id+'">voir dans le lexique →</a>';
       var r=el.getBoundingClientRect();
       pop.style.left=Math.max(8, Math.min(window.innerWidth-308, r.left+window.scrollX))+'px';
       pop.style.top=(r.bottom+window.scrollY+6)+'px';
       pop.classList.add('is-open'); current=el;
     }
     function hide(){ pop.classList.remove('is-open'); current=null; }
+    function scheduleHide(){ clearTimeout(hideTimer); hideTimer=setTimeout(hide, 180); }
 
     document.querySelectorAll('.lex-term[data-term]').forEach(function(el){
       if(isTouch){
+        // 1er tap : aperçu de la définition ; le lien du popover navigue.
         el.addEventListener('click', function(ev){ ev.preventDefault(); (current===el)?hide():show(el); });
       } else {
+        // hover = aperçu ; clic sur le mot = navigation (comportement par défaut du lien).
         el.addEventListener('mouseenter', function(){ show(el); });
-        el.addEventListener('mouseleave', function(){ hide(); });
+        el.addEventListener('mouseleave', scheduleHide);
         el.addEventListener('focus', function(){ show(el); });
-        el.addEventListener('blur', function(){ hide(); });
+        el.addEventListener('blur', scheduleHide);
       }
     });
+    // pont de survol : garder le popover ouvert quand la souris passe dessus
+    if(!isTouch){
+      pop.addEventListener('mouseenter', function(){ clearTimeout(hideTimer); });
+      pop.addEventListener('mouseleave', scheduleHide);
+    }
     if(isTouch){ document.addEventListener('click', function(ev){ if(current && !ev.target.closest('.lex-term') && !ev.target.closest('.lex-pop')) hide(); }); }
     window.addEventListener('scroll', function(){ if(current && !isTouch) hide(); }, {passive:true});
   }

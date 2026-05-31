@@ -165,9 +165,9 @@ section{padding-block:var(--space-16);}
 
 /* ------------------------- Tags & auteurs ------------------------- */
 .tags{display:flex; gap:var(--space-2); flex-wrap:wrap; margin-top:var(--space-3);}
-.tag{font-size:.6875rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; padding:2px 8px; border:1px solid var(--border); border-radius:var(--radius); color:var(--text-muted);}
-.tag--cobra{color:var(--c-indigo); border-color:var(--c-indigo);}
-.tag--perso{color:var(--c-red); border-color:var(--c-red);}
+.tag{font-size:.6875rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; padding:2px 8px; border:1px solid var(--border); border-radius:var(--radius); color:var(--text-muted); --tag-c:var(--c-black);}
+.tag--cobra{--tag-c:var(--c-indigo); color:var(--c-indigo); border-color:var(--c-indigo);}
+.tag--perso{--tag-c:var(--c-red); color:var(--c-red); border-color:var(--c-red);}
 .author{justify-self:end; align-self:start;}
 .author span{display:inline-block; font-size:.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:var(--radius);}
 .author--hl{background:var(--c-black); color:var(--c-white);}
@@ -212,15 +212,17 @@ mark{background:var(--c-gold); color:var(--c-black); padding:0 .1em; border-radi
 .li-embed iframe{width:100%; max-width:504px; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface);}
 .li-embed figcaption{margin-top:var(--space-2);}
 
-/* Tags cliquables (boutons) — héritent du style .tag */
-button.tag{font-family:var(--font-body); cursor:pointer; background:transparent;}
-button.tag:hover{border-color:var(--c-red); color:var(--c-red);}
-.tag[data-tag="en-prod"]{color:#1f7a3d; border-color:#1f7a3d;}
-.tag[data-tag="en-cours"]{color:#9a6a00; border-color:var(--c-gold);}
-.tag[data-tag="agent"]{color:var(--c-violet); border-color:var(--c-violet);}
-.tag[data-tag="meta"]{color:var(--c-indigo); border-color:var(--c-indigo);}
-.tag[data-tag="strat"]{color:var(--c-indigo); border-color:var(--c-indigo);}
-.tag[data-tag="marketing"]{color:var(--c-violet); border-color:var(--c-violet);}
+/* Couleurs par tag (texte + bordure + variable de remplissage au survol) */
+.tag[data-tag="en-prod"]{--tag-c:#1f7a3d; color:#1f7a3d; border-color:#1f7a3d;}
+.tag[data-tag="en-cours"]{--tag-c:#9a6a00; color:#9a6a00; border-color:var(--c-gold);}
+.tag[data-tag="agent"]{--tag-c:var(--c-violet); color:var(--c-violet); border-color:var(--c-violet);}
+.tag[data-tag="meta"]{--tag-c:var(--c-indigo); color:var(--c-indigo); border-color:var(--c-indigo);}
+.tag[data-tag="strat"]{--tag-c:var(--c-indigo); color:var(--c-indigo); border-color:var(--c-indigo);}
+.tag[data-tag="marketing"]{--tag-c:var(--c-violet); color:var(--c-violet); border-color:var(--c-violet);}
+
+/* Tags cliquables : remplissage complet de leur couleur au survol/focus */
+a.tag, button.tag{font-family:var(--font-body); cursor:pointer; background:transparent; text-decoration:none; transition:background-color .15s ease, color .15s ease, border-color .15s ease;}
+a.tag:hover, a.tag:focus-visible, button.tag:hover{background:var(--tag-c); border-color:var(--tag-c); color:#FFFCF8;}
 
 /* --------------------------- Callout ------------------------------ */
 .callout{background:var(--surface-alt); border-radius:var(--radius); padding:var(--space-8); margin-block:var(--space-8);}
@@ -236,7 +238,7 @@ button.tag:hover{border-color:var(--c-red); color:var(--c-red);}
 
 /* ------------------------- Lexique -------------------------------- */
 /* Termes du glossaire détectés dans le texte (infobulles) */
-.lex-term{border-bottom:1px dotted var(--c-red); cursor:help; text-decoration:none; color:inherit;}
+.lex-term{border-bottom:1px dotted var(--c-red); cursor:pointer; text-decoration:none; color:inherit;}
 .lex-term:hover{color:var(--c-red);}
 /* Infobulle / popover */
 .lex-pop{position:absolute; z-index:60; max-width:300px; background:var(--c-black); color:#F3F3F3;

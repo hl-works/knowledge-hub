@@ -25,7 +25,7 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#0C0C0C">
-<link rel="stylesheet" href="../style.css?v=20260531g">
+<link rel="stylesheet" href="../style.css?v=20260531h">
 <!-- JSON-LD DefinedTermSet : injecté dynamiquement depuis glossaire.json (voir script) -->
 </head>
 <body>
@@ -96,6 +96,7 @@
   function hl(t,n){ if(!n) return esc(t); try{var re=new RegExp('('+n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'); return esc(t).replace(re,'<mark>$1</mark>');}catch(e){return esc(t);} }
   function letterOf(t){ var c=(t.terme||'').normalize('NFD').replace(/[̀-ͯ]/g,'')[0]; return /[A-Za-z]/.test(c)?c.toUpperCase():'#'; }
   function lkList(arr){ return arr.map(function(it){ var s=(typeof it==='string')?{label:it}:it; return s.url ? '<a href="'+esc(s.url)+'">'+esc(s.label)+'</a>' : esc(s.label); }).join(' · '); }
+  function mdBold(s){ return (s||'').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>'); }
 
   function buildAZ(){
     var seen={}; azEl.innerHTML='';
@@ -114,7 +115,7 @@
       var links='';
       if((t.guides||[]).length){ links+='<span class="lk"><b>Guides</b>'+lkList(t.guides)+'</span>'; }
       if((t.projets||[]).length){ links+='<span class="lk"><b>Projets</b>'+lkList(t.projets)+'</span>'; }
-      li.innerHTML=anchor+'<h2>'+hl(t.terme,n)+'</h2><p class="lex-entry__def">'+hl(t.definition,n)+'</p>'+
+      li.innerHTML=anchor+'<h2>'+hl(t.terme,n)+'</h2><p class="lex-entry__def">'+mdBold(hl(t.definition,n))+'</p>'+
         (links?'<div class="lex-entry__links">'+links+'</div>':'');
       listEl.appendChild(li);
     });
@@ -133,7 +134,7 @@
   }).catch(function(){ emptyEl.hidden=false; emptyEl.textContent='Lexique indisponible.'; });
 })();
 </script>
-<script src="../search.js?v=20260531g" defer></script>
-<script src="../lexique.js?v=20260531g" defer></script>
+<script src="../search.js?v=20260531h" defer></script>
+<script src="../lexique.js?v=20260531h" defer></script>
 </body>
 </html>
