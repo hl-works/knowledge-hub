@@ -613,6 +613,55 @@ mark{background:var(--c-gold); color:var(--c-black);}
 }
 
 /* ====================================================================
+   DARK MODE — anthracite chaud (cohérent avec l'offwhite du light)
+   Activé via [data-theme="dark"] sur <html> (toggle Auto/Clair/Sombre).
+   ==================================================================== */
+[data-theme="dark"]{
+  --bg:#1A1813;            /* anthracite chaud, pas noir pur */
+  --surface:#221F18;       /* panneau */
+  --surface-alt:#2C2820;   /* panneau accentué (callouts) */
+  --text:#FFFCF8;          /* offwhite chaud, pas blanc pur */
+  --text-muted:#A89F92;
+  --border:rgba(255,252,248,.14);
+  --border-strong:#FFFCF8;
+  --link:#FFFCF8;
+  --link-hover:#F2453F;
+  --c-red:#F2453F;         /* accent éclairci pour le contraste sur sombre */
+  --shadow-sm:0 1px 2px rgba(0,0,0,.45);
+}
+[data-theme="dark"] .nav{background:rgba(26,24,19,.9);}
+[data-theme="dark"] ::selection{background:var(--c-red); color:#1A1813;}
+
+/* Boutons : conserver la prominence en inversant proprement */
+[data-theme="dark"] .btn--primary{background:var(--text); color:#1A1813;}
+[data-theme="dark"] .btn--primary:hover{background:var(--c-red); color:#fff;}
+[data-theme="dark"] .btn--ghost{color:var(--text); border-color:var(--border-strong);}
+[data-theme="dark"] .btn--ghost:hover{background:var(--text); color:#1A1813;}
+
+/* Badge auteur HL (noir sur clair) -> noir profond bordé sur sombre */
+[data-theme="dark"] .author--hl{background:#000; color:var(--text);}
+
+/* Blocs déjà sombres : légère séparation pour ne pas se fondre dans le fond */
+[data-theme="dark"] .promptbox,
+[data-theme="dark"] .codeblock,
+[data-theme="dark"] .token-predict,
+[data-theme="dark"] .terminalbox,
+[data-theme="dark"] .cta-band,
+[data-theme="dark"] .tg-cta,
+[data-theme="dark"] .hub__core,
+[data-theme="dark"] .veille-card:hover{border:1px solid rgba(255,252,248,.14);}
+
+/* Placeholder image : trame sombre */
+[data-theme="dark"] .ph{background:repeating-linear-gradient(45deg,#2a2620,#2a2620 12px,#231f1a 12px,#231f1a 24px);}
+
+/* Bouton thème (header) */
+.nav__theme[data-state]{position:relative;}
+.nav__theme .ti-sun,.nav__theme .ti-moon,.nav__theme .ti-auto{display:none;}
+.nav__theme[data-state="light"] .ti-sun{display:block;}
+.nav__theme[data-state="dark"] .ti-moon{display:block;}
+.nav__theme[data-state="auto"] .ti-auto{display:block;}
+
+/* ====================================================================
    GUIDES — composants visuels (batch evergreen #5+)
    ==================================================================== */
 
