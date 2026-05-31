@@ -561,3 +561,74 @@ button.tag:hover{border-color:var(--c-red); color:var(--c-red);}
 @media (prefers-reduced-motion:reduce){
   *{transition:none !important; scroll-behavior:auto !important;}
 }
+
+/* ====================================================================
+   GUIDES — composants visuels (batch evergreen #5+)
+   ==================================================================== */
+
+/* ---- Pipeline horizontal (X → Y → Z), flèche « auto » ---- */
+.pipeline{display:flex; align-items:stretch; flex-wrap:wrap; margin-top:var(--space-8);}
+.pipeline__step{flex:1 1 0; min-width:110px; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); padding:var(--space-4); text-align:center;}
+.pipeline__step b{display:block; font-size:.92rem;}
+.pipeline__step span{font-size:.76rem; color:var(--text-muted);}
+.pipeline__step--live{border-color:var(--c-red); border-width:2px;}
+.pipeline__arrow{display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 var(--space-2); flex:none;}
+.pipeline__arrow b{color:var(--c-red); font-size:1.3rem; line-height:1;}
+.pipeline__arrow span{font-size:.58rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); margin-top:2px;}
+
+/* ---- Historique de versions (« revenir ici ») ---- */
+.commits{list-style:none; margin:var(--space-8) 0 0; padding:0; display:flex; flex-wrap:wrap; gap:var(--space-3);}
+.commits li{flex:1 1 130px; border:1px solid var(--border); border-left:3px solid var(--text-muted); border-radius:var(--radius); background:var(--surface); padding:var(--space-3) var(--space-4); position:relative;}
+.commits time{font-family:var(--font-mono); font-size:.7rem; color:var(--text-muted); display:block;}
+.commits b{font-size:.88rem;}
+.commits li.is-restore{border-left-color:var(--c-red);}
+.commits .c-back{display:inline-block; margin-top:var(--space-2); font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--c-red); border:1px solid var(--c-red); border-radius:999px; padding:1px 8px;}
+
+/* ---- Marches ascendantes (effort → / puissance ↑ ; intérêts composés) ---- */
+.stairs{display:flex; align-items:flex-end; gap:var(--space-3); margin-top:var(--space-8); min-height:220px;}
+.stairs__step{flex:1; background:var(--surface); border:1px solid var(--border); border-bottom:3px solid var(--c-red); border-radius:var(--radius); padding:var(--space-3); display:flex; flex-direction:column; justify-content:flex-end; gap:2px;}
+.stairs__step:nth-child(1){height:42%;}
+.stairs__step:nth-child(2){height:60%;}
+.stairs__step:nth-child(3){height:80%;}
+.stairs__step:nth-child(4){height:100%;}
+.stairs__step b{font-size:.88rem; line-height:1.2;}
+.stairs__step span{font-size:.72rem; color:var(--text-muted);}
+.stairs__axes{display:flex; justify-content:space-between; margin-top:var(--space-2); font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted);}
+
+/* ---- Boucle d'agent / spirale (étapes en cycle) ---- */
+.loop{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:var(--space-2); margin-top:var(--space-8);}
+.loop__step{border:1px solid var(--border); border-radius:999px; background:var(--surface); padding:var(--space-2) var(--space-4); font-weight:700; font-size:.85rem;}
+.loop__step--goal{background:var(--c-black); color:#fff; border-color:var(--c-black);}
+.loop__step--done{border-color:var(--c-red); color:var(--c-red);}
+.loop__arrow{color:var(--c-red); font-weight:900;}
+.loop__again{flex-basis:100%; text-align:center; font-size:.74rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.06em; margin-top:var(--space-2);}
+.loop__again::before{content:"↺ "; color:var(--c-red); font-weight:900;}
+
+/* ---- Pile de blocs (anatomie CLAUDE.md) ---- */
+.stack{max-width:var(--prose-max); margin:var(--space-8) 0 0;}
+.stack__block{border:1px solid var(--border); border-left:4px solid var(--c-red); border-radius:var(--radius); background:var(--surface); padding:var(--space-4) var(--space-5); margin-top:var(--space-3);}
+.stack__block:nth-child(1){border-left-color:var(--c-indigo);}
+.stack__block:nth-child(2){border-left-color:var(--c-gold);}
+.stack__block:nth-child(3){border-left-color:var(--c-violet);}
+.stack__block:nth-child(4){border-left-color:var(--c-red);}
+.stack__block b{display:block;}
+.stack__block span{font-size:.85rem; color:var(--text-muted);}
+
+/* ---- Matrice effort / impact ---- */
+.matrix{position:relative; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); aspect-ratio:1/1; max-width:440px; margin:var(--space-8) auto var(--space-2);}
+.matrix::before{content:""; position:absolute; left:50%; top:6%; bottom:6%; border-left:1px dashed var(--border);}
+.matrix::after{content:""; position:absolute; top:50%; left:6%; right:6%; border-top:1px dashed var(--border);}
+.matrix__item{position:absolute; transform:translate(-50%,-50%); background:var(--c-black); color:#fff; font-size:.7rem; font-weight:700; padding:3px 9px; border-radius:999px; white-space:nowrap;}
+.matrix__item--star{background:var(--c-red);}
+.matrix__axis{position:absolute; font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted);}
+.matrix__axis--x{bottom:6px; right:10px;}
+.matrix__axis--y{top:6px; left:10px;}
+
+@media (max-width:680px){
+  .pipeline{flex-direction:column;}
+  .pipeline__arrow{flex-direction:row; padding:var(--space-2) 0;}
+  .pipeline__arrow b{transform:rotate(90deg);}
+  .stairs{min-height:auto; flex-direction:column; align-items:stretch;}
+  .stairs__step{height:auto !important; border-bottom:1px solid var(--border); border-left:3px solid var(--c-red);}
+  .matrix__item{font-size:.6rem; padding:2px 6px;}
+}

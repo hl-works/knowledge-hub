@@ -149,6 +149,103 @@ Publié : 2026-05-31
   d'Anthropic. Un bon ordi sert au confort et à héberger des automatisations
   (machine allumée 24/7).
 
+GUIDE 05 — C'EST QUOI GITHUB, ET POURQUOI C'EST GRATUIT ET MAGIQUE
+URL : https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-github.html
+Publié : 2026-05-31
+
+- GitHub = un endroit en ligne où vit le projet, avec l'historique complet de
+  chaque modification (un « Google Drive à mémoire totale ») : retour arrière à
+  toute version d'un clic, on travaille sans peur.
+- Gratuit pour l'essentiel (appartient à Microsoft ; offre gratuite suffisante
+  pour un indépendant/PME), et standard mondial (tout prestataire sait s'en servir).
+- « Branché une fois, à jour tout seul » : chaque modif poussée se déploie
+  automatiquement en ligne (plus de FTP). Site, thème Shopify, automatisations
+  Odoo y vivent ; Claude Code pousse, c'est en ligne ~1 min après.
+- Pas besoin de maîtriser : Claude Code gère le versionnage, l'humain valide.
+
+GUIDE 06 — C'EST QUOI UN « MCP », ET COMMENT BRANCHER CLAUDE À TES OUTILS
+URL : https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html
+Publié : 2026-05-31
+
+- Par défaut Claude « ne voit pas » tes outils (une tête sans bras). Le brancher,
+  c'est lui donner des bras.
+- 4 niveaux, du plus simple au plus puissant : copier-coller / capture →
+  navigateur → API → MCP.
+- MCP = Model Context Protocol, standard ouvert créé par Anthropic, façon « prise
+  USB » : tout outil compatible se branche sans intégration sur-mesure (Shopify,
+  Drive, Gmail…), et Claude lit + agit dans le cadre autorisé.
+- Chez Hugo : Shopify, Drive, mails branchés ; Claude Code relié à GitHub qui
+  pilote Odoo et Shopify. Claude travaille sur de vrais outils, pas une démo.
+
+GUIDE 07 — C'EST QUOI UN « AGENT IA » ?
+URL : https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-un-agent-ia.html
+Publié : 2026-05-31
+
+- Assistant = répond (tu demandes, il répond, tu reprends la main). Agent = agit :
+  boucle autonome objectif → agir → observer → ajuster → livrer, avec accès à des
+  outils.
+- Usages : veille auto quotidienne, tri de mails, surveillance de chiffres.
+- Garde-fou indispensable (leçon d'un agent qui a cramé son budget sans rien
+  produire) : objectif explicite, plafond de budget, fréquence limitée, critère
+  de succès mesurable.
+- Commencer petit : un seul agent, une seule tâche, prouver la fiabilité avant
+  d'élargir.
+
+GUIDE 08 — ÉCRIRE UN BON CLAUDE.MD (LE FICHIER LE PLUS RENTABLE)
+URL : https://hugolahutte.github.io/knowledge-hub/guides/ecrire-un-bon-claude-md.html
+Publié : 2026-05-31
+
+- CLAUDE.md = fichier de contexte lu au démarrage qui fixe ton, règles, pièges :
+  on cesse de répéter, les réponses collent dès le premier coup.
+- Contenu (4 familles) : ton & format ; conventions (métier, outils, vocabulaire) ;
+  interdits (jargon, plans non demandés, flagornerie) ; pièges → règles (le plus
+  précieux).
+- Bonnes pratiques : court bat exhaustif ; concret bat abstrait ; une règle = une
+  vraie erreur ; découper par contexte (socle + extensions).
+- Le faire grandir : chaque erreur récurrente devient une règle (Compound
+  Engineering appliqué à ton contexte).
+
+GUIDE 09 — LES 4 PRINCIPES QUE J'APPLIQUE AVEC L'IA (FAÇON KARPATHY)
+URL : https://hugolahutte.github.io/knowledge-hub/guides/principes-facon-karpathy.html
+Publié : 2026-05-31
+
+- Andrej Karpathy : co-fondateur d'OpenAI, ex-patron IA de Tesla, grand
+  vulgarisateur (a popularisé « vibe coding ») ; a rejoint Anthropic en mai 2026.
+- 4 principes (synthèse personnelle, dans son esprit — pas des règles officielles) :
+  1) réfléchir avant de répondre ; 2) simplicité d'abord ; 3) modifications
+  chirurgicales ; 4) exécution pilotée par l'objectif.
+- Effet : gagner tokens, temps et qualité ; le principe « chirurgical » est né
+  d'une mise en prod qui avait tout cassé (trop de changements d'un coup).
+
+GUIDE 10 — COMPOUND ENGINEERING : TA MÉTHODE S'AMÉLIORE TOUTE SEULE
+URL : https://hugolahutte.github.io/knowledge-hub/guides/compound-engineering.html
+Publié : 2026-05-31
+
+- Principe : transformer chaque leçon en règle/outil réutilisable ; chaque unité
+  de travail rend la suivante plus facile. Terme popularisé par Kieran Klaassen
+  et Dan Shipper (Every) en construisant leur assistant email.
+- Boucle : faire → réviser → capitaliser la leçon (elle entre dans le contexte) →
+  recommencer plus haut.
+- Exemples : mise en prod qui casse → règle dure ; agent qui crame son budget →
+  garde-fou budget. L'incident durcit le système.
+- Effet cumulé (intérêts composés) : après des dizaines de sessions, le contexte
+  vaut une équipe qui te connaît. C'est l'objet de ce Knowledge Hub.
+
+GUIDE 11 — L'IA CONCRÈTEMENT, POUR UN COMMERÇANT OU UNE PME
+URL : https://hugolahutte.github.io/knowledge-hub/guides/lia-pour-un-commercant.html
+Publié : 2026-05-31
+
+- Pas besoin d'être une tech company : l'IA attaque d'abord les corvées
+  récurrentes — fiches produit en masse, SEO, croiser les ventes (boutique +
+  gestion), tri des mails, veille marché.
+- Gain : faire en heures ce qui prenait des jours, à effectif constant (pas
+  « remplacer des gens »).
+- Jouable sans équipe technique (non-développeur livrant ce qui demandait une
+  agence) ; ce qui compte : savoir quoi demander et vérifier.
+- Commencer par une corvée précise, mesurable, récurrente ; pièges : l'IA se
+  trompe (vérifier les chiffres), garder l'humain sur la relation client, ne pas
+  sur-automatiser ce qui n'est pas cassé.
+
 ================================================================
 À PROPOS — HUGO LAHUTTE
 URL : https://hugolahutte.github.io/knowledge-hub/a-propos/
