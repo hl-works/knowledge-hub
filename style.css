@@ -81,18 +81,21 @@ section{padding-block:var(--space-16);}
 .nav__wordmark{font-family:var(--font-display); text-transform:uppercase; font-size:1.15rem; font-stretch:125%; letter-spacing:-.01em; text-decoration:none; color:var(--text);}
 .nav__wordmark b{font-weight:900;}
 .nav__wordmark span{font-weight:600; letter-spacing:.04em; color:var(--text-muted);}
-.nav__links{display:flex; gap:var(--space-6); list-style:none; margin:0; padding:0; align-items:center; flex-wrap:wrap;}
+.nav__links{display:flex; gap:var(--space-6); list-style:none; margin:0; padding:0; align-items:center; flex-wrap:nowrap;}
 .nav__links a{text-decoration:none; text-transform:uppercase; font-weight:700; font-size:.8125rem; letter-spacing:.08em;}
 .nav__links a:hover{color:var(--c-red);}
 .nav__links a[aria-current="page"]{color:var(--c-red);}
 
 /* Actions nav (loupe + burger) */
 .nav__actions{display:flex; align-items:center; gap:var(--space-2);}
-.nav__icon{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px;
-  background:none; border:0; cursor:pointer; color:var(--text); border-radius:var(--radius);}
+.nav__icon{display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px;
+  background:none; border:0; cursor:pointer; color:var(--text); border-radius:var(--radius); padding:0;}
 .nav__icon:hover{color:var(--c-red);}
-.nav__icon svg{width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+.nav__icon svg{width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
 .nav__burger{display:none;}  /* visible en mobile seulement */
+/* Loupe intégrée dans le menu, à gauche de Méthode */
+.nav__links .nav__search{display:flex; align-items:center; margin-right:calc(var(--space-2) * -1);}
+.nav__links .nav__search button{width:34px; height:34px;}
 
 /* Overlay de recherche globale */
 .site-search{position:fixed; inset:0; z-index:50; background:rgba(12,12,12,.55); backdrop-filter:blur(4px);
