@@ -46,10 +46,22 @@
       "datePublished": "2026-05-31",
       "dateModified": "2026-05-31",
       "url": "https://hugolahutte.github.io/knowledge-hub/guides/chat-cowork-code-terminal.html",
-      "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
+      "author": {"@type": "Person", "@id": "https://hugolahutte.github.io/knowledge-hub/#hugo", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
       "publisher": {"@type": "Organization", "name": "HL Consulting"},
       "about": ["Claude", "Claude Code", "terminal", "ligne de commande", "Claude Chat", "installation"],
       "keywords": "Claude Chat, Claude Code, terminal, installation, ligne de commande"
+    },
+    {
+      "@type": "HowTo",
+      "name": "Installer Claude Code",
+      "description": "Installer Claude Code en une seule commande, sur Mac/Linux ou Windows.",
+      "inLanguage": "fr-FR",
+      "step": [
+        {"@type": "HowToStep", "position": 1, "name": "Ouvrir le terminal", "text": "Ouvre le Terminal (Mac/Linux) ou PowerShell (Windows)."},
+        {"@type": "HowToStep", "position": 2, "name": "Coller la commande d'installation", "text": "Mac/Linux : curl -fsSL https://claude.ai/install.sh | bash. Windows (PowerShell) : irm https://claude.ai/install.ps1 | iex."},
+        {"@type": "HowToStep", "position": 3, "name": "Vérifier et lancer", "text": "Tape claude --version pour vérifier l'installation, puis claude pour lancer."},
+        {"@type": "HowToStep", "position": 4, "name": "Se connecter à son compte", "text": "Au premier lancement, Claude Code ouvre le navigateur pour se connecter au compte Claude (abonnement payant requis)."}
+      ]
     },
     {
       "@type": "BreadcrumbList",
