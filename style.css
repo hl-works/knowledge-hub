@@ -234,6 +234,39 @@ button.tag:hover{border-color:var(--c-red); color:var(--c-red);}
 .btn--ghost:hover{background:var(--c-black); color:var(--c-white);}
 .btn-row{display:flex; gap:var(--space-4); flex-wrap:wrap; margin-top:var(--space-8);}
 
+/* ------------------------- Lexique -------------------------------- */
+/* Termes du glossaire détectés dans le texte (infobulles) */
+.lex-term{border-bottom:1px dotted var(--c-red); cursor:help; text-decoration:none; color:inherit;}
+.lex-term:hover{color:var(--c-red);}
+/* Infobulle / popover */
+.lex-pop{position:absolute; z-index:60; max-width:300px; background:var(--c-black); color:#F3F3F3;
+  font-family:var(--font-body); font-size:.85rem; line-height:1.5; padding:var(--space-3) var(--space-4);
+  border-radius:var(--radius); box-shadow:0 8px 30px rgba(12,12,12,.3); opacity:0; transform:translateY(4px);
+  transition:opacity .12s ease, transform .12s ease; pointer-events:none;}
+.lex-pop.is-open{opacity:1; transform:translateY(0); pointer-events:auto;}
+.lex-pop b{color:#fff;}
+.lex-pop a{color:var(--c-gold); font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; display:inline-block; margin-top:var(--space-2);}
+.lex-pop a:hover{text-decoration:underline;}
+
+/* Page Lexique */
+.lex-search{position:relative; margin:var(--space-6) 0 var(--space-4); max-width:var(--prose-max);}
+.lex-search input{width:100%; font-family:var(--font-body); font-size:1rem; color:var(--text);
+  padding:var(--space-3) var(--space-4); padding-left:2.6rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);}
+.lex-search input:focus{outline:none; border-color:var(--c-red);}
+.lex-search svg{position:absolute; left:var(--space-3); top:50%; transform:translateY(-50%); width:18px; height:18px; stroke:var(--text-muted); fill:none; stroke-width:2; pointer-events:none;}
+.lex-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--border);}
+.lex-entry{padding:var(--space-6) 0; border-bottom:1px solid var(--border); scroll-margin-top:90px;}
+.lex-entry.is-hidden{display:none;}
+.lex-entry h2{font-family:var(--font-body); font-weight:700; font-size:1.25rem; margin:0 0 var(--space-2);}
+.lex-entry__def{font-size:1rem; line-height:1.6; max-width:var(--prose-max); margin:0;}
+.lex-entry__links{display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-6); margin-top:var(--space-3);}
+.lex-entry__links .lk{font-size:.75rem; color:var(--text-muted);}
+.lex-entry__links .lk b{color:var(--c-red); text-transform:uppercase; letter-spacing:.06em; font-size:.68rem; margin-right:var(--space-2);}
+.lex-az{display:flex; flex-wrap:wrap; gap:var(--space-1); margin:var(--space-4) 0;}
+.lex-az a{font-family:var(--font-mono); font-size:.8rem; text-decoration:none; color:var(--text-muted); padding:2px 7px; border:1px solid var(--border); border-radius:var(--radius);}
+.lex-az a:hover{border-color:var(--c-red); color:var(--c-red);}
+.lex-list mark{background:var(--c-gold); color:var(--c-black);}
+
 /* ------------------------- Flux IA -------------------------------- */
 .flux-toolbar{display:flex; flex-wrap:wrap; gap:var(--space-3); align-items:center; margin:var(--space-6) 0 var(--space-4);}
 .flux-cats{display:flex; gap:var(--space-2);}

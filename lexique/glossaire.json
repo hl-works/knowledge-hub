@@ -1,0 +1,402 @@
+[
+ {
+  "id": "intelligence-artificielle-ia",
+  "terme": "Intelligence artificielle (IA)",
+  "aliases": [
+   "IA",
+   "intelligence artificielle"
+  ],
+  "definition": "Des logiciels capables de tâches qui demandaient un cerveau humain (comprendre, décider, créer). L'« IA classique » est spécialisée ; l'IA générative, elle, est polyvalente.",
+  "guides": [
+   "C'est quoi l'IA et un LLM",
+   "Pourquoi l'IA change le travail"
+  ],
+  "projets": [
+   "tout le stack HL Group"
+  ]
+ },
+ {
+  "id": "ia-generative",
+  "terme": "IA générative",
+  "aliases": [
+   "IA générative",
+   "générative"
+  ],
+  "definition": "Une IA qui produit du contenu neuf (texte, image, code) à partir d'une simple consigne, au lieu d'exécuter une seule tâche programmée.",
+  "guides": [
+   "C'est quoi l'IA et un LLM"
+  ],
+  "projets": [
+   "Knowledge Hub (rédigé avec l'IA)"
+  ]
+ },
+ {
+  "id": "llm-grand-modele-de-langage",
+  "terme": "LLM (grand modèle de langage)",
+  "aliases": [
+   "LLM",
+   "grand modèle de langage",
+   "modèle de langage"
+  ],
+  "definition": "Le moteur des assistants comme Claude ou ChatGPT : un modèle entraîné sur d'énormes quantités de texte, qui prédit la suite la plus plausible de ce qu'on lui écrit.",
+  "guides": [
+   "C'est quoi l'IA et un LLM",
+   "C'est quoi Claude"
+  ],
+  "projets": [
+   "Bot de veille (un LLM rédige le digest)"
+  ]
+ },
+ {
+  "id": "token",
+  "terme": "Token",
+  "aliases": [
+   "token",
+   "tokens"
+  ],
+  "definition": "L'unité de base que lit et produit un LLM : un bout de mot. La longueur des échanges et leur coût se mesurent en tokens.",
+  "guides": [
+   "C'est quoi l'IA et un LLM",
+   "Combien ça coûte *(à venir)*"
+  ],
+  "projets": []
+ },
+ {
+  "id": "hallucination",
+  "terme": "Hallucination",
+  "aliases": [
+   "hallucination",
+   "halluciner"
+  ],
+  "definition": "Quand un LLM invente une réponse fausse avec aplomb. D'où la règle de base : vérifier les faits, chiffres et références.",
+  "guides": [
+   "C'est quoi l'IA et un LLM",
+   "L'IA pour un commerçant"
+  ],
+  "projets": []
+ },
+ {
+  "id": "prompt",
+  "terme": "Prompt",
+  "aliases": [
+   "prompt",
+   "prompts",
+   "consigne"
+  ],
+  "definition": "La consigne qu'on donne à l'IA. Un bon prompt — clair, avec le contexte et l'objectif — change tout le résultat.",
+  "guides": [
+   "Écrire un bon CLAUDE.md",
+   "Les principes (façon Karpathy)"
+  ],
+  "projets": []
+ },
+ {
+  "id": "multimodal",
+  "terme": "Multimodal",
+  "aliases": [
+   "multimodal"
+  ],
+  "definition": "Capable de traiter plusieurs types d'entrées — texte, image, audio — pas seulement du texte.",
+  "guides": [
+   "C'est quoi l'IA et un LLM",
+   "C'est quoi Claude"
+  ],
+  "projets": []
+ },
+ {
+  "id": "poids-ouverts-open-weights",
+  "terme": "Poids ouverts (open weights)",
+  "aliases": [
+   "poids ouverts",
+   "open weights",
+   "modèle ouvert"
+  ],
+  "definition": "Un modèle qu'on peut télécharger et héberger soi-même (ex. Llama, Mistral), par opposition aux modèles « fermés » accessibles seulement via un service.",
+  "guides": [
+   "C'est quoi l'IA et un LLM",
+   "Mes données sont-elles safe *(à venir)*"
+  ],
+  "projets": []
+ },
+ {
+  "id": "anthropic",
+  "terme": "Anthropic",
+  "aliases": [
+   "Anthropic"
+  ],
+  "definition": "Le laboratoire américain qui crée Claude, centré sur la fiabilité et la sécurité des modèles.",
+  "guides": [
+   "C'est quoi Claude",
+   "Les principes (façon Karpathy)"
+  ],
+  "projets": []
+ },
+ {
+  "id": "claude",
+  "terme": "Claude",
+  "aliases": [
+   "Claude"
+  ],
+  "definition": "L'assistant IA d'Anthropic, décliné en plusieurs tailles (Opus, Sonnet, Haiku) et plusieurs produits (Chat, Cowork, Code).",
+  "guides": [
+   "C'est quoi Claude",
+   "Chat, Cowork ou Code"
+  ],
+  "projets": [
+   "Cobra, Haute Fidélité, Knowledge Hub"
+  ]
+ },
+ {
+  "id": "opus-sonnet-haiku",
+  "terme": "Opus / Sonnet / Haiku",
+  "aliases": [
+   "Opus",
+   "Sonnet",
+   "Haiku"
+  ],
+  "definition": "Les trois tailles de Claude : le plus puissant (Opus), l'équilibré (Sonnet), le rapide (Haiku). On choisit selon la tâche.",
+  "guides": [
+   "C'est quoi Claude"
+  ],
+  "projets": []
+ },
+ {
+  "id": "claude-chat-cowork-code",
+  "terme": "Claude Chat / Cowork / Code",
+  "aliases": [
+   "Claude Chat",
+   "Claude Cowork",
+   "Claude Code"
+  ],
+  "definition": "Trois façons d'utiliser Claude : discuter (Chat), déléguer un travail de bureau (Cowork), agir sur des fichiers et des projets (Code).",
+  "guides": [
+   "Chat, Cowork ou Code"
+  ],
+  "projets": [
+   "Double Claude Code (Cobra / HL)"
+  ]
+ },
+ {
+  "id": "terminal",
+  "terme": "Terminal",
+  "aliases": [
+   "terminal",
+   "ligne de commande"
+  ],
+  "definition": "La fenêtre où l'on tape des commandes au lieu de cliquer. Ça impressionne, mais ça s'utilise en copier-coller.",
+  "guides": [
+   "Chat, Cowork ou Code"
+  ],
+  "projets": []
+ },
+ {
+  "id": "api",
+  "terme": "API",
+  "aliases": [
+   "API"
+  ],
+  "definition": "Un tuyau programmé qui relie deux logiciels. C'est l'une des façons de connecter un service à Claude, de manière automatisée.",
+  "guides": [
+   "C'est quoi un MCP",
+   "Chat, Cowork ou Code"
+  ],
+  "projets": [
+   "Bot de veille (API Claude)"
+  ]
+ },
+ {
+  "id": "mcp-model-context-protocol",
+  "terme": "MCP (Model Context Protocol)",
+  "aliases": [
+   "MCP",
+   "Model Context Protocol"
+  ],
+  "definition": "Un standard ouvert créé par Anthropic : une « prise universelle » pour brancher Claude à des outils (Shopify, Drive, Gmail…) sans intégration sur-mesure.",
+  "guides": [
+   "C'est quoi un MCP",
+   "C'est quoi un agent IA"
+  ],
+  "projets": [
+   "Audit Shopify/Odoo",
+   "Boutique Shopify Haute Fidélité"
+  ]
+ },
+ {
+  "id": "agent-ia",
+  "terme": "Agent IA",
+  "aliases": [
+   "agent IA",
+   "agent autonome",
+   "agent"
+  ],
+  "definition": "Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — au lieu de simplement répondre.",
+  "guides": [
+   "C'est quoi un agent IA",
+   "C'est quoi un MCP"
+  ],
+  "projets": [
+   "Agent factures fournisseurs",
+   "Agent de création de produits",
+   "Bot de veille IA"
+  ]
+ },
+ {
+  "id": "github",
+  "terme": "GitHub",
+  "aliases": [
+   "GitHub"
+  ],
+  "definition": "Un espace en ligne où vit ton projet avec tout son historique ; une fois branché, les mises à jour se déploient toutes seules.",
+  "guides": [
+   "C'est quoi GitHub"
+  ],
+  "projets": [
+   "Ce Knowledge Hub"
+  ]
+ },
+ {
+  "id": "depot-repo",
+  "terme": "Dépôt (repo)",
+  "aliases": [
+   "dépôt",
+   "repo",
+   "repository"
+  ],
+  "definition": "Le « dossier » d'un projet sur GitHub, avec l'ensemble de ses fichiers et de son historique.",
+  "guides": [
+   "C'est quoi GitHub"
+  ],
+  "projets": []
+ },
+ {
+  "id": "commit",
+  "terme": "Commit",
+  "aliases": [
+   "commit"
+  ],
+  "definition": "Une version enregistrée et datée d'un projet sur GitHub. On peut toujours y revenir.",
+  "guides": [
+   "C'est quoi GitHub"
+  ],
+  "projets": []
+ },
+ {
+  "id": "cron",
+  "terme": "Cron",
+  "aliases": [
+   "cron",
+   "tâche planifiée"
+  ],
+  "definition": "Un minuteur qui lance une tâche automatiquement à intervalle régulier (ex. tous les matins à 7 h).",
+  "guides": [
+   "C'est quoi un agent IA"
+  ],
+  "projets": [
+   "Bot Telegram de veille"
+  ]
+ },
+ {
+  "id": "rss",
+  "terme": "RSS",
+  "aliases": [
+   "RSS",
+   "flux RSS"
+  ],
+  "definition": "Un format standard pour récupérer automatiquement les nouveaux articles d'un site. La brique de base d'une veille.",
+  "guides": [
+   "C'est quoi un agent IA"
+  ],
+  "projets": [
+   "Bot Telegram de veille",
+   "Bot de veille IA"
+  ]
+ },
+ {
+  "id": "bot-canal-telegram",
+  "terme": "Bot / Canal Telegram",
+  "aliases": [
+   "bot Telegram",
+   "canal Telegram",
+   "Telegram"
+  ],
+  "definition": "Un programme qui publie des messages sur Telegram ; un canal public est suivable par n'importe qui via un simple lien.",
+  "guides": [
+   "C'est quoi un agent IA"
+  ],
+  "projets": [
+   "Bot de veille IA (abonnable)"
+  ]
+ },
+ {
+  "id": "claude-md",
+  "terme": "CLAUDE.md",
+  "aliases": [
+   "CLAUDE.md",
+   "fichier de contexte"
+  ],
+  "definition": "Un fichier que Claude lit au démarrage : ton, conventions, pièges. Il évite de tout réexpliquer à chaque conversation.",
+  "guides": [
+   "Écrire un bon CLAUDE.md",
+   "Compound Engineering"
+  ],
+  "projets": [
+   "Système d'instructions Claude"
+  ]
+ },
+ {
+  "id": "compound-engineering",
+  "terme": "Compound Engineering",
+  "aliases": [
+   "compound engineering"
+  ],
+  "definition": "Méthode (popularisée par Kieran Klaassen et Dan Shipper, chez Every) où chaque leçon devient une règle réutilisable : ton système s'améliore tout seul à chaque session.",
+  "guides": [
+   "Compound Engineering",
+   "Écrire un bon CLAUDE.md"
+  ],
+  "projets": []
+ },
+ {
+  "id": "vibe-coding",
+  "terme": "Vibe coding",
+  "aliases": [
+   "vibe coding"
+  ],
+  "definition": "Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy.",
+  "guides": [
+   "Les principes (façon Karpathy)",
+   "Chat, Cowork ou Code"
+  ],
+  "projets": []
+ },
+ {
+  "id": "seo",
+  "terme": "SEO",
+  "aliases": [
+   "SEO",
+   "référencement"
+  ],
+  "definition": "L'art d'être bien classé par les moteurs de recherche (Google…).",
+  "guides": [
+   "C'est quoi un MCP *(et le GEO ci-dessous)*"
+  ],
+  "projets": [
+   "Correctif SEO collections Shopify",
+   "Refonte GTM cobra.fr"
+  ]
+ },
+ {
+  "id": "geo",
+  "terme": "GEO",
+  "aliases": [
+   "GEO"
+  ],
+  "definition": "L'équivalent du SEO pour les IA : optimiser ses contenus pour être **cité** par les assistants (ChatGPT, Claude, Perplexity). C'est l'objectif de ce site.",
+  "guides": [
+   "C'est quoi l'IA et un LLM"
+  ],
+  "projets": [
+   "Ce Knowledge Hub (llms.txt, JSON-LD)"
+  ]
+ }
+]
