@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Les 4 principes que j'applique avec l'IA (façon Karpathy) — Guides · Hugo Lahutte</title>
+<meta name="description" content="Qui est Andrej Karpathy (et pourquoi son arrivée chez Anthropic fait du bruit), et les 4 principes que j'en ai tirés pour que l'IA me fasse gagner du temps au lieu d'en perdre.">
+<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/guides/principes-facon-karpathy.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Les 4 principes que j'applique avec l'IA (façon Karpathy)">
+<meta property="og:description" content="Qui est Karpathy, et les 4 principes pour que l'IA fasse gagner du temps : réfléchir avant, faire simple, rester chirurgical, piloter par l'objectif.">
+<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/guides/principes-facon-karpathy.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-05-31">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#0C0C0C">
+<link rel="stylesheet" href="../style.css?v=20260531e">
+
+<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Les 4 principes que j'applique avec l'IA (façon Karpathy)",
+      "description": "Qui est Andrej Karpathy et les 4 principes pour que l'IA fasse gagner du temps : réfléchir avant, faire simple, rester chirurgical, piloter par l'objectif.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-05-31",
+      "dateModified": "2026-05-31",
+      "url": "https://hugolahutte.github.io/knowledge-hub/guides/principes-facon-karpathy.html",
+      "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "about": ["Andrej Karpathy", "Anthropic", "méthode IA", "vibe coding", "prompt"],
+      "keywords": "Karpathy, principes IA, bien travailler avec l'IA, Anthropic"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hugolahutte.github.io/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hugolahutte.github.io/knowledge-hub/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Les principes (façon Karpathy)", "item": "https://hugolahutte.github.io/knowledge-hub/guides/principes-facon-karpathy.html"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Qui est Andrej Karpathy ?", "acceptedAnswer": {"@type": "Answer", "text": "Co-fondateur d'OpenAI, ancien patron de l'IA chez Tesla, et l'un des meilleurs vulgarisateurs du domaine (ses cours ont formé une génération). Il a popularisé l'expression « vibe coding ». En mai 2026, il a rejoint Anthropic, la maison de Claude."}},
+        {"@type": "Question", "name": "Quels sont les 4 principes pour bien travailler avec l'IA ?", "acceptedAnswer": {"@type": "Answer", "text": "1) Réfléchir avant de répondre (énoncer ses hypothèses, lever l'ambiguïté). 2) Simplicité d'abord (le minimum qui résout, rien de spéculatif). 3) Modifications chirurgicales (ne toucher qu'au demandé, ne pas refactorer ce qui marche). 4) Exécution pilotée par l'objectif (définir « on saura que c'est bon quand… » avant d'agir). C'est une synthèse personnelle, inspirée de la façon d'enseigner de Karpathy."}},
+        {"@type": "Question", "name": "Pourquoi ces principes changent-ils tout ?", "acceptedAnswer": {"@type": "Answer", "text": "Ils font gagner des tokens, du temps et de la qualité : des réponses qui collent au lieu de pavés bavards, des chantiers qui ne dérapent pas. Le principe « chirurgical » est né d'une mise en production qui avait tout cassé parce qu'on avait poussé trop de choses d'un coup."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../flux-ia/">Flux IA</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Les principes (façon Karpathy)</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Les 4 principes que j'applique avec l'IA (façon Karpathy)</h1>
+    <hr class="rule--accent">
+    <p class="lead">Qui est Andrej Karpathy (et pourquoi son arrivée chez Anthropic fait du bruit), et les <strong>4 principes</strong> que j'en ai tirés pour que l'IA me fasse gagner du temps au lieu d'en perdre.</p>
+    <div class="meta-bar">
+      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>~5 min de lecture</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <span class="tag" data-tag="methode">méthode</span>
+      <span class="tag" data-tag="karpathy">Karpathy</span>
+      <span class="tag" data-tag="ia">IA</span>
+      <span class="tag" data-tag="vulgarisation">vulgarisation</span>
+    </div>
+    <ul class="levels" aria-label="Niveaux de lecture">
+      <li class="level-pill"><b>1</b> En 30 secondes</li>
+      <li class="level-pill"><b>2</b> Le corps, visuel</li>
+      <li class="level-pill"><b>3</b> Pour aller plus loin</li>
+    </ul>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
+      <p class="kicker">En 30 secondes</p>
+      <ul>
+        <li>Andrej Karpathy = co-fondateur d'OpenAI, ex-patron de l'IA chez Tesla, l'un des plus grands pédagogues du domaine. Il a <strong>rejoint Anthropic</strong> (la maison de Claude) en mai 2026.</li>
+        <li>De sa façon d'enseigner le travail avec les LLM, j'ai tiré <strong>4 principes</strong> que j'applique partout.</li>
+        <li>En clair : <strong>réfléchir avant, faire simple, toucher au strict nécessaire, piloter par un objectif clair.</strong></li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Sommaire">
+      <p class="kicker">Sommaire</p>
+      <ul>
+        <li><a href="#qui">1. Qui est Karpathy (et pourquoi ça compte)</a></li>
+        <li><a href="#principes">2. Les 4 principes (ma synthèse)</a></li>
+        <li><a href="#pourquoi">3. Pourquoi ça change tout</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="qui">1. Qui est Karpathy (et pourquoi ça compte)</h2>
+      <p>Difficile de faire plus crédible sur le sujet. Karpathy a co-fondé OpenAI, dirigé l'IA de Tesla, et il est surtout l'un des <strong>meilleurs vulgarisateurs</strong> de l'IA (ses cours et vidéos ont formé une génération). C'est aussi lui qui a popularisé l'expression « vibe coding ». En mai 2026, il a rejoint Anthropic — quand quelqu'un de ce calibre choisit une maison, on écoute.</p>
+
+      <figure class="diagram">
+        <ol class="timeline" role="img" aria-label="Parcours d'Andrej Karpathy : OpenAI, Tesla, retour à OpenAI, Eureka Labs, puis Anthropic en mai 2026." style="grid-template-columns:repeat(5,1fr);">
+          <li><b>OpenAI</b><span>co-fondateur</span></li>
+          <li><b>Tesla</b><span>patron de l'IA</span></li>
+          <li><b>OpenAI</b><span>retour</span></li>
+          <li><b>Eureka Labs</b><span>éducation IA</span></li>
+          <li class="is-now"><b>Anthropic</b><span>mai 2026</span></li>
+        </ol>
+        <figcaption class="caption">Un parcours qui résume l'histoire récente de l'IA — et une arrivée qui en dit long sur Anthropic.</figcaption>
+      </figure>
+
+      <h2 id="principes">2. Les 4 principes (ma synthèse, dans son esprit)</h2>
+      <p>Honnêteté d'abord : ce ne sont <strong>pas</strong> « les 4 règles officielles de Karpathy ». C'est <strong>ma</strong> synthèse, inspirée de sa façon d'enseigner le travail avec les agents. L'idée vaut plus que l'étiquette :</p>
+
+      <figure class="diagram">
+        <div class="card-grid" role="img" aria-label="Quatre principes : réfléchir avant de répondre, simplicité d'abord, modifications chirurgicales, exécution pilotée par l'objectif.">
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Principe 1</span>
+            <span class="card__title">Réfléchir avant de répondre</span>
+            <span class="card__desc">Énoncer ses hypothèses, demander si c'est ambigu, plutôt que foncer.</span>
+          </div>
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Principe 2</span>
+            <span class="card__title">Simplicité d'abord</span>
+            <span class="card__desc">Le minimum qui résout le problème, rien de spéculatif.</span>
+          </div>
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Principe 3</span>
+            <span class="card__title">Modifications chirurgicales</span>
+            <span class="card__desc">Toucher uniquement à ce qui est demandé, ne pas refactorer ce qui marche.</span>
+          </div>
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Principe 4</span>
+            <span class="card__title">Piloté par l'objectif</span>
+            <span class="card__desc">Définir « on saura que c'est bon quand… » avant d'agir.</span>
+          </div>
+        </div>
+        <figcaption class="caption">Quatre réflexes simples — c'est leur application constante qui fait la différence.</figcaption>
+      </figure>
+
+      <h2 id="pourquoi">3. Pourquoi ça change tout</h2>
+      <p>Concrètement, ces principes te font <strong>gagner des tokens, du temps, et de la qualité</strong> : des réponses qui collent au lieu de pavés bavards, des chantiers qui ne dérapent pas. Mon principe n°3 (« chirurgical ») n'est pas théorique : il est né d'une mise en production qui a <strong>tout cassé</strong> parce qu'on avait poussé trop de choses d'un coup. Depuis, chaque changement trace à une demande précise. Une erreur, une règle.</p>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Pour aller plus loin</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Écrire un bon CLAUDE.md</strong></a> — où ces principes s'inscrivent.</li>
+          <li>→ <a href="compound-engineering.html"><strong>Compound Engineering</strong></a> — comment une erreur devient une règle.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Le déploiement chirurgical né de l'incident → <a href="../journal/systeme-instructions-claude-md.html">Système d'instructions Claude</a> · <a href="../journal/cdc18-form-view.html">CDC-18 : déploiement chirurgical en prod</a>.</p>
+      </aside>
+
+    </div>
+  </div>
+</article>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
+      <h2>Ces principes te parlent ?</h2>
+      <p class="prose">Si tu veux comparer ta façon de cadrer l'IA avec la mienne, ou débattre du « vibe coding », écris-moi. Je documente tout en public.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Principes%20—%20échange">M'écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="nav__wordmark" href="../" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+      <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+    </div>
+    <div style="text-align:right;">
+      <p class="footer__kata">ナレッジ・ハブ</p>
+      <p class="caption" style="margin-top:var(--space-2);"><a href="../coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      <p class="caption">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../search.js?v=20260531e" defer></script>
+</body>
+</html>
