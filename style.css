@@ -654,12 +654,22 @@ mark{background:var(--c-gold); color:var(--c-black);}
 /* Placeholder image : trame sombre */
 [data-theme="dark"] .ph{background:repeating-linear-gradient(45deg,#2a2620,#2a2620 12px,#231f1a 12px,#231f1a 24px);}
 
-/* Bouton thème (header) */
-.nav__theme[data-state]{position:relative;}
+/* Bouton thème (header) — icône selon l'état */
 .nav__theme .ti-sun,.nav__theme .ti-moon,.nav__theme .ti-auto{display:none;}
 .nav__theme[data-state="light"] .ti-sun{display:block;}
 .nav__theme[data-state="dark"] .ti-moon{display:block;}
 .nav__theme[data-state="auto"] .ti-auto{display:block;}
+/* version desktop (dans le menu, à droite de la loupe) vs mobile (header) */
+.nav__theme-mobile{display:none;}
+@media (max-width:760px){ .nav__theme-mobile{display:inline-flex;} }
+
+/* Toast nom du mode au clic */
+.theme-toast{position:fixed; left:50%; bottom:var(--space-8); transform:translateX(-50%) translateY(8px);
+  background:var(--c-black); color:#FFFCF8; font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+  padding:var(--space-2) var(--space-4); border-radius:999px; box-shadow:0 8px 30px rgba(0,0,0,.3);
+  opacity:0; pointer-events:none; transition:opacity .18s ease, transform .18s ease; z-index:80;}
+.theme-toast.is-show{opacity:1; transform:translateX(-50%) translateY(0);}
+[data-theme="dark"] .theme-toast{background:var(--text); color:#1A1813;}
 
 /* ====================================================================
    GUIDES — composants visuels (batch evergreen #5+)
