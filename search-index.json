@@ -1,1 +1,457 @@
-[{"url": "/knowledge-hub/", "title": "Accueil", "excerpt": "Méthode, projets et journal — comment Hugo Lahutte construit avec Claude.", "kind": "Accueil", "tags": ""}, {"url": "/knowledge-hub/how-to/", "title": "Comment j'utilise Claude", "excerpt": "La méthode : CLAUDE.md, Compound Engineering, Claude Chat vs Code, prompt à copier.", "kind": "Méthode", "tags": ""}, {"url": "/knowledge-hub/guides/", "title": "Guides IA", "excerpt": "Guides clairs sur l'IA pour marchands et dirigeants — comprendre pour décider.", "kind": "Guides", "tags": ""}, {"url": "/knowledge-hub/flux-ia/", "title": "Flux IA", "excerpt": "Veille IA quotidienne automatisée : IA globale + IA pour marchands et patrons. Anti-hype, abonnement Telegram.", "kind": "Flux IA", "tags": ""}, {"url": "/knowledge-hub/a-propos/", "title": "À propos — Hugo Lahutte", "excerpt": "Parcours : Son-Vidéo, Cobra, Haute Fidélité, HL Consulting.", "kind": "À propos", "tags": ""}, {"url": "/knowledge-hub/journal/", "title": "Journal", "excerpt": "Toutes les sessions documentées, filtrables par tag.", "kind": "Journal", "tags": ""}, {"url": "/knowledge-hub/cobra/", "title": "Cobra", "excerpt": "Socle technique Odoo / Shopify, e-commerce, automatisations.", "kind": "Projet", "tags": ""}, {"url": "/knowledge-hub/haute-fidelite/", "title": "Haute Fidélité", "excerpt": "Le magazine HiFi de référence relancé + boutique.", "kind": "Projet", "tags": ""}, {"url": "/knowledge-hub/hifi-lovers/", "title": "HiFi Lovers", "excerpt": "Marque néo-rétro audiophile : design, merch, éditorial.", "kind": "Projet", "tags": ""}, {"url": "/knowledge-hub/perso/", "title": "Perso", "excerpt": "Side-projects, admin, expérimentations.", "kind": "Projet", "tags": ""}, {"url": "/knowledge-hub/guides/cest-quoi-claude.html", "title": "C'est quoi Claude, et pourquoi j'ai tout bâti dessus ?", "excerpt": "Claude, l'assistant IA d'Anthropic, expliqué simplement : qui le fait, pourquoi il est dans le peloton de tête, et pourquoi j'en ai fait le socle de tous mes projets (pour de vrai, pas en démo).", "kind": "Guide", "tags": "ia guide"}, {"url": "/knowledge-hub/guides/cest-quoi-ia-llm.html", "title": "C'est quoi l'IA, et c'est quoi un « LLM » ?", "excerpt": "L'IA générative et les LLM expliqués sans jargon : ce qu'ils font, qui sont les grands acteurs (OpenAI, Anthropic, Google, Mistral…), et surtout ce qu'ils ne savent PAS faire.", "kind": "Guide", "tags": "ia guide"}, {"url": "/knowledge-hub/guides/chat-cowork-code-terminal.html", "title": "Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)", "excerpt": "Trois façons d'utiliser Claude selon la tâche — et la vérité sur le « terminal », qui fait peur mais s'installe en une seule commande à copier-coller.", "kind": "Guide", "tags": "ia guide"}, {"url": "/knowledge-hub/guides/pourquoi-lia-change-le-travail.html", "title": "Pourquoi l'IA change vraiment la façon de travailler", "excerpt": "Pas une mode de plus. Pourquoi l'IA générative est une rupture du même ordre que l'électricité, ce que ça change concrètement pour un dirigeant ou un commerçant, et ce que ça ne change pas.", "kind": "Guide", "tags": "ia guide"}, {"url": "/knowledge-hub/guides/cest-quoi-github.html", "title": "C'est quoi GitHub, et pourquoi c'est gratuit et magique", "excerpt": "GitHub pour les non-devs : le coffre-fort qui sauvegarde ton travail, garde tout l'historique, et une fois branché, se met à jour tout seul. Gratuit pour démarrer.", "kind": "Guide", "tags": "github infra guide"}, {"url": "/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html", "title": "C'est quoi un « MCP », et comment brancher Claude à tes outils", "excerpt": "Copier-coller, navigateur, API, MCP : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante.", "kind": "Guide", "tags": "mcp claude infra guide"}, {"url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html", "title": "C'est quoi un « agent IA » ?", "excerpt": "Un agent IA, c'est Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat. Ce que ça permet — et le garde-fou indispensable.", "kind": "Guide", "tags": "agent ia guide"}, {"url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html", "title": "Écrire un bon CLAUDE.md (le fichier le plus rentable)", "excerpt": "Le fichier qui dit à Claude comment travailler avec toi — ton, conventions, pièges à éviter. Comment le rédiger, et comment le faire grandir.", "kind": "Guide", "tags": "claude methode doc guide"}, {"url": "/knowledge-hub/guides/principes-facon-karpathy.html", "title": "Les 4 principes que j'applique avec l'IA (façon Karpathy)", "excerpt": "Qui est Andrej Karpathy, et les 4 principes que j'en ai tirés pour que l'IA me fasse gagner du temps : réfléchir avant, faire simple, rester chirurgical, piloter par l'objectif.", "kind": "Guide", "tags": "karpathy methode ia guide"}, {"url": "/knowledge-hub/guides/compound-engineering.html", "title": "Compound Engineering : ta méthode s'améliore toute seule", "excerpt": "Le principe qui fait que ton usage de l'IA s'améliore tout seul : chaque leçon est capturée et réutilisée, et ton système part de plus en plus haut à chaque session.", "kind": "Guide", "tags": "compound-engineering methode ia guide"}, {"url": "/knowledge-hub/guides/lia-pour-un-commercant.html", "title": "L'IA concrètement, pour un commerçant ou une PME", "excerpt": "Ce qu'un commerçant ou une PME peut vraiment faire avec l'IA aujourd'hui, sans équipe technique. Les usages qui rapportent, vus depuis mon magasin.", "kind": "Guide", "tags": "ia strat commerce guide"}, {"url": "/knowledge-hub/journal/agent-creation-produits.html", "title": "Agent de création automatique de produits Odoo", "excerpt": "Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.", "kind": "Journal", "tags": "agent, data, en-cours"}, {"url": "/knowledge-hub/journal/agent-factures-architecture.html", "title": "Agent autonome de traitement des factures fournisseurs", "excerpt": "Cadrer toute l'architecture d'un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d'écrire une ligne de code. Ne toucher Odoo qu'une fois/semaine.", "kind": "Journal", "tags": "agent, en-cours"}, {"url": "/knowledge-hub/journal/anatomie-couverture-hs-yamaha.html", "title": "Anatomie couverture Hors-Série Collector N°1 — HiFi Lovers × Yamaha", "excerpt": "Structurer la hiérarchie visuelle de la couverture du premier hors-série en s'inspirant de la grammaire des comics Marvel/Image des années 80-90 (corner box, masthead, badge collector).", "kind": "Journal", "tags": "hifi-lovers, design, en-cours"}, {"url": "/knowledge-hub/journal/audit-boutique-shopify-haute-fidelite.html", "title": "Audit & mise en production boutique Shopify Haute Fidélité", "excerpt": "Auditer et finaliser la boutique Shopify HF avant montée en charge : MCP Shopify, bascule GLS, authentification email, 4 templates éditoriaux, audit des 30+ produits et 7 collections. (Fusion de 3 sessions.)", "kind": "Journal", "tags": "haute-fidelite, shopify, email, seo-gtm, en-cours"}, {"url": "/knowledge-hub/journal/audit-filtrage-mail-cobra.html", "title": "Audit & filtrage de la boîte mail Cobra (Outlook)", "excerpt": "Reprendre la main sur l'inbox hlahutte@cobra.fr noyée par le bruit (catchall Odoo, EDI, notifications) : audit sur 30 jours, règles serveur/client, backlog des urgents.", "kind": "Journal", "tags": "cobra, email, en-cours"}, {"url": "/knowledge-hub/journal/audit-shopify-odoo-803.html", "title": "Audit Shopify/Odoo : 803 produits, 3 mois de travail", "excerpt": "Croiser le catalogue Shopify (front) et Odoo (back) : cohérence des références, prix, stocks, métadonnées sur 803 produits. Le cas B&W AM-1 paire vs pièce.", "kind": "Journal", "tags": "shopify, data, en-cours"}, {"url": "/knowledge-hub/journal/audit-ui-cobra-design-ref.html", "title": "Audit UI Cobra + mise à jour odoo18_design_reference", "excerpt": "Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.", "kind": "Journal", "tags": "odoo-dev, meta, en-prod"}, {"url": "/knowledge-hub/journal/bot-telegram-veille-hifi.html", "title": "Bot Telegram de veille HiFi quotidienne", "excerpt": "Un push Telegram chaque matin avec les news mondiales de la hi-fi : ~35 sources RSS multilingues, rédaction par l'API Claude, mémoire anti-doublons, cron GitHub Actions — from scratch.", "kind": "Journal", "tags": "haute-fidelite, agent, data, en-cours"}, {"url": "/knowledge-hub/journal/cdc18-build.html", "title": "CDC-18 : workflow achats Cobra (cobra_purchase)", "excerpt": "Un module achats complet pour Cobra : dashboards RFQ/PO, détection de réponse fournisseur, filtres entrepôts. 6 bugs Odoo 18 SaaS transformés en 7 règles réutilisables.", "kind": "Journal", "tags": "odoo-dev, en-prod"}, {"url": "/knowledge-hub/journal/cdc18-form-view.html", "title": "CDC-18 form view : déploiement chirurgical en prod", "excerpt": "Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d'un commit propre depuis une pile preprod3 mélangée.", "kind": "Journal", "tags": "odoo-dev, en-prod"}, {"url": "/knowledge-hub/journal/cdc18-stabilisation.html", "title": "Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR", "excerpt": "Deux bugs résiduels du dashboard achats : boutons qui n'activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.", "kind": "Journal", "tags": "odoo-dev, en-prod"}, {"url": "/knowledge-hub/journal/cdc19-liste-po.html", "title": "CDC-19 : vue liste Bons de commande améliorée", "excerpt": "Badge Drop/Réassort, date de livraison confirmée, dates sans heure dans la liste BC. Deux pièges OWL 18 : position=attributes ignoré, rollback XML silencieux.", "kind": "Journal", "tags": "odoo-dev, en-cours"}, {"url": "/knowledge-hub/journal/claude-arrivee-workflow-cobra.html", "title": "L'arrivée de Claude dans le workflow Cobra", "excerpt": "Avant Claude, le dev Odoo se faisait à la main : forums OCA, doc, essais/erreurs. Le pivot — traiter Claude comme un collègue senior qui amplifie, ne remplace pas.", "kind": "Journal", "tags": "odoo-dev, meta, en-prod"}, {"url": "/knowledge-hub/journal/collegues-sur-claude.html", "title": "L'arrivée des collègues sur Claude", "excerpt": "Claude ne reste pas un outil solo : des collègues chez Cobra commencent à l'utiliser. Partage de contexte sans credentials, bon CLAUDE.md, éviter de réinventer la roue.", "kind": "Journal", "tags": "meta, en-cours"}, {"url": "/knowledge-hub/journal/config-sendcloud-gls-hf.html", "title": "Config Sendcloud × GLS pour Haute Fidélité Shopify", "excerpt": "Mutualiser la logistique e-commerce HF avec l'infra Cobra (Sendcloud + pickup GLS quotidien) tout en gardant un suivi client aux couleurs HF. Config guidée en temps réel.", "kind": "Journal", "tags": "haute-fidelite, logistique, en-cours"}, {"url": "/knowledge-hub/journal/contestation-creance-roadsurfer.html", "title": "Contestation créance Roadsurfer / Creditreform", "excerpt": "Contester une créance de 2 549 € (rayure contestée sur un van loué) jusqu'à la saisine du CEC France : rédaction multilingue FR/DE, navigation dans les interfaces incasso, compilation des pièces.", "kind": "Journal", "tags": "perso, admin, en-cours"}, {"url": "/knowledge-hub/journal/creation-ae-adrien-inpi.html", "title": "Création auto-entreprise Adrien (menuiserie) — Dossier INPI", "excerpt": "Accompagner mon neveu de 18 ans dans la création de son auto-entreprise de menuiserie : guides, dossier INPI 9 étapes, documents justificatifs PDF, choix du régime fiscal.", "kind": "Journal", "tags": "perso, admin, en-cours"}, {"url": "/knowledge-hub/journal/discours-fiche-poste-vendeur-cobra.html", "title": "Discours & fiche de poste vendeur magasin Cobra", "excerpt": "Transformer un discours managérial brut en trois livrables exécutables (bullet points, prose, fiche de poste Word à signer) après une restructuration d'équipe.", "kind": "Journal", "tags": "cobra, strat, admin, en-prod"}, {"url": "/knowledge-hub/journal/docs-facturation-salon-hf-2026.html", "title": "Docs & facturation Salon Haute Fidélité Paris 2026", "excerpt": "Simplifier l'administratif du Salon HF 2026 : supprimer le contrat formel au profit d'une facture Qonto + conditions de participation bilingues, sur 20-30 exposants.", "kind": "Journal", "tags": "haute-fidelite, doc, admin, en-prod"}, {"url": "/knowledge-hub/journal/double-claude-code.html", "title": "Double Claude Code : Cobra vs HL", "excerpt": "Deux Claude Code : le compte Cobra (dev Odoo/Shopify) et un nouveau compte HL (perso, stratégie, Knowledge Hub). Les deux peuvent écrire dans le même journal.", "kind": "Journal", "tags": "meta, en-prod"}, {"url": "/knowledge-hub/journal/dynaudio-analyse-ventes.html", "title": "Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés", "excerpt": "Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l'édition de fichiers.", "kind": "Journal", "tags": "shopify, data, en-cours"}, {"url": "/knowledge-hub/journal/epson-declaratif-ventes.html", "title": "Déclaratif ventes Epson : export Odoo → Google Sheets", "excerpt": "Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d'Odoo. Mapping via supplierinfo, export Sheets formaté.", "kind": "Journal", "tags": "data, odoo-admin, en-prod"}, {"url": "/knowledge-hub/journal/gsc-json-ld-fix.html", "title": "Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery", "excerpt": "7 pages produit en erreur « extraits de produits » dans GSC. Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.", "kind": "Journal", "tags": "seo-gtm, shopify, data, en-cours"}, {"url": "/knowledge-hub/journal/gtm-refonte-cobra.html", "title": "Refonte GTM cobra.fr : purge 71 → 20 balises + Consent Mode v2", "excerpt": "71 balises accumulées, CMP obsolète, Consent Mode bricolé. Migration vers Consent Mode v2 natif Shopify, purge à 20 balises, ~70 variables orphelines supprimées.", "kind": "Journal", "tags": "seo-gtm, en-prod"}, {"url": "/knowledge-hub/journal/infra-sftp-phase1.html", "title": "Infrastructure SFTP Cobra : phase 1 setup serveur", "excerpt": "Poser une infra SFTP pérenne (Scaleway/Ubuntu) où chaque fournisseur dépose ses fichiers stock, récupérés automatiquement par Odoo. Setup serveur guidé pas à pas.", "kind": "Journal", "tags": "infra, en-cours"}, {"url": "/knowledge-hub/journal/knowledge-hub.html", "title": "Ce Knowledge Hub lui-même", "excerpt": "Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO. Une page par entrée, llms.txt + JSON-LD authorship.", "kind": "Journal", "tags": "meta, en-prod"}, {"url": "/knowledge-hub/journal/marque-inpi-hifi-lovers.html", "title": "Gestion marque INPI — HIFI LOVERS", "excerpt": "Reprendre en main la marque HIFI LOVERS (déjà déposée à l'INPI sans que je le sache) et préparer un dépôt complémentaire figuratif + classe 16 pour le print.", "kind": "Journal", "tags": "hifi-lovers, admin, en-cours"}, {"url": "/knowledge-hub/journal/mission-dm-france.html", "title": "Brief mission Claude Code : vérification factures D&M France", "excerpt": "14 factures PDF importées en brouillon Odoo, non fiables. Un brief structuré et sécurisé (matching PO, DEEE, escompte, garde-fous) pour que Claude Code travaille en autonomie.", "kind": "Journal", "tags": "agent, en-cours"}, {"url": "/knowledge-hub/journal/operation-hs-yamaha-annonceurs.html", "title": "Opération HS Yamaha offert aux annonceurs — Brevo × Shopify", "excerpt": "Offrir le premier hors-série HiFi Lovers aux annonceurs via une mécanique propre : base Excel → Brevo → codes promo Shopify combinables restreints au segment ET au produit.", "kind": "Journal", "tags": "hifi-lovers, shopify, email, data, en-prod"}, {"url": "/knowledge-hub/journal/powerpoint-anglais-alexis.html", "title": "PowerPoint anglais Alexis — « The Secrets of My Success »", "excerpt": "Un PowerPoint narré de 10 slides + script calibré à la seconde pour un projet d'anglais (Dual Diploma). Workflow itératif avec QA visuel slide par slide.", "kind": "Journal", "tags": "perso, design, en-prod"}, {"url": "/knowledge-hub/journal/pptx-brevet-addictions-damien.html", "title": "PPTX oral du brevet « Les addictions chez les jeunes » (Damien)", "excerpt": "Transformer un script d'élève de 3e en support d'oral du brevet : 9 slides « cyan glacé », chiffres sourcés, photos intégrées — sans dénaturer la voix de l'ado.", "kind": "Journal", "tags": "perso, design, en-prod"}, {"url": "/knowledge-hub/journal/routing-po-drop-reassort.html", "title": "Routing email PO Drop vs Réassort + templates Cobra", "excerpt": "Router l'email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.", "kind": "Journal", "tags": "email, odoo-dev, en-prod"}, {"url": "/knowledge-hub/journal/seo-collections-shopify.html", "title": "Correctif SEO collections Shopify (audit Guillaume)", "excerpt": "11 problèmes systémiques sur ~175 collections après une mass-optimisation. 182 suffixes « | Cobra.fr » retirés en 26 batches GraphQL, 0 erreur. Reprise post-compaction.", "kind": "Journal", "tags": "seo-gtm, shopify, en-prod"}, {"url": "/knowledge-hub/journal/setup-claude-onboarding.html", "title": "Setup Claude : documentation, onboarding et Knowledge Hub", "excerpt": "Documenter la logique du setup Claude (fichiers .md, projets, deux comptes) pour la transmettre à un ami qui démarre et capitaliser session après session.", "kind": "Journal", "tags": "meta, en-cours"}, {"url": "/knowledge-hub/journal/sftp-pipeline-complet.html", "title": "Serveur SFTP + pipeline automatique stock drop", "excerpt": "Hardening SSH (fail2ban, ufw, chroot) + script qui injecte tout fichier déposé dans Odoo via le module existant. Le branchement sur action_run_import : gain ×60.", "kind": "Journal", "tags": "infra, odoo-dev, en-prod"}, {"url": "/knowledge-hub/journal/sogetronic-import-prod.html", "title": "Profil Sogetronic : import stock dropshipping par code fournisseur", "excerpt": "Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l'EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.", "kind": "Journal", "tags": "odoo-dev, en-prod"}, {"url": "/knowledge-hub/journal/sogetronic-seed-21mai.html", "title": "Sogetronic seed + restructuration Knowledge Hub Claude", "excerpt": "Deux besoins dans une session : charger les Codes Sage Sogetronic sur 175 fiches produit, et restructurer les fichiers de contexte Claude pour un usage double chat + Code.", "kind": "Journal", "tags": "data, meta, en-prod"}, {"url": "/knowledge-hub/journal/sony-bravia-prix-marge.html", "title": "Mise à jour prix Sony Bravia II + diagnostic marge nulle", "excerpt": "19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d'une marge à 0 % : l'UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.", "kind": "Journal", "tags": "odoo-admin, en-prod"}, {"url": "/knowledge-hub/journal/statuts-livree-facturee-payee.html", "title": "Statuts Livrée / Facturée / Payée sur les bons de commande", "excerpt": "3 statuts consolidés (Livrée/Facturée/Payée) en badges sur la fiche PO et les listes, pour connaître l'état réel d'une commande d'un coup d'œil. Pièges xpath multi-list.", "kind": "Journal", "tags": "odoo-dev, en-prod"}, {"url": "/knowledge-hub/journal/strategie-instagram-hifi-lovers.html", "title": "Stratégie Instagram HiFi Lovers — Brief Marine", "excerpt": "Cadrer une stratégie Instagram qui part de zéro pour HiFi Lovers : positionnement 70/30 archive/éditorial, 4 piliers, calendrier, plan d'amorçage 8 semaines, avant de la confier à Marine.", "kind": "Journal", "tags": "hifi-lovers, marketing, strat, en-cours"}, {"url": "/knowledge-hub/journal/structuration-projet-odoo.html", "title": "Structuration projet Claude « Odoo » : docs de référence écosystème", "excerpt": "Consolider toutes les connexions techniques validées dans un doc de référence pour que chaque nouvelle conversation démarre avec le bon contexte.", "kind": "Journal", "tags": "meta, en-prod"}, {"url": "/knowledge-hub/journal/systeme-instructions-claude-md.html", "title": "Système d'instructions personnalisées Claude (CLAUDE.md + extensions)", "excerpt": "Standardiser le comportement de Claude sur tous mes projets et mes deux comptes : un CLAUDE.md universel + extensions strat et dev. Déclenché par un incident de mise en prod Odoo gravé en règle dure.", "kind": "Journal", "tags": "meta, strat, en-prod"}, {"url": "/knowledge-hub/journal/templates-email-refonte.html", "title": "Refonte templates email commande fournisseur (FR + EN)", "excerpt": "Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.", "kind": "Journal", "tags": "email, en-prod"}]
+[
+{
+"url": "/knowledge-hub/",
+"title": "Accueil",
+"excerpt": "Méthode, projets et journal — comment Hugo Lahutte construit avec Claude.",
+"kind": "Accueil",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/how-to/",
+"title": "Comment j'utilise Claude",
+"excerpt": "La méthode : CLAUDE.md, Compound Engineering, Claude Chat vs Code, prompt à copier.",
+"kind": "Méthode",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/guides/",
+"title": "Guides IA",
+"excerpt": "Guides clairs sur l'IA pour marchands et dirigeants — comprendre pour décider.",
+"kind": "Guides",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/flux-ia/",
+"title": "Flux IA",
+"excerpt": "Veille IA quotidienne automatisée : IA globale + IA pour marchands et patrons. Anti-hype, abonnement Telegram.",
+"kind": "Flux IA",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/lexique/",
+"title": "Lexique IA",
+"excerpt": "Définitions claires des termes IA : LLM, agent, MCP, RAG, contexte, prompt, tokens… Le vocabulaire pour comprendre Claude et l'IA appliquée.",
+"kind": "Lexique",
+"tags": "lexique ia glossaire"
+},
+{
+"url": "/knowledge-hub/a-propos/",
+"title": "À propos — Hugo Lahutte",
+"excerpt": "Parcours : Son-Vidéo, Cobra, Haute Fidélité, HL Consulting.",
+"kind": "À propos",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/journal/",
+"title": "Journal",
+"excerpt": "Toutes les sessions documentées, filtrables par tag.",
+"kind": "Journal",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/cobra/",
+"title": "Cobra",
+"excerpt": "Socle technique Odoo / Shopify, e-commerce, automatisations.",
+"kind": "Projet",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/haute-fidelite/",
+"title": "Haute Fidélité",
+"excerpt": "Le magazine HiFi de référence relancé + boutique.",
+"kind": "Projet",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/hifi-lovers/",
+"title": "HiFi Lovers",
+"excerpt": "Marque néo-rétro audiophile : design, merch, éditorial.",
+"kind": "Projet",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/perso/",
+"title": "Perso",
+"excerpt": "Side-projects, admin, expérimentations.",
+"kind": "Projet",
+"tags": ""
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-claude.html",
+"title": "C'est quoi Claude, et pourquoi j'ai tout bâti dessus ?",
+"excerpt": "Claude, l'assistant IA d'Anthropic, expliqué simplement : qui le fait, pourquoi il est dans le peloton de tête, et pourquoi j'en ai fait le socle de tous mes projets (pour de vrai, pas en démo).",
+"kind": "Guide",
+"tags": "ia guide"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-ia-llm.html",
+"title": "C'est quoi l'IA, et c'est quoi un « LLM » ?",
+"excerpt": "L'IA générative et les LLM expliqués sans jargon : ce qu'ils font, qui sont les grands acteurs (OpenAI, Anthropic, Google, Mistral…), et surtout ce qu'ils ne savent PAS faire.",
+"kind": "Guide",
+"tags": "ia guide"
+},
+{
+"url": "/knowledge-hub/guides/chat-cowork-code-terminal.html",
+"title": "Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)",
+"excerpt": "Trois façons d'utiliser Claude selon la tâche — et la vérité sur le « terminal », qui fait peur mais s'installe en une seule commande à copier-coller.",
+"kind": "Guide",
+"tags": "ia guide"
+},
+{
+"url": "/knowledge-hub/guides/pourquoi-lia-change-le-travail.html",
+"title": "Pourquoi l'IA change vraiment la façon de travailler",
+"excerpt": "Pas une mode de plus. Pourquoi l'IA générative est une rupture du même ordre que l'électricité, ce que ça change concrètement pour un dirigeant ou un commerçant, et ce que ça ne change pas.",
+"kind": "Guide",
+"tags": "ia guide"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-github.html",
+"title": "C'est quoi GitHub, et pourquoi c'est gratuit et magique",
+"excerpt": "GitHub pour les non-devs : le coffre-fort qui sauvegarde ton travail, garde tout l'historique, et une fois branché, se met à jour tout seul. Gratuit pour démarrer.",
+"kind": "Guide",
+"tags": "github infra guide"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html",
+"title": "C'est quoi un « MCP », et comment brancher Claude à tes outils",
+"excerpt": "Copier-coller, navigateur, API, MCP : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante.",
+"kind": "Guide",
+"tags": "mcp claude infra guide"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html",
+"title": "C'est quoi un « agent IA » ?",
+"excerpt": "Un agent IA, c'est Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat. Ce que ça permet — et le garde-fou indispensable.",
+"kind": "Guide",
+"tags": "agent ia guide"
+},
+{
+"url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html",
+"title": "Écrire un bon CLAUDE.md (le fichier le plus rentable)",
+"excerpt": "Le fichier qui dit à Claude comment travailler avec toi — ton, conventions, pièges à éviter. Comment le rédiger, et comment le faire grandir.",
+"kind": "Guide",
+"tags": "claude methode doc guide"
+},
+{
+"url": "/knowledge-hub/guides/principes-facon-karpathy.html",
+"title": "Les 4 principes que j'applique avec l'IA (façon Karpathy)",
+"excerpt": "Qui est Andrej Karpathy, et les 4 principes que j'en ai tirés pour que l'IA me fasse gagner du temps : réfléchir avant, faire simple, rester chirurgical, piloter par l'objectif.",
+"kind": "Guide",
+"tags": "karpathy methode ia guide"
+},
+{
+"url": "/knowledge-hub/guides/compound-engineering.html",
+"title": "Compound Engineering : ta méthode s'améliore toute seule",
+"excerpt": "Le principe qui fait que ton usage de l'IA s'améliore tout seul : chaque leçon est capturée et réutilisée, et ton système part de plus en plus haut à chaque session.",
+"kind": "Guide",
+"tags": "compound-engineering methode ia guide"
+},
+{
+"url": "/knowledge-hub/guides/lia-pour-un-commercant.html",
+"title": "L'IA concrètement, pour un commerçant ou une PME",
+"excerpt": "Ce qu'un commerçant ou une PME peut vraiment faire avec l'IA aujourd'hui, sans équipe technique. Les usages qui rapportent, vus depuis mon magasin.",
+"kind": "Guide",
+"tags": "ia strat commerce guide"
+},
+{
+"url": "/knowledge-hub/journal/agent-creation-produits.html",
+"title": "Agent de création automatique de produits Odoo",
+"excerpt": "Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.",
+"kind": "Journal",
+"tags": "agent, data, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/agent-factures-architecture.html",
+"title": "Agent autonome de traitement des factures fournisseurs",
+"excerpt": "Cadrer toute l'architecture d'un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d'écrire une ligne de code. Ne toucher Odoo qu'une fois/semaine.",
+"kind": "Journal",
+"tags": "agent, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/anatomie-couverture-hs-yamaha.html",
+"title": "Anatomie couverture Hors-Série Collector N°1 — HiFi Lovers × Yamaha",
+"excerpt": "Structurer la hiérarchie visuelle de la couverture du premier hors-série en s'inspirant de la grammaire des comics Marvel/Image des années 80-90 (corner box, masthead, badge collector).",
+"kind": "Journal",
+"tags": "hifi-lovers, design, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/audit-boutique-shopify-haute-fidelite.html",
+"title": "Audit & mise en production boutique Shopify Haute Fidélité",
+"excerpt": "Auditer et finaliser la boutique Shopify HF avant montée en charge : MCP Shopify, bascule GLS, authentification email, 4 templates éditoriaux, audit des 30+ produits et 7 collections. (Fusion de 3 sessions.)",
+"kind": "Journal",
+"tags": "haute-fidelite, shopify, email, seo-gtm, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/audit-filtrage-mail-cobra.html",
+"title": "Audit & filtrage de la boîte mail Cobra (Outlook)",
+"excerpt": "Reprendre la main sur l'inbox hlahutte@cobra.fr noyée par le bruit (catchall Odoo, EDI, notifications) : audit sur 30 jours, règles serveur/client, backlog des urgents.",
+"kind": "Journal",
+"tags": "cobra, email, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/audit-shopify-odoo-803.html",
+"title": "Audit Shopify/Odoo : 803 produits, 3 mois de travail",
+"excerpt": "Croiser le catalogue Shopify (front) et Odoo (back) : cohérence des références, prix, stocks, métadonnées sur 803 produits. Le cas B&W AM-1 paire vs pièce.",
+"kind": "Journal",
+"tags": "shopify, data, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/audit-ui-cobra-design-ref.html",
+"title": "Audit UI Cobra + mise à jour odoo18_design_reference",
+"excerpt": "Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.",
+"kind": "Journal",
+"tags": "odoo-dev, meta, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/bot-telegram-veille-hifi.html",
+"title": "Bot Telegram de veille HiFi quotidienne",
+"excerpt": "Un push Telegram chaque matin avec les news mondiales de la hi-fi : ~35 sources RSS multilingues, rédaction par l'API Claude, mémoire anti-doublons, cron GitHub Actions — from scratch.",
+"kind": "Journal",
+"tags": "haute-fidelite, agent, data, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/cdc18-build.html",
+"title": "CDC-18 : workflow achats Cobra (cobra_purchase)",
+"excerpt": "Un module achats complet pour Cobra : dashboards RFQ/PO, détection de réponse fournisseur, filtres entrepôts. 6 bugs Odoo 18 SaaS transformés en 7 règles réutilisables.",
+"kind": "Journal",
+"tags": "odoo-dev, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/cdc18-form-view.html",
+"title": "CDC-18 form view : déploiement chirurgical en prod",
+"excerpt": "Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d'un commit propre depuis une pile preprod3 mélangée.",
+"kind": "Journal",
+"tags": "odoo-dev, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/cdc18-stabilisation.html",
+"title": "Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR",
+"excerpt": "Deux bugs résiduels du dashboard achats : boutons qui n'activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.",
+"kind": "Journal",
+"tags": "odoo-dev, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/cdc19-liste-po.html",
+"title": "CDC-19 : vue liste Bons de commande améliorée",
+"excerpt": "Badge Drop/Réassort, date de livraison confirmée, dates sans heure dans la liste BC. Deux pièges OWL 18 : position=attributes ignoré, rollback XML silencieux.",
+"kind": "Journal",
+"tags": "odoo-dev, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/claude-arrivee-workflow-cobra.html",
+"title": "L'arrivée de Claude dans le workflow Cobra",
+"excerpt": "Avant Claude, le dev Odoo se faisait à la main : forums OCA, doc, essais/erreurs. Le pivot — traiter Claude comme un collègue senior qui amplifie, ne remplace pas.",
+"kind": "Journal",
+"tags": "odoo-dev, meta, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/collegues-sur-claude.html",
+"title": "L'arrivée des collègues sur Claude",
+"excerpt": "Claude ne reste pas un outil solo : des collègues chez Cobra commencent à l'utiliser. Partage de contexte sans credentials, bon CLAUDE.md, éviter de réinventer la roue.",
+"kind": "Journal",
+"tags": "meta, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/config-sendcloud-gls-hf.html",
+"title": "Config Sendcloud × GLS pour Haute Fidélité Shopify",
+"excerpt": "Mutualiser la logistique e-commerce HF avec l'infra Cobra (Sendcloud + pickup GLS quotidien) tout en gardant un suivi client aux couleurs HF. Config guidée en temps réel.",
+"kind": "Journal",
+"tags": "haute-fidelite, logistique, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/contestation-creance-roadsurfer.html",
+"title": "Contestation créance Roadsurfer / Creditreform",
+"excerpt": "Contester une créance de 2 549 € (rayure contestée sur un van loué) jusqu'à la saisine du CEC France : rédaction multilingue FR/DE, navigation dans les interfaces incasso, compilation des pièces.",
+"kind": "Journal",
+"tags": "perso, admin, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/creation-ae-adrien-inpi.html",
+"title": "Création auto-entreprise Adrien (menuiserie) — Dossier INPI",
+"excerpt": "Accompagner mon neveu de 18 ans dans la création de son auto-entreprise de menuiserie : guides, dossier INPI 9 étapes, documents justificatifs PDF, choix du régime fiscal.",
+"kind": "Journal",
+"tags": "perso, admin, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/discours-fiche-poste-vendeur-cobra.html",
+"title": "Discours & fiche de poste vendeur magasin Cobra",
+"excerpt": "Transformer un discours managérial brut en trois livrables exécutables (bullet points, prose, fiche de poste Word à signer) après une restructuration d'équipe.",
+"kind": "Journal",
+"tags": "cobra, strat, admin, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/docs-facturation-salon-hf-2026.html",
+"title": "Docs & facturation Salon Haute Fidélité Paris 2026",
+"excerpt": "Simplifier l'administratif du Salon HF 2026 : supprimer le contrat formel au profit d'une facture Qonto + conditions de participation bilingues, sur 20-30 exposants.",
+"kind": "Journal",
+"tags": "haute-fidelite, doc, admin, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/double-claude-code.html",
+"title": "Double Claude Code : Cobra vs HL",
+"excerpt": "Deux Claude Code : le compte Cobra (dev Odoo/Shopify) et un nouveau compte HL (perso, stratégie, Knowledge Hub). Les deux peuvent écrire dans le même journal.",
+"kind": "Journal",
+"tags": "meta, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/dynaudio-analyse-ventes.html",
+"title": "Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés",
+"excerpt": "Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l'édition de fichiers.",
+"kind": "Journal",
+"tags": "shopify, data, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/epson-declaratif-ventes.html",
+"title": "Déclaratif ventes Epson : export Odoo → Google Sheets",
+"excerpt": "Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d'Odoo. Mapping via supplierinfo, export Sheets formaté.",
+"kind": "Journal",
+"tags": "data, odoo-admin, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/gsc-json-ld-fix.html",
+"title": "Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery",
+"excerpt": "7 pages produit en erreur « extraits de produits » dans GSC. Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.",
+"kind": "Journal",
+"tags": "seo-gtm, shopify, data, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/gtm-refonte-cobra.html",
+"title": "Refonte GTM cobra.fr : purge 71 → 20 balises + Consent Mode v2",
+"excerpt": "71 balises accumulées, CMP obsolète, Consent Mode bricolé. Migration vers Consent Mode v2 natif Shopify, purge à 20 balises, ~70 variables orphelines supprimées.",
+"kind": "Journal",
+"tags": "seo-gtm, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/infra-sftp-phase1.html",
+"title": "Infrastructure SFTP Cobra : phase 1 setup serveur",
+"excerpt": "Poser une infra SFTP pérenne (Scaleway/Ubuntu) où chaque fournisseur dépose ses fichiers stock, récupérés automatiquement par Odoo. Setup serveur guidé pas à pas.",
+"kind": "Journal",
+"tags": "infra, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/knowledge-hub.html",
+"title": "Ce Knowledge Hub lui-même",
+"excerpt": "Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO. Une page par entrée, llms.txt + JSON-LD authorship.",
+"kind": "Journal",
+"tags": "meta, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/marque-inpi-hifi-lovers.html",
+"title": "Gestion marque INPI — HIFI LOVERS",
+"excerpt": "Reprendre en main la marque HIFI LOVERS (déjà déposée à l'INPI sans que je le sache) et préparer un dépôt complémentaire figuratif + classe 16 pour le print.",
+"kind": "Journal",
+"tags": "hifi-lovers, admin, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/mission-dm-france.html",
+"title": "Brief mission Claude Code : vérification factures D&M France",
+"excerpt": "14 factures PDF importées en brouillon Odoo, non fiables. Un brief structuré et sécurisé (matching PO, DEEE, escompte, garde-fous) pour que Claude Code travaille en autonomie.",
+"kind": "Journal",
+"tags": "agent, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/operation-hs-yamaha-annonceurs.html",
+"title": "Opération HS Yamaha offert aux annonceurs — Brevo × Shopify",
+"excerpt": "Offrir le premier hors-série HiFi Lovers aux annonceurs via une mécanique propre : base Excel → Brevo → codes promo Shopify combinables restreints au segment ET au produit.",
+"kind": "Journal",
+"tags": "hifi-lovers, shopify, email, data, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/powerpoint-anglais-alexis.html",
+"title": "PowerPoint anglais Alexis — « The Secrets of My Success »",
+"excerpt": "Un PowerPoint narré de 10 slides + script calibré à la seconde pour un projet d'anglais (Dual Diploma). Workflow itératif avec QA visuel slide par slide.",
+"kind": "Journal",
+"tags": "perso, design, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/pptx-brevet-addictions-damien.html",
+"title": "PPTX oral du brevet « Les addictions chez les jeunes » (Damien)",
+"excerpt": "Transformer un script d'élève de 3e en support d'oral du brevet : 9 slides « cyan glacé », chiffres sourcés, photos intégrées — sans dénaturer la voix de l'ado.",
+"kind": "Journal",
+"tags": "perso, design, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/routing-po-drop-reassort.html",
+"title": "Routing email PO Drop vs Réassort + templates Cobra",
+"excerpt": "Router l'email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.",
+"kind": "Journal",
+"tags": "email, odoo-dev, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/seo-collections-shopify.html",
+"title": "Correctif SEO collections Shopify (audit Guillaume)",
+"excerpt": "11 problèmes systémiques sur ~175 collections après une mass-optimisation. 182 suffixes « | Cobra.fr » retirés en 26 batches GraphQL, 0 erreur. Reprise post-compaction.",
+"kind": "Journal",
+"tags": "seo-gtm, shopify, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/setup-claude-onboarding.html",
+"title": "Setup Claude : documentation, onboarding et Knowledge Hub",
+"excerpt": "Documenter la logique du setup Claude (fichiers .md, projets, deux comptes) pour la transmettre à un ami qui démarre et capitaliser session après session.",
+"kind": "Journal",
+"tags": "meta, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/sftp-pipeline-complet.html",
+"title": "Serveur SFTP + pipeline automatique stock drop",
+"excerpt": "Hardening SSH (fail2ban, ufw, chroot) + script qui injecte tout fichier déposé dans Odoo via le module existant. Le branchement sur action_run_import : gain ×60.",
+"kind": "Journal",
+"tags": "infra, odoo-dev, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/sogetronic-import-prod.html",
+"title": "Profil Sogetronic : import stock dropshipping par code fournisseur",
+"excerpt": "Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l'EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.",
+"kind": "Journal",
+"tags": "odoo-dev, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/sogetronic-seed-21mai.html",
+"title": "Sogetronic seed + restructuration Knowledge Hub Claude",
+"excerpt": "Deux besoins dans une session : charger les Codes Sage Sogetronic sur 175 fiches produit, et restructurer les fichiers de contexte Claude pour un usage double chat + Code.",
+"kind": "Journal",
+"tags": "data, meta, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/sony-bravia-prix-marge.html",
+"title": "Mise à jour prix Sony Bravia II + diagnostic marge nulle",
+"excerpt": "19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d'une marge à 0 % : l'UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.",
+"kind": "Journal",
+"tags": "odoo-admin, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/statuts-livree-facturee-payee.html",
+"title": "Statuts Livrée / Facturée / Payée sur les bons de commande",
+"excerpt": "3 statuts consolidés (Livrée/Facturée/Payée) en badges sur la fiche PO et les listes, pour connaître l'état réel d'une commande d'un coup d'œil. Pièges xpath multi-list.",
+"kind": "Journal",
+"tags": "odoo-dev, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/strategie-instagram-hifi-lovers.html",
+"title": "Stratégie Instagram HiFi Lovers — Brief Marine",
+"excerpt": "Cadrer une stratégie Instagram qui part de zéro pour HiFi Lovers : positionnement 70/30 archive/éditorial, 4 piliers, calendrier, plan d'amorçage 8 semaines, avant de la confier à Marine.",
+"kind": "Journal",
+"tags": "hifi-lovers, marketing, strat, en-cours"
+},
+{
+"url": "/knowledge-hub/journal/structuration-projet-odoo.html",
+"title": "Structuration projet Claude « Odoo » : docs de référence écosystème",
+"excerpt": "Consolider toutes les connexions techniques validées dans un doc de référence pour que chaque nouvelle conversation démarre avec le bon contexte.",
+"kind": "Journal",
+"tags": "meta, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/systeme-instructions-claude-md.html",
+"title": "Système d'instructions personnalisées Claude (CLAUDE.md + extensions)",
+"excerpt": "Standardiser le comportement de Claude sur tous mes projets et mes deux comptes : un CLAUDE.md universel + extensions strat et dev. Déclenché par un incident de mise en prod Odoo gravé en règle dure.",
+"kind": "Journal",
+"tags": "meta, strat, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/templates-email-refonte.html",
+"title": "Refonte templates email commande fournisseur (FR + EN)",
+"excerpt": "Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.",
+"kind": "Journal",
+"tags": "email, en-prod"
+}
+]

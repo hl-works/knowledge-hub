@@ -247,6 +247,39 @@ Publié : 2026-05-31
   sur-automatiser ce qui n'est pas cassé.
 
 ================================================================
+LEXIQUE IA — DÉFINITIONS SANS JARGON
+URL : https://hugolahutte.github.io/knowledge-hub/lexique/
+================================================================
+Glossaire des termes IA, source unique des info-bulles du site.
+
+- Intelligence artificielle (IA) : Des logiciels capables de tâches qui demandaient un cerveau humain (comprendre, décider, créer). L'« IA classique » est spécialisée ; l'IA générative, elle, est polyvalente.
+- IA générative : Une IA qui produit du contenu neuf (texte, image, code) à partir d'une simple consigne, au lieu d'exécuter une seule tâche programmée.
+- LLM (grand modèle de langage) : Le moteur des assistants comme Claude ou ChatGPT : un modèle entraîné sur d'énormes quantités de texte, qui prédit la suite la plus plausible de ce qu'on lui écrit.
+- Token : L'unité de base que lit et produit un LLM : un bout de mot. La longueur des échanges et leur coût se mesurent en tokens.
+- Hallucination : Quand un LLM invente une réponse fausse avec aplomb. D'où la règle de base : vérifier les faits, chiffres et références.
+- Prompt : La consigne qu'on donne à l'IA. Un bon prompt — clair, avec le contexte et l'objectif — change tout le résultat.
+- Multimodal : Capable de traiter plusieurs types d'entrées — texte, image, audio — pas seulement du texte.
+- Poids ouverts (open weights) : Un modèle qu'on peut télécharger et héberger soi-même (ex. Llama, Mistral), par opposition aux modèles « fermés » accessibles seulement via un service.
+- Anthropic : Le laboratoire américain qui crée Claude, centré sur la fiabilité et la sécurité des modèles.
+- Claude : L'assistant IA d'Anthropic, décliné en plusieurs tailles (Opus, Sonnet, Haiku) et plusieurs produits (Chat, Cowork, Code).
+- Opus / Sonnet / Haiku : Les trois tailles de Claude : le plus puissant (Opus), l'équilibré (Sonnet), le rapide (Haiku). On choisit selon la tâche.
+- Claude Chat / Cowork / Code : Trois façons d'utiliser Claude : discuter (Chat), déléguer un travail de bureau (Cowork), agir sur des fichiers et des projets (Code).
+- Terminal : La fenêtre où l'on tape des commandes au lieu de cliquer. Ça impressionne, mais ça s'utilise en copier-coller.
+- API : Un tuyau programmé qui relie deux logiciels. C'est l'une des façons de connecter un service à Claude, de manière automatisée.
+- MCP (Model Context Protocol) : Un standard ouvert créé par Anthropic : une « prise universelle » pour brancher Claude à des outils (Shopify, Drive, Gmail…) sans intégration sur-mesure.
+- Agent IA : Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — au lieu de simplement répondre.
+- GitHub : Un espace en ligne où vit ton projet avec tout son historique ; une fois branché, les mises à jour se déploient toutes seules.
+- Dépôt (repo) : Le « dossier » d'un projet sur GitHub, avec l'ensemble de ses fichiers et de son historique.
+- Commit : Une version enregistrée et datée d'un projet sur GitHub. On peut toujours y revenir.
+- Cron : Un minuteur qui lance une tâche automatiquement à intervalle régulier (ex. tous les matins à 7 h).
+- RSS : Un format standard pour récupérer automatiquement les nouveaux articles d'un site. La brique de base d'une veille.
+- Bot / Canal Telegram : Un programme qui publie des messages sur Telegram ; un canal public est suivable par n'importe qui via un simple lien.
+- CLAUDE.md : Un fichier que Claude lit au démarrage : ton, conventions, pièges. Il évite de tout réexpliquer à chaque conversation.
+- Compound Engineering : Méthode (popularisée par Kieran Klaassen et Dan Shipper, chez Every) où chaque leçon devient une règle réutilisable : ton système s'améliore tout seul à chaque session.
+- Vibe coding : Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy.
+- SEO : L'art d'être bien classé par les moteurs de recherche (Google…).
+- GEO : L'équivalent du SEO pour les IA : optimiser ses contenus pour être **cité** par les assistants (ChatGPT, Claude, Perplexity). C'est l'objectif de ce site.
+================================================================
 À PROPOS — HUGO LAHUTTE
 URL : https://hugolahutte.github.io/knowledge-hub/a-propos/
 ================================================================

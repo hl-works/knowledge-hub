@@ -256,6 +256,7 @@ button.tag:hover{border-color:var(--c-red); color:var(--c-red);}
 .lex-search svg{position:absolute; left:var(--space-3); top:50%; transform:translateY(-50%); width:18px; height:18px; stroke:var(--text-muted); fill:none; stroke-width:2; pointer-events:none;}
 .lex-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--border);}
 .lex-entry{padding:var(--space-6) 0; border-bottom:1px solid var(--border); scroll-margin-top:90px;}
+.lex-anchor{display:block; position:relative; top:-90px; height:0; visibility:hidden;}
 .lex-entry.is-hidden{display:none;}
 .lex-entry h2{font-family:var(--font-body); font-weight:700; font-size:1.25rem; margin:0 0 var(--space-2);}
 .lex-entry__def{font-size:1rem; line-height:1.6; max-width:var(--prose-max); margin:0;}
