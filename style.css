@@ -187,6 +187,12 @@ section{padding-block:var(--space-16);}
 .chip[data-filter="data"]{--tag-c:#2D6CDF;}
 .chip[data-filter="en-prod"]{--tag-c:#1F7A3D;}
 .chip[data-filter="en-cours"]{--tag-c:#9A6A00;}
+/* chips verticales : pointillés (comme les pastilles) + couleur de marque */
+.chip--vert{border-style:dashed;}
+.chip[data-filter="cobra"]{--tag-c:#C6121F;}
+.chip[data-filter="haute-fidelite"]{--tag-c:#D17A1F;}
+.chip[data-filter="hifi-lovers"]{--tag-c:#EA5045;}
+.chip[data-filter="perso"]{--tag-c:var(--c-indigo);}
 .filter-count{font-size:.8125rem; color:var(--text-muted); margin-left:auto; align-self:center;}
 .entry.is-hidden{display:none;}
 
