@@ -174,9 +174,19 @@ section{padding-block:var(--space-16);}
 
 /* ------------------- Filtres journal (chips) ---------------------- */
 .filter-bar{display:flex; flex-wrap:wrap; gap:var(--space-2); margin:var(--space-6) 0 var(--space-4);}
-.chip{font-family:var(--font-body); cursor:pointer; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:var(--space-2) var(--space-3); border:1px solid var(--border); border-radius:var(--radius); background:transparent; color:var(--text-muted); transition:background .15s ease,color .15s ease,border-color .15s ease;}
-.chip:hover{border-color:var(--c-red); color:var(--c-red);}
-.chip[aria-pressed="true"]{background:var(--c-black); color:#fff; border-color:var(--c-black);}
+.chip{font-family:var(--font-body); cursor:pointer; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:var(--space-2) var(--space-3); border:1px solid var(--border); border-radius:var(--radius); background:transparent; color:var(--text-muted); --tag-c:var(--c-black); transition:background .15s ease,color .15s ease,border-color .15s ease;}
+.chip:hover{border-color:var(--tag-c); color:var(--tag-c);}
+.chip[aria-pressed="true"]{background:var(--tag-c); color:#fff; border-color:var(--tag-c);}
+/* couleur du chip = celle de son tag (révélée au survol + actif, une seule à la fois) */
+.chip[data-filter="shopify"]{--tag-c:#5E8E3E;}
+.chip[data-filter="odoo-dev"], .chip[data-filter="odoo-admin"]{--tag-c:#714B67;}
+.chip[data-filter="agent"]{--tag-c:var(--c-violet);}
+.chip[data-filter="meta"], .chip[data-filter="strat"]{--tag-c:var(--c-indigo);}
+.chip[data-filter="marketing"]{--tag-c:var(--c-violet);}
+.chip[data-filter="seo-gtm"]{--tag-c:#1F7A8C;}
+.chip[data-filter="data"]{--tag-c:#2D6CDF;}
+.chip[data-filter="en-prod"]{--tag-c:#1F7A3D;}
+.chip[data-filter="en-cours"]{--tag-c:#9A6A00;}
 .filter-count{font-size:.8125rem; color:var(--text-muted); margin-left:auto; align-self:center;}
 .entry.is-hidden{display:none;}
 
