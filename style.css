@@ -653,6 +653,12 @@ mark{background:var(--c-gold); color:var(--c-black);}
 
 /* Placeholder image : trame sombre */
 [data-theme="dark"] .ph{background:repeating-linear-gradient(45deg,#2a2620,#2a2620 12px,#231f1a 12px,#231f1a 24px);}
+/* Visuels décoratifs en noir pur : bordure subtile pour les détacher du fond sombre */
+[data-theme="dark"] .nesting__l--llm,
+[data-theme="dark"] .loop__step--goal,
+[data-theme="dark"] .matrix__item{border:1px solid rgba(255,252,248,.18);}
+[data-theme="dark"] .matrix__item--star{border-color:var(--c-red);}
+[data-theme="dark"] .nesting__l--ml > .nesting__tag{color:var(--c-gold);}
 
 /* Bouton thème (header) — icône selon l'état */
 .nav__theme .ti-sun,.nav__theme .ti-moon,.nav__theme .ti-auto{display:none;}
