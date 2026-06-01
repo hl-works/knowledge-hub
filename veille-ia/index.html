@@ -24,7 +24,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../style.css?v=20260531n-dark4">
+<link rel="stylesheet" href="../style.css?v=20260601a">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Veille IA — les annonces qui comptent, résumées en français","description":"Veille IA quotidienne et anti-hype : les annonces qui comptent (modèles, agents, produits, recherche) résumées en français, filtrable par date et par sujet.","url":"https://hugolahutte.github.io/knowledge-hub/veille-ia/","inLanguage":"fr-FR","isPartOf":{"@type":"WebSite","name":"Knowledge Hub","url":"https://hugolahutte.github.io/knowledge-hub/"},"author":{"@type":"Person","name":"Hugo Lahutte","url":"https://hugolahutte.github.io/knowledge-hub/a-propos/"}}
 </script>
@@ -76,7 +76,7 @@
     <p class="kicker">Veille IA · mise à jour quotidienne</p>
     <h1 style="font-size:clamp(2rem,5vw,3.4rem);">Veille IA</h1>
     <hr class="rule--accent">
-    <p class="lead" style="max-width:62ch;">Les annonces IA qui comptent — modèles, agents, produits, recherche — triées et résumées en français, sans hype. Une archive consultable, filtrable par date et par sujet.</p>
+    <p class="lead" style="max-width:62ch;">Les annonces IA qui comptent — modèles, agents, produits, recherche — triées et résumées en français, sans hype. Chaque jour, l'essentiel d'abord ; le reste se déplie. Avec un angle <strong>marchands &amp; PME</strong> : ce qui change vraiment pour une boutique.</p>
   </div>
 </section>
 
@@ -89,6 +89,11 @@
       </div>
       <a class="btn btn--primary tg-cta__btn" href="https://t.me/VeilleIA_HL" target="_blank" rel="noopener">S'abonner sur Telegram →</a>
     </aside>
+
+    <div class="veille-angles" role="group" aria-label="Angle de lecture">
+      <button type="button" class="angle is-active" data-angle="all">Tout</button>
+      <button type="button" class="angle angle--biz" data-angle="biz">Marchands &amp; PME</button>
+    </div>
 
     <div class="flux-controls">
       <div class="search-box">
@@ -159,11 +164,27 @@
   var statusEl=document.getElementById('veille-status');
   var tagsEl=document.getElementById('veille-tags');
   var qEl=document.getElementById('veille-q');
-  var DATA=[], activeTag='*', q='';
+  var anglesEl=document.querySelector('.veille-angles');
+  var DATA=[], activeTag='*', q='', angle='all';
+  var PER_DAY=3;                 // top affichés par jour ; le reste se déplie
+  var openDays={};               // jours dépliés (clé = date)
+  // tags considérés « marchands & PME » (le bot peut en ajouter ; le site s'adapte)
+  var BIZ=['commerce','marchand','marchands','shopify','ecommerce','e-commerce','retail','pme','business','vente','vente-en-ligne'];
   var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var JOURS=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
   function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function hl(t,n){ if(!n) return esc(t); try{var re=new RegExp('('+n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'); return esc(t).replace(re,'<mark>$1</mark>');}catch(e){return esc(t);} }
-  function frDate(iso){ var p=(iso||'').split('-'); if(p.length<3) return iso; var d=new Date(p[0],p[1]-1,p[2]); return d.getDate()+' '+MOIS[d.getMonth()]+' '+d.getFullYear(); }
+  function dParts(iso){ var p=(iso||'').split('-'); return p.length<3?null:new Date(p[0],p[1]-1,p[2]); }
+  function frDay(iso){ var d=dParts(iso); if(!d) return iso; return JOURS[d.getDay()]; }
+  function frDate(iso){ var d=dParts(iso); if(!d) return iso; return d.getDate()+' '+MOIS[d.getMonth()]; }
+  function frYear(iso){ var d=dParts(iso); return d?d.getFullYear():''; }
+  function isBiz(e){ var t=e.tags||[]; for(var i=0;i<BIZ.length;i++){ if(t.indexOf(BIZ[i])>-1) return true; } return false; }
+  // score d'importance : champ du bot s'il existe, sinon heuristique de repli
+  function score(e){
+    if(typeof e.score==='number') return e.score;
+    if(typeof e.importance==='number') return e.importance;
+    var s=0; if(e.media) s+=1; s+=Math.min((e.tags||[]).length,3); s+=Math.min((e.resume_fr||'').length/200,2); return s;
+  }
   fetch(BASE+'/veille-ia/feed.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){
       DATA=Array.isArray(d)?d:((d&&d.items)||[]); DATA=DATA.filter(function(e){return e&&e.date;});
       DATA.sort(function(a,b){return a.date<b.date?1:(a.date>b.date?-1:0);});
@@ -177,26 +198,62 @@
     tagsEl.innerHTML=h;
     tagsEl.addEventListener('click',function(ev){var b=ev.target.closest('button.chip');if(!b)return;activeTag=b.getAttribute('data-tag');render();});
   }
-  function match(e,n){ if(activeTag!=='*'&&(e.tags||[]).indexOf(activeTag)<0)return false; if(!n)return true;
-    return (e.titre_fr+' '+e.resume_fr+' '+(e.tags||[]).join(' ')+' '+(e.auteur_x||'')).toLowerCase().indexOf(n)>-1; }
+  function match(e,n){
+    if(angle==='biz' && !isBiz(e)) return false;
+    if(activeTag!=='*'&&(e.tags||[]).indexOf(activeTag)<0)return false;
+    if(!n)return true;
+    return (e.titre_fr+' '+e.resume_fr+' '+(e.tags||[]).join(' ')+' '+(e.auteur_x||'')).toLowerCase().indexOf(n)>-1;
+  }
   function render(){
     var n=q.trim().toLowerCase();
     tagsEl.querySelectorAll('button.chip').forEach(function(c){c.setAttribute('aria-pressed',c.getAttribute('data-tag')===activeTag?'true':'false');});
     var rows=DATA.filter(function(e){return match(e,n);});
     if(!DATA.length){statusEl.hidden=false;statusEl.textContent='La première veille arrive très bientôt. En attendant, abonne-toi sur Telegram.';feedEl.innerHTML='';return;}
-    if(!rows.length){statusEl.hidden=false;statusEl.textContent='Aucune entrée pour ce filtre.';feedEl.innerHTML='';return;}
-    statusEl.hidden=true; var html='',cur='';
-    rows.forEach(function(e){ if(e.date!==cur){cur=e.date;html+='<h2 class="veille-day"><time datetime="'+esc(e.date)+'">'+esc(frDate(e.date))+'</time></h2>';} html+=entry(e,n); });
+    if(!rows.length){statusEl.hidden=false;statusEl.textContent=(angle==='biz'?'Aucune annonce « marchands » pour ce filtre pour le moment.':'Aucune entrée pour ce filtre.');feedEl.innerHTML='';return;}
+    statusEl.hidden=true;
+    // regroupe par jour (rows déjà en ordre antéchronologique)
+    var groups=[], idx={};
+    rows.forEach(function(e){ var k=e.date; if(idx[k]===undefined){idx[k]=groups.length; groups.push({date:k, items:[]});} groups[idx[k]].items.push(e); });
+    var filtering = (n || angle!=='all' || activeTag!=='*');  // si l'utilisateur filtre, on montre tout (pas de repli)
+    var html='';
+    groups.forEach(function(g){
+      // au sein d'un jour : les plus importants d'abord
+      var items=g.items.slice().sort(function(a,b){return score(b)-score(a);});
+      var shown = (filtering||openDays[g.date]) ? items : items.slice(0,PER_DAY);
+      var hidden = items.length - shown.length;
+      html+='<section class="veille-dayblock">'+
+        '<div class="veille-day"><time datetime="'+esc(g.date)+'">'+
+          '<span class="veille-day__dow">'+esc(frDay(g.date))+'</span>'+
+          '<span class="veille-day__d">'+esc(frDate(g.date))+'</span>'+
+          '<span class="veille-day__y">'+esc(frYear(g.date))+'</span>'+
+        '</time><span class="veille-day__count">'+items.length+(items.length>1?' annonces':' annonce')+'</span></div>';
+      shown.forEach(function(e){ html+=entry(e,n); });
+      if(hidden>0){ html+='<button type="button" class="veille-more" data-day="'+esc(g.date)+'">+ '+hidden+' autre'+(hidden>1?'s':'')+' ce jour-là</button>'; }
+      html+='</section>';
+    });
     feedEl.innerHTML=html; mountEmbeds();
   }
   function entry(e,n){
-    var tags=(e.tags||[]).map(function(t){return '<button type="button" class="tag" data-jump="'+esc(t)+'">'+esc(t)+'</button>';}).join('');
+    var tags=(e.tags||[]).map(function(t){return '<button type="button" class="tag'+(BIZ.indexOf(t)>-1?' tag--biz':'')+'" data-jump="'+esc(t)+'">'+esc(t)+'</button>';}).join('');
     var media=(e.media&&e.tweet_url)?'<div class="veille-embed" data-url="'+esc(e.tweet_url)+'" data-auteur="'+esc(e.auteur_x||'')+'"></div>':'';
     var src=e.tweet_url?'<a class="veille-src" href="'+esc(e.tweet_url)+'" target="_blank" rel="noopener">Voir l\'original sur X →</a>':'';
     var au=e.auteur_x?'<span class="veille-auteur">'+esc(e.auteur_x)+'</span>':'';
-    return '<article class="veille-item"><h3 class="veille-title">'+hl(e.titre_fr,n)+'</h3><p class="veille-resume">'+hl(e.resume_fr,n)+'</p>'+media+'<div class="veille-meta">'+(tags?'<div class="tags veille-tags">'+tags+'</div>':'')+'<div class="veille-foot">'+au+src+'</div></div></article>';
+    var flag=isBiz(e)?'<span class="veille-flag">Marchands</span>':'';
+    return '<article class="veille-item">'+flag+'<h3 class="veille-title">'+hl(e.titre_fr,n)+'</h3><p class="veille-resume">'+hl(e.resume_fr,n)+'</p>'+media+'<div class="veille-meta">'+(tags?'<div class="tags veille-tags">'+tags+'</div>':'')+'<div class="veille-foot">'+au+src+'</div></div></article>';
   }
-  feedEl.addEventListener('click',function(ev){var b=ev.target.closest('button.tag[data-jump]');if(!b)return;activeTag=b.getAttribute('data-jump');render();var bar=document.querySelector('.flux-controls');if(bar)bar.scrollIntoView({behavior:'smooth',block:'start'});});
+  feedEl.addEventListener('click',function(ev){
+    var more=ev.target.closest('.veille-more');
+    if(more){ openDays[more.getAttribute('data-day')]=1; render(); return; }
+    var b=ev.target.closest('button.tag[data-jump]'); if(!b)return;
+    activeTag=b.getAttribute('data-jump'); render();
+    var bar=document.querySelector('.flux-controls'); if(bar)bar.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  if(anglesEl){ anglesEl.addEventListener('click',function(ev){
+    var b=ev.target.closest('button.angle'); if(!b)return;
+    angle=b.getAttribute('data-angle');
+    anglesEl.querySelectorAll('.angle').forEach(function(x){x.classList.toggle('is-active',x===b);});
+    render();
+  }); }
   qEl.addEventListener('input',function(){q=qEl.value;render();});
   var asked=false;
   function loadW(cb){ if(asked){cb&&cb();return;} asked=true; var s=document.createElement('script'); s.src='https://platform.twitter.com/widgets.js'; s.async=true; s.charset='utf-8'; s.onload=function(){cb&&cb();}; s.onerror=function(){cb&&cb();}; document.body.appendChild(s); }
@@ -215,8 +272,8 @@
 })();
 </script>
 
-<script src="../search.js?v=20260531n-dark4" defer></script>
-<script src="../lexique.js?v=20260531n-dark4" defer></script>
-<script src="../theme.js?v=20260531n-dark4" defer></script>
+<script src="../search.js?v=20260601a" defer></script>
+<script src="../lexique.js?v=20260601a" defer></script>
+<script src="../theme.js?v=20260601a" defer></script>
 </body>
 </html>
