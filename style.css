@@ -455,7 +455,7 @@ mark{background:var(--c-gold); color:var(--c-black);}
 .nesting__l--llm{border-color:var(--c-black); background:var(--c-black);} .nesting__l--llm > .nesting__tag{color:#fff; font-size:1rem; margin-bottom:0;}
 .nesting-legend{margin:var(--space-6) 0 0; padding:0; list-style:none; max-width:var(--prose-max);}
 .nesting-legend li{display:grid; grid-template-columns:150px 1fr; gap:var(--space-1) var(--space-4); align-items:baseline; padding:var(--space-2) 0; border-top:1px solid var(--border); font-size:.9rem;}
-.nesting-legend b{font-family:var(--font-display); font-weight:900; font-stretch:125%; text-transform:uppercase; font-size:.85rem; letter-spacing:.02em; min-width:0; overflow-wrap:anywhere;}
+.nesting-legend b{font-family:var(--font-display); font-weight:900; font-stretch:125%; text-transform:uppercase; font-size:.85rem; letter-spacing:.02em; min-width:0; overflow-wrap:normal; word-break:keep-all; hyphens:none;}
 @media (max-width:520px){ .nesting-legend li{grid-template-columns:1fr;} }
 .nesting-legend span{color:var(--text-muted);}
 
