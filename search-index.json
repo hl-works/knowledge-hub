@@ -84,6 +84,34 @@
 "tags": "ia guide"
 },
 {
+"url": "/knowledge-hub/guides/site-bot-ia-en-un-week-end.html",
+"title": "Un site + un bot IA en un week-end ?",
+"excerpt": "Oui : sans savoir coder, un site statique complet et un bot de veille IA sans serveur mis en prod en un week-end avec Claude Code. Méthode, stack minimale, garde-fous.",
+"kind": "Guide",
+"tags": "build-in-public claude-code github-pages guide"
+},
+{
+"url": "/knowledge-hub/guides/etude-de-cas-knowledge-hub.html",
+"title": "Étude de cas — Knowledge Hub : de l'idée à la prod",
+"excerpt": "Build in public : livrer et faire vivre un site complet (70+ pages, dark mode, couche GEO) en HTML/CSS/JS vanilla sur GitHub Pages, avec Claude Code. Décisions, galères, temps réel, coût zéro au token.",
+"kind": "Guide",
+"tags": "build-in-public claude-code github-pages geo guide"
+},
+{
+"url": "/knowledge-hub/guides/etude-de-cas-veille-ia.html",
+"title": "Étude de cas — Bot de veille IA : de l'idée à la prod",
+"excerpt": "Un agent sans serveur : X/Twitter + RSS → API Claude → Telegram + feed.json sur le site, orchestré par GitHub Actions. Architecture 2 repos, bridge cross-repo, galères CI, coût réel ~quelques centimes/jour.",
+"kind": "Guide",
+"tags": "build-in-public agent-ia api-claude github-actions guide"
+},
+{
+"url": "/knowledge-hub/guides/making-of.html",
+"title": "Making-of — sorti en un week-end",
+"excerpt": "Du dîner entre amis au « beau bébé sorti en 2 jours » : ce site et un bot de veille IA livrés en un week-end, en binôme avec Claude Code, sans être développeur.",
+"kind": "Guide",
+"tags": "build-in-public claude-code coulisses guide"
+},
+{
 "url": "/knowledge-hub/guides/cest-quoi-ia-llm.html",
 "title": "C'est quoi l'IA, et c'est quoi un « LLM » ?",
 "excerpt": "L'IA générative et les LLM expliqués sans jargon : ce qu'ils font, qui sont les grands acteurs (OpenAI, Anthropic, Google, Mistral…), et surtout ce qu'ils ne savent PAS faire.",

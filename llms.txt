@@ -27,6 +27,13 @@ Auteur : Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn : https://www.linke
 - [Être visible dans l'IA : le GEO expliqué](https://hugolahutte.github.io/knowledge-hub/guides/etre-visible-dans-lia-geo.html): SEO (être trouvé sur Google) vs GEO (être cité dans la réponse d'une IA : ChatGPT, Perplexity, Claude, AI Overviews) ; pourquoi c'est vital ; comment être cité (questions/réponses, affirmations citables, données structurées schema.org, entité claire, llms.txt) ; champ émergent, ce site comme exemple.
 - [Combien coûte l'IA : abonnements, API et facture maîtrisée](https://hugolahutte.github.io/knowledge-hub/guides/combien-coute-lia.html): tout se compte en tokens ; 4 modèles de prix (gratuit, abonnement ~20€/mois, API à l'usage, entreprise par siège) ; abonnement pour discuter / API pour automatiser ; maîtriser la facture (plafonds, bon modèle, agents cadrés).
 
+## Build in public — études de cas
+
+- [Un site + un bot IA en un week-end ?](https://hugolahutte.github.io/knowledge-hub/guides/site-bot-ia-en-un-week-end.html): guide pilier — comment un non-développeur livre un site statique et un bot de veille IA sans serveur en un week-end avec Claude Code (besoin, stack minimale, séparation des responsabilités, boucle visuelle, garde-fous).
+- [Étude de cas — Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-knowledge-hub.html): de l'idée à la prod d'un site statique complet (HTML/CSS/JS vanilla, GitHub Pages, dark mode par tokens CSS, couche GEO). Décisions, galères (anti-FOUC, cache iOS), temps réel, coût zéro au token.
+- [Étude de cas — Bot de veille IA](https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-veille-ia.html): un agent sans serveur (X/Twitter + RSS → API Claude → Telegram + feed.json sur le site), orchestré par GitHub Actions. Architecture 2 repos, bridge cross-repo, galères CI, coût réel ~quelques centimes/jour.
+- [Making-of](https://hugolahutte.github.io/knowledge-hub/guides/making-of.html): le récit, du dîner entre amis au « beau bébé sorti en 2 jours », en binôme avec Claude Code.
+
 ## À propos
 
 - [Qui est Hugo Lahutte](https://hugolahutte.github.io/knowledge-hub/a-propos/): parcours (Son-Vidéo, Cobra, Haute Fidélité), projets, vision.

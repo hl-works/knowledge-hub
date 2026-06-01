@@ -313,6 +313,92 @@ Publié : 2026-05-31
   tourne sur l'API pour quelques euros/mois parce qu'elle est cadrée.
 
 ================================================================
+BUILD IN PUBLIC — ÉTUDES DE CAS (CLUSTER GUIDES)
+================================================================
+
+GUIDE PILIER — UN SITE + UN BOT IA EN UN WEEK-END ?
+URL : https://hugolahutte.github.io/knowledge-hub/guides/site-bot-ia-en-un-week-end.html
+Publié : 2026-06-01
+
+Question : un non-développeur peut-il livrer un vrai site + un bot IA en un
+week-end ? Réponse : OUI. Sans savoir coder, deux choses réelles en prod avec
+Claude Code : un site statique complet (journal, guides, lexique, recherche,
+dark mode, GEO) sur GitHub Pages ; un bot de veille IA sans serveur qui résume
+l'actu et la publie chaque matin sur Telegram + sur le site. Le secret n'est
+pas technique : bien décider (architecture simple, zéro dépendance, contrat de
+données clair) et laisser l'IA frapper le code pendant qu'on vérifie le rendu
+et les faits. Corps : 1) commencer par le besoin, pas la techno ; 2) stack la
+plus bête possible (HTML/CSS/JS vanilla + GitHub Pages ; script Python + GitHub
+Actions) ; 3) séparer les responsabilités (bot moteur, site affichage, reliés
+par un seul feed.json, secrets isolés) ; 4) boucle visuelle avec l'IA ; 5)
+garde-fous (budget, copyright, sécurité). À retenir : le frein n'est plus
+« je ne sais pas coder » — décider, cadrer, vérifier, c'est ce qu'un dirigeant
+sait déjà faire.
+
+ÉTUDE DE CAS — KNOWLEDGE HUB : DE L'IDÉE À LA PROD
+URL : https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-knowledge-hub.html
+Publié : 2026-06-01
+
+Cadre honnête : ne couvre pas la création ex nihilo (socle préexistant : 43
+entrées de journal, 4 verticales, recherche, coffre chiffré, design system
+« HiFi Lovers »). Porte sur la couche éditoriale + UX ajoutée : guides
+evergreen, lexique, dark mode, refonte nav, couche GEO. Stack tranchée tôt, en
+partie sur conseil de l'IA : simplicité / zéro build, gratuit (GitHub Pages),
+pas de framework. Décisions : guides 3 niveaux ; visuels/logos codés en
+HTML/CSS/SVG inline ; cluster thématique sur la landing ; dark mode par tokens
+CSS [data-theme] ; anti-FOUC par script inline ~3 lignes ; faits vérifiés,
+jamais de versions de modèles ; favicon/logo maison. Galères : FOUC (script
+inline dans le head) ; cache iOS (cache-busting ?v=) ; sessions parallèles sur
+main (resync + scripts idempotents) ; coffre chiffré intouchable. Temps/coût :
+3 jours calendaires (30 mai → 1er juin 2026), ~70 commits, l'essentiel le
+samedi (plusieurs heures effectives, en parallèle du projet Cobra). Coût aucun
+au token (abonnement Claude). Ici on parle TEMPS. Illustre : pas besoin de
+framework ; l'IA déplace le goulot (décider + vérifier) ; l'honnêteté est une
+feature.
+
+ÉTUDE DE CAS — BOT DE VEILLE IA : DE L'IDÉE À LA PROD (SANS SERVEUR)
+URL : https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-veille-ia.html
+Publié : 2026-06-01
+
+Un agent qui récupère l'actu IA, la fait résumer par l'API Claude, et la publie
+sur Telegram + page « Veille IA » du site, sans serveur, orchestré par GitHub
+Actions. Pipeline : comptes X/Twitter + RSS (feeds.txt) → twitterapi.io → API
+Claude (sélection + résumé FR neutre, anti-hype, JSON Schema imposé ; champs
+factuels relus depuis la source, pas confiés au modèle) → deux sorties depuis
+la même collecte : Telegram (push quotidien) et feed.json → site (archive).
+Déclenché chaque matin (05:00 UTC). Modules : twitter.py, feed.py, digest.py,
+telegram.py, main.py, backfill.py. Décisions : deux repos séparés (veille-ia
+moteur + secrets ; knowledge-hub site public sans secret) ; lecture de
+feed.json au runtime ; catégorisation par tags ; résumés transformatifs jamais
+le tweet recopié ; embed X + repli vignette+lien. Stack : twitterapi.io
+(~centimes/jour), RSS, API Claude (claude-opus-4-8, réglable claude-sonnet-4-6),
+Telegram Bot API (t.me/VeilleIA_HL), GitHub Actions (cron 1 run/jour), GitHub +
+GitHub Pages. feed.json = contrat de données cumulatif ; seen.json =
+déduplication ; bridge cross-repo via PAT dédié. Jamais de secret publié
+(placeholders). Galères : bridge cross-repo (conflits add/add → reset --hard sur
+la source de vérité + 3 tentatives) ; Telegram bloquant tout (envoi non-bloquant
+et optionnel) ; nom de secret divergent (alias) ; secrets.* interdit dans un if:
+de workflow (garde-fou déplacé dans le script) ; backfill déséquilibré (quota
+par compte + plafond global). Coût : twitterapi.io 100 € prépayés « pour voir »
+(plafond de confort, conso réelle ~centimes/jour) ; API Claude poignée de
+centimes/jour ; GitHub Actions gratuit. Garde-fous budget stricts. Illustre :
+un agent utile tient en ~300 lignes et 0 serveur ; la bonne architecture évite
+les galères ; on garde l'humain et le LLM honnêtes.
+
+MAKING-OF — SORTI EN UN WEEK-END
+URL : https://hugolahutte.github.io/knowledge-hub/guides/making-of.html
+Publié : 2026-06-01
+
+Vendredi 29 mai 2026, dîner entre amis : besoin d'un seul endroit pour montrer
+ce que je bricole avec l'IA. Samedi matin, lancement du site, tout s'enchaîne
+en prod : journal, lexique, tags, recherche, dark mode (72 pages), page Veille
+IA, et un bot (actu IA → API Claude → Telegram + site), jusqu'au favicon/logo
+maison. Un beau bébé sorti en ~2 jours, sans être développeur, en binôme avec
+Claude Code. Deux cas d'usage documentés et chiffrés : le site (coût zéro au
+token) et le bot de veille IA (~centimes/jour). Suite : annonce LinkedIn, doc
+du canal Telegram, suivi public.
+
+================================================================
 LEXIQUE IA — DÉFINITIONS SANS JARGON
 URL : https://hugolahutte.github.io/knowledge-hub/lexique/
 ================================================================
