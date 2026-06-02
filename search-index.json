@@ -210,6 +210,13 @@
 "tags": "cout strat vulgarisation guide"
 },
 {
+"url": "/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html",
+"title": "Knowledge Hub bilingue : version anglaise + auto-traduction",
+"excerpt": "Miroir /en/ des 74 pages, hreflang, sélecteur de langue, recherche et lexique bilingues — plus un workflow GitHub Actions qui traduit chaque nouvelle page FR via l'API Claude.",
+"kind": "Journal",
+"tags": "meta, seo-gtm, agent, en-prod"
+},
+{
 "url": "/knowledge-hub/journal/agent-creation-produits.html",
 "title": "Agent de création automatique de produits Odoo",
 "excerpt": "Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.",

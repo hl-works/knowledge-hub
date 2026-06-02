@@ -55,8 +55,9 @@ Le site est bilingue. Version anglaise : https://hugolahutte.github.io/knowledge
 - [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/hifi-lovers/): marque néo-rétro audiophile.
 - [Perso](https://hugolahutte.github.io/knowledge-hub/perso/): side-projects et expérimentations.
 
-## Journal (43 entrées)
+## Journal (44 entrées)
 
+- [Knowledge Hub bilingue : version anglaise + auto-traduction](https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html): Rendre le site bilingue FR/EN — miroir /en/ (hreflang, sélecteur de langue), recherche et lexique bilingues, sitemap bilingue, et un workflow GitHub Actions qui traduit chaque nouvelle page FR via l'API Claude. FR par défaut.
 - [Ce Knowledge Hub lui-même](https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub.html): Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO. Une page par entrée, llms.txt + JSON-LD authorship.
 - [Double Claude Code : Cobra vs HL](https://hugolahutte.github.io/knowledge-hub/journal/double-claude-code.html): Deux Claude Code : le compte Cobra (dev Odoo/Shopify) et un nouveau compte HL (perso, stratégie, Knowledge Hub). Les deux peuvent écrire dans le même journal.
 - [Setup Claude : documentation, onboarding et Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/journal/setup-claude-onboarding.html): Documenter la logique du setup Claude (fichiers .md, projets, deux comptes) pour la transmettre à un ami qui démarre et capitaliser session après session.
