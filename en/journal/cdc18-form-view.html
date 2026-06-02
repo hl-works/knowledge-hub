@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CDC-18 form view : déploiement chirurgical en prod — Journal · Hugo Lahutte</title>
-<meta name="description" content="Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d&#x27;un commit propre depuis une pile preprod3 mélangée.">
+<title>CDC-18 form view: surgical deployment to production — Journal · Hugo Lahutte</title>
+<meta name="description" content="Pushing only the PO form to production (buttons, dynamic titles, statusbar) without pulling in CDC-19 — isolating a clean commit from a mixed preprod3 stack.">
 <link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/journal/cdc18-form-view.html">
 <link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/journal/cdc18-form-view.html">
 <link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/journal/cdc18-form-view.html">
@@ -12,8 +12,8 @@
 <meta name="author" content="Hugo Lahutte">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CDC-18 form view : déploiement chirurgical en prod">
-<meta property="og:description" content="Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d&#x27;un commit propre depuis une pile preprod3 mélangée.">
+<meta property="og:title" content="CDC-18 form view: surgical deployment to production">
+<meta property="og:description" content="Pushing only the PO form to production (buttons, dynamic titles, statusbar) without pulling in CDC-19 — isolating a clean commit from a mixed preprod3 stack.">
 <meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/journal/cdc18-form-view.html">
 <meta property="article:published_time" content="2026-05-27">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -32,8 +32,8 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "CDC-18 form view : déploiement chirurgical en prod",
-  "description": "Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d'un commit propre depuis une pile preprod3 mélangée.",
+  "headline": "CDC-18 form view: surgical deployment to production",
+  "description": "Pushing only the PO form to production (buttons, dynamic titles, statusbar) without pulling in CDC-19 — isolating a clean commit from a mixed preprod3 stack.",
   "inLanguage": "en-US",
   "datePublished": "2026-05-27",
   "dateModified": "2026-05-27",
@@ -47,25 +47,25 @@
 </script>
 </head>
 <body>
-<a class="skip-link" href="#main">Aller au contenu</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="nav">
   <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
-  <nav aria-label="Principale">
+  <nav aria-label="Main">
     <ul class="nav__links" id="nav-links">
       <li class="nav__lang"><a href="/knowledge-hub/journal/cdc18-form-view.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
-      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
-      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
-      <li><a href="../how-to/">Méthode</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li><a href="../how-to/">How-to</a></li>
       <li><a href="../guides/">Guides</a></li>
-      <li><a href="../veille-ia/">Veille IA</a></li>
-      <li><a href="../a-propos/">À propos</a></li>
-      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../a-propos/">About</a></li>
+      <li><a href="../#projets">Projects</a></li>
       <li><a href="./" aria-current="page">Journal</a></li>
-      <li><a href="../#contact">Échanger</a></li>
+      <li><a href="../#contact">Get in touch</a></li>
     </ul>
     <div class="nav__actions">
-      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
       <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
     </div>
   </nav>
@@ -74,50 +74,50 @@
 <article class="article">
   <div class="container">
     <p class="caption"><a href="./">← Journal</a></p>
-    <p class="kicker">Cobra · Déploiement ciblé multi-feature</p>
-    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">CDC-18 form view : déploiement chirurgical en prod</h1>
+    <p class="kicker">Cobra · Targeted multi-feature deployment</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">CDC-18 form view: surgical deployment to production</h1>
     <hr class="rule--accent">
     <div class="meta-bar">
       <span><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></span>
       <span>·</span>
-      <time datetime="2026-05-27">27 mai 2026</time>
+      <time datetime="2026-05-27">May 27, 2026</time>
       <span>·</span>
       <a href="../cobra/">Cobra</a>
     </div>
     <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
 
     <div class="prose" style="margin-top:var(--space-8);">
-      <h3>Contexte</h3>
-      <p>Le dashboard et les filtres CDC-18 étaient déjà en prod. Le travail sur le formulaire BC était bloqué sur preprod3 depuis plusieurs jours (XMLSyntaxError, 500 fr.po, xpath absent). Objectif : pousser uniquement ce travail sans toucher aux autres features.</p>
-      <h3>Ce qui a été construit</h3>
+      <h3>Context</h3>
+      <p>The CDC-18 dashboard and filters were already in production. The work on the PO form had been stuck on preprod3 for several days (XMLSyntaxError, 500 fr.po, missing xpath). Goal: push only this work without touching any other features.</p>
+      <h3>What was built</h3>
       <ul>
-        <li>Analyse git : 19 commits CDC-18 utiles vs commit CDC-19 (<code>1c1efee</code>) mélangé dans preprod3</li>
-        <li>Commit unique propre <code>4a92774</code> sur main — 3 fichiers, 0 CDC-19 : bouton Confirmer violet, titres drop/réassort dynamiques, statusbar <code>draft+purchase</code>, state fr_FR + <code>x_order_type</code> computed</li>
-        <li><code>x_delivery_date</code> (seul ajout CDC-19) exclu manuellement</li>
-        <li>Fix XML-RPC post-déploiement : label fr_FR <code>draft</code> → « En préparation » (id 998)</li>
+        <li>Git analysis: 19 useful CDC-18 commits vs. CDC-19 commit (<code>1c1efee</code>) mixed into preprod3</li>
+        <li>Single clean commit <code>4a92774</code> on main — 3 files, 0 CDC-19: purple Confirm button, dynamic drop/restock titles, <code>draft+purchase</code> statusbar, fr_FR state + <code>x_order_type</code> computed</li>
+        <li><code>x_delivery_date</code> (sole CDC-19 addition) manually excluded</li>
+        <li>Post-deployment XML-RPC fix: fr_FR <code>draft</code> label → "En préparation" (id 998)</li>
       </ul>
-      <h3>Ce qui était difficile</h3>
+      <h3>What was hard</h3>
       <ul>
-        <li><code>git diff origin/main...origin/preprod3</code> montrait 16 fichiers (CDC-12/19/18 mélangés) — seuls 3 à changer. Lecture fichier par fichier obligatoire</li>
-        <li>Le worktree était la seule solution pour créer la branche depuis main sans casser l&#x27;état local</li>
+        <li><code>git diff origin/main...origin/preprod3</code> showed 16 files (CDC-12/19/18 mixed) — only 3 to change. File-by-file reading required</li>
+        <li>The worktree was the only solution to create the branch from main without breaking the local state</li>
       </ul>
       <h3>Stack</h3>
       <p>Python XML-RPC, Odoo 18 Enterprise SaaS, Git worktree, XML views, <code>ir.model.fields.selection</code>.</p>
-      <h3>Ce que ça illustre</h3>
-      <p>Déploiement ciblé sur un repo multi-feature : analyse git avant d&#x27;agir, isolation du seul commit nécessaire, nettoyage d&#x27;un champ parasite, migration DB post-déploiement via XML-RPC — sans merger preprod3 entière.</p>
+      <h3>What this illustrates</h3>
+      <p>Targeted deployment on a multi-feature repo: git analysis before acting, isolating the single necessary commit, cleaning a stray field, post-deployment DB migration via XML-RPC — without merging the whole preprod3.</p>
     </div>
 
     <aside class="callout" style="margin-top:var(--space-12);">
-      <h3>Voir aussi</h3>
+      <h3>See also</h3>
       <ul style="margin-top:var(--space-3);">
-        <li><a href="cdc18-build.html">CDC-18 : workflow achats Cobra (cobra_purchase)</a></li>
-        <li><a href="cdc18-stabilisation.html">Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR</a></li>
-        <li><a href="cdc19-liste-po.html">CDC-19 : vue liste Bons de commande améliorée</a></li>
+        <li><a href="cdc18-build.html">CDC-18: Cobra purchasing workflow (cobra_purchase)</a></li>
+        <li><a href="cdc18-stabilisation.html">CDC-18 stabilisation: dashboard filters, menus, fr_FR translations</a></li>
+        <li><a href="cdc19-liste-po.html">CDC-19: improved Purchase Order list view</a></li>
       </ul>
     </aside>
     <div class="btn-row">
-      <a class="btn btn--ghost" href="./">← Toutes les entrées</a>
-      <a class="btn btn--primary" href="../cobra/">Projet Cobra →</a>
+      <a class="btn btn--ghost" href="./">← All entries</a>
+      <a class="btn btn--primary" href="../cobra/">Cobra project →</a>
     </div>
   </div>
 </article>
@@ -126,13 +126,13 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Navigation principale — Knowledge Hub",
+  "name": "Main navigation — Knowledge Hub",
   "itemListElement": [
-    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 1, "name": "How-to", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
     {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hugolahutte.github.io/knowledge-hub/guides/"},
-    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
-    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
-    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
     {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"}
   ]
 }
@@ -143,38 +143,38 @@
 
       <div style="max-width:300px;">
         <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
-        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
-        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependencies</p>
         <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
       </div>
 
-      <nav aria-label="Liens de pied de page">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
         <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
-          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">How-to</a></li>
           <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
-          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
-          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
           <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
-          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">À propos</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
         </ul>
       </nav>
 
       <div>
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
         <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
           <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
-          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
-          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
-          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
         </ul>
       </div>
 
       <div style="max-width:260px;">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
-        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
-        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
-        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Get in touch</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
       </div>
 
     </div>

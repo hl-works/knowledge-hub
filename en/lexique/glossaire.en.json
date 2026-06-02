@@ -1,71 +1,71 @@
 [
  {
   "id": "intelligence-artificielle-ia",
-  "terme": "Intelligence artificielle (IA)",
+  "terme": "Artificial intelligence (AI)",
   "aliases": [
-   "IA",
-   "intelligence artificielle"
+   "AI",
+   "artificial intelligence"
   ],
-  "definition": "Des logiciels capables de tâches qui demandaient un cerveau humain (comprendre, décider, créer). L'« IA classique » est spécialisée ; l'IA générative, elle, est polyvalente.",
+  "definition": "Software capable of tasks that used to require a human brain (understanding, deciding, creating). \"Classical AI\" is specialised; generative AI is versatile.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    },
    {
-    "label": "Pourquoi l'IA change le travail",
+    "label": "Why AI changes the way we work",
     "url": "/knowledge-hub/en/guides/pourquoi-lia-change-le-travail.html"
    }
   ],
   "projets": [
    {
-    "label": "tout le stack HL Group"
+    "label": "the entire HL Group stack"
    }
   ]
  },
  {
   "id": "ia-generative",
-  "terme": "IA générative",
+  "terme": "Generative AI",
   "aliases": [
-   "IA générative",
-   "générative"
+   "generative AI",
+   "generative"
   ],
-  "definition": "Une IA qui produit du contenu neuf (texte, image, code) à partir d'une simple consigne, au lieu d'exécuter une seule tâche programmée.",
+  "definition": "An AI that produces new content (text, image, code) from a simple instruction, instead of executing a single programmed task.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    }
   ],
   "projets": [
    {
-    "label": "Knowledge Hub (rédigé avec l'IA)",
+    "label": "Knowledge Hub (written with AI)",
     "url": "/knowledge-hub/en/journal/knowledge-hub.html"
    }
   ]
  },
  {
   "id": "llm-grand-modele-de-langage",
-  "terme": "LLM (grand modèle de langage)",
+  "terme": "LLM (large language model)",
   "aliases": [
    "LLM",
-   "grand modèle de langage",
-   "modèle de langage"
+   "large language model",
+   "language model"
   ],
-  "definition": "Le moteur des assistants comme Claude ou ChatGPT : un modèle entraîné sur d'énormes quantités de texte, qui prédit la suite la plus plausible de ce qu'on lui écrit.",
+  "definition": "The engine behind assistants like Claude or ChatGPT: a model trained on enormous amounts of text that predicts the most plausible continuation of what you type.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    },
    {
-    "label": "C'est quoi Claude",
+    "label": "What is Claude",
     "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
    }
   ],
   "projets": [
    {
-    "label": "Bot de veille (un LLM rédige le digest)",
+    "label": "Monitoring bot (an LLM writes the digest)",
     "url": "/knowledge-hub/en/veille-ia/"
    }
   ]
@@ -77,14 +77,14 @@
    "token",
    "tokens"
   ],
-  "definition": "L'unité de base que lit et produit un LLM : un bout de mot. La longueur des échanges et leur coût se mesurent en tokens.",
+  "definition": "The basic unit an LLM reads and produces: a chunk of a word. The length of exchanges and their cost are measured in tokens.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    },
    {
-    "label": "Combien ça coûte (à venir)"
+    "label": "How much does it cost (coming soon)"
    }
   ],
   "projets": []
@@ -94,16 +94,16 @@
   "terme": "Hallucination",
   "aliases": [
    "hallucination",
-   "halluciner"
+   "hallucinate"
   ],
-  "definition": "Quand un LLM invente une réponse fausse avec aplomb. D'où la règle de base : vérifier les faits, chiffres et références.",
+  "definition": "When an LLM confidently invents a false answer. Hence the basic rule: verify facts, numbers, and references.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    },
    {
-    "label": "L'IA pour un commerçant",
+    "label": "AI for merchants",
     "url": "/knowledge-hub/en/guides/lia-pour-un-commercant.html"
    }
   ],
@@ -115,16 +115,16 @@
   "aliases": [
    "prompt",
    "prompts",
-   "consigne"
+   "instruction"
   ],
-  "definition": "La consigne qu'on donne à l'IA. Un bon prompt — clair, avec le contexte et l'objectif — change tout le résultat.",
+  "definition": "The instruction you give the AI. A good prompt — clear, with context and goal — changes everything about the result.",
   "guides": [
    {
-    "label": "Écrire un bon CLAUDE.md",
+    "label": "Writing a good CLAUDE.md",
     "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html"
    },
    {
-    "label": "Les principes (façon Karpathy)",
+    "label": "The principles (Karpathy style)",
     "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html"
    }
   ],
@@ -136,14 +136,14 @@
   "aliases": [
    "multimodal"
   ],
-  "definition": "Capable de traiter plusieurs types d'entrées — texte, image, audio — pas seulement du texte.",
+  "definition": "Capable of processing multiple types of input — text, image, audio — not just text.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    },
    {
-    "label": "C'est quoi Claude",
+    "label": "What is Claude",
     "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
    }
   ],
@@ -151,20 +151,20 @@
  },
  {
   "id": "poids-ouverts-open-weights",
-  "terme": "Poids ouverts (open weights)",
+  "terme": "Open weights",
   "aliases": [
-   "poids ouverts",
    "open weights",
-   "modèle ouvert"
+   "open weights",
+   "open model"
   ],
-  "definition": "Un modèle qu'on peut télécharger et héberger soi-même (ex. Llama, Mistral), par opposition aux modèles « fermés » accessibles seulement via un service.",
+  "definition": "A model you can download and self-host (e.g. Llama, Mistral), as opposed to \"closed\" models accessible only via a service.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    },
    {
-    "label": "Mes données sont-elles safe (à venir)"
+    "label": "Is my data safe (coming soon)"
    }
   ],
   "projets": []
@@ -175,14 +175,14 @@
   "aliases": [
    "Anthropic"
   ],
-  "definition": "Le laboratoire américain qui crée Claude, centré sur la fiabilité et la sécurité des modèles.",
+  "definition": "The American lab that creates Claude, focused on model reliability and safety.",
   "guides": [
    {
-    "label": "C'est quoi Claude",
+    "label": "What is Claude",
     "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
    },
    {
-    "label": "Les principes (façon Karpathy)",
+    "label": "The principles (Karpathy style)",
     "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html"
    }
   ],
@@ -194,14 +194,14 @@
   "aliases": [
    "Claude"
   ],
-  "definition": "L'assistant IA d'Anthropic, décliné en plusieurs tailles (Opus, Sonnet, Haiku) et plusieurs produits (Chat, Cowork, Code).",
+  "definition": "Anthropic's AI assistant, available in multiple sizes (Opus, Sonnet, Haiku) and multiple products (Chat, Cowork, Code).",
   "guides": [
    {
-    "label": "C'est quoi Claude",
+    "label": "What is Claude",
     "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
    },
    {
-    "label": "Chat, Cowork ou Code",
+    "label": "Chat, Cowork, or Code",
     "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
    }
   ],
@@ -219,10 +219,10 @@
    "Sonnet",
    "Haiku"
   ],
-  "definition": "Les trois tailles de Claude : le plus puissant (Opus), l'équilibré (Sonnet), le rapide (Haiku). On choisit selon la tâche.",
+  "definition": "Claude's three tiers: the most powerful (Opus), the balanced one (Sonnet), the fast one (Haiku). You pick based on the task.",
   "guides": [
    {
-    "label": "C'est quoi Claude",
+    "label": "What is Claude",
     "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
    }
   ],
@@ -236,10 +236,10 @@
    "Claude Cowork",
    "Claude Code"
   ],
-  "definition": "Trois façons d'utiliser Claude : discuter (Chat), déléguer un travail de bureau (Cowork), agir sur des fichiers et des projets (Code).",
+  "definition": "Three ways to use Claude: chat (Chat), delegate office work (Cowork), act on files and projects (Code).",
   "guides": [
    {
-    "label": "Chat, Cowork ou Code",
+    "label": "Chat, Cowork, or Code",
     "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
    }
   ],
@@ -255,12 +255,12 @@
   "terme": "Terminal",
   "aliases": [
    "terminal",
-   "ligne de commande"
+   "command line"
   ],
-  "definition": "La fenêtre où l'on tape des commandes au lieu de cliquer. Ça impressionne, mais ça s'utilise en copier-coller.",
+  "definition": "The window where you type commands instead of clicking. Looks scary, but it runs on copy-paste.",
   "guides": [
    {
-    "label": "Chat, Cowork ou Code",
+    "label": "Chat, Cowork, or Code",
     "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
    }
   ],
@@ -272,20 +272,20 @@
   "aliases": [
    "API"
   ],
-  "definition": "Un tuyau programmé qui relie deux logiciels. C'est l'une des façons de connecter un service à Claude, de manière automatisée.",
+  "definition": "A programmed pipe connecting two pieces of software. It's one of the ways to connect a service to Claude, in an automated way.",
   "guides": [
    {
-    "label": "C'est quoi un MCP",
+    "label": "What's an MCP",
     "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
    },
    {
-    "label": "Chat, Cowork ou Code",
+    "label": "Chat, Cowork, or Code",
     "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
    }
   ],
   "projets": [
    {
-    "label": "Bot de veille (API Claude)",
+    "label": "Monitoring bot (Claude API)",
     "url": "/knowledge-hub/en/veille-ia/"
    }
   ]
@@ -297,58 +297,58 @@
    "MCP",
    "Model Context Protocol"
   ],
-  "definition": "Un standard ouvert créé par Anthropic : une « prise universelle » pour brancher Claude à des outils (Shopify, Drive, Gmail…) sans intégration sur-mesure.",
+  "definition": "An open standard created by Anthropic: a \"universal plug\" to connect Claude to tools (Shopify, Drive, Gmail…) without custom integration.",
   "guides": [
    {
-    "label": "C'est quoi un MCP",
+    "label": "What's an MCP",
     "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
    },
    {
-    "label": "C'est quoi un agent IA",
+    "label": "What's an AI agent",
     "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
    }
   ],
   "projets": [
    {
-    "label": "Audit Shopify/Odoo",
+    "label": "Shopify/Odoo audit",
     "url": "/knowledge-hub/en/journal/audit-shopify-odoo-803.html"
    },
    {
-    "label": "Boutique Shopify Haute Fidélité",
+    "label": "Haute Fidélité Shopify store",
     "url": "/knowledge-hub/en/haute-fidelite/"
    }
   ]
  },
  {
   "id": "agent-ia",
-  "terme": "Agent IA",
+  "terme": "AI agent",
   "aliases": [
-   "agent IA",
-   "agent autonome",
+   "AI agent",
+   "autonomous agent",
    "agent"
   ],
-  "definition": "Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — au lieu de simplement répondre.",
+  "definition": "Claude given a goal and the means to act on its own, in a loop, until it delivers — instead of just responding.",
   "guides": [
    {
-    "label": "C'est quoi un agent IA",
+    "label": "What's an AI agent",
     "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
    },
    {
-    "label": "C'est quoi un MCP",
+    "label": "What's an MCP",
     "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
    }
   ],
   "projets": [
    {
-    "label": "Agent factures fournisseurs",
+    "label": "Supplier invoice agent",
     "url": "/knowledge-hub/en/journal/agent-factures-architecture.html"
    },
    {
-    "label": "Agent de création de produits",
+    "label": "Product creation agent",
     "url": "/knowledge-hub/en/journal/agent-creation-produits.html"
    },
    {
-    "label": "Bot de veille IA",
+    "label": "AI monitoring bot",
     "url": "/knowledge-hub/en/veille-ia/"
    }
   ]
@@ -359,32 +359,32 @@
   "aliases": [
    "GitHub"
   ],
-  "definition": "Un espace en ligne où vit ton projet avec tout son historique ; une fois branché, les mises à jour se déploient toutes seules.",
+  "definition": "An online space where your project lives with its full history; once connected, updates deploy themselves.",
   "guides": [
    {
-    "label": "C'est quoi GitHub",
+    "label": "What is GitHub",
     "url": "/knowledge-hub/en/guides/cest-quoi-github.html"
    }
   ],
   "projets": [
    {
-    "label": "Ce Knowledge Hub",
+    "label": "This Knowledge Hub",
     "url": "/knowledge-hub/en/journal/knowledge-hub.html"
    }
   ]
  },
  {
   "id": "depot-repo",
-  "terme": "Dépôt (repo)",
+  "terme": "Repository (repo)",
   "aliases": [
-   "dépôt",
+   "repository",
    "repo",
    "repository"
   ],
-  "definition": "Le « dossier » d'un projet sur GitHub, avec l'ensemble de ses fichiers et de son historique.",
+  "definition": "The \"folder\" of a project on GitHub, with all its files and history.",
   "guides": [
    {
-    "label": "C'est quoi GitHub",
+    "label": "What is GitHub",
     "url": "/knowledge-hub/en/guides/cest-quoi-github.html"
    }
   ],
@@ -396,10 +396,10 @@
   "aliases": [
    "commit"
   ],
-  "definition": "Une version enregistrée et datée d'un projet sur GitHub. On peut toujours y revenir.",
+  "definition": "A saved, timestamped version of a project on GitHub. You can always go back to it.",
   "guides": [
    {
-    "label": "C'est quoi GitHub",
+    "label": "What is GitHub",
     "url": "/knowledge-hub/en/guides/cest-quoi-github.html"
    }
   ],
@@ -410,18 +410,18 @@
   "terme": "Cron",
   "aliases": [
    "cron",
-   "tâche planifiée"
+   "scheduled task"
   ],
-  "definition": "Un minuteur qui lance une tâche automatiquement à intervalle régulier (ex. tous les matins à 7 h).",
+  "definition": "A timer that launches a task automatically at regular intervals (e.g. every morning at 7am).",
   "guides": [
    {
-    "label": "C'est quoi un agent IA",
+    "label": "What's an AI agent",
     "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
    }
   ],
   "projets": [
    {
-    "label": "Bot Telegram de veille",
+    "label": "Monitoring Telegram bot",
     "url": "/knowledge-hub/en/journal/bot-telegram-veille-hifi.html"
    }
   ]
@@ -431,44 +431,44 @@
   "terme": "RSS",
   "aliases": [
    "RSS",
-   "flux RSS"
+   "RSS feed"
   ],
-  "definition": "Un format standard pour récupérer automatiquement les nouveaux articles d'un site. La brique de base d'une veille.",
+  "definition": "A standard format for automatically pulling new articles from a site. The basic building block of any monitoring setup.",
   "guides": [
    {
-    "label": "C'est quoi un agent IA",
+    "label": "What's an AI agent",
     "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
    }
   ],
   "projets": [
    {
-    "label": "Bot Telegram de veille",
+    "label": "Monitoring Telegram bot",
     "url": "/knowledge-hub/en/journal/bot-telegram-veille-hifi.html"
    },
    {
-    "label": "Bot de veille IA",
+    "label": "AI monitoring bot",
     "url": "/knowledge-hub/en/veille-ia/"
    }
   ]
  },
  {
   "id": "bot-canal-telegram",
-  "terme": "Bot / Canal Telegram",
+  "terme": "Bot / Telegram channel",
   "aliases": [
-   "bot Telegram",
-   "canal Telegram",
+   "Telegram bot",
+   "Telegram channel",
    "Telegram"
   ],
-  "definition": "Un programme qui publie des messages sur Telegram ; un canal public est suivable par n'importe qui via un simple lien.",
+  "definition": "A program that posts messages on Telegram; a public channel is followable by anyone via a simple link.",
   "guides": [
    {
-    "label": "C'est quoi un agent IA",
+    "label": "What's an AI agent",
     "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
    }
   ],
   "projets": [
    {
-    "label": "Bot de veille IA (abonnable)",
+    "label": "AI monitoring bot (subscribable)",
     "url": "/knowledge-hub/en/veille-ia/"
    }
   ]
@@ -478,12 +478,12 @@
   "terme": "CLAUDE.md",
   "aliases": [
    "CLAUDE.md",
-   "fichier de contexte"
+   "context file"
   ],
-  "definition": "Un fichier que Claude lit au démarrage : ton, conventions, pièges. Il évite de tout réexpliquer à chaque conversation.",
+  "definition": "A file Claude reads at startup: tone, conventions, pitfalls. It saves you from re-explaining everything every conversation.",
   "guides": [
    {
-    "label": "Écrire un bon CLAUDE.md",
+    "label": "Writing a good CLAUDE.md",
     "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html"
    },
    {
@@ -493,7 +493,7 @@
   ],
   "projets": [
    {
-    "label": "Système d'instructions Claude",
+    "label": "Claude instructions system",
     "url": "/knowledge-hub/en/journal/systeme-instructions-claude-md.html"
    }
   ]
@@ -504,14 +504,14 @@
   "aliases": [
    "compound engineering"
   ],
-  "definition": "Méthode (popularisée par Kieran Klaassen et Dan Shipper, chez Every) où chaque leçon devient une règle réutilisable : ton système s'améliore tout seul à chaque session.",
+  "definition": "A method (popularised by Kieran Klaassen and Dan Shipper, at Every) where each lesson becomes a reusable rule: your system improves itself with every session.",
   "guides": [
    {
     "label": "Compound Engineering",
     "url": "/knowledge-hub/en/guides/compound-engineering.html"
    },
    {
-    "label": "Écrire un bon CLAUDE.md",
+    "label": "Writing a good CLAUDE.md",
     "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html"
    }
   ],
@@ -523,14 +523,14 @@
   "aliases": [
    "vibe coding"
   ],
-  "definition": "Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy.",
+  "definition": "Programming by describing your intent in plain language and letting AI generate the code. Term popularised by Andrej Karpathy.",
   "guides": [
    {
-    "label": "Les principes (façon Karpathy)",
+    "label": "The principles (Karpathy style)",
     "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html"
    },
    {
-    "label": "Chat, Cowork ou Code",
+    "label": "Chat, Cowork, or Code",
     "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
    }
   ],
@@ -541,22 +541,22 @@
   "terme": "SEO",
   "aliases": [
    "SEO",
-   "référencement"
+   "search engine optimisation"
   ],
-  "definition": "L'art d'être bien classé par les moteurs de recherche (Google…).",
+  "definition": "The art of ranking well in search engines (Google…).",
   "guides": [
    {
-    "label": "C'est quoi un MCP (et le GEO ci-dessous)",
+    "label": "What's an MCP (and GEO below)",
     "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
    }
   ],
   "projets": [
    {
-    "label": "Correctif SEO collections Shopify",
+    "label": "Shopify collections SEO fix",
     "url": "/knowledge-hub/en/journal/seo-collections-shopify.html"
    },
    {
-    "label": "Refonte GTM cobra.fr",
+    "label": "Cobra.fr GTM overhaul",
     "url": "/knowledge-hub/en/journal/gtm-refonte-cobra.html"
    }
   ]
@@ -567,16 +567,16 @@
   "aliases": [
    "GEO"
   ],
-  "definition": "L'équivalent du SEO pour les IA : optimiser ses contenus pour être **cité** par les assistants (ChatGPT, Claude, Perplexity). C'est l'objectif de ce site.",
+  "definition": "The SEO equivalent for AI: optimising your content to be **cited** by assistants (ChatGPT, Claude, Perplexity). That's the goal of this site.",
   "guides": [
    {
-    "label": "C'est quoi l'IA et un LLM",
+    "label": "What is AI and an LLM",
     "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
    }
   ],
   "projets": [
    {
-    "label": "Ce Knowledge Hub (llms.txt, JSON-LD)",
+    "label": "This Knowledge Hub (llms.txt, JSON-LD)",
     "url": "/knowledge-hub/en/journal/knowledge-hub.html"
    }
   ]

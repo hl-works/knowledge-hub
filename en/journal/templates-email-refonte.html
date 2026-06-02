@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Refonte templates email commande fournisseur (FR + EN) — Journal · Hugo Lahutte</title>
-<meta name="description" content="Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.">
+<title>Supplier purchase order email template redesign (FR + EN) — Journal · Hugo Lahutte</title>
+<meta name="description" content="Bringing the purchase order template up to the level of the &quot;payment&quot; template, in two languages, with a locked-text constraint. Formatting only, zero back-and-forth on content.">
 <link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/journal/templates-email-refonte.html">
 <link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/journal/templates-email-refonte.html">
 <link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/journal/templates-email-refonte.html">
@@ -12,8 +12,8 @@
 <meta name="author" content="Hugo Lahutte">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Refonte templates email commande fournisseur (FR + EN)">
-<meta property="og:description" content="Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.">
+<meta property="og:title" content="Supplier purchase order email template redesign (FR + EN)">
+<meta property="og:description" content="Bringing the purchase order template up to the level of the &quot;payment&quot; template, in two languages, with a locked-text constraint. Formatting only, zero back-and-forth on content.">
 <meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/journal/templates-email-refonte.html">
 <meta property="article:published_time" content="2026-05-15">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -32,8 +32,8 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Refonte templates email commande fournisseur (FR + EN)",
-  "description": "Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.",
+  "headline": "Supplier purchase order email template redesign (FR + EN)",
+  "description": "Bringing the purchase order template up to the level of the \"payment\" template, in two languages, with a locked-text constraint. Formatting only, zero back-and-forth on content.",
   "inLanguage": "en-US",
   "datePublished": "2026-05-15",
   "dateModified": "2026-05-15",
@@ -47,25 +47,25 @@
 </script>
 </head>
 <body>
-<a class="skip-link" href="#main">Aller au contenu</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="nav">
   <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
-  <nav aria-label="Principale">
+  <nav aria-label="Main">
     <ul class="nav__links" id="nav-links">
       <li class="nav__lang"><a href="/knowledge-hub/journal/templates-email-refonte.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
-      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
-      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
-      <li><a href="../how-to/">Méthode</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
       <li><a href="../guides/">Guides</a></li>
-      <li><a href="../veille-ia/">Veille IA</a></li>
-      <li><a href="../a-propos/">À propos</a></li>
-      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../a-propos/">About</a></li>
+      <li><a href="../#projets">Projects</a></li>
       <li><a href="./" aria-current="page">Journal</a></li>
-      <li><a href="../#contact">Échanger</a></li>
+      <li><a href="../#contact">Get in touch</a></li>
     </ul>
     <div class="nav__actions">
-      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
       <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
     </div>
   </nav>
@@ -74,47 +74,47 @@
 <article class="article">
   <div class="container">
     <p class="caption"><a href="./">← Journal</a></p>
-    <p class="kicker">Cobra · Design email + charte graphique</p>
-    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Refonte templates email commande fournisseur (FR + EN)</h1>
+    <p class="kicker">Cobra · Email design + brand guidelines</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Supplier purchase order email template redesign (FR + EN)</h1>
     <hr class="rule--accent">
     <div class="meta-bar">
       <span><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></span>
       <span>·</span>
-      <time datetime="2026-05-15">mai 2026</time>
+      <time datetime="2026-05-15">May 2026</time>
       <span>·</span>
       <a href="../cobra/">Cobra</a>
     </div>
     <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
 
     <div class="prose" style="margin-top:var(--space-8);">
-      <h3>Contexte</h3>
-      <p>Le template email de bon de commande fournisseur était fonctionnel mais sans style — texte brut, aucune cohérence visuelle. Objectif : hisser au niveau du template « paiement de factures » déjà stylé, tout en renforçant le message : répondre directement au mail, pas d&#x27;appel.</p>
-      <h3>Ce qui a été construit</h3>
+      <h3>Context</h3>
+      <p>The supplier purchase order email template was functional but unstyled — plain text, no visual consistency. Goal: bring it up to the level of the already-styled "invoice payment" template, while reinforcing the message: reply directly to the email, no phone calls.</p>
+      <h3>What was built</h3>
       <ul>
-        <li><strong>Template FR</strong> : bandeau rouge en tête, bloc récap structuré (fond <code>#F7F7F7</code>), rappel latéral bordure <code>#971928</code>, footer complet</li>
-        <li><strong>Template EN</strong> : traduction fidèle, même structure, « France » ajouté à l&#x27;adresse pour les fournisseurs internationaux</li>
-        <li>Les deux prêts à coller dans Odoo (QWeb, <code>t-out</code>, compatible email)</li>
+        <li><strong>FR template</strong>: red header banner, structured summary block (<code>#F7F7F7</code> background), side reminder with <code>#971928</code> border, full footer</li>
+        <li><strong>EN template</strong>: faithful translation, same structure, "France" added to the address for international suppliers</li>
+        <li>Both ready to paste into Odoo (QWeb, <code>t-out</code>, email-compatible)</li>
       </ul>
-      <h3>Ce qui était difficile</h3>
+      <h3>What was tricky</h3>
       <ul>
-        <li>Contrainte « texte figé » tout en restructurant : la liste des 3 points transformée en grid sans altérer une formulation</li>
-        <li>Équilibre insistance / lourdeur résolu par des formats visuels distincts (bandeau vs encadré latéral)</li>
+        <li>Working within the "locked text" constraint while restructuring: the 3-point list turned into a grid without altering a single word</li>
+        <li>The insistence vs. heaviness balance resolved through distinct visual formats (banner vs. side box)</li>
       </ul>
       <h3>Stack</h3>
-      <p>HTML/CSS inline, QWeb (Odoo email templating), charte Cobra (<code>#971928</code>, <code>#1A171B</code>, <code>#F7F7F7</code>), police Barlow.</p>
-      <h3>Ce que ça illustre</h3>
-      <p>Claude comme intégrateur de charte : extraire les patterns d&#x27;un template existant et les appliquer sur un autre avec contrainte forte (texte figé + double langue). Zéro aller-retour sur le fond.</p>
+      <p>Inline HTML/CSS, QWeb (Odoo email templating), Cobra brand guidelines (<code>#971928</code>, <code>#1A171B</code>, <code>#F7F7F7</code>), Barlow font.</p>
+      <h3>What this illustrates</h3>
+      <p>Claude as a brand guidelines integrator: extracting the patterns from an existing template and applying them to another with a hard constraint (locked text + two languages). Zero back-and-forth on content.</p>
     </div>
 
     <aside class="callout" style="margin-top:var(--space-12);">
-      <h3>Voir aussi</h3>
+      <h3>See also</h3>
       <ul style="margin-top:var(--space-3);">
-        <li><a href="routing-po-drop-reassort.html">Routing email PO Drop vs Réassort + templates Cobra</a></li>
+        <li><a href="routing-po-drop-reassort.html">PO Drop vs Restock email routing + Cobra templates</a></li>
       </ul>
     </aside>
     <div class="btn-row">
-      <a class="btn btn--ghost" href="./">← Toutes les entrées</a>
-      <a class="btn btn--primary" href="../cobra/">Projet Cobra →</a>
+      <a class="btn btn--ghost" href="./">← All entries</a>
+      <a class="btn btn--primary" href="../cobra/">Cobra project →</a>
     </div>
   </div>
 </article>
@@ -123,13 +123,13 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Navigation principale — Knowledge Hub",
+  "name": "Main navigation — Knowledge Hub",
   "itemListElement": [
-    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
     {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hugolahutte.github.io/knowledge-hub/guides/"},
-    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
-    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
-    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexicon", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
     {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"}
   ]
 }
@@ -140,38 +140,38 @@
 
       <div style="max-width:300px;">
         <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
-        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
-        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
-        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependency</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private area">🔒</a></p>
       </div>
 
-      <nav aria-label="Liens de pied de page">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
         <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
-          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
           <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
-          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
-          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Lexicon</a></li>
           <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
-          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">À propos</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
         </ul>
       </nav>
 
       <div>
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
         <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
           <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
-          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
-          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
-          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
         </ul>
       </div>
 
       <div style="max-width:260px;">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
-        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
-        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
-        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Get in touch</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
       </div>
 
     </div>

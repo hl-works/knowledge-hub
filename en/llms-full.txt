@@ -1,0 +1,468 @@
+# Knowledge Hub — Hugo Lahutte (extended version)
+
+> Hugo Lahutte's worklog and method — building his projects and content with Claude. Build in public.
+
+Author: Hugo Lahutte — hugo@hl-consulting.tech — CEO of Cobra, publisher of Haute Fidélité, founder of HL Consulting.
+Location: Chennevières-sur-Marne, Île-de-France, France.
+Background: 17 years at Son-Vidéo.com (France's #1 HiFi/home cinema e-retailer) — purchasing, sales, commercial strategy, marketing/communications, partnerships; growth from €10M to €62M. Since 2024: CEO of Cobra (Oct. 2024), publisher & editorial director of Haute Fidélité (Jan. 2025, 30+ year reference magazine relaunched), founder of HL Consulting (Jul. 2024). Marketing lecturer at Creapole-ESDI. Passionate about music, cinema, and Japanese culture (Japan Expo 2004–2009).
+LinkedIn: https://www.linkedin.com/in/hugo-lahutte — X: https://x.com/hugolh_ai
+
+================================================================
+METHOD: HOW HUGO LAHUTTE USES CLAUDE
+URL: https://hugolahutte.github.io/knowledge-hub/en/how-to/
+Published: 2026-05-30
+================================================================
+
+More and more people ask Hugo how he works with Claude.
+Here's his setup — the one he passes along to friends when they get started.
+
+1. WHAT ARE THESE FILES?
+The core of the system is a set of .md (Markdown) files pasted into the
+"Project Instructions" of a Claude project. Once that's done, every
+conversation in that project starts with that context: Claude knows the
+style, the industry, the ground rules. No need to re-explain yourself
+every time.
+
+2. THE PRINCIPLE: COMPOUND ENGINEERING
+Every time Claude gets the style wrong, you add a rule. The file improves
+with use and every future exchange benefits from it. The leverage isn't
+a better one-off prompt — it's an asset that compounds over time.
+
+3. HOW IT WORKS IN PRACTICE
+- One main CLAUDE.md file: tone, response format, behavioural rules,
+  professional context. Runs all the time.
+- Extension files loaded on demand:
+  - CLAUDE-strat.md — business / comms / marketing
+  - CLAUDE-dev.md — code
+  The main CLAUDE.md knows when to call on each one.
+- A brand DNA file: history, positioning, tone, what you say
+  and don't say. Loaded when Claude writes or communicates. ~1 hour
+  to write, major impact on quality.
+
+4. CLAUDE CHAT VS CLAUDE CODE
+- Claude Chat (claude.ai): web interface, you create a Project and paste
+  in the instructions. That's where the file system above lives.
+- Claude Code: command-line tool in the terminal, inside the repo.
+  It sees files, understands the codebase, executes code. 100% technical
+  use. Same config principle.
+
+5. WHERE TO START
+   a. Create a Project on claude.ai.
+   b. Ask Claude to build your CLAUDE.md with a scoped prompt
+      (tone, format, professional context, rules, what you don't want,
+      extension call logic; + a brand DNA file; method:
+      one question at a time, section by section).
+   c. Once the foundation is solid, write the brand DNA file.
+
+PROMPT PROVIDED TO GENERATE YOUR CLAUDE.md:
+"I want to create my CLAUDE.md file — a personal configuration file
+for my Claude projects. [...] Method: ask me ONE question at a time.
+We build it section by section. When we've covered everything, you
+generate each complete file in markdown, separately."
+(Full prompt on the how-to page.)
+
+================================================================
+GUIDES (EVERGREEN) — UNDERSTANDING AI TO MAKE DECISIONS
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/
+================================================================
+
+A series of clear guides on AI and the tools used, designed for merchants
+and business owners who want to get up to speed fast — but readable at any
+level. Each guide has three reading depths: "in 30 seconds", the visual body,
+and "to go further".
+
+GUIDE 01 — WHAT IS AI, AND WHAT'S AN "LLM"?
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-ia-llm.html
+Published: 2026-05-31
+
+- AI vs LLM: "AI" is a broad term; an LLM (large language model) is a specific
+  subset of it. Nesting: AI ⊃ Machine Learning ⊃ Deep Learning ⊃ LLM.
+- Classical AI (specialised, coded for one task) vs generative AI (one system
+  that writes, summarises, translates, codes); the LLM is the text engine of
+  generative AI.
+- What an LLM is: a model trained on enormous volumes of text that predicts the
+  most probable next token, one token at a time. It doesn't recite a database:
+  it generates/reconstructs each response on the fly.
+- The big players: OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini),
+  Meta (Llama, open weights), Mistral (French, sovereignty), DeepSeek
+  (Chinese, open, performance/price), xAI (Grok), Microsoft (Copilot, strong
+  on code), Perplexity (answer engine with cited sources). Versions change fast:
+  think in terms of families.
+- What an LLM can NOT do: it's neither a search engine nor a database — it can
+  hallucinate (confidently invent falsehoods), so verify numbers/dates/references;
+  by default it isn't connected to the real-time internet or your data (you have
+  to connect it); it's a copilot, not an oracle.
+
+GUIDE 02 — WHAT IS CLAUDE, AND WHY DID I BUILD EVERYTHING ON IT?
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-claude.html
+Published: 2026-05-31
+
+- Claude is Anthropic's AI assistant (American lab founded by ex-OpenAI
+  researchers), with an obsession for reliability and safety.
+- Not a single model but a family of three tiers: Opus (the powerhouse, complex
+  tasks), Sonnet (the balanced one, everyday use), Haiku (the fast one, volume).
+  Version numbers change; the logic stays.
+- Why it's a top contender: professional AI code editors rely on Claude;
+  Anthropic attracts the best (Andrej Karpathy, OpenAI co-founder, joined in
+  May 2026); a model built for serious work (writing, analysis, reasoning, code).
+- Why Hugo built everything on it: Cobra (management modules + technical SEO),
+  Haute Fidélité (shop + logistics), daily automated hi-fi monitoring,
+  and this Knowledge Hub — all shipped to production by a non-developer.
+
+GUIDE 03 — WHY AI IS GENUINELY CHANGING THE WAY WE WORK
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/pourquoi-lia-change-le-travail.html
+Published: 2026-05-31
+
+- Generative AI is a general-purpose technology, like electricity
+  ("AI is the new electricity", Andrew Ng, 2017): it plugs into everything,
+  across every industry.
+- Signals that this isn't hype (examples current as of May 2026): founders
+  are pivoting everything onto it (Jeff Bezos co-founded Project Prometheus),
+  top-tier researchers are switching houses, giants are committing hundreds of
+  billions per year to AI infrastructure.
+- What it changes: work shifts from execution to oversight (describe and verify);
+  a non-technical person can do technical things; the pace changes scale
+  (weeks → hours).
+- What it doesn't change: judgment stays human (AI proposes, you decide, it can
+  be confidently wrong); value goes to those who frame the right problem and
+  verify; the advantage belongs to early adopters who actually practice.
+
+GUIDE 04 — CHAT, COWORK, OR CODE: WHICH ONE TO USE (AND THE "TERMINAL")
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/chat-cowork-code-terminal.html
+Published: 2026-05-31
+
+- Three entry points to the same Claude: Chat (talk: think, write, analyse),
+  Cowork (delegate office work autonomously, for non-developers), Code (act
+  directly on files/projects/sites, run commands, deploy).
+- The terminal is just a window where you type commands instead of clicking;
+  no need to master it: copy-paste-confirm, and paste the error to Claude if
+  something breaks.
+- Installing Claude Code in one command: Mac/Linux "curl -fsSL
+  https://claude.ai/install.sh | bash"; Windows (PowerShell) "irm
+  https://claude.ai/install.ps1 | iex"; then "claude" (paid subscription).
+  A Desktop app exists, no terminal needed. Docs: code.claude.com/docs/en/setup.
+- No need for a powerful machine: all computing happens on Anthropic's servers.
+  A good machine is useful for comfort and running automations (machine on 24/7).
+
+GUIDE 05 — WHAT IS GITHUB, AND WHY IS IT FREE AND MAGICAL
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-github.html
+Published: 2026-05-31
+
+- GitHub = an online place where your project lives, with the complete history
+  of every change (a "Google Drive with total memory"): roll back to any version
+  with one click, work without fear.
+- Free for the essentials (owned by Microsoft; free tier sufficient for an
+  indie/SME), and the world standard (any contractor knows how to use it).
+- "Wire it once, keeps itself up to date": every pushed change deploys
+  automatically online (no more FTP). Site, Shopify theme, Odoo automations
+  all live there; Claude Code pushes, it's live ~1 min later.
+- No need to master it: Claude Code handles versioning, the human validates.
+
+GUIDE 06 — WHAT'S AN "MCP", AND HOW TO CONNECT CLAUDE TO YOUR TOOLS
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html
+Published: 2026-05-31
+
+- By default Claude "can't see" your tools (a head with no hands). Connecting it
+  means giving it hands.
+- 4 levels, from simplest to most powerful: copy-paste / screenshot →
+  browser → API → MCP.
+- MCP = Model Context Protocol, an open standard created by Anthropic, like a
+  "USB plug": any compatible tool connects without custom integration (Shopify,
+  Drive, Gmail…), and Claude reads + acts within the authorised scope.
+- In Hugo's setup: Shopify, Drive, emails connected; Claude Code linked to
+  GitHub, which drives Odoo and Shopify. Claude works on real tools, not a demo.
+
+GUIDE 07 — WHAT'S AN "AI AGENT"?
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html
+Published: 2026-05-31
+
+- Assistant = responds (you ask, it answers, you take over). Agent = acts:
+  autonomous loop goal → act → observe → adjust → deliver, with access to tools.
+- Use cases: daily automated monitoring, email triage, metrics surveillance.
+- Essential guardrail (lesson from an agent that burned its budget and produced
+  nothing): explicit goal, spending cap, limited frequency, measurable success
+  criterion.
+- Start small: one agent, one task, prove reliability before expanding.
+
+GUIDE 08 — WRITING A GOOD CLAUDE.MD (THE MOST VALUABLE FILE YOU'LL EVER MAKE)
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html
+Published: 2026-05-31
+
+- CLAUDE.md = a context file read at startup that sets tone, rules, traps:
+  you stop repeating yourself, responses land right on the first try.
+- Content (4 families): tone & format; conventions (industry, tools, vocabulary);
+  off-limits (jargon, unsolicited plans, flattery); pitfalls → rules (the most
+  valuable part).
+- Best practices: short beats exhaustive; concrete beats abstract; one rule =
+  one real mistake; split by context (base + extensions).
+- Make it grow: every recurring error becomes a rule (Compound Engineering
+  applied to your context).
+
+GUIDE 09 — THE 4 PRINCIPLES I APPLY WITH AI (KARPATHY STYLE)
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/principes-facon-karpathy.html
+Published: 2026-05-31
+
+- Andrej Karpathy: OpenAI co-founder, former head of AI at Tesla, great
+  communicator (popularised "vibe coding"); joined Anthropic in May 2026.
+- 4 principles (personal synthesis, in his spirit — not official rules):
+  1) think before responding; 2) simplicity first; 3) surgical edits;
+  4) goal-driven execution.
+- Effect: save tokens, time, and quality; the "surgical" principle was born
+  from a production deploy that broke everything (too many changes at once).
+
+GUIDE 10 — COMPOUND ENGINEERING: YOUR METHOD IMPROVES ITSELF
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/compound-engineering.html
+Published: 2026-05-31
+
+- Principle: turn every lesson into a reusable rule/tool; each unit of work
+  makes the next one easier. Term popularised by Kieran Klaassen and Dan Shipper
+  (Every) while building their email assistant.
+- Loop: do → review → capture the lesson (it enters the context) →
+  start again from a higher baseline.
+- Examples: production deploy that breaks → hard rule; agent that burns its
+  budget → budget guardrail. Incidents harden the system.
+- Cumulative effect (compound interest): after dozens of sessions, the context
+  is worth a team that knows you. That's what this Knowledge Hub is about.
+
+GUIDE 11 — AI IN PRACTICE, FOR A MERCHANT OR AN SME
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/lia-pour-un-commercant.html
+Published: 2026-05-31
+
+- No need to be a tech company: AI hits the repetitive chores first —
+  bulk product descriptions, SEO, cross-referencing sales (shop + back office),
+  email triage, market monitoring.
+- Gain: do in hours what used to take days, with the same headcount (not
+  "replacing people").
+- Doable without a tech team (non-developer shipping what used to need an agency);
+  what matters: knowing what to ask for and verifying the output.
+- Start with one precise, measurable, recurring chore; traps: AI makes mistakes
+  (verify numbers), keep humans on customer relationships, don't over-automate
+  what isn't broken.
+
+GUIDE 12 — IS MY DATA SAFE WITH AI?
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/mes-donnees-sont-elles-en-securite.html
+Published: 2026-05-31
+
+- Where data goes: to the provider's servers (cloud), encrypted in transit
+  (HTTPS). By default an assistant doesn't "remember" across conversations
+  (unless memory feature is on) and doesn't access your tools without a
+  connection. The real question: who can see it and what does the provider do with it.
+- Training: depends on the plan. Consumer (free) — conversations may be used to
+  improve models, usually opt-outable in settings. Pro / enterprise / API —
+  no training on your data by default, often contractual. Policies vary and
+  evolve: check the "training" clause for your plan (Anthropic prioritises
+  privacy, but verify).
+- Sovereignty / GDPR (for regulated or strategic data): EU hosting, a European
+  provider like Mistral, or a self-hosted open model — more control, more
+  complexity.
+- 4 reflexes: 1) the right plan (pro for work); 2) disable training if the
+  option exists; 3) no unnecessary secrets (anonymise); 4) sovereign solution
+  reserved for sensitive data. General guidance, not legal advice.
+
+GUIDE 13 — HOW TO TALK TO AI PROPERLY: WRITING A GOOD PROMPT
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/ecrire-un-bon-prompt.html
+Published: 2026-05-31
+
+- A prompt = the instruction you give AI; it's the single biggest driver of
+  results. No "magic formula": clarity wins.
+- Recipe for a good prompt: context (who/situation) + precise task + output
+  format + constraints (length, tone, what to avoid), and one example of the
+  desired result.
+- Reflexes: give an example, iterate (say what's off), ask AI to ask its own
+  questions, give it a role, break a big request down.
+- When you keep typing the same instructions every time, lock them into a
+  CLAUDE.md.
+
+GUIDE 14 — BEING VISIBLE IN AI: GEO EXPLAINED
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/etre-visible-dans-lia-geo.html
+Published: 2026-05-31
+
+- SEO = being found on a search engine (list of links, you're after the click).
+  GEO (Generative Engine Optimization) = being cited in the response written
+  by an AI (ChatGPT, Perplexity, Claude, AI Overviews).
+- Why it matters: more and more people ask an AI instead of Googling; if it
+  doesn't cite you, you don't exist in that response — even if you rank well on
+  Google.
+- How to get cited: Q&A structure, factual and citable statements, structured
+  data (schema.org, FAQPage), identifiable entity (author, authority), llms.txt
+  file. Overlaps heavily with good SEO.
+- Emerging and opaque field: no guarantees, but solid principles. This site is
+  built as an example (1 page/question, JSON-LD, llms.txt/full).
+
+GUIDE 15 — HOW MUCH DOES AI COST: SUBSCRIPTIONS, API, AND KEEPING THE BILL UNDER CONTROL
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/combien-coute-lia.html
+Published: 2026-05-31
+
+- Everything is counted in tokens (chunks of words read + produced): the longer
+  the exchange, the more it costs; a powerful model costs more than a fast one.
+- 4 pricing models: free (limited, data possibly used); personal subscription
+  (flat fee, often ~€20/month); pay-per-use API (per token, for automating);
+  enterprise (per seat, with guarantees). Prices evolve: think in orders of
+  magnitude.
+- Subscription for daily conversations; API for automating / connecting tools /
+  agents.
+- Controlling the bill: spending caps on the API, the right model for the task,
+  scoped agents (budget, frequency). Example: the daily hi-fi monitoring runs on
+  the API for a few euros/month because it's well-scoped.
+
+================================================================
+BUILD IN PUBLIC — CASE STUDIES (GUIDE CLUSTER)
+================================================================
+
+PILLAR GUIDE — A SITE + AN AI BOT IN A WEEKEND?
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/site-bot-ia-en-un-week-end.html
+Published: 2026-06-01
+
+Question: can a non-developer ship a real site + an AI bot in a weekend?
+Answer: YES. Without knowing how to code, two real things in production with
+Claude Code: a complete static site (journal, guides, glossary, search, dark
+mode, GEO) on GitHub Pages; a serverless AI monitoring bot that summarises
+the news and publishes it every morning on Telegram + on the site. The secret
+isn't technical: make good decisions (simple architecture, zero dependencies,
+clear data contract) and let AI hit the code while you verify the output and
+the facts. Body: 1) start with the need, not the tech; 2) dumbest possible
+stack (vanilla HTML/CSS/JS + GitHub Pages; Python script + GitHub Actions);
+3) separate responsibilities (bot = engine, site = display, connected by a
+single feed.json, secrets isolated); 4) visual loop with AI; 5) guardrails
+(budget, copyright, security). Key takeaway: the blocker is no longer "I can't
+code" — deciding, scoping, verifying is exactly what a business owner already
+knows how to do.
+
+CASE STUDY — KNOWLEDGE HUB: FROM IDEA TO PRODUCTION
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/etude-de-cas-knowledge-hub.html
+Published: 2026-06-01
+
+Honest framing: doesn't cover creation from scratch (pre-existing base: 43
+journal entries, 4 verticals, search, encrypted vault, "HiFi Lovers" design
+system). Covers the editorial + UX layer added: evergreen guides, glossary,
+dark mode, nav overhaul, GEO layer. Stack decided early, partly on AI's advice:
+simplicity / zero build, free (GitHub Pages), no framework. Decisions: 3-depth
+guides; visuals/logos coded in inline HTML/CSS/SVG; thematic cluster on the
+landing page; CSS token dark mode [data-theme]; anti-FOUC via ~3-line inline
+script; verified facts, never model version numbers; custom favicon/logo.
+Struggles: FOUC (inline script in the head); iOS cache (cache-busting ?v=);
+parallel sessions on main (resync + idempotent scripts); untouchable encrypted
+vault. Time/cost: 3 calendar days (May 30 → June 1, 2026), ~70 commits,
+most of it on Saturday (several effective hours, in parallel with Cobra project).
+Zero token cost (Claude subscription). It's TIME we're talking about here.
+Illustrates: no framework needed; AI shifts the bottleneck (deciding + verifying);
+honesty is a feature.
+
+CASE STUDY — AI MONITORING BOT: FROM IDEA TO PRODUCTION (SERVERLESS)
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/etude-de-cas-veille-ia.html
+Published: 2026-06-01
+
+An agent that retrieves AI news, has it summarised by the Claude API, and
+publishes it on Telegram + the "AI Monitor" page of the site, serverlessly,
+orchestrated by GitHub Actions. Pipeline: X/Twitter accounts + RSS (feeds.txt)
+→ twitterapi.io → Claude API (selection + neutral FR summary, anti-hype, imposed
+JSON Schema; factual fields re-read from source, not entrusted to the model) →
+two outputs from the same collection: Telegram (daily push) and feed.json →
+site (archive). Triggered every morning (05:00 UTC). Modules: twitter.py,
+feed.py, digest.py, telegram.py, main.py, backfill.py. Decisions: two separate
+repos (veille-ia engine + secrets; knowledge-hub public site with no secrets);
+reading feed.json at runtime; categorisation by tags; transformative summaries —
+never a copied tweet; X embed + image+link fallback. Stack: twitterapi.io
+(~cents/day), RSS, Claude API (claude-opus-4-8, adjustable to claude-sonnet-4-6),
+Telegram Bot API (t.me/VeilleIA_HL), GitHub Actions (cron 1 run/day), GitHub +
+GitHub Pages. feed.json = cumulative data contract; seen.json = deduplication;
+cross-repo bridge via dedicated PAT. No secret ever published (placeholders).
+Struggles: cross-repo bridge (add/add conflicts → reset --hard on the source of
+truth + 3 attempts); Telegram blocking everything (non-blocking optional send);
+divergent secret name (alias); secrets.* forbidden in a workflow if: condition
+(guardrail moved to the script); unbalanced backfill (quota per account +
+global cap). Cost: twitterapi.io €100 prepaid "to test the waters" (comfort
+cap, real consumption ~cents/day); Claude API a handful of cents/day; GitHub
+Actions free. Strict budget guardrails. Illustrates: a useful agent fits in
+~300 lines and 0 servers; the right architecture prevents the headaches; keep
+both the human and the LLM honest.
+
+MAKING-OF — SHIPPED IN A WEEKEND
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/making-of.html
+Published: 2026-06-01
+
+Friday May 29, 2026, dinner with friends: needed one place to show what I'm
+building with AI. Saturday morning, launched the site, everything shipped to
+production in sequence: journal, glossary, tags, search, dark mode (72 pages),
+AI Monitor page, and a bot (AI news → Claude API → Telegram + site), all the
+way to a custom favicon/logo. A beautiful thing shipped in ~2 days, without
+being a developer, side by side with Claude Code. Two documented and costed
+use cases: the site (zero token cost) and the AI monitoring bot (~cents/day).
+Next: LinkedIn announcement, Telegram channel documentation, public follow-up.
+
+================================================================
+AI GLOSSARY — JARGON-FREE DEFINITIONS
+URL: https://hugolahutte.github.io/knowledge-hub/en/lexique/
+================================================================
+Glossary of AI terms, the single source of truth for the site's tooltips.
+
+- Artificial intelligence (AI): Software capable of tasks that used to require a human brain (understanding, deciding, creating). "Classical AI" is specialised; generative AI is versatile.
+- Generative AI: An AI that produces new content (text, image, code) from a simple instruction, instead of executing a single programmed task.
+- LLM (large language model): The engine behind assistants like Claude or ChatGPT: a model trained on enormous amounts of text that predicts the most plausible continuation of what you type.
+- Token: The basic unit an LLM reads and produces: a chunk of a word. The length of exchanges and their cost are measured in tokens.
+- Hallucination: When an LLM confidently invents a false answer. Hence the basic rule: verify facts, numbers, and references.
+- Prompt: The instruction you give the AI. A good prompt — clear, with context and goal — changes everything about the result.
+- Multimodal: Capable of processing multiple types of input — text, image, audio — not just text.
+- Open weights: A model you can download and self-host (e.g. Llama, Mistral), as opposed to "closed" models accessible only via a service.
+- Anthropic: The American lab that creates Claude, focused on model reliability and safety.
+- Claude: Anthropic's AI assistant, available in multiple sizes (Opus, Sonnet, Haiku) and multiple products (Chat, Cowork, Code).
+- Opus / Sonnet / Haiku: Claude's three tiers: the most powerful (Opus), the balanced (Sonnet), the fast one (Haiku). You pick based on the task.
+- Claude Chat / Cowork / Code: Three ways to use Claude: chat (Chat), delegate office work (Cowork), act on files and projects (Code).
+- Terminal: The window where you type commands instead of clicking. Looks scary, but it runs on copy-paste.
+- API: A programmed pipe connecting two pieces of software. It's one of the ways to connect a service to Claude, in an automated way.
+- MCP (Model Context Protocol): An open standard created by Anthropic: a "universal plug" to connect Claude to tools (Shopify, Drive, Gmail…) without custom integration.
+- AI agent: Claude given a goal and the means to act on its own, in a loop, until it delivers — instead of just responding.
+- GitHub: An online space where your project lives with its full history; once connected, updates deploy themselves.
+- Repository (repo): The "folder" of a project on GitHub, with all its files and history.
+- Commit: A saved, timestamped version of a project on GitHub. You can always go back to it.
+- Cron: A timer that launches a task automatically at regular intervals (e.g. every morning at 7am).
+- RSS: A standard format for automatically pulling new articles from a site. The basic building block of any monitoring setup.
+- Bot / Telegram channel: A program that posts messages on Telegram; a public channel is followable by anyone via a simple link.
+- CLAUDE.md: A file Claude reads at startup: tone, conventions, pitfalls. It saves you from re-explaining everything every conversation.
+- Compound Engineering: A method (popularised by Kieran Klaassen and Dan Shipper, at Every) where each lesson becomes a reusable rule: your system improves itself with every session.
+- Vibe coding: Programming by describing your intent in plain language and letting AI generate the code. Term popularised by Andrej Karpathy.
+- SEO: The art of ranking well in search engines (Google…).
+- GEO: The SEO equivalent for AI: optimising your content to be **cited** by assistants (ChatGPT, Claude, Perplexity). That's the goal of this site.
+- OpenAI / ChatGPT: The American lab behind ChatGPT, the assistant that kicked off the consumer generative AI wave in late 2022.
+- Google / Gemini: Google's AI, integrated into its ecosystem and known for long documents and multimodal capabilities (text, image, audio).
+- Meta / Llama: Meta's family of "open weights" models: you can download and self-host them.
+- Mistral: France's and Europe's AI champion, partly open weights. The sovereignty argument when hosting your data in Europe matters.
+- DeepSeek: The Chinese open model, formidable on the performance/price ratio — but raising data privacy questions.
+- xAI / Grok: Elon Musk's model (xAI), wired directly into the X social network.
+- Microsoft / Copilot: Microsoft's AI, integrated into Windows and the Office suite, and widely used for code. Under the hood: partner models (including OpenAI).
+- Perplexity: Less a model than an "answer engine": it searches the web and responds with cited sources.
+================================================================
+ABOUT — HUGO LAHUTTE
+URL: https://hugolahutte.github.io/knowledge-hub/en/a-propos/
+================================================================
+High-end audio/video entrepreneur. A coherent ecosystem: Cobra
+(HiFi & Home Cinema retail, Odoo/Shopify tech stack), Haute Fidélité
+(reference magazine relaunched in 2025), HiFi Lovers (community brand).
+Common thread: one consistent way of working with Claude applied everywhere,
+and a life of passion (music, cinema, design, pop culture) that feeds the brands.
+
+================================================================
+PROJECTS
+================================================================
+- Cobra — tech stack, Odoo ERP, Shopify sync, automations,
+  driven with a dedicated Claude Code account.
+- Haute Fidélité — high-end audio electronics boutique.
+- HiFi Lovers — neo-retro audiophile brand (design, merch, editorial).
+- Personal — side projects and experiments.
+
+Coherence: dev (Cobra) feeds the shops, shops feed the community
+(HiFi Lovers), personal projects serve as the lab.
+
+================================================================
+JOURNAL
+================================================================
+Dated entries, one HTML page per session. Two Claude agents contribute:
+- Claude · HL (personal): strategy sessions, personal projects.
+- Claude · Cobra (dev): Odoo / Shopify / dev sessions.
+
+================================================================
+CONTACT
+================================================================
+Hugo documents his practice in public and is open to conversations about
+Claude, his method, and his projects. No commercial pitch for now —
+just happy to talk. Contact: hugo@hl-consulting.tech.
