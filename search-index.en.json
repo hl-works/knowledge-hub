@@ -1,0 +1,513 @@
+[
+ {
+  "url": "/knowledge-hub/en/",
+  "title": "Home",
+  "excerpt": "Method, projects and journal — how Hugo Lahutte builds with Claude.",
+  "kind": "Home",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/how-to/",
+  "title": "How I use Claude",
+  "excerpt": "The method: CLAUDE.md, Compound Engineering, Claude Chat vs Code, prompt to copy.",
+  "kind": "Method",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/guides/",
+  "title": "AI Guides",
+  "excerpt": "Clear guides on AI for merchants and business owners — understand it to make decisions.",
+  "kind": "Guides",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/veille-ia/",
+  "title": "AI Monitor",
+  "excerpt": "Daily automated AI monitoring: global AI + AI for merchants and business owners. Anti-hype, Telegram subscription.",
+  "kind": "AI Watch",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/lexique/",
+  "title": "AI Glossary",
+  "excerpt": "Clear definitions of AI terms: LLM, agent, MCP, RAG, context, prompt, tokens… The vocabulary to understand Claude and applied AI.",
+  "kind": "Glossary",
+  "tags": "lexique ia glossaire"
+ },
+ {
+  "url": "/knowledge-hub/en/a-propos/",
+  "title": "About — Hugo Lahutte",
+  "excerpt": "Background: Son-Vidéo, Cobra, Haute Fidélité, HL Consulting.",
+  "kind": "About",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/journal/",
+  "title": "Journal",
+  "excerpt": "All documented sessions, filterable by tag.",
+  "kind": "Journal",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/cobra/",
+  "title": "Cobra",
+  "excerpt": "Odoo / Shopify tech stack, e-commerce, automations.",
+  "kind": "Project",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/haute-fidelite/",
+  "title": "Haute Fidélité",
+  "excerpt": "The reference HiFi magazine, relaunched + shop.",
+  "kind": "Project",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/hifi-lovers/",
+  "title": "HiFi Lovers",
+  "excerpt": "Neo-retro audiophile brand: design, merch, editorial.",
+  "kind": "Project",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/perso/",
+  "title": "Personal",
+  "excerpt": "Side projects, admin, experiments.",
+  "kind": "Project",
+  "tags": ""
+ },
+ {
+  "url": "/knowledge-hub/en/guides/cest-quoi-claude.html",
+  "title": "What is Claude, and why did I build everything on it?",
+  "excerpt": "Claude, Anthropic's AI assistant, explained simply: who makes it, why it's in the top tier, and why I made it the foundation of all my projects (for real, not just a demo).",
+  "kind": "Guide",
+  "tags": "ia guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/site-bot-ia-en-un-week-end.html",
+  "title": "A site + an AI bot in a weekend?",
+  "excerpt": "Yes: without knowing how to code, a complete static site and a serverless AI monitoring bot shipped in one weekend with Claude Code. Method, minimal stack, guardrails.",
+  "kind": "Guide",
+  "tags": "build-in-public claude-code github-pages guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/etude-de-cas-knowledge-hub.html",
+  "title": "Case study — Knowledge Hub: from idea to production",
+  "excerpt": "Build in public: shipping and running a complete site (70+ pages, dark mode, GEO layer) in vanilla HTML/CSS/JS on GitHub Pages, with Claude Code. Decisions, struggles, real time, zero token cost.",
+  "kind": "Guide",
+  "tags": "build-in-public claude-code github-pages geo guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/etude-de-cas-veille-ia.html",
+  "title": "Case study — AI monitoring bot: from idea to production",
+  "excerpt": "A serverless agent: X/Twitter + RSS → Claude API → Telegram + feed.json on the site, orchestrated by GitHub Actions. 2-repo architecture, cross-repo bridge, CI struggles, real cost ~a few cents/day.",
+  "kind": "Guide",
+  "tags": "build-in-public agent-ia api-claude github-actions guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/making-of.html",
+  "title": "Making-of — shipped in a weekend",
+  "excerpt": "From dinner with friends to a \"beautiful thing shipped in 2 days\": this site and an AI monitoring bot delivered in a weekend, side by side with Claude Code, without being a developer.",
+  "kind": "Guide",
+  "tags": "build-in-public claude-code coulisses guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html",
+  "title": "What is AI, and what's an \"LLM\"?",
+  "excerpt": "Generative AI and LLMs explained without jargon: what they do, who the big players are (OpenAI, Anthropic, Google, Mistral…), and above all what they can NOT do.",
+  "kind": "Guide",
+  "tags": "ia guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html",
+  "title": "Chat, Cowork, or Code: which one to use (and the famous \"terminal\")",
+  "excerpt": "Three ways to use Claude depending on the task — and the truth about the \"terminal\", which looks scary but installs in one command you just copy-paste.",
+  "kind": "Guide",
+  "tags": "ia guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/pourquoi-lia-change-le-travail.html",
+  "title": "Why AI is genuinely changing the way we work",
+  "excerpt": "Not another trend. Why generative AI is a shift of the same order as electricity, what it concretely changes for a business owner or merchant, and what it doesn't change.",
+  "kind": "Guide",
+  "tags": "ia guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/cest-quoi-github.html",
+  "title": "What is GitHub, and why is it free and magical",
+  "excerpt": "GitHub for non-devs: the vault that saves your work, keeps the full history, and once connected, updates itself. Free to get started.",
+  "kind": "Guide",
+  "tags": "github infra guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html",
+  "title": "What's an \"MCP\", and how to connect Claude to your tools",
+  "excerpt": "Copy-paste, browser, API, MCP: the four ways to connect Claude to your tools (Shopify, Gmail, Drive…), from simplest to most powerful.",
+  "kind": "Guide",
+  "tags": "mcp claude infra guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html",
+  "title": "What's an \"AI agent\"?",
+  "excerpt": "An AI agent is Claude given a goal and the means to act on its own, in a loop, until it delivers. What it makes possible — and the essential guardrail.",
+  "kind": "Guide",
+  "tags": "agent ia guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html",
+  "title": "Writing a good CLAUDE.md (the most valuable file you'll ever make)",
+  "excerpt": "The file that tells Claude how to work with you — tone, conventions, pitfalls to avoid. How to write it, and how to make it grow.",
+  "kind": "Guide",
+  "tags": "claude methode doc guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html",
+  "title": "The 4 principles I apply with AI (Karpathy style)",
+  "excerpt": "Who Andrej Karpathy is, and the 4 principles I've drawn from him to make AI save me time: think before you act, keep it simple, stay surgical, drive by objective.",
+  "kind": "Guide",
+  "tags": "karpathy methode ia guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/compound-engineering.html",
+  "title": "Compound Engineering: your method improves itself",
+  "excerpt": "The principle that makes your AI usage improve on its own: every lesson is captured and reused, and your system starts each session from a higher baseline.",
+  "kind": "Guide",
+  "tags": "compound-engineering methode ia guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/lia-pour-un-commercant.html",
+  "title": "AI in practice, for a merchant or an SME",
+  "excerpt": "What a merchant or SME can realistically do with AI today, without a tech team. The use cases that pay off, seen from my own shop floor.",
+  "kind": "Guide",
+  "tags": "ia strat commerce guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/mes-donnees-sont-elles-en-securite.html",
+  "title": "Is my data safe with AI?",
+  "excerpt": "Where your data goes when you use AI, who can see it, whether it's used to train models — and the simple reflexes (plan, settings, sovereignty) to stay in control.",
+  "kind": "Guide",
+  "tags": "securite donnees strat guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/ecrire-un-bon-prompt.html",
+  "title": "How to talk to AI properly: writing a good prompt",
+  "excerpt": "A good prompt is 80% of the result: the recipe (context, task, format, constraints), the reflexes that change everything, and why iterating beats a \"magic phrase\".",
+  "kind": "Guide",
+  "tags": "prompt methode vulgarisation guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/etre-visible-dans-lia-geo.html",
+  "title": "Being visible in AI: GEO explained",
+  "excerpt": "The SEO of the AI era: being cited in responses from ChatGPT, Perplexity, or Claude. Why it's becoming vital, and the concrete steps to get there.",
+  "kind": "Guide",
+  "tags": "geo seo strat guide"
+ },
+ {
+  "url": "/knowledge-hub/en/guides/combien-coute-lia.html",
+  "title": "How much does AI cost: subscriptions, API, and keeping the bill under control",
+  "excerpt": "Everything is counted in tokens. The ways to pay for AI (free, subscription, pay-per-use API, enterprise), which to choose, and how to keep costs under control.",
+  "kind": "Guide",
+  "tags": "cout strat vulgarisation guide"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/agent-creation-produits.html",
+  "title": "Odoo automatic product creation agent",
+  "excerpt": "Automating Odoo product creation via multi-source triangulation (POS Excel, email screenshot, price photo). First pattern on the Sony Bravia FY26 catalog.",
+  "kind": "Journal",
+  "tags": "agent, data, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/agent-factures-architecture.html",
+  "title": "Autonomous supplier invoice processing agent",
+  "excerpt": "Mapping out the full architecture of an invoice agent (5 channels, line-by-line matching, 4 sub-agents, Teams actions) before writing a single line of code. Only touch Odoo once a week.",
+  "kind": "Journal",
+  "tags": "agent, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/anatomie-couverture-hs-yamaha.html",
+  "title": "Anatomy of HiFi Lovers × Yamaha Collector Issue N°1 cover",
+  "excerpt": "Structuring the visual hierarchy of the first special issue's cover, inspired by the grammar of 80s-90s Marvel/Image comics (corner box, masthead, collector badge).",
+  "kind": "Journal",
+  "tags": "hifi-lovers, design, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/audit-boutique-shopify-haute-fidelite.html",
+  "title": "Haute Fidélité Shopify store audit & launch",
+  "excerpt": "Auditing and finalizing the HF Shopify store before scaling up: MCP Shopify, GLS switchover, email authentication, 4 editorial templates, audit of 30+ products and 7 collections. (Merged from 3 sessions.)",
+  "kind": "Journal",
+  "tags": "haute-fidelite, shopify, email, seo-gtm, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/audit-filtrage-mail-cobra.html",
+  "title": "Cobra inbox audit & filtering (Outlook)",
+  "excerpt": "Getting back in control of the hlahutte@cobra.fr inbox drowned in noise (Odoo catchall, EDI, notifications): 30-day audit, server/client rules, urgent backlog.",
+  "kind": "Journal",
+  "tags": "cobra, email, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/audit-shopify-odoo-803.html",
+  "title": "Shopify/Odoo audit: 803 products, 3 months of work",
+  "excerpt": "Cross-referencing the Shopify catalog (front) and Odoo (back): reference consistency, pricing, stock, metadata across 803 products. The B&W AM-1 pair vs unit case.",
+  "kind": "Journal",
+  "tags": "shopify, data, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/audit-ui-cobra-design-ref.html",
+  "title": "Cobra UI audit + odoo18_design_reference update",
+  "excerpt": "Testing the theoretical Odoo 18 reference against the actual code in 9 cobra_* modules. 35 XML files read, 5 tech debts identified, ~60 custom fields inventoried.",
+  "kind": "Journal",
+  "tags": "odoo-dev, meta, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/bot-telegram-veille-hifi.html",
+  "title": "Daily HiFi monitoring Telegram bot",
+  "excerpt": "A Telegram push every morning with worldwide hi-fi news: ~35 multilingual RSS sources, content written by the Claude API, anti-duplicate memory, GitHub Actions cron — from scratch.",
+  "kind": "Journal",
+  "tags": "haute-fidelite, agent, data, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/cdc18-build.html",
+  "title": "CDC-18: Cobra purchasing workflow (cobra_purchase)",
+  "excerpt": "A complete purchasing module for Cobra: RFQ/PO dashboards, supplier response detection, warehouse filters. 6 Odoo 18 SaaS bugs turned into 7 reusable rules.",
+  "kind": "Journal",
+  "tags": "odoo-dev, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/cdc18-form-view.html",
+  "title": "CDC-18 form view: surgical production deployment",
+  "excerpt": "Pushing only the PO form to production (buttons, dynamic titles, statusbar) without dragging in CDC-19 — isolating a clean commit from a mixed preprod3 stack.",
+  "kind": "Journal",
+  "tags": "odoo-dev, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/cdc18-stabilisation.html",
+  "title": "CDC-18 stabilisation: dashboard filters, menus, fr_FR translations",
+  "excerpt": "Two leftover bugs in the purchasing dashboard: buttons not activating filters, and menus keeping their old French names. Layered diagnosis, immediate + lasting fix.",
+  "kind": "Journal",
+  "tags": "odoo-dev, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/cdc19-liste-po.html",
+  "title": "CDC-19: improved Purchase Order list view",
+  "excerpt": "Drop/Restock badge, confirmed delivery date, time-free dates in the PO list. Two OWL 18 traps: position=attributes ignored, silent XML rollback.",
+  "kind": "Journal",
+  "tags": "odoo-dev, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/claude-arrivee-workflow-cobra.html",
+  "title": "Claude's arrival in the Cobra workflow",
+  "excerpt": "Before Claude, Odoo dev was manual: OCA forums, docs, trial and error. The pivot — treating Claude as a senior colleague who amplifies, not replaces.",
+  "kind": "Journal",
+  "tags": "odoo-dev, meta, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/collegues-sur-claude.html",
+  "title": "Colleagues getting on Claude",
+  "excerpt": "Claude isn't staying a solo tool: colleagues at Cobra are starting to use it. Sharing context without credentials, a solid CLAUDE.md, avoiding reinventing the wheel.",
+  "kind": "Journal",
+  "tags": "meta, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/config-sendcloud-gls-hf.html",
+  "title": "Sendcloud × GLS config for Haute Fidélité Shopify",
+  "excerpt": "Pooling HF e-commerce logistics with the Cobra infrastructure (Sendcloud + daily GLS pickup) while keeping a branded HF customer tracking experience. Live config session.",
+  "kind": "Journal",
+  "tags": "haute-fidelite, logistique, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/contestation-creance-roadsurfer.html",
+  "title": "Contesting the Roadsurfer / Creditreform debt",
+  "excerpt": "Contesting a €2,549 claim (disputed scratch on a rented van) all the way to the CEC France: multilingual FR/DE drafting, navigating debt collection interfaces, compiling evidence.",
+  "kind": "Journal",
+  "tags": "perso, admin, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/creation-ae-adrien-inpi.html",
+  "title": "Adrien's sole trader business creation (carpentry) — INPI file",
+  "excerpt": "Helping my 18-year-old nephew set up his carpentry micro-business: guides, 9-step INPI file, supporting PDF documents, choice of tax regime.",
+  "kind": "Journal",
+  "tags": "perso, admin, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/discours-fiche-poste-vendeur-cobra.html",
+  "title": "Cobra store sales rep speech & job description",
+  "excerpt": "Turning a raw management speech into three executable deliverables (bullet points, prose, Word job description to sign) after a team restructuring.",
+  "kind": "Journal",
+  "tags": "cobra, strat, admin, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/docs-facturation-salon-hf-2026.html",
+  "title": "Haute Fidélité Paris 2026 Salon docs & billing",
+  "excerpt": "Simplifying the admin for the 2026 HF Salon: dropping the formal contract in favor of a Qonto invoice + bilingual participation terms, for 20–30 exhibitors.",
+  "kind": "Journal",
+  "tags": "haute-fidelite, doc, admin, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/double-claude-code.html",
+  "title": "Double Claude Code: Cobra vs HL",
+  "excerpt": "Two Claude Code accounts: the Cobra one (Odoo/Shopify dev) and a new HL one (personal, strategy, Knowledge Hub). Both can write to the same journal.",
+  "kind": "Journal",
+  "tags": "meta, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/dynaudio-analyze-ventes.html",
+  "title": "Dynaudio Emit II sales analysis: Shopify + Odoo cross-referenced",
+  "excerpt": "Cross-referencing Shopify (web channel, 104 orders) and Odoo (all channels, 186 units, +79%) for an accurate sales picture. The limits of Drive MCP on file editing.",
+  "kind": "Journal",
+  "tags": "shopify, data, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/epson-declaratif-ventes.html",
+  "title": "Epson sales declaration: Odoo → Google Sheets export",
+  "excerpt": "An Epson sales declaration across 7 promo periods and 10 projector references, despite supplier SKUs missing from Odoo. Mapping via supplierinfo, formatted Sheets export.",
+  "kind": "Journal",
+  "tags": "data, odoo-admin, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/gsc-json-ld-fix.html",
+  "title": "GSC diagnosis + JOIN Stories JSON-LD fix + BigQuery setup",
+  "excerpt": "7 product pages throwing \"product snippets\" errors in GSC. Root cause: JOIN Stories injecting implicit Product entities. Non-invasive snippet fix + BigQuery setup.",
+  "kind": "Journal",
+  "tags": "seo-gtm, shopify, data, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/gtm-refonte-cobra.html",
+  "title": "Cobra.fr GTM overhaul: pruning 71 → 20 tags + Consent Mode v2",
+  "excerpt": "71 accumulated tags, outdated CMP, patched-together Consent Mode. Migration to native Shopify Consent Mode v2, down to 20 tags, ~70 orphaned variables removed.",
+  "kind": "Journal",
+  "tags": "seo-gtm, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/infra-sftp-phase1.html",
+  "title": "Cobra SFTP infrastructure: phase 1 server setup",
+  "excerpt": "Setting up a lasting SFTP infrastructure (Scaleway/Ubuntu) where each supplier drops their stock files, automatically picked up by Odoo. Step-by-step guided server setup.",
+  "kind": "Journal",
+  "tags": "infra, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/knowledge-hub.html",
+  "title": "This Knowledge Hub itself",
+  "excerpt": "A static GitHub Pages site (HTML/CSS, zero framework): AI portfolio, operational journal, and GEO reference. One page per entry, llms.txt + JSON-LD authorship.",
+  "kind": "Journal",
+  "tags": "meta, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/marque-inpi-hifi-lovers.html",
+  "title": "INPI trademark management — HIFI LOVERS",
+  "excerpt": "Taking back control of the HIFI LOVERS trademark (already registered at the INPI without my knowing) and preparing a supplementary figurative filing + class 16 for print.",
+  "kind": "Journal",
+  "tags": "hifi-lovers, admin, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/mission-dm-france.html",
+  "title": "Claude Code mission brief: D&M France invoice verification",
+  "excerpt": "14 PDFs imported as draft invoices in Odoo, unreliable. A structured and secured brief (PO matching, WEEE, early payment discount, guardrails) for Claude Code to work autonomously.",
+  "kind": "Journal",
+  "tags": "agent, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/operation-hs-yamaha-annonceurs.html",
+  "title": "HiFi Lovers special issue Yamaha giveaway for advertisers — Brevo × Shopify",
+  "excerpt": "Offering the first HiFi Lovers special issue to advertisers via a clean mechanic: Excel list → Brevo → Shopify combo promo codes restricted to the segment AND the product.",
+  "kind": "Journal",
+  "tags": "hifi-lovers, shopify, email, data, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/powerpoint-anglais-alexis.html",
+  "title": "Alexis English PowerPoint — \"The Secrets of My Success\"",
+  "excerpt": "A narrated 10-slide PowerPoint + second-calibrated script for an English class project (Dual Diploma). Iterative workflow with slide-by-slide visual QA.",
+  "kind": "Journal",
+  "tags": "perso, design, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/pptx-brevet-addictions-damien.html",
+  "title": "Brevet oral PPTX \"Addictions Among Youth\" (Damien)",
+  "excerpt": "Turning a year-9 student's script into a brevet oral presentation: 9 \"icy cyan\" slides, sourced figures, integrated photos — without losing the kid's voice.",
+  "kind": "Journal",
+  "tags": "perso, design, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/routing-po-drop-reassort.html",
+  "title": "PO email routing Drop vs Restock + Cobra templates",
+  "excerpt": "Routing PO confirmation emails to the right Cobra template depending on Drop (direct delivery) or Restock (warehouse), with _send_confirmation_mail override. In production.",
+  "kind": "Journal",
+  "tags": "email, odoo-dev, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/seo-collections-shopify.html",
+  "title": "Shopify collections SEO fix (Guillaume's audit)",
+  "excerpt": "11 systemic issues across ~175 collections after a mass optimization. 182 \"| Cobra.fr\" suffixes removed in 26 GraphQL batches, 0 errors. Post-compaction recovery.",
+  "kind": "Journal",
+  "tags": "seo-gtm, shopify, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/setup-claude-onboarding.html",
+  "title": "Claude setup: documentation, onboarding and Knowledge Hub",
+  "excerpt": "Documenting the Claude setup logic (md files, projects, two accounts) to hand off to a friend getting started and build on it session after session.",
+  "kind": "Journal",
+  "tags": "meta, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/sftp-pipeline-complet.html",
+  "title": "SFTP server + automated dropshipping stock pipeline",
+  "excerpt": "SSH hardening (fail2ban, ufw, chroot) + script that injects any uploaded file into Odoo via the existing module. Hooking into action_run_import: ×60 speed gain.",
+  "kind": "Journal",
+  "tags": "infra, odoo-dev, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/sogetronic-import-prod.html",
+  "title": "Sogetronic profile: dropshipping stock import by supplier code",
+  "excerpt": "Extending cobra_import_stock_drop to match Sogetronic on the Sage Code (not the EAN). Schema migration, anti-duplicate XML seed, cherry-pick preprod3 → main.",
+  "kind": "Journal",
+  "tags": "odoo-dev, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/sogetronic-seed-21mai.html",
+  "title": "Sogetronic seed + Knowledge Hub Claude restructuring",
+  "excerpt": "Two needs in one session: loading Sogetronic Sage Codes onto 175 product sheets, and restructuring Claude context files for dual chat + Code use.",
+  "kind": "Journal",
+  "tags": "data, meta, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/sony-bravia-prix-marge.html",
+  "title": "Sony Bravia II price update + zero-margin diagnosis",
+  "excerpt": "19 Sony Bravia prices bulk-updated via XML-RPC, then a 0% margin diagnosis: the UI was showing sellers_first_price under \"Cost\", not the actual standard_price.",
+  "kind": "Journal",
+  "tags": "odoo-admin, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/statuts-livree-facturee-payee.html",
+  "title": "Delivered / Invoiced / Paid statuses on purchase orders",
+  "excerpt": "3 consolidated statuses (Delivered/Invoiced/Paid) shown as badges on the PO form and lists, to know the real state of an order at a glance. Multi-list xpath traps.",
+  "kind": "Journal",
+  "tags": "odoo-dev, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/strategie-instagram-hifi-lovers.html",
+  "title": "HiFi Lovers Instagram strategy — Brief for Marine",
+  "excerpt": "Scoping an Instagram strategy from scratch for HiFi Lovers: 70/30 archive/editorial positioning, 4 pillars, calendar, 8-week launch plan, before handing it over to Marine.",
+  "kind": "Journal",
+  "tags": "hifi-lovers, marketing, strat, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/structuration-projet-odoo.html",
+  "title": "Claude \"Odoo\" project structuring: ecosystem reference docs",
+  "excerpt": "Consolidating all validated technical connections into a reference doc so every new conversation starts with the right context.",
+  "kind": "Journal",
+  "tags": "meta, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/systeme-instructions-claude-md.html",
+  "title": "Claude custom instructions system (CLAUDE.md + extensions)",
+  "excerpt": "Standardizing Claude's behavior across all my projects and both accounts: a universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident hardcoded as a strict rule.",
+  "kind": "Journal",
+  "tags": "meta, strat, en-prod"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/templates-email-refonte.html",
+  "title": "Supplier PO email template overhaul (FR + EN)",
+  "excerpt": "Bringing the PO email template up to the standard of the \"payment\" template, bilingual, with fixed-text constraints. Formatting only, zero change to the actual content.",
+  "kind": "Journal",
+  "tags": "email, en-prod"
+ }
+]

@@ -1,0 +1,584 @@
+[
+ {
+  "id": "intelligence-artificielle-ia",
+  "terme": "Artificial intelligence (AI)",
+  "aliases": [
+   "AI",
+   "artificial intelligence"
+  ],
+  "definition": "Software capable of tasks that used to require a human brain (understanding, deciding, creating). \"Classical AI\" is specialized; generative AI is versatile.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   },
+   {
+    "label": "Why AI changes the way we work",
+    "url": "/knowledge-hub/en/guides/pourquoi-lia-change-le-travail.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "the entire HL Group stack"
+   }
+  ]
+ },
+ {
+  "id": "ia-generative",
+  "terme": "Generative AI",
+  "aliases": [
+   "generative AI",
+   "generative"
+  ],
+  "definition": "An AI that produces new content (text, image, code) from a simple instruction, instead of executing a single programmed task.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Knowledge Hub (written with AI)",
+    "url": "/knowledge-hub/en/journal/knowledge-hub.html"
+   }
+  ]
+ },
+ {
+  "id": "llm-grand-modele-de-langage",
+  "terme": "LLM (large language model)",
+  "aliases": [
+   "LLM",
+   "large language model",
+   "language model"
+  ],
+  "definition": "The engine behind assistants like Claude or ChatGPT: a model trained on enormous amounts of text that predicts the most plausible continuation of what you type.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   },
+   {
+    "label": "What is Claude",
+    "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Monitoring bot (an LLM writes the digest)",
+    "url": "/knowledge-hub/en/veille-ia/"
+   }
+  ]
+ },
+ {
+  "id": "token",
+  "terme": "Token",
+  "aliases": [
+   "token",
+   "tokens"
+  ],
+  "definition": "The basic unit an LLM reads and produces: a chunk of a word. The length of exchanges and their cost are measured in tokens.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   },
+   {
+    "label": "How much does it cost (coming soon)"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "hallucination",
+  "terme": "Hallucination",
+  "aliases": [
+   "hallucination",
+   "hallucinate"
+  ],
+  "definition": "When an LLM confidently invents a false answer. Hence the basic rule: verify facts, numbers, and references.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   },
+   {
+    "label": "AI for merchants",
+    "url": "/knowledge-hub/en/guides/lia-pour-un-commercant.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "prompt",
+  "terme": "Prompt",
+  "aliases": [
+   "prompt",
+   "prompts",
+   "instruction"
+  ],
+  "definition": "The instruction you give the AI. A good prompt — clear, with context and goal — changes everything about the result.",
+  "guides": [
+   {
+    "label": "Writing a good CLAUDE.md",
+    "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html"
+   },
+   {
+    "label": "The principles (Karpathy style)",
+    "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "multimodal",
+  "terme": "Multimodal",
+  "aliases": [
+   "multimodal"
+  ],
+  "definition": "Capable of processing multiple types of input — text, image, audio — not just text.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   },
+   {
+    "label": "What is Claude",
+    "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "poids-ouverts-open-weights",
+  "terme": "Open weights",
+  "aliases": [
+   "open weights",
+   "open weights",
+   "open model"
+  ],
+  "definition": "A model you can download and self-host (e.g. Llama, Mistral), as opposed to \"closed\" models accessible only via a service.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   },
+   {
+    "label": "Is my data safe (coming soon)"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "anthropic",
+  "terme": "Anthropic",
+  "aliases": [
+   "Anthropic"
+  ],
+  "definition": "The American lab that creates Claude, focused on model reliability and safety.",
+  "guides": [
+   {
+    "label": "What is Claude",
+    "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
+   },
+   {
+    "label": "The principles (Karpathy style)",
+    "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "claude",
+  "terme": "Claude",
+  "aliases": [
+   "Claude"
+  ],
+  "definition": "Anthropic's AI assistant, available in multiple sizes (Opus, Sonnet, Haiku) and multiple products (Chat, Cowork, Code).",
+  "guides": [
+   {
+    "label": "What is Claude",
+    "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
+   },
+   {
+    "label": "Chat, Cowork, or Code",
+    "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Cobra, Haute Fidélité, Knowledge Hub"
+   }
+  ]
+ },
+ {
+  "id": "opus-sonnet-haiku",
+  "terme": "Opus / Sonnet / Haiku",
+  "aliases": [
+   "Opus",
+   "Sonnet",
+   "Haiku"
+  ],
+  "definition": "Claude's three tiers: the most powerful (Opus), the balanced one (Sonnet), the fast one (Haiku). You pick based on the task.",
+  "guides": [
+   {
+    "label": "What is Claude",
+    "url": "/knowledge-hub/en/guides/cest-quoi-claude.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "claude-chat-cowork-code",
+  "terme": "Claude Chat / Cowork / Code",
+  "aliases": [
+   "Claude Chat",
+   "Claude Cowork",
+   "Claude Code"
+  ],
+  "definition": "Three ways to use Claude: chat (Chat), delegate office work (Cowork), act on files and projects (Code).",
+  "guides": [
+   {
+    "label": "Chat, Cowork, or Code",
+    "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Double Claude Code (Cobra / HL)",
+    "url": "/knowledge-hub/en/journal/double-claude-code.html"
+   }
+  ]
+ },
+ {
+  "id": "terminal",
+  "terme": "Terminal",
+  "aliases": [
+   "terminal",
+   "command line"
+  ],
+  "definition": "The window where you type commands instead of clicking. Looks scary, but it runs on copy-paste.",
+  "guides": [
+   {
+    "label": "Chat, Cowork, or Code",
+    "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "api",
+  "terme": "API",
+  "aliases": [
+   "API"
+  ],
+  "definition": "A programmed pipe connecting two pieces of software. It's one of the ways to connect a service to Claude, in an automated way.",
+  "guides": [
+   {
+    "label": "What's an MCP",
+    "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
+   },
+   {
+    "label": "Chat, Cowork, or Code",
+    "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Monitoring bot (Claude API)",
+    "url": "/knowledge-hub/en/veille-ia/"
+   }
+  ]
+ },
+ {
+  "id": "mcp-model-context-protocol",
+  "terme": "MCP (Model Context Protocol)",
+  "aliases": [
+   "MCP",
+   "Model Context Protocol"
+  ],
+  "definition": "An open standard created by Anthropic: a \"universal plug\" to connect Claude to tools (Shopify, Drive, Gmail…) without custom integration.",
+  "guides": [
+   {
+    "label": "What's an MCP",
+    "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
+   },
+   {
+    "label": "What's an AI agent",
+    "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Shopify/Odoo audit",
+    "url": "/knowledge-hub/en/journal/audit-shopify-odoo-803.html"
+   },
+   {
+    "label": "Haute Fidélité Shopify store",
+    "url": "/knowledge-hub/en/haute-fidelite/"
+   }
+  ]
+ },
+ {
+  "id": "agent-ia",
+  "terme": "AI agent",
+  "aliases": [
+   "AI agent",
+   "autonomous agent",
+   "agent"
+  ],
+  "definition": "Claude given a goal and the means to act on its own, in a loop, until it delivers — instead of just responding.",
+  "guides": [
+   {
+    "label": "What's an AI agent",
+    "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
+   },
+   {
+    "label": "What's an MCP",
+    "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Supplier invoice agent",
+    "url": "/knowledge-hub/en/journal/agent-factures-architecture.html"
+   },
+   {
+    "label": "Product creation agent",
+    "url": "/knowledge-hub/en/journal/agent-creation-produits.html"
+   },
+   {
+    "label": "AI monitoring bot",
+    "url": "/knowledge-hub/en/veille-ia/"
+   }
+  ]
+ },
+ {
+  "id": "github",
+  "terme": "GitHub",
+  "aliases": [
+   "GitHub"
+  ],
+  "definition": "An online space where your project lives with its full history; once connected, updates deploy themselves.",
+  "guides": [
+   {
+    "label": "What is GitHub",
+    "url": "/knowledge-hub/en/guides/cest-quoi-github.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "This Knowledge Hub",
+    "url": "/knowledge-hub/en/journal/knowledge-hub.html"
+   }
+  ]
+ },
+ {
+  "id": "depot-repo",
+  "terme": "Repository (repo)",
+  "aliases": [
+   "repository",
+   "repo",
+   "repository"
+  ],
+  "definition": "The \"folder\" of a project on GitHub, with all its files and history.",
+  "guides": [
+   {
+    "label": "What is GitHub",
+    "url": "/knowledge-hub/en/guides/cest-quoi-github.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "commit",
+  "terme": "Commit",
+  "aliases": [
+   "commit"
+  ],
+  "definition": "A saved, timestamped version of a project on GitHub. You can always go back to it.",
+  "guides": [
+   {
+    "label": "What is GitHub",
+    "url": "/knowledge-hub/en/guides/cest-quoi-github.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "cron",
+  "terme": "Cron",
+  "aliases": [
+   "cron",
+   "scheduled task"
+  ],
+  "definition": "A timer that launches a task automatically at regular intervals (e.g. every morning at 7am).",
+  "guides": [
+   {
+    "label": "What's an AI agent",
+    "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Monitoring Telegram bot",
+    "url": "/knowledge-hub/en/journal/bot-telegram-veille-hifi.html"
+   }
+  ]
+ },
+ {
+  "id": "rss",
+  "terme": "RSS",
+  "aliases": [
+   "RSS",
+   "RSS feed"
+  ],
+  "definition": "A standard format for automatically pulling new articles from a site. The basic building block of any monitoring setup.",
+  "guides": [
+   {
+    "label": "What's an AI agent",
+    "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Monitoring Telegram bot",
+    "url": "/knowledge-hub/en/journal/bot-telegram-veille-hifi.html"
+   },
+   {
+    "label": "AI monitoring bot",
+    "url": "/knowledge-hub/en/veille-ia/"
+   }
+  ]
+ },
+ {
+  "id": "bot-canal-telegram",
+  "terme": "Bot / Telegram channel",
+  "aliases": [
+   "Telegram bot",
+   "Telegram channel",
+   "Telegram"
+  ],
+  "definition": "A program that posts messages on Telegram; a public channel is followable by anyone via a simple link.",
+  "guides": [
+   {
+    "label": "What's an AI agent",
+    "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "AI monitoring bot (subscribable)",
+    "url": "/knowledge-hub/en/veille-ia/"
+   }
+  ]
+ },
+ {
+  "id": "claude-md",
+  "terme": "CLAUDE.md",
+  "aliases": [
+   "CLAUDE.md",
+   "context file"
+  ],
+  "definition": "A file Claude reads at startup: tone, conventions, pitfalls. It saves you from re-explaining everything every conversation.",
+  "guides": [
+   {
+    "label": "Writing a good CLAUDE.md",
+    "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html"
+   },
+   {
+    "label": "Compound Engineering",
+    "url": "/knowledge-hub/en/guides/compound-engineering.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Claude instructions system",
+    "url": "/knowledge-hub/en/journal/systeme-instructions-claude-md.html"
+   }
+  ]
+ },
+ {
+  "id": "compound-engineering",
+  "terme": "Compound Engineering",
+  "aliases": [
+   "compound engineering"
+  ],
+  "definition": "A method (popularized by Kieran Klaassen and Dan Shipper, at Every) where each lesson becomes a reusable rule: your system improves itself with every session.",
+  "guides": [
+   {
+    "label": "Compound Engineering",
+    "url": "/knowledge-hub/en/guides/compound-engineering.html"
+   },
+   {
+    "label": "Writing a good CLAUDE.md",
+    "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "vibe-coding",
+  "terme": "Vibe coding",
+  "aliases": [
+   "vibe coding"
+  ],
+  "definition": "Programming by describing your intent in plain language and letting AI generate the code. Term popularized by Andrej Karpathy.",
+  "guides": [
+   {
+    "label": "The principles (Karpathy style)",
+    "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html"
+   },
+   {
+    "label": "Chat, Cowork, or Code",
+    "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
+   }
+  ],
+  "projets": []
+ },
+ {
+  "id": "seo",
+  "terme": "SEO",
+  "aliases": [
+   "SEO",
+   "search engine optimization"
+  ],
+  "definition": "The art of ranking well in search engines (Google…).",
+  "guides": [
+   {
+    "label": "What's an MCP (and GEO below)",
+    "url": "/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "Shopify collections SEO fix",
+    "url": "/knowledge-hub/en/journal/seo-collections-shopify.html"
+   },
+   {
+    "label": "Cobra.fr GTM overhaul",
+    "url": "/knowledge-hub/en/journal/gtm-refonte-cobra.html"
+   }
+  ]
+ },
+ {
+  "id": "geo",
+  "terme": "GEO",
+  "aliases": [
+   "GEO"
+  ],
+  "definition": "The SEO equivalent for AI: optimizing your content to be **cited** by assistants (ChatGPT, Claude, Perplexity). That's the goal of this site.",
+  "guides": [
+   {
+    "label": "What is AI and an LLM",
+    "url": "/knowledge-hub/en/guides/cest-quoi-ia-llm.html"
+   }
+  ],
+  "projets": [
+   {
+    "label": "This Knowledge Hub (llms.txt, JSON-LD)",
+    "url": "/knowledge-hub/en/journal/knowledge-hub.html"
+   }
+  ]
+ }
+]
