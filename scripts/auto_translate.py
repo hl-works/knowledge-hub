@@ -42,8 +42,14 @@ def call_claude(system, user, api_key):
     req.add_header("x-api-key", api_key)
     req.add_header("anthropic-version", "2023-06-01")
     req.add_header("content-type", "application/json")
-    with urllib.request.urlopen(req, timeout=300) as resp:
-        data = json.loads(resp.read())
+    try:
+        with urllib.request.urlopen(req, timeout=300) as resp:
+            data = json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")[:600]
+        raise RuntimeError("API %s (modèle=%s) : %s" % (e.code, MODEL, detail))
+    if data.get("type") == "error" or "content" not in data:
+        raise RuntimeError("Réponse API inattendue : %s" % json.dumps(data)[:600])
     return "".join(part.get("text", "") for part in data.get("content", []))
 
 def scaffold_en(rel):
@@ -98,6 +104,7 @@ def main(argv):
     if not rels:
         print("Aucune page FR à traduire.")
         return
+    failures = []
     for rel in rels:
         print("→ traduction :", rel)
         try:
@@ -105,6 +112,9 @@ def main(argv):
             print("  écrit :", os.path.relpath(dest, ROOT))
         except Exception as e:
             print("  ÉCHEC :", e, file=sys.stderr)
+            failures.append(rel)
+    if failures:
+        sys.exit("Échec de traduction sur %d page(s) : %s" % (len(failures), ", ".join(failures)))
 
 if __name__ == "__main__":
     main(sys.argv[1:])
