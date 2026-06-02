@@ -15,6 +15,15 @@ le workflow automatique. Objectif : un anglais **naturel, idiomatique**, dans
 - Accessible, sans jargon inutile, sans remplissage. Même énergie qu'en FR.
 - On garde les apartés, les tirets, le rythme parlé. On ne « lisse » pas.
 
+## Glossaire imposé (termes récurrents — rester cohérent)
+
+- « Veille IA » / « veille » (la rubrique/le concept du site) → **"AI Watch"**
+  (jamais "AI monitoring", "AI news"…).
+- Libellés de navigation : Méthode → **Method**, Guides → **Guides**,
+  À propos → **About**, Projets → **Projects**, Journal → **Journal**,
+  Lexique → **Glossary**, Échanger → **Connect**.
+- « build in public » : garder tel quel.
+
 ## À TRADUIRE
 
 - `<title>`, `<meta name="description">`, `og:title`, `og:description`

@@ -116,15 +116,20 @@ def splice(rel, api_key):
 
     # 2) méta de tête (title / description / og:*) : traduites depuis le FR
     meta = translate_meta(head_strings(fr_html), api_key)
-    def esc(s): return s.replace("\\", "\\\\")
+    def attr_esc(s): return s.replace("&", "&amp;").replace('"', "&quot;")
+    def text_esc(s): return s.replace("&", "&amp;").replace("<", "&lt;")
     if meta.get("title"):
-        en_html = re.sub(r"<title>.*?</title>", "<title>%s</title>" % esc(meta["title"]), en_html, count=1, flags=re.S)
+        t = text_esc(meta["title"])
+        en_html = re.sub(r"<title>.*?</title>", lambda x: "<title>%s</title>" % t, en_html, count=1, flags=re.S)
     if meta.get("description"):
-        en_html = re.sub(r'(<meta name="description" content=").*?(">)', lambda x: x.group(1) + esc(meta["description"]) + x.group(2), en_html, count=1, flags=re.S)
+        d = attr_esc(meta["description"])
+        en_html = re.sub(r'(<meta name="description" content=").*?(">)', lambda x: x.group(1) + d + x.group(2), en_html, count=1, flags=re.S)
     if meta.get("og_title"):
-        en_html = re.sub(r'(<meta property="og:title" content=").*?(">)', lambda x: x.group(1) + esc(meta["og_title"]) + x.group(2), en_html, count=1, flags=re.S)
+        ot = attr_esc(meta["og_title"])
+        en_html = re.sub(r'(<meta property="og:title" content=").*?(">)', lambda x: x.group(1) + ot + x.group(2), en_html, count=1, flags=re.S)
     if meta.get("og_description"):
-        en_html = re.sub(r'(<meta property="og:description" content=").*?(">)', lambda x: x.group(1) + esc(meta["og_description"]) + x.group(2), en_html, count=1, flags=re.S)
+        od = attr_esc(meta["og_description"])
+        en_html = re.sub(r'(<meta property="og:description" content=").*?(">)', lambda x: x.group(1) + od + x.group(2), en_html, count=1, flags=re.S)
 
     with open(en_path, "w", encoding="utf-8") as f:
         f.write(en_html if en_html.endswith("\n") else en_html + "\n")
