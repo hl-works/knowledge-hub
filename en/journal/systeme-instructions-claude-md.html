@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claude custom instruction system (CLAUDE.md + extensions) — Journal · Hugo Lahutte</title>
-<meta name="description" content="Standardising Claude&#x27;s behaviour across all my projects and both accounts: one universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident, hardcoded into a rule.">
+<meta name="description" content="Standardizing Claude&#x27;s behavior across all my projects and both accounts: one universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident, hardcoded into a rule.">
 <link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/journal/systeme-instructions-claude-md.html">
 <link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/journal/systeme-instructions-claude-md.html">
 <link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/journal/systeme-instructions-claude-md.html">
@@ -13,7 +13,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Claude custom instruction system (CLAUDE.md + extensions)">
-<meta property="og:description" content="Standardising Claude&#x27;s behaviour across all my projects and both accounts: one universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident, hardcoded into a rule.">
+<meta property="og:description" content="Standardizing Claude&#x27;s behavior across all my projects and both accounts: one universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident, hardcoded into a rule.">
 <meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/journal/systeme-instructions-claude-md.html">
 <meta property="article:published_time" content="2026-05-30">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -35,7 +35,7 @@
     {
       "@type": "TechArticle",
       "headline": "Claude custom instruction system (CLAUDE.md + extensions)",
-      "description": "Standardising Claude's behaviour across all my projects and both accounts: one universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident, hardcoded into a rule.",
+      "description": "Standardizing Claude's behavior across all my projects and both accounts: one universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident, hardcoded into a rule.",
       "inLanguage": "en-US",
       "datePublished": "2026-05-30",
       "dateModified": "2026-05-30",
@@ -99,23 +99,23 @@
 
     <div class="prose" style="margin-top:var(--space-8);">
       <h3>Context</h3>
-      <p>I needed to standardise Claude's behaviour across all my projects and both accounts (Gmail for business strategy, hlahutte@cobra.fr for Odoo/Shopify dev). The immediate trigger: an Odoo production incident the day before (merging the entire preprod3 branch, which contained mixed commits from me and the Irokoo agency, breaking several things) — something to hardcode as a rule to prevent a repeat.</p>
+      <p>I needed to standardize Claude's behavior across all my projects and both accounts (Gmail for business strategy, hlahutte@cobra.fr for Odoo/Shopify dev). The immediate trigger: an Odoo production incident the day before (merging the entire preprod3 branch, which contained mixed commits from me and the Irokoo agency, breaking several things) — something to hardcode as a rule to prevent a repeat.</p>
       <h3>What was built</h3>
       <ul>
-        <li><strong>CLAUDE.md</strong> (universal base, ~80 lines): Karpathy's 4 principles (think before responding, simplicity first, surgical edits, goal-driven execution) + general behaviour rules (casual tone, no preambles, intellectual honesty, mandatory web search, context management, living document).</li>
+        <li><strong>CLAUDE.md</strong> (universal base, ~80 lines): Karpathy's 4 principles (think before responding, simplicity first, surgical edits, goal-driven execution) + general behavior rules (casual tone, no preambles, intellectual honesty, mandatory web search, context management, living document).</li>
         <li><strong>CLAUDE-strat.md</strong> (business extension, Gmail account): prose format by default, strategy/execution separation, deliverable types, competitive research in the audio market, business honesty (risks before opportunities), a list of what I don't want (buzzword bingo, off-the-shelf frameworks like SWOT/AARRR).</li>
         <li><strong>CLAUDE-dev.md</strong> (dev extension, cobra.fr account): hard rule at the top on targeted Odoo deployment (never merge all of preprod3, always cherry-pick, mandatory question before any deployment), Odoo conventions (git, Shopify sync, barcode matching) and Shopify, code discipline, a live "Current topics" section.</li>
         <li>Clarified deployment workflow: <code>CLAUDE.md</code> in Project Instructions everywhere, extensions uploaded per account.</li>
       </ul>
       <h3>What was tricky / unexpected</h3>
       <ul>
-        <li><strong>Successive pivots during the session</strong>: v1 started with token optimisation for autonomous agents (legacy Jarvis/Paperclip), then got reworked once I explained I no longer use the Mac Mini, then again once I clarified the strategy/dev duality. Output quality depends on the clarity of the context provided.</li>
+        <li><strong>Successive pivots during the session</strong>: v1 started with token optimization for autonomous agents (legacy Jarvis/Paperclip), then got reworked once I explained I no longer use the Mac Mini, then again once I clarified the strategy/dev duality. Output quality depends on the clarity of the context provided.</li>
         <li><strong>Over-engineering dropped in real time</strong>: at several points (weekly briefing agent, personal <code>preprod-hugo</code> branch), Claude steered me toward the simple solution — a direct application of Karpathy principle #2.</li>
       </ul>
       <h3>Stack</h3>
       <p>Markdown. Inspiration: Andrej Karpathy's 4 principles for working with LLMs and Boris Cherny's (Anthropic) *Compound Engineering* concept — every mistake becomes a rule, the file improves with use. No code executed, just structured documentation.</p>
       <h3>What this illustrates</h3>
-      <p>A concrete case of "context engineering" for a non-technical CEO. The value doesn't come from one-off usage but from building a personalised working environment that injects business context, behaviour rules and lessons learned into every session. The file becomes an asset that compounds over time — for a CEO who wants to expand their scope (dev, technical SEO, strategy) without replacing their teams.</p>
+      <p>A concrete case of "context engineering" for a non-technical CEO. The value doesn't come from one-off usage but from building a personalized working environment that injects business context, behavior rules and lessons learned into every session. The file becomes an asset that compounds over time — for a CEO who wants to expand their scope (dev, technical SEO, strategy) without replacing their teams.</p>
     </div>
 
     <aside class="callout" style="margin-top:var(--space-12);">

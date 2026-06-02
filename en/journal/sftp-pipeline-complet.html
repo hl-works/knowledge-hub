@@ -105,7 +105,7 @@
       <h3>What was tricky</h3>
       <ul>
         <li><code>PasswordAuthentication</code> globally blocked by <code>60-cloudimg-settings.conf</code> — must be re-enabled only within the <code>Match Group sftpusers</code> block</li>
-        <li>Script v1: ~7,000 XML-RPC calls = 9 min. The solution wasn't to optimise the script but to hook into the existing Odoo module that handles everything server-side — ×60 speed gain</li>
+        <li>Script v1: ~7,000 XML-RPC calls = 9 min. The solution wasn't to optimize the script but to hook into the existing Odoo module that handles everything server-side — ×60 speed gain</li>
       </ul>
       <h3>Stack</h3>
       <p>Bash/SSH, Python 3, xmlrpc.client, base64, fcntl, ufw, fail2ban, OpenSSH (chroot SFTP), Odoo 18 Enterprise.</p>

@@ -93,7 +93,7 @@
       <ul>
         <li>Mapping of 5 input channels + identification of Cobra's two main ones: <code>comptabilite@cobra.fr</code> and PO via chatter</li>
         <li>Distinction between accounting families: merchandise (PO-linked, 607xxx) vs. overheads (6xxxx)</li>
-        <li>Line-by-line matching: identification hierarchy (supplier code → EAN → name → price), quantity normalisation (pair/unit), 2% price alert threshold, WEEE/shipping integrated or separate</li>
+        <li>Line-by-line matching: identification hierarchy (supplier code → EAN → name → price), quantity normalization (pair/unit), 2% price alert threshold, WEEE/shipping integrated or separate</li>
         <li>Teams Adaptive Cards actions: validation, correction, payment creation, navigation — zero Odoo interface except SEPA batch</li>
         <li><strong>Multi-agent architecture</strong>: Orchestrator / Teams Agent / Odoo Agent / Patterns Agent</li>
         <li><code>scan_fournisseurs.py</code>: extraction of partners with ≥ 4 invoices over 12 months + JSON patterns structure</li>
@@ -101,13 +101,13 @@
       <figure class="figure" style="margin-block:var(--space-8);"><img src="/knowledge-hub/assets/agent_factures_cobra_flux_map.svg" alt="Architecture of the Cobra invoice agent: input channels, orchestrator, 4 agents, line-by-line matching, Teams actions, invoice states" loading="lazy" decoding="async" style="width:100%;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);"><figcaption class="caption">Full flow architecture: input channels → Orchestrator → 4 agents → line-by-line matching → Teams actions → invoice states.</figcaption></figure>
       <h3>What was hard</h3>
       <ul>
-        <li>Pair/unit handling is a silent trap: Odoo doesn't raise an error if the quantity is wrong — the discrepancy only shows up in the VAT-inc total. Factor memorised per supplier</li>
+        <li>Pair/unit handling is a silent trap: Odoo doesn't raise an error if the quantity is wrong — the discrepancy only shows up in the VAT-inc total. Factor memorized per supplier</li>
         <li>WEEE and shipping can't be fixed lines: some suppliers include them in the unit price. The agent builds the pattern progressively</li>
       </ul>
       <h3>Stack</h3>
       <p>Python XML-RPC, Adaptive Cards v1.5, Teams webhook, JSON (patterns), Odoo 18 (<code>account.move</code>, <code>account.move.line</code>, <code>purchase.order</code>, <code>product.supplierinfo</code>, <code>account.payment</code>), Claude Code.</p>
       <h3>What this illustrates</h3>
-      <p>A high-level design session before implementation: architecture, complex business rules and edge cases scoped *before* writing a single line of code. Claude acts here as a technical product manager who formalises what the CEO has in mind and translates it into a precise implementation plan.</p>
+      <p>A high-level design session before implementation: architecture, complex business rules and edge cases scoped *before* writing a single line of code. Claude acts here as a technical product manager who formalizes what the CEO has in mind and translates it into a precise implementation plan.</p>
     </div>
 
     <aside class="callout" style="margin-top:var(--space-12);">

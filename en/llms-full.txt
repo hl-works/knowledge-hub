@@ -29,7 +29,7 @@ with use and every future exchange benefits from it. The leverage isn't
 a better one-off prompt — it's an asset that compounds over time.
 
 3. HOW IT WORKS IN PRACTICE
-- One main CLAUDE.md file: tone, response format, behavioural rules,
+- One main CLAUDE.md file: tone, response format, behavioral rules,
   professional context. Runs all the time.
 - Extension files loaded on demand:
   - CLAUDE-strat.md — business / comms / marketing
@@ -77,8 +77,8 @@ Published: 2026-05-31
 
 - AI vs LLM: "AI" is a broad term; an LLM (large language model) is a specific
   subset of it. Nesting: AI ⊃ Machine Learning ⊃ Deep Learning ⊃ LLM.
-- Classical AI (specialised, coded for one task) vs generative AI (one system
-  that writes, summarises, translates, codes); the LLM is the text engine of
+- Classical AI (specialized, coded for one task) vs generative AI (one system
+  that writes, summarizes, translates, codes); the LLM is the text engine of
   generative AI.
 - What an LLM is: a model trained on enormous volumes of text that predicts the
   most probable next token, one token at a time. It doesn't recite a database:
@@ -131,7 +131,7 @@ GUIDE 04 — CHAT, COWORK, OR CODE: WHICH ONE TO USE (AND THE "TERMINAL")
 URL: https://hugolahutte.github.io/knowledge-hub/en/guides/chat-cowork-code-terminal.html
 Published: 2026-05-31
 
-- Three entry points to the same Claude: Chat (talk: think, write, analyse),
+- Three entry points to the same Claude: Chat (talk: think, write, analyze),
   Cowork (delegate office work autonomously, for non-developers), Code (act
   directly on files/projects/sites, run commands, deploy).
 - The terminal is just a window where you type commands instead of clicking;
@@ -168,7 +168,7 @@ Published: 2026-05-31
   browser → API → MCP.
 - MCP = Model Context Protocol, an open standard created by Anthropic, like a
   "USB plug": any compatible tool connects without custom integration (Shopify,
-  Drive, Gmail…), and Claude reads + acts within the authorised scope.
+  Drive, Gmail…), and Claude reads + acts within the authorized scope.
 - In Hugo's setup: Shopify, Drive, emails connected; Claude Code linked to
   GitHub, which drives Odoo and Shopify. Claude works on real tools, not a demo.
 
@@ -203,7 +203,7 @@ URL: https://hugolahutte.github.io/knowledge-hub/en/guides/principes-facon-karpa
 Published: 2026-05-31
 
 - Andrej Karpathy: OpenAI co-founder, former head of AI at Tesla, great
-  communicator (popularised "vibe coding"); joined Anthropic in May 2026.
+  communicator (popularized "vibe coding"); joined Anthropic in May 2026.
 - 4 principles (personal synthesis, in his spirit — not official rules):
   1) think before responding; 2) simplicity first; 3) surgical edits;
   4) goal-driven execution.
@@ -215,7 +215,7 @@ URL: https://hugolahutte.github.io/knowledge-hub/en/guides/compound-engineering.
 Published: 2026-05-31
 
 - Principle: turn every lesson into a reusable rule/tool; each unit of work
-  makes the next one easier. Term popularised by Kieran Klaassen and Dan Shipper
+  makes the next one easier. Term popularized by Kieran Klaassen and Dan Shipper
   (Every) while building their email assistant.
 - Loop: do → review → capture the lesson (it enters the context) →
   start again from a higher baseline.
@@ -250,7 +250,7 @@ Published: 2026-05-31
 - Training: depends on the plan. Consumer (free) — conversations may be used to
   improve models, usually opt-outable in settings. Pro / enterprise / API —
   no training on your data by default, often contractual. Policies vary and
-  evolve: check the "training" clause for your plan (Anthropic prioritises
+  evolve: check the "training" clause for your plan (Anthropic prioritizes
   privacy, but verify).
 - Sovereignty / GDPR (for regulated or strategic data): EU hosting, a European
   provider like Mistral, or a self-hosted open model — more control, more
@@ -316,7 +316,7 @@ Published: 2026-06-01
 Question: can a non-developer ship a real site + an AI bot in a weekend?
 Answer: YES. Without knowing how to code, two real things in production with
 Claude Code: a complete static site (journal, guides, glossary, search, dark
-mode, GEO) on GitHub Pages; a serverless AI monitoring bot that summarises
+mode, GEO) on GitHub Pages; a serverless AI monitoring bot that summarizes
 the news and publishes it every morning on Telegram + on the site. The secret
 isn't technical: make good decisions (simple architecture, zero dependencies,
 clear data contract) and let AI hit the code while you verify the output and
@@ -352,7 +352,7 @@ CASE STUDY — AI MONITORING BOT: FROM IDEA TO PRODUCTION (SERVERLESS)
 URL: https://hugolahutte.github.io/knowledge-hub/en/guides/etude-de-cas-veille-ia.html
 Published: 2026-06-01
 
-An agent that retrieves AI news, has it summarised by the Claude API, and
+An agent that retrieves AI news, has it summarized by the Claude API, and
 publishes it on Telegram + the "AI Monitor" page of the site, serverlessly,
 orchestrated by GitHub Actions. Pipeline: X/Twitter accounts + RSS (feeds.txt)
 → twitterapi.io → Claude API (selection + neutral FR summary, anti-hype, imposed
@@ -361,7 +361,7 @@ two outputs from the same collection: Telegram (daily push) and feed.json →
 site (archive). Triggered every morning (05:00 UTC). Modules: twitter.py,
 feed.py, digest.py, telegram.py, main.py, backfill.py. Decisions: two separate
 repos (veille-ia engine + secrets; knowledge-hub public site with no secrets);
-reading feed.json at runtime; categorisation by tags; transformative summaries —
+reading feed.json at runtime; categorization by tags; transformative summaries —
 never a copied tweet; X embed + image+link fallback. Stack: twitterapi.io
 (~cents/day), RSS, Claude API (claude-opus-4-8, adjustable to claude-sonnet-4-6),
 Telegram Bot API (t.me/VeilleIA_HL), GitHub Actions (cron 1 run/day), GitHub +
@@ -396,7 +396,7 @@ URL: https://hugolahutte.github.io/knowledge-hub/en/lexique/
 ================================================================
 Glossary of AI terms, the single source of truth for the site's tooltips.
 
-- Artificial intelligence (AI): Software capable of tasks that used to require a human brain (understanding, deciding, creating). "Classical AI" is specialised; generative AI is versatile.
+- Artificial intelligence (AI): Software capable of tasks that used to require a human brain (understanding, deciding, creating). "Classical AI" is specialized; generative AI is versatile.
 - Generative AI: An AI that produces new content (text, image, code) from a simple instruction, instead of executing a single programmed task.
 - LLM (large language model): The engine behind assistants like Claude or ChatGPT: a model trained on enormous amounts of text that predicts the most plausible continuation of what you type.
 - Token: The basic unit an LLM reads and produces: a chunk of a word. The length of exchanges and their cost are measured in tokens.
@@ -419,10 +419,10 @@ Glossary of AI terms, the single source of truth for the site's tooltips.
 - RSS: A standard format for automatically pulling new articles from a site. The basic building block of any monitoring setup.
 - Bot / Telegram channel: A program that posts messages on Telegram; a public channel is followable by anyone via a simple link.
 - CLAUDE.md: A file Claude reads at startup: tone, conventions, pitfalls. It saves you from re-explaining everything every conversation.
-- Compound Engineering: A method (popularised by Kieran Klaassen and Dan Shipper, at Every) where each lesson becomes a reusable rule: your system improves itself with every session.
-- Vibe coding: Programming by describing your intent in plain language and letting AI generate the code. Term popularised by Andrej Karpathy.
+- Compound Engineering: A method (popularized by Kieran Klaassen and Dan Shipper, at Every) where each lesson becomes a reusable rule: your system improves itself with every session.
+- Vibe coding: Programming by describing your intent in plain language and letting AI generate the code. Term popularized by Andrej Karpathy.
 - SEO: The art of ranking well in search engines (Google…).
-- GEO: The SEO equivalent for AI: optimising your content to be **cited** by assistants (ChatGPT, Claude, Perplexity). That's the goal of this site.
+- GEO: The SEO equivalent for AI: optimizing your content to be **cited** by assistants (ChatGPT, Claude, Perplexity). That's the goal of this site.
 - OpenAI / ChatGPT: The American lab behind ChatGPT, the assistant that kicked off the consumer generative AI wave in late 2022.
 - Google / Gemini: Google's AI, integrated into its ecosystem and known for long documents and multimodal capabilities (text, image, audio).
 - Meta / Llama: Meta's family of "open weights" models: you can download and self-host them.

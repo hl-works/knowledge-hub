@@ -91,7 +91,7 @@
       <p>Two parallel needs. Operational: prepare the Sogetronic drop stock import by loading supplier codes (Sage Codes) onto product records. Structural: the Claude context files (<code>.md</code>) were scattered, duplicated, and not suited to dual Claude chat + Claude Code usage.</p>
       <h3>What was built — Sogetronic</h3>
       <ul>
-        <li>Script <code>sogetronic_odoo_check.py</code>: reads the Excel catalogue (2,326 products), matches EAN-13 against <code>barcode</code>, writes the Sage Code to <code>product.supplierinfo.product_code</code> (partner_id=496)</li>
+        <li>Script <code>sogetronic_odoo_check.py</code>: reads the Excel catalog (2,326 products), matches EAN-13 against <code>barcode</code>, writes the Sage Code to <code>product.supplierinfo.product_code</code> (partner_id=496)</li>
         <li>175 products updated (150 modified + 25 created), in batches of 200 to work around the XML-RPC limit</li>
       </ul>
       <h3>What was built — Claude file architecture</h3>
@@ -99,7 +99,7 @@
         <li><code>~/Cobra/CLAUDE.md</code> updated with May Odoo 18 gotchas</li>
         <li><code>claude-cobra-odoo.md</code> — lighter version for Claude chat</li>
         <li>3-project Claude chat architecture: Odoo / Shopify / General</li>
-        <li>Claude Code memory initialised (<code>reference_odoo_credentials.md</code>) with the correct API key and the correct username (<code>hlahutte@cobra.fr</code>)</li>
+        <li>Claude Code memory initialized (<code>reference_odoo_credentials.md</code>) with the correct API key and the correct username (<code>hlahutte@cobra.fr</code>)</li>
       </ul>
       <h3>What was tricky</h3>
       <ul>

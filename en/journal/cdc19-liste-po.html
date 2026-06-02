@@ -91,7 +91,7 @@
       <p>The purchase order list view was hard to read: dates included an unnecessary time component, there was no distinction between Drop and Restock, and no field for the supplier-confirmed delivery date.</p>
       <h3>What was built</h3>
       <ul>
-        <li><code>x_order_type</code> (computed Selection): "Drop" if <code>dest_address_id</code> is set, "Restock" otherwise — blue/grey badge</li>
+        <li><code>x_order_type</code> (computed Selection): "Drop" if <code>dest_address_id</code> is set, "Restock" otherwise — blue/gray badge</li>
         <li><code>x_delivery_date</code> (manual Date): visible in the list before the total</li>
         <li><code>widget=&quot;date&quot;</code> on <code>date_order</code> via <code>position=&quot;replace&quot;</code> (removes the time)</li>
         <li><code>date_planned</code> hidden by default, bump <code>1.2.0 → 1.3.6</code> on preprod3</li>

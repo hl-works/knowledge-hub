@@ -6,6 +6,9 @@ le workflow automatique. Objectif : un anglais **naturel, idiomatique**, dans
 
 ## Ton (le plus important)
 
+- **Anglais américain (en-US)** : orthographe US partout — *organize, color,
+  behavior, optimize, center, license, analyze, prioritize…* (jamais
+  *organise/colour/centre/…*). Le site déclare `lang="en"` + `og:locale=en_US`.
 - Première personne, **direct et chaleureux**, "build in public".
 - Le « tu » français devient un **"you" direct et amical** — jamais corporate.
 - Contractions naturelles (it's, you'll, don't, here's).
@@ -37,6 +40,10 @@ le workflow automatique. Objectif : un anglais **naturel, idiomatique**, dans
 - **Le sélecteur de langue** `<li class="nav__lang"><a … >FR</a></li>` : le laisser
   **strictement tel quel** (il pointe volontairement vers le FR et affiche "FR").
 - Les `class`, `id`, `data-*`, `datetime`, la structure HTML, les entités.
+- **Les tags** (`<a class="tag" data-tag="…">…</a>`) : taxonomie partagée FR/EN
+  (le filtre `?tag=` et l'index de recherche en dépendent). Garder le **slug
+  français** comme libellé visible (ex. `vulgarisation`, `en-prod`) — ne pas
+  les traduire.
 - Le code, les commandes, les identifiants dans `<code>` / `<pre>` (sauf le
   langage naturel autour).
 - Noms propres / marques : Cobra, Haute-Fidélité, HiFi Lovers, Claude, Claude
