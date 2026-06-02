@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Making-of — This site (and an AI watch bot) shipped in a weekend — Guides · Hugo Lahutte</title>
-<meta name="description" content="Behind the scenes: from a dinner with friends to a 'solid thing shipped in 2 days.' A full static site and an AI watch bot put in production over a weekend, paired with Claude Code, without being a developer.">
+<title>Making-of — This Site (and an AI Watch Bot) Shipped in a Weekend — Guides · Hugo Lahutte</title>
+<meta name="description" content="Behind the scenes: from a dinner with friends to a &quot;beautiful baby shipped in 2 days.&quot; A complete static site and an AI Watch bot pushed to production in a weekend, working side by side with Claude Code — no dev background required.">
 <link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/guides/making-of.html">
 <link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/guides/making-of.html">
 <link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/guides/making-of.html">
@@ -16,7 +16,7 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="Making-of — shipped in a weekend">
-<meta property="og:description" content="From a dinner with friends to a 'solid thing shipped in 2 days.' Behind the scenes, paired with Claude Code.">
+<meta property="og:description" content="From a dinner with friends to a &quot;beautiful baby shipped in 2 days.&quot; Behind the scenes, working side by side with Claude Code.">
 <meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/guides/making-of.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -93,16 +93,14 @@
   </nav>
 </header>
 
-<main id="main">
-
-<!-- ===== HERO ===== -->
+<main id="main"><!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Making-of — shipped in a weekend</p>
     <p class="kicker" style="margin-top:var(--space-3);">Behind the scenes · Build in public</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Making-of:<br>shipped in a weekend</h1>
     <hr class="rule--accent">
-    <p class="lead">This site — and an AI watch bot — from a dinner with friends to a "solid thing shipped in 2 days." Without being a developer, paired with Claude Code.</p>
+    <p class="lead">This site — and an AI Watch bot — from a dinner with friends to "a beautiful thing shipped in 2 days." No dev background, just me and Claude Code.</p>
     <div class="meta-bar">
       <span>By <strong>Hugo Lahutte</strong></span>
       <span>·</span>
@@ -110,7 +108,7 @@
       <span>·</span>
       <span>~3 min read</span>
     </div>
-    <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="build-in-public" data-tagsearch="build-in-public" href="/knowledge-hub/en/guides/">build in public</a><a class="tag" data-tag="claude-code" data-tagsearch="claude-code" href="/knowledge-hub/en/guides/">Claude Code</a><a class="tag" data-tag="coulisses" data-tagsearch="coulisses" href="/knowledge-hub/en/guides/">behind the scenes</a></div>
+    <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="build-in-public" data-tagsearch="build-in-public" href="/knowledge-hub/en/guides/">build in public</a><a class="tag" data-tag="claude-code" data-tagsearch="claude-code" href="/knowledge-hub/en/guides/">Claude Code</a><a class="tag" data-tag="coulisses" data-tagsearch="coulisses" href="/knowledge-hub/en/guides/">coulisses</a></div>
   </div>
 </section>
 
@@ -120,35 +118,35 @@
     <div class="prose">
 
       <h2 id="recit">The story, short version</h2>
-      <p><strong>Friday, May 29, 2026, dinner with friends.</strong> I'm talking about what I tinker with using AI. Since I'd told the same story at lunch, I decide: I need <strong>one single place</strong> to show all of this, instead of re-explaining it every time.</p>
-      <p><strong>Saturday morning, I launch the site.</strong> And one thing leads to another, everything goes live almost immediately:</p>
+      <p><strong>Friday, May 29, 2026 — dinner with friends.</strong> I bring up what I've been tinkering with in AI again. Since I'd already told the same story at lunch, I thought: I need <strong>one single place</strong> to show all of this, instead of re-explaining it every time.</p>
+      <p><strong>Saturday morning, I kick off the site.</strong> One thing leads to another, and everything ships to prod almost immediately:</p>
       <ul>
         <li>a <strong>journal</strong>, a <strong>glossary</strong>, a <strong>tag</strong> system, a <strong>search</strong> feature;</li>
         <li>a clean <strong>dark mode</strong> (across 72 pages);</li>
         <li>an <a href="../veille-ia/">AI Watch page</a>;</li>
-        <li>and then a full-on <strong>bot</strong> that fetches AI news, has the Claude API summarize it, and publishes to <strong>Telegram</strong> + the site.</li>
+        <li>and a full-on <strong>bot</strong> that pulls AI news, summarizes it via the Claude API, and publishes it to <strong>Telegram</strong> + the site.</li>
       </ul>
-      <p>The whole thing designed as one cohesive unit, down to the <strong>custom favicon / logo</strong> (inspired by Claude, integrated into my art direction) for complete <strong>visual consistency</strong>.</p>
+      <p>The whole thing conceived as one coherent piece, down to a <strong>custom favicon / logo</strong> (Claude-inspired, integrated into my visual identity) for a complete <strong>visual consistency</strong>.</p>
       <aside class="callout callout--tldr">
-        <p><strong>A solid thing shipped in ~2 days</strong> — without being a developer, paired with <a href="cest-quoi-claude.html">Claude Code</a>.</p>
+        <p><strong>A beautiful thing shipped in ~2 days</strong> — no dev background, just me and <a href="cest-quoi-claude.html">Claude Code</a>.</p>
       </aside>
 
       <h2 id="cas">The two use cases to follow</h2>
-      <p>This is what I document in detail, with real <strong>time</strong> and <strong>cost</strong> numbers:</p>
+      <p>This is what I'm documenting in detail, with real <strong>time</strong> and <strong>cost</strong> numbers:</p>
       <ol>
-        <li><strong><a href="etude-de-cas-knowledge-hub.html">The Knowledge Hub site</a></strong> — static HTML/CSS/JS site, zero framework, on GitHub Pages. <em>Token cost: zero</em> (Claude subscription). We're talking <strong>time</strong> here.</li>
-        <li><strong><a href="etude-de-cas-veille-ia.html">The AI watch bot</a></strong> — a serverless agent (GitHub Actions): X/Twitter → Claude API → Telegram + site. <em>Real cost: a few cents/day</em> (€100 prepaid "to see," that lasts a very long time).</li>
+        <li><strong><a href="etude-de-cas-knowledge-hub.html">The Knowledge Hub site</a></strong> — a static HTML/CSS/JS site, zero framework, on GitHub Pages. <em>Token cost: zero</em> (Claude subscription). We're talking <strong>time</strong> here.</li>
+        <li><strong><a href="etude-de-cas-veille-ia.html">The AI Watch bot</a></strong> — a serverless agent (GitHub Actions): X/Twitter → Claude API → Telegram + site. <em>Actual cost: a few cents/day</em> (€100 prepaid "just to try it" — lasts a very long time).</li>
       </ol>
 
       <h2 id="apres">What's next</h2>
-      <p><strong>LinkedIn</strong> announcement of the project, <strong>documentation of the Telegram channel</strong>, and ongoing public tracking of both projects — because the best proof that a non-dev can ship is to <strong>show the making-of, with real numbers</strong>.</p>
+      <p><strong>LinkedIn</strong> announcement of the project, <strong>documentation of the Telegram channel</strong>, and ongoing public tracking of both projects — because the best proof that a non-dev can ship is to <strong>show the making-of, numbers and all</strong>.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
-        <p class="kicker">Go deeper</p>
+        <p class="kicker">Go further</p>
         <ul style="margin-top:var(--space-3);">
           <li>→ <a href="site-bot-ia-en-un-week-end.html">The guide: a site + an AI bot in a weekend?</a></li>
           <li>→ <a href="etude-de-cas-knowledge-hub.html">Case study — the Knowledge Hub site</a></li>
-          <li>→ <a href="etude-de-cas-veille-ia.html">Case study — the AI watch bot</a></li>
+          <li>→ <a href="etude-de-cas-veille-ia.html">Case study — the AI Watch bot</a></li>
         </ul>
       </aside>
 
@@ -163,16 +161,14 @@
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
       <h2>Building with AI?</h2>
-      <p class="prose">I document in public how I ship this kind of project — no pitch, just the urge to talk about it. If you're doing the same and want to compare notes, reach out.</p>
+      <p class="prose">I document publicly how I ship this kind of project — no sales pitch, just a genuine interest in talking about it. If you're getting into it and want to compare notes, reach out.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Build%20in%20public%20—%20échange">Send me a message</a>
       </div>
     </div>
   </div>
-</section>
-
-</main>
+</section></main>
 
 <script type="application/ld+json">
 {
