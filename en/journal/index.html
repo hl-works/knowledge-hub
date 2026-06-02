@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Journal — Hugo Lahutte: 43 documented sessions with Claude</title>
-<meta name="description" content="Chronological journal of work done with Claude: 43 e-commerce, Odoo/Shopify dev, infra, SEO, agent sessions. Filterable by tag. Two Claude agents contribute (HL and Cobra).">
+<meta name="description" content="Chronological log of work done with Claude: 43 sessions covering e-commerce, Odoo/Shopify dev, infrastructure, SEO, and agents. Filterable by tag. Two Claude agents contribute (HL and Cobra).">
 <link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/journal/">
 <link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/journal/">
 <link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/journal/">
@@ -13,7 +13,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Journal — Knowledge Hub">
-<meta property="og:description" content="43 documented sessions with Claude, filterable by tag.">
+<meta property="og:description" content="43 sessions documented with Claude, filterable by tag.">
 <meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/journal/">
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -64,13 +64,12 @@
     </div>
   </nav>
 </header>
-<main id="main">
-<section class="hero" style="padding-block:var(--space-16) var(--space-8);">
+<main id="main"><section class="hero" style="padding-block:var(--space-16) var(--space-8);">
   <div class="container">
-    <p class="kicker">The detail, dated</p>
+    <p class="kicker">The details, dated</p>
     <h1>Journal</h1>
     <hr class="rule--accent">
-    <p class="lead">43 working sessions with Claude: decisions, architecture, code snippets, lessons. Two agents contribute — <strong>Claude · HL</strong> (personal) and <strong>Claude · Cobra</strong> (dev). Search or filter by tag below.</p>
+    <p class="lead">43 working sessions with Claude: decisions, architecture, code snippets, lessons learned. Two agents contribute — <strong>Claude · HL</strong> (personal) and <strong>Claude · Cobra</strong> (dev). Search or filter by tag below.</p>
   </div>
 </section>
 
@@ -106,11 +105,20 @@
       <span class="filter-count" id="filter-count"></span>
     </div>
     <ul class="entry-list" id="entry-list">
+      <li class="entry" data-tags="perso meta seo-gtm agent en-prod">
+        <time datetime="2026-06-02">2026-06-02</time>
+        <div>
+          <h3 class="entry__title"><a href="knowledge-hub-bilingue-fr-en.html">Bilingual Knowledge Hub: English version + auto-translation</a></h3>
+          <p class="entry__excerpt">Making the Knowledge Hub bilingual FR/EN: a /en/ mirror of all 74 pages, hreflang, language switcher, bilingual search and glossary — plus a GitHub Actions workflow that translates each new FR page via the Claude API.</p>
+          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
+        </div>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
+      </li>
       <li class="entry" data-tags="perso meta strat en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="systeme-instructions-claude-md.html">Custom Claude instructions system (CLAUDE.md + extensions)</a></h3>
-          <p class="entry__excerpt">Standardizing Claude&#x27;s behavior across all my projects and two accounts: a universal CLAUDE.md plus strat and dev extensions. Triggered by an Odoo production incident that became a hard rule.</p>
+          <h3 class="entry__title"><a href="systeme-instructions-claude-md.html">Custom Claude instruction system (CLAUDE.md + extensions)</a></h3>
+          <p class="entry__excerpt">Standardizing Claude's behavior across all my projects and two accounts: a universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident that got hardcoded as a firm rule.</p>
           <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -118,8 +126,8 @@
       <li class="entry" data-tags="hifi-lovers marketing strat en-cours">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="strategie-instagram-hifi-lovers.html">HiFi Lovers Instagram strategy — Marine brief</a></h3>
-          <p class="entry__excerpt">Framing an Instagram strategy from scratch for HiFi Lovers: 70/30 archive/editorial positioning, 4 pillars, calendar, 8-week launch plan, before handing it over to Marine.</p>
+          <h3 class="entry__title"><a href="strategie-instagram-hifi-lovers.html">HiFi Lovers Instagram Strategy — Brief for Marine</a></h3>
+          <p class="entry__excerpt">Laying out an Instagram strategy from scratch for HiFi Lovers: 70/30 archive/editorial positioning, 4 content pillars, calendar, 8-week launch plan — before handing it off to Marine.</p>
           <div class="tags"><a class="tag" data-tag="marketing" href="/knowledge-hub/en/journal/?tag=marketing">marketing</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="hifi-lovers" href="/knowledge-hub/en/journal/?tag=hifi-lovers" style="border-style:dashed;">HiFi Lovers</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -128,7 +136,7 @@
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
           <h3 class="entry__title"><a href="sony-bravia-prix-marge.html">Sony Bravia II price update + zero-margin diagnosis</a></h3>
-          <p class="entry__excerpt">19 Sony Bravia prices updated in bulk via XML-RPC, then diagnosis of a 0% margin: the UI displays sellers_first_price under "Cost", not the real standard_price.</p>
+          <p class="entry__excerpt">19 Sony Bravia prices updated in bulk via XML-RPC, then a diagnosis of a 0% margin: the UI was showing sellers_first_price under "Cost," not the actual standard_price.</p>
           <div class="tags"><a class="tag" data-tag="odoo-admin" href="/knowledge-hub/en/journal/?tag=odoo-admin">odoo-admin</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -137,7 +145,7 @@
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
           <h3 class="entry__title"><a href="sogetronic-import-prod.html">Sogetronic profile: dropshipping stock import by supplier code</a></h3>
-          <p class="entry__excerpt">Extending cobra_import_stock_drop to match Sogetronic on the Sage Code (not EAN). Schema migration, anti-duplicate XML seed, cherry-pick preprod3 → main.</p>
+          <p class="entry__excerpt">Extending cobra_import_stock_drop to match Sogetronic on the Sage Code (not the EAN). Schema migration, anti-duplicate XML seed, cherry-pick preprod3 → main.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -145,8 +153,8 @@
       <li class="entry" data-tags="perso meta en-cours">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="setup-claude-onboarding.html">Claude setup: documentation, onboarding and Knowledge Hub</a></h3>
-          <p class="entry__excerpt">Documenting the Claude setup logic (.md files, projects, two accounts) to share with a friend getting started, and to build up session by session.</p>
+          <h3 class="entry__title"><a href="setup-claude-onboarding.html">Claude setup: documentation, onboarding, and Knowledge Hub</a></h3>
+          <p class="entry__excerpt">Documenting the Claude setup logic (.md files, projects, two accounts) to share with a friend just getting started — and to build on session after session.</p>
           <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -154,8 +162,8 @@
       <li class="entry" data-tags="perso design en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="pptx-brevet-addictions-damien.html">PPTX oral presentation "Addictions among youth" for the brevet (Damien)</a></h3>
-          <p class="entry__excerpt">Turning a 9th-grader&#x27;s script into a brevet oral presentation: 9 "glacial cyan" slides, sourced figures, integrated photos — without flattening the teenager&#x27;s voice.</p>
+          <h3 class="entry__title"><a href="pptx-brevet-addictions-damien.html">PPTX oral presentation "Teen Addictions" (Damien's brevet)</a></h3>
+          <p class="entry__excerpt">Turning a 9th-grader's script into a presentation for the brevet oral: 9 "icy cyan" slides, sourced stats, integrated photos — without flattening the teen's voice.</p>
           <div class="tags"><a class="tag" data-tag="design" href="/knowledge-hub/en/journal/?tag=design">design</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -163,8 +171,8 @@
       <li class="entry" data-tags="perso design en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="powerpoint-anglais-alexis.html">Alexis English PowerPoint — "The Secrets of My Success"</a></h3>
-          <p class="entry__excerpt">A narrated 10-slide PowerPoint plus a second-by-second script for an English class project (Dual Diploma). Iterative workflow with visual QA slide by slide.</p>
+          <h3 class="entry__title"><a href="powerpoint-anglais-alexis.html">Alexis's English PowerPoint — "The Secrets of My Success"</a></h3>
+          <p class="entry__excerpt">A narrated 10-slide PowerPoint + script timed to the second for an English class project (Dual Diploma). Iterative workflow with visual QA slide by slide.</p>
           <div class="tags"><a class="tag" data-tag="design" href="/knowledge-hub/en/journal/?tag=design">design</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -173,7 +181,7 @@
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
           <h3 class="entry__title"><a href="knowledge-hub.html">This Knowledge Hub itself</a></h3>
-          <p class="entry__excerpt">A static GitHub Pages site (HTML/CSS, zero framework): AI portfolio, operational journal and GEO reference. One page per entry, llms.txt + JSON-LD authorship.</p>
+          <p class="entry__excerpt">A static GitHub Pages site (HTML/CSS, zero framework): AI portfolio, operational journal, and GEO reference. One page per entry, llms.txt + JSON-LD authorship.</p>
           <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -191,7 +199,7 @@
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
           <h3 class="entry__title"><a href="epson-declaratif-ventes.html">Epson sales declaration: Odoo export → Google Sheets</a></h3>
-          <p class="entry__excerpt">An Epson declaration across 7 promo periods and 10 projector references, despite missing supplier SKUs in Odoo. Mapping via supplierinfo, formatted Sheets export.</p>
+          <p class="entry__excerpt">An Epson declaration covering 7 promo periods and 10 projector SKUs, despite supplier SKUs missing from Odoo. Mapping via supplierinfo, formatted Sheets export.</p>
           <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="odoo-admin" href="/knowledge-hub/en/journal/?tag=odoo-admin">odoo-admin</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -199,7 +207,7 @@
       <li class="entry" data-tags="perso meta en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="double-claude-code.html">Dual Claude Code: Cobra vs HL</a></h3>
+          <h3 class="entry__title"><a href="double-claude-code.html">Double Claude Code: Cobra vs HL</a></h3>
           <p class="entry__excerpt">Two Claude Code instances: the Cobra account (Odoo/Shopify dev) and a new HL account (personal, strategy, Knowledge Hub). Both can write to the same journal.</p>
           <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
@@ -208,8 +216,8 @@
       <li class="entry" data-tags="cobra strat admin en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="discours-fiche-poste-vendeur-cobra.html">Sales pitch &amp; job description for Cobra store sales associate</a></h3>
-          <p class="entry__excerpt">Turning a raw management speech into three actionable deliverables (bullet points, prose, Word job description to sign) following a team restructuring.</p>
+          <h3 class="entry__title"><a href="discours-fiche-poste-vendeur-cobra.html">Speech &amp; job description for Cobra store sales associate</a></h3>
+          <p class="entry__excerpt">Turning a raw management speech into three actionable deliverables (bullet points, prose, Word job description to sign) following a team restructure.</p>
           <div class="tags"><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="admin" href="/knowledge-hub/en/journal/?tag=admin">admin</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -217,8 +225,8 @@
       <li class="entry" data-tags="cobra odoo-dev en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
-          <h3 class="entry__title"><a href="cdc18-stabilisation.html">CDC-18 stabilisation: dashboard filters, menus, fr_FR translations</a></h3>
-          <p class="entry__excerpt">Two residual bugs in the purchase dashboard: buttons not activating filters, and menus keeping their old FR names. Layered diagnosis, immediate + long-term fix.</p>
+          <h3 class="entry__title"><a href="cdc18-stabilisation.html">CDC-18 stabilization: dashboard filters, menus, fr_FR translations</a></h3>
+          <p class="entry__excerpt">Two leftover bugs in the purchasing dashboard: buttons not activating filters, and menus still showing old FR labels. Layered diagnosis, immediate fix + long-term fix.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -227,7 +235,7 @@
         <time datetime="2026-05-30">2026-05-30</time>
         <div>
           <h3 class="entry__title"><a href="audit-ui-cobra-design-ref.html">Cobra UI audit + odoo18_design_reference update</a></h3>
-          <p class="entry__excerpt">Comparing the theoretical Odoo 18 reference against the actual code in 9 cobra_* modules. 35 XML files read, 5 technical debts identified, ~60 custom fields inventoried.</p>
+          <p class="entry__excerpt">Comparing the theoretical Odoo 18 reference against the actual code across 9 cobra_* modules. 35 XML files read, 5 technical debts identified, ~60 custom fields inventoried.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -236,7 +244,7 @@
         <time datetime="2026-05-29">2026-05-29</time>
         <div>
           <h3 class="entry__title"><a href="agent-factures-architecture.html">Autonomous supplier invoice processing agent</a></h3>
-          <p class="entry__excerpt">Designing the full architecture of an invoice agent (5 channels, line-by-line matching, 4 sub-agents, Teams actions) before writing a single line of code. Touch Odoo only once a week.</p>
+          <p class="entry__excerpt">Scoping the full architecture of an invoice agent (5 channels, line-by-line matching, 4 sub-agents, Teams actions) before writing a single line of code. Touch Odoo only once a week.</p>
           <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -245,7 +253,7 @@
         <time datetime="2026-05-29">2026-05-29</time>
         <div>
           <h3 class="entry__title"><a href="agent-creation-produits.html">Automatic Odoo product creation agent</a></h3>
-          <p class="entry__excerpt">Automating Odoo product creation by multi-source triangulation (Excel POS, email screenshot, price photo). First pattern on the Sony Bravia FY26 catalog.</p>
+          <p class="entry__excerpt">Automating Odoo product creation through multi-source triangulation (POS Excel, email screenshot, price photo). First pattern tested on the Sony Bravia FY26 catalog.</p>
           <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -254,7 +262,7 @@
         <time datetime="2026-05-28">2026-05-28</time>
         <div>
           <h3 class="entry__title"><a href="sftp-pipeline-complet.html">SFTP server + automatic dropshipping stock pipeline</a></h3>
-          <p class="entry__excerpt">SSH hardening (fail2ban, ufw, chroot) + script that injects any deposited file into Odoo via the existing module. Hooking into action_run_import: ×60 speed gain.</p>
+          <p class="entry__excerpt">SSH hardening (fail2ban, ufw, chroot) + script that feeds any dropped file into Odoo via the existing module. Hooking into action_run_import: ×60 speed gain.</p>
           <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -262,8 +270,8 @@
       <li class="entry" data-tags="cobra email odoo-dev en-prod">
         <time datetime="2026-05-28">2026-05-28</time>
         <div>
-          <h3 class="entry__title"><a href="routing-po-drop-reassort.html">PO email routing Drop vs Restock + Cobra templates</a></h3>
-          <p class="entry__excerpt">Routing the PO confirmation email to the right Cobra template based on Drop (direct delivery) or Restock (warehouse), with _send_confirmation_mail override. In production.</p>
+          <h3 class="entry__title"><a href="routing-po-drop-reassort.html">PO email routing Drop vs. Restock + Cobra templates</a></h3>
+          <p class="entry__excerpt">Routing PO confirmation emails to the right Cobra template based on Drop (direct delivery) or Restock (warehouse), with _send_confirmation_mail override. In production.</p>
           <div class="tags"><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -271,8 +279,8 @@
       <li class="entry" data-tags="cobra shopify data en-cours">
         <time datetime="2026-05-28">2026-05-28</time>
         <div>
-          <h3 class="entry__title"><a href="dynaudio-analyze-ventes.html">Dynaudio Emit II sales analysis: Shopify + Odoo cross-referenced</a></h3>
-          <p class="entry__excerpt">Cross-referencing Shopify (web channel, 104 orders) and Odoo (all channels, 186 units, +79%) for an accurate sales picture. Limits of Drive MCP for file editing.</p>
+          <h3 class="entry__title"><a href="dynaudio-analyse-ventes.html">Dynaudio Emit II sales analysis: Shopify + Odoo cross-referenced</a></h3>
+          <p class="entry__excerpt">Cross-referencing Shopify (web channel, 104 orders) and Odoo (all channels, 186 units, +79%) for an accurate sales picture. The limits of Drive MCP for file editing.</p>
           <div class="tags"><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -281,7 +289,7 @@
         <time datetime="2026-05-27">2026-05-27</time>
         <div>
           <h3 class="entry__title"><a href="mission-dm-france.html">Claude Code mission brief: D&amp;M France invoice verification</a></h3>
-          <p class="entry__excerpt">14 PDF invoices imported as Odoo drafts, unreliable. A structured, secured brief (PO matching, WEEE, discount, safeguards) for Claude Code to work autonomously.</p>
+          <p class="entry__excerpt">14 PDF invoices imported as Odoo drafts, unreliable. A structured, secure brief (PO matching, WEEE, discount, guardrails) so Claude Code can work autonomously.</p>
           <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -299,7 +307,7 @@
         <time datetime="2026-05-26">2026-05-26</time>
         <div>
           <h3 class="entry__title"><a href="statuts-livree-facturee-payee.html">Delivered / Invoiced / Paid statuses on purchase orders</a></h3>
-          <p class="entry__excerpt">3 consolidated statuses (Delivered/Invoiced/Paid) as badges on the PO form and lists, to see the real status of an order at a glance. Multi-list xpath pitfalls.</p>
+          <p class="entry__excerpt">3 consolidated statuses (Delivered/Invoiced/Paid) as badges on the PO form and list views, so you can see a order's real state at a glance. Multi-list xpath pitfalls.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -308,7 +316,7 @@
         <time datetime="2026-05-25">2026-05-25</time>
         <div>
           <h3 class="entry__title"><a href="cdc19-liste-po.html">CDC-19: improved purchase order list view</a></h3>
-          <p class="entry__excerpt">Drop/Restock badge, confirmed delivery date, dates without time in the PO list. Two OWL 18 pitfalls: position=attributes ignored, silent XML rollback.</p>
+          <p class="entry__excerpt">Drop/Restock badge, confirmed delivery date, time-stripped dates in the PO list. Two OWL 18 traps: position=attributes ignored, silent XML rollback.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -316,8 +324,8 @@
       <li class="entry" data-tags="cobra odoo-dev en-prod">
         <time datetime="2026-05-24">2026-05-24</time>
         <div>
-          <h3 class="entry__title"><a href="cdc18-build.html">CDC-18: Cobra purchase workflow (cobra_purchase)</a></h3>
-          <p class="entry__excerpt">A complete purchase module for Cobra: RFQ/PO dashboards, supplier response detection, warehouse filters. 6 Odoo 18 SaaS bugs turned into 7 reusable rules.</p>
+          <h3 class="entry__title"><a href="cdc18-build.html">CDC-18: Cobra purchasing workflow (cobra_purchase)</a></h3>
+          <p class="entry__excerpt">A full purchasing module for Cobra: RFQ/PO dashboards, supplier response detection, warehouse filters. 6 Odoo 18 SaaS bugs turned into 7 reusable rules.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -325,8 +333,8 @@
       <li class="entry" data-tags="cobra data meta en-prod">
         <time datetime="2026-05-21">2026-05-21</time>
         <div>
-          <h3 class="entry__title"><a href="sogetronic-seed-21mai.html">Sogetronic seed + Knowledge Hub Claude restructuring</a></h3>
-          <p class="entry__excerpt">Two needs in one session: loading Sogetronic Sage Codes on 175 product records, and restructuring Claude context files for dual chat + Code usage.</p>
+          <h3 class="entry__title"><a href="sogetronic-seed-21mai.html">Sogetronic seed + Claude Knowledge Hub restructure</a></h3>
+          <p class="entry__excerpt">Two needs in one session: loading Sogetronic Sage Codes onto 175 product records, and restructuring Claude context files for dual chat + Code usage.</p>
           <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -335,7 +343,7 @@
         <time datetime="2026-05-21">2026-05-21</time>
         <div>
           <h3 class="entry__title"><a href="infra-sftp-phase1.html">Cobra SFTP infrastructure: phase 1 server setup</a></h3>
-          <p class="entry__excerpt">Building a sustainable SFTP infrastructure (Scaleway/Ubuntu) where each supplier drops their stock files, automatically picked up by Odoo. Step-by-step server setup.</p>
+          <p class="entry__excerpt">Setting up a durable SFTP infrastructure (Scaleway/Ubuntu) where each supplier drops their stock files, automatically picked up by Odoo. Step-by-step server setup.</p>
           <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -344,7 +352,7 @@
         <time datetime="2026-05-20">2026-05-20</time>
         <div>
           <h3 class="entry__title"><a href="gtm-refonte-cobra.html">cobra.fr GTM overhaul: purge 71 → 20 tags + Consent Mode v2</a></h3>
-          <p class="entry__excerpt">71 accumulated tags, obsolete CMP, makeshift Consent Mode. Migration to native Shopify Consent Mode v2, purge to 20 tags, ~70 orphaned variables removed.</p>
+          <p class="entry__excerpt">71 accumulated tags, outdated CMP, patched-together Consent Mode. Migration to native Shopify Consent Mode v2, purge down to 20 tags, ~70 orphan variables removed.</p>
           <div class="tags"><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -352,8 +360,8 @@
       <li class="entry" data-tags="cobra seo-gtm shopify en-prod">
         <time datetime="2026-05-19">2026-05-19</time>
         <div>
-          <h3 class="entry__title"><a href="seo-collections-shopify.html">Shopify collections SEO fix (Guillaume audit)</a></h3>
-          <p class="entry__excerpt">11 systemic issues across ~175 collections after a mass optimization. 182 " | Cobra.fr" suffixes removed in 26 GraphQL batches, 0 errors. Post-compaction recovery.</p>
+          <h3 class="entry__title"><a href="seo-collections-shopify.html">Shopify collections SEO fix (Guillaume's audit)</a></h3>
+          <p class="entry__excerpt">11 systemic issues across ~175 collections after a mass optimization. 182 "| Cobra.fr" suffixes removed in 26 GraphQL batches, 0 errors. Post-compaction recovery.</p>
           <div class="tags"><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -361,8 +369,8 @@
       <li class="entry" data-tags="cobra email en-prod">
         <time datetime="2026-05-15">2026-05-15</time>
         <div>
-          <h3 class="entry__title"><a href="templates-email-refonte.html">Supplier purchase order email templates overhaul (FR + EN)</a></h3>
-          <p class="entry__excerpt">Bringing the PO email template up to the level of the "payment" template, bilingual, with fixed-text constraints. Formatting only, zero back-and-forth on content.</p>
+          <h3 class="entry__title"><a href="templates-email-refonte.html">Purchase order email templates overhaul (FR + EN)</a></h3>
+          <p class="entry__excerpt">Bringing the PO template up to the level of the "payment" template, in two languages, with fixed-text constraints. Formatting only — zero back-and-forth on the content.</p>
           <div class="tags"><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -370,8 +378,8 @@
       <li class="entry" data-tags="hifi-lovers design en-cours">
         <time datetime="2026-05-15">2026-05-15</time>
         <div>
-          <h3 class="entry__title"><a href="anatomie-couverture-hs-yamaha.html">Anatomy of Special Edition Collector #1 cover — HiFi Lovers × Yamaha</a></h3>
-          <p class="entry__excerpt">Structuring the visual hierarchy of the first special edition cover, inspired by the grammar of Marvel/Image comics from the 80s–90s (corner box, masthead, collector badge).</p>
+          <h3 class="entry__title"><a href="anatomie-couverture-hs-yamaha.html">Anatomy of Special Issue Collector #1 cover — HiFi Lovers × Yamaha</a></h3>
+          <p class="entry__excerpt">Structuring the visual hierarchy of the first special issue cover, drawing on the visual grammar of 80s–90s Marvel/Image comics (corner box, masthead, collector badge).</p>
           <div class="tags"><a class="tag" data-tag="design" href="/knowledge-hub/en/journal/?tag=design">design</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="hifi-lovers" href="/knowledge-hub/en/journal/?tag=hifi-lovers" style="border-style:dashed;">HiFi Lovers</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -388,8 +396,8 @@
       <li class="entry" data-tags="hifi-lovers shopify email data en-prod">
         <time datetime="2026-05-11">2026-05-11</time>
         <div>
-          <h3 class="entry__title"><a href="operation-hs-yamaha-annonceurs.html">Yamaha special edition gifted to advertisers — Brevo × Shopify</a></h3>
-          <p class="entry__excerpt">Gifting the first HiFi Lovers special edition to advertisers via a clean mechanic: Excel base → Brevo → Shopify combo promo codes restricted to segment AND product.</p>
+          <h3 class="entry__title"><a href="operation-hs-yamaha-annonceurs.html">Yamaha special issue gifted to advertisers — Brevo × Shopify</a></h3>
+          <p class="entry__excerpt">Giving away the first HiFi Lovers special issue to advertisers with a clean mechanic: Excel list → Brevo → Shopify combo promo codes restricted by segment AND product.</p>
           <div class="tags"><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="hifi-lovers" href="/knowledge-hub/en/journal/?tag=hifi-lovers" style="border-style:dashed;">HiFi Lovers</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -397,8 +405,8 @@
       <li class="entry" data-tags="cobra email en-cours">
         <time datetime="2026-05-08">2026-05-08</time>
         <div>
-          <h3 class="entry__title"><a href="audit-filtrage-mail-cobra.html">Cobra mailbox audit &amp; filtering (Outlook)</a></h3>
-          <p class="entry__excerpt">Taking back control of the hlahutte@cobra.fr inbox buried in noise (Odoo catchall, EDI, notifications): 30-day audit, server/client rules, backlog of urgent items.</p>
+          <h3 class="entry__title"><a href="audit-filtrage-mail-cobra.html">Audit &amp; filtering of the Cobra mailbox (Outlook)</a></h3>
+          <p class="entry__excerpt">Getting back on top of the hlahutte@cobra.fr inbox drowning in noise (Odoo catchall, EDI, notifications): 30-day audit, server/client rules, urgent backlog.</p>
           <div class="tags"><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -407,7 +415,7 @@
         <time datetime="2026-05-03">2026-05-03</time>
         <div>
           <h3 class="entry__title"><a href="marque-inpi-hifi-lovers.html">INPI trademark management — HIFI LOVERS</a></h3>
-          <p class="entry__excerpt">Taking back control of the HIFI LOVERS trademark (already registered at INPI without my knowledge) and preparing a supplementary figurative filing + class 16 for print.</p>
+          <p class="entry__excerpt">Taking back control of the HIFI LOVERS trademark (already filed with INPI without my knowing) and preparing a supplementary figurative filing + class 16 for print.</p>
           <div class="tags"><a class="tag" data-tag="admin" href="/knowledge-hub/en/journal/?tag=admin">admin</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="hifi-lovers" href="/knowledge-hub/en/journal/?tag=hifi-lovers" style="border-style:dashed;">HiFi Lovers</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -415,8 +423,8 @@
       <li class="entry" data-tags="perso admin en-cours">
         <time datetime="2026-05-03">2026-05-03</time>
         <div>
-          <h3 class="entry__title"><a href="contestation-creance-roadsurfer.html">Roadsurfer / Creditreform debt dispute</a></h3>
-          <p class="entry__excerpt">Contesting a €2,549 claim (disputed scratch on a rented van) all the way to referral to CEC France: multilingual FR/DE drafting, navigating debt collection interfaces, compiling evidence.</p>
+          <h3 class="entry__title"><a href="contestation-creance-roadsurfer.html">Contesting a Roadsurfer / Creditreform debt claim</a></h3>
+          <p class="entry__excerpt">Contesting a €2,549 claim (disputed scratch on a rented van) all the way to filing with CEC France: multilingual FR/DE drafting, navigating debt collection interfaces, compiling supporting documents.</p>
           <div class="tags"><a class="tag" data-tag="admin" href="/knowledge-hub/en/journal/?tag=admin">admin</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -425,7 +433,7 @@
         <time datetime="2026-05-02">2026-05-02</time>
         <div>
           <h3 class="entry__title"><a href="audit-boutique-shopify-haute-fidelite.html">Audit &amp; launch of the Haute Fidélité Shopify store</a></h3>
-          <p class="entry__excerpt">Auditing and finalizing the HF Shopify store before scaling: Shopify MCP, GLS switchover, email authentication, 4 editorial templates, audit of 30+ products and 7 collections. (Merge of 3 sessions.)</p>
+          <p class="entry__excerpt">Auditing and finalizing the HF Shopify store before scaling: MCP Shopify, GLS switchover, email authentication, 4 editorial templates, audit of 30+ products and 7 collections. (Merged from 3 sessions.)</p>
           <div class="tags"><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="haute-fidelite" href="/knowledge-hub/en/journal/?tag=haute-fidelite" style="border-style:dashed;">Haute Fidélité</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -433,8 +441,8 @@
       <li class="entry" data-tags="perso admin en-cours">
         <time datetime="2026-05-01">2026-05-01</time>
         <div>
-          <h3 class="entry__title"><a href="creation-ae-adrien-inpi.html">Setting up Adrien's sole trader business (carpentry) — INPI file</a></h3>
-          <p class="entry__excerpt">Helping my 18-year-old nephew set up his carpentry sole trader business: guides, 9-step INPI file, supporting PDF documents, choice of tax regime.</p>
+          <h3 class="entry__title"><a href="creation-ae-adrien-inpi.html">Setting up Adrien's sole proprietorship (carpentry) — INPI filing</a></h3>
+          <p class="entry__excerpt">Helping my 18-year-old nephew start his carpentry sole proprietorship: guides, 9-step INPI filing, supporting PDF documents, choosing the right tax regime.</p>
           <div class="tags"><a class="tag" data-tag="admin" href="/knowledge-hub/en/journal/?tag=admin">admin</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -443,7 +451,7 @@
         <time datetime="2026-04-15">2026-04-15</time>
         <div>
           <h3 class="entry__title"><a href="audit-shopify-odoo-803.html">Shopify/Odoo audit: 803 products, 3 months of work</a></h3>
-          <p class="entry__excerpt">Cross-referencing the Shopify catalog (front) and Odoo (back): reference consistency, prices, stock, metadata across 803 products. The B&amp;W AM-1 pair vs single unit case.</p>
+          <p class="entry__excerpt">Cross-referencing the Shopify catalog (front-end) and Odoo (back-end): SKU consistency, prices, stock, metadata across 803 products. The B&amp;W AM-1 pair vs. single unit case.</p>
           <div class="tags"><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -452,7 +460,7 @@
         <time datetime="2026-04-03">2026-04-03</time>
         <div>
           <h3 class="entry__title"><a href="config-sendcloud-gls-hf.html">Sendcloud × GLS config for Haute Fidélité Shopify</a></h3>
-          <p class="entry__excerpt">Pooling HF e-commerce logistics with the Cobra infrastructure (Sendcloud + daily GLS pickup) while keeping HF-branded customer tracking. Guided real-time setup.</p>
+          <p class="entry__excerpt">Sharing HF's e-commerce logistics with Cobra's infrastructure (Sendcloud + daily GLS pickup) while keeping customer tracking on-brand for HF. Real-time guided setup.</p>
           <div class="tags"><a class="tag" data-tag="logistique" href="/knowledge-hub/en/journal/?tag=logistique">logistique</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="haute-fidelite" href="/knowledge-hub/en/journal/?tag=haute-fidelite" style="border-style:dashed;">Haute Fidélité</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -460,8 +468,8 @@
       <li class="entry" data-tags="haute-fidelite doc admin en-prod">
         <time datetime="2026-03-15">2026-03-15</time>
         <div>
-          <h3 class="entry__title"><a href="docs-facturation-salon-hf-2026.html">Docs &amp; billing for the Haute Fidélité Paris 2026 show</a></h3>
-          <p class="entry__excerpt">Streamlining the admin for the HF 2026 show: replacing the formal contract with a Qonto invoice + bilingual participation terms, for 20–30 exhibitors.</p>
+          <h3 class="entry__title"><a href="docs-facturation-salon-hf-2026.html">Docs &amp; billing for Salon Haute Fidélité Paris 2026</a></h3>
+          <p class="entry__excerpt">Streamlining the admin for the 2026 HF Show: replacing the formal contract with a Qonto invoice + bilingual participation terms, for 20–30 exhibitors.</p>
           <div class="tags"><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="admin" href="/knowledge-hub/en/journal/?tag=admin">admin</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="haute-fidelite" href="/knowledge-hub/en/journal/?tag=haute-fidelite" style="border-style:dashed;">Haute Fidélité</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -469,8 +477,8 @@
       <li class="entry" data-tags="haute-fidelite agent data en-cours">
         <time datetime="2026-03-07">2026-03-07</time>
         <div>
-          <h3 class="entry__title"><a href="bot-telegram-veille-hifi.html">Daily HiFi watch Telegram bot</a></h3>
-          <p class="entry__excerpt">A Telegram push every morning with global HiFi news: ~35 multilingual RSS sources, Claude API writing, deduplication memory, GitHub Actions cron — from scratch.</p>
+          <h3 class="entry__title"><a href="bot-telegram-veille-hifi.html">Daily HiFi news Telegram bot</a></h3>
+          <p class="entry__excerpt">A Telegram push every morning with global hi-fi news: ~35 multilingual RSS sources, copy written by the Claude API, duplicate memory, GitHub Actions cron — built from scratch.</p>
           <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="haute-fidelite" href="/knowledge-hub/en/journal/?tag=haute-fidelite" style="border-style:dashed;">Haute Fidélité</a></div>
         </div>
         <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
@@ -478,8 +486,8 @@
       <li class="entry" data-tags="cobra meta en-cours">
         <time datetime="2025-09-01">2025-09-01</time>
         <div>
-          <h3 class="entry__title"><a href="collegues-sur-claude.html">Colleagues joining Claude</a></h3>
-          <p class="entry__excerpt">Claude stops being a solo tool: colleagues at Cobra start using it. Sharing context without credentials, a good CLAUDE.md, avoiding reinventing the wheel.</p>
+          <h3 class="entry__title"><a href="collegues-sur-claude.html">Colleagues getting on Claude</a></h3>
+          <p class="entry__excerpt">Claude isn't staying a solo tool: colleagues at Cobra are starting to use it. Sharing context without credentials, writing a good CLAUDE.md, avoiding reinventing the wheel.</p>
           <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
@@ -487,17 +495,16 @@
       <li class="entry" data-tags="cobra odoo-dev meta en-prod">
         <time datetime="2025-01-15">2025-01-15</time>
         <div>
-          <h3 class="entry__title"><a href="claude-arrivee-workflow-cobra.html">Claude&#x27;s arrival in the Cobra workflow</a></h3>
-          <p class="entry__excerpt">Before Claude, Odoo dev was done by hand: OCA forums, docs, trial and error. The pivot — treating Claude as a senior colleague who amplifies, not replaces.</p>
+          <h3 class="entry__title"><a href="claude-arrivee-workflow-cobra.html">Claude arrives in the Cobra workflow</a></h3>
+          <p class="entry__excerpt">Before Claude, Odoo dev meant doing it by hand: OCA forums, docs, trial and error. The pivot — treating Claude like a senior colleague who amplifies, not replaces.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
         <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
       </li>
     </ul>
-    <p class="caption" id="empty-msg" style="margin-top:var(--space-6); display:none;">No entries for this filter.</p>
+    <p class="caption" id="empty-msg" style="margin-top:var(--space-6); display:none;">No entries match this filter.</p>
   </div>
-</section>
-</main>
+</section></main>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
