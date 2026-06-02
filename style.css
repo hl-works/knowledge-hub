@@ -769,3 +769,20 @@ mark{background:var(--c-gold); color:var(--c-black);}
   .stairs__step{height:auto !important; border-bottom:1px solid var(--border); border-left:3px solid var(--c-red);}
   .matrix__item{font-size:.6rem; padding:2px 6px;}
 }
+
+/* ===== Sélecteur de langue (bilingue FR/EN) ===== */
+.nav__lang a{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:2rem; height:1.75rem; padding:0 .5rem;
+  font-family:var(--mono, "IBM Plex Mono", monospace);
+  font-size:.75rem; font-weight:500; letter-spacing:.06em;
+  color:var(--text-muted); text-decoration:none;
+  border:1px solid var(--border); border-radius:var(--radius);
+  transition:color .15s, border-color .15s, background .15s;
+}
+.nav__lang a:hover,
+.nav__lang a:focus-visible{
+  color:var(--c-black); border-color:var(--text); background:var(--c-platinum, #E7E9ED);
+}
+[data-theme="dark"] .nav__lang a:hover,
+[data-theme="dark"] .nav__lang a:focus-visible{ color:var(--text); background:transparent; }

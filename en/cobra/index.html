@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cobra — socle technique Odoo / Shopify · Knowledge Hub</title>
+<meta name="description" content="Cobra : le moteur technique de l'écosystème. ERP Odoo, synchronisation Shopify, automatisations et scripts — piloté avec un Claude Code dédié.">
+<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/cobra/">
+<link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/cobra/">
+<link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/cobra/">
+<link rel="alternate" hreflang="x-default" href="https://hugolahutte.github.io/knowledge-hub/cobra/">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cobra — socle technique Odoo / Shopify">
+<meta property="og:description" content="ERP Odoo, synchro Shopify, automatisations. Piloté avec Claude Code.">
+<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/cobra/">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260601e">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Cobra — socle technique Odoo / Shopify",
+  "description": "ERP Odoo, synchronisation Shopify, automatisations. Piloté avec Claude Code.",
+  "inLanguage": "en-US",
+  "url": "https://hugolahutte.github.io/knowledge-hub/cobra/",
+  "isPartOf": {"@type": "WebSite", "name": "Knowledge Hub", "url": "https://hugolahutte.github.io/knowledge-hub/"},
+  "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/"},
+  "about": {
+    "@type": "Organization",
+    "name": "Cobra",
+    "url": "https://cobra.fr/",
+    "sameAs": [
+      "https://www.youtube.com/@CobrasonHD",
+      "https://www.instagram.com/cobra.fr/",
+      "https://www.tiktok.com/@cobra.fr.image.son",
+      "https://www.facebook.com/Cobrason/",
+      "https://x.com/Cobra_HD",
+      "https://fr.pinterest.com/cobrason/",
+      "https://www.linkedin.com/company/9608732/"
+    ]
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__lang"><a href="/knowledge-hub/cobra/" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="../guides/">Guides</a></li>
+      <li><a href="../veille-ia/">Veille IA</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../#projets" aria-current="page">Projets</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" style="padding-block:var(--space-16) var(--space-8);">
+  <div class="container">
+    <p class="caption"><a href="../#projets">← Projets</a></p>
+    <p class="kicker">Dev · Odoo / Shopify</p>
+    <h1>Cobra</h1>
+    <hr class="rule--accent">
+    <p class="lead"><strong>Cobra</strong> — enseigne emblématique de la HiFi et du Home Cinéma, dont je suis directeur général (<a href="https://www.cobra.fr" rel="external">cobra.fr</a>). Cette verticale documente son <strong>moteur technique</strong> : ERP <strong>Odoo</strong>, synchronisation <strong>Shopify</strong>, webhooks, scripts de réconciliation et automatisations internes.</p>
+    <p class="prose">Le dev est piloté avec un <strong>Claude Code dédié</strong> qui vit dans le repo : il connaît la codebase, exécute les scripts, et documente chaque session dans le journal sous le badge <strong>Claude · Cobra</strong>.</p>
+    <div class="two-col" style="margin-top:var(--space-8);">
+      <figure class="figure">
+        <img src="/knowledge-hub/assets/img/cobra-laptop.webp" alt="Hugo Lahutte au travail sur son ordinateur portable, bureau de Cobra" width="1024" height="1536" loading="lazy" decoding="async" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);">
+        <figcaption class="caption">Bureau Cobra, en session.</figcaption>
+      </figure>
+      <div class="prose">
+        <h3>Ce qu'on y traite</h3>
+        <ul>
+          <li>Synchronisation catalogue &amp; stock Odoo ↔ Shopify</li>
+          <li>Webhooks commandes, fulfillment, dédup</li>
+          <li>Scripts de réconciliation multi-entrepôts</li>
+          <li>Automatisations métier &amp; reporting</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:var(--space-12);">Retrouver Cobra</h3>
+    <ul class="linklist">
+      <li><a href="https://cobra.fr/" data-primary rel="external">Cobra.fr ↗</a></li>
+      <li><a href="https://www.youtube.com/@CobrasonHD" rel="external">YouTube</a></li>
+      <li><a href="https://www.instagram.com/cobra.fr/" rel="external">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@cobra.fr.image.son" rel="external">TikTok</a></li>
+      <li><a href="https://www.facebook.com/Cobrason/" rel="external">Facebook</a></li>
+      <li><a href="https://x.com/Cobra_HD" rel="external">X</a></li>
+      <li><a href="https://fr.pinterest.com/cobrason/" rel="external">Pinterest</a></li>
+      <li><a href="https://www.linkedin.com/company/9608732/" rel="external">LinkedIn</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Moments clés (LinkedIn) ===== -->
+<section style="padding-top:0;">
+  <div class="container">
+    <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Moments clés</h2>
+    <p class="prose" style="margin-top:var(--space-4);">Mars 2025 : on relance <strong>cobra.fr</strong> de zéro (nouveau CMS Shopify, design, infra). Un an plus tard, Cobra est élu <strong>n°1 des spécialistes Image &amp; Son par Capital</strong>. Retour sur l'arrivée et sur cette première année.</p>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <div class="embed-grid">
+      <figure class="li-embed">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7445834301625225217?collapsed=1" height="600" width="504" frameborder="0" allowfullscreen title="Cobra élu n°1 par Capital — post LinkedIn" loading="lazy"></iframe>
+        <figcaption class="caption">cobra.fr a 1 an — et il est élu n°1 des spécialistes Image &amp; Son par Capital.</figcaption>
+      </figure>
+      <figure class="li-embed">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7301230069845274625?collapsed=1" height="600" width="504" frameborder="0" allowfullscreen title="Arrivée chez Cobra — post LinkedIn" loading="lazy"></iframe>
+        <figcaption class="caption">« Presque mon premier jour chez Cobra » — l'annonce de l'arrivée comme DG.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Entrées liées</h2>
+      <a href="../journal/">Tout le journal →</a>
+    </div>
+    <form class="search-box" action="../journal/" method="get" role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="search" name="q" placeholder="Rechercher dans les sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
+    </form>
+    <hr class="rule" style="margin:var(--space-6) 0 0;">
+    <ul class="entry-list">
+      <li class="entry" data-tags="odoo-admin en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/sony-bravia-prix-marge.html">Mise à jour prix Sony Bravia II + diagnostic marge nulle</a></h3>
+          <p class="entry__excerpt">19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d&#x27;une marge à 0 % : l&#x27;UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-admin" href="/knowledge-hub/en/journal/?tag=odoo-admin">odoo-admin</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/sogetronic-import-prod.html">Profil Sogetronic : import stock dropshipping par code fournisseur</a></h3>
+          <p class="entry__excerpt">Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l&#x27;EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="seo-gtm shopify data en-cours">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/gsc-json-ld-fix.html">Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery</a></h3>
+          <p class="entry__excerpt">7 pages produit en erreur « extraits de produits » dans GSC. Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.</p>
+          <div class="tags"><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="data odoo-admin en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/epson-declaratif-ventes.html">Déclaratif ventes Epson : export Odoo → Google Sheets</a></h3>
+          <p class="entry__excerpt">Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="odoo-admin" href="/knowledge-hub/en/journal/?tag=odoo-admin">odoo-admin</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="cobra strat admin en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/discours-fiche-poste-vendeur-cobra.html">Discours &amp; fiche de poste vendeur magasin Cobra</a></h3>
+          <p class="entry__excerpt">Transformer un discours managérial brut en trois livrables exécutables (bullet points, prose, fiche de poste Word à signer) après une restructuration d&#x27;équipe.</p>
+          <div class="tags"><a class="tag tag--cobra" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra">cobra</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="admin" href="/knowledge-hub/en/journal/?tag=admin">admin</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/cdc18-stabilisation.html">Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR</a></h3>
+          <p class="entry__excerpt">Deux bugs résiduels du dashboard achats : boutons qui n&#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev meta en-prod">
+        <time datetime="2026-05-30">2026-05-30</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/audit-ui-cobra-design-ref.html">Audit UI Cobra + mise à jour odoo18_design_reference</a></h3>
+          <p class="entry__excerpt">Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="agent en-cours">
+        <time datetime="2026-05-29">2026-05-29</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/agent-factures-architecture.html">Agent autonome de traitement des factures fournisseurs</a></h3>
+          <p class="entry__excerpt">Cadrer toute l&#x27;architecture d&#x27;un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d&#x27;écrire une ligne de code. Ne toucher Odoo qu&#x27;une fois/semaine.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="agent data en-cours">
+        <time datetime="2026-05-29">2026-05-29</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/agent-creation-produits.html">Agent de création automatique de produits Odoo</a></h3>
+          <p class="entry__excerpt">Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="infra odoo-dev en-prod">
+        <time datetime="2026-05-28">2026-05-28</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/sftp-pipeline-complet.html">Serveur SFTP + pipeline automatique stock drop</a></h3>
+          <p class="entry__excerpt">Hardening SSH (fail2ban, ufw, chroot) + script qui injecte tout fichier déposé dans Odoo via le module existant. Le branchement sur action_run_import : gain ×60.</p>
+          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="email odoo-dev en-prod">
+        <time datetime="2026-05-28">2026-05-28</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/routing-po-drop-reassort.html">Routing email PO Drop vs Réassort + templates Cobra</a></h3>
+          <p class="entry__excerpt">Router l&#x27;email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.</p>
+          <div class="tags"><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="shopify data en-cours">
+        <time datetime="2026-05-28">2026-05-28</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/dynaudio-analyse-ventes.html">Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés</a></h3>
+          <p class="entry__excerpt">Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l&#x27;édition de fichiers.</p>
+          <div class="tags"><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="agent en-cours">
+        <time datetime="2026-05-27">2026-05-27</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/mission-dm-france.html">Brief mission Claude Code : vérification factures D&amp;M France</a></h3>
+          <p class="entry__excerpt">14 factures PDF importées en brouillon Odoo, non fiables. Un brief structuré et sécurisé (matching PO, DEEE, escompte, garde-fous) pour que Claude Code travaille en autonomie.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev en-prod">
+        <time datetime="2026-05-27">2026-05-27</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/cdc18-form-view.html">CDC-18 form view : déploiement chirurgical en prod</a></h3>
+          <p class="entry__excerpt">Pousser uniquement le formulaire BC en prod (boutons, titres dynamiques, statusbar) sans embarquer CDC-19 — isolation d&#x27;un commit propre depuis une pile preprod3 mélangée.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev en-prod">
+        <time datetime="2026-05-26">2026-05-26</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/statuts-livree-facturee-payee.html">Statuts Livrée / Facturée / Payée sur les bons de commande</a></h3>
+          <p class="entry__excerpt">3 statuts consolidés (Livrée/Facturée/Payée) en badges sur la fiche PO et les listes, pour connaître l&#x27;état réel d&#x27;une commande d&#x27;un coup d&#x27;œil. Pièges xpath multi-list.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev en-cours">
+        <time datetime="2026-05-25">2026-05-25</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/cdc19-liste-po.html">CDC-19 : vue liste Bons de commande améliorée</a></h3>
+          <p class="entry__excerpt">Badge Drop/Réassort, date de livraison confirmée, dates sans heure dans la liste BC. Deux pièges OWL 18 : position=attributes ignoré, rollback XML silencieux.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev en-prod">
+        <time datetime="2026-05-24">2026-05-24</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/cdc18-build.html">CDC-18 : workflow achats Cobra (cobra_purchase)</a></h3>
+          <p class="entry__excerpt">Un module achats complet pour Cobra : dashboards RFQ/PO, détection de réponse fournisseur, filtres entrepôts. 6 bugs Odoo 18 SaaS transformés en 7 règles réutilisables.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="data meta en-prod">
+        <time datetime="2026-05-21">2026-05-21</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/sogetronic-seed-21mai.html">Sogetronic seed + restructuration Knowledge Hub Claude</a></h3>
+          <p class="entry__excerpt">Deux besoins dans une session : charger les Codes Sage Sogetronic sur 175 fiches produit, et restructurer les fichiers de contexte Claude pour un usage double chat + Code.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="infra en-cours">
+        <time datetime="2026-05-21">2026-05-21</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/infra-sftp-phase1.html">Infrastructure SFTP Cobra : phase 1 setup serveur</a></h3>
+          <p class="entry__excerpt">Poser une infra SFTP pérenne (Scaleway/Ubuntu) où chaque fournisseur dépose ses fichiers stock, récupérés automatiquement par Odoo. Setup serveur guidé pas à pas.</p>
+          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="seo-gtm en-prod">
+        <time datetime="2026-05-20">2026-05-20</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/gtm-refonte-cobra.html">Refonte GTM cobra.fr : purge 71 → 20 balises + Consent Mode v2</a></h3>
+          <p class="entry__excerpt">71 balises accumulées, CMP obsolète, Consent Mode bricolé. Migration vers Consent Mode v2 natif Shopify, purge à 20 balises, ~70 variables orphelines supprimées.</p>
+          <div class="tags"><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="seo-gtm shopify en-prod">
+        <time datetime="2026-05-19">2026-05-19</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/seo-collections-shopify.html">Correctif SEO collections Shopify (audit Guillaume)</a></h3>
+          <p class="entry__excerpt">11 problèmes systémiques sur ~175 collections après une mass-optimisation. 182 suffixes « | Cobra.fr » retirés en 26 batches GraphQL, 0 erreur. Reprise post-compaction.</p>
+          <div class="tags"><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="email en-prod">
+        <time datetime="2026-05-15">2026-05-15</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/templates-email-refonte.html">Refonte templates email commande fournisseur (FR + EN)</a></h3>
+          <p class="entry__excerpt">Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.</p>
+          <div class="tags"><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="meta en-prod">
+        <time datetime="2026-05-11">2026-05-11</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/structuration-projet-odoo.html">Structuration projet Claude « Odoo » : docs de référence écosystème</a></h3>
+          <p class="entry__excerpt">Consolider toutes les connexions techniques validées dans un doc de référence pour que chaque nouvelle conversation démarre avec le bon contexte.</p>
+          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="cobra email en-cours">
+        <time datetime="2026-05-08">2026-05-08</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/audit-filtrage-mail-cobra.html">Audit &amp; filtrage de la boîte mail Cobra (Outlook)</a></h3>
+          <p class="entry__excerpt">Reprendre la main sur l&#x27;inbox hlahutte@cobra.fr noyée par le bruit (catchall Odoo, EDI, notifications) : audit sur 30 jours, règles serveur/client, backlog des urgents.</p>
+          <div class="tags"><a class="tag tag--cobra" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra">cobra</a><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
+      </li>
+      <li class="entry" data-tags="shopify data en-cours">
+        <time datetime="2026-04-15">2026-04-15</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/audit-shopify-odoo-803.html">Audit Shopify/Odoo : 803 produits, 3 mois de travail</a></h3>
+          <p class="entry__excerpt">Croiser le catalogue Shopify (front) et Odoo (back) : cohérence des références, prix, stocks, métadonnées sur 803 produits. Le cas B&amp;W AM-1 paire vs pièce.</p>
+          <div class="tags"><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="meta en-cours">
+        <time datetime="2025-09-01">2025-09-01</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/collegues-sur-claude.html">L&#x27;arrivée des collègues sur Claude</a></h3>
+          <p class="entry__excerpt">Claude ne reste pas un outil solo : des collègues chez Cobra commencent à l&#x27;utiliser. Partage de contexte sans credentials, bon CLAUDE.md, éviter de réinventer la roue.</p>
+          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev meta en-prod">
+        <time datetime="2025-01-15">2025-01-15</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/claude-arrivee-workflow-cobra.html">L&#x27;arrivée de Claude dans le workflow Cobra</a></h3>
+          <p class="entry__excerpt">Avant Claude, le dev Odoo se faisait à la main : forums OCA, doc, essais/erreurs. Le pivot — traiter Claude comme un collègue senior qui amplifie, ne remplace pas.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+    </ul>
+    <p class="caption" style="margin-top:var(--space-4);">Entrée d'exemple — le journal Cobra se remplira au fil des sessions dev.</p>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navigation principale — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hugolahutte.github.io/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      </div>
+
+      <nav aria-label="Liens de pied de page">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">À propos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
+        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

@@ -3,21 +3,31 @@
 (function(){
   // Base du site (gère le sous-dossier /knowledge-hub/ et l'exécution locale)
   var BASE = (location.pathname.indexOf('/knowledge-hub/')===0) ? '/knowledge-hub' : '';
+  // Bilingue : détecte la version anglaise (/en/) -> index + libellés EN
+  var EN = /(^|\/)en\//.test(location.pathname);
+  var INDEX = BASE + (EN ? '/search-index.en.json' : '/search-index.json');
+  var T = EN ? {
+    dialog:'Search the site', ph:'Search a guide, a session, a topic…',
+    prompt:'Type to search the whole site.', none1:'No result for “ ', none2:' ”.'
+  } : {
+    dialog:'Rechercher dans le site', ph:'Rechercher un guide, une session, un sujet…',
+    prompt:'Tapez pour rechercher dans tout le site.', none1:'Aucun résultat pour « ', none2:' ».'
+  };
   var overlay, input, results, empty, idx=null, items=[], active=-1;
 
   function build(){
     overlay=document.createElement('div');
     overlay.className='site-search'; overlay.setAttribute('role','dialog');
-    overlay.setAttribute('aria-modal','true'); overlay.setAttribute('aria-label','Rechercher dans le site');
+    overlay.setAttribute('aria-modal','true'); overlay.setAttribute('aria-label',T.dialog);
     overlay.innerHTML=
       '<div class="site-search__panel">'+
         '<div class="site-search__bar">'+
           '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>'+
-          '<input type="search" id="ss-input" placeholder="Rechercher un guide, une session, un sujet…" aria-label="Rechercher" autocomplete="off">'+
-          '<kbd>Échap</kbd>'+
+          '<input type="search" id="ss-input" placeholder="'+T.ph+'" aria-label="'+T.dialog+'" autocomplete="off">'+
+          '<kbd>'+(EN?'Esc':'Échap')+'</kbd>'+
         '</div>'+
         '<ul class="site-search__results" id="ss-results"></ul>'+
-        '<p class="site-search__empty" id="ss-empty" hidden>Tapez pour rechercher dans tout le site.</p>'+
+        '<p class="site-search__empty" id="ss-empty" hidden>'+T.prompt+'</p>'+
       '</div>';
     document.body.appendChild(overlay);
     input=overlay.querySelector('#ss-input');
@@ -30,7 +40,7 @@
 
   function loadIndex(){
     if(idx) return Promise.resolve(idx);
-    return fetch(BASE+'/search-index.json',{cache:'no-store'})
+    return fetch(INDEX,{cache:'no-store'})
       .then(function(r){ return r.json(); })
       .then(function(d){ idx=d; return d; })
       .catch(function(){ idx=[]; return []; });
@@ -46,12 +56,12 @@
   function render(q){
     q=(q||'').trim();
     results.innerHTML=''; active=-1;
-    if(!q){ empty.hidden=false; empty.textContent='Tapez pour rechercher dans tout le site.'; return; }
+    if(!q){ empty.hidden=false; empty.textContent=T.prompt; return; }
     var needle=q.toLowerCase();
     var matched=idx.filter(function(it){
       return (it.title+' '+it.excerpt+' '+(it.tags||'')+' '+it.kind).toLowerCase().indexOf(needle)>-1;
     }).slice(0,12);
-    if(!matched.length){ empty.hidden=false; empty.textContent='Aucun résultat pour « '+q+' ».'; return; }
+    if(!matched.length){ empty.hidden=false; empty.textContent=T.none1+q+T.none2; return; }
     empty.hidden=true;
     matched.forEach(function(it){
       var li=document.createElement('li');

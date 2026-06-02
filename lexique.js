@@ -6,10 +6,14 @@
 (function(){
   if (location.pathname.indexOf('/lexique/')>-1) return; // pas d'auto-lien sur la page lexique
   var BASE = (location.pathname.indexOf('/knowledge-hub/')===0) ? '/knowledge-hub' : '';
+  // Bilingue : version anglaise (/en/) -> glossaire EN + page lexique EN
+  var EN = /(^|\/)en\//.test(location.pathname);
+  var LEXPATH = BASE + (EN ? '/en/lexique/' : '/lexique/');
+  var GLOSS = BASE + (EN ? '/en/lexique/glossaire.en.json' : '/lexique/glossaire.json');
 
   function norm(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(); }
 
-  fetch(BASE+'/lexique/glossaire.json',{cache:'force-cache'})
+  fetch(GLOSS,{cache:'force-cache'})
     .then(function(r){return r.json();})
     .then(function(terms){ init(terms); })
     .catch(function(){});
@@ -51,7 +55,7 @@
         var before=txt.slice(0,idx), match=txt.slice(idx, idx+e.alias.length), after=txt.slice(idx+e.alias.length);
         var span=document.createElement('a');
         span.className='lex-term';
-        span.setAttribute('href', BASE+'/lexique/#lex-'+e.term.id);
+        span.setAttribute('href', LEXPATH+'#lex-'+e.term.id);
         span.setAttribute('data-term', e.term.id);
         span.setAttribute('data-def', e.term.definition);
         span.textContent=match;
@@ -86,7 +90,7 @@
     function show(el){
       clearTimeout(hideTimer);
       var id=el.getAttribute('data-term'), def=el.getAttribute('data-def');
-      pop.innerHTML='<b>'+el.textContent+'</b> — '+mdBold(def)+'<br><a href="'+BASE+'/lexique/#lex-'+id+'">voir dans le lexique →</a>';
+      pop.innerHTML='<b>'+el.textContent+'</b> — '+mdBold(def)+'<br><a href="'+LEXPATH+'#lex-'+id+'">'+(EN?'see in the glossary →':'voir dans le lexique →')+'</a>';
       var r=el.getBoundingClientRect();
       pop.style.left=Math.max(8, Math.min(window.innerWidth-308, r.left+window.scrollX))+'px';
       pop.style.top=(r.bottom+window.scrollY+6)+'px';
