@@ -132,8 +132,8 @@
       <a class="btn btn--ghost" href="a-propos/">Qui je suis</a>
     </div>
     <div class="meta">
-      <div class="stat"><b>43</b><span>Sessions documentées</span></div>
-      <div class="stat"><b>4</b><span>Projets actifs</span></div>
+      <div class="stat"><b id="stat-sessions">43</b><span>Sessions documentées</span></div>
+      <div class="stat"><b id="stat-projects">4</b><span>Projets actifs</span></div>
       <div class="stat"><b>2</b><span>Agents Claude</span></div>
     </div>
   </div>
@@ -244,7 +244,7 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="search" name="q" placeholder="Rechercher dans les 43 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 43 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
@@ -294,7 +294,7 @@
         <div class="author"><span class="author--hl">Claude · HL</span></div>
       </li>
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a href="journal/">43 entrées au total — filtrer par tag dans le journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">43 entrées au total — filtrer par tag dans le journal →</a></p>
   </div>
 </section>
 
@@ -379,5 +379,23 @@
 <script src="search.js?v=20260601d" defer></script>
 <script src="lexique.js?v=20260601d" defer></script>
 <script src="theme.js?v=20260601d" defer></script>
+<script>
+(function(){
+  fetch('/knowledge-hub/search-index.json')
+    .then(function(r){return r.json();})
+    .then(function(data){
+      var sessions = data.filter(function(e){return e.kind==='Journal';}).length;
+      var projects = data.filter(function(e){return e.kind==='Projet';}).length;
+      var ss = document.getElementById('stat-sessions');
+      var sp = document.getElementById('stat-projects');
+      var si = document.getElementById('journal-search-input');
+      var sl = document.getElementById('journal-count-link');
+      if(ss) ss.textContent = sessions;
+      if(sp) sp.textContent = projects;
+      if(si) si.placeholder = 'Rechercher dans les '+sessions+' sessions (Odoo, Shopify, SFTP, agent…)';
+      if(sl) sl.textContent = sessions+' entrées au total — filtrer par tag dans le journal →';
+    });
+})();
+</script>
 </body>
 </html>
