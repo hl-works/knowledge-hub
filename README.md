@@ -91,6 +91,45 @@ prompts et projets confidentiels, au choix :
 
 ---
 
+## Bilingue FR / EN
+
+Le site est bilingue. **Le français reste la racine** ; l'anglais vit en miroir
+sous `/en/`.
+
+- `/knowledge-hub/<page>` → FR · `/knowledge-hub/en/<page>` → EN (mêmes slugs).
+- Chaque page déclare ses alternatives : `hreflang` `fr` / `en` / `x-default`
+  (x-default = FR), `canonical` et `og:locale` propres à chaque langue.
+- Un **sélecteur de langue FR/EN** est présent dans la nav de chaque page
+  (`li.nav__lang`), zéro JS pour la bascule.
+- `search.js` et `lexique.js` détectent `/en/` et chargent l'index
+  (`search-index.en.json`), le glossaire (`en/lexique/glossaire.en.json`) et les
+  libellés d'UI en anglais.
+- `sitemap.xml` liste les deux langues avec alternances `xhtml:link`.
+- GEO : `en/llms.txt` + `en/llms-full.txt` ; le `llms.txt` FR pointe vers l'EN.
+- Exclus du miroir : `coffre/` (privé), `404.html`, `journal/_template.html`.
+
+### Outils (dossier `scripts/`)
+
+| Script | Rôle |
+|--------|------|
+| `i18n_scaffold.py` | Génère/rafraîchit le miroir `/en/` (chemins, hreflang, sélecteur) — contenu FR à traduire ensuite. Idempotent. |
+| `auto_translate.py` | Traduit une page FR → sa jumelle EN via l'API Claude, selon `TRANSLATION_GUIDE.md`. |
+| `build_sitemap.py` | Régénère `sitemap.xml` bilingue (alternances hreflang). |
+| `TRANSLATION_GUIDE.md` | Le ton et les règles de traduction (zones à ne pas toucher). |
+
+### Workflow d'auto-traduction
+
+`.github/workflows/i18n-translate.yml` : à chaque push sur `main` touchant une
+page FR (`**.html` hors `en/`), il (re)traduit **uniquement** la jumelle EN et
+ouvre une **Pull Request** (relecture humaine avant publication). Isolé du site
+servi, donc sans risque de casse. **Prérequis** : secret `ANTHROPIC_API_KEY`
+(Settings → Secrets → Actions). Déclenchable aussi à la main (`workflow_dispatch`).
+
+> Règle de maintenance : tout nouveau contenu naît en FR ; la PR EN est générée
+> automatiquement et relue avant merge.
+
+---
+
 ## Développement local
 
 Aucune build. Ouvrir `index.html` dans un navigateur, ou servir le dossier :

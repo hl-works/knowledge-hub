@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>C'est quoi un « MCP », et comment brancher Claude à tes outils — Guides · Hugo Lahutte</title>
-<meta name="description" content="API, MCP, navigateur, copier-coller : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante — et pourquoi le MCP change tout.">
+<title>What is an "MCP", and how to connect Claude to your tools — Guides · Hugo Lahutte</title>
+<meta name="description" content="API, MCP, browser, copy-paste: the four ways to connect Claude to your tools (Shopify, Gmail, Drive…), from simplest to most powerful — and why MCP changes everything.">
 <link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html">
 <link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html">
 <link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html">
@@ -15,8 +15,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="C'est quoi un « MCP », et comment brancher Claude à tes outils">
-<meta property="og:description" content="Les quatre façons de connecter Claude à tes outils, de la plus simple à la plus puissante — et pourquoi le MCP change tout.">
+<meta property="og:title" content="What is an &quot;MCP&quot;, and how to connect Claude to your tools">
+<meta property="og:description" content="The four ways to connect Claude to your tools, from simplest to most powerful — and why MCP changes everything.">
 <meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -45,32 +45,32 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "C'est quoi un « MCP », et comment brancher Claude à tes outils",
-      "description": "Les quatre façons de connecter Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante, et pourquoi le MCP change tout.",
+      "headline": "What is an \"MCP\", and how to connect Claude to your tools",
+      "description": "The four ways to connect Claude to your tools (Shopify, Gmail, Drive…), from simplest to most powerful, and why MCP changes everything.",
       "inLanguage": "en-US",
       "datePublished": "2026-05-31",
       "dateModified": "2026-05-31",
       "url": "https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html",
       "author": {"@type": "Person", "@id": "https://hugolahutte.github.io/knowledge-hub/#hugo", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
       "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["MCP", "Model Context Protocol", "API", "Claude", "intégration", "Shopify", "Gmail"],
-      "keywords": "MCP, Model Context Protocol, API, connecter Claude, intégration outils"
+      "about": ["MCP", "Model Context Protocol", "API", "Claude", "integration", "Shopify", "Gmail"],
+      "keywords": "MCP, Model Context Protocol, API, connect Claude, tool integration"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hugolahutte.github.io/knowledge-hub/"},
         {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hugolahutte.github.io/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "C'est quoi un MCP ?", "item": "https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"}
+        {"@type": "ListItem", "position": 3, "name": "What is an MCP?", "item": "https://hugolahutte.github.io/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"}
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Claude voit-il mes outils par défaut ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Par défaut Claude raisonne mais ne touche à rien : il ne sait rien de ton Shopify ni de tes mails tant que tu ne le branches pas. « Connecter » Claude, c'est lui donner des bras."}},
-        {"@type": "Question", "name": "Quelles sont les façons de connecter Claude à mes outils ?", "acceptedAnswer": {"@type": "Answer", "text": "Quatre, du plus simple au plus puissant : 1) copier-coller / capture d'écran (zéro installation) ; 2) le navigateur, où Claude pilote un site à ta place ; 3) l'API, un tuyau programmé entre un service et Claude ; 4) le MCP, la prise standard la plus propre et durable."}},
-        {"@type": "Question", "name": "C'est quoi un MCP, concrètement ?", "acceptedAnswer": {"@type": "Answer", "text": "MCP signifie Model Context Protocol : un standard ouvert créé par Anthropic, comme une prise universelle façon USB. N'importe quel outil compatible MCP se branche à Claude sans intégration sur-mesure — Shopify, Google Drive, Gmail… Claude peut alors lire dedans et agir, dans le cadre que tu autorises."}},
-        {"@type": "Question", "name": "Pourquoi le MCP change-t-il les choses ?", "acceptedAnswer": {"@type": "Answer", "text": "Au lieu de re-coder une intégration pour chaque outil, tout le monde parle la même prise. Claude travaille alors sur tes vrais outils, pas sur une démo : c'est la différence entre un chatbot sympa et un collègue opérationnel."}}
+        {"@type": "Question", "name": "Does Claude see my tools by default?", "acceptedAnswer": {"@type": "Answer", "text": "No. By default Claude reasons but touches nothing: it knows nothing about your Shopify or your emails until you connect it. \"Connecting\" Claude means giving it hands."}},
+        {"@type": "Question", "name": "What are the ways to connect Claude to my tools?", "acceptedAnswer": {"@type": "Answer", "text": "Four, from simplest to most powerful: 1) copy-paste / screenshot (zero installation); 2) the browser, where Claude navigates a site for you; 3) the API, a programmed pipe between a service and Claude; 4) the MCP, the cleanest and most durable standard connector."}},
+        {"@type": "Question", "name": "What is an MCP, concretely?", "acceptedAnswer": {"@type": "Answer", "text": "MCP stands for Model Context Protocol: an open standard created by Anthropic, like a universal adapter in the USB sense. Any MCP-compatible tool plugs into Claude without custom integration — Shopify, Google Drive, Gmail… Claude can then read and act within it, in the scope you authorize."}},
+        {"@type": "Question", "name": "Why does MCP change things?", "acceptedAnswer": {"@type": "Answer", "text": "Instead of re-coding a custom integration for every tool, everyone speaks the same plug. Claude then works on your real tools, not a demo — that's the difference between a nice chatbot and an operational colleague."}}
       ]
     }
   ]
@@ -78,26 +78,26 @@
 </script>
 </head>
 <body>
-<a class="skip-link" href="#main">Aller au contenu</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="nav">
   <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
-  <nav aria-label="Principale">
+  <nav aria-label="Main">
     <ul class="nav__links" id="nav-links">
       <li class="nav__lang"><a href="/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
-      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
-      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
-      <li><a href="../how-to/">Méthode</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
       <li><a href="./" aria-current="page">Guides</a></li>
-      <li><a href="../veille-ia/">Veille IA</a></li>
-      <li><a href="../a-propos/">À propos</a></li>
-      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../a-propos/">About</a></li>
+      <li><a href="../#projets">Projects</a></li>
       <li><a href="../journal/">Journal</a></li>
-      <li><a href="../#contact">Échanger</a></li>
+      <li><a href="../#contact">Get in touch</a></li>
     </ul>
     <div class="nav__actions">
-      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
       <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
     </div>
   </nav>
@@ -107,14 +107,14 @@
 
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
-    <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › C'est quoi un MCP ?</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste</p>
-    <h1 style="font-size:clamp(2.1rem,5vw,3.8rem);">C'est quoi un « MCP », et comment brancher Claude à tes outils</h1>
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › What is an MCP?</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · General</p>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.8rem);">What is an "MCP", and how to connect Claude to your tools</h1>
     <hr class="rule--accent">
-    <p class="lead">API, MCP, navigateur, copier-coller : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante — et pourquoi le <strong>MCP</strong> change tout.</p>
+    <p class="lead">API, MCP, browser, copy-paste: the four ways to connect Claude to your tools (Shopify, Gmail, Drive…), from simplest to most powerful — and why <strong>MCP</strong> changes everything.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>~5 min de lecture</span>
+      <span>By <strong>Hugo Lahutte</strong></span><span>·</span>
+      <time datetime="2026-05-31">May 31, 2026</time><span>·</span><span>~5 min read</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="mcp" data-tagsearch="mcp" href="/knowledge-hub/en/guides/">MCP</a>
@@ -122,10 +122,10 @@
       <a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a>
       <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/en/guides/">vulgarisation</a>
     </div>
-    <ul class="levels" aria-label="Niveaux de lecture">
-      <li class="level-pill"><b>1</b> En 30 secondes</li>
-      <li class="level-pill"><b>2</b> Le corps, visuel</li>
-      <li class="level-pill"><b>3</b> Pour aller plus loin</li>
+    <ul class="levels" aria-label="Reading levels">
+      <li class="level-pill"><b>1</b> 30-second take</li>
+      <li class="level-pill"><b>2</b> The body, visual</li>
+      <li class="level-pill"><b>3</b> Go deeper</li>
     </ul>
   </div>
 </section>
@@ -133,78 +133,78 @@
 <article class="article" style="padding-top:0;">
   <div class="container">
 
-    <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
-      <p class="kicker">En 30 secondes</p>
+    <aside class="callout callout--tldr prose" aria-label="30-second summary">
+      <p class="kicker">30-second take</p>
       <ul>
-        <li>Par défaut, Claude <strong>ne voit pas</strong> tes outils. Il raisonne, mais ne touche à rien tant que tu ne le branches pas.</li>
-        <li>Quatre façons de le connecter, du plus simple au plus costaud : <strong>copier-coller / capture → navigateur → API → MCP</strong>.</li>
-        <li>Le <strong>MCP</strong>, c'est une prise standard qui laisse Claude lire et agir <strong>directement</strong> dans Shopify, Gmail, Drive… Ça transforme l'assistant en collègue branché sur ton entreprise.</li>
+        <li>By default, Claude <strong>can't see</strong> your tools. It reasons, but touches nothing until you connect it.</li>
+        <li>Four ways to connect it, from simplest to most powerful: <strong>copy-paste / screenshot → browser → API → MCP</strong>.</li>
+        <li>The <strong>MCP</strong> is a standard connector that lets Claude read and act <strong>directly</strong> in Shopify, Gmail, Drive… It turns the assistant into a colleague who's plugged into your business.</li>
       </ul>
     </aside>
 
-    <nav class="toc prose" aria-label="Sommaire">
-      <p class="kicker">Sommaire</p>
+    <nav class="toc prose" aria-label="Contents">
+      <p class="kicker">Contents</p>
       <ul>
-        <li><a href="#bras">1. Le point de départ : une tête sans bras</a></li>
-        <li><a href="#niveaux">2. Les 4 niveaux de branchement</a></li>
-        <li><a href="#mcp">3. C'est quoi un MCP, concrètement</a></li>
-        <li><a href="#chez-moi">4. Pourquoi c'est fou chez moi</a></li>
+        <li><a href="#bras">1. The starting point: a brain without hands</a></li>
+        <li><a href="#niveaux">2. The 4 connection levels</a></li>
+        <li><a href="#mcp">3. What an MCP is, concretely</a></li>
+        <li><a href="#chez-moi">4. Why it's a game-changer in my setup</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
-      <h2 id="bras">1. Le point de départ : une tête sans bras</h2>
-      <p>Claude tout seul, c'est un cerveau brillant mais sans mains. Il peut analyser ce que tu lui montres, mais il ne sait rien de ton Shopify ni de tes mails tant que tu ne lui ouvres pas la porte. « Connecter » Claude, c'est lui donner des bras.</p>
+      <h2 id="bras">1. The starting point: a brain without hands</h2>
+      <p>Claude on its own is a brilliant mind with no hands. It can analyze what you show it, but it knows nothing about your Shopify or your emails until you open the door. "Connecting" Claude means giving it hands.</p>
 
-      <h2 id="niveaux">2. Les 4 niveaux de branchement</h2>
-      <p>Du plus simple au plus puissant :</p>
+      <h2 id="niveaux">2. The 4 connection levels</h2>
+      <p>From simplest to most powerful:</p>
       <ol>
-        <li><strong>Copier-coller / capture d'écran</strong> — zéro installation. Tu colles un texte, une photo d'un écran, un export. Parfait pour démarrer.</li>
-        <li><strong>Le navigateur</strong> — tu laisses Claude piloter un navigateur pour aller cliquer/lire à ta place sur un site.</li>
-        <li><strong>L'API</strong> — un tuyau programmé entre un service et Claude. Plus technique, mais automatisable.</li>
-        <li><strong>Le MCP</strong> — la prise standard (voir ci-dessous). Le branchement le plus propre et le plus durable.</li>
+        <li><strong>Copy-paste / screenshot</strong> — zero installation. You paste text, a screenshot, an export. Perfect for getting started.</li>
+        <li><strong>The browser</strong> — you let Claude drive a browser to click/read on a site for you.</li>
+        <li><strong>The API</strong> — a programmed pipe between a service and Claude. More technical, but automatable.</li>
+        <li><strong>The MCP</strong> — the standard connector (see below). The cleanest and most durable approach.</li>
       </ol>
 
       <figure class="diagram">
-        <div class="stairs" role="img" aria-label="Échelle à quatre marches, de gauche (peu d'effort, peu de puissance) à droite (plus d'effort, plus de puissance) : copier-coller, navigateur, API, MCP.">
-          <div class="stairs__step"><b>Copier-coller</b><span>capture / export</span></div>
-          <div class="stairs__step"><b>Navigateur</b><span>Claude clique pour toi</span></div>
-          <div class="stairs__step"><b>API</b><span>tuyau programmé</span></div>
-          <div class="stairs__step"><b>MCP</b><span>la prise standard</span></div>
+        <div class="stairs" role="img" aria-label="Four-step ladder, from left (low effort, low power) to right (more effort, more power): copy-paste, browser, API, MCP.">
+          <div class="stairs__step"><b>Copy-paste</b><span>screenshot / export</span></div>
+          <div class="stairs__step"><b>Browser</b><span>Claude clicks for you</span></div>
+          <div class="stairs__step"><b>API</b><span>programmed pipe</span></div>
+          <div class="stairs__step"><b>MCP</b><span>the standard connector</span></div>
         </div>
-        <div class="stairs__axes"><span>← moins d'effort de setup</span><span>plus de puissance →</span></div>
-        <figcaption class="caption">Plus tu montes, plus c'est puissant et durable — mais on peut très bien démarrer en bas.</figcaption>
+        <div class="stairs__axes"><span>← less setup effort</span><span>more power →</span></div>
+        <figcaption class="caption">The higher you go, the more powerful and durable it gets — but starting at the bottom is perfectly fine.</figcaption>
       </figure>
 
-      <h2 id="mcp">3. C'est quoi un MCP, concrètement</h2>
-      <p>MCP veut dire <em>Model Context Protocol</em>. C'est un <strong>standard ouvert créé par Anthropic</strong> : pense à une prise universelle, comme l'USB. N'importe quel outil compatible MCP se branche à Claude sans bricolage sur-mesure. Tu « connectes » Shopify, Google Drive, Gmail… et Claude peut alors lire dedans et agir, dans le cadre que tu autorises.</p>
-      <p>L'intérêt : au lieu de re-coder une intégration pour chaque outil, tout le monde parle la même prise.</p>
+      <h2 id="mcp">3. What an MCP is, concretely</h2>
+      <p>MCP stands for <em>Model Context Protocol</em>. It's an <strong>open standard created by Anthropic</strong>: think of a universal adapter, like USB. Any MCP-compatible tool plugs into Claude without custom-built integration. You "connect" Shopify, Google Drive, Gmail… and Claude can then read and act within them, in the scope you authorize.</p>
+      <p>The point: instead of re-coding a custom integration for every tool, everyone speaks the same plug.</p>
 
       <figure class="diagram">
-        <div class="hub" role="img" aria-label="Claude au centre, branché par des prises MCP à Shopify, Google Drive, Gmail et l'agenda.">
+        <div class="hub" role="img" aria-label="Claude in the center, connected via MCP plugs to Shopify, Google Drive, Gmail, and calendar.">
           <span class="hub__core">Claude</span>
           <div class="hub__link"></div>
           <div class="hub__nodes">
-            <div class="hub__node"><b>Shopify</b><span>commandes, produits</span></div>
-            <div class="hub__node"><b>Google Drive</b><span>fichiers, tableurs</span></div>
-            <div class="hub__node"><b>Gmail</b><span>mails</span></div>
-            <div class="hub__node"><b>Agenda</b><span>rendez-vous</span></div>
+            <div class="hub__node"><b>Shopify</b><span>orders, products</span></div>
+            <div class="hub__node"><b>Google Drive</b><span>files, spreadsheets</span></div>
+            <div class="hub__node"><b>Gmail</b><span>emails</span></div>
+            <div class="hub__node"><b>Calendar</b><span>appointments</span></div>
           </div>
         </div>
-        <figcaption class="caption">Une prise standard (façon USB) : chaque outil compatible MCP se branche sans intégration sur-mesure.</figcaption>
+        <figcaption class="caption">A standard connector (USB-style): each MCP-compatible tool plugs in with no custom integration.</figcaption>
       </figure>
 
-      <h2 id="chez-moi">4. Pourquoi c'est fou chez moi</h2>
-      <p>Concrètement : ma boutique Shopify est branchée en direct, mon Drive et mes mails aussi, et côté technique, Claude Code est relié à GitHub → qui pilote Odoo et Shopify. Résultat : Claude travaille sur mes <strong>vrais</strong> outils, pas sur une démo. C'est la différence entre « un chatbot sympa » et « un collègue opérationnel ».</p>
+      <h2 id="chez-moi">4. Why it's a game-changer in my setup</h2>
+      <p>Concretely: my Shopify store is connected directly, so is my Drive and my emails, and on the technical side, Claude Code is linked to GitHub → which drives Odoo and Shopify. The result: Claude works on my <strong>real</strong> tools, not a demo. That's the difference between "a nice chatbot" and "an operational colleague."</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
-        <p class="kicker">Pour aller plus loin</p>
+        <p class="kicker">Go deeper</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>C'est quoi un agent IA</strong></a> — une fois branché, Claude peut agir seul.</li>
-          <li>→ <a href="cest-quoi-github.html"><strong>C'est quoi GitHub</strong></a> — le maillon qui relie mon code à mes boutiques.</li>
+          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>What is an AI agent</strong></a> — once connected, Claude can act on its own.</li>
+          <li>→ <a href="cest-quoi-github.html"><strong>What is GitHub</strong></a> — the link between my code and my stores.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Croiser les ventes Shopify et Odoo → <a href="../journal/audit-shopify-odoo-803.html">Audit Shopify/Odoo 803 produits</a> · <a href="../journal/dynaudio-analyse-ventes.html">Analyse ventes Dynaudio</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Real cases.</strong> Crossing Shopify and Odoo sales data → <a href="../journal/audit-shopify-odoo-803.html">Shopify/Odoo 803-product audit</a> · <a href="../journal/dynaudio-analyse-ventes.html">Dynaudio sales analysis</a>.</p>
       </aside>
 
     </div>
@@ -214,12 +214,12 @@
 <section id="contact">
   <div class="container">
     <div class="cta-band">
-      <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
-      <h2>Tu veux brancher Claude à tes outils ?</h2>
-      <p class="prose">Du copier-coller au MCP, il y a un chemin progressif. Si tu veux comprendre par où commencer sur ta stack, écris-moi — je documente tout en public.</p>
+      <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
+      <h2>Want to connect Claude to your tools?</h2>
+      <p class="prose">From copy-paste to MCP, there's a gradual path. If you want to figure out where to start on your stack, drop me a line — I document everything in public.</p>
       <div class="btn-row" style="justify-content:center;">
-        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
-        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20MCP%20—%20échange">M'écrire</a>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20MCP%20—%20échange">Send me an email</a>
       </div>
     </div>
   </div>
@@ -231,13 +231,13 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Navigation principale — Knowledge Hub",
+  "name": "Main navigation — Knowledge Hub",
   "itemListElement": [
-    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
     {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hugolahutte.github.io/knowledge-hub/guides/"},
-    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
-    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
-    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexicon", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
     {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"}
   ]
 }
@@ -248,38 +248,38 @@
 
       <div style="max-width:300px;">
         <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
-        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
-        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependencies</p>
         <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
       </div>
 
-      <nav aria-label="Liens de pied de page">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
         <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
-          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
           <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
-          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
-          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Lexicon</a></li>
           <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
-          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">À propos</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
         </ul>
       </nav>
 
       <div>
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
         <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
           <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
-          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
-          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
-          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travels</a></li>
         </ul>
       </div>
 
       <div style="max-width:260px;">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
-        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
-        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
-        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Get in touch</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: connect with me on LinkedIn and send a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Connect on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
       </div>
 
     </div>

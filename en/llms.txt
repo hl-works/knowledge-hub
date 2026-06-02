@@ -1,0 +1,109 @@
+# Knowledge Hub — Hugo Lahutte
+
+> Hugo Lahutte's worklog and method — CEO of Cobra (HiFi & Home Cinema retail), publisher of Haute Fidélité magazine, and founder of HL Consulting. 17 years at Son-Vidéo.com (from €10M to €62M). The site documents how he works with AI (CLAUDE.md, Compound Engineering, Claude Code), his projects, and a dated journal. Build in public.
+
+Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedin.com/in/hugo-lahutte · X: https://x.com/hugolh_ai
+
+## Method
+
+- [How I use Claude](https://hugolahutte.github.io/knowledge-hub/en/how-to/): CLAUDE.md + extensions, Compound Engineering, brand DNA file, Claude Chat vs Claude Code, prompt to copy.
+
+## Guides (evergreen)
+
+- [All guides](https://hugolahutte.github.io/knowledge-hub/en/guides/): a series of clear guides to understand AI and make decisions — for merchants and business owners, readable at any level.
+- [What is AI, and what's an "LLM"?](https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-ia-llm.html): generative AI and LLMs without the jargon — the difference between AI/ML/DL/LLM, next-token prediction, the big players (OpenAI/ChatGPT, Anthropic/Claude, Google/Gemini, Meta/Llama, Mistral, DeepSeek, xAI/Grok, Microsoft/Copilot, Perplexity), and what an LLM can NOT do (hallucinations; not connected to the internet or your data by default).
+- [What is Claude, and why did I build everything on it?](https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-claude.html): Anthropic's AI assistant — the Opus/Sonnet/Haiku size tiers, why it's in the top tier (Karpathy joining Anthropic in May 2026), and everything Hugo runs on it (Cobra, Haute Fidélité, daily monitoring, this site).
+- [Why AI is genuinely changing the way we work](https://hugolahutte.github.io/knowledge-hub/en/guides/pourquoi-lia-change-le-travail.html): AI as a general-purpose technology ("AI is the new electricity", Andrew Ng); the signals that this isn't hype; the shift from "doing → overseeing and verifying"; what it doesn't change (judgment).
+- [Chat, Cowork, or Code: which one to use (and the "terminal")](https://hugolahutte.github.io/knowledge-hub/en/guides/chat-cowork-code-terminal.html): the three ways to use Claude (chat / delegate / act), the terminal demystified, installing Claude Code in one command, and why you don't need a powerful machine (all the computing happens on Anthropic's servers).
+- [What is GitHub, and why is it free and magical](https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-github.html): GitHub for non-devs — full history and rollback, free, industry standard, and automatic deployment once connected (Claude Code handles versioning).
+- [What's an "MCP", and how to connect Claude to your tools](https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html): the 4 levels of connection (copy-paste → browser → API → MCP) and MCP (Model Context Protocol, Anthropic's open standard, "USB plug") to link Claude to Shopify, Drive, Gmail.
+- [What's an "AI agent"?](https://hugolahutte.github.io/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html): assistant (responds) vs agent (acts in a loop toward a goal); what it's for; the essential guardrails (goal, budget, frequency, success criteria); start small.
+- [Writing a good CLAUDE.md (the most valuable file you'll ever make)](https://hugolahutte.github.io/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html): the context file (tone & format, conventions, off-limits, pitfalls→rules); short and concrete; it grows with every corrected mistake.
+- [The 4 principles I apply with AI (Karpathy style)](https://hugolahutte.github.io/knowledge-hub/en/guides/principes-facon-karpathy.html): who Andrej Karpathy is (joined Anthropic in May 2026) and 4 reflexes — think before you act, simplicity first, surgical edits, goal-driven execution.
+- [Compound Engineering: your method improves itself](https://hugolahutte.github.io/knowledge-hub/en/guides/compound-engineering.html): turning every lesson into a reusable rule (term popularized by Kieran Klaassen & Dan Shipper, Every); the compound interest effect on how you work.
+- [AI in practice, for a merchant or an SME](https://hugolahutte.github.io/knowledge-hub/en/guides/lia-pour-un-commercant.html): the use cases that pay off (product descriptions, SEO, cross-referencing sales, emails, market monitoring), doable without a tech team, where to start, and the traps.
+- [Is my data safe with AI?](https://hugolahutte.github.io/knowledge-hub/en/guides/mes-donnees-sont-elles-en-securite.html): where data goes (cloud, encrypted in transit), training (consumer vs pro/API offerings that don't train by default — check the clause), data sovereignty (Europe, Mistral, self-hosted model), and 4 reflexes (right plan, disable training, no unnecessary secrets, sovereign for sensitive data).
+- [How to talk to AI properly: writing a good prompt](https://hugolahutte.github.io/knowledge-hub/en/guides/ecrire-un-bon-prompt.html): a prompt = the instruction; recipe for a good prompt (context, task, format, constraints + one example); reflexes (give an example, iterate, ask AI to ask questions, role, break it down); no "magic phrase" — clarity wins.
+- [Being visible in AI: GEO explained](https://hugolahutte.github.io/knowledge-hub/en/guides/etre-visible-dans-lia-geo.html): SEO (being found on Google) vs GEO (being cited in an AI's answer: ChatGPT, Perplexity, Claude, AI Overviews); why it matters; how to get cited (Q&A structure, citable statements, structured data schema.org, clear entity, llms.txt); emerging field, this site as an example.
+- [How much does AI cost: subscriptions, API, and keeping the bill under control](https://hugolahutte.github.io/knowledge-hub/en/guides/combien-coute-lia.html): everything is counted in tokens; 4 pricing models (free, subscription ~€20/month, pay-per-use API, enterprise per seat); subscription for chatting / API for automating; controlling costs (spending caps, right model, scoped agents).
+
+## Build in public — case studies
+
+- [A site + an AI bot in a weekend?](https://hugolahutte.github.io/knowledge-hub/en/guides/site-bot-ia-en-un-week-end.html): pillar guide — how a non-developer ships a static site and a serverless AI monitoring bot in one weekend with Claude Code (need, minimal stack, separation of concerns, visual loop, guardrails).
+- [Case study — Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/en/guides/etude-de-cas-knowledge-hub.html): from idea to production of a complete static site (vanilla HTML/CSS/JS, GitHub Pages, CSS token dark mode, GEO layer). Decisions, struggles (anti-FOUC, iOS cache), real time, zero token cost.
+- [Case study — AI monitoring bot](https://hugolahutte.github.io/knowledge-hub/en/guides/etude-de-cas-veille-ia.html): a serverless agent (X/Twitter + RSS → Claude API → Telegram + feed.json on the site), orchestrated by GitHub Actions. 2-repo architecture, cross-repo bridge, CI struggles, real cost ~a few cents/day.
+- [Making-of](https://hugolahutte.github.io/knowledge-hub/en/guides/making-of.html): the story, from a dinner with friends to a "beautiful thing shipped in 2 days", side by side with Claude Code.
+
+## About
+
+- [Who is Hugo Lahutte](https://hugolahutte.github.io/knowledge-hub/en/a-propos/): background (Son-Vidéo, Cobra, Haute Fidélité), projects, vision.
+
+## Glossary
+
+- [AI Glossary](https://hugolahutte.github.io/knowledge-hub/en/lexique/): clear, jargon-free definitions of AI terms (LLM, agent, MCP, RAG, context, prompt, tokens, hallucination, fine-tuning…), with linked guides and projects. The single source of truth for the site's tooltips.
+
+## AI Monitor
+
+- [AI Monitor](https://hugolahutte.github.io/knowledge-hub/en/veille-ia/): daily automated AI monitoring (anti-hype) — global AI + AI for merchants and business owners. Telegram subscription.
+
+## Projects
+
+- [Cobra](https://hugolahutte.github.io/knowledge-hub/en/cobra/): Odoo/Shopify tech stack, automations.
+- [Haute Fidélité](https://hugolahutte.github.io/knowledge-hub/en/haute-fidelite/): the reference HiFi magazine, relaunched.
+- [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
+- [Personal](https://hugolahutte.github.io/knowledge-hub/en/perso/): side projects and experiments.
+
+## Journal (43 entries)
+
+- [This Knowledge Hub itself](https://hugolahutte.github.io/knowledge-hub/en/journal/knowledge-hub.html): A static GitHub Pages site (HTML/CSS, zero framework): AI portfolio, operational journal, and GEO reference. One page per entry, llms.txt + JSON-LD authorship.
+- [Double Claude Code: Cobra vs HL](https://hugolahutte.github.io/knowledge-hub/en/journal/double-claude-code.html): Two Claude Code accounts: the Cobra one (Odoo/Shopify dev) and a new HL one (personal, strategy, Knowledge Hub). Both can write to the same journal.
+- [Claude setup: documentation, onboarding and Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/en/journal/setup-claude-onboarding.html): Documenting the Claude setup logic (md files, projects, two accounts) to hand off to a friend getting started and build on it session after session.
+- [Cobra UI audit + odoo18_design_reference update](https://hugolahutte.github.io/knowledge-hub/en/journal/audit-ui-cobra-design-ref.html): Testing the theoretical Odoo 18 reference against the actual code in 9 cobra_* modules. 35 XML files read, 5 tech debts identified, ~60 custom fields inventoried.
+- [Sony Bravia II price update + zero-margin diagnosis](https://hugolahutte.github.io/knowledge-hub/en/journal/sony-bravia-prix-marge.html): 19 Sony Bravia prices bulk-updated via XML-RPC, then a 0% margin diagnosis: the UI was showing sellers_first_price under "Cost", not the actual standard_price.
+- [Epson sales declaration: Odoo → Google Sheets export](https://hugolahutte.github.io/knowledge-hub/en/journal/epson-declaratif-ventes.html): An Epson sales declaration across 7 promo periods and 10 projector references, despite supplier SKUs missing from Odoo. Mapping via supplierinfo, formatted Sheets export.
+- [GSC diagnosis + JOIN Stories JSON-LD fix + BigQuery setup](https://hugolahutte.github.io/knowledge-hub/en/journal/gsc-json-ld-fix.html): 7 product pages throwing "product snippets" errors in GSC. Root cause: JOIN Stories injecting implicit Product entities. Non-invasive snippet fix + BigQuery setup.
+- [CDC-18 stabilisation: dashboard filters, menus, fr_FR translations](https://hugolahutte.github.io/knowledge-hub/en/journal/cdc18-stabilisation.html): Two leftover bugs in the purchasing dashboard: buttons not activating filters, and menus keeping their old French names. Layered diagnosis, immediate + lasting fix.
+- [Sogetronic profile: dropshipping stock import by supplier code](https://hugolahutte.github.io/knowledge-hub/en/journal/sogetronic-import-prod.html): Extending cobra_import_stock_drop to match Sogetronic on the Sage Code (not the EAN). Schema migration, anti-duplicate XML seed, cherry-pick preprod3 → main.
+- [Autonomous supplier invoice processing agent](https://hugolahutte.github.io/knowledge-hub/en/journal/agent-factures-architecture.html): Mapping out the full architecture of an invoice agent (5 channels, line-by-line matching, 4 sub-agents, Teams actions) before writing a single line of code. Only touch Odoo once a week.
+- [Odoo automatic product creation agent](https://hugolahutte.github.io/knowledge-hub/en/journal/agent-creation-produits.html): Automating Odoo product creation via multi-source triangulation (POS Excel, email screenshot, price photo). First pattern on the Sony Bravia FY26 catalogue.
+- [PO email routing Drop vs Restock + Cobra templates](https://hugolahutte.github.io/knowledge-hub/en/journal/routing-po-drop-reassort.html): Routing PO confirmation emails to the right Cobra template depending on Drop (direct delivery) or Restock (warehouse), with _send_confirmation_mail override. In production.
+- [Dynaudio Emit II sales analysis: Shopify + Odoo cross-referenced](https://hugolahutte.github.io/knowledge-hub/en/journal/dynaudio-analyse-ventes.html): Cross-referencing Shopify (web channel, 104 orders) and Odoo (all channels, 186 units, +79%) for an accurate sales picture. The limits of Drive MCP on file editing.
+- [SFTP server + automated dropshipping stock pipeline](https://hugolahutte.github.io/knowledge-hub/en/journal/sftp-pipeline-complet.html): SSH hardening (fail2ban, ufw, chroot) + script that injects any uploaded file into Odoo via the existing module. Hooking into action_run_import: ×60 speed gain.
+- [Claude Code mission brief: D&M France invoice verification](https://hugolahutte.github.io/knowledge-hub/en/journal/mission-dm-france.html): 14 PDFs imported as draft invoices in Odoo, unreliable. A structured and secured brief (PO matching, WEEE, early payment discount, guardrails) for Claude Code to work autonomously.
+- [CDC-18 form view: surgical production deployment](https://hugolahutte.github.io/knowledge-hub/en/journal/cdc18-form-view.html): Pushing only the PO form to production (buttons, dynamic titles, statusbar) without dragging in CDC-19 — isolating a clean commit from a mixed preprod3 stack.
+- [Delivered / Invoiced / Paid statuses on purchase orders](https://hugolahutte.github.io/knowledge-hub/en/journal/statuts-livree-facturee-payee.html): 3 consolidated statuses (Delivered/Invoiced/Paid) shown as badges on the PO form and lists, to know the real state of an order at a glance. Multi-list xpath traps.
+- [CDC-19: improved Purchase Order list view](https://hugolahutte.github.io/knowledge-hub/en/journal/cdc19-liste-po.html): Drop/Restock badge, confirmed delivery date, time-free dates in the PO list. Two OWL 18 traps: position=attributes ignored, silent XML rollback.
+- [CDC-18: Cobra purchasing workflow (cobra_purchase)](https://hugolahutte.github.io/knowledge-hub/en/journal/cdc18-build.html): A complete purchasing module for Cobra: RFQ/PO dashboards, supplier response detection, warehouse filters. 6 Odoo 18 SaaS bugs turned into 7 reusable rules.
+- [Cobra SFTP infrastructure: phase 1 server setup](https://hugolahutte.github.io/knowledge-hub/en/journal/infra-sftp-phase1.html): Setting up a lasting SFTP infrastructure (Scaleway/Ubuntu) where each supplier drops their stock files, automatically picked up by Odoo. Step-by-step guided server setup.
+- [Sogetronic seed + Knowledge Hub Claude restructuring](https://hugolahutte.github.io/knowledge-hub/en/journal/sogetronic-seed-21mai.html): Two needs in one session: loading Sogetronic Sage Codes onto 175 product sheets, and restructuring Claude context files for dual chat + Code use.
+- [Cobra.fr GTM overhaul: pruning 71 → 20 tags + Consent Mode v2](https://hugolahutte.github.io/knowledge-hub/en/journal/gtm-refonte-cobra.html): 71 accumulated tags, outdated CMP, patched-together Consent Mode. Migration to native Shopify Consent Mode v2, down to 20 tags, ~70 orphaned variables removed.
+- [Shopify collections SEO fix (Guillaume's audit)](https://hugolahutte.github.io/knowledge-hub/en/journal/seo-collections-shopify.html): 11 systemic issues across ~175 collections after a mass optimisation. 182 "| Cobra.fr" suffixes removed in 26 GraphQL batches, 0 errors. Post-compaction recovery.
+- [Supplier PO email template overhaul (FR + EN)](https://hugolahutte.github.io/knowledge-hub/en/journal/templates-email-refonte.html): Bringing the PO email template up to the standard of the "payment" template, bilingual, with fixed-text constraints. Formatting only, zero change to the actual content.
+- [Claude "Odoo" project structuring: ecosystem reference docs](https://hugolahutte.github.io/knowledge-hub/en/journal/structuration-projet-odoo.html): Consolidating all validated technical connections into a reference doc so every new conversation starts with the right context.
+- [Shopify/Odoo audit: 803 products, 3 months of work](https://hugolahutte.github.io/knowledge-hub/en/journal/audit-shopify-odoo-803.html): Cross-referencing the Shopify catalogue (front) and Odoo (back): reference consistency, pricing, stock, metadata across 803 products. The B&W AM-1 pair vs unit case.
+- [Colleagues getting on Claude](https://hugolahutte.github.io/knowledge-hub/en/journal/collegues-sur-claude.html): Claude isn't staying a solo tool: colleagues at Cobra are starting to use it. Sharing context without credentials, a solid CLAUDE.md, avoiding reinventing the wheel.
+- [Claude's arrival in the Cobra workflow](https://hugolahutte.github.io/knowledge-hub/en/journal/claude-arrivee-workflow-cobra.html): Before Claude, Odoo dev was manual: OCA forums, docs, trial and error. The pivot — treating Claude as a senior colleague who amplifies, not replaces.
+
+- [Claude custom instructions system (CLAUDE.md + extensions)](https://hugolahutte.github.io/knowledge-hub/en/journal/systeme-instructions-claude-md.html): Standardising Claude's behaviour across all my projects and both accounts: a universal CLAUDE.md + strategy and dev extensions. Triggered by an Odoo production incident hardcoded as a strict rule.
+- [Alexis English PowerPoint — "The Secrets of My Success"](https://hugolahutte.github.io/knowledge-hub/en/journal/powerpoint-anglais-alexis.html): A narrated 10-slide PowerPoint + second-calibrated script for an English class project (Dual Diploma). Iterative workflow with slide-by-slide visual QA.
+- [Brevet oral PPTX "Addictions Among Youth" (Damien)](https://hugolahutte.github.io/knowledge-hub/en/journal/pptx-brevet-addictions-damien.html): Turning a year-9 student's script into a brevet oral presentation: 9 "icy cyan" slides, sourced figures, integrated photos — without losing the kid's voice.
+- [Cobra store sales rep speech & job description](https://hugolahutte.github.io/knowledge-hub/en/journal/discours-fiche-poste-vendeur-cobra.html): Turning a raw management speech into three executable deliverables (bullet points, prose, Word job description to sign) after a team restructuring.
+- [HiFi Lovers special issue Yamaha giveaway for advertisers — Brevo × Shopify](https://hugolahutte.github.io/knowledge-hub/en/journal/operation-hs-yamaha-annonceurs.html): Offering the first HiFi Lovers special issue to advertisers via a clean mechanic: Excel list → Brevo → Shopify combo promo codes restricted to the segment AND the product.
+- [Contesting the Roadsurfer / Creditreform debt](https://hugolahutte.github.io/knowledge-hub/en/journal/contestation-creance-roadsurfer.html): Contesting a €2,549 claim (disputed scratch on a rented van) all the way to the CEC France: multilingual FR/DE drafting, navigating debt collection interfaces, compiling evidence.
+- [Cobra inbox audit & filtering (Outlook)](https://hugolahutte.github.io/knowledge-hub/en/journal/audit-filtrage-mail-cobra.html): Getting back in control of the hlahutte@cobra.fr inbox drowned in noise (Odoo catchall, EDI, notifications): 30-day audit, server/client rules, urgent backlog.
+- [HiFi Lovers Instagram strategy — Brief for Marine](https://hugolahutte.github.io/knowledge-hub/en/journal/strategie-instagram-hifi-lovers.html): Scoping an Instagram strategy from scratch for HiFi Lovers: 70/30 archive/editorial positioning, 4 pillars, calendar, 8-week launch plan, before handing it over to Marine.
+- [Anatomy of HiFi Lovers × Yamaha Collector Issue N°1 cover](https://hugolahutte.github.io/knowledge-hub/en/journal/anatomie-couverture-hs-yamaha.html): Structuring the visual hierarchy of the first special issue's cover, inspired by the grammar of 80s-90s Marvel/Image comics (corner box, masthead, collector badge).
+- [Haute Fidélité Shopify store audit & launch](https://hugolahutte.github.io/knowledge-hub/en/journal/audit-boutique-shopify-haute-fidelite.html): Auditing and finalising the HF Shopify store before scaling up: MCP Shopify, GLS switchover, email authentication, 4 editorial templates, audit of 30+ products and 7 collections. (Merged from 3 sessions.)
+- [Daily HiFi monitoring Telegram bot](https://hugolahutte.github.io/knowledge-hub/en/journal/bot-telegram-veille-hifi.html): A Telegram push every morning with worldwide hi-fi news: ~35 multilingual RSS sources, content written by the Claude API, anti-duplicate memory, GitHub Actions cron — from scratch.
+- [Sendcloud × GLS config for Haute Fidélité Shopify](https://hugolahutte.github.io/knowledge-hub/en/journal/config-sendcloud-gls-hf.html): Pooling HF e-commerce logistics with the Cobra infrastructure (Sendcloud + daily GLS pickup) while keeping a branded HF customer tracking experience. Live config session.
+- [Haute Fidélité Paris 2026 Salon docs & billing](https://hugolahutte.github.io/knowledge-hub/en/journal/docs-facturation-salon-hf-2026.html): Simplifying the admin for the 2026 HF Salon: dropping the formal contract in favour of a Qonto invoice + bilingual participation terms, for 20–30 exhibitors.
+- [INPI trademark management — HIFI LOVERS](https://hugolahutte.github.io/knowledge-hub/en/journal/marque-inpi-hifi-lovers.html): Taking back control of the HIFI LOVERS trademark (already registered at the INPI without my knowing) and preparing a supplementary figurative filing + class 16 for print.
+- [Adrien's sole trader business creation (carpentry) — INPI file](https://hugolahutte.github.io/knowledge-hub/en/journal/creation-ae-adrien-inpi.html): Helping my 18-year-old nephew set up his carpentry micro-business: guides, 9-step INPI file, supporting PDF documents, choice of tax regime.
+
+## Contact
+
+- [Get in touch](https://hugolahutte.github.io/knowledge-hub/en/#contact): Hugo is open to conversations about Claude and these projects — hugo@hl-consulting.tech.
+
+## Optional
+
+- [llms-full.txt](https://hugolahutte.github.io/knowledge-hub/en/llms-full.txt): extended version.
