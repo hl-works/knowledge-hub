@@ -105,6 +105,10 @@ ET à une couleur dans `style.css` (`.tag[data-tag="…"]` / `.chip[data-filter=
   préférer des scripts **idempotents**.
 - Commits clairs préfixés : `journal:` `guide:` `feat:` `fix:` `content:` `style:`.
 - Jamais de force-push sur `main`.
+- **Branches éphémères** : `main` est la seule branche durable. Une branche de
+  feature se crée depuis `main`, se merge, **puis se supprime** (`git push origin
+  --delete <branche>`). Rien n'est perdu : le travail mergé vit dans l'historique de
+  `main`. Ne pas accumuler de branches « au cas où ».
 
 ---
 
