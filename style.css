@@ -94,9 +94,15 @@ section{padding-block:var(--space-16);}
 .nav__icon svg{width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
 .nav__burger{display:none;}  /* visible en mobile seulement */
 .nav__search-mobile{display:none;}  /* visible en mobile seulement (dans le header) */
-/* Loupe intégrée dans le menu, à gauche de Méthode */
-.nav__links .nav__search{display:flex; align-items:center; margin-right:calc(var(--space-2) * -1);}
+/* Loupe en tête du menu, à gauche de Méthode */
+.nav__links .nav__search{display:flex; align-items:center;}
+.nav__links .nav__search:first-child{margin-right:calc(var(--space-2) * -1);}
 .nav__links .nav__search button{width:34px; height:34px;}
+/* Utilitaires en fin de ligne (contraste · langue) : léger détachement des liens, desktop seulement */
+@media (min-width:761px){
+  .nav__links li:has(.nav__theme){margin-left:var(--space-2); padding-left:var(--space-4); border-left:1px solid var(--border);}
+  .nav__links .nav__lang{margin-left:calc(var(--space-1) * -1);}
+}
 
 /* Overlay de recherche globale */
 .site-search{position:fixed; inset:0; z-index:50; background:rgba(12,12,12,.55); backdrop-filter:blur(4px);
