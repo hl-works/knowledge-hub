@@ -1392,7 +1392,7 @@ Suite
 - Descendre les 2 fichiers dans Claude Code, lancer l'inspection Odoo sur Dynaudio Emit (fallback Evoke / autre marque à la paire si Emit peu peuplé).
 - Claude Code tranche les 3 points structurels restants (paire/pièce, prix d'achat stock vs drop, format SKU) depuis l'existant, propose ses améliorations, pose ses questions → STOP.
 - Après feu vert écrit : création des 36 variantes en draft, revue, puis activation Shopify.
-- Plus large : capitaliser ce déroulé comme gabarit de l'agent de création produit en masse.
+- Plus large : l'agent de création produit en masse — dashboard + CDC — qui généralise ce déroulé fait l'objet d'une entrée dédiée.
 
 
 ================================================================
@@ -1439,6 +1439,66 @@ Résultat & suite
 - 4 fichiers dans ~/Cobra/docs/ : CLAUDE-cobra-odoo-context.md, CLAUDE-cobra-connexions.md, CLAUDE-dev.md (core), CLAUDE-dev-cobra.md.
 - PR #385 ouverte vers preprod ; convention CLAUDE-* appliquée et documentée ; renommage hors-repo CLAUDE-cobra-bigquery.md.
 Suite : merger #385 sur preprod (build Odoo.sh pour vérification) ; re-uploader dans Claude.ai (projet Odoo Cobra : 4 fichiers, supprimer les anciens ; autres projets dev : CLAUDE-dev.md core seul) ; confirmer le volume produits Sogetronic + statut Merchant Center / Search Console BigQuery ; backfill x_qty_paid sur les PO historiques ; mettre à jour le ~/Cobra/CLAUDE.md local (référence encore SaaS, master, 11 modules, CDC-18).
+
+
+================================================================
+AGENT PRODUIT IA
+URL : https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html
+Publié : 2026-06-10
+================================================================
+
+Après la création à la main des 36 variantes Davis, on formalise la méthode : un agent IA conversationnel sur le dashboard interne Cobra, capable de lire n&#x27;importe quel fichier source et de créer/mettre à jour des produits Odoo sans intervention technique — avec son CDC pour le prestataire dev.
+
+← Journal
+Cobra · Agent IA produit
+Agent Produit IA — du script one-shot au CDC dashboard
+Claude · HL · 10 juin 2026 agent odoo-dev strat doc en-cours Cobra
+Contexte / le besoin
+Juin 2026. On vient de créer les 36 variantes Davis Acoustics (gammes Krypton + Ariane) dans Odoo — voir l'entrée dédiée. Ça a marché, mais ça a pris du temps, c'était technique, et ça ne peut pas être un opérationnel non-technique qui fait ça seul la prochaine fois.
+Le problème : créer une gamme dans Odoo nécessitait jusqu'ici un script Python XML-RPC écrit à la main. Pour Davis : 11 templates, 36 variantes, 72 lignes fournisseur (prix stock et prix drop, 2 par variante). Chaque marque recommençait à zéro ; chaque erreur de naming couleur ou de format SKU se corrigeait après coup.
+Le déclencheur de la formalisation : Davis = première nouvelle marque créée depuis que l'instance Odoo Cobra est en prod. Assez gros pour que la question « on encode ça une fois pour toutes » se pose vraiment. C'est la concrétisation de l'agent de création automatique de produits esquissé en mai.
+Ce qui a été fait
+L'agent
+Un agent IA conversationnel, hébergé dans le dashboard interne Cobra. Il accepte n'importe quel fichier source (photo d'un tarif, Excel, PDF catalogue), l'analyse via l'API Claude (clé Cobra), pose les questions manquantes à l'utilisateur, affiche un récapitulatif, attend une confirmation, puis exécute les créations et mises à jour dans Odoo via XML-RPC.
+4 actions supportées :
+- Créer une gamme (templates + variantes + supplierinfo STOCK/DROP) ;
+- MAJ prix de vente ;
+- MAJ prix d'achat ;
+- MAJ vente + achat simultané.
+Ce qu'il ne fait jamais sans intervention humaine : activer les produits sur Shopify. actived_in_shopify=False à toutes les créations, sans exception.
+Le dashboard
+Pas de nouvel outil — on s'appuie sur le dashboard interne Cobra déjà en prod, déjà accessible à toute l'équipe. La page agent affiche une zone d'upload (drag-and-drop), un sélecteur d'action (4 boutons), une zone de conversation (questions/réponses multi-turn avec Claude) et un rapport final téléchargeable. Pourquoi le dashboard plutôt qu'un wizard Odoo : zéro formation nécessaire, interface conversationnelle accessible aux non-techniciens, pas de dépendance au cycle de release Odoo.sh.
+Le CDC
+Un cahier des charges (CDC-AgentProduitIA-…-juin2026.html) transmis au prestataire dev. Il spécifie tout ce dont un développeur a besoin pour implémenter l'agent sans revenir poser de questions : architecture (Flask/Node + API Claude + XML-RPC), format JSON de sortie de Claude (status: questions | ready | error), system prompt complet avec conventions SKU/EAN/couleurs/catégories/champs fixes, gestion d'erreurs (4 cas), sécurité. Le format HTML « dashboard Cobra » est volontairement le même que les autres CDC — c'est le gabarit prévu pour les prochaines marques.
+Décisions et alternatives écartées
+La conception a soulevé une dizaine de questions structurantes. Les principales :
+- Paire vs pièce. Colonnes et compactes se vendent à la paire — le list_price Odoo est le prix paire, le nom du template contient (la paire) ; les centrales sont à la pièce. Relevé sur les fiches Dynaudio Emit avant d'écrire une ligne.
+- Format SKU. MARQUE-MODELE-COULEUR en majuscules, slug court (ex. DAVI-KRY10-NR). Calqué sur l'existant ; court = moins d'erreurs de saisie.
+- Double prix d'achat. Deux lignes supplierinfo par variante, même fournisseur : SKU-STOCK (moins cher) et SKU-DROP (drop, plus cher). La distinction par suffixe rend l'info lisible directement dans Odoo.
+- Naming couleur. Majuscule à chaque mot, séparateur / pour les bi-tons (Vert / Chêne, Noyer / Blanc). Règle formalisée après une première création en casse incorrecte.
+- Langue. Français uniquement ; les noms commerciaux anglais traduits à l'ingestion (Nordik → Blanc, Classik → Noyer, Technik → Noir).
+Alternatives écartées :
+- Wizard Odoo : trop couplé à l'instance, pas accessible sans droits admin.
+- Import CSV natif Odoo : ne gère pas les variantes multi-attributs ni la double ligne supplierinfo.
+- Mapping manuel cas par cas : ne passe pas à l'échelle, pas de cohérence garantie.
+- SSO Odoo → dashboard : domaines différents, impossible sans infra dédiée → vérification email contre res.users Odoo via XML-RPC.
+Galères et comment on a réglé
+- Le champ marque. x_studio_marque retournait une erreur. Résolu par un fields_get() sur un produit existant → découverte de product_brand_id.
+- Le check unicité dans le mauvais ordre. La vérification SKU/EAN tournait après l'écriture en étape 3 — le script trouvait ses propres records et bloquait. Contourné en créant les supplierinfo dans un second script.
+- Couleurs mal nommées. Première création en vert-chêne, bleu-noyer… au lieu de la convention Cobra. Corrigé via write() XML-RPC sur les product.template.attribute.value ; leçon encodée comme règle de naming dans le system prompt du CDC.
+- Le product_code supplierinfo. Trois itérations (sans suffixe → SKU seul → -STOCK/-DROP), 72 lignes mises à jour par script à chaque fois. Version finale figée dans le CDC.
+Résultat
+Au 10 juin 2026 :
+- Script Python Davis : en prod — 36 variantes créées, 72 lignes supplierinfo, 0 doublon EAN.
+- CDC Agent Produit IA : rédigé, transmis au prestataire dev.
+- CDC Auth dashboard ↔ Odoo : rédigé, transmis. L'authentification sera calquée sur la liste des utilisateurs internes actifs dans Odoo.
+- Dashboard (développement) : en attente côté prestataire, estimation ~3 jours.
+- Idempotence du script one-shot : bug connu (le check unicité), non bloquant pour l'usage Davis.
+Suite
+- Le prestataire dev développe le backend + l'UI de conversation.
+- Premier test sur une nouvelle marque (validation du system prompt en conditions réelles).
+- Versionner le CDC dans le repo Cobra (actuellement local).
+- Évaluer si le CDC suffit comme gabarit pour les prochaines marques, ou s'il faut une phase de calibration du system prompt par marque.
 
 
 ================================================================

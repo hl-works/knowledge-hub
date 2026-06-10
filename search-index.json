@@ -49,6 +49,13 @@
 "tags": ""
 },
 {
+"url": "/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html",
+"title": "Agent Produit IA — du script one-shot au CDC dashboard",
+"excerpt": "On a créé 36 variantes Davis à la main, en script Python. Plutôt que de recommencer à chaque nouvelle marque, on a formalisé la méthode : un agent IA conversationnel sur le dashboard Cobra, capable de lire n'importe quel fichier source et de créer ou mettre à jour des produits Odoo sans intervention technique.",
+"kind": "Journal",
+"tags": "agent odoo-dev strat doc en-cours cobra"
+},
+{
 "url": "/knowledge-hub/journal/davis-odoo-krypton-ariane.html",
 "title": "Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton & Ariane)",
 "excerpt": "Préparation de l'intégration d'une nouvelle marque d'enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d'abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.",

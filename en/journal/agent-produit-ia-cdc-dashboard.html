@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Davis catalog → Odoo: price-list extraction + creation brief (Krypton &amp; Ariane) — Journal · Hugo Lahutte</title>
-<meta name="description" content="Preparing the integration of a new speaker brand (Davis, Krypton + Ariane ranges) into Odoo 18: a clean extraction of the supplier price list into 11 models / 36 variants, and a Claude Code brief — &quot;read-only first, create only after a green light&quot;. Nothing created in the database yet — on purpose.">
-<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/journal/davis-odoo-krypton-ariane.html">
-<link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html">
-<link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/journal/davis-odoo-krypton-ariane.html">
-<link rel="alternate" hreflang="x-default" href="https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html">
+<title>Product AI agent — from one-shot script to dashboard CDC — Journal · Hugo Lahutte</title>
+<meta name="description" content="After hand-creating the 36 Davis variants, we formalize the method: a conversational AI agent on the internal Cobra dashboard that reads any source file and creates/updates Odoo products with no technical step — with its spec (CDC) for the dev provider.">
+<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/en/journal/agent-produit-ia-cdc-dashboard.html">
+<link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html">
+<link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/journal/agent-produit-ia-cdc-dashboard.html">
+<link rel="alternate" hreflang="x-default" href="https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html">
 <meta name="author" content="Hugo Lahutte">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Davis catalog → Odoo: price-list extraction + creation brief (Krypton &amp; Ariane)">
-<meta property="og:description" content="Preparing the integration of a new speaker brand (Davis, Krypton + Ariane ranges) into Odoo 18: a clean extraction of the supplier price list into 11 models / 36 variants, and a Claude Code brief — &quot;read-only first, create only after a green light&quot;. Nothing created in the database yet — on purpose.">
-<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/journal/davis-odoo-krypton-ariane.html">
+<meta property="og:title" content="Product AI agent — from one-shot script to dashboard CDC">
+<meta property="og:description" content="After hand-creating the 36 Davis variants, we formalize the method: a conversational AI agent on the internal Cobra dashboard that reads any source file and creates/updates Odoo products with no technical step — with its spec (CDC) for the dev provider.">
+<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/en/journal/agent-produit-ia-cdc-dashboard.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:published_time" content="2026-06-10">
@@ -34,14 +34,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Davis catalog → Odoo: price-list extraction + creation brief (Krypton & Ariane)",
-  "description": "Preparing the integration of a new speaker brand (Davis, Krypton + Ariane ranges) into Odoo 18: a clean extraction of the supplier price list into 11 models / 36 variants, and a Claude Code brief — \"read-only first, create only after a green light\". Nothing created in the database yet — on purpose.",
+  "headline": "Product AI agent — from one-shot script to dashboard CDC",
+  "description": "After hand-creating the 36 Davis variants, we formalize the method: a conversational AI agent on the internal Cobra dashboard that reads any source file and creates/updates Odoo products with no technical step — with its spec (CDC) for the dev provider.",
   "inLanguage": "en-US",
   "datePublished": "2026-06-10",
   "dateModified": "2026-06-10",
-  "url": "https://hugolahutte.github.io/knowledge-hub/en/journal/davis-odoo-krypton-ariane.html",
+  "url": "https://hugolahutte.github.io/knowledge-hub/en/journal/agent-produit-ia-cdc-dashboard.html",
   "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/"},
-  "keywords": "odoo-dev, data, en-cours, cobra",
+  "keywords": "agent, odoo-dev, strat, doc, en-cours, cobra",
   "isPartOf": {"@type": "Blog", "name": "Knowledge Hub — Journal", "url": "https://hugolahutte.github.io/knowledge-hub/en/journal/"}
 }
 </script>
@@ -61,7 +61,7 @@
       <li><a href="./" aria-current="page">Journal</a></li>
       <li><a href="../#contact">Connect</a></li>
       <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
-      <li class="nav__lang"><a href="https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+      <li class="nav__lang"><a href="https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
     </ul>
     <div class="nav__actions">
       <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
@@ -74,59 +74,85 @@
 <article class="article">
   <div class="container">
     <p class="caption"><a href="./">← Journal</a></p>
-    <p class="kicker">Cobra · Odoo product catalog</p>
-    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Davis catalog → Odoo: price-list extraction + creation brief (Krypton &amp; Ariane)</h1>
+    <p class="kicker">Cobra · Product AI agent</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Product AI agent — from one-shot script to dashboard CDC</h1>
     <hr class="rule--accent">
     <div class="meta-bar">
-      <span><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></span>
+      <span><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></span>
       <span>·</span>
       <time datetime="2026-06-10">June 10, 2026</time>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a>
       <a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a>
-      <a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a>
+      <a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a>
+      <a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a>
       <a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a>
       <a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a>
     </div>
     <div class="prose" style="margin-top:var(--space-8);">
       <h2>Context / the need</h2>
-      <p>We want to bring a new speaker brand, <strong>Davis Acoustics</strong>, into Odoo 18 — only the <strong>Krypton</strong> and <strong>Ariane</strong> ranges, from the supplier price list <code>Tarif_Cobra_Mai_2026.xlsx</code>. Brand = Davis, supplier = Davis. In the background: breaking in a reusable mass product-creation process.</p>
-      <p>Structuring constraint: from claude.ai, no direct access to the Odoo instance (XML-RPC and credentials live on the Claude Code side). Hence a clean split — <strong>claude.ai prepares the logic and the data, Claude Code executes after reading what already exists.</strong></p>
+      <p>June 2026. We just created the 36 Davis Acoustics variants (Krypton + Ariane ranges) in Odoo — see <a href="davis-odoo-krypton-ariane.html">the dedicated entry</a>. It worked, but it took time, it was technical, and it can't be a non-technical operator doing this alone next time.</p>
+      <p>The problem: creating a range in Odoo so far required a hand-written Python XML-RPC script. For Davis: 11 templates, 36 variants, 72 supplier lines (stock price and drop price, 2 per variant). Every brand started from scratch; every color-naming or SKU-format mistake was fixed after the fact.</p>
+      <p>What triggered the formalization: Davis = the first new brand created since the Cobra Odoo instance went to production. Big enough to make "let's encode this once and for all" a real question. It's the concrete realization of the <a href="agent-creation-produits.html">automatic product-creation agent</a> sketched in May.</p>
 
       <h2>What was done</h2>
+      <h3>The agent</h3>
+      <p>A conversational AI agent, hosted in the internal Cobra dashboard. It accepts any source file (a photo of a price list, an Excel catalog, a PDF), analyzes it via the Claude API (Cobra key), asks the user the missing questions, shows a recap, waits for a confirmation, then performs the creations and updates in Odoo via XML-RPC.</p>
+      <p>4 supported actions:</p>
       <ul>
-        <li>Read the price list (the <em>Dmax Ariane Krypton Courbet</em> sheet), isolated Krypton + Ariane, set aside the rest (Courbet, D-Max, dream/heritage).</li>
-        <li>Extracted a clean structure: <strong>11 models → 36 color variants</strong> (Krypton 15, Ariane 21), 36 EANs all unique, no duplicates. Deliverable: <code>davis_extraction.xlsx</code>, one row per variant.</li>
-        <li>Mapped the Odoo target: 1 <code>product.template</code> per model, 1 <code>product.product</code> per color via a "Color" attribute, <code>barcode</code> = EAN-13 carried by the variant, supplier code on <code>product.supplierinfo</code>.</li>
-        <li>Wrote the Claude Code brief <code>CLAUDE-mission-davis-creation.md</code>: read-only inspection of an existing brand → mapping report → STOP for validation → creation.</li>
-        <li>Settled the FR color mapping.</li>
+        <li>Create a range (templates + variants + <code>supplierinfo</code> STOCK/DROP);</li>
+        <li>Update sale prices;</li>
+        <li>Update purchase prices;</li>
+        <li>Update sale + purchase at once.</li>
       </ul>
+      <p>What it never does without a human: activate products on Shopify. <code>actived_in_shopify=False</code> on every creation, no exception.</p>
+      <h3>The dashboard</h3>
+      <p>No new tool — we build on the internal Cobra dashboard, already in production, already accessible to the whole team. The agent page shows an upload zone (drag-and-drop), an action selector (4 buttons), a conversation area (multi-turn Q&amp;A with Claude) and a downloadable final report. Why the dashboard rather than an Odoo wizard: zero training needed, a conversational interface usable by non-technical people, no dependency on the Odoo.sh release cycle.</p>
+      <h3>The spec (CDC)</h3>
+      <p>A spec (<code>CDC-AgentProduitIA-…-juin2026.html</code>) handed to the dev provider. It specifies everything a developer needs to implement the agent without coming back with questions: architecture (Flask/Node + Claude API + XML-RPC), Claude's JSON output format (<code>status: questions | ready | error</code>), a full system prompt with SKU/EAN/color/category/fixed-field conventions, error handling (4 cases), security. The "Cobra dashboard" HTML format is deliberately the same as the other specs — it's the intended template for the next brands.</p>
 
       <h2>Decisions and discarded alternatives</h2>
+      <p>Design raised about ten structuring questions. The main ones:</p>
       <ul>
-        <li><strong>Style reference = Dynaudio Emit.</strong> A speaker brand already in the database, same typology (floorstander / bookshelf / center) and wood/black/white finishes → a perfect analog to mirror name, SKU, color attribute, pair/unit model, supplier lines. <em>(Discarded: basing it on an existing Davis — Davis isn't in the database yet.)</em></li>
-        <li><strong>Colors in French</strong>: keep the FR part, drop the English; two-tones kept in FR. Krypton → <strong>blanc / noyer / noir</strong> <em>(discarded: the Davis finish names Nordik/Classik/Technik)</em>. Ariane → <strong>chêne clair, noyer américain, noir, vert-chêne, bleu-noyer</strong>. Ariane 1 <em>noyer / walnut / blanche</em> settled as a two-tone <strong>noyer / blanc</strong>. Total: 8 attribute values, black shared across ranges, noyer (Krypton) ≠ noyer américain (Ariane).</li>
-        <li><strong>Creation guardrails</strong>: <code>DRAFT</code> and out of Shopify first; idempotency on the <code>barcode</code>; always at the variant level (<code>product.product</code>); EAN via <code>str(int(x)).zfill(13)</code>; <code>env.cr.commit()</code>.</li>
-        <li><strong>Method</strong>: a "Golden rule" block at the top of the brief — understand Odoo before acting, ask every question, create nothing without a written green light, propose improvements.</li>
+        <li><strong>Pair vs unit.</strong> Floorstanders and bookshelves sell per pair — the Odoo <code>list_price</code> is the pair price, the template name contains <code>(la paire)</code>; centers are per unit. Observed on the Dynaudio Emit records before writing a single line.</li>
+        <li><strong>SKU format.</strong> <code>BRAND-MODEL-COLOR</code> uppercase, short slug (e.g. <code>DAVI-KRY10-NR</code>). Mirrored on what exists; short = fewer typos.</li>
+        <li><strong>Double purchase price.</strong> Two <code>supplierinfo</code> lines per variant, same supplier: <code>SKU-STOCK</code> (cheaper) and <code>SKU-DROP</code> (drop, pricier). The suffix makes the info readable directly in Odoo.</li>
+        <li><strong>Color naming.</strong> Capitalize each word, <code> / </code> separator for two-tones (<code>Vert / Chêne</code>, <code>Noyer / Blanc</code>). Rule formalized after a first creation in the wrong case.</li>
+        <li><strong>Language.</strong> French only; English commercial names translated at ingestion (Nordik → Blanc, Classik → Noyer, Technik → Noir).</li>
+      </ul>
+      <p><strong>Discarded alternatives:</strong></p>
+      <ul>
+        <li><strong>Odoo wizard</strong>: too coupled to the instance, not accessible without admin rights.</li>
+        <li><strong>Native Odoo CSV import</strong>: doesn't handle multi-attribute variants or the double <code>supplierinfo</code> line.</li>
+        <li><strong>Case-by-case manual mapping</strong>: doesn't scale, no guaranteed consistency.</li>
+        <li><strong>Odoo → dashboard SSO</strong>: different domains, impossible without dedicated infra → email check against Odoo <code>res.users</code> via XML-RPC.</li>
       </ul>
 
       <h2>Snags and how we fixed them</h2>
       <ul>
-        <li><strong>Ambiguous purchase prices</strong>: divergent labels between the two sheets (Krypton "stock/drop purchase per carton" vs Ariane "per pallet / per carton") + a "per carton" mention while one column = 2 cartons. Not settled by guessing → deferred to the Dynaudio inspection (the real <code>supplierinfo</code> structure).</li>
-        <li><strong>Pair vs unit</strong>: floorstanders/bookshelves sold per pair, centers per unit, and the Ariane PPI ambiguously labeled. Same treatment: aligned on what exists rather than guessed.</li>
-        <li><strong>No live Odoo from claude.ai</strong>: shifted all inspection/reading to Claude Code and wrote it down explicitly that it must understand the instance before any write.</li>
-        <li><strong>Dubious Ariane 1 data</strong>: settled (noyer / blanc) instead of filled in at random.</li>
+        <li><strong>The brand field.</strong> <code>x_studio_marque</code> returned an error. Resolved with a <code>fields_get()</code> on an existing product → discovering <code>product_brand_id</code>.</li>
+        <li><strong>The uniqueness check in the wrong order.</strong> The SKU/EAN check ran after the write at step 3 — the script found its own fresh records and blocked. Worked around by creating the <code>supplierinfo</code> lines in a second script.</li>
+        <li><strong>Mis-named colors.</strong> First creation in <code>vert-chêne</code>, <code>bleu-noyer</code>… instead of the Cobra convention. Fixed via <code>write()</code> XML-RPC on the <code>product.template.attribute.value</code>; lesson encoded as a naming rule in the spec's system prompt.</li>
+        <li><strong>The supplierinfo <code>product_code</code>.</strong> Three iterations (no suffix → SKU only → <code>-STOCK</code>/<code>-DROP</code>), 72 lines updated by script each time. Final version frozen in the spec.</li>
       </ul>
 
       <h2>Result</h2>
-      <p>Two deliverables ready for <code>~/Cobra</code>: <code>davis_extraction.xlsx</code> (36 variants, the <code>Couleur_FR</code> column fully resolved) and <code>CLAUDE-mission-davis-creation.md</code> (a brief with the Golden rule and a locked sequence). Color mapping 100% resolved. <strong>Nothing created in the database — on purpose</strong>: writing waits for the Odoo inspection and the green light.</p>
+      <p>As of June 10, 2026:</p>
+      <ul>
+        <li><strong>Davis Python script</strong>: in production — 36 variants created, 72 <code>supplierinfo</code> lines, 0 duplicate EAN.</li>
+        <li><strong>Product AI agent spec</strong>: written, handed to the dev provider.</li>
+        <li><strong>Dashboard ↔ Odoo auth spec</strong>: written, handed over. Auth will mirror the list of internal users active in Odoo.</li>
+        <li><strong>Dashboard (development)</strong>: pending on the provider's side, ~3 days estimate.</li>
+        <li><em>One-shot script idempotency</em>: known bug (the uniqueness check), non-blocking for the Davis use.</li>
+      </ul>
 
       <h2>Next</h2>
       <ul>
-        <li>Drop the 2 files into Claude Code, run the Odoo inspection on Dynaudio Emit (fallback Evoke / another pair-sold brand if Emit is sparsely populated).</li>
-        <li>Claude Code settles the 3 remaining structural points (pair/unit, stock vs drop purchase price, SKU format) from what exists, proposes its improvements, asks its questions → STOP.</li>
-        <li>After a written green light: create the 36 variants in draft, review, then activate on Shopify.</li>
-        <li>More broadly: the mass product-creation agent — dashboard + CDC — that generalizes this flow has <a href="agent-produit-ia-cdc-dashboard.html">its own entry</a>.</li>
+        <li>The dev provider builds the backend + the conversation UI.</li>
+        <li>First test on a new brand (validating the system prompt in real conditions).</li>
+        <li>Version the spec in the Cobra repo (currently local only).</li>
+        <li>Assess whether the spec is enough as a template for the next brands, or whether the system prompt needs a per-brand calibration phase.</li>
       </ul>
     </div>
   </div>

@@ -59,8 +59,9 @@ Dernière mise à jour : 2026-06-10
 - [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/hifi-lovers/): marque néo-rétro audiophile.
 - [Perso](https://hugolahutte.github.io/knowledge-hub/perso/): side-projects et expérimentations.
 
-## Journal (50 entrées)
+## Journal (51 entrées)
 
+- [Agent Produit IA — du script one-shot au CDC dashboard](https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html): On a créé 36 variantes Davis à la main, en script Python. Plutôt que de recommencer à chaque nouvelle marque, on a formalisé la méthode : un agent IA conversationnel sur le dashboard Cobra, capable de lire n'importe quel fichier source et de créer ou mettre à jour des produits Odoo sans intervention technique.
 - [Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton & Ariane)](https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html): Préparation de l'intégration d'une nouvelle marque d'enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d'abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.
 - [HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google](https://hugolahutte.github.io/knowledge-hub/journal/hf-os-socle-deploiement.html): Initialisation puis mise en prod du socle technique de HF-OS (Next.js 16 + Payload 3, PostgreSQL Scaleway, hébergement Render), connexion admin par Google SSO restreinte à une liste blanche. Pas encore de collections métier — juste la coquille déployée.
 - [Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify](https://hugolahutte.github.io/knowledge-hub/journal/shopify-link-relink-wizard.html): Des liens Odoo↔Shopify se cassaient quand un produit était recréé avec variantes (historique orphelin). Après un sauvetage par script (Focal Bathys MG), on en fait une feature : un wizard LINK/RELINK dans cobra_shopify — matching SKU, swap atomique, sans script.
