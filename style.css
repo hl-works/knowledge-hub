@@ -466,6 +466,13 @@ mark{background:var(--c-gold); color:var(--c-black);}
 .callout--tldr ul{margin:var(--space-3) 0 0; padding-left:1.1rem;}
 .callout--tldr li{margin-top:var(--space-2);}
 
+/* Bloc Veille IA (home) — distinct du callout « Nouveau » : fond surface, accent or, point « live » */
+.veille-home{background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--c-gold);}
+.veille-home .kicker{color:var(--c-gold); display:flex; align-items:center; gap:var(--space-2);}
+.veille-home .kicker::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--c-gold); animation:veille-pulse 2s ease-out infinite;}
+@keyframes veille-pulse{0%{box-shadow:0 0 0 0 rgba(250,182,47,.55);}70%{box-shadow:0 0 0 6px rgba(250,182,47,0);}100%{box-shadow:0 0 0 0 rgba(250,182,47,0);}}
+@media (prefers-reduced-motion:reduce){.veille-home .kicker::before{animation:none;}}
+
 /* Figure de schéma (visuels codés) : pleine largeur prose, légende */
 .diagram{max-width:var(--prose-max); margin:var(--space-12) 0;}
 .diagram > figcaption{margin-top:var(--space-3);}

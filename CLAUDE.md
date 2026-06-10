@@ -47,7 +47,7 @@
   (`author` Hugo Lahutte, `@id` `…/#hugo` si possible). `lang`, `skip-link`, `alt`, contraste.
 - **Perf** : pas de JS bloquant, polices `display=swap`, `aspect-ratio` réservé (zéro CLS).
 - **Cache-busting** : `style.css` + `.js` portent `?v=AAAAMMJJ[lettre]`. Bumper sur
-  **toutes** les pages **uniquement** si on touche au CSS/JS. Actuel : css `20260601f`,
+  **toutes** les pages **uniquement** si on touche au CSS/JS. Actuel : css `20260601g`,
   js `20260601d`.
 - **Coffre** (`coffre/`) : espace privé chiffré. **Ne jamais toucher** `coffre.js` /
   `vault.json` / le mécanisme. Reste volontairement en mode clair.
