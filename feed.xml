@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hugolahutte.github.io/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton &amp; Ariane)</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Préparation de l&#x27;intégration d&#x27;une nouvelle marque d&#x27;enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d&#x27;abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.</description>
+</item>
+<item>
 <title>HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google</title>
 <link>https://hugolahutte.github.io/knowledge-hub/journal/hf-os-socle-deploiement.html</link>
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/hf-os-socle-deploiement.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html</guid>
 <pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
 <description>Deux bugs résiduels du dashboard achats : boutons qui n&#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.</description>
-</item>
-<item>
-<title>Audit UI Cobra + mise à jour odoo18_design_reference</title>
-<link>https://hugolahutte.github.io/knowledge-hub/journal/audit-ui-cobra-design-ref.html</link>
-<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/audit-ui-cobra-design-ref.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.</description>
 </item>
 </channel>
 </rss>
