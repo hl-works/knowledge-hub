@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hugolahutte.github.io/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/shopify-link-relink-wizard.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/shopify-link-relink-wizard.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Des liens Odoo↔Shopify se cassaient quand un produit était recréé avec variantes (historique orphelin). Après un sauvetage par script (Focal Bathys MG), on en fait une feature : un wizard LINK/RELINK dans cobra_shopify — matching SKU, swap atomique, sans script.</description>
+</item>
+<item>
 <title>Odoo → Shopify : archivage et remise en ligne des produits synchronisés</title>
 <link>https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html</link>
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/agent-factures-architecture.html</guid>
 <pubDate>Fri, 29 May 2026 08:00:00 +0000</pubDate>
 <description>Cadrer toute l&#x27;architecture d&#x27;un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d&#x27;écrire une ligne de code. Ne toucher Odoo qu&#x27;une fois/semaine.</description>
-</item>
-<item>
-<title>Agent de création automatique de produits Odoo</title>
-<link>https://hugolahutte.github.io/knowledge-hub/journal/agent-creation-produits.html</link>
-<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/agent-creation-produits.html</guid>
-<pubDate>Fri, 29 May 2026 08:00:00 +0000</pubDate>
-<description>Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.</description>
 </item>
 </channel>
 </rss>
