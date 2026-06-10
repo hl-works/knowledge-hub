@@ -1356,6 +1356,46 @@ Next: back to cheaper models for everyday work — Fable is saved for hard probl
 
 
 ================================================================
+DAVIS CATALOG → ODOO: PRICE-LIST EXTRACTION + CREATION BRIEF (KRYPTON &AMP; ARIANE)
+URL: https://hugolahutte.github.io/knowledge-hub/en/journal/davis-odoo-krypton-ariane.html
+Published: 2026-06-10
+================================================================
+
+Preparing the integration of a new speaker brand (Davis, Krypton + Ariane ranges) into Odoo 18: a clean extraction of the supplier price list into 11 models / 36 variants, and a Claude Code brief — &quot;read-only first, create only after a green light&quot;. Nothing created in the database yet — on purpose.
+
+← Journal
+Cobra · Odoo product catalog
+Davis catalog → Odoo: price-list extraction + creation brief (Krypton & Ariane)
+Claude · Cobra · June 10, 2026 odoo-dev data en-cours Cobra
+Context / the need
+We want to bring a new speaker brand, Davis Acoustics, into Odoo 18 — only the Krypton and Ariane ranges, from the supplier price list Tarif_Cobra_Mai_2026.xlsx. Brand = Davis, supplier = Davis. In the background: breaking in a reusable mass product-creation process.
+Structuring constraint: from claude.ai, no direct access to the Odoo instance (XML-RPC and credentials live on the Claude Code side). Hence a clean split — claude.ai prepares the logic and the data, Claude Code executes after reading what already exists.
+What was done
+- Read the price list (the Dmax Ariane Krypton Courbet sheet), isolated Krypton + Ariane, set aside the rest (Courbet, D-Max, dream/heritage).
+- Extracted a clean structure: 11 models → 36 color variants (Krypton 15, Ariane 21), 36 EANs all unique, no duplicates. Deliverable: davis_extraction.xlsx, one row per variant.
+- Mapped the Odoo target: 1 product.template per model, 1 product.product per color via a "Color" attribute, barcode = EAN-13 carried by the variant, supplier code on product.supplierinfo.
+- Wrote the Claude Code brief CLAUDE-mission-davis-creation.md: read-only inspection of an existing brand → mapping report → STOP for validation → creation.
+- Settled the FR color mapping.
+Decisions and discarded alternatives
+- Style reference = Dynaudio Emit. A speaker brand already in the database, same typology (floorstander / bookshelf / center) and wood/black/white finishes → a perfect analog to mirror name, SKU, color attribute, pair/unit model, supplier lines. (Discarded: basing it on an existing Davis — Davis isn't in the database yet.)
+- Colors in French: keep the FR part, drop the English; two-tones kept in FR. Krypton → blanc / noyer / noir (discarded: the Davis finish names Nordik/Classik/Technik). Ariane → chêne clair, noyer américain, noir, vert-chêne, bleu-noyer. Ariane 1 noyer / walnut / blanche settled as a two-tone noyer / blanc. Total: 8 attribute values, black shared across ranges, noyer (Krypton) ≠ noyer américain (Ariane).
+- Creation guardrails: DRAFT and out of Shopify first; idempotency on the barcode; always at the variant level (product.product); EAN via str(int(x)).zfill(13); env.cr.commit().
+- Method: a "Golden rule" block at the top of the brief — understand Odoo before acting, ask every question, create nothing without a written green light, propose improvements.
+Snags and how we fixed them
+- Ambiguous purchase prices: divergent labels between the two sheets (Krypton "stock/drop purchase per carton" vs Ariane "per pallet / per carton") + a "per carton" mention while one column = 2 cartons. Not settled by guessing → deferred to the Dynaudio inspection (the real supplierinfo structure).
+- Pair vs unit: floorstanders/bookshelves sold per pair, centers per unit, and the Ariane PPI ambiguously labeled. Same treatment: aligned on what exists rather than guessed.
+- No live Odoo from claude.ai: shifted all inspection/reading to Claude Code and wrote it down explicitly that it must understand the instance before any write.
+- Dubious Ariane 1 data: settled (noyer / blanc) instead of filled in at random.
+Result
+Two deliverables ready for ~/Cobra: davis_extraction.xlsx (36 variants, the Couleur_FR column fully resolved) and CLAUDE-mission-davis-creation.md (a brief with the Golden rule and a locked sequence). Color mapping 100% resolved. Nothing created in the database — on purpose: writing waits for the Odoo inspection and the green light.
+Next
+- Drop the 2 files into Claude Code, run the Odoo inspection on Dynaudio Emit (fallback Evoke / another pair-sold brand if Emit is sparsely populated).
+- Claude Code settles the 3 remaining structural points (pair/unit, stock vs drop purchase price, SKU format) from what exists, proposes its improvements, asks its questions → STOP.
+- After a written green light: create the 36 variants in draft, review, then activate on Shopify.
+- More broadly: capitalize on this flow as the template for the mass product-creation agent.
+
+
+================================================================
 CLAUDE CONTEXT FILES FOR COBRA: UPDATE + CLAUDE-DEV SPLIT
 URL: https://hugolahutte.github.io/knowledge-hub/en/journal/cobra-docs-contexte-claude.html
 Published: 2026-06-10

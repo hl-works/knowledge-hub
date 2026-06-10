@@ -49,6 +49,13 @@
   "tags": ""
  },
  {
+  "url": "/knowledge-hub/en/journal/davis-odoo-krypton-ariane.html",
+  "title": "Davis catalog → Odoo: price-list extraction + creation brief (Krypton & Ariane)",
+  "excerpt": "Preparing the integration of a new speaker brand (Davis, Krypton + Ariane ranges) into Odoo 18: a clean extraction of the supplier price list into 11 models / 36 variants, and a Claude Code brief — read-only first, create only after a green light. Nothing created in the database yet — deliberately.",
+  "kind": "Journal",
+  "tags": "odoo-dev data en-cours cobra"
+ },
+ {
   "url": "/knowledge-hub/en/journal/hf-os-socle-deploiement.html",
   "title": "HF-OS: a Next.js 16 + Payload 3 foundation deployed, admin login via Google",
   "excerpt": "Bootstrapping then shipping the HF-OS technical foundation (Next.js 16 + Payload 3, Scaleway PostgreSQL, Render hosting), with admin login via Google SSO restricted to an allow-list. No business collections yet — just the deployed shell.",

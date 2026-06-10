@@ -1356,6 +1356,46 @@ La suite : retour sur des modèles moins chers pour le quotidien — Fable se ga
 
 
 ================================================================
+CATALOGUE DAVIS → ODOO : EXTRACTION TARIF + BRIEF DE CRÉATION (KRYPTON &AMP; ARIANE)
+URL : https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html
+Publié : 2026-06-10
+================================================================
+
+Préparation de l&#x27;intégration d&#x27;une nouvelle marque d&#x27;enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d&#x27;abord, création après feu vert ». Rien créé en base à ce stade — volontaire.
+
+← Journal
+Cobra · Catalogue produits Odoo
+Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton & Ariane)
+Claude · Cobra · 10 juin 2026 odoo-dev data en-cours Cobra
+Contexte / le besoin
+On veut faire entrer une nouvelle marque d'enceintes, Davis Acoustics, dans Odoo 18 — uniquement les gammes Krypton et Ariane, à partir du tarif fournisseur Tarif_Cobra_Mai_2026.xlsx. Marque = Davis, fournisseur = Davis. En toile de fond : roder un process de création produit en masse réutilisable.
+Contrainte structurante : depuis claude.ai, pas d'accès direct à l'instance Odoo (le XML-RPC et les credentials vivent côté Claude Code). D'où une répartition nette — claude.ai prépare la logique et les données, Claude Code exécute après avoir lu l'existant.
+Ce qui a été fait
+- Lu le tarif (onglet Dmax Ariane Krypton Courbet), isolé Krypton + Ariane, écarté le reste (Courbet, D-Max, dream/heritage).
+- Extrait une structure propre : 11 modèles → 36 variantes couleur (Krypton 15, Ariane 21), 36 EAN tous uniques, aucun doublon. Livrable : davis_extraction.xlsx, une ligne par variante.
+- Cartographié la cible Odoo : 1 product.template par modèle, 1 product.product par couleur via un attribut « Couleur », barcode = EAN-13 porté par la variante, code fournisseur sur product.supplierinfo.
+- Rédigé le brief Claude Code CLAUDE-mission-davis-creation.md : inspection read-only d'une marque existante → rapport de mapping → STOP validation → création.
+- Tranché le mapping couleur FR.
+Décisions et alternatives écartées
+- Référence de style = Dynaudio Emit. Marque d'enceintes déjà en base, même typologie (colonne / compacte / centrale) et finitions bois/noir/blanc → analogue parfait pour calquer nom, SKU, attribut couleur, modèle paire/pièce, lignes fournisseur. (Écarté : se baser sur un Davis existant — Davis n'existe pas encore en base.)
+- Couleurs en français : garder la partie FR, jeter l'anglais ; bi-tons gardés en FR. Krypton → blanc / noyer / noir (écarté : les noms de finition Davis Nordik/Classik/Technik). Ariane → chêne clair, noyer américain, noir, vert-chêne, bleu-noyer. Ariane 1 noyer / walnut / blanche arbitré en bi-ton noyer / blanc. Total : 8 valeurs d'attribut, noir partagé entre gammes, noyer (Krypton) ≠ noyer américain (Ariane).
+- Garde-fous création : DRAFT et hors Shopify d'abord ; idempotence sur le barcode ; toujours au niveau variante (product.product) ; EAN via str(int(x)).zfill(13) ; env.cr.commit().
+- Méthode : bloc « Règle d'or » en tête du brief — comprendre Odoo avant d'agir, poser toutes les questions, ne rien créer sans feu vert écrit, proposer des améliorations.
+Galères et comment on a réglé
+- Prix d'achat ambigus : intitulés divergents entre les deux onglets (Krypton « achat stock/drop au carton » vs Ariane « par palette / au carton ») + mention « au carton » alors qu'une colonne = 2 cartons. Non tranché au pif → reporté à l'inspection Dynaudio (structure supplierinfo réelle).
+- Paire vs pièce : colonnes/compactes vendues à la paire, centrales à la pièce, et PPI Ariane étiqueté ambigu. Même traitement : calé sur l'existant plutôt que deviné.
+- Pas d'Odoo live depuis claude.ai : on a basculé toute l'inspection/lecture sur Claude Code et écrit noir sur blanc qu'il doit comprendre l'instance avant toute écriture.
+- Donnée douteuse Ariane 1 : arbitrée (noyer / blanc) au lieu d'être comblée au hasard.
+Résultat
+Deux livrables prêts pour ~/Cobra : davis_extraction.xlsx (36 variantes, colonne Couleur_FR entièrement résolue) et CLAUDE-mission-davis-creation.md (brief avec Règle d'or et séquence verrouillée). Mapping couleur 100 % résolu. Rien créé en base — c'est voulu : l'écriture attend l'inspection Odoo et le feu vert.
+Suite
+- Descendre les 2 fichiers dans Claude Code, lancer l'inspection Odoo sur Dynaudio Emit (fallback Evoke / autre marque à la paire si Emit peu peuplé).
+- Claude Code tranche les 3 points structurels restants (paire/pièce, prix d'achat stock vs drop, format SKU) depuis l'existant, propose ses améliorations, pose ses questions → STOP.
+- Après feu vert écrit : création des 36 variantes en draft, revue, puis activation Shopify.
+- Plus large : capitaliser ce déroulé comme gabarit de l'agent de création produit en masse.
+
+
+================================================================
 FICHIERS DE CONTEXTE CLAUDE COBRA : MISE À JOUR + SPLIT DE CLAUDE-DEV
 URL : https://hugolahutte.github.io/knowledge-hub/journal/cobra-docs-contexte-claude.html
 Publié : 2026-06-10

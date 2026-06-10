@@ -49,6 +49,13 @@
 "tags": ""
 },
 {
+"url": "/knowledge-hub/journal/davis-odoo-krypton-ariane.html",
+"title": "Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton & Ariane)",
+"excerpt": "Préparation de l'intégration d'une nouvelle marque d'enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d'abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.",
+"kind": "Journal",
+"tags": "odoo-dev data en-cours cobra"
+},
+{
 "url": "/knowledge-hub/journal/hf-os-socle-deploiement.html",
 "title": "HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google",
 "excerpt": "Initialisation puis mise en prod du socle technique de HF-OS (Next.js 16 + Payload 3, PostgreSQL Scaleway, hébergement Render), connexion admin par Google SSO restreinte à une liste blanche. Pas encore de collections métier — juste la coquille déployée.",
