@@ -1173,6 +1173,54 @@ URL : https://hugolahutte.github.io/knowledge-hub/lexique/
 
 
 ================================================================
+ODOO → SHOPIFY : ARCHIVAGE ET REMISE EN LIGNE DES PRODUITS SYNCHRONISÉS
+URL : https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html
+Publié : 2026-06-10
+================================================================
+
+Le connecteur ne répercutait ni l&#x27;archivage ni la remise en ligne d&#x27;un produit : 3 bugs corrigés dans cobra_shopify (write override, file de synchro, active_test) + un script de rattrapage qui nettoie ~590 fiches fantômes et rend non-achetables 2 produits encore en vente.
+
+← Journal
+Cobra · Connecteur Shopify
+Odoo → Shopify : archivage et remise en ligne des produits synchronisés
+Claude · Cobra · 10 juin 2026 shopify odoo-dev en-cours Cobra
+Contexte
+En vérifiant une fiche produit — KEF Pieds de Sol S2 Titanium — on s'est aperçu que la variante était archivée (obsolète) dans Odoo depuis un moment, mais toujours visible et achetable sur Shopify. En creusant, c'était systémique : le connecteur ne gérait pas du tout le passage hors ligne ni la remise en ligne d'un produit.
+Trois bugs dans le code existant (cobra_shopify) :
+- action_set_end_of_life() et action_set_obsolete() appelaient add_in_shopify_queue() — méthode inexistante. L'appel échouait silencieusement.
+- Ces actions utilisaient product_variant_ids sans active_test=False : au moment de l'appel, les variantes venaient d'être archivées, le recordset était donc vide → aucune queue créée.
+- Aucun write() override sur product.product : archiver une variante directement dans Odoo ne déclenchait rien côté Shopify.
+Ce qui a été fait
+Correctifs code
+- product_template.py : nom de méthode corrigé (add_in_shopify_queue() → product_add_in_shopify_queue()) et with_context(active_test=False) ajouté sur product_variant_ids dans les 3 actions lifecycle.
+- product_product.py : ajout d'un write() override couvrant tous les cas d'archivage/réactivation direct d'un variant :
+- archive d'un variant alors que d'autres restent actifs → inventoryPolicy: DENY + stock remis à 0 ;
+- archive du dernier variant actif → fiche en DRAFT (invisible sur le site) ;
+- réactivation d'un variant → CONTINUE + fiche ACTIVE.
+Le cas template entier (action_set_obsolete) était déjà câblé via les actions lifecycle (fiche → DRAFT).
+Script de rattrapage
+Audit + correction one-shot de l'existant :
+- ~590 fiches archivées dans Odoo mais encore présentes sur Shopify → passées en DRAFT ;
+- ~105 GIDs Shopify fantômes dans Odoo (produits déjà supprimés côté Shopify) → nettoyés ;
+- 1 fiche encore ACTIVE alors qu'obsolète — NAIM Grille Terracotta Mu-so QB 2 → DRAFT ;
+- 1 variante encore achetable (CONTINUE) alors qu'archivée — Triangle Elara LN01A Aubergine → DENY + stock 0.
+Documentation mise à jour dans cobra_shopify/README.md avec la matrice complète des comportements.
+Décisions et alternatives écartées
+- DENY plutôt que suppression de la variante. L'instinct était de supprimer via productVariantsBulkDelete — écarté : Shopify interdit de supprimer la dernière variante d'un produit, et on perdrait l'historique SEO + les commandes liées. DENY + stock 0 garde la variante en base, juste plus achetable.
+- DRAFT plutôt qu'ARCHIVED. ARCHIVED reste visible dans certains contextes (liens directs, Google) ; DRAFT est totalement invisible. Retenu pour les produits obsolete.
+Galères et comment on a réglé
+- Shop URL incorrecte : le script visait cobrason.myshopify.com (404 partout). Vrai domaine récupéré via { shop { myshopifyDomain } } → cobrasonfr.myshopify.com.
+- Accès refusé à shopify.connect en XML-RPC : le compte API n'a pas les droits sur ce modèle. Contourné en récupérant le token directement.
+- 695 erreurs « Product does not exist » + 104 « does not belong to the product » : les shopify_id stockés dans Odoo pointaient vers des produits/variants déjà supprimés sur Shopify (GIDs stale). Nettoyage des GIDs fantômes ajouté au script.
+- input() inutilisable depuis Claude Code : contourné avec echo "oui" | dans la commande.
+Résultat & suite
+- 2 produits/variantes rendus non-achetables sur Shopify le 10 juin 2026.
+- Code commité sur feat/cobra-docs-update (c3ae9e7, 823da9e), à cherry-picker sur main au prochain déploiement.
+- Comportement automatique opérationnel dès déploiement : tout archivage ou réactivation dans Odoo se répercute sur Shopify sans intervention manuelle.
+Suite : déployer feat/cobra-docs-update (cherry-pick ciblé sur main) ; vérifier que productUpdate et productVariantsBulkUpdate sont bien dans les query files de shopify_connect (non vérifié dans cette session) ; envisager un cron hebdomadaire de contrôle (variantes archivées Odoo encore achetables Shopify → alerte plutôt que correction silencieuse).
+
+
+================================================================
 FABLE 5 PASSE LE SITE EN REVUE : 4 BUGS, DU RSS ET UNE VEILLE ENFIN VISIBLE DES LLMS
 URL : https://hugolahutte.github.io/knowledge-hub/journal/fable-5-revue-site-geo.html
 Publié : 2026-06-10
@@ -1197,6 +1245,52 @@ La session a continué sur la lancée : llms-full.txt est désormais auto-géné
 Résultat & suite
 Tout est parti en prod dans la session, avec la procédure documentée dans le CLAUDE.md du repo (Compound Engineering : chaque correctif devient une règle ou un script). Première impression de Fable 5 sur ce genre de mission : l'audit va chercher des causes (pas juste des symptômes — le slug cassé a été remonté jusqu'au script fautif), et la session enchaîne audit → fix → prod sans se perdre.
 La suite : retour sur des modèles moins chers pour le quotidien — Fable se garde pour les problèmes durs, c'est exactement la conclusion du guide. Et le prochain chantier est déjà ouvert : les loops, ces tâches récurrentes d'agent que je déploie en ce moment chez Cobra.
+
+
+================================================================
+FICHIERS DE CONTEXTE CLAUDE COBRA : MISE À JOUR + SPLIT DE CLAUDE-DEV
+URL : https://hugolahutte.github.io/knowledge-hub/journal/cobra-docs-contexte-claude.html
+Publié : 2026-06-10
+================================================================
+
+Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes (hébergement, repo, déploiement, 9→13 modules). Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique HL Group vs extension Cobra) et convention de nommage CLAUDE-*. PR #385 vers preprod.
+
+← Journal
+Cobra · Contexte Claude & méthode
+Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev
+Claude · HL · 10 juin 2026 doc meta en-cours Cobra
+Contexte
+Trois fichiers de référence alimentent le projet Claude dédié au dev Odoo Cobra (cobra_odoo_context.md, cobra_connexions_ecosysteme.md, CLAUDE-dev.md). Créés en mai 2026, ils étaient déjà obsolètes sur des points critiques : hébergement Odoo (SaaS → Odoo.sh), nom du repo GitHub, workflow de déploiement (Irokoo-gated → Hugo autonome depuis avril 2026), nombre de modules custom (9 → 13). Sans mise à jour, Claude démarrait chaque session avec un modèle mental faux de l'infra.
+Besoin parallèle : CLAUDE-dev.md mélangeait des conventions génériques (valables pour tout projet dev HL Group) et des règles spécifiques Cobra. Le split permettait de partager le core générique avec les autres projets (Shopify, Haute Fidélité…) sans embarquer les règles Cobra.
+Ce qui a été fait
+Run 1 — mise à jour factuelle
+Scan du repo ~/Cobra sur main pour établir les vérités à jour : git ls-tree → 13 modules cobra_* (pas 9) ; git log | grep CDC → dernier CDC en prod = CDC-19 (pas 17) ; lecture des __manifest__.py → versions et auteurs réels. Trois fichiers créés dans ~/Cobra/docs/ (inexistant auparavant), avec les corrections principales :
+- Odoo SaaS → Odoo.sh (cobrason : Shell / Editor / Logs / Builds / Backups) ;
+- repo tech-cobra/Cobra → tech-cobra/cobra-odoo (privé) ;
+- déploiement : Hugo déploie seul en prod depuis ~avril 2026 (cherry-pick sur main) ;
+- preprod = staging Hugo ; preprod3 = Irokoo, ne jamais y toucher ;
+- branche prod = main (pas master) ;
+- 9 → 13 modules ; dernier CDC = CDC-19 (prochain = CDC-20) ;
+- accès Claude : XML-RPC + shell Odoo.sh (env.cr.commit() obligatoire).
+Commit + PR #385 vers preprod.
+Run 2 — corrections résiduelles + split + renommage
+- Sogetronic : le matching en prod est par code fournisseur (product.supplierinfo.product_code), pas EAN-13 comme indiqué. Volume de produits peuplés non trouvé dans le log → marqué [à confirmer par Hugo] plutôt qu'un chiffre inventé.
+- x_qty_paid : aucun commit de backfill sur les PO historiques → cobra_vendor_payment_confirm rétrogradé de ✅ à 🔄.
+- CDC-17/18 : confirmé dans le git log (field_security = CDC-17, dashboard achats = CDC-18). Rien à corriger.
+Split de CLAUDE-dev.md : d'un côté le core générique HL Group (« Avant de coder », « Discipline de code », « Livrables » + une nouvelle section Loops autonomes : critère de succès exécutable, max 5 itérations, PROGRESS.md, checkpoint humain avant action irréversible, actions interdites listées dans l'extension) ; de l'autre l'extension Cobra (CLAUDE-dev-cobra.md : règles dures déploiement + synchro preprod↔main, stack Odoo/Shopify/SEO, CDC, sujets en cours, contacts).
+Renommage (git mv) vers la convention CLAUDE-* : cobra_odoo_context.md → CLAUDE-cobra-odoo-context.md ; cobra_connexions_ecosysteme.md → CLAUDE-cobra-connexions.md ; ajout de CLAUDE-dev-cobra.md. Convention posée en tête des fichiers renommés : « CLAUDE-{domaine}.md = générique, CLAUDE-{domaine}-{projet}.md = spécifique. » Toutes les références croisées internes mises à jour (anciens → nouveaux noms), zéro résidu vérifié par grep. Bonus : claude-cobra-bigquery_setup_summary.md → CLAUDE-cobra-bigquery.md.
+Décisions et alternatives écartées
+- Nouveau dossier docs/ versionné plutôt qu'édition sur place de fichiers éparpillés (Desktop, Downloads, archive) : seule option propre — ça versionne les docs avec le code.
+- Split immédiat plutôt que plus tard, pour éviter un 3ᵉ aller-retour ; risque de perte de contenu entre les deux fichiers couvert par un diff manuel.
+- 3 commits atomiques visés mais l'ordre des git add a tout fait tomber dans un seul commit (b401829) : pas idéal pour la bisectabilité, mais contenu correct.
+Galères et comment on a réglé
+- Fichiers introuvables : cobra_connexions_ecosysteme.md retrouvé dans ~/Downloads/ via find ~ -maxdepth 6 ; cobra_odoo_context.md en _archive/ sur le Desktop.
+- Section « Auteurs mixtes » auto-contradictoire (énumérait 5 modules Cobra en disant « 4 ») → corrigé au run 2 : 7 Irokoo + 5 Cobra + 1 mixte (cobra_purchase).
+- Sogetronic : les docs disaient « 175 produits matchés par EAN-13 » ; le git log (bc18b4e) dit « matching par code fournisseur ». Double erreur (méthode + chiffre) ; volume non dans le log → [à confirmer].
+Résultat & suite
+- 4 fichiers dans ~/Cobra/docs/ : CLAUDE-cobra-odoo-context.md, CLAUDE-cobra-connexions.md, CLAUDE-dev.md (core), CLAUDE-dev-cobra.md.
+- PR #385 ouverte vers preprod ; convention CLAUDE-* appliquée et documentée ; renommage hors-repo CLAUDE-cobra-bigquery.md.
+Suite : merger #385 sur preprod (build Odoo.sh pour vérification) ; re-uploader dans Claude.ai (projet Odoo Cobra : 4 fichiers, supprimer les anciens ; autres projets dev : CLAUDE-dev.md core seul) ; confirmer le volume produits Sogetronic + statut Merchant Center / Search Console BigQuery ; backfill x_qty_paid sur les PO historiques ; mettre à jour le ~/Cobra/CLAUDE.md local (référence encore SaaS, master, 11 modules, CDC-18).
 
 
 ================================================================

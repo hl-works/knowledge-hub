@@ -57,8 +57,10 @@ Last updated: 2026-06-10
 - [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
 - [Personal](https://hugolahutte.github.io/knowledge-hub/en/perso/): side projects and experiments.
 
-## Journal (45 entries)
+## Journal (47 entries)
 
+- [Odoo → Shopify: product archiving and re-listing finally in sync](https://hugolahutte.github.io/knowledge-hub/en/journal/shopify-archivage-produits-eol.html): The connector reflected neither archiving nor re-listing of a product. 3 bugs fixed in cobra_shopify + a cleanup script (~590 stale records purged, 2 still-purchasable products made unavailable).
+- [Claude context files for Cobra: update + CLAUDE-dev split](https://hugolahutte.github.io/knowledge-hub/en/journal/cobra-docs-contexte-claude.html): The context files for the Cobra dev Claude project were outdated. Factual update from the repo, split of CLAUDE-dev (generic core vs Cobra extension) and a CLAUDE-* naming convention. PR #385 to preprod.
 - [Fable 5 reviews the site: 4 bugs, RSS, and an AI watch finally visible to LLMs](https://hugolahutte.github.io/knowledge-hub/en/journal/fable-5-revue-site-geo.html): First full-scale test of Claude Fable 5 the day after its release — complete site audit, 4 bugs fixed (counters, EN search index), the AI watch rendered as static HTML for AI crawlers, RSS feeds, weekly consistency check. All shipped to production within the session.
 - [Bilingual Knowledge Hub: English version + auto-translation](https://hugolahutte.github.io/knowledge-hub/en/journal/knowledge-hub-bilingue-fr-en.html): Making the site bilingual FR/EN — /en/ mirror (hreflang, language switcher), bilingual search and glossary, bilingual sitemap, and a GitHub Actions workflow that translates each new FR page via the Claude API. FR by default.
 - [This Knowledge Hub itself](https://hugolahutte.github.io/knowledge-hub/en/journal/knowledge-hub.html): A static GitHub Pages site (HTML/CSS, zero framework): AI portfolio, operational journal, and GEO reference. One page per entry, llms.txt + JSON-LD authorship.

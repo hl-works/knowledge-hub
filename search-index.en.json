@@ -49,6 +49,20 @@
   "tags": ""
  },
  {
+  "url": "/knowledge-hub/en/journal/shopify-archivage-produits-eol.html",
+  "title": "Odoo → Shopify: product archiving and re-listing finally in sync",
+  "excerpt": "The connector reflected neither archiving nor re-listing of a product. 3 bugs fixed in cobra_shopify + a cleanup script (~590 stale records purged, 2 still-purchasable products made unavailable).",
+  "kind": "Journal",
+  "tags": "shopify odoo-dev en-cours cobra"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/cobra-docs-contexte-claude.html",
+  "title": "Claude context files for Cobra: update + CLAUDE-dev split",
+  "excerpt": "The context files for the Cobra dev Claude project were outdated. Factual update from the repo, split of CLAUDE-dev (generic core vs Cobra extension) and a CLAUDE-* naming convention. PR #385 to preprod.",
+  "kind": "Journal",
+  "tags": "doc meta en-cours cobra"
+ },
+ {
   "url": "/knowledge-hub/en/cobra/",
   "title": "Cobra",
   "excerpt": "Odoo / Shopify tech stack, e-commerce, automations.",

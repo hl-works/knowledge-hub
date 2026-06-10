@@ -49,6 +49,20 @@
 "tags": ""
 },
 {
+"url": "/knowledge-hub/journal/shopify-archivage-produits-eol.html",
+"title": "Odoo → Shopify : archivage et remise en ligne des produits synchronisés",
+"excerpt": "Le connecteur ne répercutait ni l'archivage ni la remise en ligne d'un produit. 3 bugs corrigés dans cobra_shopify + un script de rattrapage (~590 fiches fantômes nettoyées, 2 produits encore en vente rendus non-achetables).",
+"kind": "Journal",
+"tags": "shopify odoo-dev en-cours cobra"
+},
+{
+"url": "/knowledge-hub/journal/cobra-docs-contexte-claude.html",
+"title": "Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev",
+"excerpt": "Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.",
+"kind": "Journal",
+"tags": "doc meta en-cours cobra"
+},
+{
 "url": "/knowledge-hub/cobra/",
 "title": "Cobra",
 "excerpt": "Socle technique Odoo / Shopify, e-commerce, automatisations.",

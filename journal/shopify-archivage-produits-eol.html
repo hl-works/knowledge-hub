@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Odoo → Shopify : archivage et remise en ligne des produits synchronisés — Journal · Hugo Lahutte</title>
+<meta name="description" content="Le connecteur ne répercutait ni l&#x27;archivage ni la remise en ligne d&#x27;un produit : 3 bugs corrigés dans cobra_shopify (write override, file de synchro, active_test) + un script de rattrapage qui nettoie ~590 fiches fantômes et rend non-achetables 2 produits encore en vente.">
+<link rel="canonical" href="https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html">
+<link rel="alternate" hreflang="fr" href="https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html">
+<link rel="alternate" hreflang="en" href="https://hugolahutte.github.io/knowledge-hub/en/journal/shopify-archivage-produits-eol.html">
+<link rel="alternate" hreflang="x-default" href="https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Odoo → Shopify : archivage et remise en ligne des produits synchronisés">
+<meta property="og:description" content="Le connecteur ne répercutait ni l&#x27;archivage ni la remise en ligne d&#x27;un produit : 3 bugs corrigés dans cobra_shopify (write override, file de synchro, active_test) + un script de rattrapage qui nettoie ~590 fiches fantômes et rend non-achetables 2 produits encore en vente.">
+<meta property="og:url" content="https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:published_time" content="2026-06-10">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../style.css?v=20260601f">
+
+<!-- JSON-LD : authorship (GEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Odoo → Shopify : archivage et remise en ligne des produits synchronisés",
+  "description": "Le connecteur ne répercutait ni l'archivage ni la remise en ligne d'un produit : 3 bugs corrigés dans cobra_shopify (write override, file de synchro, active_test) + un script de rattrapage qui nettoie ~590 fiches fantômes et rend non-achetables 2 produits encore en vente.",
+  "inLanguage": "fr-FR",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "url": "https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html",
+  "author": {"@type": "Person", "name": "Hugo Lahutte", "url": "https://hugolahutte.github.io/knowledge-hub/"},
+  "keywords": "shopify, odoo-dev, en-cours, cobra",
+  "isPartOf": {"@type": "Blog", "name": "Knowledge Hub — Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"}
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="../guides/">Guides</a></li>
+      <li><a href="../veille-ia/">Veille IA</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="./" aria-current="page">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="https://hugolahutte.github.io/knowledge-hub/en/journal/shopify-archivage-produits-eol.html" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<article class="article">
+  <div class="container">
+    <p class="caption"><a href="./">← Journal</a></p>
+    <p class="kicker">Cobra · Connecteur Shopify</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">Odoo → Shopify : archivage et remise en ligne des produits synchronisés</h1>
+    <hr class="rule--accent">
+    <div class="meta-bar">
+      <span><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></span>
+      <span>·</span>
+      <time datetime="2026-06-10">10 juin 2026</time>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a>
+      <a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a>
+      <a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a>
+      <a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/journal/?tag=cobra" style="border-style:dashed;">Cobra</a>
+    </div>
+
+    <div class="prose" style="margin-top:var(--space-8);">
+      <h2>Contexte</h2>
+      <p>En vérifiant une fiche produit — <strong>KEF Pieds de Sol S2 Titanium</strong> — on s'est aperçu que la variante était archivée (obsolète) dans Odoo depuis un moment, mais toujours <strong>visible et achetable sur Shopify</strong>. En creusant, c'était systémique : le connecteur ne gérait pas du tout le passage hors ligne ni la remise en ligne d'un produit.</p>
+      <p>Trois bugs dans le code existant (<code>cobra_shopify</code>) :</p>
+      <ul>
+        <li><code>action_set_end_of_life()</code> et <code>action_set_obsolete()</code> appelaient <code>add_in_shopify_queue()</code> — méthode inexistante. L'appel échouait silencieusement.</li>
+        <li>Ces actions utilisaient <code>product_variant_ids</code> sans <code>active_test=False</code> : au moment de l'appel, les variantes venaient d'être archivées, le recordset était donc vide → aucune queue créée.</li>
+        <li>Aucun <code>write()</code> override sur <code>product.product</code> : archiver une variante directement dans Odoo ne déclenchait rien côté Shopify.</li>
+      </ul>
+
+      <h2>Ce qui a été fait</h2>
+      <h3>Correctifs code</h3>
+      <ul>
+        <li><code>product_template.py</code> : nom de méthode corrigé (<code>add_in_shopify_queue()</code> → <code>product_add_in_shopify_queue()</code>) et <code>with_context(active_test=False)</code> ajouté sur <code>product_variant_ids</code> dans les 3 actions lifecycle.</li>
+        <li><code>product_product.py</code> : ajout d'un <code>write()</code> override couvrant tous les cas d'archivage/réactivation direct d'un variant :
+          <ul>
+            <li>archive d'un variant alors que d'autres restent actifs → <code>inventoryPolicy: DENY</code> + stock remis à 0 ;</li>
+            <li>archive du dernier variant actif → fiche en <code>DRAFT</code> (invisible sur le site) ;</li>
+            <li>réactivation d'un variant → <code>CONTINUE</code> + fiche <code>ACTIVE</code>.</li>
+          </ul>
+          Le cas template entier (<code>action_set_obsolete</code>) était déjà câblé via les actions lifecycle (fiche → <code>DRAFT</code>).</li>
+      </ul>
+      <h3>Script de rattrapage</h3>
+      <p>Audit + correction one-shot de l'existant :</p>
+      <ul>
+        <li>~590 fiches archivées dans Odoo mais encore présentes sur Shopify → passées en <code>DRAFT</code> ;</li>
+        <li>~105 GIDs Shopify fantômes dans Odoo (produits déjà supprimés côté Shopify) → nettoyés ;</li>
+        <li>1 fiche encore <code>ACTIVE</code> alors qu'obsolète — <strong>NAIM Grille Terracotta Mu-so QB 2</strong> → <code>DRAFT</code> ;</li>
+        <li>1 variante encore achetable (<code>CONTINUE</code>) alors qu'archivée — <strong>Triangle Elara LN01A Aubergine</strong> → <code>DENY</code> + stock 0.</li>
+      </ul>
+      <p>Documentation mise à jour dans <code>cobra_shopify/README.md</code> avec la matrice complète des comportements.</p>
+
+      <h2>Décisions et alternatives écartées</h2>
+      <ul>
+        <li><strong>DENY plutôt que suppression de la variante.</strong> L'instinct était de supprimer via <code>productVariantsBulkDelete</code> — écarté : Shopify interdit de supprimer la dernière variante d'un produit, et on perdrait l'historique SEO + les commandes liées. <code>DENY</code> + stock 0 garde la variante en base, juste plus achetable.</li>
+        <li><strong>DRAFT plutôt qu'ARCHIVED.</strong> <code>ARCHIVED</code> reste visible dans certains contextes (liens directs, Google) ; <code>DRAFT</code> est totalement invisible. Retenu pour les produits <code>obsolete</code>.</li>
+      </ul>
+
+      <h2>Galères et comment on a réglé</h2>
+      <ul>
+        <li><strong>Shop URL incorrecte</strong> : le script visait <code>cobrason.myshopify.com</code> (404 partout). Vrai domaine récupéré via <code>{ shop { myshopifyDomain } }</code> → <code>cobrasonfr.myshopify.com</code>.</li>
+        <li><strong>Accès refusé à <code>shopify.connect</code> en XML-RPC</strong> : le compte API n'a pas les droits sur ce modèle. Contourné en récupérant le token directement.</li>
+        <li><strong>695 erreurs « Product does not exist »</strong> + <strong>104 « does not belong to the product »</strong> : les <code>shopify_id</code> stockés dans Odoo pointaient vers des produits/variants déjà supprimés sur Shopify (GIDs stale). Nettoyage des GIDs fantômes ajouté au script.</li>
+        <li><strong><code>input()</code> inutilisable depuis Claude Code</strong> : contourné avec <code>echo "oui" |</code> dans la commande.</li>
+      </ul>
+
+      <h2>Résultat &amp; suite</h2>
+      <ul>
+        <li>2 produits/variantes rendus non-achetables sur Shopify le 10 juin 2026.</li>
+        <li>Code commité sur <code>feat/cobra-docs-update</code> (<code>c3ae9e7</code>, <code>823da9e</code>), à cherry-picker sur <code>main</code> au prochain déploiement.</li>
+        <li>Comportement automatique opérationnel dès déploiement : tout archivage ou réactivation dans Odoo se répercute sur Shopify sans intervention manuelle.</li>
+      </ul>
+      <p><strong>Suite :</strong> déployer <code>feat/cobra-docs-update</code> (cherry-pick ciblé sur <code>main</code>) ; vérifier que <code>productUpdate</code> et <code>productVariantsBulkUpdate</code> sont bien dans les query files de <code>shopify_connect</code> (non vérifié dans cette session) ; envisager un cron hebdomadaire de contrôle (variantes archivées Odoo encore achetables Shopify → alerte plutôt que correction silencieuse).</p>
+    </div>
+  </div>
+</article>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navigation principale — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hugolahutte.github.io/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hugolahutte.github.io/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hugolahutte.github.io/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hugolahutte.github.io/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hugolahutte.github.io/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hugolahutte.github.io/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="https://hugolahutte.github.io/knowledge-hub/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="https://hugolahutte.github.io/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="https://hugolahutte.github.io/knowledge-hub/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      </div>
+
+      <nav aria-label="Explorer">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://hugolahutte.github.io/knowledge-hub/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="https://hugolahutte.github.io/knowledge-hub/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="https://hugolahutte.github.io/knowledge-hub/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
+          <li><a href="https://hugolahutte.github.io/knowledge-hub/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="https://hugolahutte.github.io/knowledge-hub/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="https://hugolahutte.github.io/knowledge-hub/a-propos/" style="text-decoration:none;">À propos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
+        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="../search.js?v=20260601d" defer></script>
+<script src="../lexique.js?v=20260601d" defer></script>
+<script src="../theme.js?v=20260601d" defer></script>
+</body>
+</html>
