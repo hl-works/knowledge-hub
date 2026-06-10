@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hugolahutte.github.io/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Agent Produit IA — du script one-shot au CDC dashboard</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>On a créé 36 variantes Davis à la main, en script Python. Plutôt que de recommencer à chaque nouvelle marque, on a formalisé la méthode : un agent IA conversationnel sur le dashboard Cobra, capable de lire n&#x27;importe quel fichier source et de créer ou mettre à jour des produits Odoo sans intervention technique.</description>
+</item>
+<item>
 <title>Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton &amp; Ariane)</title>
 <link>https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html</link>
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/discours-fiche-poste-vendeur-cobra.html</guid>
 <pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
 <description>Transformer un discours managérial brut en trois livrables exécutables (bullet points, prose, fiche de poste Word à signer) après une restructuration d&#x27;équipe.</description>
-</item>
-<item>
-<title>Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR</title>
-<link>https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html</link>
-<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Deux bugs résiduels du dashboard achats : boutons qui n&#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.</description>
 </item>
 </channel>
 </rss>
