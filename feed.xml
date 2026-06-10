@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Journal — Hugo Lahutte</title>
+<link>https://hugolahutte.github.io/knowledge-hub/</link>
+<description>Sessions documentées : comment Hugo Lahutte construit avec Claude (Odoo, Shopify, agents, méthode).</description>
+<language>fr</language>
+<atom:link href="https://hugolahutte.github.io/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>Knowledge Hub bilingue : version anglaise + auto-traduction</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</guid>
+<pubDate>Tue, 02 Jun 2026 08:00:00 +0000</pubDate>
+<description>Rendre le Knowledge Hub bilingue FR/EN : miroir /en/ des 74 pages, hreflang, sélecteur de langue, recherche et lexique bilingues — plus un workflow GitHub Actions qui traduit chaque nouvelle page FR via l&#x27;API Claude.</description>
+</item>
+<item>
+<title>Système d&#x27;instructions personnalisées Claude (CLAUDE.md + extensions)</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/systeme-instructions-claude-md.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/systeme-instructions-claude-md.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Standardiser le comportement de Claude sur tous mes projets et mes deux comptes : un CLAUDE.md universel + extensions strat et dev. Déclenché par un incident de mise en prod Odoo gravé en règle dure.</description>
+</item>
+<item>
+<title>Stratégie Instagram HiFi Lovers — Brief Marine</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/strategie-instagram-hifi-lovers.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/strategie-instagram-hifi-lovers.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Cadrer une stratégie Instagram qui part de zéro pour HiFi Lovers : positionnement 70/30 archive/éditorial, 4 piliers, calendrier, plan d&#x27;amorçage 8 semaines, avant de la confier à Marine.</description>
+</item>
+<item>
+<title>Mise à jour prix Sony Bravia II + diagnostic marge nulle</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/sony-bravia-prix-marge.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/sony-bravia-prix-marge.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d&#x27;une marge à 0 % : l&#x27;UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.</description>
+</item>
+<item>
+<title>Profil Sogetronic : import stock dropshipping par code fournisseur</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/sogetronic-import-prod.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/sogetronic-import-prod.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l&#x27;EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.</description>
+</item>
+<item>
+<title>Setup Claude : documentation, onboarding et Knowledge Hub</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/setup-claude-onboarding.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/setup-claude-onboarding.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Documenter la logique du setup Claude (fichiers .md, projets, deux comptes) pour la transmettre à un ami qui démarre et capitaliser session après session.</description>
+</item>
+<item>
+<title>PPTX oral du brevet « Les addictions chez les jeunes » (Damien)</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/pptx-brevet-addictions-damien.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/pptx-brevet-addictions-damien.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Transformer un script d&#x27;élève de 3e en support d&#x27;oral du brevet : 9 slides « cyan glacé », chiffres sourcés, photos intégrées — sans dénaturer la voix de l&#x27;ado.</description>
+</item>
+<item>
+<title>PowerPoint anglais Alexis — « The Secrets of My Success »</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/powerpoint-anglais-alexis.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/powerpoint-anglais-alexis.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Un PowerPoint narré de 10 slides + script calibré à la seconde pour un projet d&#x27;anglais (Dual Diploma). Workflow itératif avec QA visuel slide par slide.</description>
+</item>
+<item>
+<title>Ce Knowledge Hub lui-même</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO. Une page par entrée, llms.txt + JSON-LD authorship.</description>
+</item>
+<item>
+<title>Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/gsc-json-ld-fix.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/gsc-json-ld-fix.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>7 pages produit en erreur « extraits de produits » dans GSC. Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.</description>
+</item>
+<item>
+<title>Déclaratif ventes Epson : export Odoo → Google Sheets</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/epson-declaratif-ventes.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/epson-declaratif-ventes.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.</description>
+</item>
+<item>
+<title>Double Claude Code : Cobra vs HL</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/double-claude-code.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/double-claude-code.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Deux Claude Code : le compte Cobra (dev Odoo/Shopify) et un nouveau compte HL (perso, stratégie, Knowledge Hub). Les deux peuvent écrire dans le même journal.</description>
+</item>
+<item>
+<title>Discours &amp; fiche de poste vendeur magasin Cobra</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/discours-fiche-poste-vendeur-cobra.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/discours-fiche-poste-vendeur-cobra.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Transformer un discours managérial brut en trois livrables exécutables (bullet points, prose, fiche de poste Word à signer) après une restructuration d&#x27;équipe.</description>
+</item>
+<item>
+<title>Stabilisation CDC-18 : filtres dashboard, menus, traductions fr_FR</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/cdc18-stabilisation.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Deux bugs résiduels du dashboard achats : boutons qui n&#x27;activent pas les filtres, et menus qui gardent leurs anciens noms FR. Diagnostic en couches, fix immédiat + pérenne.</description>
+</item>
+<item>
+<title>Audit UI Cobra + mise à jour odoo18_design_reference</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/audit-ui-cobra-design-ref.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/audit-ui-cobra-design-ref.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.</description>
+</item>
+<item>
+<title>Agent autonome de traitement des factures fournisseurs</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/agent-factures-architecture.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/agent-factures-architecture.html</guid>
+<pubDate>Fri, 29 May 2026 08:00:00 +0000</pubDate>
+<description>Cadrer toute l&#x27;architecture d&#x27;un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d&#x27;écrire une ligne de code. Ne toucher Odoo qu&#x27;une fois/semaine.</description>
+</item>
+<item>
+<title>Agent de création automatique de produits Odoo</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/agent-creation-produits.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/agent-creation-produits.html</guid>
+<pubDate>Fri, 29 May 2026 08:00:00 +0000</pubDate>
+<description>Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.</description>
+</item>
+<item>
+<title>Serveur SFTP + pipeline automatique stock drop</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/sftp-pipeline-complet.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/sftp-pipeline-complet.html</guid>
+<pubDate>Thu, 28 May 2026 08:00:00 +0000</pubDate>
+<description>Hardening SSH (fail2ban, ufw, chroot) + script qui injecte tout fichier déposé dans Odoo via le module existant. Le branchement sur action_run_import : gain ×60.</description>
+</item>
+<item>
+<title>Routing email PO Drop vs Réassort + templates Cobra</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/routing-po-drop-reassort.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/routing-po-drop-reassort.html</guid>
+<pubDate>Thu, 28 May 2026 08:00:00 +0000</pubDate>
+<description>Router l&#x27;email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.</description>
+</item>
+<item>
+<title>Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/dynaudio-analyse-ventes.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/dynaudio-analyse-ventes.html</guid>
+<pubDate>Thu, 28 May 2026 08:00:00 +0000</pubDate>
+<description>Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l&#x27;édition de fichiers.</description>
+</item>
+</channel>
+</rss>

@@ -27,6 +27,10 @@
 <!-- GEO : pointeurs llms.txt pour les agents/LLMs -->
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
+<!-- RSS feeds -->
+<link rel="alternate" type="application/rss+xml" title="Journal — Hugo Lahutte (FR)" href="https://hugolahutte.github.io/knowledge-hub/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="AI Watch — Hugo Lahutte (FR)" href="https://hugolahutte.github.io/knowledge-hub/veille-ia/feed.xml">
+
 <!-- Polices -->
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,7 +134,7 @@
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">43</b><span>Documented sessions</span></div>
+      <div class="stat"><b id="stat-sessions">44</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Active projects</span></div>
       <div class="stat"><b>2</b><span>Claude agents</span></div>
     </div>
@@ -242,7 +246,7 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Search across 43 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Search across 44 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
@@ -292,7 +296,7 @@
         <div class="author"><span class="author--hl">Claude · HL</span></div>
       </li>
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">43 entries total — filter by tag in the journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">44 entries total — filter by tag in the journal →</a></p>
   </div>
 </section>
 
@@ -377,11 +381,11 @@
 <script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
 <script>
 (function(){
-  fetch('/knowledge-hub/search-index.json')
+  fetch('/knowledge-hub/search-index.en.json')
     .then(function(r){return r.json();})
     .then(function(data){
-      var sessions = data.filter(function(e){return e.kind==='Journal';}).length;
-      var projects = data.filter(function(e){return e.kind==='Projet';}).length;
+      var sessions = data.filter(function(e){return e.kind==='Journal' && !/\/journal\/$/.test(e.url);}).length;
+      var projects = data.filter(function(e){return e.kind==='Project';}).length;
       var ss = document.getElementById('stat-sessions');
       var sp = document.getElementById('stat-projects');
       var si = document.getElementById('journal-search-input');

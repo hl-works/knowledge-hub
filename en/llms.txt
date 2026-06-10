@@ -4,6 +4,8 @@
 
 Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedin.com/in/hugo-lahutte · X: https://x.com/hugolh_ai
 
+Last updated: 2026-06-10
+
 ## Method
 
 - [How I use Claude](https://hugolahutte.github.io/knowledge-hub/en/how-to/): CLAUDE.md + extensions, Compound Engineering, brand DNA file, Claude Chat vs Claude Code, prompt to copy.
@@ -53,8 +55,9 @@ Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedi
 - [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
 - [Personal](https://hugolahutte.github.io/knowledge-hub/en/perso/): side projects and experiments.
 
-## Journal (43 entries)
+## Journal (44 entries)
 
+- [Bilingual Knowledge Hub: English version + auto-translation](https://hugolahutte.github.io/knowledge-hub/en/journal/knowledge-hub-bilingue-fr-en.html): Making the site bilingual FR/EN — /en/ mirror (hreflang, language switcher), bilingual search and glossary, bilingual sitemap, and a GitHub Actions workflow that translates each new FR page via the Claude API. FR by default.
 - [This Knowledge Hub itself](https://hugolahutte.github.io/knowledge-hub/en/journal/knowledge-hub.html): A static GitHub Pages site (HTML/CSS, zero framework): AI portfolio, operational journal, and GEO reference. One page per entry, llms.txt + JSON-LD authorship.
 - [Double Claude Code: Cobra vs HL](https://hugolahutte.github.io/knowledge-hub/en/journal/double-claude-code.html): Two Claude Code accounts: the Cobra one (Odoo/Shopify dev) and a new HL one (personal, strategy, Knowledge Hub). Both can write to the same journal.
 - [Claude setup: documentation, onboarding and Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/en/journal/setup-claude-onboarding.html): Documenting the Claude setup logic (md files, projects, two accounts) to hand off to a friend getting started and build on it session after session.

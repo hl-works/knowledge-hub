@@ -1,0 +1,21 @@
+name: Site health check
+
+# Vérifie chaque semaine (et à la demande) que compteurs, index de recherche,
+# llms.txt et sitemap restent synchronisés avec les fichiers du journal.
+# Un run rouge = une dérive à corriger (le détail est dans le log du job).
+
+on:
+  schedule:
+    - cron: "0 7 * * 1" # lundi 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check de cohérence
+        run: python3 scripts/check_site_health.py

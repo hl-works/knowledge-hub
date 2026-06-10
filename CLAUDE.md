@@ -82,10 +82,19 @@ ET à une couleur dans `style.css` (`.tag[data-tag="…"]` / `.chip[data-filter=
    + vignette verticale `<a class="tag tag--vert" … style="border-style:dashed;">Perso</a>`.
 3. **Teaser accueil** : `<li class="entry">` en tête de `entry-list` dans `index.html`.
 4. **Maillage** (les 4) : `sitemap.xml` (bloc `<url>` + 3 `xhtml:link`) · `llms.txt`
-   (ligne sous `## Journal (NN entrées)` + incrémenter NN) · `search-index.json`
-   (`{url,title,excerpt,kind:"Journal",tags:"a, b, c"}`) · `llms-full.txt` si structurant.
+   (ligne sous `## Journal (NN entrées)` + incrémenter NN + dater « Dernière mise à jour ») ·
+   `search-index.json` (`{url,title,excerpt,kind:"Journal",tags:"a, b, c"}`) ·
+   `llms-full.txt` si structurant. Puis `python3 scripts/build_feeds.py` (RSS) et
+   `python3 scripts/check_site_health.py` (vérifie tous les compteurs — un check
+   hebdo tourne aussi via `.github/workflows/site-health.yml`).
 5. **EN** : laisser le workflow d'auto-traduction générer la jumelle au push
    (recommandé), ou créer `en/journal/<slug>.html` + `en/llms.txt`.
+
+### Veille IA
+
+Après chaque maj de `veille-ia/feed.json` : `python3 scripts/build_veille_static.py`
+(rendu HTML statique dans les pages veille — les crawlers IA n'exécutent pas le JS)
++ `python3 scripts/build_feeds.py` (regénère `veille-ia/feed.xml`).
 
 ## VII. Bilingue / i18n
 

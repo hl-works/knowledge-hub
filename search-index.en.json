@@ -350,7 +350,7 @@
   "tags": "meta, en-prod"
  },
  {
-  "url": "/knowledge-hub/en/journal/dynaudio-analyze-ventes.html",
+  "url": "/knowledge-hub/en/journal/dynaudio-analyse-ventes.html",
   "title": "Dynaudio Emit II sales analysis: Shopify + Odoo cross-referenced",
   "excerpt": "Cross-referencing Shopify (web channel, 104 orders) and Odoo (all channels, 186 units, +79%) for an accurate sales picture. The limits of Drive MCP on file editing.",
   "kind": "Journal",
@@ -383,6 +383,13 @@
   "excerpt": "Setting up a lasting SFTP infrastructure (Scaleway/Ubuntu) where each supplier drops their stock files, automatically picked up by Odoo. Step-by-step guided server setup.",
   "kind": "Journal",
   "tags": "infra, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/knowledge-hub-bilingue-fr-en.html",
+  "title": "Bilingual Knowledge Hub: English version + auto-translation",
+  "excerpt": "Making the Knowledge Hub bilingual FR/EN: a /en/ mirror of 74 pages, hreflang, language switcher, bilingual search and glossary, and a GitHub Actions workflow that translates each new page via the Claude API.",
+  "kind": "Journal",
+  "tags": "meta, seo-gtm, agent, en-prod"
  },
  {
   "url": "/knowledge-hub/en/journal/knowledge-hub.html",
