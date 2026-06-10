@@ -7,6 +7,20 @@
 <language>fr</language>
 <atom:link href="https://hugolahutte.github.io/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Odoo → Shopify : archivage et remise en ligne des produits synchronisés</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Le connecteur ne répercutait ni l&#x27;archivage ni la remise en ligne d&#x27;un produit. 3 bugs corrigés dans cobra_shopify + un script de rattrapage (~590 fiches fantômes nettoyées, 2 produits encore en vente rendus non-achetables).</description>
+</item>
+<item>
+<title>Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/cobra-docs-contexte-claude.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/cobra-docs-contexte-claude.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.</description>
+</item>
+<item>
 <title>Fable 5 passe le site en revue : 4 bugs, du RSS et une veille enfin visible des LLMs</title>
 <link>https://hugolahutte.github.io/knowledge-hub/journal/fable-5-revue-site-geo.html</link>
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/fable-5-revue-site-geo.html</guid>
@@ -131,20 +145,6 @@
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/agent-creation-produits.html</guid>
 <pubDate>Fri, 29 May 2026 08:00:00 +0000</pubDate>
 <description>Automatiser la création de produits Odoo par triangulation multi-sources (Excel PDV, screenshot email, photo prix). Premier pattern sur le catalogue Sony Bravia FY26.</description>
-</item>
-<item>
-<title>Serveur SFTP + pipeline automatique stock drop</title>
-<link>https://hugolahutte.github.io/knowledge-hub/journal/sftp-pipeline-complet.html</link>
-<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/sftp-pipeline-complet.html</guid>
-<pubDate>Thu, 28 May 2026 08:00:00 +0000</pubDate>
-<description>Hardening SSH (fail2ban, ufw, chroot) + script qui injecte tout fichier déposé dans Odoo via le module existant. Le branchement sur action_run_import : gain ×60.</description>
-</item>
-<item>
-<title>Routing email PO Drop vs Réassort + templates Cobra</title>
-<link>https://hugolahutte.github.io/knowledge-hub/journal/routing-po-drop-reassort.html</link>
-<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/routing-po-drop-reassort.html</guid>
-<pubDate>Thu, 28 May 2026 08:00:00 +0000</pubDate>
-<description>Router l&#x27;email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.</description>
 </item>
 </channel>
 </rss>
