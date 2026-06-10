@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hugolahutte.github.io/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/hf-os-socle-deploiement.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/hf-os-socle-deploiement.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Initialisation puis mise en prod du socle technique de HF-OS (Next.js 16 + Payload 3, PostgreSQL Scaleway, hébergement Render), connexion admin par Google SSO restreinte à une liste blanche. Pas encore de collections métier — juste la coquille déployée.</description>
+</item>
+<item>
 <title>Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify</title>
 <link>https://hugolahutte.github.io/knowledge-hub/journal/shopify-link-relink-wizard.html</link>
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/shopify-link-relink-wizard.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/audit-ui-cobra-design-ref.html</guid>
 <pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
 <description>Confronter la référence théorique Odoo 18 au code réel des 9 modules cobra_*. 35 fichiers XML lus, 5 dettes techniques identifiées, ~60 champs custom inventoriés.</description>
-</item>
-<item>
-<title>Agent autonome de traitement des factures fournisseurs</title>
-<link>https://hugolahutte.github.io/knowledge-hub/journal/agent-factures-architecture.html</link>
-<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/agent-factures-architecture.html</guid>
-<pubDate>Fri, 29 May 2026 08:00:00 +0000</pubDate>
-<description>Cadrer toute l&#x27;architecture d&#x27;un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d&#x27;écrire une ligne de code. Ne toucher Odoo qu&#x27;une fois/semaine.</description>
 </item>
 </channel>
 </rss>
