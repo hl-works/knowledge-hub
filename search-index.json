@@ -154,6 +154,20 @@
 "tags": "agent ia guide"
 },
 {
+"url": "/knowledge-hub/guides/fable-mythos-glasswing.html",
+"title": "Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle",
+"excerpt": "Le 9 juin 2026, Anthropic lance Claude Fable 5 — premier modèle d'une classe « Mythos » au-dessus d'Opus — et réserve la version sans garde-fous, Mythos 5, à des cyberdéfenseurs triés via Project Glasswing.",
+"kind": "Guide",
+"tags": "fable mythos anthropic claude actualite guide"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-une-loop.html",
+"title": "C'est quoi une « loop » ? Les tâches récurrentes d'agent",
+"excerpt": "Un agent qui relance la même tâche à intervalle régulier : surveiller, vérifier, alerter — sans toi. Le /loop de Claude Code, la différence avec une tâche planifiée, et le cadre.",
+"kind": "Guide",
+"tags": "loop agent claude-code automatisation guide"
+},
+{
 "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html",
 "title": "Écrire un bon CLAUDE.md (le fichier le plus rentable)",
 "excerpt": "Le fichier qui dit à Claude comment travailler avec toi — ton, conventions, pièges à éviter. Comment le rédiger, et comment le faire grandir.",
@@ -369,6 +383,13 @@
 "excerpt": "Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d'Odoo. Mapping via supplierinfo, export Sheets formaté.",
 "kind": "Journal",
 "tags": "data, odoo-admin, en-prod"
+},
+{
+"url": "/knowledge-hub/journal/fable-5-revue-site-geo.html",
+"title": "Fable 5 passe le site en revue : 4 bugs, du RSS et une veille enfin visible des LLMs",
+"excerpt": "Premier test grandeur nature de Fable 5 au lendemain de sa sortie : audit complet du site, 4 bugs corrigés, veille rendue visible des crawlers IA, flux RSS, check de cohérence hebdo. Tout en prod dans la session.",
+"kind": "Journal",
+"tags": "meta, seo-gtm, agent, en-prod"
 },
 {
 "url": "/knowledge-hub/journal/gsc-json-ld-fix.html",

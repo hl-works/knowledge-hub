@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hugolahutte.github.io/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Fable 5 passe le site en revue : 4 bugs, du RSS et une veille enfin visible des LLMs</title>
+<link>https://hugolahutte.github.io/knowledge-hub/journal/fable-5-revue-site-geo.html</link>
+<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/fable-5-revue-site-geo.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Premier test grandeur nature de Fable 5 au lendemain de sa sortie : audit complet du site, 4 bugs corrigés (compteurs, index de recherche EN), veille rendue en HTML statique pour les crawlers IA, flux RSS et check de cohérence hebdo — tout en prod dans la session.</description>
+</item>
+<item>
 <title>Knowledge Hub bilingue : version anglaise + auto-traduction</title>
 <link>https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</link>
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/routing-po-drop-reassort.html</guid>
 <pubDate>Thu, 28 May 2026 08:00:00 +0000</pubDate>
 <description>Router l&#x27;email de confirmation PO vers le bon template Cobra selon Drop (livraison directe) ou Réassort (entrepôt), avec override _send_confirmation_mail. En prod.</description>
-</item>
-<item>
-<title>Analyse ventes Dynaudio Emit II : Shopify + Odoo croisés</title>
-<link>https://hugolahutte.github.io/knowledge-hub/journal/dynaudio-analyse-ventes.html</link>
-<guid isPermaLink="true">https://hugolahutte.github.io/knowledge-hub/journal/dynaudio-analyse-ventes.html</guid>
-<pubDate>Thu, 28 May 2026 08:00:00 +0000</pubDate>
-<description>Croiser Shopify (canal web, 104 commandes) et Odoo (tous canaux, 186 unités, +79%) pour une image fidèle des ventes. Les limites du Drive MCP sur l&#x27;édition de fichiers.</description>
 </item>
 </channel>
 </rss>
