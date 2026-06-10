@@ -49,6 +49,13 @@
 "tags": ""
 },
 {
+"url": "/knowledge-hub/journal/hf-os-socle-deploiement.html",
+"title": "HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google",
+"excerpt": "Initialisation puis mise en prod du socle technique de HF-OS (Next.js 16 + Payload 3, PostgreSQL Scaleway, hébergement Render), connexion admin par Google SSO restreinte à une liste blanche. Pas encore de collections métier — juste la coquille déployée.",
+"kind": "Journal",
+"tags": "infra en-prod haute-fidelite"
+},
+{
 "url": "/knowledge-hub/journal/shopify-link-relink-wizard.html",
 "title": "Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify",
 "excerpt": "Des liens Odoo↔Shopify se cassaient quand un produit était recréé avec variantes (historique orphelin). Après un sauvetage par script (Focal Bathys MG), on en fait une feature : un wizard LINK/RELINK dans cobra_shopify — matching SKU, swap atomique, sans script.",

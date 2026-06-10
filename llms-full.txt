@@ -1276,6 +1276,59 @@ Suite : déployer feat/cobra-docs-update (cherry-pick ciblé sur main) ; vérifi
 
 
 ================================================================
+HF-OS : SOCLE NEXT.JS 16 + PAYLOAD 3 DÉPLOYÉ, CONNEXION ADMIN PAR GOOGLE
+URL : https://hugolahutte.github.io/knowledge-hub/journal/hf-os-socle-deploiement.html
+Publié : 2026-06-10
+================================================================
+
+Initialisation puis mise en production du socle technique de HF-OS (Next.js 16 + Payload 3, base PostgreSQL Scaleway, hébergement Render), avec une connexion admin par Google SSO restreinte à une liste blanche d&#x27;emails. Pas encore de collections métier — juste la coquille déployée.
+
+← Journal
+HF-OS · Socle technique & mise en prod
+HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google
+Claude · HL · 10 juin 2026 infra en-prod Haute Fidélité
+Contexte / le besoin
+HF-OS, c'est le mini-ERP interne « Haute Fidélité » : éditorial, régie pub et agents IA, à terme. L'objectif de cette étape était volontairement borné : poser le socle technique et le déployer, avec un seul critère de réussite — « un socle déployé où je me connecte en admin via Google ». Pas de collections métier, juste la coquille.
+Décisions d'archi déjà prises en entrée : application unique Next.js + Payload 3 (admin /admin, API /api et dashboard dans la même app), adaptateur PostgreSQL, déploiement en process persistant, secrets en variables d'environnement, et une nav vide (Éditorial / Régie / IA / Paramètres) avec barre latérale contextuelle.
+Ce qui a été fait
+8 juin 2026 — le scaffold (PR #1)
+- App Next.js + Payload 3.85 + @payloadcms/db-postgres, en pnpm.
+- Collection Users en auth uniquement (le minimum Payload), plus un champ name.
+- Coquille du dashboard : barre principale (Éditorial / Régie / IA / Paramètres) + barre latérale contextuelle qui change selon la section, pages « à venir ».
+- Auth Google SSO maison : routes /oauth/google (init + state anti-CSRF) et /oauth/google/callback, contrôle de la liste blanche AUTHORIZED_EMAILS, bouton « Se connecter avec Google » sur la landing et l'écran admin.
+- Outillage : Dockerfile (cible Scaleway Containers) + alternatives render.yaml / railway.json, CI GitHub Actions (install + lint + typecheck + build), Renovate, .env.example documenté, README avec runbook.
+8–10 juin 2026 — la mise en prod (PR #2 à #5)
+- Base PostgreSQL managée Scaleway (PG 17, standalone, le plus petit nœud).
+- Déploiement de l'app sur Render via Blueprint (render.yaml), branché sur la base Scaleway.
+- Client OAuth Google créé (Google Cloud Console), redirect URIs dev + prod.
+- Migrations Payload générées et branchées en prodMigrations pour créer le schéma au démarrage.
+- MCP Render connecté à Claude Code pour piloter les déploiements sans copier-coller.
+Décisions et alternatives écartées
+- Next 16.2.6, pas 15.5.x. La cible initiale était « Next 15.5.x », mais les peerDependencies de @payloadcms/next@3.85 donnent >=15.4.11 <15.5.0 || >=16.2.6 <17.0.0 : 15.5.x n'est pas supporté. D'abord épinglé 15.4.11, puis basculé sur 16.2.6 — le plus à jour, et ce qu'utilise le template officiel Payload 3.85. (Écarté : 15.5.x, impossible ; 15.4.11, valable mais moins à jour.)
+- Render plutôt que Scaleway Containers pour démarrer. La cible « propre » reste Scaleway (Dockerfile + workflow conservés dans le repo), mais Render est plus rapide à brancher pour un premier live. (Écarté pour l'instant : Scaleway Containers ; Railway gardé en alternative.)
+- Réutiliser la base Scaleway au lieu d'une base managée Render (évite de payer deux fois ; render.yaml adapté pour pointer dessus).
+- SSO Google maison (routes custom + cookie de session Payload obtenu en régénérant un mot de passe interne puis payload.login) plutôt qu'un plugin d'auth.
+Galères et comment on a réglé
+La mise en prod a enchaîné cinq blocages, réglés un par un (les logs Render ont servi de boussole) :
+- self-signed certificate (SSL Scaleway) : la base managée présente un certif non vérifiable. Réglé en passant DATABASE_URI de sslmode=require à sslmode=no-verify (connexion toujours chiffrée, vérification du certif désactivée).
+- permission denied for database "hf_os" : l'utilisateur Postgres n'avait aucun droit sur la base créée à part. Réglé en accordant la permission « Tout » sur hf_os dans la console Scaleway.
+- redirect_uri_mismatch (Google) : l'URL de callback de prod n'était pas déclarée. Réglé en ajoutant https://<domaine-prod>/oauth/google/callback dans le client OAuth.
+- oauth_token (échange du code échoue) : diagnostic à l'aveugle au départ → ajout de logs détaillés dans le callback (PR #3) pour voir la réponse exacte de Google. Résolu après vérification des identifiants et de la redirect URI.
+- error=session → relation "users" does not exist : la cause racine, confirmée par le code de l'adaptateur — en production Payload ne synchronise pas le schéma automatiquement (le push dev est gated sur NODE_ENV !== 'production'), il ne joue que des migrations. On a généré la migration initiale (payload migrate:create, testée sur une base vierge locale → 8 tables), et branché prodMigrations sur l'adaptateur (PR #4). Au boot suivant : Migrating: 20260610_203130_initial → tables créées → connexion OK.
+Détail utile : le « Not Found » initial sur *.onrender.com n'était pas un bug — juste la réponse de Render pour un sous-domaine pas encore attribué.
+Résultat
+- App en ligne sur son sous-domaine Render (URL de prod gardée privée), connexion admin via Google fonctionnelle (compte admin créé automatiquement à la première connexion d'un email whitelisté). Objectif de l'étape atteint.
+- 5 PR mergées sur main, CI verte à chaque fois ; autoDeploy Render actif (chaque merge redéploie).
+- Coût d'exploitation : ordre de grandeur ~40 €/mois (Render ~7 $ + base Scaleway ~32 €), la base étant le gros poste.
+- Stack figée : Payload 3.85, Next 16.2.6, React 19.2, pnpm ; secrets en placeholders (DB, Google, Brevo/Qonto/Telegram prévus mais vides).
+Suite
+- Pilotage en boucle : MCP Render branché → diagnostiquer/redéployer sans manip manuelle (à valider en nouvelle session).
+- Optimiser le coût : migrer la base vers une option moins chère (poste dominant).
+- Construire les vraies sections : passer de la coquille aux collections métier (Éditorial, Régie, IA).
+- Éventuel : bascule du front sur Vercel, vérification SSL stricte (certif CA Scaleway) au lieu de no-verify.
+
+
+================================================================
 FABLE 5 PASSE LE SITE EN REVUE : 4 BUGS, DU RSS ET UNE VEILLE ENFIN VISIBLE DES LLMS
 URL : https://hugolahutte.github.io/knowledge-hub/journal/fable-5-revue-site-geo.html
 Publié : 2026-06-10

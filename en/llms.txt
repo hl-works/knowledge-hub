@@ -57,8 +57,9 @@ Last updated: 2026-06-10
 - [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
 - [Personal](https://hugolahutte.github.io/knowledge-hub/en/perso/): side projects and experiments.
 
-## Journal (48 entries)
+## Journal (49 entries)
 
+- [HF-OS: a Next.js 16 + Payload 3 foundation deployed, admin login via Google](https://hugolahutte.github.io/knowledge-hub/en/journal/hf-os-socle-deploiement.html): Bootstrapping then shipping the HF-OS technical foundation (Next.js 16 + Payload 3, Scaleway PostgreSQL, Render hosting), with admin login via Google SSO restricted to an allow-list. No business collections yet — just the deployed shell.
 - [Re-linking a Shopify product to Odoo: a LINK/RELINK wizard in cobra_shopify](https://hugolahutte.github.io/knowledge-hub/en/journal/shopify-link-relink-wizard.html): Odoo↔Shopify links broke when a product was recreated with variants (orphaned history). After a script rescue (Focal Bathys MG), we made it a feature: a LINK/RELINK wizard in cobra_shopify — SKU matching, atomic swap, no script.
 - [Odoo → Shopify: product archiving and re-listing finally in sync](https://hugolahutte.github.io/knowledge-hub/en/journal/shopify-archivage-produits-eol.html): The connector reflected neither archiving nor re-listing of a product. 3 bugs fixed in cobra_shopify + a cleanup script (~590 stale records purged, 2 still-purchasable products made unavailable).
 - [Claude context files for Cobra: update + CLAUDE-dev split](https://hugolahutte.github.io/knowledge-hub/en/journal/cobra-docs-contexte-claude.html): The context files for the Cobra dev Claude project were outdated. Factual update from the repo, split of CLAUDE-dev (generic core vs Cobra extension) and a CLAUDE-* naming convention. PR #385 to preprod.

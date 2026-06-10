@@ -1276,6 +1276,59 @@ Next: deploy feat/cobra-docs-update (targeted cherry-pick onto main); verify tha
 
 
 ================================================================
+HF-OS: A NEXT.JS 16 + PAYLOAD 3 FOUNDATION DEPLOYED, ADMIN LOGIN VIA GOOGLE
+URL: https://hugolahutte.github.io/knowledge-hub/en/journal/hf-os-socle-deploiement.html
+Published: 2026-06-10
+================================================================
+
+Bootstrapping then shipping the HF-OS technical foundation (Next.js 16 + Payload 3, Scaleway PostgreSQL, Render hosting), with admin login via Google SSO restricted to an email allow-list. No business collections yet — just the deployed shell.
+
+← Journal
+HF-OS · Tech foundation & go-live
+HF-OS: a Next.js 16 + Payload 3 foundation deployed, admin login via Google
+Claude · HL · June 10, 2026 infra en-prod Haute Fidélité
+Context / the need
+HF-OS is the internal "Haute Fidélité" mini-ERP: editorial, ad sales and AI agents, eventually. This step's goal was deliberately narrow: lay the technical foundation and deploy it, with a single success criterion — "a deployed foundation where I log in as admin via Google." No business collections, just the shell.
+Architecture decisions taken up front: a single Next.js + Payload 3 app (admin /admin, API /api and dashboard in the same app), a PostgreSQL adapter, deployment as a persistent process, secrets in environment variables, and an empty nav (Editorial / Ad sales / AI / Settings) with a contextual sidebar.
+What was done
+June 8, 2026 — the scaffold (PR #1)
+- Next.js + Payload 3.85 + @payloadcms/db-postgres app, with pnpm.
+- Users collection in auth-only mode (the Payload minimum), plus a name field.
+- Dashboard shell: main bar (Editorial / Ad sales / AI / Settings) + a contextual sidebar that changes per section, "coming soon" pages.
+- In-house Google SSO: /oauth/google routes (init + anti-CSRF state) and /oauth/google/callback, allow-list check AUTHORIZED_EMAILS, a "Sign in with Google" button on the landing and admin screens.
+- Tooling: Dockerfile (Scaleway Containers target) + render.yaml / railway.json alternatives, GitHub Actions CI (install + lint + typecheck + build), Renovate, a documented .env.example, a README with a runbook.
+June 8–10, 2026 — go-live (PR #2 to #5)
+- Managed Scaleway PostgreSQL database (PG 17, standalone, smallest node).
+- App deployed on Render via Blueprint (render.yaml), wired to the Scaleway database.
+- Google OAuth client created (Google Cloud Console), dev + prod redirect URIs.
+- Payload migrations generated and wired as prodMigrations to create the schema at startup.
+- Render MCP connected to Claude Code to drive deployments without copy-pasting.
+Decisions and discarded alternatives
+- Next 16.2.6, not 15.5.x. The initial target was "Next 15.5.x", but the peerDependencies of @payloadcms/next@3.85 give >=15.4.11 <15.5.0 || >=16.2.6 <17.0.0: 15.5.x isn't supported. First pinned 15.4.11, then moved to 16.2.6 — the most up-to-date, and what the official Payload 3.85 template uses. (Discarded: 15.5.x, impossible; 15.4.11, valid but less current.)
+- Render rather than Scaleway Containers to start. The "clean" target stays Scaleway (Dockerfile + workflow kept in the repo), but Render is faster to wire for a first live. (Discarded for now: Scaleway Containers; Railway kept as an alternative.)
+- Reusing the Scaleway database instead of a managed Render one (avoids paying twice; render.yaml adapted to point at it).
+- In-house Google SSO (custom routes + a Payload session cookie obtained by regenerating an internal password then payload.login) rather than an auth plugin.
+Snags and how we fixed them
+Go-live chained five blockers, fixed one by one (the Render logs were the compass):
+- self-signed certificate (Scaleway SSL): the managed database presents an unverifiable cert. Fixed by switching DATABASE_URI from sslmode=require to sslmode=no-verify (connection still encrypted, cert verification disabled).
+- permission denied for database "hf_os": the Postgres user had no rights on the separately-created database. Fixed by granting "All" on hf_os in the Scaleway console.
+- redirect_uri_mismatch (Google): the prod callback URL wasn't declared. Fixed by adding https://<prod-domain>/oauth/google/callback to the OAuth client.
+- oauth_token (code exchange fails): blind diagnosis at first → added detailed logs in the callback (PR #3) to see Google's exact response. Resolved after checking the credentials and the redirect URI.
+- error=session → relation "users" does not exist: the root cause, confirmed by the adapter's source — in production Payload does not sync the schema automatically (the dev push is gated on NODE_ENV !== 'production'), it only runs migrations. We generated the initial migration (payload migrate:create, tested on a blank local DB → 8 tables), and wired prodMigrations on the adapter (PR #4). On the next boot: Migrating: 20260610_203130_initial → tables created → connection OK.
+Useful detail: the initial "Not Found" on *.onrender.com wasn't a bug — just Render's response for a subdomain not yet assigned.
+Result
+- App live on its Render subdomain (prod URL kept private), admin login via Google working (an admin account is created automatically on the first sign-in of a whitelisted email). Step goal reached.
+- 5 PRs merged to main, CI green every time; Render autoDeploy active (each merge redeploys).
+- Running cost: order of magnitude ~€40/month (Render ~$7 + Scaleway database ~€32), the database being the big item.
+- Frozen stack: Payload 3.85, Next 16.2.6, React 19.2, pnpm; secrets as placeholders (DB, Google, Brevo/Qonto/Telegram planned but empty).
+Next
+- Loop-driven ops: Render MCP wired → diagnose/redeploy with no manual step (to validate in a new session).
+- Optimize cost: move the database to a cheaper option (the dominant item).
+- Build the real sections: from shell to business collections (Editorial, Ad sales, AI).
+- Maybe: move the front to Vercel, strict SSL verification (Scaleway CA cert) instead of no-verify.
+
+
+================================================================
 FABLE 5 REVIEWS THE SITE: 4 BUGS, RSS, AND AN AI WATCH FINALLY VISIBLE TO LLMS
 URL: https://hugolahutte.github.io/knowledge-hub/en/journal/fable-5-revue-site-geo.html
 Published: 2026-06-10
