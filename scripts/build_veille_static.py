@@ -95,7 +95,49 @@ def inject(page: Path, static_html: str) -> None:
     print(f"{page.relative_to(ROOT)} : rendu statique injecté ({DAYS} jours)")
 
 
+HOME_START = "<!-- veille-home:start (généré par scripts/build_veille_static.py) -->"
+HOME_END = "<!-- veille-home:end -->"
+HOME_ITEMS = 3
+
+
+def render_home(lang: str) -> str:
+    """Teaser « veille du jour » pour la home : les meilleurs items du dernier jour."""
+    data = json.loads((ROOT / "veille-ia" / "feed.json").read_text(encoding="utf-8"))
+    rows = data if isinstance(data, list) else data.get("items", [])
+    rows = [e for e in rows if e.get("date")]
+    if not rows:
+        return ""
+    last = max(e["date"] for e in rows)
+    items = sorted((e for e in rows if e["date"] == last), key=score, reverse=True)[:HOME_ITEMS]
+    if lang == "fr":
+        kicker, more, base = f"Veille IA · fraîche du {fr_date(last)}", "Toute la veille →", "veille-ia/"
+    else:
+        kicker, more, base = f"AI Watch · fresh as of {last}", "Full AI watch →", "veille-ia/"
+    out = [f'<p class="kicker">{kicker}</p>', '<ul style="margin:var(--space-3) 0 0;padding-left:1.1rem;">']
+    for e in items:
+        resume = e.get("resume_fr", "")
+        if len(resume) > 160:
+            resume = resume[:157].rstrip() + "…"
+        out.append(f'<li style="margin-top:var(--space-2);"><strong>{html.escape(e.get("titre_fr", ""))}</strong> — {html.escape(resume)}</li>')
+    out.append("</ul>")
+    out.append(f'<p style="margin-top:var(--space-3);"><a href="{base}">{more}</a></p>')
+    return "\n".join(out)
+
+
+def inject_home(page: Path, home_html: str) -> None:
+    src = page.read_text(encoding="utf-8")
+    if HOME_START not in src:
+        raise SystemExit(f"{page} : marqueurs veille-home introuvables")
+    block = f"{HOME_START}\n{home_html}\n{HOME_END}"
+    new = re.sub(re.escape(HOME_START) + r".*?" + re.escape(HOME_END),
+                 lambda _: block, src, flags=re.S)
+    page.write_text(new, encoding="utf-8")
+    print(f"{page.relative_to(ROOT)} : teaser veille du jour injecté ({HOME_ITEMS} items max)")
+
+
 if __name__ == "__main__":
     static_html = render_static()
     inject(ROOT / "veille-ia" / "index.html", static_html)
     inject(ROOT / "en" / "veille-ia" / "index.html", static_html)
+    inject_home(ROOT / "index.html", render_home("fr"))
+    inject_home(ROOT / "en" / "index.html", render_home("en"))
