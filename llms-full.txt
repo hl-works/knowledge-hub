@@ -1454,7 +1454,7 @@ Ce qui était difficile
 - preprod3 à la v1.0.0 (main à 1.0.3) avec fichiers divergents — git stash pop a créé des conflits non triviaux, résolus manuellement
 - Les nouveaux fichiers untracked ne sont pas inclus dans un git stash standard — récupérés via git checkout preprod3 -- <path>
 Stack
-Python 3, Odoo 18 ORM, XML-RPC, openpyxl, git (stash + rebase), GitHub (tech-cobra/cobra-odoo).
+Python 3, Odoo 18 ORM, XML-RPC, openpyxl, git (stash + rebase), GitHub (dépôt privé).
 Ce que ça illustre
 Un développement Odoo complet en une session : lecture du code existant, extension chirurgicale d'un module en prod, migration de schéma, seed XML anti-doublon, déploiement multi-branche avec résolution de conflits — sans réécriture globale.
 Voir aussi
