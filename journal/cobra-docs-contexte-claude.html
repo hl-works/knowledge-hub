@@ -106,14 +106,14 @@
       <p>Scan du repo <code>~/Cobra</code> sur <code>main</code> pour établir les vérités à jour : <code>git ls-tree</code> → 13 modules <code>cobra_*</code> (pas 9) ; <code>git log | grep CDC</code> → dernier CDC en prod = CDC-19 (pas 17) ; lecture des <code>__manifest__.py</code> → versions et auteurs réels. Trois fichiers créés dans <code>~/Cobra/docs/</code> (inexistant auparavant), avec les corrections principales :</p>
       <ul>
         <li>Odoo SaaS → <strong>Odoo.sh</strong> (<code>cobrason</code> : Shell / Editor / Logs / Builds / Backups) ;</li>
-        <li>repo <code>tech-cobra/Cobra</code> → <code>tech-cobra/cobra-odoo</code> (privé) ;</li>
+        <li>repo GitHub : nom corrigé (dépôt privé) ;</li>
         <li>déploiement : Hugo déploie seul en prod depuis ~avril 2026 (cherry-pick sur <code>main</code>) ;</li>
         <li><code>preprod</code> = staging Hugo ; <code>preprod3</code> = Irokoo, <strong>ne jamais y toucher</strong> ;</li>
         <li>branche prod = <code>main</code> (pas <code>master</code>) ;</li>
         <li>9 → <strong>13 modules</strong> ; dernier CDC = <strong>CDC-19</strong> (prochain = CDC-20) ;</li>
         <li>accès Claude : XML-RPC + shell Odoo.sh (<code>env.cr.commit()</code> obligatoire).</li>
       </ul>
-      <p>Commit + PR <a href="https://github.com/tech-cobra/cobra-odoo/pull/385" target="_blank" rel="noopener">#385</a> vers <code>preprod</code>.</p>
+      <p>Commit + PR #385 vers <code>preprod</code>.</p>
       <h3>Run 2 — corrections résiduelles + split + renommage</h3>
       <ul>
         <li><strong>Sogetronic</strong> : le matching en prod est par <strong>code fournisseur</strong> (<code>product.supplierinfo.product_code</code>), pas EAN-13 comme indiqué. Volume de produits peuplés non trouvé dans le log → marqué <code>[à confirmer par Hugo]</code> plutôt qu'un chiffre inventé.</li>
@@ -140,7 +140,7 @@
       <h2>Résultat &amp; suite</h2>
       <ul>
         <li>4 fichiers dans <code>~/Cobra/docs/</code> : <code>CLAUDE-cobra-odoo-context.md</code>, <code>CLAUDE-cobra-connexions.md</code>, <code>CLAUDE-dev.md</code> (core), <code>CLAUDE-dev-cobra.md</code>.</li>
-        <li>PR <a href="https://github.com/tech-cobra/cobra-odoo/pull/385" target="_blank" rel="noopener">#385</a> ouverte vers <code>preprod</code> ; convention <code>CLAUDE-*</code> appliquée et documentée ; renommage hors-repo <code>CLAUDE-cobra-bigquery.md</code>.</li>
+        <li>PR #385 ouverte vers <code>preprod</code> ; convention <code>CLAUDE-*</code> appliquée et documentée ; renommage hors-repo <code>CLAUDE-cobra-bigquery.md</code>.</li>
       </ul>
       <p><strong>Suite :</strong> merger #385 sur <code>preprod</code> (build Odoo.sh pour vérification) ; re-uploader dans Claude.ai (projet Odoo Cobra : 4 fichiers, supprimer les anciens ; autres projets dev : <code>CLAUDE-dev.md</code> core seul) ; confirmer le volume produits Sogetronic + statut Merchant Center / Search Console BigQuery ; backfill <code>x_qty_paid</code> sur les PO historiques ; mettre à jour le <code>~/Cobra/CLAUDE.md</code> local (référence encore SaaS, <code>master</code>, 11 modules, CDC-18).</p>
     </div>

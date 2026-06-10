@@ -1266,7 +1266,7 @@ Ce qui a été fait
 Run 1 — mise à jour factuelle
 Scan du repo ~/Cobra sur main pour établir les vérités à jour : git ls-tree → 13 modules cobra_* (pas 9) ; git log | grep CDC → dernier CDC en prod = CDC-19 (pas 17) ; lecture des __manifest__.py → versions et auteurs réels. Trois fichiers créés dans ~/Cobra/docs/ (inexistant auparavant), avec les corrections principales :
 - Odoo SaaS → Odoo.sh (cobrason : Shell / Editor / Logs / Builds / Backups) ;
-- repo tech-cobra/Cobra → tech-cobra/cobra-odoo (privé) ;
+- repo GitHub : nom corrigé (dépôt privé) ;
 - déploiement : Hugo déploie seul en prod depuis ~avril 2026 (cherry-pick sur main) ;
 - preprod = staging Hugo ; preprod3 = Irokoo, ne jamais y toucher ;
 - branche prod = main (pas master) ;
