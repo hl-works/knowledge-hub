@@ -59,8 +59,9 @@ Dernière mise à jour : 2026-06-10
 - [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/hifi-lovers/): marque néo-rétro audiophile.
 - [Perso](https://hugolahutte.github.io/knowledge-hub/perso/): side-projects et expérimentations.
 
-## Journal (47 entrées)
+## Journal (48 entrées)
 
+- [Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify](https://hugolahutte.github.io/knowledge-hub/journal/shopify-link-relink-wizard.html): Des liens Odoo↔Shopify se cassaient quand un produit était recréé avec variantes (historique orphelin). Après un sauvetage par script (Focal Bathys MG), on en fait une feature : un wizard LINK/RELINK dans cobra_shopify — matching SKU, swap atomique, sans script.
 - [Odoo → Shopify : archivage et remise en ligne des produits synchronisés](https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html): Le connecteur ne répercutait ni l'archivage ni la remise en ligne d'un produit. 3 bugs corrigés dans cobra_shopify + un script de rattrapage (~590 fiches fantômes nettoyées, 2 produits encore en vente rendus non-achetables).
 - [Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev](https://hugolahutte.github.io/knowledge-hub/journal/cobra-docs-contexte-claude.html): Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.
 - [Fable 5 passe le site en revue : 4 bugs, du RSS et une veille enfin visible des LLMs](https://hugolahutte.github.io/knowledge-hub/journal/fable-5-revue-site-geo.html): Premier test grandeur nature de Claude Fable 5 au lendemain de sa sortie — audit complet du site, 4 bugs corrigés (compteurs, index de recherche EN), veille rendue en HTML statique pour les crawlers IA, flux RSS, check de cohérence hebdo. Tout en prod dans la session.

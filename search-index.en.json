@@ -49,6 +49,13 @@
   "tags": ""
  },
  {
+  "url": "/knowledge-hub/en/journal/shopify-link-relink-wizard.html",
+  "title": "Re-linking a Shopify product to Odoo: a LINK/RELINK wizard in cobra_shopify",
+  "excerpt": "Odoo↔Shopify links broke when a product was recreated with variants (orphaned history). After a script rescue (Focal Bathys MG), we made it a feature: a LINK/RELINK wizard in cobra_shopify — SKU matching, atomic swap, no script.",
+  "kind": "Journal",
+  "tags": "shopify odoo-dev en-prod cobra"
+ },
+ {
   "url": "/knowledge-hub/en/journal/shopify-archivage-produits-eol.html",
   "title": "Odoo → Shopify: product archiving and re-listing finally in sync",
   "excerpt": "The connector reflected neither archiving nor re-listing of a product. 3 bugs fixed in cobra_shopify + a cleanup script (~590 stale records purged, 2 still-purchasable products made unavailable).",

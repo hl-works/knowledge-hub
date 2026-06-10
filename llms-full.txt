@@ -1173,6 +1173,61 @@ URL : https://hugolahutte.github.io/knowledge-hub/lexique/
 
 
 ================================================================
+RELIER UN PRODUIT SHOPIFY À ODOO : WIZARD LINK/RELINK DANS COBRA_SHOPIFY
+URL : https://hugolahutte.github.io/knowledge-hub/journal/shopify-link-relink-wizard.html
+Publié : 2026-06-10
+================================================================
+
+Des liens Odoo↔Shopify se cassaient quand un produit était recréé avec variantes (historique orphelin). Après un sauvetage par script (Focal Bathys MG), on en fait une feature : un wizard LINK/RELINK dans cobra_shopify — matching SKU, swap atomique, utilisable sans script.
+
+← Journal
+Cobra · Connecteur Shopify
+Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify
+Claude · Cobra · 10 juin 2026 shopify odoo-dev en-prod Cobra
+Contexte
+Depuis un moment, la rédaction Cobra perdait un temps significatif sur des bugs de synchronisation entre Odoo et Shopify. Cas typique : un produit créé dans Odoo sans déclinaison de couleur, puis recréé avec variantes — la synchro Shopify se cassait, impossible de raccrocher proprement l'ancien produit (avec tout son historique de ventes et d'achats) au bon produit Shopify.
+Le problème avait été remonté à l'agence Shopify depuis longtemps, sans résolution. Il y avait bien un bouton UNLINK dans l'interface Odoo, mais aucun LINK / RELINK — impossible de raccrocher une fiche Odoo existante à un produit Shopify sans script manuel.
+Autre cas émergent : la duplication de fiches dans Shopify (typiquement pour les téléviseurs), pour avoir une version identique du même produit sur le site sans recréer de fiche Odoo — il faut ensuite pouvoir lier cette fiche dupliquée à l'Odoo existant.
+Ce qui a été fait
+1. Diagnostic du cas Focal Bathys MG
+Casque hifi Focal Bathys MG. Produit créé sans déclinaison couleur (SKU ERREUR-FOCA-BATHYS-MG), puis ajout de variantes couleur → deux nouveaux produits recréés (FOCA-BATHYS-MG-BROWN, FOCA-BATHYS-MG-GR) sur un nouveau template. Résultat : tout l'historique (5 lignes de vente, 5 d'achat, stock moves) restait sur l'ancien template, et c'est le nouveau template qui était lié à Shopify. Cartographie via XML-RPC :
+- ancien template 18160 : historique complet, shopify_id = False ;
+- nouveau template 21752 : shopify_id actif, aucun historique.
+2. Migration par script XML-RPC
+- vidé le shopify_id du nouveau template 21752 (la contrainte d'unicité oblige à commencer par là) ;
+- transféré shopify_id + actived_in_shopify sur l'ancien template 18160 ;
+- transféré shopify_id + shopify_item_id sur les anciennes variantes (16694 Brown, 23375 Grey) ;
+- corrigé les SKUs (ERREUR-FOCA-BATHYS-MG → FOCA-BATHYS-MG-BROWN, etc.) ;
+- archivé le nouveau template 21752.
+3. Constat : ça devrait être faisable en UI
+Le script a marché, mais c'est une opération qui devrait être accessible directement dans Odoo. Le module shopify_connect (Irokoo) ne propose pas de RELINK → on transforme le besoin en feature dans cobra_shopify.
+4. Wizard shopify.link.wizard dans cobra_shopify
+Accessible depuis l'onglet Shopify de la fiche produit (bouton LINK / RELINK). Flow :
+- fiche produit → onglet Shopify → LINK / RELINK ;
+- coller l'URL admin Shopify (https://[shop]/admin/products/[id]), un GID direct ou un ID numérique ;
+- Analyser : appel API Shopify GraphQL, récupération du produit + toutes ses variantes, matching automatique par SKU (default_code Odoo = SKU Shopify) ;
+- tableau de résultat : lignes vertes (matchées) / rouges (non matchées), warning si un autre produit Odoo est déjà lié à ce Shopify ID ;
+- Confirmer : swap atomique (unlink ancien + link nouveau) + log dans le chatter.
+Matching SKU-first, pas de mapping manuel dans cette version. Fichiers dans cobra_shopify : wizards/shopify_link_wizard.py (modèles shopify.link.wizard + .line), wizards/__init__.py, views/shopify_link_wizard_views.xml, models/product_template.py (action_open_shopify_link_wizard()), models/product_product.py (délégation), security/ir.model.access.csv, __manifest__.py (1.0.2 → 1.0.3).
+5. Droits d'accès
+Restreint à Inventory / Administrator (stock.group_stock_manager) — le groupe commun aux 4 utilisateurs cibles.
+Décisions et alternatives écartées
+- Rendre les shopify_id éditables à la main — écarté : la contrainte d'unicité SQL bloque de toute façon si le Shopify ID est déjà pris ailleurs ; l'utilisateur ne peut pas gérer ça sans tooling.
+- Action serveur sans module custom — écarté : moins ergonomique, pas de validation UI, pas de feedback sur le matching des variantes.
+- Migrer les lignes de vente vers le nouveau template — écarté d'emblée : trop risqué, inutilement complexe, orthogonal au vrai besoin.
+- Matching manuel des variantes — écarté pour cette version : le SKU-first couvre ~95 % des cas ; les variantes non matchées s'affichent en rouge avant confirmation.
+Galères et comment on a réglé
+- Contrainte d'unicité shopify_id sur product.template : le premier write plantait (Shopify ID must be unique on product template!). Fix : vider d'abord le nouveau template, puis écrire sur l'ancien.
+- Erreur de déploiement prod : action_open_shopify_link_wizard « n'est pas une action valide sur product.product ». Cause : shopify_connect.product_template_form_view hérite de product.product_template_form_view, elle-même parente de product_normal_form_view (vue variante) → le bouton ajouté sur le template remontait dans la vue product.product où la méthode n'existait pas. Fix en deux temps : suppression du second bloc d'héritage dans le XML + méthode de délégation sur product.product (product_tmpl_id.action_open_shopify_link_wizard()).
+- Conflit de merge sur cobra_purchase/views/purchase_order_views.xml (feat/shopify-link-wizard → preprod) : simple différence de commentaire, résolu, rien de fonctionnel impacté.
+Résultat & suite
+- Wizard en prod (main) et preprod depuis le 10 juin 2026.
+- Cas Focal Bathys MG résolu : historique complet conservé, SKUs corrigés, lien Shopify transféré.
+- Les link/relink Shopify se gèrent désormais directement depuis Odoo, sans script ; couvre aussi le cas de duplication Shopify (fiche dupliquée liée en quelques clics).
+Suite : tester le wizard sur un vrai cas de duplication Shopify (télés) ; évaluer l'ajout d'un matching manuel de variantes (fallback quand les SKUs diffèrent) ; vérifier que la synchro post-link (stock, prix) se déclenche bien après un RELINK.
+
+
+================================================================
 ODOO → SHOPIFY : ARCHIVAGE ET REMISE EN LIGNE DES PRODUITS SYNCHRONISÉS
 URL : https://hugolahutte.github.io/knowledge-hub/journal/shopify-archivage-produits-eol.html
 Publié : 2026-06-10
