@@ -1,0 +1,48 @@
+name: Site autobuild (llms-full, feeds, veille statique)
+
+# Régénère les artefacts dérivés du contenu à chaque push sur main :
+# - llms-full.txt + en/llms-full.txt (depuis les pages HTML)
+# - feed.xml + veille-ia/feed.xml (RSS)
+# - rendu statique de la veille dans les pages veille (crawlers IA sans JS)
+# Commit automatique uniquement s'il y a un diff. Les pushes du bot
+# (GITHUB_TOKEN) ne redéclenchent pas les workflows : pas de boucle.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - "veille-ia/feed.json"
+      - "lexique/*.json"
+      - "en/lexique/*.json"
+  workflow_dispatch:
+
+concurrency:
+  group: site-autobuild
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Régénérer les artefacts
+        run: |
+          python3 scripts/build_veille_static.py
+          python3 scripts/build_llms_full.py
+          python3 scripts/build_feeds.py
+      - name: Vérifier la cohérence
+        run: python3 scripts/check_site_health.py
+      - name: Commit si diff
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "Rien à committer" && exit 0
+          git commit -m "data: régénération auto (llms-full, feeds, veille statique)"
+          git push origin main

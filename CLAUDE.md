@@ -81,12 +81,14 @@ ET à une couleur dans `style.css` (`.tag[data-tag="…"]` / `.chip[data-filter=
    `<a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a>`
    + vignette verticale `<a class="tag tag--vert" … style="border-style:dashed;">Perso</a>`.
 3. **Teaser accueil** : `<li class="entry">` en tête de `entry-list` dans `index.html`.
-4. **Maillage** (les 4) : `sitemap.xml` (bloc `<url>` + 3 `xhtml:link`) · `llms.txt`
+4. **Maillage** (les 3) : `sitemap.xml` (bloc `<url>` + 3 `xhtml:link`) · `llms.txt`
    (ligne sous `## Journal (NN entrées)` + incrémenter NN + dater « Dernière mise à jour ») ·
-   `search-index.json` (`{url,title,excerpt,kind:"Journal",tags:"a, b, c"}`) ·
-   `llms-full.txt` si structurant. Puis `python3 scripts/build_feeds.py` (RSS) et
-   `python3 scripts/check_site_health.py` (vérifie tous les compteurs — un check
-   hebdo tourne aussi via `.github/workflows/site-health.yml`).
+   `search-index.json` (`{url,title,excerpt,kind:"Journal",tags:"a, b, c"}`).
+   `llms-full.txt` est **auto-généré** (ne pas éditer à la main) : le workflow
+   `site-autobuild.yml` le régénère au push sur main, avec les flux RSS et le
+   rendu statique de la veille ; en local : `python3 scripts/build_llms_full.py`.
+   Puis `python3 scripts/check_site_health.py` (vérifie tous les compteurs — un
+   check hebdo tourne aussi via `.github/workflows/site-health.yml`).
 5. **EN** : laisser le workflow d'auto-traduction générer la jumelle au push
    (recommandé), ou créer `en/journal/<slug>.html` + `en/llms.txt`.
 

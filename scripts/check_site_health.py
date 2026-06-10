@@ -89,6 +89,13 @@ missing = sorted(s for s in fr if f"/journal/{s}.html" not in sitemap)
 if missing:
     err(f"sitemap.xml : entrées journal absentes : {missing}")
 
+# llms-full : auto-généré, doit contenir chaque entrée de journal
+for full, slugs, sub in ((ROOT / "llms-full.txt", fr, "journal"), (ROOT / "en" / "llms-full.txt", en, "en/journal")):
+    txt = full.read_text(encoding="utf-8")
+    stale = sorted(s for s in slugs if f"/{sub}/{s}.html" not in txt)
+    if stale:
+        err(f"{full.relative_to(ROOT)} : entrées manquantes (relancer scripts/build_llms_full.py) : {stale}")
+
 # Nombre d'items dans journal/index.html
 li_count = len(re.findall(r'<li class="entry"', (ROOT / "journal" / "index.html").read_text(encoding="utf-8")))
 if li_count != n:
