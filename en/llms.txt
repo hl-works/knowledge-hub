@@ -4,7 +4,7 @@
 
 Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedin.com/in/hugo-lahutte · X: https://x.com/hugolh_ai
 
-Last updated: 2026-06-10
+Last updated: 2026-06-14
 
 ## Method
 
@@ -33,6 +33,7 @@ Last updated: 2026-06-10
 
 ## Build in public — case studies
 
+- [Do you still need to buy an ERP when AI lets you build your own?](https://hugolahutte.github.io/knowledge-hub/en/guides/faut-il-encore-acheter-un-erp.html): HF-OS dossier — a press ERP built from scratch in 5 days / 96 PRs with Claude Code, plus Odoo extended at Cobra; CRM, ad sales, invoicing, dunning; the real build-vs-buy question.
 - [A site + an AI bot in a weekend?](https://hugolahutte.github.io/knowledge-hub/en/guides/site-bot-ia-en-un-week-end.html): pillar guide — how a non-developer ships a static site and a serverless AI monitoring bot in one weekend with Claude Code (need, minimal stack, separation of concerns, visual loop, guardrails).
 - [Case study — Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/en/guides/etude-de-cas-knowledge-hub.html): from idea to production of a complete static site (vanilla HTML/CSS/JS, GitHub Pages, CSS token dark mode, GEO layer). Decisions, struggles (anti-FOUC, iOS cache), real time, zero token cost.
 - [Case study — AI monitoring bot](https://hugolahutte.github.io/knowledge-hub/en/guides/etude-de-cas-veille-ia.html): a serverless agent (X/Twitter + RSS → Claude API → Telegram + feed.json on the site), orchestrated by GitHub Actions. 2-repo architecture, cross-repo bridge, CI struggles, real cost ~a few cents/day.

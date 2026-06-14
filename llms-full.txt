@@ -909,6 +909,89 @@ Cas réel. Comment ce site est pensé GEO de bout en bout → Ce Knowledge Hub l
 
 
 ================================================================
+FAUT-IL ENCORE ACHETER UN ERP ? J&#X27;AI BÂTI LE MIEN AVEC CLAUDE CODE
+URL : https://hugolahutte.github.io/knowledge-hub/guides/faut-il-encore-acheter-un-erp.html
+Publié : 2026-06-14
+================================================================
+
+Dossier build in public : en 5 jours et 96 pull requests, j&#x27;ai construit HF-OS, l&#x27;ERP interne de mon magazine (CRM, régie pub, facturation, relances), avec Claude Code. La vraie question : faut-il encore acheter un ERP quand on peut bâtir le sien — à ses couleurs — avec l&#x27;IA ?
+
+Accueil › Guides › Faut-il encore acheter un ERP ?
+Dossier · Build in public
+Faut-il encore acheter un ERP quand l'IA permet de bâtir le sien ?
+Dossier build in public : en 5 jours et 96 pull requests, j'ai construit HF-OS, l'ERP interne de mon magazine (CRM, régie pub, facturation, relances), avec Claude Code. La vraie question : faut-il encore acheter un ERP quand on peut bâtir le sien — à ses couleurs — avec l'IA ?
+Par Hugo Lahutte· 14 juin 2026· 12 min de lecture erp hf-os claude-code strat En 30 secondes
+- En 5 jours et 96 pull requests, j'ai construit HF-OS — l'ERP interne de mon magazine Haute Fidélité : CRM, régie publicitaire, facturation, relances, e-mails. Il remplace un empilement Excel + e-mails + Qonto + Shopify. Seul, à temps partiel, le code écrit par Claude Code, moi au pilotage.
+- En parallèle, chez Cobra, j'étends un Odoo existant presque tous les jours avec Claude (et des dashboards maison à côté).
+- La thèse : un ERP sur mesure, à tes couleurs, n'est plus un chantier à 200 k€ et 18 mois. Deux chemins — bâtir (HF-OS) ou étendre un ERP du marché (Odoo) — sont désormais à portée d'un dirigeant qui sait piloter l'IA.
+1. L'ERP, longtemps un mur
+Pour une PME, se doter d'un logiciel de gestion « à soi » a longtemps voulu dire : un budget lourd, des mois d'intégration, et une dépendance durable à un éditeur ou une agence. Résultat — on s'en passe, et la boîte tourne sur un empilement d'outils qui ne se parlent pas : un Excel partagé, des e-mails, un Drive, un CRM improvisé, la banque d'un côté, la boutique de l'autre. Tout est ressaisi à la main.
+La question que pose ce dossier est simple, et elle devient sérieuse en 2026 : faut-il encore acheter un ERP, quand on peut en bâtir un sur mesure — à ses couleurs — en pilotant l'IA ? J'ai deux preuves en main, opposées et complémentaires.
+2. HF-OS : un ERP de presse, parti de zéro
+HF-OS, c'est l'OS interne de Haute Fidélité : une seule application qui réunit la régie pub, l'éditorial, des agents IA à venir, et les paramètres/rôles. Objectif assumé dès le départ : l'automatisation au cœur, de bout en bout — créer une facture → l'envoyer → relancer → voir les ventes — et un outil qui fait grandir l'équipe back-office (rôles, accès).
+- Lun. 8Socle : app unique, SSO, base, déploiement
+- Mer. 10Fondation produit : migrations, modèle Régie
+- Jeu. 11Intégrations : Qonto, Brevo, CRM, imports
+- Ven. 12Le pic : facturation, relances, rôles (43 PR)
+- Sam. 13Régie pub vivante, Shopify, multi-titres (31 PR)
+96 PR sur 5 journées actives (8 → 13 juin 2026). Le vendredi : 43 PR.
+3. Ce que ça remplace : l'Excel de production
+Le vrai outil d'équipe d'un magazine, aujourd'hui, c'est un classeur Excel partagé : chemin de fer (le squelette page par page, en cahiers), sommaire, liste des tests produits, awards, plan publicitaire, archives, règles de calibrage. Central, mais isolé (ni relié au site, ni à la facturation), manuel, et où les règles métier sont « tenues de tête ».
+Avant
+Un classeur Excel ~25 onglets
+- Isolé : ni site, ni banque, ni facturation
+- Ressaisie manuelle, copier-coller
+- Règles métier non encodées (cahiers, doubles-pages)
+- Pas de rôles, pas d'historique fiable
+→ Avec HF-OS
+Un logiciel relié
+- Régie pub reliée au CRM et à Qonto (factures)
+- Données uniques, synchro automatique
+- Règles métier encodées (machine à états des insertions)
+- Rôles, accès, historique, à ses couleurs
+Le bloc pub est déjà absorbé (collection Insertions + Kanban). Le cœur éditorial (chemin de fer web) est le prochain chantier.
+4. L'architecture (volontairement simple)
+Une seule application sert trois faces : le dashboard métier, l'admin et l'API. Stack : Next.js 16 + Payload 3 (TypeScript), PostgreSQL managé, auth Google SSO maison, déploiement Render (auto-deploy de main, CI lint+typecheck+build). Les intégrations externes sont en lecture seule par défaut, avec dégradation propre : une page ne casse jamais si un service tombe.
+HF-OS · app unique PostgreSQLbase de vérité interne Qontofactures & soldes (lecture) Brevoe-mails & relances (lecture) Shopifyboutique (OAuth) Webflowimport éditorial Crons internessynchro Qonto · relances · backup nocturne Un seul déploiement, des types partagés, l'admin « gratuit » avec Payload. Quand une base de vérité existe (Qonto émet les factures), HF-OS ne la réinvente pas.
+5. Ce qui tourne déjà
+- CRM — base unique Sociétés + Contacts + Tags, import CSV, dédoublonnage & fusion, fiche riche, enrichissement SIREN/TVA. Fait.
+- Régie / Facturation — synchro Qonto (source de vérité, cron quotidien), tableau de bord (encours / encaissé / en retard), mining des ventes. Fait.
+- Relances & e-mails — KPIs Brevo, relances par facture (FR/EN), robot quotidien, boîtes IMAP/SMTP. Fait.
+- Suivi pub — collection Insertions (machine à états), écran de suivi (KPIs + Kanban), table éditable « façon Excel ». Fait.
+- Auth & rôles — SSO Google restreint, rôles Admin / Régie / Éditorial / Lecteur. Fait.
+- Éditorial (import Webflow) et Shopify (OAuth) — en cours. IA / agents — prévu, à cadrer.
+6. Deux chemins vers son ERP sur mesure
+HF-OS, c'est le chemin « bâtir de zéro ». Mais ce n'est pas le seul, et ce n'est pas toujours le bon. L'autre chemin, je le pratique en parallèle chez Cobra : partir d'un ERP du marché — Odoo — et l'étendre. Là, je modifie/ajoute des modules presque tous les jours avec Claude Code, et je construis des dashboards maison à côté pour ce qu'Odoo ne fait pas bien (voir le build in public et les sessions Cobra du journal : wizard Shopify, agent de création produit, intégration catalogue).
+Bâtir vs étendre — le bon réflexe
+Étendre un ERP existant (Odoo) quand le métier est standard (compta, achats, stock) et qu'on veut s'appuyer sur un socle éprouvé. Bâtir sur mesure (HF-OS) quand le métier est spécifique (la fabrication d'un magazine) et qu'aucun logiciel du marché ne le modélise — ou pas à tes couleurs. Dans les deux cas, l'IA fait s'effondrer le coût de la customisation.
+7. La cadence (ce que l'IA change vraiment)
+Le chiffre le plus parlant n'est pas le nombre de lignes, c'est le rythme de PR complètes (chaque PR = code + migration + vérifs, CI verte) :
+Lun 82 Mer 107 Jeu 1113 Ven 1243 Sam 1331 Journée record : 43 PR le vendredi (≈ 1 PR toutes les 12 min sur le temps actif).
+- 96pull requests mergées
+- ~20 000lignes de code
+- 12collections de données
+- ~16 hde travail effectif cumulé
+- ~6/hPR mergées en moyenne
+- 1personne, à temps partiel
+Méthode chiffres : nombre de PR, dates de merge et volume de code mesurés (API GitHub + git). Les comparaisons « avant l'IA » et la répartition fine des lignes sont des ordres de grandeur, signalés comme tels.
+8. Comment ça se construit (la méthode)
+- Une fonctionnalité = une PR, CI obligatoire (lint + typecheck + build), jamais de push direct sur main.
+- Sessions parallèles, toujours reparties d'origin/main fraîchement fetché ; en cas de conflit, ne réappliquer que ses propres fichiers.
+- MCP Render branché pour piloter les déploiements et lire les logs depuis la session.
+- Le rôle humain : cadrage produit, arbitrages d'archi, priorisation — pas la frappe du code. Un solo qui pilote une capacité de delivery d'équipe.
+Côté sûreté : aucun secret dans le dépôt (scan gitleaks en CI, variables d'env côté hébergeur), garde-fou RGPD (jamais de données perso commitées), accès en liste blanche. Coût d'exploitation : quelques dizaines d'euros par mois (hébergement + base managée + stockage des sauvegardes), plus l'abonnement Claude. Ordre de grandeur — sans commune mesure avec une licence d'ERP.
+9. Alors, faut-il encore acheter un ERP ?
+Réponse honnête : ça dépend — mais le curseur a bougé.
+- Acheter (ou étendre du standard) reste le bon choix quand le besoin est générique et critique : compta, paie, stock réglementé. On ne réécrit pas une compta.
+- Bâtir sur mesure devient rationnel dès que le métier est spécifique, que les outils du marché obligent à « rentrer dans des cases », ou qu'on veut son ergonomie et sa charte. Ce qui coûtait cher — la customisation — est désormais l'endroit où l'IA fait le plus de différence.
+Ce qui ne change pas : il faut toujours quelqu'un pour décider (architecture, périmètre, garde-fous) et vérifier. L'IA n'a pas supprimé le métier de bâtisseur — elle a supprimé le mur du coût. Pour un dirigeant qui connaît son métier, c'est exactement la bonne nouvelle.
+Pour aller plus loin
+- → Le socle technique de HF-OS (le détail du jour 1 : Next.js 16 + Payload 3, déploiement, SSO).
+- → Un agent IA de création produit + son CDC (chemin « étendre Odoo » chez Cobra).
+- → Un site + un bot IA, sans savoir coder (même méthode, autre terrain).
+
+
+================================================================
 UN SITE + UN BOT IA EN UN WEEK-END ?
 URL : https://hugolahutte.github.io/knowledge-hub/guides/site-bot-ia-en-un-week-end.html
 Publié : 2026-06-01

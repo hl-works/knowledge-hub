@@ -6,7 +6,7 @@ Auteur : Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn : https://www.linke
 
 Le site est bilingue. Version anglaise : https://hugolahutte.github.io/knowledge-hub/en/ — index llms.txt anglais : https://hugolahutte.github.io/knowledge-hub/en/llms.txt
 
-Dernière mise à jour : 2026-06-10
+Dernière mise à jour : 2026-06-14
 
 ## Méthode
 
@@ -35,6 +35,7 @@ Dernière mise à jour : 2026-06-10
 
 ## Build in public — études de cas
 
+- [Faut-il encore acheter un ERP quand l'IA permet de bâtir le sien ?](https://hugolahutte.github.io/knowledge-hub/guides/faut-il-encore-acheter-un-erp.html): dossier HF-OS — un ERP de presse bâti de zéro en 5 jours / 96 PR avec Claude Code, et l'Odoo étendu chez Cobra ; CRM, régie pub, facturation, relances ; la vraie question build vs buy.
 - [Un site + un bot IA en un week-end ?](https://hugolahutte.github.io/knowledge-hub/guides/site-bot-ia-en-un-week-end.html): guide pilier — comment un non-développeur livre un site statique et un bot de veille IA sans serveur en un week-end avec Claude Code (besoin, stack minimale, séparation des responsabilités, boucle visuelle, garde-fous).
 - [Étude de cas — Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-knowledge-hub.html): de l'idée à la prod d'un site statique complet (HTML/CSS/JS vanilla, GitHub Pages, dark mode par tokens CSS, couche GEO). Décisions, galères (anti-FOUC, cache iOS), temps réel, coût zéro au token.
 - [Étude de cas — Bot de veille IA](https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-veille-ia.html): un agent sans serveur (X/Twitter + RSS → API Claude → Telegram + feed.json sur le site), orchestré par GitHub Actions. Architecture 2 repos, bridge cross-repo, galères CI, coût réel ~quelques centimes/jour.

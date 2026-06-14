@@ -909,6 +909,89 @@ Real case. How this site is designed GEO-first from end to end → This Knowledg
 
 
 ================================================================
+DO YOU STILL NEED TO BUY AN ERP? I BUILT MINE WITH CLAUDE CODE
+URL: https://hugolahutte.github.io/knowledge-hub/en/guides/faut-il-encore-acheter-un-erp.html
+Published: 2026-06-14
+================================================================
+
+Build-in-public dossier: in 5 days and 96 pull requests, I built HF-OS, my magazine&#x27;s internal ERP (CRM, ad sales, invoicing, dunning), with Claude Code. The real question: do you still need to buy an ERP when you can build your own — in your own colors — with AI?
+
+Home › Guides › Do you still need to buy an ERP?
+Dossier · Build in public
+Do you still need to buy an ERP when AI lets you build your own?
+Build-in-public dossier: in 5 days and 96 pull requests, I built HF-OS, my magazine's internal ERP (CRM, ad sales, invoicing, dunning), with Claude Code. The real question: do you still need to buy an ERP when you can build your own — in your own colors — with AI?
+By Hugo Lahutte· June 14, 2026· 12 min erp hf-os claude-code strat In 30 seconds
+- In 5 days and 96 pull requests, I built HF-OS — my magazine Haute Fidélité's internal ERP: CRM, ad sales, invoicing, dunning, e-mail. It replaces a stack of Excel + e-mails + Qonto + Shopify. Solo, part-time, the code written by Claude Code, me steering.
+- In parallel, at Cobra, I extend an existing Odoo almost every day with Claude (plus in-house dashboards on the side).
+- The thesis: a custom ERP, in your own colors, is no longer a €200k / 18-month project. Two paths — build (HF-OS) or extend an off-the-shelf ERP (Odoo) — are now within reach of an owner who can steer AI.
+1. The ERP, long a wall
+For an SME, getting business software "of your own" long meant a heavy budget, months of integration, and lasting dependence on a vendor or agency. So you go without — and the company runs on a stack of tools that don't talk to each other: a shared Excel, e-mails, a Drive, an improvised CRM, the bank on one side, the shop on the other. Everything re-keyed by hand.
+The question this dossier asks is simple, and it gets serious in 2026: do you still need to buy an ERP, when you can build a custom one — in your own colors — by steering AI? I have two proofs in hand, opposite and complementary.
+2. HF-OS: a press ERP, from scratch
+HF-OS is Haute Fidélité's internal OS: a single app uniting ad sales, editorial, future AI agents, and settings/roles. The goal from day one: automation at the core, end to end — create an invoice → send it → chase it → see the sales — and a tool that lets the back-office team grow (roles, access).
+- Mon 8Foundation: single app, SSO, database, deploy
+- Wed 10Product base: migrations, Ad-sales model
+- Thu 11Integrations: Qonto, Brevo, CRM, imports
+- Fri 12The peak: invoicing, dunning, roles (43 PRs)
+- Sat 13Live ad sales, Shopify, multi-title (31 PRs)
+96 PRs over 5 active days (June 8 → 13, 2026). Friday alone: 43 PRs.
+3. What it replaces: the production Excel
+A magazine's real team tool today is a shared Excel workbook: the flatplan (the page-by-page skeleton, in signatures), the contents, the product-test list, awards, the ad plan, archives, calibration rules. Central, but isolated (linked neither to the site nor to invoicing), manual, with business rules "kept in people's heads".
+Before
+One Excel, ~25 tabs
+- Isolated: no site, no bank, no invoicing
+- Manual re-keying, copy-paste
+- Business rules not encoded (signatures, spreads)
+- No roles, no reliable history
+→ With HF-OS
+A connected piece of software
+- Ad sales linked to the CRM and to Qonto (invoices)
+- Single data, automatic sync
+- Business rules encoded (insertion state machine)
+- Roles, access, history, in your own colors
+The ad block is already absorbed (Insertions collection + Kanban). The editorial core (web flatplan) is the next workstream.
+4. The architecture (deliberately simple)
+A single application serves three faces: the business dashboard, the admin, and the API. Stack: Next.js 16 + Payload 3 (TypeScript), managed PostgreSQL, in-house Google SSO, deployed on Render (auto-deploy from main, CI lint+typecheck+build). External integrations are read-only by default, with graceful degradation: a page never breaks if a service is down.
+HF-OS · single app PostgreSQLinternal source of truth Qontoinvoices & balances (read) Brevoe-mail & dunning (read) Shopifystore (OAuth) Webfloweditorial import Internal cronsQonto sync · dunning · nightly backup One deployment, shared types, "free" admin with Payload. When a source of truth exists (Qonto issues the invoices), HF-OS doesn't reinvent it.
+5. What already runs
+- CRM — single base of Companies + Contacts + Tags, CSV import, dedup & merge, rich record, SIREN/VAT enrichment. Done.
+- Ad sales / Invoicing — Qonto sync (source of truth, daily cron), dashboard (outstanding / collected / overdue), sales mining. Done.
+- Dunning & e-mail — Brevo KPIs, per-invoice reminders (FR/EN), daily robot, IMAP/SMTP mailboxes. Done.
+- Ad tracking — Insertions collection (state machine), tracking screen (KPIs + Kanban), editable "Excel-like" table. Done.
+- Auth & roles — restricted Google SSO, Admin / Ad-sales / Editorial / Viewer roles. Done.
+- Editorial (Webflow import) and Shopify (OAuth) — in progress. AI / agents — planned.
+6. Two paths to your own custom ERP
+HF-OS is the "build from scratch" path. But it's not the only one, and not always the right one. The other path I run in parallel at Cobra: start from an off-the-shelf ERP — Odoo — and extend it. There I modify/add modules almost every day with Claude Code, and build in-house dashboards alongside for what Odoo doesn't do well (see the build in public and the Cobra sessions in the journal: Shopify wizard, product-creation agent, catalog integration).
+Build vs extend — the right instinct
+Extend an existing ERP (Odoo) when the domain is standard (accounting, purchasing, stock) and you want a proven base. Build custom (HF-OS) when the domain is specific (making a magazine) and no market software models it — or not in your colors. In both cases, AI collapses the cost of customization.
+7. The pace (what AI really changes)
+The most telling figure isn't the line count, it's the rate of complete PRs (each PR = code + migration + checks, CI green):
+Mon 82 Wed 107 Thu 1113 Fri 1243 Sat 1331 Record day: 43 PRs on Friday (≈ 1 PR every 12 min over the active time).
+- 96pull requests merged
+- ~20,000lines of code
+- 12data collections
+- ~16 hof effective work
+- ~6/hPRs merged on average
+- 1person, part-time
+Figures method: PR count, merge dates and code volume measured (GitHub API + git). "Before AI" comparisons and the fine line breakdown are orders of magnitude, flagged as such.
+8. How it gets built (the method)
+- One feature = one PR, mandatory CI (lint + typecheck + build), never a direct push to main.
+- Parallel sessions, always branched from a freshly fetched origin/main; on conflict, reapply only your own files.
+- Render MCP wired in to drive deployments and read logs from the session.
+- The human role: product framing, architecture calls, prioritization — not typing the code. A solo who steers a team's delivery capacity.
+On safety: no secrets in the repo (gitleaks scan in CI, env vars host-side), a GDPR guardrail (never commit personal data), allow-list access. Running cost: a few tens of euros a month (hosting + managed database + backup storage), plus the Claude subscription. Order of magnitude — nothing like an ERP license.
+9. So, do you still need to buy an ERP?
+Honest answer: it depends — but the cursor has moved.
+- Buying (or extending the standard) stays the right call when the need is generic and critical: accounting, payroll, regulated stock. You don't rewrite accounting.
+- Building custom becomes rational as soon as the domain is specific, market tools force you into their boxes, or you want your ergonomics and your brand. What used to be expensive — customization — is now where AI makes the biggest difference.
+What doesn't change: you still need someone to decide (architecture, scope, guardrails) and verify. AI hasn't removed the builder's job — it removed the cost wall. For an owner who knows their trade, that's exactly the good news.
+Read on
+- → HF-OS's technical foundation (day-1 detail: Next.js 16 + Payload 3, deploy, SSO).
+- → An AI product-creation agent + its spec (the "extend Odoo" path at Cobra).
+- → A website + an AI bot, without knowing how to code (same method, different ground).
+
+
+================================================================
 A SITE + AN AI BOT IN A WEEKEND?
 URL: https://hugolahutte.github.io/knowledge-hub/en/guides/site-bot-ia-en-un-week-end.html
 Published: 2026-06-01

@@ -199,6 +199,7 @@ section{padding-block:var(--space-16);}
 .chip[data-filter="haute-fidelite"]{--tag-c:#D17A1F;}
 .chip[data-filter="hifi-lovers"]{--tag-c:#EA5045;}
 .chip[data-filter="perso"]{--tag-c:var(--c-indigo);}
+.chip[data-filter="hf-os"]{--tag-c:#3457A6;}
 .filter-count{font-size:.8125rem; color:var(--text-muted); margin-left:auto; align-self:center;}
 .entry.is-hidden{display:none;}
 
@@ -239,6 +240,7 @@ mark{background:var(--c-gold); color:var(--c-black); padding:0 .1em; border-radi
 .tag[data-tag="hifi-lovers"]{--tag-c:#EA5045;}      /* HiFi Lovers — rouge */
 .tag[data-tag="haute-fidelite"]{--tag-c:#D17A1F;}   /* Haute Fidélité — orange */
 .tag[data-tag="perso"]{--tag-c:var(--c-indigo);}    /* Perso — indigo */
+.tag[data-tag="hf-os"]{--tag-c:#3457A6;}        /* HF-OS — bleu acier */
 /* Outils */
 .tag[data-tag="shopify"]{--tag-c:#5E8E3E;}          /* Shopify — vert */
 .tag[data-tag="odoo-dev"],
@@ -799,3 +801,19 @@ mark{background:var(--c-gold); color:var(--c-black);}
 }
 [data-theme="dark"] .nav__lang a:hover,
 [data-theme="dark"] .nav__lang a:focus-visible{ color:var(--text); background:transparent; }
+
+
+/* ===== Visuels dossier (HF-OS) ===== */
+.kpi{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:var(--space-4); margin:var(--space-8) 0; list-style:none; padding:0;}
+.kpi li{border:1px solid var(--border); border-top:3px solid var(--c-red); border-radius:var(--radius); background:var(--surface); padding:var(--space-4);}
+.kpi b{display:block; font-family:var(--font-display); font-weight:900; font-stretch:125%; font-size:1.9rem; line-height:1; letter-spacing:-.01em;}
+.kpi span{display:block; margin-top:var(--space-2); font-size:.8rem; color:var(--text-muted); line-height:1.35;}
+.prbars{margin:var(--space-8) 0; max-width:var(--prose-max);}
+.prbars__row{display:grid; grid-template-columns:64px 1fr 44px; align-items:center; gap:var(--space-3); margin-top:var(--space-2);}
+.prbars__day{font-family:var(--font-mono); font-size:.8rem; color:var(--text-muted);}
+.prbars__track{background:var(--surface-alt); border-radius:999px; overflow:hidden; height:16px;}
+.prbars__fill{height:100%; background:var(--c-red); border-radius:999px;}
+.prbars__row--peak .prbars__fill{background:#3457A6;}
+.prbars__n{font-family:var(--font-mono); font-size:.8rem; text-align:right;}
+.timeline--wide{grid-template-columns:repeat(5,1fr);}
+@media (max-width:680px){ .timeline--wide{grid-template-columns:repeat(2,1fr); gap:var(--space-4) 0;} }
