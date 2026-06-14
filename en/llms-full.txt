@@ -953,6 +953,8 @@ The ad block is already absorbed (Insertions collection + Kanban). The editorial
 4. The architecture (deliberately simple)
 A single application serves three faces: the business dashboard, the admin, and the API. Stack: Next.js 16 + Payload 3 (TypeScript), managed PostgreSQL, in-house Google SSO, deployed on Render (auto-deploy from main, CI lint+typecheck+build). External integrations are read-only by default, with graceful degradation: a page never breaks if a service is down.
 HF-OS · single app PostgreSQLinternal source of truth Qontoinvoices & balances (read) Brevoe-mail & dunning (read) Shopifystore (OAuth) Webfloweditorial import Internal cronsQonto sync · dunning · nightly backup One deployment, shared types, "free" admin with Payload. When a source of truth exists (Qonto issues the invoices), HF-OS doesn't reinvent it.
+In my own colors · the "HL Quiet UI" design system
+The whole ERP runs on an in-house design system — teal, the Good Times typeface, light/dark — in HL Média's identity, not a vendor's. That's the whole point of custom. See the style board →
 5. What already runs
 - CRM — single base of Companies + Contacts + Tags, CSV import, dedup & merge, rich record, SIREN/VAT enrichment. Done.
 - Ad sales / Invoicing — Qonto sync (source of truth, daily cron), dashboard (outstanding / collected / overdue), sales mining. Done.
