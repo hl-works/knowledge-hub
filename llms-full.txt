@@ -994,6 +994,68 @@ Pour aller plus loin
 
 
 ================================================================
+ODOO OU ERP SUR MESURE : LEQUEL CHOISIR EN 2026 ?
+URL : https://hugolahutte.github.io/knowledge-hub/guides/odoo-vs-erp-maison.html
+Publié : 2026-06-16
+================================================================
+
+Odoo ou ERP sur mesure construit avec l'IA ? Comparatif critère par critère (coût, délai, flexibilité, dépendance) par quelqu'un qui pratique les deux : Odoo étendu chez Cobra, ERP maison bâti en 5 jours.
+
+Accueil › Guides › Odoo vs ERP maison
+Guides · Comparatif
+Odoo ou ERP sur mesure : lequel choisir en 2026 ?
+La question revient sans cesse : prendre un ERP du marché comme Odoo, ou bâtir le sien maintenant que l'IA fait s'effondrer le coût du développement ? Je pratique les deux en parallèle — Odoo étendu au quotidien chez Cobra, et un ERP maison bâti de zéro en 5 jours. Voici le verdict, critère par critère, sans religion.
+Par Hugo Lahutte· 16 juin 2026·~7 min de lecture comparatif erp odoo strat Le verdict en 30 secondes
+- Choisis Odoo (ou un ERP du marché) quand le métier est standard et réglementé — compta, paie, stock, achats. Un socle éprouvé couvre 80 % du besoin dès le premier jour, et on ne réécrit pas une compta.
+- Choisis le sur mesure quand le métier est spécifique, qu'aucun logiciel ne le modélise sans te forcer à « rentrer dans des cases », ou que tu veux ton ergonomie et ta charte. C'est là que l'IA change tout.
+- Le piège à éviter : raisonner sur le prix de la licence au lieu du coût total (intégration, personnalisation, maintenance, dépendance). Et tomber dans le « tout sur mesure » pour des fonctions génériques que le marché fait déjà très bien.
+1. Le match en un tableau
+La décision ne se joue pas sur « lequel est le meilleur » dans l'absolu, mais sur le poids que toi tu donnes à chaque critère. Voilà les huit qui comptent vraiment.
+Odoo vs ERP sur mesure — comparatif critère par critère (2026). Critère Odoo (acheter / étendre) ERP sur mesure (bâtir avec l'IA) Coût initial Licence par utilisateur/mois (Enterprise) + jours d'intégration. Community gratuit mais limité. Quasi nul en licence. Le coût = ton temps de cadrage + l'abonnement IA. Le développement s'effondre. Coût total sur 3 ans (TCO) Croît avec le nombre d'utilisateurs et la personnalisation. Maintenance des modules sur mesure à prévoir. Hébergement + base managée = quelques dizaines d'€/mois, stable quel que soit le nombre d'utilisateurs. Délai de mise en route Rapide sur le standard : les modules existants tournent tout de suite (compta, CRM, stock). Tout est à construire — mais beaucoup plus vite qu'avant : un cœur fonctionnel en jours, pas en mois. Flexibilité métier Bonne dans le cadre d'Odoo ; au-delà, il faut développer des modules et composer avec le modèle de données imposé. Totale. Le logiciel épouse ton métier exact, pas l'inverse. Aucune case à cocher subie. Maintenance & mises à jour Cœur maintenu par l'éditeur, mais chaque montée de version peut casser tes modules sur mesure. 100 % à ta charge — mais base plus petite, à ta main, et l'IA accélère aussi les correctifs. Dépendance Éditeur (roadmap, prix, conditions) + souvent un intégrateur partenaire. Toi / ton équipe. Pas de rançon de licence, mais le savoir doit rester documenté et partagé. Conformité (compta, paie) Couverte et tenue à jour par l'éditeur (normes, fiscalité). Énorme avantage sur le réglementaire. À ne pas réinventer. Le bon réflexe : laisser une source de vérité externe gérer le réglementaire. Risque / réversibilité Faible techniquement (produit éprouvé), mais sortie coûteuse une fois enfermé dans l'écosystème. Risque sur la qualité si personne ne vérifie ; mais tu possèdes ton code et tes données, donc réversible.
+2. Odoo en détail
+Odoo est une suite de gestion modulaire très complète (CRM, ventes, achats, stock, compta, RH…), en version Community open source et Enterprise payante. C'est un excellent défaut pour la grande majorité des PME : le standard est solide, la communauté énorme, et l'essentiel d'un métier classique est couvert sans écrire une ligne de code.
+Là où Odoo gagne : démarrage rapide sur les fonctions génériques, conformité comptable et fiscale maintenue pour toi, écosystème de modules et d'intégrateurs, et une porte de sortie « propre » quand on reste dans le cadre. Chez Cobra, c'est exactement mon choix : un Odoo que j'étends presque tous les jours avec Claude Code, plutôt que de tout réécrire.
+Là où ça coince : dès que ton métier sort du cadre, tu développes des modules, tu composes avec le modèle de données d'Odoo, et chaque montée de version devient un test de non-régression de tes personnalisations. Le « gratuit » de Community fond vite en coûts d'intégration et de maintenance.
+3. L'ERP sur mesure en détail
+Bâtir le sien, ce n'est plus le chantier à six chiffres et 18 mois d'antan. Avec l'IA au clavier et un humain au pilotage, un cœur fonctionnel se construit en jours. L'intérêt n'est pas de « faire comme Odoo en moins bien » : c'est de modéliser exactement ton métier, avec ton ergonomie et ta charte.
+Là où le sur mesure gagne : flexibilité totale, coût d'exploitation quasi fixe (pas de licence par utilisateur), propriété du code et des données, et une expérience taillée pour ton équipe — pas un compromis générique. C'est décisif pour un métier que le marché ne modélise pas.
+Là où ça coince : tout repose sur ta capacité à décider et vérifier. Pas de filet éditeur : la qualité, les sauvegardes, la sécurité, le réglementaire sont ta responsabilité. Et il ne faut surtout pas réécrire ce qui est générique et critique (la compta) juste pour le plaisir du sur-mesure.
+4. Qui devrait choisir quoi
+Plutôt Odoo
+Métier standard, équipe à équiper vite
+- Compta, paie, stock, achats au cœur du besoin
+- Forte exigence de conformité réglementaire
+- Équipe peu technique, pas de pilote IA en interne
+- Croissance via des modules déjà existants
+· Plutôt sur mesure
+Métier spécifique, exigence d'ergonomie
+- Process que le marché ne modélise pas (ou mal)
+- Tu veux ton interface et ta charte, pas celles d'un éditeur
+- Un dirigeant / une équipe qui sait piloter l'IA
+- Besoin de dashboards et d'automatisations très spécifiques
+Et le plus souvent, la vraie réponse est hybride : un socle du marché pour le générique et le réglementaire, du sur-mesure greffé à côté pour ce qui te différencie. C'est précisément ce que je fais en pratique.
+Mon retour d'expérience
+Je n'ai pas choisi un camp : je vis les deux chemins en parallèle, ce qui rend la comparaison concrète.
+Sur mesure — j'ai bâti HF-OS, l'ERP interne de mon magazine Haute Fidélité (CRM, régie pub, facturation, relances), en 5 jours, 96 pull requests, ~20 000 lignes et ~16 h de travail effectif, seul, en pilotant Claude Code. Coût d'exploitation : quelques dizaines d'euros par mois. Le récit complet et les chiffres : Faut-il encore acheter un ERP ?
+Étendre le marché — chez Cobra, je pars d'un Odoo existant que je modifie et complète quasi quotidiennement, avec des dashboards maison à côté pour ce qu'Odoo fait mal. Voir les sessions agent de création produit et intégration catalogue Odoo.
+Ma conclusion de terrain : le curseur a bougé. Le sur-mesure redevient rationnel beaucoup plus tôt qu'avant — mais étendre un standard reste le bon réflexe pour tout ce qui est générique et critique.
+6. Questions fréquentes
+Odoo ou ERP sur mesure : lequel choisir ?
+Odoo (ou tout ERP du marché) quand le métier est standard et réglementé — compta, paie, stock, achats : on ne réécrit pas une compta, et un socle éprouvé couvre 80 % du besoin tout de suite. ERP sur mesure quand le métier est spécifique, qu'aucun logiciel ne le modélise sans contorsions, ou qu'on veut sa propre ergonomie et sa charte. Depuis que l'IA fait s'effondrer le coût de la customisation, le sur-mesure redevient rationnel bien plus tôt qu'avant.
+Combien coûte un ERP sur mesure construit avec l'IA ?
+Le poste qui s'effondre, c'est le développement : HF-OS, un ERP de presse fonctionnel (CRM, régie pub, facturation, relances), a été bâti en ~16 h de travail effectif sur 5 jours et 96 pull requests, par une personne pilotant Claude Code. Le coût d'exploitation tient en quelques dizaines d'euros par mois (hébergement + base managée + sauvegardes) plus l'abonnement IA. À comparer aux licences par utilisateur et aux jours d'intégration d'un ERP du marché. Le vrai coût restant du sur-mesure n'est pas l'argent : c'est le temps de cadrage et de vérification.
+Odoo est-il vraiment gratuit ?
+En partie. Odoo Community est open source et gratuit en self-hosted, mais limité (pas de compta complète ni de certaines apps). La version Enterprise est payante, facturée par utilisateur et par mois, et la vraie facture inclut surtout l'intégration, la personnalisation et la maintenance des modules. « Gratuit » ne veut donc pas dire « sans coût » : c'est le coût total de possession qu'il faut regarder, pas le prix de la licence.
+Faut-il savoir coder pour construire son ERP avec l'IA ?
+Pas pour écrire le code ligne à ligne — l'IA s'en charge. Mais il faut savoir décider et vérifier : cadrer le périmètre, arbitrer l'architecture, poser les garde-fous (sauvegardes, accès, données personnelles), relire. C'est un travail de pilotage, pas de frappe. Un dirigeant qui connaît son métier et apprend à piloter l'IA peut produire la capacité d'une petite équipe ; quelqu'un qui ne veut rien vérifier ne devrait pas s'y risquer sur un outil critique.
+Pour aller plus loin
+- → Faut-il encore acheter un ERP ? — le dossier complet sur HF-OS, bâti en 5 jours (la preuve chiffrée du « sur mesure »).
+- → L'IA concrètement, pour un commerçant ou une PME — par où commencer, sans jargon.
+- → Étendre Odoo chez Cobra — le chemin « partir du marché et compléter ».
+Sources. Mon expérience directe des deux approches (HF-OS et Odoo chez Cobra), mesurée via l'API GitHub et git. Les éléments de tarification Odoo sont des ordres de grandeur, à vérifier sur la grille officielle au moment de décider.
+
+
+================================================================
 UN SITE + UN BOT IA EN UN WEEK-END ?
 URL : https://hugolahutte.github.io/knowledge-hub/guides/site-bot-ia-en-un-week-end.html
 Publié : 2026-06-01
