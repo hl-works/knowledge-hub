@@ -49,6 +49,13 @@
 "tags": ""
 },
 {
+"url": "/knowledge-hub/journal/agent-factures-prod-scaleway.html",
+"title": "L'agent factures passe en prod : autonome sur Scaleway",
+"excerpt": "L'agent de traitement des factures fournisseurs Cobra tourne désormais seul sur une instance Scaleway : il lit les mails toutes les 15 min via Microsoft Graph, extrait chaque facture (OCR + API Claude), la rattache à sa commande Odoo (3-way match garanti) et la pousse pour validation dans Teams. ~9-10 h/semaine économisées — et un workflow qui ne peut plus dériver.",
+"kind": "Journal",
+"tags": "agent odoo-dev infra en-prod cobra"
+},
+{
 "url": "/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html",
 "title": "Agent Produit IA — du script one-shot au CDC dashboard",
 "excerpt": "On a créé 36 variantes Davis à la main, en script Python. Plutôt que de recommencer à chaque nouvelle marque, on a formalisé la méthode : un agent IA conversationnel sur le dashboard Cobra, capable de lire n'importe quel fichier source et de créer ou mettre à jour des produits Odoo sans intervention technique.",
@@ -159,6 +166,13 @@
 "excerpt": "Un agent sans serveur : X/Twitter + RSS → API Claude → Telegram + feed.json sur le site, orchestré par GitHub Actions. Architecture 2 repos, bridge cross-repo, galères CI, coût réel ~quelques centimes/jour.",
 "kind": "Guide",
 "tags": "build-in-public agent-ia api-claude github-actions guide"
+},
+{
+"url": "/knowledge-hub/guides/etude-de-cas-agent-facturation.html",
+"title": "Étude de cas — Un agent IA qui traite les factures fournisseurs dans Odoo",
+"excerpt": "Un agent autonome qui lit les mails (Microsoft Graph), extrait les factures (OCR + API Claude), les rattache à la commande Odoo (3-way match garanti, contrôle prix) et les pousse pour validation dans Teams. Hébergé sur une instance Scaleway, cron 15 min. La dérive humaine chiffrée (~2 M€ hors-chaîne) et un workflow qui ne peut plus dériver.",
+"kind": "Guide",
+"tags": "build-in-public agent-ia odoo api-claude scaleway teams guide"
 },
 {
 "url": "/knowledge-hub/guides/making-of.html",

@@ -6,7 +6,7 @@ Auteur : Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn : https://www.linke
 
 Le site est bilingue. Version anglaise : https://hugolahutte.github.io/knowledge-hub/en/ — index llms.txt anglais : https://hugolahutte.github.io/knowledge-hub/en/llms.txt
 
-Dernière mise à jour : 2026-06-16
+Dernière mise à jour : 2026-06-17
 
 ## Méthode
 
@@ -40,6 +40,7 @@ Dernière mise à jour : 2026-06-16
 - [Un site + un bot IA en un week-end ?](https://hugolahutte.github.io/knowledge-hub/guides/site-bot-ia-en-un-week-end.html): guide pilier — comment un non-développeur livre un site statique et un bot de veille IA sans serveur en un week-end avec Claude Code (besoin, stack minimale, séparation des responsabilités, boucle visuelle, garde-fous).
 - [Étude de cas — Knowledge Hub](https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-knowledge-hub.html): de l'idée à la prod d'un site statique complet (HTML/CSS/JS vanilla, GitHub Pages, dark mode par tokens CSS, couche GEO). Décisions, galères (anti-FOUC, cache iOS), temps réel, coût zéro au token.
 - [Étude de cas — Bot de veille IA](https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-veille-ia.html): un agent sans serveur (X/Twitter + RSS → API Claude → Telegram + feed.json sur le site), orchestré par GitHub Actions. Architecture 2 repos, bridge cross-repo, galères CI, coût réel ~quelques centimes/jour.
+- [Étude de cas — Agent factures fournisseurs](https://hugolahutte.github.io/knowledge-hub/guides/etude-de-cas-agent-facturation.html): un agent autonome qui lit les mails (Microsoft Graph), extrait les factures (OCR + API Claude), les rattache à la commande Odoo (3-way match garanti, contrôle prix), et les pousse pour validation dans Teams. Hébergé sur une instance Scaleway, cron 15 min. La dérive humaine chiffrée (~2 M€ hors-chaîne) et un workflow qui ne peut plus dériver. Ce que l'agent ne fait pas (lettrage bancaire) dit honnêtement.
 - [Making-of](https://hugolahutte.github.io/knowledge-hub/guides/making-of.html): le récit, du dîner entre amis au « beau bébé sorti en 2 jours », en binôme avec Claude Code.
 
 ## À propos
@@ -61,8 +62,9 @@ Dernière mise à jour : 2026-06-16
 - [HiFi Lovers](https://hugolahutte.github.io/knowledge-hub/hifi-lovers/): marque néo-rétro audiophile.
 - [Perso](https://hugolahutte.github.io/knowledge-hub/perso/): side-projects et expérimentations.
 
-## Journal (51 entrées)
+## Journal (52 entrées)
 
+- [L'agent factures passe en prod : autonome sur Scaleway](https://hugolahutte.github.io/knowledge-hub/journal/agent-factures-prod-scaleway.html): L'agent de traitement des factures fournisseurs Cobra tourne désormais seul sur une instance Scaleway : il lit les mails toutes les 15 min via Microsoft Graph, extrait chaque facture (OCR + API Claude), la rattache à sa commande Odoo (3-way match garanti) et la pousse pour validation dans Teams. ~9-10 h/semaine économisées — et surtout un workflow qui ne peut plus dériver (avant : ~2 M€ de factures saisies hors-chaîne, 600 k€ d'impayés en traîne).
 - [Agent Produit IA — du script one-shot au CDC dashboard](https://hugolahutte.github.io/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html): On a créé 36 variantes Davis à la main, en script Python. Plutôt que de recommencer à chaque nouvelle marque, on a formalisé la méthode : un agent IA conversationnel sur le dashboard Cobra, capable de lire n'importe quel fichier source et de créer ou mettre à jour des produits Odoo sans intervention technique.
 - [Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton & Ariane)](https://hugolahutte.github.io/knowledge-hub/journal/davis-odoo-krypton-ariane.html): Préparation de l'intégration d'une nouvelle marque d'enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d'abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.
 - [HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google](https://hugolahutte.github.io/knowledge-hub/journal/hf-os-socle-deploiement.html): Initialisation puis mise en prod du socle technique de HF-OS (Next.js 16 + Payload 3, PostgreSQL Scaleway, hébergement Render), connexion admin par Google SSO restreinte à une liste blanche. Pas encore de collections métier — juste la coquille déployée.
