@@ -46,6 +46,13 @@
   (fr/en/x-default), Open Graph (+ `og:locale` & `:alternate`), **JSON-LD** d'authorship
   (`author` Hugo Lahutte, `@id` `…/#hugo` si possible). `lang`, `skip-link`, `alt`, contraste.
 - **Perf** : pas de JS bloquant, polices `display=swap`, `aspect-ratio` réservé (zéro CLS).
+- **Schémas / SVG** : le texte ne touche **jamais** le bord d'une boîte. Padding interne
+  équilibré (marge haut = marge bas, ~12-18px ; latérale idem). Contenu centré
+  verticalement (ou top-aligné proprement pour des cartes d'égale hauteur, bas « ragged »
+  assumé). ⚠️ Les SVG exportés sont calibrés pour **Anthropic Sans** (non dispo en ligne) :
+  vérifier le rendu en **fallback `system-ui`** (plus large) — c'est lui qui fait foi. Si
+  ça déborde/colle : élargir la boîte (réduire les espaces entre boîtes) **avant** de
+  rapetisser le texte ; sous-titres min ~10px.
 - **Cache-busting** : `style.css` + `.js` portent `?v=AAAAMMJJ[lettre]`. Bumper sur
   **toutes** les pages **uniquement** si on touche au CSS/JS. Actuel : css `20260601h`,
   js `20260601d`.
