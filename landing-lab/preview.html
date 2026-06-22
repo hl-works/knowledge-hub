@@ -329,6 +329,63 @@
   .e-block.e-half { grid-column: span 3; }
 
   .e-star h3 { font-size: clamp(34px, 7vw, 64px); }
+
+  /* ============ MÉDIAS : LA CHAÎNE (YouTube facade) ============ */
+  .e-yt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .e-yt-cell {
+    border: var(--e-bw) solid var(--e-border); margin: -1.5px 0 0 -1.5px;
+    background: var(--e-bar); display: flex; flex-direction: column;
+  }
+  .lite-yt {
+    position: relative; display: block; width: 100%; aspect-ratio: 16/9;
+    border: 0; padding: 0; cursor: pointer; background: var(--e-bar) center/cover no-repeat;
+  }
+  .lite-yt::before { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 48%, rgba(0,0,0,.55)); }
+  .lite-yt__play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 62px; height: 46px; background: var(--e-signal); border: var(--e-bw) solid #0A0A0A;
+    display: grid; place-items: center; transition: transform .1s linear;
+  }
+  .lite-yt:hover .lite-yt__play, .lite-yt:focus-visible .lite-yt__play { transform: translate(-50%, -50%) scale(1.08); }
+  .lite-yt__play::after { content: ""; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #0A0A0A; margin-left: 3px; }
+  .lite-yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .e-yt-cap { font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--e-on-bar); padding: 10px 12px; }
+  .e-media-cta { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 760px) { .e-yt-grid { grid-template-columns: 1fr; } }
+
+  /* ============ KIOSQUE + HORS LES MURS ============ */
+  .e-media2 { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; }
+  .e-kiosque { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-content: start; }
+  .e-cover, .e-travel {
+    border: var(--e-bw) solid var(--e-border); margin: -1.5px 0 0 -1.5px;
+    background: var(--e-panel); color: var(--e-on-panel); text-decoration: none;
+    display: flex; flex-direction: column; position: relative;
+    transition: transform .1s linear, box-shadow .1s linear;
+  }
+  .e-cover:hover, .e-cover:focus-visible, .e-travel:hover, .e-travel:focus-visible {
+    z-index: 2; box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+    transform: translate(calc(var(--e-off) * -0.5), calc(var(--e-off) * -0.5));
+  }
+  .e-cover img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; border-bottom: var(--e-bw) solid var(--e-border); background: #000; }
+  .e-cover-body { padding: 12px 14px 14px; }
+  .e-cover-k { font-family: "Space Mono", monospace; font-weight: 700; font-size: 10px; text-transform: uppercase; opacity: .75; display: block; margin-bottom: 5px; }
+  .e-cover-t { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; margin: 0 0 7px; }
+  .e-cover-p { font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; }
+  .e-cover-p::after { content: "->"; }
+  .e-travel-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .e-travel-imgs img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; border-bottom: var(--e-bw) solid var(--e-border); }
+  .e-travel-imgs img:first-child { border-right: var(--e-bw) solid var(--e-border); }
+  .e-travel-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
+  .e-travel-k { font-family: "Space Mono", monospace; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .e-travel-k::before { content: "▸"; color: var(--e-signal); }
+  html[data-theme="light"] .e-travel-k::before { color: var(--e-ink); }
+  .e-travel h3 { font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: -0.01em; margin: 0 0 8px; line-height: 1; }
+  .e-travel p { font-size: 14px; line-height: 1.4; margin: 0 0 14px; flex: 1; }
+  .e-travel-link { font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; }
+  .e-travel-link::after { content: "->"; transition: transform .15s ease; }
+  .e-travel:hover .e-travel-link::after, .e-travel:focus-visible .e-travel-link::after { transform: translateX(5px); }
+  @media (max-width: 760px) { .e-media2 { grid-template-columns: 1fr; } }
+
   .e-star .e-badge {
     align-self: flex-start; font-family: "Space Mono", monospace; font-weight: 700;
     font-size: 11px; text-transform: uppercase; padding: 4px 8px;
@@ -649,6 +706,74 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ LA CHAÎNE (VIDÉO) ============ -->
+  <section class="e-section" id="chaine">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx e-mono">[ 06 ]</span>
+        <h2 class="e-section-title"><span class="e-fr">La chaîne</span><span class="e-en">The channel</span></h2>
+      </div>
+      <p class="e-subtag" style="max-width:640px; margin:0 0 26px;">
+        <span class="e-fr">Haute Fidélité en vidéo : bancs d'essai, reportages, salons. Le test d'écoute filmé — pas seulement écrit.</span>
+        <span class="e-en">Haute Fidélité on video: bench tests, reports, shows. The listening test filmed — not only written.</span>
+      </p>
+      <div class="e-yt-grid">
+        <div class="e-yt-cell"><button type="button" class="lite-yt" data-yt="OblbyK2gKVQ" aria-label="Lire la vidéo YouTube / Play YouTube video" style="background-image:url('https://i.ytimg.com/vi/OblbyK2gKVQ/hqdefault.jpg');"><span class="lite-yt__play"></span></button></div>
+        <div class="e-yt-cell"><button type="button" class="lite-yt" data-yt="exP0VzFZU-A" aria-label="Lire la vidéo YouTube / Play YouTube video" style="background-image:url('https://i.ytimg.com/vi/exP0VzFZU-A/hqdefault.jpg');"><span class="lite-yt__play"></span></button></div>
+        <div class="e-yt-cell"><button type="button" class="lite-yt" data-yt="JMVCtqTia58" aria-label="Lire la vidéo YouTube / Play YouTube video" style="background-image:url('https://i.ytimg.com/vi/JMVCtqTia58/hqdefault.jpg');"><span class="lite-yt__play"></span></button></div>
+      </div>
+      <div class="e-media-cta">
+        <a class="e-btn e-btn-primary" href="https://www.youtube.com/@hautefidelitemag" target="_blank" rel="noopener"><span class="e-fr">La chaîne @hautefidelitemag</span><span class="e-en">Channel @hautefidelitemag</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EN KIOSQUE & HORS LES MURS ============ -->
+  <section class="e-section" id="kiosque">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx e-mono">[ 07 ]</span>
+        <h2 class="e-section-title"><span class="e-fr">En kiosque &amp; hors les murs</span><span class="e-en">On newsstands &amp; off the grid</span></h2>
+      </div>
+      <div class="e-media2">
+        <div class="e-kiosque">
+          <a class="e-cover" href="https://store.hautefidelite-hifi.com/products/haute-fidelite-281" target="_blank" rel="noopener">
+            <img src="https://cdn.shopify.com/s/files/1/0953/4927/7014/files/Couverture-Haute-Fidelite-Numero281-1x.webp?v=1779371344" alt="Couverture de Haute Fidélité n°281 — Dan D'Agostino Momentum Z" loading="lazy">
+            <span class="e-cover-body">
+              <span class="e-cover-k">Haute Fidélité · n°281</span>
+              <span class="e-cover-t"><span class="e-fr">Le dernier numéro</span><span class="e-en">Latest issue</span></span>
+              <span class="e-cover-p"><span class="e-fr">dès 4,90 €</span><span class="e-en">from €4.90</span></span>
+            </span>
+          </a>
+          <a class="e-cover" href="https://store.hautefidelite-hifi.com/products/hors-serie-hifi-lovers-yamaha-70-ans" target="_blank" rel="noopener">
+            <img src="https://cdn.shopify.com/s/files/1/0953/4927/7014/files/1e79293c-32a2-4a50-8598-3ba1fbc9d65a1.png?v=1775762704" alt="Couverture du Hors-Série HiFi Lovers N°1 — Yamaha, 70 ans" loading="lazy">
+            <span class="e-cover-body">
+              <span class="e-cover-k">Hors-Série · Collector N°1</span>
+              <span class="e-cover-t">HiFi Lovers × Yamaha</span>
+              <span class="e-cover-p">20 €</span>
+            </span>
+          </a>
+        </div>
+        <a class="e-travel" href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="noopener">
+          <span class="e-travel-imgs">
+            <img src="/knowledge-hub/assets/img/osaka-portrait.webp" alt="Carnet de voyage en famille — portrait à Osaka" loading="lazy">
+            <img src="/knowledge-hub/assets/img/osaka-ojas.webp" alt="Carnet de voyage en famille — système hi-fi Ojas à Osaka" loading="lazy">
+          </span>
+          <div class="e-travel-body">
+            <span class="e-travel-k">Instagram · @amhe.tourdumonde</span>
+            <h3 class="e-fr">Tour du monde en famille</h3>
+            <h3 class="e-en">Family world tour</h3>
+            <p>
+              <span class="e-fr">Hors les murs : le tour du monde en famille, carnet de bord en images. Le contre-champ perso du build in public.</span>
+              <span class="e-en">Off the grid: a family trip around the world, a logbook in pictures. The personal flip-side of build in public.</span>
+            </p>
+            <span class="e-travel-link"><span class="e-fr">Suivre le voyage</span><span class="e-en">Follow the trip</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -807,6 +932,21 @@
         burger.setAttribute("aria-expanded", "false");
         burger.innerHTML = "\u2630";
       }
+    });
+
+    // Lecteur YouTube "facade" — charge l'iframe seulement au clic (zéro script tiers avant)
+    document.querySelectorAll(".lite-yt").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var id = b.getAttribute("data-yt");
+        var f = document.createElement("iframe");
+        f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+        f.setAttribute("allowfullscreen", "");
+        f.title = "Lecteur vidéo YouTube";
+        f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+        b.innerHTML = "";
+        b.appendChild(f);
+        b.style.cursor = "default";
+      });
     });
   })();
 </script>
