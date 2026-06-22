@@ -168,9 +168,9 @@
     background: var(--e-panel); color: var(--e-on-panel); padding: 6px 12px;
   }
   .e-name {
-    font-weight: 700; line-height: 0.84; letter-spacing: -0.035em;
-    font-size: clamp(52px, 15.5vw, 184px); margin: 0;
-    text-transform: uppercase; word-break: break-word; hyphens: none;
+    font-weight: 700; line-height: 0.84; letter-spacing: -0.04em;
+    font-size: clamp(44px, 9.4vw, 132px); margin: 0;
+    text-transform: uppercase; word-break: normal; overflow-wrap: normal; hyphens: none;
   }
   .e-tagline {
     font-family: "Space Mono", monospace; font-weight: 700;
@@ -321,15 +321,34 @@
   .e-portrait-frame {
     position: relative; isolation: isolate; overflow: hidden;
     aspect-ratio: 4 / 5; width: 100%;
-    background: var(--e-signal);
+    background: #0A0A0A;
     border: var(--e-bw) solid var(--e-border);
     box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
   }
   .e-portrait-frame img {
-    display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;
-    filter: grayscale(1) contrast(1.08) brightness(1.05);
-    mix-blend-mode: multiply;
+    display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;
+    filter: grayscale(1) contrast(1.04) brightness(1.04);
+    transition: filter .45s cubic-bezier(.22,1,.36,1);
   }
+  /* tint corail en blend "color" : garde la luminance (détails visibles) */
+  .e-portrait-frame::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: var(--e-signal); mix-blend-mode: color;
+    transition: opacity .45s cubic-bezier(.22,1,.36,1);
+  }
+  /* survol / focus : la photo repasse en couleur normale */
+  .e-portrait-frame:hover img,
+  .e-portrait-frame:focus-within img { filter: none; }
+  .e-portrait-frame:hover::after,
+  .e-portrait-frame:focus-within::after { opacity: 0; }
+  .e-portrait-frame::before {
+    content: "HOVER ↗"; position: absolute; top: 0; right: 0; z-index: 3;
+    font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .06em;
+    background: var(--e-bar); color: var(--e-on-bar); padding: 5px 8px;
+    border-left: var(--e-bw) solid var(--e-border); border-bottom: var(--e-bw) solid var(--e-border);
+    opacity: .92; transition: opacity .3s;
+  }
+  .e-portrait-frame:hover::before, .e-portrait-frame:focus-within::before { opacity: 0; }
   .e-portrait-cap {
     position: absolute; left: 0; bottom: 0; z-index: 2;
     background: var(--e-bar); color: var(--e-on-bar);
