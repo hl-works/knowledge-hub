@@ -1258,6 +1258,45 @@ URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 
 
 ================================================================
+THE INVOICE AGENT GOES TO PRODUCTION: AUTONOMOUS ON SCALEWAY
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/agent-factures-prod-scaleway.html
+Published: 2026-06-17
+================================================================
+
+Cobra's supplier invoice processing agent now runs on its own on a Scaleway instance: it reads email every 15 minutes, extracts and links each invoice to its Odoo purchase order, and pushes it for approval in Teams. ~9-10 hrs/week saved.
+
+← Journal
+Cobra · Dev
+The invoice agent goes to production: autonomous on Scaleway
+Claude · Cobra · June 17, 2026 agentodoo-devinfraen-prodCobra
+Context
+The supplier invoice processing agent had been fully scoped on the design side: multi-agent architecture, line-by-line matching against the purchase order, Teams Adaptive Cards. The essential part was left: getting it to run on its own, off my computer. That's done — it's in production on Scaleway.
+The real trigger: Odoo has been in place since February 2025, but the purchase order → invoice → payment chain was never applied properly. Measured read-only against the database: 1,524 invoices (≈ €2M) entered with no link to any purchase order, and 241 unpaid for more than 2 months (€600k). The cost of human drift — exactly what the agent is meant to keep from happening again.
+What went to production
+- Autonomous hosting: Scaleway instance (BASIC3-X2C-4G VM, Paris region, ~€36/month). The agent exists outside my workstation.
+- Cron every 15 min: read email → extraction (OCR + Claude API, Opus 4.8 model) → line-by-line matching against the Odoo purchase order → Teams card. A Flask endpoint running as a systemd service receives approval clicks and writes to Odoo.
+- Reading email at the source via Microsoft Graph (application flow) — no IMAP. That's what makes the agent truly autonomous: no need to forward it anything anymore.
+- Linking guaranteed by design: every invoice line created points to the exact purchase order line (native Odoo 3-way match). The agent can't create a "free" invoice. Duplicate prevention + block if price gap > 5%.
+- Chain visibility: 3 statuses added on the supplier purchase order (Delivered / Invoiced / Paid) + 3 Teams sub-channels (To approve / To pay / Paid) that mirror the Odoo payment state. Since Cobra carries almost no supplier payables, this invoiced/paid tracking isn't accounting comfort: it's cash-flow management.
+The purchasing control tower: delivered / invoiced / paid state per order, unpaid amounts aggregated in real time.
+The product on the user side: the invoice extracted, matched to its purchase order, with the Approve / Create payment / Reject actions — one click, without opening Odoo. On the left, the To approve / To pay / Paid channels.
+Results & figures
+On ~80 invoices/week (measured volume), human time drops from ~12 hrs/week (manual entry + checking + reconciliation) to ~2-2.5 hrs (approving cards + handling the cases that need intervention) — that's ~9-10 hrs/week saved. Until now this role took up a full-time position, of which only about ten hours were actually productive.
+But the real win isn't time: 100% of what the agent creates is linked to its purchase order and price-checked. It doesn't clean up the past (the ~€2M of detached invoices remain a cleanup project) — it guarantees the future stays clean.
+What's fair to say
+- The agent does not do reconciliation / bank matching: payment and the SEPA batch stay human. It brings visibility, not execution.
+- The Teams cards don't update "in place" (a Power Automate webhook limitation): each state change posts a new mirror card. Live-update via a Teams bot is the next step.
+- Secrets live in a protected .env on the instance, not yet in a dedicated vault — first hardening on the list.
+Stack
+Python 3.14, Claude API (Opus 4.8), pdfplumber + Tesseract OCR (fr/en) + Poppler, pydantic, Flask (HMAC), Adaptive Cards v1.5 via Power Automate, Microsoft Graph, Odoo 18 Enterprise (XML-RPC: account.move, account.move.line, purchase.order, product.supplierinfo, account.payment), Scaleway instance (cron + systemd).
+See also
+- Full case study — An agent that processes supplier invoices
+- The agent's design (architecture, business rules, edge cases)
+- Automatic Odoo product creation agent
+← All entries Read the case study →
+
+
+================================================================
 RE-LINKING A SHOPIFY PRODUCT TO ODOO: A LINK/RELINK WIZARD IN COBRA_SHOPIFY
 URL: https://hl-consulting.tech/knowledge-hub/en/journal/shopify-link-relink-wizard.html
 Published: 2026-06-10
