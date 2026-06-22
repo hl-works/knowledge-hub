@@ -178,10 +178,16 @@
     font-size: clamp(20px, 5vw, 40px); margin: 18px 0 4px; text-transform: uppercase;
   }
   .e-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
-  .e-tags li {
+  .e-tags li { display: flex; }
+  .e-tag {
     font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700;
-    text-transform: uppercase; padding: 6px 10px;
+    text-transform: uppercase; padding: 6px 10px; text-decoration: none;
     border: var(--e-bw) solid var(--e-border); background: var(--e-panel); color: var(--e-on-panel);
+    transition: transform .1s linear, box-shadow .1s linear, background .1s, color .1s;
+  }
+  .e-tag:hover, .e-tag:focus-visible {
+    background: var(--e-bar); color: var(--e-on-bar);
+    box-shadow: 4px 4px 0 var(--e-shadow); transform: translate(-2px, -2px);
   }
   .e-cta-row { margin: 28px 0 40px; display: flex; flex-wrap: wrap; gap: 14px; }
   .e-btn {
@@ -423,22 +429,21 @@
         <span class="e-fr">Audio, image &amp; émotion — et ce que l'IA en fait.</span>
         <span class="e-en">Audio, image &amp; emotion — and what AI makes of it.</span>
       </p>
-      <ul class="e-tags" aria-label="Roles">
-        <li>DG Cobra</li>
-        <li class="e-fr">Éditeur Haute Fidélité</li>
-        <li class="e-en">Publisher Haute Fidélité</li>
-        <li class="e-fr">Transformation Retail</li>
-        <li class="e-en">Retail Transformation</li>
-        <li>Claude Code</li>
-        <li class="e-fr">SEO + GEO</li>
-        <li class="e-en">SEO + GEO</li>
+      <ul class="e-tags" aria-label="Rôles / Roles">
+        <li><a class="e-tag" href="#cobra">DG Cobra</a></li>
+        <li class="e-fr"><a class="e-tag" href="#mag">Éditeur Haute Fidélité</a></li>
+        <li class="e-en"><a class="e-tag" href="#mag">Publisher Haute Fidélité</a></li>
+        <li class="e-fr"><a class="e-tag" href="#cobra">Transformation Retail</a></li>
+        <li class="e-en"><a class="e-tag" href="#cobra">Retail Transformation</a></li>
+        <li><a class="e-tag" href="#hub">Claude Code</a></li>
+        <li><a class="e-tag" href="#hub">SEO + GEO</a></li>
       </ul>
       <div class="e-cta-row">
         <a class="e-btn e-btn-primary" href="https://hl-works.github.io/knowledge-hub/" target="_blank" rel="noopener">
           <span class="e-fr">Ouvrir le Knowledge Hub</span><span class="e-en">Open the Knowledge Hub</span>
         </a>
         <a class="e-btn" href="#hub">
-          <span class="e-fr">L'enseigne</span><span class="e-en">The house</span>
+          <span class="e-fr">Les projets</span><span class="e-en">Projects</span>
         </a>
       </div>
       </div><!-- /e-hero-main -->
@@ -461,9 +466,9 @@
   <section class="e-section" id="worlds">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ HL ]</span>
+        <span class="e-idx e-mono">[ 05 ]</span>
         <h2 class="e-section-title">
-          <span class="e-fr">L'enseigne</span><span class="e-en">The house</span>
+          <span class="e-fr">Les projets</span><span class="e-en">Projects</span>
         </h2>
       </div>
 
@@ -545,8 +550,8 @@
         </ul>
       </div>
       <div>
-        <h4 class="e-fr">L'enseigne</h4>
-        <h4 class="e-en">The house</h4>
+        <h4 class="e-fr">Les projets</h4>
+        <h4 class="e-en">Projects</h4>
         <ul class="e-foot-list">
           <li><a href="#hub">[01] Knowledge Hub</a></li>
           <li><a href="#cobra">[02] Cobra</a></li>
