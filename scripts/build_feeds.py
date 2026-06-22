@@ -12,8 +12,8 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-BASE = "https://hl-works.github.io/knowledge-hub"
+ROOT = Path(__file__).resolve().parent.parent / "knowledge-hub"
+BASE = "https://hl-consulting.tech/knowledge-hub"
 
 ENTRY_RE = re.compile(
     r'<li class="entry"[^>]*>.*?<time datetime="(?P<date>[\d-]+)">.*?'

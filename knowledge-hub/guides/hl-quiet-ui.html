@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HL Quiet UI — planche de style (HL Média)</title>
+<meta name="description" content="HL Quiet UI — le design system maison de HF-OS / HL Média : tokens, boutons, cartes, KPI, fiches, clair/sombre. La charte de l'ERP construit avec Claude Code." />
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/hl-quiet-ui.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="HL Quiet UI — design system HF-OS / HL Média" />
+<meta property="og:type" content="website" />
+<style>
+  /* Vraie police de marque Good Times (fichier du repo). */
+  @font-face {
+    font-family: 'Good Times';
+    src: url('/knowledge-hub/assets/fonts/good-times.ttf') format('truetype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  /* ===== Tokens (extrait fidèle de globals.css) ============================ */
+  :root {
+    --brand: #1d8691; --brand-strong: #156974; --brand-soft: #e3f1f2; --brand-contrast: #ffffff;
+    --bg: #f4f7f8; --surface: #ffffff; --surface-2: #f7fafa; --surface-3: #eef3f4;
+    --border: #e2e8ea; --border-strong: #cfd9dc;
+    --text: #16252c; --text-dim: #5d6f78; --text-faint: #8b9ba3;
+    --danger: #b42318; --danger-soft: #fef3f2; --danger-border: #fecdc9;
+    --ok: #138a5e; --ok-strong: #0f7a52; --ok-soft: #e7f5ee; --warn: #b25e09; --warn-soft: #fdf1e3;
+    --shadow-1: 0 1px 2px rgba(22,37,44,.05); --shadow-2: 0 4px 16px rgba(22,37,44,.08); --shadow-3: 0 12px 40px rgba(22,37,44,.14);
+    --ring: 0 0 0 3px rgba(29,134,145,.3);
+    --radius-lg: 14px; --radius: 10px; --radius-sm: 8px;
+    --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem; --space-5:1.5rem; --space-6:2rem; --space-7:3rem;
+    --text-xs:.72rem; --text-sm:.82rem; --text-md:.9rem; --text-base:.95rem; --text-lg:1.05rem; --text-xl:1.55rem; --text-2xl:2rem;
+    --weight-medium:500; --weight-semibold:600; --weight-bold:700;
+    --ease: cubic-bezier(.2,.7,.3,1); --dur-1:.12s; --dur-2:.2s;
+    --z-backdrop:45; --z-dropdown:50; --z-modal:60;
+    --font-ui: system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --font-display: 'Good Times', var(--font-ui);
+  }
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --brand:#4cc1cd; --brand-strong:#7ad6df; --brand-soft:rgba(76,193,205,.13); --brand-contrast:#06272b;
+    --bg:#0c1316; --surface:#121b1f; --surface-2:#182328; --surface-3:#1f2c32;
+    --border:#243239; --border-strong:#32434b;
+    --text:#e9f0f2; --text-dim:#9cadb5; --text-faint:#6d7f87;
+    --danger:#ffb4ab; --danger-soft:rgba(180,35,24,.18); --danger-border:rgba(255,180,171,.3);
+    --ok:#4ed8a0; --ok-strong:#5fce9e; --ok-soft:rgba(19,138,94,.2); --warn:#f0b46b; --warn-soft:rgba(180,110,20,.2);
+    --shadow-1:0 1px 2px rgba(0,0,0,.4); --shadow-2:0 4px 16px rgba(0,0,0,.45); --shadow-3:0 12px 40px rgba(0,0,0,.55);
+    --ring:0 0 0 3px rgba(76,193,205,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin:0; background: var(--bg); color: var(--text); font-family: var(--font-ui); font-size:15px; line-height:1.5; -webkit-font-smoothing: antialiased; transition: background .2s, color .2s; }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: none; box-shadow: var(--ring); border-radius: var(--radius-sm); }
+
+  /* Cadre planche */
+  .sg-top { position: sticky; top:0; z-index:5; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem 1.5rem; background: var(--surface); border-bottom:1px solid var(--border); }
+  .sg-top__brand { display:flex; align-items:center; gap:.6rem; font-family: var(--font-display); font-weight:700; letter-spacing:.06em; }
+  .sg-mark { width:30px; height:30px; border-radius:8px; background: linear-gradient(135deg,var(--brand),var(--brand-strong)); box-shadow: var(--shadow-1); display:grid; place-items:center; color:#fff; font-weight:800; font-size:.8rem; }
+  .sg-wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .sg-h { font-family: var(--font-display); font-size:1.05rem; letter-spacing:.04em; text-transform:uppercase; color: var(--text-faint); margin: 2.5rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+  .sg-h:first-of-type { margin-top: 1rem; }
+  .sg-row { display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-start; }
+  .sg-note { font-size:.82rem; color: var(--text-faint); margin:.4rem 0 0; }
+
+  /* Bascule thème */
+  .theme-toggle { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:999px; border:1px solid var(--border); background: var(--surface); color: var(--text-dim); cursor:pointer; line-height:1; transition: color var(--dur-1), border-color var(--dur-1); }
+  .theme-toggle:hover { border-color: var(--brand); color: var(--brand); }
+
+  /* ===== Tokens : nuancier ===== */
+  .swatches { display:grid; grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); gap:.75rem; }
+  .sw { border:1px solid var(--border); border-radius: var(--radius); overflow:hidden; background: var(--surface); box-shadow: var(--shadow-1); }
+  .sw__chip { height:54px; }
+  .sw__txt { padding:.5rem .6rem; }
+  .sw__name { font-size:.8rem; font-weight:600; }
+  .sw__var { font-size:.72rem; color: var(--text-faint); }
+
+  /* ===== Boutons (depuis globals.css) ===== */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.55rem; padding:.7rem 1.2rem; border-radius: var(--radius); border:1px solid transparent; font-weight:600; font-size:.95rem; cursor:pointer; transition: background-color .12s,border-color .12s,color .12s,box-shadow .12s; }
+  .btn--primary { background: var(--brand); color: var(--brand-contrast); box-shadow: 0 6px 18px rgba(29,134,145,.25); }
+  .btn--primary:hover { background: var(--brand-strong); box-shadow: 0 8px 22px rgba(29,134,145,.32); }
+  .btn--secondary { background: var(--brand-soft); border-color: transparent; color: var(--brand); }
+  .btn--secondary:hover { border-color: var(--brand); }
+  .btn--ghost { background: var(--surface); border-color: var(--border); color: var(--text); }
+  .btn--ghost:hover { border-color: var(--brand); color: var(--brand); }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity:.55; cursor:not-allowed; box-shadow:none; transform:none; }
+  .btn svg { width:16px; height:16px; flex-shrink:0; }
+  .btn--linkedin svg { width:17px; height:17px; }
+  .btn--linkedin:hover { border-color:#0a66c2; color:#0a66c2; }
+
+  /* ===== Badges ===== */
+  .badge { display:inline-block; font-size:.66rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; border-radius:999px; padding:.12rem .5rem; }
+  .badge--client { color: var(--brand); background: var(--brand-soft); }
+  .badge--paye { color: var(--ok-strong); background: var(--ok-soft); }
+  .badge--attente { color: var(--warn); background: var(--warn-soft); }
+  .badge--retard { color: var(--danger); background: var(--danger-soft); }
+  .badge--off { color: var(--text-faint); background: var(--surface-3); }
+
+  /* ===== Cartes ===== */
+  .cards { display:grid; grid-template-columns: repeat(auto-fill,minmax(230px,1fr)); gap:1rem; }
+  .card { display:flex; flex-direction:column; gap:.35rem; padding:1.2rem 1.25rem; background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-1); transition: border-color .15s,box-shadow .15s,transform .15s; }
+  .card:hover { border-color: var(--brand); box-shadow: var(--shadow-2); transform: translateY(-1px); }
+  .card--static:hover { border-color: var(--border); box-shadow: var(--shadow-1); transform:none; }
+  .card__icon { display:grid; place-items:center; width:40px; height:40px; margin-bottom:.6rem; border-radius:12px; color: var(--brand); background: var(--brand-soft); transition: transform .15s var(--ease), box-shadow .15s var(--ease); }
+  .card__icon svg { width:21px; height:21px; }
+  /* Tuile « actionnable » : dégradé teal + halo doux, l'icône en contraste. */
+  .card__icon--grad { color: var(--brand-contrast); background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%); box-shadow: 0 6px 16px rgba(29,134,145,.28); }
+  .card:hover .card__icon--grad { transform: translateY(-1px) scale(1.04); box-shadow: 0 10px 22px rgba(29,134,145,.34); }
+  /* Variante « ring » : pastille douce cerclée pour les intégrations (à plat). */
+  .card__icon--ring { box-shadow: inset 0 0 0 1px var(--brand); }
+  .card__title { font-weight:700; }
+  .card__desc { font-size:.88rem; color: var(--text-dim); }
+  .status { display:inline-flex; align-items:center; gap:.4rem; margin-top:.55rem; font-size:.8rem; font-weight:600; }
+  .status__dot { width:8px; height:8px; border-radius:999px; background: currentColor; }
+  .status--connected { color: var(--ok); }
+  .status--error { color: var(--danger); }
+  .status--not_configured { color: var(--text-faint); }
+
+  /* ===== KPI + balance âgée ===== */
+  .kpis { display:grid; grid-template-columns: repeat(auto-fill,minmax(190px,1fr)); gap:1rem; }
+  .kpi { display:flex; flex-direction:column; gap:.25rem; padding:1.1rem 1.2rem; background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-1); transition: border-color .15s, box-shadow .15s, transform .15s; }
+  .kpi--link { cursor:pointer; }
+  .kpi--link:hover { border-color: var(--brand); box-shadow: var(--shadow-2); transform: translateY(-1px); }
+  .kpi--accent { background: linear-gradient(135deg,var(--brand),var(--brand-strong)); border-color:transparent; color: var(--brand-contrast); }
+  .kpi--danger { border-color: var(--danger-border); background: var(--danger-soft); }
+  .kpi--danger .kpi__value { color: var(--danger); }
+  .kpi__label { font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color: var(--text-dim); }
+  .kpi--accent .kpi__label { color: var(--brand-contrast); opacity:.85; }
+  .kpi__value { font-size:1.5rem; font-weight:700; font-variant-numeric: tabular-nums; }
+  .kpi__hint { font-size:.72rem; color: var(--text-faint); }
+  .kpi--link:hover .kpi__hint { color: var(--brand); }
+
+  .panel { background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-1); overflow:hidden; }
+  .panel__head { display:flex; align-items:baseline; justify-content:space-between; padding:.9rem 1.2rem; border-bottom:1px solid var(--border); }
+  .panel__title { font-weight:700; }
+  .panel__body { padding: 0 1.2rem; }
+  .aging { display:grid; grid-template-columns: repeat(4,1fr); }
+  .aging__cell { display:flex; flex-direction:column; gap:.2rem; padding:.9rem 1.2rem; border-right:1px solid var(--border); transition: background-color .12s; }
+  .aging__cell:last-child { border-right:none; }
+  .aging__cell--link { cursor:pointer; }
+  .aging__cell--link:hover { background: var(--brand-soft); }
+  .aging__label { font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color: var(--text-dim); }
+  .aging__value { font-size:1.15rem; font-weight:700; font-variant-numeric: tabular-nums; }
+  .aging__value--retard { color: var(--danger); }
+  .aging__count { font-size:.74rem; color: var(--text-faint); }
+
+  /* ===== Lignes de liste (avec gouttière, avatar décollé) ===== */
+  .rows { list-style:none; margin:0; padding:0; }
+  .row { display:flex; align-items:center; gap:1rem; padding:.7rem 1.2rem; border-bottom:1px solid var(--border); transition: background-color .12s; }
+  .row:last-child { border-bottom:none; }
+  .row:hover { background: var(--surface-2); }
+  .row__main { display:flex; flex-direction:column; min-width:0; flex:1; }
+  .row__label { font-weight:600; font-size:.92rem; }
+  .row:hover .row__label { color: var(--brand); }
+  .row__meta { font-size:.8rem; color: var(--text-dim); }
+  .row__action { display:inline-flex; align-items:center; gap:.3rem; font-size:.82rem; font-weight:600; color: var(--brand); padding:.3rem .6rem; border:1px solid var(--border); border-radius:999px; }
+  .row__action:hover { border-color: var(--brand); background: var(--brand-soft); }
+
+  .avatar { display:inline-grid; place-items:center; width:38px; height:38px; border-radius:999px; flex-shrink:0; background: linear-gradient(135deg,var(--brand),var(--brand-strong)); color: var(--brand-contrast); font-size:.78rem; font-weight:700; letter-spacing:.04em; transition: box-shadow var(--dur-2) var(--ease), transform var(--dur-2) var(--ease); }
+  .row:hover .avatar { box-shadow: var(--shadow-2); transform: translateY(-1px); }
+
+  /* ===== En-tête fiche contact ===== */
+  .cf-head { display:flex; gap:1.25rem; align-items:flex-start; background: var(--surface); border:1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); padding:1.4rem 1.5rem; }
+  .cf-avatar { flex-shrink:0; width:72px; height:72px; border-radius:999px; display:grid; place-items:center; font-size:1.5rem; font-weight:700; letter-spacing:.03em; color: var(--brand-contrast); background: linear-gradient(135deg,var(--brand),var(--brand-strong)); box-shadow: var(--shadow-2); transition: box-shadow var(--dur-2) var(--ease), transform var(--dur-2) var(--ease); }
+  .cf-head:hover .cf-avatar { box-shadow: var(--shadow-3); transform: translateY(-1px); }
+  .cf-head__main { flex:1; min-width:0; }
+  .cf-head__name { font-family: var(--font-display); font-size:1.55rem; font-weight:700; margin:0 0 .2rem; display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; }
+  .cf-head__role { margin:0; color: var(--text-dim); font-size:.96rem; }
+  .cf-head__role b { color: var(--text); }
+  .cf-head__company { color: var(--brand); font-weight:600; }
+  .cf-head__actions { display:flex; flex-direction:column; gap:.5rem; flex-shrink:0; }
+  .cf-head__actions .btn { justify-content:flex-start; padding:.5rem .85rem; font-size:.85rem; }
+
+  /* ===== État vide riche ===== */
+  .empty { display:flex; flex-direction:column; align-items:center; text-align:center; gap:.75rem; padding:2rem 1rem; color: var(--text-dim); border:1px dashed var(--border-strong); border-radius: var(--radius); background: var(--surface); }
+  .empty__icon { display:grid; place-items:center; width:48px; height:48px; border-radius: var(--radius); color: var(--brand); background: var(--brand-soft); }
+  .empty__title { margin:0; font-weight:600; font-size:.95rem; color: var(--text); }
+  .empty__text { margin:0; max-width:30rem; font-size:.9rem; }
+
+  /* ===== Progression / spinner ===== */
+  .progress { height:6px; border-radius:999px; background: var(--surface-3); overflow:hidden; max-width:340px; }
+  .progress__bar { height:100%; border-radius:inherit; background: linear-gradient(90deg,var(--brand),var(--brand-strong)); }
+  .spinner { display:inline-block; width:1.1em; height:1.1em; border:2px solid var(--brand-soft); border-top-color: var(--brand); border-radius:999px; animation: spin .7s linear infinite; vertical-align:-.2em; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes fade { from { opacity:0; } to { opacity:1; } }
+  @keyframes rise { from { opacity:0; transform: translateY(8px) scale(.985); } to { opacity:1; transform: translateY(0) scale(1); } }
+  @keyframes pop { from { opacity:0; transform: scale(.96); } to { opacity:1; transform: scale(1); } }
+
+  /* ===== Démo modale ===== */
+  .modal-overlay { position: fixed; inset:0; z-index: var(--z-modal); display:none; place-items:center; padding:1rem; background: rgba(8,18,22,.55); animation: fade var(--dur-2) var(--ease); }
+  .modal-overlay--on { display:grid; }
+  .modal { width:min(34rem,100%); background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-3); animation: rise var(--dur-2) var(--ease); }
+  .modal__head { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 1.2rem; border-bottom:1px solid var(--border); }
+  .modal__title { font-weight:700; }
+  .modal__close { display:grid; place-items:center; width:32px; height:32px; border:none; border-radius: var(--radius-sm); background:transparent; color: var(--text-dim); font-size:1.4rem; line-height:1; cursor:pointer; transition: color var(--dur-1), background-color var(--dur-1); }
+  .modal__close:hover { color: var(--text); background: var(--surface-3); }
+  .modal__body { padding:1.1rem 1.2rem; color: var(--text-dim); font-size:.9rem; }
+  .modal__foot { display:flex; justify-content:flex-end; gap:.6rem; padding:.9rem 1.2rem; border-top:1px solid var(--border); }
+
+  /* ===== Démo menu ===== */
+  .menu { position: relative; display:inline-block; }
+  .menu__panel { position:absolute; top:calc(100% + 6px); left:0; z-index: var(--z-dropdown); min-width:220px; padding:.35rem; background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-3); transform-origin: top left; animation: pop var(--dur-1) var(--ease); }
+  .menu__item { display:flex; align-items:center; gap:.55rem; width:100%; padding:.55rem .65rem; border:none; background:none; border-radius: var(--radius-sm); font: inherit; font-size:.9rem; color: var(--text); text-align:left; cursor:pointer; }
+  .menu__item:hover { background: var(--surface-3); color: var(--brand); }
+  .ico { width:1em; height:1em; }
+
+  /* ===== Wordmark (logo texte) ===== */
+  .logo-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:1rem; }
+  .logo-demo { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.6rem; padding:2.4rem 1.5rem; border-radius: var(--radius-lg); border:1px solid var(--border); }
+  .logo-demo--light { background:#ffffff; }
+  .logo-demo--dark { background:#0c1316; border-color:#243239; }
+  .wordmark { font-family:'Good Times', var(--font-ui); font-weight:400; text-transform:uppercase; letter-spacing:.16em; font-size:1.7rem; line-height:1; color:#1d8691; }
+  .logo-demo--dark .wordmark { color:#4cc1cd; }
+  .wordmark__tag { font-family:'Good Times', var(--font-ui); font-size:.5rem; letter-spacing:.34em; text-transform:uppercase; color:#1d8691; opacity:.8; }
+  .logo-demo--dark .wordmark__tag { color:#4cc1cd; }
+  .wordmark--lockup { display:flex; align-items:center; gap:.7rem; }
+  .wordmark--lockup .sg-mark { width:38px; height:38px; border-radius:9px; font-size:.95rem; }
+  .wordmark--sm { font-size:1.05rem; letter-spacing:.14em; }
+</style>
+</head>
+<body>
+  <div class="sg-top">
+    <div class="sg-top__brand"><a href="/knowledge-hub/guides/faut-il-encore-acheter-un-erp.html" style="display:flex;align-items:center;gap:.6rem;color:inherit"><span class="sg-mark">HL</span> HL Quiet UI · planche de style</a></div>
+    <button class="theme-toggle" id="themeBtn" title="Basculer clair / sombre" aria-label="Basculer le thème">◐</button>
+  </div>
+
+  <div class="sg-wrap">
+    <p class="sg-note">Pack graphique du socle « HL Quiet UI » (PR poussée sur <code>claude/peaceful-curie-druubo</code>). Tous les composants utilisent les tokens réels de <code>globals.css</code>. Survole les éléments, ouvre la modale/le menu, et bascule clair ⇄ sombre en haut à droite.</p>
+
+    <!-- WORDMARK -->
+    <h2 class="sg-h">Logo texte (wordmark) — connexion & header</h2>
+    <div class="logo-grid">
+      <div class="logo-demo logo-demo--light">
+        <span class="wordmark">HL Média</span>
+        <span class="wordmark__tag">Haute Fidélité — Home Cinéma</span>
+      </div>
+      <div class="logo-demo logo-demo--dark">
+        <span class="wordmark">HL Média</span>
+        <span class="wordmark__tag">Haute Fidélité — Home Cinéma</span>
+      </div>
+    </div>
+    <div class="sg-row" style="margin-top:1rem;gap:1.5rem;align-items:center">
+      <div class="logo-demo logo-demo--light" style="flex:1;min-width:280px;padding:1.4rem">
+        <span class="wordmark wordmark--lockup wordmark--sm"><span class="sg-mark">HL</span> HL Média</span>
+        <span class="sg-note" style="margin-top:.5rem">Variante « lockup » : monogramme existant + wordmark, pour la topbar.</span>
+      </div>
+      <div class="logo-demo logo-demo--dark" style="flex:1;min-width:280px;padding:1.4rem">
+        <span class="wordmark wordmark--lockup wordmark--sm"><span class="sg-mark">HL</span> HL Média</span>
+      </div>
+    </div>
+    <p class="sg-note"><strong>Vraie police Good Times</strong> (chargée depuis <code>public/fonts/good-times.woff2</code>). Wordmark seul (sans picto) pour l'écran de connexion ; lockup picto + wordmark pour le header. Couleur teal en clair, teal éclairci en sombre.</p>
+
+    <!-- TOKENS -->
+    <h2 class="sg-h">Tokens — marque & surfaces</h2>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:var(--brand)"></div><div class="sw__txt"><div class="sw__name">Brand</div><div class="sw__var">--brand</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--brand-strong)"></div><div class="sw__txt"><div class="sw__name">Brand strong</div><div class="sw__var">--brand-strong</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--brand-soft)"></div><div class="sw__txt"><div class="sw__name">Brand soft</div><div class="sw__var">--brand-soft</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--surface);border-bottom:1px solid var(--border)"></div><div class="sw__txt"><div class="sw__name">Surface</div><div class="sw__var">--surface</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--surface-2)"></div><div class="sw__txt"><div class="sw__name">Surface 2</div><div class="sw__var">--surface-2</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--surface-3)"></div><div class="sw__txt"><div class="sw__name">Surface 3</div><div class="sw__var">--surface-3</div></div></div>
+    </div>
+
+    <h2 class="sg-h">Tokens — états (clair + sombre)</h2>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:var(--ok)"></div><div class="sw__txt"><div class="sw__name">OK (nouveau)</div><div class="sw__var">--ok</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ok-soft)"></div><div class="sw__txt"><div class="sw__name">OK soft</div><div class="sw__var">--ok-soft</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--warn)"></div><div class="sw__txt"><div class="sw__name">Warn (nouveau)</div><div class="sw__var">--warn</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--warn-soft)"></div><div class="sw__txt"><div class="sw__name">Warn soft</div><div class="sw__var">--warn-soft</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--danger)"></div><div class="sw__txt"><div class="sw__name">Danger</div><div class="sw__var">--danger</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--danger-soft)"></div><div class="sw__txt"><div class="sw__name">Danger soft</div><div class="sw__var">--danger-soft</div></div></div>
+    </div>
+
+    <!-- BOUTONS -->
+    <h2 class="sg-h">Boutons — hiérarchie & états</h2>
+    <div class="sg-row">
+      <button class="btn btn--primary">Action principale</button>
+      <button class="btn btn--secondary">Secondaire</button>
+      <button class="btn btn--ghost">Fantôme</button>
+      <button class="btn btn--primary" disabled>Désactivé</button>
+    </div>
+    <p class="sg-note">Survol = relief accentué · clic = enfoncement (:active) · état désactivé homogène. Trois niveaux, jamais plus.</p>
+
+    <!-- BADGES -->
+    <h2 class="sg-h">Badges</h2>
+    <div class="sg-row" style="align-items:center;gap:.5rem">
+      <span class="badge badge--client">Client</span>
+      <span class="badge badge--paye">Payée</span>
+      <span class="badge badge--attente">En attente</span>
+      <span class="badge badge--retard">En retard</span>
+      <span class="badge badge--off">Inactif</span>
+    </div>
+
+    <!-- CARTES -->
+    <h2 class="sg-h">Cartes — actionnable vs figée</h2>
+    <div class="cards">
+      <a class="card" href="#">
+        <span class="card__icon card__icon--grad" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h13a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"/><path d="M19 8h1.5a1.5 1.5 0 0 1 1.5 1.5V17a2 2 0 0 1-2 2"/><path d="M8 9h7M8 13h7M8 17h4"/></svg>
+        </span>
+        <span class="card__title">Éditorial</span><span class="card__desc">Import Webflow, articles & bancs d'essai.</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__icon card__icon--grad" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 14-7v16L3 13Z"/><path d="M3 11v2a2 2 0 0 0 2 2h2"/><path d="M8 15v3a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2v-1"/><path d="M19 8a3 3 0 0 1 0 8"/></svg>
+        </span>
+        <span class="card__title">Régie</span><span class="card__desc">Facturation, encours & relances.</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__icon card__icon--grad" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0"/><path d="M16 6a3 3 0 0 1 0 6"/><path d="M17.5 19a6 6 0 0 0-3-5.2"/></svg>
+        </span>
+        <span class="card__title">CRM</span><span class="card__desc">Sociétés & contacts, fiches 360.</span>
+      </a>
+      <a class="card" href="#">
+        <span class="card__icon card__icon--grad" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.6 8l4.5 1.6-4.5 1.6L12 15.7 10.4 11.2 5.9 9.6 10.4 8 12 3.5Z"/><path d="M18.5 14.5 19.3 17l2.2.8-2.2.8-.8 2.4-.8-2.4-2.2-.8 2.2-.8.8-2.5Z"/></svg>
+        </span>
+        <span class="card__title">IA</span><span class="card__desc">Agents, prompts & journaux.</span>
+      </a>
+      <div class="card card--static">
+        <span class="card__icon card__icon--ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19"/><path d="M6.5 14.5h4"/></svg>
+        </span>
+        <span class="card__title">Qonto</span><span class="card__desc">Banque — lecture seule.</span>
+        <span class="status status--connected"><span class="status__dot"></span>Connecté</span>
+      </div>
+      <div class="card card--static">
+        <span class="card__icon card__icon--ring" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+        </span>
+        <span class="card__title">Brevo</span><span class="card__desc">Emails de relance.</span>
+        <span class="status status--not_configured"><span class="status__dot"></span>Non configuré</span>
+      </div>
+    </div>
+
+    <!-- KPI + AGING -->
+    <h2 class="sg-h">Agrégats cliquables (aperçu PR Régie)</h2>
+    <div class="kpis" style="margin-bottom:1.25rem">
+      <div class="kpi kpi--accent"><span class="kpi__label">Encours client</span><span class="kpi__value">48 250 €</span></div>
+      <div class="kpi kpi--danger kpi--link"><span class="kpi__label">Dont en retard</span><span class="kpi__value">12 400 €</span><span class="kpi__hint">Filtrer les échues →</span></div>
+      <div class="kpi kpi--link"><span class="kpi__label">Encaissé en juin</span><span class="kpi__value">9 800 €</span><span class="kpi__hint">Voir →</span></div>
+      <div class="kpi kpi--link"><span class="kpi__label">CA facturé 2026</span><span class="kpi__value">126 900 €</span><span class="kpi__hint">Voir →</span></div>
+    </div>
+    <div class="panel">
+      <div class="panel__head"><span class="panel__title">Balance âgée</span></div>
+      <div class="aging">
+        <div class="aging__cell aging__cell--link"><span class="aging__label">0–30 j</span><span class="aging__value">4 200 €</span><span class="aging__count">3 factures</span></div>
+        <div class="aging__cell aging__cell--link"><span class="aging__label">31–60 j</span><span class="aging__value aging__value--retard">5 100 €</span><span class="aging__count">2 factures</span></div>
+        <div class="aging__cell aging__cell--link"><span class="aging__label">61–90 j</span><span class="aging__value aging__value--retard">2 000 €</span><span class="aging__count">1 facture</span></div>
+        <div class="aging__cell aging__cell--link"><span class="aging__label">+90 j</span><span class="aging__value aging__value--retard">1 300 €</span><span class="aging__count">1 facture</span></div>
+      </div>
+    </div>
+    <p class="sg-note">Chaque KPI et chaque tranche surligne au survol → cliquable pour filtrer la liste en dessous (principe « très connecté »).</p>
+
+    <!-- LISTE -->
+    <h2 class="sg-h">Liste — gouttière + avatar décollé + survol</h2>
+    <div class="panel">
+      <ul class="rows">
+        <li class="row"><span class="avatar">ML</span><span class="row__main"><span class="row__label">Marie Lefèvre</span><span class="row__meta">Directrice Marketing · FOCAL</span></span><a class="row__action" href="#">Fiche</a></li>
+        <li class="row"><span class="avatar">JD</span><span class="row__main"><span class="row__label">Julien Dubois</span><span class="row__meta">Acheteur média · CANAL+</span></span><a class="row__action" href="#">Fiche</a></li>
+        <li class="row"><span class="avatar">SR</span><span class="row__main"><span class="row__label">Sophie Renard</span><span class="row__meta">Journaliste · indépendante</span></span><a class="row__action" href="#">Fiche</a></li>
+      </ul>
+    </div>
+    <p class="sg-note">L'avatar respire (gouttière 1.2rem du bord, jamais collé) et s'élève légèrement avec la ligne au survol.</p>
+
+    <!-- FICHE CONTACT -->
+    <h2 class="sg-h">En-tête de fiche contact (survole la carte)</h2>
+    <div class="cf-head">
+      <div class="cf-avatar">ML</div>
+      <div class="cf-head__main">
+        <h1 class="cf-head__name">Marie Lefèvre <span class="badge badge--paye">Opt-in</span></h1>
+        <p class="cf-head__role"><b>Directrice Marketing & Communication</b> · <a class="cf-head__company" href="#">FOCAL</a> <span class="badge badge--client">Client</span></p>
+      </div>
+      <div class="cf-head__actions">
+        <a class="btn btn--primary" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Écrire</a>
+        <a class="btn btn--ghost" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> Appeler</a>
+        <a class="btn btn--ghost btn--linkedin" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5v-9h3ZM6.5 8.3A1.8 1.8 0 1 1 8.3 6.5 1.8 1.8 0 0 1 6.5 8.3ZM19 19h-3v-4.7c0-1.1 0-2.6-1.6-2.6S12.6 13 12.6 14.2V19h-3v-9h2.9v1.2h.1a3.2 3.2 0 0 1 2.9-1.6c3.1 0 3.7 2 3.7 4.7Z"/></svg> LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- ETAT VIDE + PROGRESSION -->
+    <h2 class="sg-h">État vide riche · progression</h2>
+    <div class="sg-row">
+      <div class="empty" style="flex:1;min-width:300px">
+        <span class="empty__icon">◷</span>
+        <p class="empty__title">Aucune société pour l'instant</p>
+        <p class="empty__text">Importe un export CSV ou crée ta première fiche pour démarrer le CRM.</p>
+        <button class="btn btn--primary">Importer un CSV</button>
+      </div>
+      <div style="flex:1;min-width:300px;display:flex;flex-direction:column;gap:1rem">
+        <div><div class="progress"><div class="progress__bar" style="width:64%"></div></div><p class="sg-note"><span class="spinner"></span> Import en cours… 320 / 500 lignes</p></div>
+        <div class="menu">
+          <button class="btn btn--ghost" id="menuBtn">⚙ Actions ▾</button>
+          <div class="menu__panel" id="menuPanel" style="display:none">
+            <button class="menu__item">✎ Modifier dans l'admin</button>
+            <button class="menu__item">⤓ Enrichir (SIREN)</button>
+            <button class="menu__item">⛙ Fusionner…</button>
+          </div>
+        </div>
+        <button class="btn btn--secondary" id="openModal">Ouvrir une modale (anim.)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALE -->
+  <div class="modal-overlay" id="overlay">
+    <div class="modal">
+      <div class="modal__head"><span class="modal__title">Fusionner une société</span><button class="modal__close" id="closeModal">×</button></div>
+      <div class="modal__body">Entrée animée (fade + rise), fermeture agrandie avec survol, z-index tokenisé. Clique à côté ou sur × pour fermer.</div>
+      <div class="modal__foot"><button class="btn btn--ghost" id="cancelModal">Annuler</button><button class="btn btn--primary">Fusionner</button></div>
+    </div>
+  </div>
+
+<script>
+  const root = document.documentElement;
+  document.getElementById('themeBtn').onclick = () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  };
+  const overlay = document.getElementById('overlay');
+  document.getElementById('openModal').onclick = () => overlay.classList.add('modal-overlay--on');
+  const closeM = () => overlay.classList.remove('modal-overlay--on');
+  document.getElementById('closeModal').onclick = closeM;
+  document.getElementById('cancelModal').onclick = closeM;
+  overlay.onclick = (e) => { if (e.target === overlay) closeM(); };
+  const panel = document.getElementById('menuPanel');
+  document.getElementById('menuBtn').onclick = () => { panel.style.display = panel.style.display === 'none' ? 'block' : 'none'; };
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeM(); panel.style.display = 'none'; } });
+</script>
+</body>
+</html>

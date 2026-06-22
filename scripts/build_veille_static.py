@@ -14,7 +14,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent / "knowledge-hub"
 MARK_START = "<!-- veille-static:start (généré par scripts/build_veille_static.py) -->"
 MARK_END = "<!-- veille-static:end -->"
 DAYS = 10  # nombre de jours de veille rendus en statique

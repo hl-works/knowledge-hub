@@ -10,7 +10,7 @@ advise/merchandise/expertise…).
 """
 import os, re
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "knowledge-hub")
 
 PAIRS = {
     # -ise / -isation familles (stems sûrs)

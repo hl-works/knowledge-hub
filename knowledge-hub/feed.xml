@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Journal — Hugo Lahutte</title>
+<link>https://hl-consulting.tech/knowledge-hub/</link>
+<description>Sessions documentées : comment Hugo Lahutte construit avec Claude (Odoo, Shopify, agents, méthode).</description>
+<language>fr</language>
+<atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>L&#x27;agent factures passe en prod : autonome sur Scaleway</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/agent-factures-prod-scaleway.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/agent-factures-prod-scaleway.html</guid>
+<pubDate>Wed, 17 Jun 2026 08:00:00 +0000</pubDate>
+<description>L&#x27;agent de traitement des factures fournisseurs Cobra tourne désormais seul sur une instance Scaleway : il lit les mails toutes les 15 min, extrait et rattache chaque facture à sa commande Odoo (3-way match garanti), et la pousse pour validation dans Teams. ~9-10 h/semaine économisées — et surtout un workflow qui ne dérive plus.</description>
+</item>
+<item>
+<title>Agent Produit IA — du script one-shot au CDC dashboard</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>On a créé 36 variantes Davis à la main, en script Python. Plutôt que de recommencer à chaque nouvelle marque, on a formalisé la méthode : un agent IA conversationnel sur le dashboard Cobra, capable de lire n&#x27;importe quel fichier source et de créer ou mettre à jour des produits Odoo sans intervention technique.</description>
+</item>
+<item>
+<title>Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton &amp; Ariane)</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/davis-odoo-krypton-ariane.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/davis-odoo-krypton-ariane.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Préparation de l&#x27;intégration d&#x27;une nouvelle marque d&#x27;enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d&#x27;abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.</description>
+</item>
+<item>
+<title>HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/hf-os-socle-deploiement.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/hf-os-socle-deploiement.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Initialisation puis mise en prod du socle technique de HF-OS (Next.js 16 + Payload 3, PostgreSQL Scaleway, hébergement Render), connexion admin par Google SSO restreinte à une liste blanche. Pas encore de collections métier — juste la coquille déployée.</description>
+</item>
+<item>
+<title>Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/shopify-link-relink-wizard.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/shopify-link-relink-wizard.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Des liens Odoo↔Shopify se cassaient quand un produit était recréé avec variantes (historique orphelin). Après un sauvetage par script (Focal Bathys MG), on en fait une feature : un wizard LINK/RELINK dans cobra_shopify — matching SKU, swap atomique, sans script.</description>
+</item>
+<item>
+<title>Odoo → Shopify : archivage et remise en ligne des produits synchronisés</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/shopify-archivage-produits-eol.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/shopify-archivage-produits-eol.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Le connecteur ne répercutait ni l&#x27;archivage ni la remise en ligne d&#x27;un produit. 3 bugs corrigés dans cobra_shopify + un script de rattrapage (~590 fiches fantômes nettoyées, 2 produits encore en vente rendus non-achetables).</description>
+</item>
+<item>
+<title>Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/cobra-docs-contexte-claude.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cobra-docs-contexte-claude.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.</description>
+</item>
+<item>
+<title>Fable 5 passe le site en revue : 4 bugs, du RSS et une veille enfin visible des LLMs</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/fable-5-revue-site-geo.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/fable-5-revue-site-geo.html</guid>
+<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
+<description>Premier test grandeur nature de Fable 5 au lendemain de sa sortie : audit complet du site, 4 bugs corrigés (compteurs, index de recherche EN), veille rendue en HTML statique pour les crawlers IA, flux RSS et check de cohérence hebdo — tout en prod dans la session.</description>
+</item>
+<item>
+<title>Knowledge Hub bilingue : version anglaise + auto-traduction</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</guid>
+<pubDate>Tue, 02 Jun 2026 08:00:00 +0000</pubDate>
+<description>Rendre le Knowledge Hub bilingue FR/EN : miroir /en/ des 74 pages, hreflang, sélecteur de langue, recherche et lexique bilingues — plus un workflow GitHub Actions qui traduit chaque nouvelle page FR via l&#x27;API Claude.</description>
+</item>
+<item>
+<title>Système d&#x27;instructions personnalisées Claude (CLAUDE.md + extensions)</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/systeme-instructions-claude-md.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/systeme-instructions-claude-md.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Standardiser le comportement de Claude sur tous mes projets et mes deux comptes : un CLAUDE.md universel + extensions strat et dev. Déclenché par un incident de mise en prod Odoo gravé en règle dure.</description>
+</item>
+<item>
+<title>Stratégie Instagram HiFi Lovers — Brief Marine</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/strategie-instagram-hifi-lovers.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/strategie-instagram-hifi-lovers.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Cadrer une stratégie Instagram qui part de zéro pour HiFi Lovers : positionnement 70/30 archive/éditorial, 4 piliers, calendrier, plan d&#x27;amorçage 8 semaines, avant de la confier à Marine.</description>
+</item>
+<item>
+<title>Mise à jour prix Sony Bravia II + diagnostic marge nulle</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/sony-bravia-prix-marge.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/sony-bravia-prix-marge.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d&#x27;une marge à 0 % : l&#x27;UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.</description>
+</item>
+<item>
+<title>Profil Sogetronic : import stock dropshipping par code fournisseur</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/sogetronic-import-prod.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/sogetronic-import-prod.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l&#x27;EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.</description>
+</item>
+<item>
+<title>Setup Claude : documentation, onboarding et Knowledge Hub</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/setup-claude-onboarding.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/setup-claude-onboarding.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Documenter la logique du setup Claude (fichiers .md, projets, deux comptes) pour la transmettre à un ami qui démarre et capitaliser session après session.</description>
+</item>
+<item>
+<title>PPTX oral du brevet « Les addictions chez les jeunes » (Damien)</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/pptx-brevet-addictions-damien.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/pptx-brevet-addictions-damien.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Transformer un script d&#x27;élève de 3e en support d&#x27;oral du brevet : 9 slides « cyan glacé », chiffres sourcés, photos intégrées — sans dénaturer la voix de l&#x27;ado.</description>
+</item>
+<item>
+<title>PowerPoint anglais Alexis — « The Secrets of My Success »</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/powerpoint-anglais-alexis.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/powerpoint-anglais-alexis.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Un PowerPoint narré de 10 slides + script calibré à la seconde pour un projet d&#x27;anglais (Dual Diploma). Workflow itératif avec QA visuel slide par slide.</description>
+</item>
+<item>
+<title>Ce Knowledge Hub lui-même</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO. Une page par entrée, llms.txt + JSON-LD authorship.</description>
+</item>
+<item>
+<title>Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/gsc-json-ld-fix.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/gsc-json-ld-fix.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>7 pages produit en erreur « extraits de produits » dans GSC. Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.</description>
+</item>
+<item>
+<title>Déclaratif ventes Epson : export Odoo → Google Sheets</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/epson-declaratif-ventes.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/epson-declaratif-ventes.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.</description>
+</item>
+<item>
+<title>Double Claude Code : Cobra vs HL</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/double-claude-code.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/double-claude-code.html</guid>
+<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
+<description>Deux Claude Code : le compte Cobra (dev Odoo/Shopify) et un nouveau compte HL (perso, stratégie, Knowledge Hub). Les deux peuvent écrire dans le même journal.</description>
+</item>
+</channel>
+</rss>

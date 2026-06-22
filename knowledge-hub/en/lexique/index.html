@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Glossary — AI terms explained simply · Knowledge Hub</title>
+<meta name="description" content="The AI glossary by Hugo Lahutte: LLM, token, hallucination, AI agent, MCP, prompt, GEO… Clear definitions, with the guides and projects where each concept comes to life.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/lexique/">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/lexique/">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/lexique/">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/lexique/">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Glossary — explained simply">
+<meta property="og:description" content="AI terms defined clearly and linked to guides and projects.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/lexique/">
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260601h">
+<!-- JSON-LD DefinedTermSet : injected dynamically from glossaire.json (see script) -->
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
+      <li><a href="../guides/">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../a-propos/">About</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/lexique/" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" style="padding-block:var(--space-16) var(--space-8);">
+  <div class="container">
+    <p class="kicker">Understand to decide</p>
+    <h1>AI Glossary</h1>
+    <hr class="rule--accent">
+    <p class="lead">AI terms, explained simply. Hover (or tap) any <span class="lex-term" style="cursor:default">underlined</span> term anywhere on the site to see its definition. Here, the full list — with the guides and projects where each concept comes to life.</p>
+    <div class="lex-search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="search" id="lex-q" placeholder="Search a term (LLM, token, agent…)" aria-label="Search a term" autocomplete="off">
+    </div>
+    <nav class="lex-az" id="lex-az" aria-label="Alphabetical index"></nav>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <ul class="lex-list" id="lex-list"></ul>
+    <p class="caption" id="lex-empty" hidden>No terms found for this search.</p>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependency</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private space">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var listEl=document.getElementById('lex-list');
+  var emptyEl=document.getElementById('lex-empty');
+  var azEl=document.getElementById('lex-az');
+  var qEl=document.getElementById('lex-q');
+  var TERMS=[], q='';
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,n){ if(!n) return esc(t); try{var re=new RegExp('('+n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'); return esc(t).replace(re,'<mark>$1</mark>');}catch(e){return esc(t);} }
+  function letterOf(t){ var c=(t.terme||'').normalize('NFD').replace(/[̀-ͯ]/g,'')[0]; return /[A-Za-z]/.test(c)?c.toUpperCase():'#'; }
+  function lkList(arr){ return arr.map(function(it){ var s=(typeof it==='string')?{label:it}:it; return s.url ? '<a href="'+esc(s.url)+'">'+esc(s.label)+'</a>' : esc(s.label); }).join(' · '); }
+  function mdBold(s){ return (s||'').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>'); }
+
+  function buildAZ(){
+    var seen={}; azEl.innerHTML='';
+    TERMS.forEach(function(t){ var L=letterOf(t); if(!seen[L]){ seen[L]=1; var a=document.createElement('a'); a.href='#lex-'+L; a.textContent=L; azEl.appendChild(a); } });
+  }
+  function render(){
+    var n=q.trim().toLowerCase();
+    listEl.innerHTML=''; var shown=0; var curLetter='';
+    TERMS.forEach(function(t){
+      var hay=(t.terme+' '+(t.aliases||[]).join(' ')+' '+t.definition).toLowerCase();
+      if(n && hay.indexOf(n)<0) return;
+      shown++;
+      var L=letterOf(t);
+      var li=document.createElement('li'); li.className='lex-entry'; li.id='lex-'+t.id;
+      var anchor=''; if(L!==curLetter){ anchor='<span class="lex-anchor" id="lex-'+L+'" aria-hidden="true"></span>'; curLetter=L; }
+      var links='';
+      if((t.guides||[]).length){ links+='<span class="lk"><b>Guides</b>'+lkList(t.guides)+'</span>'; }
+      if((t.projets||[]).length){ links+='<span class="lk"><b>Projets</b>'+lkList(t.projets)+'</span>'; }
+      li.innerHTML=anchor+'<h2>'+hl(t.terme,n)+'</h2><p class="lex-entry__def">'+mdBold(hl(t.definition,n))+'</p>'+
+        (links?'<div class="lex-entry__links">'+links+'</div>':'');
+      listEl.appendChild(li);
+    });
+    emptyEl.hidden = shown>0;
+  }
+  qEl.addEventListener('input', function(){ q=qEl.value; render(); });
+
+  fetch('glossaire.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){
+    TERMS=d.slice().sort(function(a,b){ return a.terme.localeCompare(b.terme,'fr'); });
+    buildAZ(); render();
+    // JSON-LD DefinedTermSet (GEO)
+    var ld={"@context":"https://schema.org","@type":"DefinedTermSet","name":"AI Glossary — Knowledge Hub",
+      "url":"https://hl-consulting.tech/knowledge-hub/lexique/",
+      "hasDefinedTerm":TERMS.map(function(t){return {"@type":"DefinedTerm","name":t.terme,"description":t.definition};})};
+    var s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(ld); document.head.appendChild(s);
+  }).catch(function(){ emptyEl.hidden=false; emptyEl.textContent='Glossary unavailable.'; });
+})();
+</script>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

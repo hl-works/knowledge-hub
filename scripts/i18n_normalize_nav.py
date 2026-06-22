@@ -14,7 +14,7 @@ Idempotent. Ne touche pas aux pages FR.
 """
 import os, re
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "knowledge-hub")
 EN = os.path.join(ROOT, "en")
 REF = os.path.join(EN, "index.html")
 
