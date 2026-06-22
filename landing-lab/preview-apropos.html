@@ -136,17 +136,22 @@
   .e-btn-mini:hover { background: var(--e-bar); color: var(--e-on-bar); }
   .e-burger { display: none; }
 
-  /* ============ PALETTE SWITCHER ============ */
-  .e-palette {
-    display: flex; align-items: center; gap: 6px;
-    padding-left: 8px; margin-left: 2px;
-    border-left: var(--e-bw) solid var(--e-border);
+  /* ============ PALETTE SWITCHER (dropdown) ============ */
+  .e-palette { position: relative; padding-left: 8px; margin-left: 2px; border-left: var(--e-bw) solid var(--e-border); }
+  .e-palette-trigger { display: inline-flex; align-items: center; gap: 6px; }
+  .e-palette-dot { width: 15px; height: 15px; background: var(--e-signal); border: 2px solid currentColor; line-height: 0; }
+  .e-palette-menu {
+    position: absolute; top: calc(100% + 8px); right: 0; z-index: 60;
+    background: var(--e-panel); border: var(--e-bw) solid var(--e-border);
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow); padding: 12px;
   }
+  .e-palette-menu[hidden] { display: none; }
   .e-palette-label {
+    display: block; margin-bottom: 8px;
     font-family: "Space Mono", monospace; font-weight: 700; font-size: 10px;
     text-transform: uppercase; letter-spacing: 0.04em; line-height: 1;
   }
-  .e-swatches { display: flex; gap: 5px; flex-wrap: wrap; }
+  .e-swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
   .e-swatch {
     width: 24px; height: 24px; flex: 0 0 auto; padding: 0; cursor: pointer;
     background: var(--sw, #000); border: var(--e-bw) solid var(--e-border);
@@ -168,8 +173,6 @@
     .e-burger { display: inline-flex; margin-left: auto; order: 3; }
     .e-tools { order: 2; }
     .e-nav a { border: 2px solid var(--e-border); }
-    .e-palette { flex-wrap: wrap; }
-    .e-palette-label { width: 100%; }
     .e-swatch { width: 30px; height: 30px; }
   }
 
@@ -475,9 +478,14 @@
     <div class="e-tools">
       <button class="e-btn-mini" id="e-lang" aria-label="Language / Langue">FR/EN</button>
       <button class="e-btn-mini" id="e-theme" aria-label="Light / dark theme" title="Theme">◐</button>
-      <div class="e-palette" id="e-palette" role="group" aria-label="Couleur signal / Signal color">
-        <span class="e-palette-label" aria-hidden="true"><span class="e-fr">Signal</span><span class="e-en">Signal</span></span>
-        <div class="e-swatches" id="e-swatches"></div>
+      <div class="e-palette" id="e-palette">
+        <button class="e-btn-mini e-palette-trigger" id="e-palette-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Couleur signal / Signal colour" title="Couleur signal">
+          <span class="e-palette-dot" aria-hidden="true"></span><span aria-hidden="true">▾</span>
+        </button>
+        <div class="e-palette-menu" id="e-palette-menu" role="menu" hidden>
+          <span class="e-palette-label" aria-hidden="true"><span class="e-fr">Couleur signal</span><span class="e-en">Signal colour</span></span>
+          <div class="e-swatches" id="e-swatches"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -836,9 +844,35 @@
       b.setAttribute("aria-pressed", c.hex === active ? "true" : "false");
       b.setAttribute("aria-label",
         (root.getAttribute("data-lang") === "en" ? c.en : c.fr) + " — " + c.hex);
-      b.addEventListener("click", function () { applySignal(c.hex); });
+      b.addEventListener("click", function () {
+        applySignal(c.hex);
+        var m = document.getElementById("e-palette-menu"), t = document.getElementById("e-palette-trigger");
+        if (m) m.hidden = true; if (t) t.setAttribute("aria-expanded", "false");
+      });
       wrap.appendChild(b);
     });
+
+    // Dropdown couleur
+    var pTrigger = document.getElementById("e-palette-trigger");
+    var pMenu = document.getElementById("e-palette-menu");
+    if (pTrigger && pMenu) {
+      pTrigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var willOpen = pMenu.hidden;
+        pMenu.hidden = !willOpen;
+        pTrigger.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      });
+      document.addEventListener("click", function (e) {
+        if (!pMenu.hidden && !pMenu.contains(e.target) && !pTrigger.contains(e.target)) {
+          pMenu.hidden = true; pTrigger.setAttribute("aria-expanded", "false");
+        }
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !pMenu.hidden) {
+          pMenu.hidden = true; pTrigger.setAttribute("aria-expanded", "false"); pTrigger.focus();
+        }
+      });
+    }
 
     // Burger
     var burger = document.getElementById("e-burger");
