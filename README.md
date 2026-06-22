@@ -4,7 +4,11 @@ Journal de bord et méthode de tout ce que je construis avec Claude. Mi-portfoli
 mi-documentation opérationnelle. Site statique **HTML/CSS, zéro dépendance, zéro
 framework**, publié sur GitHub Pages.
 
-🔗 **Live** : https://hl-works.github.io/knowledge-hub/
+🔗 **Live** : landing https://hl-consulting.tech/ · Knowledge Hub https://hl-consulting.tech/knowledge-hub/
+
+> **Archi sous-chemins** (juin 2026) : racine = landing **HL Consulting** (`index.html`,
+> `/a-propos/`) ; le Knowledge Hub vit sous **`knowledge-hub/`**. Domaine custom via `CNAME`.
+> Prototypes de landing dans `landing-lab/` (noindex).
 
 ---
 

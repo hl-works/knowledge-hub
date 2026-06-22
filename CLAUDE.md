@@ -1,10 +1,21 @@
 # CLAUDE.md — Knowledge Hub (chargé auto par Claude Code)
 
-> Repo **public** : aucun secret ici. Site = `hl-works.github.io/knowledge-hub`.
-> Journal + méthode + guides + lexique + veille IA + portfolio. HTML/CSS statique,
-> GitHub Pages, **bilingue** FR (racine, défaut) / EN (miroir `/en/`).
-> Objectif double : SEO classique **et** GEO (être lu/cité par les LLMs).
-> MAJ : 2026-06-02.
+> Repo **public** : aucun secret ici.
+> **Architecture sous-chemins** (depuis juin 2026) : la **racine** = landing perso
+> **HL Consulting** (`hl-consulting.tech/` → `index.html` + `/a-propos/`, style
+> « corail brutalist », assets/favicons propres à la racine) ; le **Knowledge Hub**
+> vit sous **`knowledge-hub/`** (`hl-consulting.tech/knowledge-hub/`). Domaine custom
+> GitHub Pages (fichier `CNAME` à la racine). Journal + méthode + guides + lexique +
+> veille IA + portfolio, HTML/CSS statique, **bilingue** FR (défaut) / EN (miroir
+> `knowledge-hub/en/`). Objectif double : SEO **et** GEO (lu/cité par les LLMs).
+>
+> ⚠️ **Tous les chemins du Knowledge Hub ci-dessous sont désormais préfixés
+> `knowledge-hub/`** (ex. `knowledge-hub/journal/_template.html`,
+> `knowledge-hub/journal/index.html`, `knowledge-hub/style.css`,
+> `knowledge-hub/sitemap.xml`, `knowledge-hub/llms.txt`). Les scripts `scripts/*.py`
+> pointent déjà sur `knowledge-hub/` via leur `ROOT`. `landing-lab/` = prototypes de
+> la landing (noindex, exclus des workflows).
+> MAJ : 2026-06-22.
 
 ---
 
