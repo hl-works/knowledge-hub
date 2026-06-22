@@ -81,6 +81,11 @@ section{padding-block:var(--space-16);}
 .nav__wordmark{font-family:var(--font-display); text-transform:uppercase; font-size:1.15rem; font-stretch:125%; letter-spacing:-.01em; text-decoration:none; color:var(--text);}
 .nav__wordmark b{font-weight:900;}
 .nav__wordmark span{font-weight:600; letter-spacing:.04em; color:var(--text-muted);}
+/* Fil d'Ariane : HL Consulting › Knowledge Hub */
+.nav__brand{display:flex; align-items:baseline; gap:.45rem; flex-wrap:wrap; min-width:0;}
+.nav__crumb-home{font-family:var(--font-display); text-transform:uppercase; font-size:.72rem; font-weight:700; letter-spacing:.08em; color:var(--text-muted); text-decoration:none; white-space:nowrap;}
+.nav__crumb-home:hover,.nav__crumb-home:focus-visible{color:var(--c-red);}
+.nav__crumb-sep{color:var(--text-muted); font-size:.85rem; line-height:1;}
 .nav__links{display:flex; gap:var(--space-6); list-style:none; margin:0; padding:0; align-items:center; flex-wrap:nowrap;}
 .nav__links a{text-decoration:none; text-transform:uppercase; font-weight:700; font-size:.8125rem; letter-spacing:.08em;}
 .nav__links a:hover{color:var(--c-red);}
