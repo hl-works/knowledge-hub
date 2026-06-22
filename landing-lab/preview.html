@@ -174,9 +174,11 @@
     text-transform: uppercase; word-break: normal; overflow-wrap: normal; hyphens: none;
   }
   .e-tagline {
-    font-family: "Space Mono", monospace; font-weight: 700;
-    font-size: clamp(20px, 5vw, 40px); margin: 18px 0 4px; text-transform: uppercase;
+    font-family: "Space Mono", monospace; font-weight: 700; line-height: 1.14;
+    font-size: clamp(18px, 3.2vw, 30px); margin: 18px 0 6px; text-transform: uppercase;
+    max-width: 24ch;
   }
+  .e-tagline .e-hl { background: var(--e-bar); color: var(--e-on-bar); padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
   .e-subtag {
     font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 500;
     font-size: clamp(15px, 1.9vw, 19px); line-height: 1.35; margin: 0 0 4px; max-width: 38ch;
@@ -430,12 +432,12 @@
       </p>
       <h1 class="e-name">Hugo<br />Lahutte</h1>
       <p class="e-tagline">
-        <span class="e-fr">Je fais beaucoup de choses. Plutôt bien.</span>
-        <span class="e-en">I do a lot of things. Rather well.</span>
+        <span class="e-fr">Je rachète un magazine papier. Et je digitalise <span class="e-hl">tout le reste</span> avec l'IA.</span>
+        <span class="e-en">I'm buying a print magazine. And digitizing <span class="e-hl">everything else</span> with AI.</span>
       </p>
       <p class="e-subtag">
-        <span class="e-fr">HiFi, home cinéma, presse, web, marketing, achats — et une IA que je fais bosser dur.</span>
-        <span class="e-en">HiFi, home cinema, press, web, marketing, buying — and an AI I put to work.</span>
+        <span class="e-fr">DG de Cobra, éditeur de Haute Fidélité — la hi-fi, le home cinéma et tout ce qui fait vibrer.</span>
+        <span class="e-en">CEO of Cobra, publisher of Haute Fidélité — hi-fi, home cinema and everything that makes you feel.</span>
       </p>
       <ul class="e-tags" aria-label="Rôles / Roles">
         <li><a class="e-tag" href="#cobra">DG Cobra</a></li>
