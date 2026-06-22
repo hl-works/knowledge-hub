@@ -243,6 +243,34 @@
     text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
   }
 
+  /* ============ SAVOIR-FAIRE (infos, NON cliquable) ============ */
+  .e-skills-grid {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  }
+  .e-skill {
+    border-top: var(--e-bw) solid var(--e-border);
+    margin: -1.5px 0 0 0; padding: 18px 20px 22px;
+  }
+  /* hairline verticale entre colonnes, sans donner un look "bouton/carte" */
+  .e-skills-grid .e-skill:not(:nth-child(3n)) { border-right: var(--e-bw) solid var(--e-border); margin-right: -1.5px; }
+  .e-skill-k {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    text-transform: uppercase; letter-spacing: .04em; margin: 0 0 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .e-skill-k::before { content: "▸"; color: var(--e-signal); -webkit-text-fill-color: currentColor; }
+  html[data-theme="light"] .e-skill-k::before { color: var(--e-ink); }
+  .e-skill h3 { font-weight: 700; font-size: 19px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: -0.01em; }
+  .e-skill p { margin: 0; font-size: 14px; line-height: 1.4; }
+  @media (max-width: 760px) { .e-skills-grid { grid-template-columns: 1fr 1fr; }
+    .e-skills-grid .e-skill:not(:nth-child(3n)) { border-right: 0; margin-right: 0; }
+    .e-skills-grid .e-skill:nth-child(odd) { border-right: var(--e-bw) solid var(--e-border); margin-right: -1.5px; }
+  }
+  @media (max-width: 460px) { .e-skills-grid { grid-template-columns: 1fr; }
+    .e-skills-grid .e-skill:nth-child(odd) { border-right: 0; margin-right: 0; }
+  }
+
   /* ============ WORLDS GRID ============ */
   .e-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; }
   .e-block {
@@ -443,12 +471,11 @@
         <li><a class="e-tag" href="#cobra">DG Cobra</a></li>
         <li class="e-fr"><a class="e-tag" href="#mag">Éditeur Haute Fidélité</a></li>
         <li class="e-en"><a class="e-tag" href="#mag">Publisher Haute Fidélité</a></li>
-        <li class="e-fr"><a class="e-tag" href="#mag">Événementiel</a></li>
-        <li class="e-en"><a class="e-tag" href="#mag">Events</a></li>
-        <li class="e-fr"><a class="e-tag" href="#cobra">Transformation Retail</a></li>
-        <li class="e-en"><a class="e-tag" href="#cobra">Retail Transformation</a></li>
+        <li class="e-fr"><a class="e-tag" href="#savoir-faire">Événementiel</a></li>
+        <li class="e-en"><a class="e-tag" href="#savoir-faire">Events</a></li>
+        <li class="e-fr"><a class="e-tag" href="#savoir-faire">Vidéo &amp; YouTube</a></li>
+        <li class="e-en"><a class="e-tag" href="#savoir-faire">Video &amp; YouTube</a></li>
         <li><a class="e-tag" href="#hub">Claude Code</a></li>
-        <li><a class="e-tag" href="#hub">SEO + GEO</a></li>
       </ul>
       <div class="e-cta-row">
         <a class="e-btn e-btn-primary" href="https://hl-works.github.io/knowledge-hub/" target="_blank" rel="noopener">
@@ -473,6 +500,48 @@
       <span>BUILD IN PUBLIC ·&nbsp;</span><span>DG COBRA ·&nbsp;</span><span>ÉDITEUR HAUTE FIDÉLITÉ ·&nbsp;</span><span>RETAIL + E-COMMERCE ·&nbsp;</span><span>CLAUDE CODE ·&nbsp;</span><span>SEO + GEO ·&nbsp;</span><span>AUDIO + IMAGE ·&nbsp;</span>
     </div>
   </div>
+
+  <!-- ============ SAVOIR-FAIRE ============ -->
+  <section class="e-section" id="savoir-faire">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx e-mono">[ ✦ ]</span>
+        <h2 class="e-section-title"><span class="e-fr">Savoir-faire</span><span class="e-en">What I do</span></h2>
+      </div>
+      <ul class="e-skills-grid">
+        <li class="e-skill">
+          <p class="e-skill-k"><span class="e-fr">Direction &amp; transformation</span><span class="e-en">Leadership &amp; transformation</span></p>
+          <h3>Cobra</h3>
+          <p><span class="e-fr">DG aujourd'hui. Avant : de 10 à 62 M€ chez Son-Vidéo.com.</span><span class="e-en">CEO today. Before: from €10M to €62M at Son-Vidéo.com.</span></p>
+        </li>
+        <li class="e-skill">
+          <p class="e-skill-k"><span class="e-fr">Marketing · achats · web</span><span class="e-en">Marketing · buying · web</span></p>
+          <h3><span class="e-fr">Commerce</span><span class="e-en">Commerce</span></h3>
+          <p><span class="e-fr">Stratégie, pub on/offline, e-commerce, négociation, import de marques.</span><span class="e-en">Strategy, on/offline ads, e-commerce, negotiation, brand import.</span></p>
+        </li>
+        <li class="e-skill">
+          <p class="e-skill-k"><span class="e-fr">Événementiel</span><span class="e-en">Events</span></p>
+          <h3><span class="e-fr">Le salon</span><span class="e-en">The show</span></h3>
+          <p><span class="e-fr">Le salon Haute Fidélité (gros projet). Avant : Japan Expo, régie grande salle, 5 ans.</span><span class="e-en">The Haute Fidélité show (big project). Before: Japan Expo, main-stage management, 5 years.</span></p>
+        </li>
+        <li class="e-skill">
+          <p class="e-skill-k"><span class="e-fr">Vidéo &amp; YouTube</span><span class="e-en">Video &amp; YouTube</span></p>
+          <h3><span class="e-fr">Production</span><span class="e-en">Production</span></h3>
+          <p><span class="e-fr">10 ans de prod : chaînes, lives, films. Derrière la caméra — et devant.</span><span class="e-en">10 years of production: channels, lives, films. Behind the camera — and in front of it.</span></p>
+        </li>
+        <li class="e-skill">
+          <p class="e-skill-k"><span class="e-fr">Presse &amp; édition</span><span class="e-en">Press &amp; publishing</span></p>
+          <h3>Haute Fidélité</h3>
+          <p><span class="e-fr">Éditeur du dernier magazine hi-fi de référence encore en kiosque.</span><span class="e-en">Publisher of the last reference hi-fi magazine still on newsstands.</span></p>
+        </li>
+        <li class="e-skill">
+          <p class="e-skill-k"><span class="e-fr">Build avec l'IA</span><span class="e-en">Building with AI</span></p>
+          <h3>Claude Code</h3>
+          <p><span class="e-fr">Je construis mes outils et mon contenu avec l'IA. En public.</span><span class="e-en">I build my tools and content with AI. In public.</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <!-- ============ WORLDS ============ -->
   <section class="e-section" id="worlds">
