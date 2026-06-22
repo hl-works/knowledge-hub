@@ -4,7 +4,7 @@
 
 Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedin.com/in/hugo-lahutte · X: https://x.com/hugolh_ai
 
-Last updated: 2026-06-14
+Last updated: 2026-06-17
 
 ## Method
 
@@ -37,6 +37,7 @@ Last updated: 2026-06-14
 - [A site + an AI bot in a weekend?](https://hl-consulting.tech/knowledge-hub/en/guides/site-bot-ia-en-un-week-end.html): pillar guide — how a non-developer ships a static site and a serverless AI monitoring bot in one weekend with Claude Code (need, minimal stack, separation of concerns, visual loop, guardrails).
 - [Case study — Knowledge Hub](https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-knowledge-hub.html): from idea to production of a complete static site (vanilla HTML/CSS/JS, GitHub Pages, CSS token dark mode, GEO layer). Decisions, struggles (anti-FOUC, iOS cache), real time, zero token cost.
 - [Case study — AI monitoring bot](https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-veille-ia.html): a serverless agent (X/Twitter + RSS → Claude API → Telegram + feed.json on the site), orchestrated by GitHub Actions. 2-repo architecture, cross-repo bridge, CI struggles, real cost ~a few cents/day.
+- [Case study — Supplier invoice agent](https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-agent-facturation.html): an autonomous agent that reads email (Microsoft Graph), extracts invoices (OCR + Claude API), links them to the Odoo purchase order (guaranteed 3-way match, price check), and pushes them for approval in Teams. Hosted on a Scaleway instance, 15-min cron. Human drift quantified (~€2M off-chain) and a workflow that can no longer drift. What the agent doesn't do (bank reconciliation) said honestly.
 - [Making-of](https://hl-consulting.tech/knowledge-hub/en/guides/making-of.html): the story, from a dinner with friends to a "beautiful thing shipped in 2 days", side by side with Claude Code.
 
 ## About
@@ -58,8 +59,9 @@ Last updated: 2026-06-14
 - [HiFi Lovers](https://hl-consulting.tech/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
 - [Personal](https://hl-consulting.tech/knowledge-hub/en/perso/): side projects and experiments.
 
-## Journal (51 entries)
+## Journal (52 entries)
 
+- [The invoice agent goes to production: autonomous on Scaleway](https://hl-consulting.tech/knowledge-hub/en/journal/agent-factures-prod-scaleway.html): Cobra's supplier invoice processing agent now runs on its own on a Scaleway instance: it reads email every 15 min via Microsoft Graph, extracts each invoice (OCR + Claude API), links it to its Odoo purchase order (guaranteed 3-way match) and pushes it for approval in Teams. ~9-10 hrs/week saved — and above all a workflow that can no longer drift (before: ~€2M of invoices entered off-chain, €600k of lingering unpaid).
 - [Product AI agent — from one-shot script to dashboard CDC](https://hl-consulting.tech/knowledge-hub/en/journal/agent-produit-ia-cdc-dashboard.html): We created the 36 Davis variants by hand, in a Python script. Rather than starting over for every new brand, we formalized the method: a conversational AI agent on the Cobra dashboard that reads any source file and creates or updates Odoo products with no technical step.
 - [Davis catalog → Odoo: price-list extraction + creation brief (Krypton & Ariane)](https://hl-consulting.tech/knowledge-hub/en/journal/davis-odoo-krypton-ariane.html): Preparing the integration of a new speaker brand (Davis, Krypton + Ariane ranges) into Odoo 18: a clean extraction of the supplier price list into 11 models / 36 variants, and a Claude Code brief — read-only first, create only after a green light. Nothing created in the database yet — deliberately.
 - [HF-OS: a Next.js 16 + Payload 3 foundation deployed, admin login via Google](https://hl-consulting.tech/knowledge-hub/en/journal/hf-os-socle-deploiement.html): Bootstrapping then shipping the HF-OS technical foundation (Next.js 16 + Payload 3, Scaleway PostgreSQL, Render hosting), with admin login via Google SSO restricted to an allow-list. No business collections yet — just the deployed shell.

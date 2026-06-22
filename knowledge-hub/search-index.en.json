@@ -147,6 +147,13 @@
   "tags": "build-in-public claude-code github-pages geo guide"
  },
  {
+  "url": "/knowledge-hub/en/guides/etude-de-cas-agent-facturation.html",
+  "title": "Case study — An AI agent that processes supplier invoices in Odoo",
+  "excerpt": "An autonomous agent that reads email (Microsoft Graph), extracts invoices (OCR + Claude API), links them to the Odoo purchase order (guaranteed 3-way match, price check) and pushes them for approval in Teams. Hosted on a Scaleway instance, 15-min cron. Human drift quantified (~€2M off-chain) and a workflow that can no longer drift.",
+  "kind": "Guide",
+  "tags": "build-in-public agent-ia odoo api-claude scaleway teams guide"
+ },
+ {
   "url": "/knowledge-hub/en/guides/etude-de-cas-veille-ia.html",
   "title": "Case study — AI monitoring bot: from idea to production",
   "excerpt": "A serverless agent: X/Twitter + RSS → Claude API → Telegram + feed.json on the site, orchestrated by GitHub Actions. 2-repo architecture, cross-repo bridge, CI struggles, real cost ~a few cents/day.",
@@ -278,6 +285,13 @@
   "excerpt": "Automating Odoo product creation via multi-source triangulation (POS Excel, email screenshot, price photo). First pattern on the Sony Bravia FY26 catalog.",
   "kind": "Journal",
   "tags": "agent, data, en-cours"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/agent-factures-prod-scaleway.html",
+  "title": "The invoice agent goes to production: autonomous on Scaleway",
+  "excerpt": "Cobra's supplier invoice processing agent now runs on its own on a Scaleway instance: it reads email every 15 min via Microsoft Graph, extracts each invoice (OCR + Claude API), links it to its Odoo purchase order (guaranteed 3-way match) and pushes it for approval in Teams. ~9-10 hrs/week saved — and a workflow that can no longer drift.",
+  "kind": "Journal",
+  "tags": "agent odoo-dev infra en-prod cobra"
  },
  {
   "url": "/knowledge-hub/en/journal/agent-factures-architecture.html",
