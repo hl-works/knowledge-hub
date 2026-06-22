@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hugo Lahutte — Le CV vivant / Living résumé</title>
+<meta name="description" content="Le CV vivant de Hugo Lahutte — multi-casquette, passionné d'audio, d'image et d'émotion. Build in public avec Claude.">
+
+<!-- ===== CHAPEAU : head links + anti-FOUC (verbatim from _chapeau.html) ===== -->
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* shared.css inlined for standalone preview */
+/* ============================================================
+   HL CONSULTING — CHAPEAU PARTAGÉ (header + footer + base)
+   Réutilisable au-dessus de tous les univers. Zéro dépendance.
+   Light/Dark via [data-theme]. FR/EN via [data-lang].
+   Chaque landing AJOUTE son propre <style> pour son hero.
+   ============================================================ */
+
+/* ---------- Tokens ---------- */
+:root{
+  /* palette socle (héritée du Knowledge Hub) */
+  --c-red:#C6121F; --c-black:#0C0C0C; --c-offwhite:#FFFCF8;
+  --c-sand:#E2D2BF; --c-platinum:#E7E9ED;
+  --c-gold:#FAB62F; --c-indigo:#39359E; --c-sunset:#EA5045; --c-violet:#926FC1;
+  --c-steel:#8A8F98;
+
+  /* accents par univers (le fil qui relie les mondes) */
+  --w-hub:#C6121F;        /* Knowledge Hub — la star */
+  --w-cobra:#39359E;      /* Cobra — tech / Odoo·Shopify·agents */
+  --w-hifi:#FAB62F;       /* HiFi Lovers / HL Média — néo-rétro */
+  --w-mag:#0C0C0C;        /* Haute Fidélité — encre presse premium */
+  --w-legacy:#8A8F98;     /* Son-Vidéo — parcours / legacy */
+
+  /* thème clair (défaut) */
+  --bg:var(--c-offwhite); --surface:#FFFFFF; --surface-2:#F6F1E9;
+  --text:var(--c-black); --text-muted:#6B6B6B;
+  --border:rgba(12,12,12,.12); --border-strong:rgba(12,12,12,.55);
+  --hd-bg:rgba(255,252,248,.72); --hd-border:rgba(12,12,12,.10);
+  --shadow:0 1px 2px rgba(12,12,12,.04), 0 8px 30px rgba(12,12,12,.06);
+
+  /* type */
+  --f-display:"Archivo","Satoshi",system-ui,sans-serif;
+  --f-body:"Satoshi",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --maxw:1200px;
+  --radius:14px; --radius-sm:9px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+[data-theme="dark"]{
+  --bg:#1A1813; --surface:#221F18; --surface-2:#2C2820;
+  --text:var(--c-offwhite); --text-muted:#A89F92;
+  --border:rgba(255,252,248,.14); --border-strong:rgba(255,252,248,.5);
+  --hd-bg:rgba(26,24,19,.72); --hd-border:rgba(255,252,248,.12);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 40px rgba(0,0,0,.4);
+  --c-red:#F2453F; --w-hub:#F2453F; --w-cobra:#8E8BE6; --w-mag:#FFFCF8;
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--f-body);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  transition:background .4s var(--ease),color .4s var(--ease)}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;color:inherit}
+.container{width:min(100% - 2.4rem,var(--maxw));margin-inline:auto}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--text);color:var(--bg);
+  padding:.6rem 1rem;z-index:100;border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+:focus-visible{outline:2.5px solid var(--w-hub);outline-offset:3px;border-radius:3px}
+
+/* i18n : on affiche la langue active, on masque l'autre */
+[data-lang="fr"] [data-en]{display:none}
+[data-lang="en"] [data-fr]{display:none}
+
+/* ============================================================
+   HEADER — chapeau commun
+   ============================================================ */
+.hl-hd{position:sticky;top:0;z-index:50;
+  background:var(--hd-bg);backdrop-filter:saturate(140%) blur(14px);
+  -webkit-backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid var(--hd-border)}
+.hl-hd__in{display:flex;align-items:center;gap:1.2rem;
+  height:62px}
+.hl-brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;
+  letter-spacing:-.01em;white-space:nowrap}
+.hl-mono{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;
+  background:var(--text);color:var(--bg);font-family:var(--f-display);
+  font-weight:900;font-size:.95rem;letter-spacing:-.04em;flex:none}
+.hl-brand__txt{font-family:var(--f-display);font-size:1.02rem}
+.hl-brand__txt b{font-weight:900}
+.hl-brand__txt span{color:var(--text-muted);font-weight:600}
+.hl-nav{margin-left:auto;display:flex;align-items:center;gap:.15rem}
+.hl-nav a{position:relative;text-decoration:none;font-weight:600;font-size:.92rem;
+  padding:.5rem .7rem;border-radius:8px;color:var(--text-muted);
+  transition:color .2s,background .2s}
+.hl-nav a:hover{color:var(--text);background:color-mix(in srgb,var(--text) 7%,transparent)}
+.hl-nav a .dot{width:6px;height:6px;border-radius:50%;display:inline-block;
+  margin-right:.4rem;vertical-align:middle;background:var(--acc,var(--w-hub))}
+.hl-tools{display:flex;align-items:center;gap:.3rem;margin-left:.4rem;padding-left:.7rem;
+  border-left:1px solid var(--border)}
+.hl-btn{display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--border);
+  border-radius:9px;background:transparent;transition:border-color .2s,background .2s}
+.hl-btn:hover{border-color:var(--border-strong);background:color-mix(in srgb,var(--text) 5%,transparent)}
+.hl-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.hl-lang{font-family:var(--f-mono);font-size:.78rem;font-weight:600;width:auto;padding:0 .55rem;gap:.2rem}
+.hl-lang b{font-weight:700}.hl-lang .off{color:var(--text-muted);font-weight:400}
+.ic-moon{display:none}[data-theme="dark"] .ic-sun{display:none}
+[data-theme="dark"] .ic-moon{display:block}
+.hl-burger{display:none}
+@media (max-width:880px){
+  .hl-nav{position:fixed;inset:62px 0 auto 0;flex-direction:column;align-items:stretch;
+    gap:.1rem;padding:1rem 1.2rem 1.4rem;background:var(--bg);
+    border-bottom:1px solid var(--border);transform:translateY(-130%);
+    transition:transform .35s var(--ease);box-shadow:var(--shadow)}
+  .hl-nav.open{transform:translateY(0)}
+  .hl-nav a{font-size:1.05rem;padding:.8rem .6rem}
+  .hl-tools{margin:.6rem 0 0;border-left:0;border-top:1px solid var(--border);
+    padding:.7rem 0 0;justify-content:flex-start}
+  .hl-burger{display:grid;margin-left:auto}
+}
+
+/* ============================================================
+   FOOTER — chapeau commun
+   ============================================================ */
+.hl-ft{background:var(--surface);border-top:1px solid var(--border);margin-top:0;
+  padding:clamp(2.4rem,5vw,4rem) 0 2rem}
+.hl-ft__grid{display:grid;gap:2rem 2.4rem;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr}
+.hl-ft h4{font-family:var(--f-display);font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--text-muted);margin:0 0 1rem}
+.hl-ft ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+.hl-ft a{text-decoration:none;color:var(--text);font-size:.92rem;opacity:.85;
+  transition:opacity .2s,color .2s}
+.hl-ft a:hover{opacity:1;color:var(--w-hub)}
+.hl-ft .muted{color:var(--text-muted);font-size:.85rem;line-height:1.5}
+.hl-ft__brand .hl-brand{margin-bottom:.9rem}
+.hl-ft__bottom{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
+  align-items:center;margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--border)}
+.hl-ft__kata{font-family:var(--f-mono);color:var(--text-muted);letter-spacing:.3em;font-size:.85rem}
+.hl-cta-mail{display:inline-flex;align-items:center;gap:.5rem;margin-top:.9rem;
+  font-family:var(--f-mono);font-size:.86rem;text-decoration:none;
+  border:1px solid var(--border-strong);border-radius:999px;padding:.5rem .9rem;
+  transition:background .2s,color .2s}
+.hl-cta-mail:hover{background:var(--text);color:var(--bg)}
+@media (max-width:760px){.hl-ft__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.hl-ft__grid{grid-template-columns:1fr}}
+
+</style>
+<script>/* anti-FOUC : applique thème + langue avant paint */
+(function(){try{var t=localStorage.getItem("hl-theme");
+ document.documentElement.setAttribute("data-theme",(t==="dark"||t==="light")?t:
+   (matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
+ var l=localStorage.getItem("hl-lang");
+ document.documentElement.setAttribute("data-lang",(l==="en")?"en":"fr");
+ document.documentElement.setAttribute("lang",(l==="en")?"en":"fr");
+}catch(e){document.documentElement.setAttribute("data-theme","light");
+ document.documentElement.setAttribute("data-lang","fr");}})();</script>
+
+<!-- ===== LANDING A — "LA CONSOLE / TABLE DE MIXAGE" ===== -->
+<style>
+/* All classes prefixed a- to avoid clash with shared.css */
+
+/* ---------- console surface variables ---------- */
+.a-main{
+  --a-panel:linear-gradient(180deg,#2b2722 0%,#211d18 100%);
+  --a-panel-light:linear-gradient(180deg,#fbf7f0 0%,#efe7da 100%);
+  --a-metal:repeating-linear-gradient(90deg,
+     rgba(255,255,255,.04) 0px,rgba(255,255,255,.04) 1px,
+     rgba(0,0,0,.05) 2px,rgba(0,0,0,.05) 3px);
+  --a-screen:#11140f;
+  display:block;
+}
+
+/* ============== HERO / MASTER SECTION ============== */
+.a-hero{position:relative;padding:clamp(2.4rem,6vw,4.5rem) 0 clamp(2rem,5vw,3.5rem);overflow:hidden}
+.a-hero::before{ /* ambient screen glow */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 50% at 18% 25%,
+    color-mix(in srgb,var(--w-hifi) 16%,transparent),transparent 70%);
+  opacity:.7;
+}
+.a-console{
+  position:relative;border-radius:var(--radius);
+  background:var(--a-panel-light);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.6);
+  overflow:hidden;
+}
+[data-theme="dark"] .a-console{
+  background:var(--a-panel);
+  box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.a-console::after{ /* brushed metal sheen overlay */
+  content:"";position:absolute;inset:0;background:var(--a-metal);opacity:.5;
+  pointer-events:none;mix-blend-mode:overlay;
+}
+.a-console__top{
+  display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+  padding:.7rem clamp(1rem,3vw,1.6rem);
+  border-bottom:1px solid var(--border);
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;color:var(--text-muted);
+  text-transform:uppercase;
+}
+.a-console__top .a-led{width:8px;height:8px;border-radius:50%;background:var(--w-hifi);
+  box-shadow:0 0 8px var(--w-hifi);animation:a-pulse 2.4s var(--ease) infinite;flex:none}
+.a-console__brand{font-weight:600;color:var(--text);letter-spacing:.18em}
+.a-console__sn{margin-left:auto}
+@keyframes a-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.a-console__body{
+  display:grid;grid-template-columns:1.55fr .95fr;gap:clamp(1.2rem,3vw,2.4rem);
+  align-items:center;padding:clamp(1.4rem,4vw,2.8rem) clamp(1rem,3vw,1.6rem);
+}
+@media (max-width:820px){.a-console__body{grid-template-columns:1fr;gap:1.6rem}}
+
+.a-kicker{font-family:var(--f-mono);font-size:.78rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--w-hub);margin:0 0 .9rem;display:flex;align-items:center;gap:.5rem}
+.a-kicker .a-dot{width:7px;height:7px;border-radius:50%;background:var(--w-hub)}
+.a-name{font-family:var(--f-display);font-weight:900;line-height:.95;letter-spacing:-.03em;
+  font-size:clamp(2.7rem,8vw,5.2rem);margin:0 0 .6rem}
+.a-name em{font-style:normal;color:var(--w-hifi)}
+.a-tag{font-family:var(--f-display);font-weight:600;font-size:clamp(1.1rem,2.6vw,1.5rem);
+  letter-spacing:-.01em;margin:0 0 .5rem}
+.a-lede{color:var(--text-muted);font-size:1.02rem;max-width:46ch;margin:0 0 1.5rem}
+.a-lede b{color:var(--text);font-weight:700}
+
+.a-actions{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.a-cta{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;font-weight:700;
+  font-family:var(--f-display);font-size:.98rem;padding:.85rem 1.3rem;border-radius:999px;
+  background:var(--w-hub);color:#fff;border:1px solid transparent;
+  box-shadow:0 6px 18px color-mix(in srgb,var(--w-hub) 40%,transparent);
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.a-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px color-mix(in srgb,var(--w-hub) 50%,transparent)}
+.a-cta .a-arr{transition:transform .2s var(--ease)}
+.a-cta:hover .a-arr{transform:translateX(3px)}
+.a-cta--ghost{background:transparent;color:var(--text);border:1px solid var(--border-strong);
+  box-shadow:none;font-weight:600}
+.a-cta--ghost:hover{background:color-mix(in srgb,var(--text) 7%,transparent);box-shadow:none}
+
+/* ---------- the SIGNATURE element : VU / EQ screen ---------- */
+.a-vu{
+  background:var(--a-screen);border-radius:var(--radius-sm);
+  border:1px solid rgba(0,0,0,.6);padding:1rem 1.1rem 1.1rem;
+  box-shadow:inset 0 2px 14px rgba(0,0,0,.75),0 1px 0 rgba(255,255,255,.18);
+  position:relative;color:#cfe9c4;
+}
+.a-vu__hd{display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem;
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#8fd07a}
+.a-vu__hd .a-rec{width:8px;height:8px;border-radius:50%;background:#FAB62F;
+  box-shadow:0 0 8px #FAB62F;animation:a-pulse 1.6s var(--ease) infinite;flex:none}
+.a-vu__hd .a-now{font-weight:600;color:#d6f0c9}
+.a-vu__sub{margin-left:auto;color:#5f8a52;font-size:.62rem;letter-spacing:.1em}
+
+/* equalizer bars */
+.a-eq{display:flex;align-items:flex-end;gap:5px;height:90px;margin-bottom:.85rem}
+.a-eq span{flex:1;border-radius:3px 3px 1px 1px;
+  background:linear-gradient(180deg,#FAB62F 0%,#9bd07a 55%,#3f7a3a 100%);
+  transform-origin:bottom;animation:a-bar 1.9s var(--ease) infinite;
+  box-shadow:0 0 6px rgba(155,208,122,.4)}
+.a-eq span:nth-child(1){animation-delay:-.1s}
+.a-eq span:nth-child(2){animation-delay:-.6s}
+.a-eq span:nth-child(3){animation-delay:-.3s}
+.a-eq span:nth-child(4){animation-delay:-.9s}
+.a-eq span:nth-child(5){animation-delay:-.45s}
+.a-eq span:nth-child(6){animation-delay:-1.2s}
+.a-eq span:nth-child(7){animation-delay:-.2s}
+.a-eq span:nth-child(8){animation-delay:-.75s}
+.a-eq span:nth-child(9){animation-delay:-.5s}
+.a-eq span:nth-child(10){animation-delay:-1s}
+.a-eq span:nth-child(11){animation-delay:-.35s}
+.a-eq span:nth-child(12){animation-delay:-.85s}
+@keyframes a-bar{0%,100%{transform:scaleY(.22)}25%{transform:scaleY(.85)}
+  50%{transform:scaleY(.45)}75%{transform:scaleY(1)}}
+.a-vu__ticker{font-family:var(--f-mono);font-size:.72rem;color:#9fce8d;
+  border-top:1px solid rgba(143,208,122,.18);padding-top:.7rem;line-height:1.5}
+.a-vu__ticker b{color:#FAB62F;font-weight:600}
+
+/* console feet : knurled knob + faders strip */
+.a-rack{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+  padding:.9rem clamp(1rem,3vw,1.6rem);border-top:1px solid var(--border);
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;color:var(--text-muted)}
+.a-knob{width:38px;height:38px;border-radius:50%;flex:none;position:relative;
+  background:
+    radial-gradient(circle at 50% 38%,rgba(255,255,255,.5),transparent 45%),
+    repeating-conic-gradient(from 0deg,#7d7468 0deg 6deg,#574f45 6deg 12deg);
+  box-shadow:0 2px 6px rgba(0,0,0,.4),inset 0 0 0 4px rgba(0,0,0,.18)}
+.a-knob::after{content:"";position:absolute;top:5px;left:50%;width:2px;height:11px;
+  margin-left:-1px;background:var(--w-hifi);border-radius:2px;box-shadow:0 0 5px var(--w-hifi)}
+
+/* ============== SECTION SHELL ============== */
+.a-sec{padding:clamp(2.6rem,6vw,4.2rem) 0}
+.a-sec__hd{display:flex;align-items:baseline;gap:.9rem;margin:0 0 1.6rem;flex-wrap:wrap}
+.a-sec__label{font-family:var(--f-mono);font-size:.74rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--text-muted)}
+.a-sec__title{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;
+  font-size:clamp(1.5rem,3.5vw,2.1rem);margin:0}
+
+/* ============== CHANNEL STRIPS (the worlds) ============== */
+.a-strips{display:flex;flex-direction:column;gap:1rem}
+.a-strip{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1rem,3vw,1.8rem);
+  align-items:center;text-decoration:none;color:inherit;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:clamp(1.1rem,3vw,1.6rem) clamp(1.1rem,3vw,1.7rem);
+  box-shadow:var(--shadow);overflow:hidden;
+  transition:transform .22s var(--ease),border-color .22s var(--ease),box-shadow .22s var(--ease)}
+.a-strip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+  background:var(--acc,var(--w-hub))}
+.a-strip:hover{transform:translateX(4px);border-color:color-mix(in srgb,var(--acc) 55%,var(--border))}
+@media (max-width:680px){.a-strip{grid-template-columns:auto 1fr;gap:.9rem 1rem}}
+
+/* channel number / fader cell */
+.a-strip__ch{display:flex;align-items:center;gap:.85rem}
+.a-strip__num{font-family:var(--f-mono);font-size:.78rem;color:var(--text-muted);
+  letter-spacing:.05em;flex:none}
+.a-strip__fader{width:14px;height:54px;border-radius:8px;background:var(--surface-2);
+  border:1px solid var(--border);position:relative;flex:none}
+.a-strip__fader::after{content:"";position:absolute;left:50%;width:18px;height:9px;
+  margin-left:-9px;border-radius:3px;background:var(--acc,var(--w-hub));
+  bottom:var(--lvl,55%);box-shadow:0 1px 3px rgba(0,0,0,.4)}
+@media (max-width:680px){.a-strip__fader{display:none}}
+
+.a-strip__main{min-width:0}
+.a-strip__name{font-family:var(--f-display);font-weight:800;font-size:1.18rem;
+  letter-spacing:-.01em;margin:0 0 .25rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.a-strip__meta{font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.06em;
+  color:var(--text-muted);border:1px solid var(--border);border-radius:999px;
+  padding:.12rem .55rem;text-transform:uppercase}
+.a-strip__desc{color:var(--text-muted);font-size:.95rem;margin:0;max-width:62ch}
+.a-strip__desc b{color:var(--text);font-weight:700}
+
+.a-strip__go{display:flex;align-items:center;gap:.5rem;font-family:var(--f-mono);
+  font-size:.78rem;letter-spacing:.08em;color:var(--text-muted);white-space:nowrap;
+  transition:color .2s}
+.a-strip:hover .a-strip__go{color:var(--acc,var(--w-hub))}
+.a-strip__go .a-arr{transition:transform .2s var(--ease)}
+.a-strip:hover .a-strip__go .a-arr{transform:translateX(3px)}
+@media (max-width:680px){.a-strip__go{grid-column:1/-1;justify-content:flex-end}}
+
+/* STAR strip = Knowledge Hub */
+.a-strip--star{background:
+   linear-gradient(180deg,color-mix(in srgb,var(--w-hub) 8%,var(--surface)),var(--surface));
+  border-color:color-mix(in srgb,var(--w-hub) 35%,var(--border));
+  box-shadow:var(--shadow),0 0 0 1px color-mix(in srgb,var(--w-hub) 12%,transparent)}
+.a-strip--star .a-strip__name{font-size:1.42rem}
+.a-badge-star{font-family:var(--f-mono);font-size:.6rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:#fff;background:var(--w-hub);border-radius:999px;
+  padding:.18rem .55rem}
+
+/* ============== PARCOURS / specs panel ============== */
+.a-specs{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:clamp(1.4rem,4vw,2.2rem)}
+.a-specs__lede{color:var(--text-muted);max-width:62ch;margin:0 0 1.6rem}
+.a-specs__lede b{color:var(--text);font-weight:700}
+.a-specrow{display:grid;grid-template-columns:170px 1fr;gap:.6rem 1.4rem;
+  padding:.85rem 0;border-top:1px solid var(--border)}
+.a-specrow:first-of-type{border-top:0}
+.a-specrow dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--w-legacy);margin:0}
+.a-specrow dd{margin:0;color:var(--text)}
+@media (max-width:560px){.a-specrow{grid-template-columns:1fr;gap:.2rem}}
+</style>
+</head>
+<body>
+
+<!-- ===== CHAPEAU : HEADER (verbatim from _chapeau.html) ===== -->
+<a class="skip-link" href="#main" data-fr>Aller au contenu</a><a class="skip-link" href="#main" data-en>Skip to content</a>
+<header class="hl-hd">
+  <div class="container hl-hd__in">
+    <a class="hl-brand" href="#top" aria-label="HL Consulting — accueil">
+      <span class="hl-mono">HL</span>
+      <span class="hl-brand__txt"><b>Hugo Lahutte</b> <span>· Consulting</span></span>
+    </a>
+    <button class="hl-btn hl-burger" aria-label="Menu" aria-expanded="false" aria-controls="hl-nav">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="hl-nav" id="hl-nav" aria-label="Univers">
+      <a href="#hub"    style="--acc:var(--w-hub)"><span class="dot"></span>Knowledge Hub</a>
+      <a href="#cobra"  style="--acc:var(--w-cobra)"><span class="dot"></span>Cobra</a>
+      <a href="#hifi"   style="--acc:var(--w-hifi)"><span class="dot"></span>HiFi Lovers</a>
+      <a href="#mag"    style="--acc:var(--w-mag)"><span class="dot"></span><span data-fr>Haute Fidélité</span><span data-en>Haute Fidélité</span></a>
+      <a href="#parcours" style="--acc:var(--w-legacy)"><span class="dot"></span><span data-fr>Parcours</span><span data-en>Career</span></a>
+      <div class="hl-tools">
+        <button class="hl-btn hl-lang" data-lang-toggle aria-label="Switch language">
+          <b data-fr>FR</b><span class="off" data-fr>/EN</span><b data-en>EN</b><span class="off" data-en>/FR</span>
+        </button>
+        <button class="hl-btn" data-theme-toggle aria-label="Thème clair / sombre" title="Thème">
+          <svg class="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg>
+          <svg class="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== MY MAIN ===== -->
+<main id="main" class="a-main">
+
+  <!-- ===== HERO / MASTER ===== -->
+  <section class="a-hero" id="top">
+    <div class="container">
+      <div class="a-console">
+
+        <div class="a-console__top">
+          <span class="a-led" aria-hidden="true"></span>
+          <span class="a-console__brand">HL CONSULTING</span>
+          <span data-fr>Console de pilotage · multi-casquette</span>
+          <span data-en>Operator's console · multi-hat</span>
+          <span class="a-console__sn">MODEL · HL-2026 · MASTER</span>
+        </div>
+
+        <div class="a-console__body">
+          <div>
+            <p class="a-kicker">
+              <span class="a-dot" aria-hidden="true"></span>
+              <span data-fr>Le CV vivant de Hugo Lahutte</span>
+              <span data-en>Hugo Lahutte's living résumé</span>
+            </p>
+            <h1 class="a-name">Hugo<br>L<em>a</em>hutte</h1>
+            <p class="a-tag">
+              <span data-fr>Multi-casquette — audio, image &amp; émotion.</span>
+              <span data-en>Multi-hat — audio, image &amp; emotion.</span>
+            </p>
+            <p class="a-lede">
+              <span data-fr>Opérateur à la console : je pilote cinq univers depuis le même desk. <b>Build in public avec Claude</b> — ce CV se met à jour en continu, alimenté par le Knowledge Hub.</span>
+              <span data-en>The operator at the desk: I run five worlds from the same console. <b>Building in public with Claude</b> — this résumé updates continuously, powered by the Knowledge Hub.</span>
+            </p>
+            <div class="a-actions">
+              <a class="a-cta" href="https://hl-works.github.io/knowledge-hub/" target="_blank" rel="noopener">
+                <span data-fr>Ouvrir le Knowledge Hub</span><span data-en>Open the Knowledge Hub</span>
+                <span class="a-arr" aria-hidden="true">→</span>
+              </a>
+              <a class="a-cta a-cta--ghost" href="#hub">
+                <span data-fr>Voir les univers</span><span data-en>See the worlds</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- SIGNATURE : VU / EQ screen -->
+          <div class="a-vu" role="img"
+               aria-label="Écran VU-mètre style hi-fi affichant un égaliseur animé. Voyant EN DIRECT : ce CV vivant se met à jour en continu, alimenté par le Knowledge Hub.">
+            <div class="a-vu__hd">
+              <span class="a-rec" aria-hidden="true"></span>
+              <span class="a-now"><span data-fr>EN DIRECT</span><span data-en>NOW · LIVE</span></span>
+              <span class="a-vu__sub">CV · LIVING FEED</span>
+            </div>
+            <div class="a-eq" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="a-vu__ticker">
+              <span data-fr><b>● REC</b> — ce CV se met à jour en continu, alimenté par le <b>Knowledge Hub</b>.</span>
+              <span data-en><b>● REC</b> — this résumé updates continuously, powered by the <b>Knowledge Hub</b>.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="a-rack">
+          <span class="a-knob" aria-hidden="true"></span>
+          <span data-fr>5 univers · 1 opérateur · niveaux calés</span>
+          <span data-en>5 worlds · 1 operator · levels set</span>
+          <span style="margin-left:auto">EQ · LIVE · GAIN +6dB</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORLDS = CHANNEL STRIPS ===== -->
+  <section class="a-sec" aria-labelledby="a-worlds-h">
+    <div class="container">
+      <div class="a-sec__hd">
+        <span class="a-sec__label">CH 01–05 · INPUTS</span>
+        <h2 class="a-sec__title" id="a-worlds-h">
+          <span data-fr>Les voies de la console</span>
+          <span data-en>The console channels</span>
+        </h2>
+      </div>
+
+      <div class="a-strips">
+
+        <!-- STAR : Knowledge Hub -->
+        <a class="a-strip a-strip--star" id="hub" href="https://hl-works.github.io/knowledge-hub/"
+           target="_blank" rel="noopener" style="--acc:var(--w-hub)">
+          <span class="a-strip__ch">
+            <span class="a-strip__num">CH 01</span>
+            <span class="a-strip__fader" style="--lvl:78%" aria-hidden="true"></span>
+          </span>
+          <span class="a-strip__main">
+            <span class="a-strip__name">Knowledge Hub
+              <span class="a-badge-star"><span data-fr>La star</span><span data-en>The star</span></span>
+            </span>
+            <p class="a-strip__desc">
+              <span data-fr><b>Le hub de contenu qui alimente ce CV vivant</b> — méthode, guides, veille IA, journal, lexique. Bilingue FR/EN, pensé SEO + GEO (lu et cité par les LLMs). « Tout ce que j'apprends en IA, documenté en public. »</span>
+              <span data-en><b>The content hub that powers this living résumé</b> — method, guides, AI watch, journal, glossary. Bilingual FR/EN, built for SEO + GEO (read and cited by LLMs). "Everything I learn in AI, documented in public."</span>
+            </p>
+          </span>
+          <span class="a-strip__go">
+            <span data-fr>Ouvrir</span><span data-en>Open</span>
+            <span class="a-arr" aria-hidden="true">→</span>
+          </span>
+        </a>
+
+        <!-- Cobra -->
+        <a class="a-strip" id="cobra" href="https://www.cobra.fr" target="_blank" rel="noopener"
+           style="--acc:var(--w-cobra)">
+          <span class="a-strip__ch">
+            <span class="a-strip__num">CH 02</span>
+            <span class="a-strip__fader" style="--lvl:70%" aria-hidden="true"></span>
+          </span>
+          <span class="a-strip__main">
+            <span class="a-strip__name">Cobra
+              <span class="a-strip__meta"><span data-fr>oct. 2024 · DG</span><span data-en>Oct 2024 · CEO</span></span>
+            </span>
+            <p class="a-strip__desc">
+              <span data-fr>Enseigne emblématique HiFi &amp; Home Cinéma ; je pilote sa transformation — repositionnement, retail &amp; e-commerce (cobra.fr), digitalisation, dev <b>Odoo/Shopify</b>, agents IA. Mon terrain de jeu Claude Code.</span>
+              <span data-en>Iconic HiFi &amp; Home Cinema retailer; I'm driving its transformation — repositioning, retail &amp; e-commerce (cobra.fr), digitalisation, <b>Odoo/Shopify</b> dev, AI agents. My Claude Code playground.</span>
+            </p>
+          </span>
+          <span class="a-strip__go">
+            <span>cobra.fr</span><span class="a-arr" aria-hidden="true">→</span>
+          </span>
+        </a>
+
+        <!-- HiFi Lovers -->
+        <a class="a-strip" id="hifi" href="#hifi" style="--acc:var(--w-hifi)">
+          <span class="a-strip__ch">
+            <span class="a-strip__num">CH 03</span>
+            <span class="a-strip__fader" style="--lvl:52%" aria-hidden="true"></span>
+          </span>
+          <span class="a-strip__main">
+            <span class="a-strip__name">HiFi Lovers
+              <span class="a-strip__meta">HL Média</span>
+            </span>
+            <p class="a-strip__desc">
+              <span data-fr><b>Marque néo-rétro audiophile</b> — musique, cinéma, design, culture pop. Univers HL Média, extensible.</span>
+              <span data-en><b>Neo-retro audiophile brand</b> — music, cinema, design, pop culture. Part of the HL Média universe, extensible.</span>
+            </p>
+          </span>
+          <span class="a-strip__go">
+            <span data-fr>Bientôt</span><span data-en>Soon</span>
+            <span class="a-arr" aria-hidden="true">→</span>
+          </span>
+        </a>
+
+        <!-- Haute Fidélité -->
+        <a class="a-strip" id="mag" href="https://www.hautefidelite-hifi.com" target="_blank" rel="noopener"
+           style="--acc:var(--w-mag)">
+          <span class="a-strip__ch">
+            <span class="a-strip__num">CH 04</span>
+            <span class="a-strip__fader" style="--lvl:66%" aria-hidden="true"></span>
+          </span>
+          <span class="a-strip__main">
+            <span class="a-strip__name">Haute Fidélité
+              <span class="a-strip__meta"><span data-fr>janv. 2025 · Éditeur</span><span data-en>Jan 2025 · Publisher</span></span>
+            </span>
+            <p class="a-strip__desc">
+              <span data-fr><b>Reprise et relance du magazine de référence</b> depuis 30+ ans — dernier titre spécialisé en kiosque. Nouvelle formule 2025 : presse papier premium + digital.</span>
+              <span data-en><b>Taking over and relaunching the reference magazine</b> for 30+ years — the last specialist title on newsstands. New 2025 formula: premium print + digital.</span>
+            </p>
+          </span>
+          <span class="a-strip__go">
+            <span>hautefidelite-hifi.com</span><span class="a-arr" aria-hidden="true">→</span>
+          </span>
+        </a>
+
+        <!-- Parcours -->
+        <a class="a-strip" href="#parcours" style="--acc:var(--w-legacy)">
+          <span class="a-strip__ch">
+            <span class="a-strip__num">CH 05</span>
+            <span class="a-strip__fader" style="--lvl:44%" aria-hidden="true"></span>
+          </span>
+          <span class="a-strip__main">
+            <span class="a-strip__name"><span data-fr>Parcours</span><span data-en>Career</span>
+              <span class="a-strip__meta">Legacy · Son-Vidéo</span>
+            </span>
+            <p class="a-strip__desc">
+              <span data-fr>17 ans chez Son-Vidéo.com, n°1 FR de la vente en ligne hifi/home-cinéma — de 10 à 62 M€. Le socle de tout le reste.</span>
+              <span data-en>17 years at Son-Vidéo.com, France's #1 online hifi/home-cinema retailer — from €10M to €62M. The foundation of everything else.</span>
+            </p>
+          </span>
+          <span class="a-strip__go">
+            <span data-fr>Détails</span><span data-en>Details</span>
+            <span class="a-arr" aria-hidden="true">↓</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARCOURS / SPECS ===== -->
+  <section class="a-sec" id="parcours" aria-labelledby="a-parcours-h">
+    <div class="container">
+      <div class="a-sec__hd">
+        <span class="a-sec__label">SPEC SHEET · LEGACY</span>
+        <h2 class="a-sec__title" id="a-parcours-h">
+          <span data-fr>Parcours — la fiche technique</span>
+          <span data-en>Career — the spec sheet</span>
+        </h2>
+      </div>
+
+      <div class="a-specs">
+        <p class="a-specs__lede">
+          <span data-fr>Avant la console, l'apprentissage du métier — <b>17 ans dans le haut de gamme audio</b>, des achats à l'import de marques, de la régie événementielle à la formation.</span>
+          <span data-en>Before the console, learning the craft — <b>17 years in high-end audio</b>, from purchasing to brand import, from event production to formal training.</span>
+        </p>
+        <dl>
+          <div class="a-specrow">
+            <dt>Son-Vidéo.com</dt>
+            <dd><span data-fr>17 ans · n°1 FR de la vente en ligne hifi/home-cinéma. Croissance de 10 à 62 M€. Achats, vente, marketing, publicité, création &amp; import de marques.</span>
+                <span data-en>17 years · France's #1 online hifi/home-cinema retailer. Growth from €10M to €62M. Purchasing, sales, marketing, advertising, brand creation &amp; import.</span></dd>
+          </div>
+          <div class="a-specrow">
+            <dt>Japan Expo</dt>
+            <dd><span data-fr>5 ans · régie technique de la grande salle.</span>
+                <span data-en>5 years · main-hall technical production.</span></dd>
+          </div>
+          <div class="a-specrow">
+            <dt><span data-fr>Formation</span><span data-en>Education</span></dt>
+            <dd><span data-fr>ESGCI — MBA E-business · UVSQ — Génie Logistique.</span>
+                <span data-en>ESGCI — MBA E-business · UVSQ — Logistics Engineering.</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== CHAPEAU : FOOTER (verbatim from _chapeau.html) ===== -->
+<footer class="hl-ft" id="contact">
+  <div class="container">
+    <div class="hl-ft__grid">
+      <div class="hl-ft__brand">
+        <a class="hl-brand" href="#top"><span class="hl-mono">HL</span>
+          <span class="hl-brand__txt"><b>Hugo Lahutte</b></span></a>
+        <p class="muted" data-fr>DG de Cobra · Éditeur de Haute Fidélité · Fondateur de HL Consulting. Je construis mes projets et mon contenu en public, avec Claude.</p>
+        <p class="muted" data-en>CEO of Cobra · Publisher of Haute Fidélité · Founder of HL Consulting. I build my projects and content in public, with Claude.</p>
+        <a class="hl-cta-mail" href="mailto:hugo@hl-consulting.tech">hugo@hl-consulting.tech →</a>
+      </div>
+      <div>
+        <h4 data-fr>Les univers</h4><h4 data-en>The worlds</h4>
+        <ul>
+          <li><a href="#hub">Knowledge Hub</a></li>
+          <li><a href="#cobra">Cobra</a></li>
+          <li><a href="#hifi">HiFi Lovers</a></li>
+          <li><a href="#mag">Haute Fidélité</a></li>
+          <li><a href="#parcours"><span data-fr>Parcours · Son-Vidéo</span><span data-en>Career · Son-Vidéo</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Me suivre</h4><h4 data-en>Follow</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" rel="me noopener" target="_blank">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" rel="me noopener" target="_blank">X · @hugolh_ai</a></li>
+          <li><a href="https://www.instagram.com/hlh31" rel="me noopener" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Échanger</h4><h4 data-en>Get in touch</h4>
+        <p class="muted" data-fr>Le mieux : ajoute-moi sur LinkedIn avec un mot, ou écris-moi.</p>
+        <p class="muted" data-en>Best way: add me on LinkedIn with a note, or email me.</p>
+        <a class="hl-cta-mail" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener"><span data-fr>M'ajouter →</span><span data-en>Connect →</span></a>
+      </div>
+    </div>
+    <div class="hl-ft__bottom">
+      <span class="muted">© 2026 Hugo Lahutte — HL Consulting · <span data-fr>HTML/CSS statique, zéro dépendance</span><span data-en>Static HTML/CSS, zero dependency</span></span>
+      <span class="hl-ft__kata">ハイファイ</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== CHAPEAU : JS (verbatim from _chapeau.html) ===== -->
+<script>
+(function(){
+  var root=document.documentElement;
+  document.querySelectorAll("[data-theme-toggle]").forEach(function(b){b.addEventListener("click",function(){
+    var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+    root.setAttribute("data-theme",n);try{localStorage.setItem("hl-theme",n)}catch(e){}});});
+  document.querySelectorAll("[data-lang-toggle]").forEach(function(b){b.addEventListener("click",function(){
+    var n=root.getAttribute("data-lang")==="en"?"fr":"en";
+    root.setAttribute("data-lang",n);root.setAttribute("lang",n);try{localStorage.setItem("hl-lang",n)}catch(e){}});});
+  var burger=document.querySelector(".hl-burger"),nav=document.getElementById("hl-nav");
+  if(burger&&nav){burger.addEventListener("click",function(){
+    var o=nav.classList.toggle("open");burger.setAttribute("aria-expanded",o);});
+    nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){
+      nav.classList.remove("open");burger.setAttribute("aria-expanded","false");});});}
+})();
+</script>
+</body>
+</html>
