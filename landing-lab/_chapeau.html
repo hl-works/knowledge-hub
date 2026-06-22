@@ -1,0 +1,111 @@
+<!-- ===================================================================
+     CHAPEAU PARTAGÉ — à embarquer À L'IDENTIQUE dans chaque landing.
+     Header + Footer + JS (theme/lang/burger). Dépend de shared.css.
+     =================================================================== -->
+
+<!-- ---- À mettre dans <head> ---- -->
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<script>/* anti-FOUC : applique thème + langue avant paint */
+(function(){try{var t=localStorage.getItem("hl-theme");
+ document.documentElement.setAttribute("data-theme",(t==="dark"||t==="light")?t:
+   (matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
+ var l=localStorage.getItem("hl-lang");
+ document.documentElement.setAttribute("data-lang",(l==="en")?"en":"fr");
+ document.documentElement.setAttribute("lang",(l==="en")?"en":"fr");
+}catch(e){document.documentElement.setAttribute("data-theme","light");
+ document.documentElement.setAttribute("data-lang","fr");}})();</script>
+
+<!-- ---- HEADER (juste après <body>) ---- -->
+<a class="skip-link" href="#main" data-fr>Aller au contenu</a><a class="skip-link" href="#main" data-en>Skip to content</a>
+<header class="hl-hd">
+  <div class="container hl-hd__in">
+    <a class="hl-brand" href="#top" aria-label="HL Consulting — accueil">
+      <span class="hl-mono">HL</span>
+      <span class="hl-brand__txt"><b>Hugo Lahutte</b> <span>· Consulting</span></span>
+    </a>
+    <button class="hl-btn hl-burger" aria-label="Menu" aria-expanded="false" aria-controls="hl-nav">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="hl-nav" id="hl-nav" aria-label="Univers">
+      <a href="#hub"    style="--acc:var(--w-hub)"><span class="dot"></span>Knowledge Hub</a>
+      <a href="#cobra"  style="--acc:var(--w-cobra)"><span class="dot"></span>Cobra</a>
+      <a href="#hifi"   style="--acc:var(--w-hifi)"><span class="dot"></span>HiFi Lovers</a>
+      <a href="#mag"    style="--acc:var(--w-mag)"><span class="dot"></span><span data-fr>Haute Fidélité</span><span data-en>Haute Fidélité</span></a>
+      <a href="#parcours" style="--acc:var(--w-legacy)"><span class="dot"></span><span data-fr>Parcours</span><span data-en>Career</span></a>
+      <div class="hl-tools">
+        <button class="hl-btn hl-lang" data-lang-toggle aria-label="Switch language">
+          <b data-fr>FR</b><span class="off" data-fr>/EN</span><b data-en>EN</b><span class="off" data-en>/FR</span>
+        </button>
+        <button class="hl-btn" data-theme-toggle aria-label="Thème clair / sombre" title="Thème">
+          <svg class="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg>
+          <svg class="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ---- FOOTER (juste avant </body>) ---- -->
+<footer class="hl-ft" id="contact">
+  <div class="container">
+    <div class="hl-ft__grid">
+      <div class="hl-ft__brand">
+        <a class="hl-brand" href="#top"><span class="hl-mono">HL</span>
+          <span class="hl-brand__txt"><b>Hugo Lahutte</b></span></a>
+        <p class="muted" data-fr>DG de Cobra · Éditeur de Haute Fidélité · Fondateur de HL Consulting. Je construis mes projets et mon contenu en public, avec Claude.</p>
+        <p class="muted" data-en>CEO of Cobra · Publisher of Haute Fidélité · Founder of HL Consulting. I build my projects and content in public, with Claude.</p>
+        <a class="hl-cta-mail" href="mailto:hugo@hl-consulting.tech">hugo@hl-consulting.tech →</a>
+      </div>
+      <div>
+        <h4 data-fr>Les univers</h4><h4 data-en>The worlds</h4>
+        <ul>
+          <li><a href="#hub">Knowledge Hub</a></li>
+          <li><a href="#cobra">Cobra</a></li>
+          <li><a href="#hifi">HiFi Lovers</a></li>
+          <li><a href="#mag">Haute Fidélité</a></li>
+          <li><a href="#parcours"><span data-fr>Parcours · Son-Vidéo</span><span data-en>Career · Son-Vidéo</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Me suivre</h4><h4 data-en>Follow</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" rel="me noopener" target="_blank">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" rel="me noopener" target="_blank">X · @hugolh_ai</a></li>
+          <li><a href="https://www.instagram.com/hlh31" rel="me noopener" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Échanger</h4><h4 data-en>Get in touch</h4>
+        <p class="muted" data-fr>Le mieux : ajoute-moi sur LinkedIn avec un mot, ou écris-moi.</p>
+        <p class="muted" data-en>Best way: add me on LinkedIn with a note, or email me.</p>
+        <a class="hl-cta-mail" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener"><span data-fr>M'ajouter →</span><span data-en>Connect →</span></a>
+      </div>
+    </div>
+    <div class="hl-ft__bottom">
+      <span class="muted">© 2026 Hugo Lahutte — HL Consulting · <span data-fr>HTML/CSS statique, zéro dépendance</span><span data-en>Static HTML/CSS, zero dependency</span></span>
+      <span class="hl-ft__kata">ハイファイ</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ---- JS (avant </body>) ---- -->
+<script>
+(function(){
+  var root=document.documentElement;
+  document.querySelectorAll("[data-theme-toggle]").forEach(function(b){b.addEventListener("click",function(){
+    var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+    root.setAttribute("data-theme",n);try{localStorage.setItem("hl-theme",n)}catch(e){}});});
+  document.querySelectorAll("[data-lang-toggle]").forEach(function(b){b.addEventListener("click",function(){
+    var n=root.getAttribute("data-lang")==="en"?"fr":"en";
+    root.setAttribute("data-lang",n);root.setAttribute("lang",n);try{localStorage.setItem("hl-lang",n)}catch(e){}});});
+  var burger=document.querySelector(".hl-burger"),nav=document.getElementById("hl-nav");
+  if(burger&&nav){burger.addEventListener("click",function(){
+    var o=nav.classList.toggle("open");burger.setAttribute("aria-expanded",o);});
+    nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){
+      nav.classList.remove("open");burger.setAttribute("aria-expanded","false");});});}
+})();
+</script>

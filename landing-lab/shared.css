@@ -1,0 +1,142 @@
+/* ============================================================
+   HL CONSULTING — CHAPEAU PARTAGÉ (header + footer + base)
+   Réutilisable au-dessus de tous les univers. Zéro dépendance.
+   Light/Dark via [data-theme]. FR/EN via [data-lang].
+   Chaque landing AJOUTE son propre <style> pour son hero.
+   ============================================================ */
+
+/* ---------- Tokens ---------- */
+:root{
+  /* palette socle (héritée du Knowledge Hub) */
+  --c-red:#C6121F; --c-black:#0C0C0C; --c-offwhite:#FFFCF8;
+  --c-sand:#E2D2BF; --c-platinum:#E7E9ED;
+  --c-gold:#FAB62F; --c-indigo:#39359E; --c-sunset:#EA5045; --c-violet:#926FC1;
+  --c-steel:#8A8F98;
+
+  /* accents par univers (le fil qui relie les mondes) */
+  --w-hub:#C6121F;        /* Knowledge Hub — la star */
+  --w-cobra:#39359E;      /* Cobra — tech / Odoo·Shopify·agents */
+  --w-hifi:#FAB62F;       /* HiFi Lovers / HL Média — néo-rétro */
+  --w-mag:#0C0C0C;        /* Haute Fidélité — encre presse premium */
+  --w-legacy:#8A8F98;     /* Son-Vidéo — parcours / legacy */
+
+  /* thème clair (défaut) */
+  --bg:var(--c-offwhite); --surface:#FFFFFF; --surface-2:#F6F1E9;
+  --text:var(--c-black); --text-muted:#6B6B6B;
+  --border:rgba(12,12,12,.12); --border-strong:rgba(12,12,12,.55);
+  --hd-bg:rgba(255,252,248,.72); --hd-border:rgba(12,12,12,.10);
+  --shadow:0 1px 2px rgba(12,12,12,.04), 0 8px 30px rgba(12,12,12,.06);
+
+  /* type */
+  --f-display:"Archivo","Satoshi",system-ui,sans-serif;
+  --f-body:"Satoshi",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --maxw:1200px;
+  --radius:14px; --radius-sm:9px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+[data-theme="dark"]{
+  --bg:#1A1813; --surface:#221F18; --surface-2:#2C2820;
+  --text:var(--c-offwhite); --text-muted:#A89F92;
+  --border:rgba(255,252,248,.14); --border-strong:rgba(255,252,248,.5);
+  --hd-bg:rgba(26,24,19,.72); --hd-border:rgba(255,252,248,.12);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 40px rgba(0,0,0,.4);
+  --c-red:#F2453F; --w-hub:#F2453F; --w-cobra:#8E8BE6; --w-mag:#FFFCF8;
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--f-body);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  transition:background .4s var(--ease),color .4s var(--ease)}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;color:inherit}
+.container{width:min(100% - 2.4rem,var(--maxw));margin-inline:auto}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--text);color:var(--bg);
+  padding:.6rem 1rem;z-index:100;border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+:focus-visible{outline:2.5px solid var(--w-hub);outline-offset:3px;border-radius:3px}
+
+/* i18n : on affiche la langue active, on masque l'autre */
+[data-lang="fr"] [data-en]{display:none}
+[data-lang="en"] [data-fr]{display:none}
+
+/* ============================================================
+   HEADER — chapeau commun
+   ============================================================ */
+.hl-hd{position:sticky;top:0;z-index:50;
+  background:var(--hd-bg);backdrop-filter:saturate(140%) blur(14px);
+  -webkit-backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid var(--hd-border)}
+.hl-hd__in{display:flex;align-items:center;gap:1.2rem;
+  height:62px}
+.hl-brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;
+  letter-spacing:-.01em;white-space:nowrap}
+.hl-mono{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;
+  background:var(--text);color:var(--bg);font-family:var(--f-display);
+  font-weight:900;font-size:.95rem;letter-spacing:-.04em;flex:none}
+.hl-brand__txt{font-family:var(--f-display);font-size:1.02rem}
+.hl-brand__txt b{font-weight:900}
+.hl-brand__txt span{color:var(--text-muted);font-weight:600}
+.hl-nav{margin-left:auto;display:flex;align-items:center;gap:.15rem}
+.hl-nav a{position:relative;text-decoration:none;font-weight:600;font-size:.92rem;
+  padding:.5rem .7rem;border-radius:8px;color:var(--text-muted);
+  transition:color .2s,background .2s}
+.hl-nav a:hover{color:var(--text);background:color-mix(in srgb,var(--text) 7%,transparent)}
+.hl-nav a .dot{width:6px;height:6px;border-radius:50%;display:inline-block;
+  margin-right:.4rem;vertical-align:middle;background:var(--acc,var(--w-hub))}
+.hl-tools{display:flex;align-items:center;gap:.3rem;margin-left:.4rem;padding-left:.7rem;
+  border-left:1px solid var(--border)}
+.hl-btn{display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--border);
+  border-radius:9px;background:transparent;transition:border-color .2s,background .2s}
+.hl-btn:hover{border-color:var(--border-strong);background:color-mix(in srgb,var(--text) 5%,transparent)}
+.hl-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.hl-lang{font-family:var(--f-mono);font-size:.78rem;font-weight:600;width:auto;padding:0 .55rem;gap:.2rem}
+.hl-lang b{font-weight:700}.hl-lang .off{color:var(--text-muted);font-weight:400}
+.ic-moon{display:none}[data-theme="dark"] .ic-sun{display:none}
+[data-theme="dark"] .ic-moon{display:block}
+.hl-burger{display:none}
+@media (max-width:880px){
+  .hl-nav{position:fixed;inset:62px 0 auto 0;flex-direction:column;align-items:stretch;
+    gap:.1rem;padding:1rem 1.2rem 1.4rem;background:var(--bg);
+    border-bottom:1px solid var(--border);transform:translateY(-130%);
+    transition:transform .35s var(--ease);box-shadow:var(--shadow)}
+  .hl-nav.open{transform:translateY(0)}
+  .hl-nav a{font-size:1.05rem;padding:.8rem .6rem}
+  .hl-tools{margin:.6rem 0 0;border-left:0;border-top:1px solid var(--border);
+    padding:.7rem 0 0;justify-content:flex-start}
+  .hl-burger{display:grid;margin-left:auto}
+}
+
+/* ============================================================
+   FOOTER — chapeau commun
+   ============================================================ */
+.hl-ft{background:var(--surface);border-top:1px solid var(--border);margin-top:0;
+  padding:clamp(2.4rem,5vw,4rem) 0 2rem}
+.hl-ft__grid{display:grid;gap:2rem 2.4rem;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr}
+.hl-ft h4{font-family:var(--f-display);font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--text-muted);margin:0 0 1rem}
+.hl-ft ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+.hl-ft a{text-decoration:none;color:var(--text);font-size:.92rem;opacity:.85;
+  transition:opacity .2s,color .2s}
+.hl-ft a:hover{opacity:1;color:var(--w-hub)}
+.hl-ft .muted{color:var(--text-muted);font-size:.85rem;line-height:1.5}
+.hl-ft__brand .hl-brand{margin-bottom:.9rem}
+.hl-ft__bottom{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
+  align-items:center;margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--border)}
+.hl-ft__kata{font-family:var(--f-mono);color:var(--text-muted);letter-spacing:.3em;font-size:.85rem}
+.hl-cta-mail{display:inline-flex;align-items:center;gap:.5rem;margin-top:.9rem;
+  font-family:var(--f-mono);font-size:.86rem;text-decoration:none;
+  border:1px solid var(--border-strong);border-radius:999px;padding:.5rem .9rem;
+  transition:background .2s,color .2s}
+.hl-cta-mail:hover{background:var(--text);color:var(--bg)}
+@media (max-width:760px){.hl-ft__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.hl-ft__grid{grid-template-columns:1fr}}
