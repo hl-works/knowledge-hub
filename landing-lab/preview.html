@@ -275,6 +275,11 @@
   }
   .e-skill-k::before { content: "▸"; color: var(--e-signal); -webkit-text-fill-color: currentColor; }
   html[data-theme="light"] .e-skill-k::before { color: var(--e-ink); }
+  .e-skill__a { display: block; text-decoration: none; color: inherit;
+    margin: -18px -20px -22px; padding: 18px 20px 22px;
+    transition: background .12s linear, color .12s linear; }
+  .e-skill__a:hover, .e-skill__a:focus-visible { background: var(--e-bar); color: var(--e-on-bar); }
+  .e-skill-k::after { content: "\2192"; margin-left: auto; }
   .e-skill h3 { font-weight: 700; font-size: 19px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: -0.01em; }
   .e-skill p { margin: 0; font-size: 14px; line-height: 1.4; }
   @media (max-width: 760px) { .e-skills-grid { grid-template-columns: 1fr 1fr; }
@@ -536,36 +541,36 @@
         <h2 class="e-section-title"><span class="e-fr">Savoir-faire</span><span class="e-en">What I do</span></h2>
       </div>
       <ul class="e-skills-grid">
-        <li class="e-skill">
+        <li class="e-skill"><a class="e-skill__a" href="#cobra">
           <p class="e-skill-k"><span class="e-fr">Direction &amp; transformation</span><span class="e-en">Leadership &amp; transformation</span></p>
           <h3>Cobra</h3>
           <p><span class="e-fr">DG aujourd'hui. Avant : de 10 à 62 M€ chez Son-Vidéo.com.</span><span class="e-en">CEO today. Before: from €10M to €62M at Son-Vidéo.com.</span></p>
-        </li>
-        <li class="e-skill">
+        </a></li>
+        <li class="e-skill"><a class="e-skill__a" href="#cobra">
           <p class="e-skill-k"><span class="e-fr">Marketing · achats · web</span><span class="e-en">Marketing · buying · web</span></p>
           <h3><span class="e-fr">Commerce</span><span class="e-en">Commerce</span></h3>
           <p><span class="e-fr">Stratégie, pub on/offline, e-commerce, négociation, import de marques.</span><span class="e-en">Strategy, on/offline ads, e-commerce, negotiation, brand import.</span></p>
-        </li>
-        <li class="e-skill">
+        </a></li>
+        <li class="e-skill"><a class="e-skill__a" href="#mag">
           <p class="e-skill-k"><span class="e-fr">Événementiel</span><span class="e-en">Events</span></p>
           <h3><span class="e-fr">Le salon</span><span class="e-en">The show</span></h3>
           <p><span class="e-fr">Le salon Haute Fidélité (gros projet). Avant : Japan Expo, régie grande salle, 5 ans.</span><span class="e-en">The Haute Fidélité show (big project). Before: Japan Expo, main-stage management, 5 years.</span></p>
-        </li>
-        <li class="e-skill">
+        </a></li>
+        <li class="e-skill"><a class="e-skill__a" href="#cobra">
           <p class="e-skill-k"><span class="e-fr">Vidéo &amp; YouTube</span><span class="e-en">Video &amp; YouTube</span></p>
           <h3><span class="e-fr">Production</span><span class="e-en">Production</span></h3>
           <p><span class="e-fr">10 ans de prod : chaînes, lives, films. Derrière la caméra — et devant.</span><span class="e-en">10 years of production: channels, lives, films. Behind the camera — and in front of it.</span></p>
-        </li>
-        <li class="e-skill">
+        </a></li>
+        <li class="e-skill"><a class="e-skill__a" href="#mag">
           <p class="e-skill-k"><span class="e-fr">Presse &amp; édition</span><span class="e-en">Press &amp; publishing</span></p>
           <h3>Haute Fidélité</h3>
           <p><span class="e-fr">Éditeur du dernier magazine hi-fi de référence encore en kiosque.</span><span class="e-en">Publisher of the last reference hi-fi magazine still on newsstands.</span></p>
-        </li>
-        <li class="e-skill">
+        </a></li>
+        <li class="e-skill"><a class="e-skill__a" href="#hub">
           <p class="e-skill-k"><span class="e-fr">Build avec l'IA</span><span class="e-en">Building with AI</span></p>
           <h3>Claude Code</h3>
           <p><span class="e-fr">Je construis mes outils et mon contenu avec l'IA. En public.</span><span class="e-en">I build my tools and content with AI. In public.</span></p>
-        </li>
+        </a></li>
       </ul>
     </div>
   </section>
