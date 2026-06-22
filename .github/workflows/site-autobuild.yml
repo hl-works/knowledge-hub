@@ -12,6 +12,7 @@ on:
     branches: [main]
     paths:
       - "**.html"
+      - "!landing-lab/**"
       - "veille-ia/feed.json"
       - "lexique/*.json"
       - "en/lexique/*.json"

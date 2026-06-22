@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /docs/
 Disallow: /coffre/
+Disallow: /landing-lab/
 
 # Agents IA / LLMs explicitement bienvenus (GEO)
 User-agent: GPTBot

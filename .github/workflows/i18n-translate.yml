@@ -11,6 +11,7 @@ on:
     paths:
       - '**.html'
       - '!en/**'
+      - '!landing-lab/**'
   workflow_dispatch:
     inputs:
       files:
