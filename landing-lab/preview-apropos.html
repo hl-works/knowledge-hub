@@ -172,8 +172,9 @@
     .e-headrow { flex-wrap: wrap; }
     .e-burger { display: inline-flex; margin-left: auto; order: 3; }
     .e-tools { order: 2; }
-    .e-nav a { border: 2px solid var(--e-border); }
+    .e-nav a { border: 2px solid var(--e-border); padding: 10px 10px; }
     .e-swatch { width: 30px; height: 30px; }
+    .e-btn-mini { padding: 10px 11px; }
   }
 
   /* ============ HERO ============ */
@@ -439,8 +440,11 @@
   .ap-contact-item:focus-visible .ap-contact-v::after { transform: translateX(5px); }
   @media (max-width: 560px) { .ap-contact-grid { grid-template-columns: 1fr; } }
   @media (prefers-reduced-motion: reduce) {
-    .ap-contact-item, .e-portrait-frame img, .e-portrait-frame::after { transition: none; }
+    .ap-contact-item, .e-tag, .e-btn, .e-swatch,
+    .e-portrait-frame img, .e-portrait-frame::after,
     .ap-contact-v::after, .e-blk-link::after { transition: none; }
+    .ap-contact-item:hover, .e-tag:hover, .e-btn:hover, .e-swatch:hover,
+    .e-portrait-frame:hover img, .e-portrait-frame:focus-within img { transform: none; }
   }
 </style>
 </head>
