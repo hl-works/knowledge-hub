@@ -1,6 +1,6 @@
 # CLAUDE.md — Knowledge Hub (chargé auto par Claude Code)
 
-> Repo **public** : aucun secret ici. Site = `hugolahutte.github.io/knowledge-hub`.
+> Repo **public** : aucun secret ici. Site = `hl-works.github.io/knowledge-hub`.
 > Journal + méthode + guides + lexique + veille IA + portfolio. HTML/CSS statique,
 > GitHub Pages, **bilingue** FR (racine, défaut) / EN (miroir `/en/`).
 > Objectif double : SEO classique **et** GEO (être lu/cité par les LLMs).

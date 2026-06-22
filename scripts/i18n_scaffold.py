@@ -16,7 +16,7 @@ Idempotent : peut être relancé sans dupliquer le balisage.
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ORIGIN = "https://hugolahutte.github.io"
+ORIGIN = "https://hl-works.github.io"
 BASE = "/knowledge-hub"
 
 # Sections = liens de page (à préfixer par /en/). Pas les assets.

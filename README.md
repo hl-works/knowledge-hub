@@ -4,7 +4,7 @@ Journal de bord et méthode de tout ce que je construis avec Claude. Mi-portfoli
 mi-documentation opérationnelle. Site statique **HTML/CSS, zéro dépendance, zéro
 framework**, publié sur GitHub Pages.
 
-🔗 **Live** : https://hugolahutte.github.io/knowledge-hub/
+🔗 **Live** : https://hl-works.github.io/knowledge-hub/
 
 ---
 
