@@ -9,8 +9,8 @@ on:
   push:
     branches: [main]
     paths:
-      - '**.html'
-      - '!en/**'
+      - 'knowledge-hub/**.html'
+      - '!knowledge-hub/en/**'
   workflow_dispatch:
     inputs:
       files:
@@ -46,8 +46,9 @@ jobs:
           if [ -n "${{ github.event.inputs.files }}" ]; then
             FILES="${{ github.event.inputs.files }}"
           else
-            FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- '*.html' \
-              | grep -vE '^en/|^coffre/|/_template\.html$|^404\.html$' || true)
+            FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'knowledge-hub/*.html' \
+              | grep -vE '^knowledge-hub/en/|^knowledge-hub/coffre/|/_template\.html$|^knowledge-hub/404\.html$' \
+              | sed 's#^knowledge-hub/##' || true)
           fi
           echo "Pages détectées :"; echo "$FILES"
           # passe la liste au step suivant (espaces -> une ligne)

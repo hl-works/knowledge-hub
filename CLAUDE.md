@@ -1,10 +1,15 @@
 # CLAUDE.md — Knowledge Hub (chargé auto par Claude Code)
 
-> Repo **public** : aucun secret ici. Site = `hugolahutte.github.io/knowledge-hub`.
+> Repo **public** : aucun secret ici. Domaine = `hl-consulting.tech` (GitHub Pages,
+> CNAME). **Structure** : tout le KH vit dans le sous-dossier `knowledge-hub/`, servi
+> à `hl-consulting.tech/knowledge-hub/` (les liens internes restent `/knowledge-hub/…`).
+> La **racine du repo** porte la page d'accueil minimale (`index.html`), `CNAME`,
+> `.nojekyll`, `robots.txt`, `404.html`, `sitemap.xml` (index) et les favicons.
+> Les **scripts** (`scripts/`, racine repo) ont leur `ROOT` pointé sur `knowledge-hub/`.
 > Journal + méthode + guides + lexique + veille IA + portfolio. HTML/CSS statique,
-> GitHub Pages, **bilingue** FR (racine, défaut) / EN (miroir `/en/`).
+> GitHub Pages, **bilingue** FR (`/knowledge-hub/`, défaut) / EN (miroir `/knowledge-hub/en/`).
 > Objectif double : SEO classique **et** GEO (être lu/cité par les LLMs).
-> MAJ : 2026-06-02.
+> MAJ : 2026-06-22.
 
 ---
 

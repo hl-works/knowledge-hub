@@ -7,8 +7,8 @@ seules. Idempotent — relit le sitemap existant comme source des pages FR.
 """
 import re, os
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ORIGIN = "https://hugolahutte.github.io"
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "knowledge-hub")
+ORIGIN = "https://hl-consulting.tech"
 BASE = "/knowledge-hub"
 SITEMAP = os.path.join(ROOT, "sitemap.xml")
 

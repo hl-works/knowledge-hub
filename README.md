@@ -4,7 +4,12 @@ Journal de bord et méthode de tout ce que je construis avec Claude. Mi-portfoli
 mi-documentation opérationnelle. Site statique **HTML/CSS, zéro dépendance, zéro
 framework**, publié sur GitHub Pages.
 
-🔗 **Live** : https://hugolahutte.github.io/knowledge-hub/
+🔗 **Live** : https://hl-consulting.tech/knowledge-hub/
+
+> Domaine custom `hl-consulting.tech` (GitHub Pages + CNAME). Le contenu du KH vit
+> dans le sous-dossier `knowledge-hub/` (servi à `…/knowledge-hub/`) ; la racine du
+> repo porte la page d'accueil minimale, `CNAME`, `robots.txt`, `404.html` et le
+> `sitemap.xml` d'index.
 
 ---
 

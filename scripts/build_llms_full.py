@@ -15,8 +15,8 @@ from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-BASE = "https://hugolahutte.github.io/knowledge-hub"
+ROOT = Path(__file__).resolve().parent.parent / "knowledge-hub"
+BASE = "https://hl-consulting.tech/knowledge-hub"
 BAR = "=" * 64
 
 HEADER_FR = """# Knowledge Hub — Hugo Lahutte (version étendue)

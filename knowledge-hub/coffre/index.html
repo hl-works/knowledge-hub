@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffre — accès protégé · Knowledge Hub</title>
+<meta name="description" content="Espace privé chiffré.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#FFFCF8">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=20260601h">
+<style>
+  .gate{max-width:440px;margin:var(--space-24) auto;text-align:center;}
+  .gate input{width:100%;font-size:1rem;padding:var(--space-3) var(--space-4);margin-top:var(--space-6);
+    border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);}
+  .gate input:focus{outline:none;border-color:var(--c-red);}
+  .gate .err{color:var(--c-red);font-size:.875rem;margin-top:var(--space-3);min-height:1.2em;}
+  .lock-ico{width:46px;height:46px;margin:0 auto;stroke:var(--c-red);}
+  /* sidebar + lecture */
+  .vault-layout{display:grid;grid-template-columns:260px 1fr;gap:var(--space-8);align-items:start;}
+  .vault-nav{list-style:none;margin:0;padding:0;border-right:1px solid var(--border);}
+  .vault-nav button{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+    font-family:var(--font-body);font-size:.95rem;color:var(--text);padding:var(--space-3) var(--space-4);border-radius:var(--radius);}
+  .vault-nav button:hover{background:var(--surface-alt);}
+  .vault-nav button[aria-current="true"]{background:var(--c-black);color:#fff;}
+  .md h1,.md h2,.md h3{font-family:var(--font-body);}
+  .md h1{font-size:1.8rem;margin:0 0 var(--space-4);} .md h2{font-size:1.35rem;margin:var(--space-8) 0 var(--space-3);}
+  .md h3{font-size:1.1rem;margin:var(--space-6) 0 var(--space-2);}
+  .md p,.md li{font-size:1rem;line-height:1.7;} .md code{font-family:var(--font-mono);font-size:.85em;background:rgba(12,12,12,.06);padding:.1em .4em;border-radius:2px;}
+  .md pre{background:var(--c-black);color:#f3f3f3;padding:var(--space-4);border-radius:var(--radius);overflow:auto;}
+  .md pre code{background:none;color:inherit;}
+  .md hr{border:0;border-top:1px solid var(--border);margin:var(--space-6) 0;}
+  @media(max-width:720px){.vault-layout{grid-template-columns:1fr;}.vault-nav{border-right:0;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:var(--space-2);}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale"><ul class="nav__links" id="nav-links">
+    <li><a href="../">← Retour au site</a></li>
+  </ul></nav>
+</header>
+
+<main id="main">
+<!-- Écran mot de passe -->
+<section id="gate" class="container">
+  <div class="gate">
+    <svg class="lock-ico" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <p class="kicker" style="color:var(--c-red);margin-top:var(--space-4);">Espace privé · chiffré</p>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);">Coffre</h1>
+    <p class="caption" style="margin-top:var(--space-3);">Mes fichiers de setup Claude (CLAUDE.md &amp; cie) vivent ici, chiffrés de bout en bout. <strong>Demande le mot de passe à Hugo</strong> et tu auras accès à tout. Le déchiffrement se fait dans ton navigateur — rien ne transite.</p>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="pass" placeholder="Passphrase" aria-label="Passphrase" autocomplete="current-password">
+      <p class="err" id="err"></p>
+      <p class="btn-row" style="justify-content:center;"><button class="btn btn--primary" type="submit">Déverrouiller</button></p>
+    </form>
+  </div>
+</section>
+
+<!-- Contenu déchiffré -->
+<section id="vault" class="container" hidden style="padding-block:var(--space-12);">
+  <div class="section-head">
+    <div><p class="kicker" style="color:var(--c-red);">Coffre déverrouillé</p><h1 style="font-size:2rem;">Documents</h1></div>
+    <button class="btn btn--ghost" id="lock">Verrouiller</button>
+  </div>
+  <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+  <div class="vault-layout">
+    <ul class="vault-nav" id="vault-nav"></ul>
+    <article class="md" id="vault-doc"></article>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navigation principale — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      </div>
+
+      <nav aria-label="Liens de pied de page">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
+          <li><a href="/knowledge-hub/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/a-propos/" style="text-decoration:none;">À propos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
+        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+
+<script>
+const enc=new TextEncoder(), dec=new TextDecoder();
+function fromB64(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0));}
+async function deriveKey(pass,salt,iter){
+  const base=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:iter,hash:'SHA-256'},
+    base,{name:'AES-GCM',length:256},false,['decrypt']);
+}
+// Mini-rendu Markdown (titres, gras, code, listes, hr, paragraphes) — échappé.
+function mdToHtml(md){
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const lines=md.replace(/\r/g,'').split('\n'); let html='',inUl=false,inCode=false,code='';
+  const inline=s=>esc(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" rel="noopener">$1</a>');
+  const closeUl=()=>{if(inUl){html+='</ul>';inUl=false;}};
+  for(const l of lines){
+    if(l.trim().startsWith('```')){ if(inCode){html+='<pre><code>'+esc(code)+'</code></pre>';code='';inCode=false;}else{closeUl();inCode=true;} continue;}
+    if(inCode){code+=l+'\n';continue;}
+    if(/^###\s+/.test(l)){closeUl();html+='<h3>'+inline(l.replace(/^###\s+/,''))+'</h3>';}
+    else if(/^##\s+/.test(l)){closeUl();html+='<h2>'+inline(l.replace(/^##\s+/,''))+'</h2>';}
+    else if(/^#\s+/.test(l)){closeUl();html+='<h1>'+inline(l.replace(/^#\s+/,''))+'</h1>';}
+    else if(/^(\-|\*)\s+/.test(l)){if(!inUl){html+='<ul>';inUl=true;}html+='<li>'+inline(l.replace(/^(\-|\*)\s+/,''))+'</li>';}
+    else if(/^(\-{3,}|\*{3,})$/.test(l.trim())){closeUl();html+='<hr>';}
+    else if(l.trim()===''){closeUl();}
+    else{closeUl();html+='<p>'+inline(l)+'</p>';}
+  }
+  closeUl(); if(inCode)html+='<pre><code>'+esc(code)+'</code></pre>';
+  return html;
+}
+let DOCS=[];
+function render(i){
+  document.getElementById('vault-doc').innerHTML=mdToHtml(DOCS[i].body);
+  [...document.querySelectorAll('#vault-nav button')].forEach((b,j)=>b.setAttribute('aria-current',j===i?'true':'false'));
+}
+document.getElementById('gate-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const err=document.getElementById('err'); err.textContent='';
+  const pass=document.getElementById('pass').value;
+  try{
+    const res=await fetch('vault.json',{cache:'no-store'});
+    if(!res.ok) throw new Error('vault manquant');
+    const v=await res.json();
+    const key=await deriveKey(pass,fromB64(v.salt),v.iter||310000);
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:fromB64(v.iv)},key,fromB64(v.ct));
+    DOCS=JSON.parse(dec.decode(pt));
+    // build nav
+    const nav=document.getElementById('vault-nav'); nav.innerHTML='';
+    DOCS.forEach((d,i)=>{const li=document.createElement('li');const b=document.createElement('button');
+      b.type='button';b.textContent=d.title;b.onclick=()=>render(i);li.appendChild(b);nav.appendChild(li);});
+    document.getElementById('gate').hidden=true;
+    document.getElementById('vault').hidden=false;
+    render(0);
+  }catch(ex){
+    err.textContent='Passphrase incorrecte (ou coffre vide).';
+    document.getElementById('pass').select();
+  }
+});
+document.getElementById('lock').onclick=()=>{ DOCS=[]; location.reload(); };
+</script>
+</body>
+</html>

@@ -19,7 +19,7 @@ Env : ANTHROPIC_API_KEY (requis), KH_MODEL (défaut claude-sonnet-4-6).
 """
 import os, sys, json, re, urllib.request, urllib.error
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "knowledge-hub")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import i18n_scaffold as sc
 
