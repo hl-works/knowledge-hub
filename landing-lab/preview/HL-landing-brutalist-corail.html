@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hugo Lahutte · CV Vivant / Living CV</title>
-<meta name="description" content="Hugo Lahutte — CV vivant. DG Cobra, éditeur Haute Fidélité, build in public. Le Knowledge Hub qui alimente tout." />
+<title>Hugo Lahutte — DG Cobra, éditeur Haute Fidélité</title>
+<meta name="description" content="Hugo Lahutte — DG de Cobra, éditeur de Haute Fidélité. Je bâtis des marques audio &amp; image, en public, avec l'IA. Le Knowledge Hub alimente tout." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -261,7 +261,9 @@
     font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px;
     text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
   }
-  .e-blk-link::after { content: "->"; }
+  .e-blk-link::after { content: "->"; transition: transform .15s var(--e-ease, ease); }
+  .e-block:hover .e-blk-link::after,
+  .e-block:focus-visible .e-blk-link::after { transform: translateX(5px); }
   /* spans of grid */
   .e-block.e-star { grid-column: span 6; }
   .e-block.e-half { grid-column: span 3; }
@@ -327,26 +329,29 @@
   }
   .e-portrait-frame img {
     display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;
-    filter: grayscale(1) contrast(1.04) brightness(1.04);
-    transition: filter .45s cubic-bezier(.22,1,.36,1);
+    /* duotone éditorial corail (ombres encre → hautes lumières corail clair) via filtre SVG */
+    filter: url(#e-duo);
+    transform: scale(1.001); /* évite le clignotement de bord au repaint du filtre */
+    transition: filter .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1);
   }
-  /* tint corail en blend "color" : garde la luminance (détails visibles) */
+  /* grain fin + léger vignettage pour la matière (par-dessus le duotone, sous le cartouche) */
   .e-portrait-frame::after {
     content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background: var(--e-signal); mix-blend-mode: color;
-    transition: opacity .45s cubic-bezier(.22,1,.36,1);
+    background:
+      radial-gradient(120% 90% at 50% 35%, transparent 55%, rgba(10,10,10,.32) 100%);
+    transition: opacity .5s cubic-bezier(.22,1,.36,1);
   }
-  /* survol / focus : la photo repasse en couleur normale */
+  /* survol / focus : la photo repasse en couleur réelle, léger zoom */
   .e-portrait-frame:hover img,
-  .e-portrait-frame:focus-within img { filter: none; }
+  .e-portrait-frame:focus-within img { filter: none; transform: scale(1.03); }
   .e-portrait-frame:hover::after,
   .e-portrait-frame:focus-within::after { opacity: 0; }
   .e-portrait-frame::before {
-    content: "HOVER ↗"; position: absolute; top: 0; right: 0; z-index: 3;
-    font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .06em;
-    background: var(--e-bar); color: var(--e-on-bar); padding: 5px 8px;
+    content: "VOIR EN COULEUR ↗"; position: absolute; top: 0; right: 0; z-index: 3;
+    font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .06em; font-weight: 700;
+    background: var(--e-bar); color: var(--e-on-bar); padding: 5px 9px;
     border-left: var(--e-bw) solid var(--e-border); border-bottom: var(--e-bw) solid var(--e-border);
-    opacity: .92; transition: opacity .3s;
+    opacity: 1; transition: opacity .3s;
   }
   .e-portrait-frame:hover::before, .e-portrait-frame:focus-within::before { opacity: 0; }
   .e-portrait-cap {
@@ -363,6 +368,18 @@
 </head>
 <body>
 <a href="#top" class="e-skip"><span class="e-fr">Aller au contenu</span><span class="e-en">Skip to content</span></a>
+
+<!-- Filtre duotone corail (ombres encre → hautes lumières corail clair) -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <filter id="e-duo" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.10 1.0"/>
+      <feFuncG type="table" tableValues="0.055 0.80"/>
+      <feFuncB type="table" tableValues="0.045 0.74"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
 
 <!-- ============ HEADER ============ -->
 <header class="e-header">
@@ -397,13 +414,13 @@
     <div class="e-wrap e-hero-grid">
       <div class="e-hero-main">
       <p class="e-eyebrow e-mono">
-        <span class="e-fr">CV VIVANT · BUILD IN PUBLIC</span>
-        <span class="e-en">LIVING CV · BUILD IN PUBLIC</span>
+        <span class="e-fr">BUILD IN PUBLIC · AUDIO &amp; IMAGE</span>
+        <span class="e-en">BUILD IN PUBLIC · AUDIO &amp; IMAGE</span>
       </p>
       <h1 class="e-name">Hugo<br />Lahutte</h1>
       <p class="e-tagline">
-        <span class="e-fr">CV vivant.</span>
-        <span class="e-en">Living CV.</span>
+        <span class="e-fr">Audio, image &amp; émotion — et ce que l'IA en fait.</span>
+        <span class="e-en">Audio, image &amp; emotion — and what AI makes of it.</span>
       </p>
       <ul class="e-tags" aria-label="Roles">
         <li>DG Cobra</li>
@@ -420,7 +437,7 @@
           <span class="e-fr">Ouvrir le Knowledge Hub</span><span class="e-en">Open the Knowledge Hub</span>
         </a>
         <a class="e-btn" href="#hub">
-          <span class="e-fr">Les 5 mondes</span><span class="e-en">The 5 worlds</span>
+          <span class="e-fr">L'enseigne</span><span class="e-en">The house</span>
         </a>
       </div>
       </div><!-- /e-hero-main -->
@@ -434,8 +451,8 @@
   <!-- ============ MARQUEE ============ -->
   <div class="e-marquee" aria-hidden="true">
     <div class="e-marquee-track">
-      <span>BUILD IN PUBLIC ·&nbsp;</span><span>DG COBRA ·&nbsp;</span><span>ÉDITEUR HAUTE FIDÉLITÉ ·&nbsp;</span><span>RETAIL + E-COMMERCE ·&nbsp;</span><span>CLAUDE CODE ·&nbsp;</span><span>SEO + GEO ·&nbsp;</span><span>CV VIVANT ·&nbsp;</span>
-      <span>BUILD IN PUBLIC ·&nbsp;</span><span>DG COBRA ·&nbsp;</span><span>ÉDITEUR HAUTE FIDÉLITÉ ·&nbsp;</span><span>RETAIL + E-COMMERCE ·&nbsp;</span><span>CLAUDE CODE ·&nbsp;</span><span>SEO + GEO ·&nbsp;</span><span>CV VIVANT ·&nbsp;</span>
+      <span>BUILD IN PUBLIC ·&nbsp;</span><span>DG COBRA ·&nbsp;</span><span>ÉDITEUR HAUTE FIDÉLITÉ ·&nbsp;</span><span>RETAIL + E-COMMERCE ·&nbsp;</span><span>CLAUDE CODE ·&nbsp;</span><span>SEO + GEO ·&nbsp;</span><span>AUDIO + IMAGE ·&nbsp;</span>
+      <span>BUILD IN PUBLIC ·&nbsp;</span><span>DG COBRA ·&nbsp;</span><span>ÉDITEUR HAUTE FIDÉLITÉ ·&nbsp;</span><span>RETAIL + E-COMMERCE ·&nbsp;</span><span>CLAUDE CODE ·&nbsp;</span><span>SEO + GEO ·&nbsp;</span><span>AUDIO + IMAGE ·&nbsp;</span>
     </div>
   </div>
 
@@ -443,9 +460,9 @@
   <section class="e-section" id="worlds">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ 5 ]</span>
+        <span class="e-idx e-mono">[ HL ]</span>
         <h2 class="e-section-title">
-          <span class="e-fr">Les 5 mondes</span><span class="e-en">The 5 worlds</span>
+          <span class="e-fr">L'enseigne</span><span class="e-en">The house</span>
         </h2>
       </div>
 
@@ -456,8 +473,8 @@
           <span class="e-blk-idx e-mono">[01] / KNOWLEDGE HUB</span>
           <h3>Knowledge Hub</h3>
           <p>
-            <span class="e-fr">Le hub de contenu qui alimente ce CV vivant : méthode, guides, veille IA, journal, lexique. Bilingue FR/EN, pensé SEO + GEO.</span>
-            <span class="e-en">The content hub that powers this living CV: method, guides, AI watch, journal, lexicon. Bilingual FR/EN, built for SEO + GEO.</span>
+            <span class="e-fr">Le hub de contenu qui alimente tout : méthode, guides, veille IA, journal, lexique. Bilingue FR/EN, pensé SEO + GEO.</span>
+            <span class="e-en">The content hub that powers everything: method, guides, AI watch, journal, lexicon. Bilingual FR/EN, built for SEO + GEO.</span>
           </p>
           <span class="e-blk-link e-mono"><span class="e-fr">Entrer dans le Hub</span><span class="e-en">Enter the Hub</span></span>
         </a>
@@ -487,7 +504,7 @@
         </a>
 
         <!-- HIFI LOVERS -->
-        <a class="e-block e-half" id="hifi" href="#hifi">
+        <a class="e-block e-half" id="hifi" href="https://hl-works.github.io/knowledge-hub/hifi-lovers/" target="_blank" rel="noopener">
           <span class="e-blk-idx e-mono">[04]</span>
           <span class="e-blk-meta e-mono"><span class="e-fr">HL MÉDIA · MARQUE</span><span class="e-en">HL MEDIA · BRAND</span></span>
           <h3>HiFi Lovers</h3>
@@ -499,7 +516,7 @@
         </a>
 
         <!-- PARCOURS -->
-        <a class="e-block e-half" id="parcours" href="#parcours">
+        <a class="e-block e-half" id="parcours" href="https://hl-works.github.io/knowledge-hub/a-propos/" target="_blank" rel="noopener">
           <span class="e-blk-idx e-mono">[05]</span>
           <span class="e-blk-meta e-mono"><span class="e-fr">LEGACY · PARCOURS</span><span class="e-en">LEGACY · PATH</span></span>
           <h3 class="e-fr">Parcours</h3>
@@ -527,8 +544,8 @@
         </ul>
       </div>
       <div>
-        <h4 class="e-fr">Index des mondes</h4>
-        <h4 class="e-en">Worlds index</h4>
+        <h4 class="e-fr">L'enseigne</h4>
+        <h4 class="e-en">The house</h4>
         <ul class="e-foot-list">
           <li><a href="#hub">[01] Knowledge Hub</a></li>
           <li><a href="#cobra">[02] Cobra</a></li>
@@ -548,7 +565,7 @@
     </div>
     <div class="e-foot-bottom">
       <span>© 2026 Hugo Lahutte</span>
-      <span>hl-consulting.tech · <span class="e-fr">CV vivant</span><span class="e-en">Living CV</span></span>
+      <span>hl-consulting.tech · <span class="e-fr">Audio · Image · IA</span><span class="e-en">Audio · Image · AI</span></span>
     </div>
   </div>
 </footer>
