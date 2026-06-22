@@ -355,13 +355,13 @@
   /* ============ KIOSQUE + HORS LES MURS ============ */
   .e-media2 { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; }
   .e-kiosque { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-content: start; }
-  .e-cover, .e-travel {
+  .e-cover {
     border: var(--e-bw) solid var(--e-border); margin: -1.5px 0 0 -1.5px;
     background: var(--e-panel); color: var(--e-on-panel); text-decoration: none;
     display: flex; flex-direction: column; position: relative;
     transition: transform .1s linear, box-shadow .1s linear;
   }
-  .e-cover:hover, .e-cover:focus-visible, .e-travel:hover, .e-travel:focus-visible {
+  .e-cover:hover, .e-cover:focus-visible {
     z-index: 2; box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
     transform: translate(calc(var(--e-off) * -0.5), calc(var(--e-off) * -0.5));
   }
@@ -371,19 +371,15 @@
   .e-cover-t { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; margin: 0 0 7px; }
   .e-cover-p { font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; }
   .e-cover-p::after { content: "->"; }
-  .e-travel-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-  .e-travel-imgs img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; border-bottom: var(--e-bw) solid var(--e-border); }
-  .e-travel-imgs img:first-child { border-right: var(--e-bw) solid var(--e-border); }
-  .e-travel-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
-  .e-travel-k { font-family: "Space Mono", monospace; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-  .e-travel-k::before { content: "▸"; color: var(--e-signal); }
-  html[data-theme="light"] .e-travel-k::before { color: var(--e-ink); }
-  .e-travel h3 { font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: -0.01em; margin: 0 0 8px; line-height: 1; }
-  .e-travel p { font-size: 14px; line-height: 1.4; margin: 0 0 14px; flex: 1; }
-  .e-travel-link { font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; }
-  .e-travel-link::after { content: "->"; transition: transform .15s ease; }
-  .e-travel:hover .e-travel-link::after, .e-travel:focus-visible .e-travel-link::after { transform: translateX(5px); }
-  @media (max-width: 760px) { .e-media2 { grid-template-columns: 1fr; } }
+  .e-kiosque-intro { padding-right: 28px; }
+  @media (max-width: 760px) { .e-media2 { grid-template-columns: 1fr; } .e-kiosque-intro { padding-right: 0; margin-bottom: 24px; } }
+
+  /* ============ REELS (Instagram, iframe sans script tiers) ============ */
+  .e-reels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .e-reel { border: var(--e-bw) solid var(--e-border); margin: -1.5px 0 0 -1.5px; background: #fff; line-height: 0; overflow: hidden; }
+  .e-reel iframe { width: 100%; height: 600px; border: 0; display: block; }
+  @media (max-width: 980px) { .e-reels { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .e-reels { grid-template-columns: 1fr; } }
 
   .e-star .e-badge {
     align-self: flex-start; font-family: "Space Mono", monospace; font-weight: 700;
@@ -733,9 +729,16 @@
     <div class="e-wrap">
       <div class="e-section-head">
         <span class="e-idx e-mono">[ 07 ]</span>
-        <h2 class="e-section-title"><span class="e-fr">En kiosque &amp; hors les murs</span><span class="e-en">On newsstands &amp; off the grid</span></h2>
+        <h2 class="e-section-title"><span class="e-fr">En kiosque</span><span class="e-en">On newsstands</span></h2>
       </div>
       <div class="e-media2">
+        <div class="e-kiosque-intro">
+          <p class="e-subtag" style="margin:0 0 22px;">
+            <span class="e-fr">Le magazine vit en papier premium et en numérique, tous les deux mois — plus les hors-séries collector. Dernier titre hi-fi spécialisé en kiosque.</span>
+            <span class="e-en">The magazine lives in premium print and digital, every two months — plus collector specials. The last specialist hi-fi title on newsstands.</span>
+          </p>
+          <a class="e-btn e-btn-primary" href="https://store.hautefidelite-hifi.com" target="_blank" rel="noopener"><span class="e-fr">La boutique</span><span class="e-en">The shop</span></a>
+        </div>
         <div class="e-kiosque">
           <a class="e-cover" href="https://store.hautefidelite-hifi.com/products/haute-fidelite-281" target="_blank" rel="noopener">
             <img src="https://cdn.shopify.com/s/files/1/0953/4927/7014/files/Couverture-Haute-Fidelite-Numero281-1x.webp?v=1779371344" alt="Couverture de Haute Fidélité n°281 — Dan D'Agostino Momentum Z" loading="lazy">
@@ -754,22 +757,29 @@
             </span>
           </a>
         </div>
-        <a class="e-travel" href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="noopener">
-          <span class="e-travel-imgs">
-            <img src="/knowledge-hub/assets/img/osaka-portrait.webp" alt="Carnet de voyage en famille — portrait à Osaka" loading="lazy">
-            <img src="/knowledge-hub/assets/img/osaka-ojas.webp" alt="Carnet de voyage en famille — système hi-fi Ojas à Osaka" loading="lazy">
-          </span>
-          <div class="e-travel-body">
-            <span class="e-travel-k">Instagram · @amhe.tourdumonde</span>
-            <h3 class="e-fr">Tour du monde en famille</h3>
-            <h3 class="e-en">Family world tour</h3>
-            <p>
-              <span class="e-fr">Hors les murs : le tour du monde en famille, carnet de bord en images. Le contre-champ perso du build in public.</span>
-              <span class="e-en">Off the grid: a family trip around the world, a logbook in pictures. The personal flip-side of build in public.</span>
-            </p>
-            <span class="e-travel-link"><span class="e-fr">Suivre le voyage</span><span class="e-en">Follow the trip</span></span>
-          </div>
-        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HORS LES MURS (VOYAGE / REELS) ============ -->
+  <section class="e-section" id="voyage">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx e-mono">[ 08 ]</span>
+        <h2 class="e-section-title"><span class="e-fr">Hors les murs</span><span class="e-en">Off the grid</span></h2>
+      </div>
+      <p class="e-subtag" style="max-width:640px; margin:0 0 26px;">
+        <span class="e-fr">Le tour du monde en famille, carnet de bord en reels. Le contre-champ perso du build in public.</span>
+        <span class="e-en">A family trip around the world, a logbook in reels. The personal flip-side of build in public.</span>
+      </p>
+      <div class="e-reels">
+        <div class="e-reel"><iframe src="https://www.instagram.com/reel/DNrEbcU2JnJ/embed" loading="lazy" title="Reel Instagram — tour du monde en famille" allowfullscreen></iframe></div>
+        <div class="e-reel"><iframe src="https://www.instagram.com/reel/C5cyRx-L6U0/embed" loading="lazy" title="Reel Instagram — tour du monde en famille" allowfullscreen></iframe></div>
+        <div class="e-reel"><iframe src="https://www.instagram.com/reel/Cy-SoSoIilk/embed" loading="lazy" title="Reel Instagram — tour du monde en famille" allowfullscreen></iframe></div>
+        <div class="e-reel"><iframe src="https://www.instagram.com/reel/CguqaT3A84I/embed" loading="lazy" title="Reel Instagram — tour du monde en famille" allowfullscreen></iframe></div>
+      </div>
+      <div class="e-media-cta">
+        <a class="e-btn e-btn-primary" href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="noopener">@amhe.tourdumonde</a>
       </div>
     </div>
   </section>
