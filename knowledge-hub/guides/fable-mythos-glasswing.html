@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle — Guides · Hugo Lahutte</title>
+<meta name="description" content="Le 9 juin 2026, Anthropic a lancé Claude Fable 5, premier modèle d'une nouvelle classe « Mythos » au-dessus d'Opus — et réservé la version sans garde-fous, Mythos 5, à des cyberdéfenseurs triés. Ce que ça change, expliqué simplement.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/fable-mythos-glasswing.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle">
+<meta property="og:description" content="Claude Fable 5 : premier modèle d'une nouvelle classe au-dessus d'Opus. La version sans garde-fous, Mythos 5, est réservée à des cyberdéfenseurs triés. Explication sans jargon.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-06-10">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../style.css?v=20260601h">
+
+<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle",
+      "description": "Le 9 juin 2026, Anthropic a lancé Claude Fable 5, premier modèle d'une nouvelle classe « Mythos » au-dessus d'Opus — et réservé la version sans garde-fous, Mythos 5, à des cyberdéfenseurs triés via Project Glasswing.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-06-10",
+      "dateModified": "2026-06-10",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html",
+      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/knowledge-hub/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "about": ["Claude Fable 5", "Claude Mythos 5", "Anthropic", "Project Glasswing", "sécurité IA"],
+      "keywords": "Claude Fable 5, Mythos, Anthropic, Glasswing, garde-fous, classe de modèle, prix"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Fable, Mythos, Glasswing", "item": "https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "C'est quoi Claude Fable 5 ?", "acceptedAnswer": {"@type": "Answer", "text": "Le modèle le plus puissant jamais rendu public par Anthropic, lancé le 9 juin 2026. C'est le premier modèle d'une nouvelle classe « Mythos », au-dessus de la gamme Opus. Il est au niveau de l'état de l'art sur presque tous les benchmarks : code, travail de connaissance, vision, recherche scientifique."}},
+        {"@type": "Question", "name": "Quelle est la différence entre Fable 5 et Mythos 5 ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est le même modèle sous le capot. Fable 5 est la version publique avec des garde-fous : les requêtes sensibles (biologie, chimie) retombent sur Opus 4.8 — ça concerne moins de 5 % des sessions. Mythos 5 est la version sans certaines de ces limites, réservée à un petit groupe de cyberdéfenseurs et d'opérateurs d'infrastructure triés sur le volet, via Project Glasswing."}},
+        {"@type": "Question", "name": "Combien coûte Claude Fable 5 ?", "acceptedAnswer": {"@type": "Answer", "text": "10 $ par million de tokens en entrée et 50 $ par million en sortie via l'API — soit le double d'Opus 4.8 (5 $/25 $). Il est inclus gratuitement pour les abonnés Pro, Max, Team et Enterprise du 9 au 22 juin 2026 ; ensuite l'usage passe sur crédits."}},
+        {"@type": "Question", "name": "Faut-il passer sur Fable 5 ?", "acceptedAnswer": {"@type": "Answer", "text": "Pendant la fenêtre gratuite, oui : c'est l'occasion de tester le haut du panier sans surcoût. Après, la question est économique : pour la majorité des tâches quotidiennes (mails, fiches produits, analyses simples), Opus ou Sonnet suffisent à moitié prix ou moins. Fable se réserve aux problèmes durs où l'intelligence marginale vaut le double du prix."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">Veille IA</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/en/guides/fable-mythos-glasswing.html" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Fable, Mythos, Glasswing</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle</h1>
+    <hr class="rule--accent">
+    <p class="lead">Le 9 juin 2026, Anthropic a lancé <strong>Claude Fable 5</strong> — le premier modèle d'une nouvelle classe, <strong>au-dessus d'Opus</strong>. Et il a fait un choix inhabituel : garder la version sans garde-fous, <strong>Mythos 5</strong>, pour un petit cercle de cyberdéfenseurs. Voilà l'histoire, sans jargon.</p>
+    <div class="meta-bar">
+      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
+      <time datetime="2026-06-10">10 juin 2026</time><span>·</span><span>~5 min de lecture</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="ia" data-tagsearch="ia" href="/knowledge-hub/guides/">IA</a>
+      <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/guides/">vulgarisation</a>
+      <a class="tag" data-tag="actualite" data-tagsearch="actualite" href="/knowledge-hub/guides/">actualité</a>
+    </div>
+    <ul class="levels" aria-label="Niveaux de lecture">
+      <li class="level-pill"><b>1</b> En 30 secondes</li>
+      <li class="level-pill"><b>2</b> Le corps, visuel</li>
+      <li class="level-pill"><b>3</b> Pour aller plus loin</li>
+    </ul>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
+      <p class="kicker">En 30 secondes</p>
+      <ul>
+        <li><strong>Fable 5</strong> est le modèle le plus puissant jamais rendu public par Anthropic — première brique d'une nouvelle classe « <strong>Mythos</strong> », un cran au-dessus d'Opus.</li>
+        <li><strong>Mythos 5</strong> est le même modèle <strong>sans certains garde-fous</strong> : il n'est accessible qu'à des cyberdéfenseurs et opérateurs d'infrastructure triés, via <strong>Project Glasswing</strong>.</li>
+        <li>Prix : <strong>10 $/50 $ par million de tokens</strong> (le double d'Opus 4.8). Inclus gratuitement pour les abonnés Pro/Max/Team/Enterprise du <strong>9 au 22 juin</strong>.</li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Sommaire">
+      <p class="kicker">Sommaire</p>
+      <ul>
+        <li><a href="#lancement">1. Ce qui s'est passé le 9 juin</a></li>
+        <li><a href="#mythos">2. Mythos : une classe au-dessus d'Opus</a></li>
+        <li><a href="#deux-versions">3. Pourquoi deux versions du même modèle</a></li>
+        <li><a href="#pour-toi">4. Ce que ça change pour toi</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="lancement">1. Ce qui s'est passé le 9 juin</h2>
+      <p>Quelques jours après avoir publiquement averti que l'IA devenait <em>« trop dangereuse »</em> pour être diffusée sans précaution, Anthropic a lancé… son modèle le plus puissant. Le paradoxe n'est qu'apparent : c'est exactement la même décision, vue des deux côtés. <strong>Claude Fable 5</strong> est sorti le 9 juin 2026, présenté comme dépassant <em>« tout modèle jamais rendu généralement disponible »</em> par Anthropic — état de l'art sur presque tous les benchmarks : ingénierie logicielle, travail de connaissance, vision, recherche scientifique.</p>
+      <p>La nouveauté n'est pas qu'une question de puissance : c'est la <strong>structure de gamme</strong> qui change, et la façon dont Anthropic gère le risque qui va avec.</p>
+
+      <h2 id="mythos">2. Mythos : une classe au-dessus d'Opus</h2>
+      <p>Depuis des années, la gamme Claude tient en trois gabarits : <strong>Haiku</strong> (rapide, pas cher), <strong>Sonnet</strong> (équilibré), <strong>Opus</strong> (le haut du panier). J'explique tout ça dans <a href="cest-quoi-claude.html">C'est quoi Claude</a>. Fable 5 inaugure un quatrième étage : la classe <strong>Mythos</strong>, au-dessus d'Opus.</p>
+
+      <figure class="diagram">
+        <div class="compare" role="img" aria-label="Avant : gamme Haiku, Sonnet, Opus. Après : la classe Mythos s'ajoute au-dessus d'Opus, avec Fable 5 comme premier modèle public.">
+          <div class="compare__side">
+            <span class="compare__tag">Avant</span>
+            <h4>3 gabarits</h4>
+            <ul>
+              <li>Opus — le plus capable</li>
+              <li>Sonnet — l'équilibre</li>
+              <li>Haiku — le rapide</li>
+            </ul>
+          </div>
+          <div class="compare__arrow" aria-hidden="true">→</div>
+          <div class="compare__side compare__side--after">
+            <span class="compare__tag">Depuis le 9 juin</span>
+            <h4>4 étages</h4>
+            <ul>
+              <li><strong>Mythos — classe au-dessus (Fable 5)</strong></li>
+              <li>Opus · Sonnet · Haiku</li>
+            </ul>
+          </div>
+        </div>
+        <figcaption class="caption">Fable 5 n'est pas un « Opus 4.9 » : c'est le premier modèle d'une classe nouvelle.</figcaption>
+      </figure>
+
+      <p>Côté technique, pour ceux que ça intéresse : fenêtre de contexte d'<strong>un million de tokens</strong>, jusqu'à 128 000 tokens en sortie, et un raisonnement « adaptatif » que le modèle dose lui-même selon la difficulté.</p>
+
+      <h2 id="deux-versions">3. Pourquoi deux versions du même modèle</h2>
+      <p>C'est le cœur de l'histoire. Sous le capot, <strong>Fable 5 et Mythos 5 sont le même modèle</strong>. La différence, ce sont les garde-fous :</p>
+      <ul>
+        <li><strong>Fable 5</strong>, la version publique, embarque des protections renforcées sur la cybersécurité et la biologie. Concrètement, les requêtes sensibles (biologie, chimie) sont <strong>redirigées vers Opus 4.8</strong>, qui répond à la place. Anthropic annonce un réglage volontairement prudent — ça attrape parfois des demandes inoffensives — mais qui se déclenche dans <strong>moins de 5 % des sessions</strong>.</li>
+        <li><strong>Mythos 5</strong>, la version sans certaines de ces limites, n'est <strong>pas en vente libre</strong> : elle est réservée à un petit groupe de cyberdéfenseurs et d'opérateurs d'infrastructure critiques, vérifiés un par un, dans le cadre de <strong>Project Glasswing</strong>.</li>
+      </ul>
+      <p>La logique : un modèle de ce niveau est génuinement utile pour <em>défendre</em> des systèmes (trouver des failles avant les attaquants) — mais les mêmes capacités servent à attaquer. Plutôt que de choisir entre « tout publier » et « rien publier », Anthropic découpe : le grand public a la puissance avec des freins, les défenseurs vérifiés ont la puissance sans les freins.</p>
+
+      <h2 id="pour-toi">4. Ce que ça change pour toi</h2>
+      <p>Trois choses concrètes :</p>
+      <ol>
+        <li><strong>Le prix.</strong> Fable 5 coûte <strong>10 $ par million de tokens en entrée, 50 $ en sortie</strong> — le double d'Opus 4.8 (5 $/25 $). Pour situer les ordres de grandeur, voir <a href="combien-coute-lia.html">Combien coûte l'IA</a>.</li>
+        <li><strong>La fenêtre gratuite.</strong> Du <strong>9 au 22 juin 2026</strong>, Fable 5 est inclus sans surcoût pour les abonnés Pro, Max, Team et Enterprise. C'est le moment de tester le haut du panier sur tes cas réels — c'est exactement ce que j'ai fait : <a href="../journal/fable-5-revue-site-geo.html">Fable 5 a passé ce site en revue</a> le lendemain de sa sortie.</li>
+        <li><strong>Le bon réflexe.</strong> Après le 22 juin, la règle d'or ne change pas : <strong>le bon modèle est le moins cher qui fait le travail</strong>. Mails, fiches produits, analyses courantes → Sonnet ou Opus suffisent. Fable se garde pour les problèmes durs où l'intelligence marginale vaut son prix.</li>
+      </ol>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Pour aller plus loin</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="cest-quoi-claude.html"><strong>C'est quoi Claude</strong></a> — la gamme, les gabarits, et pourquoi j'ai tout bâti dessus.</li>
+          <li>→ <a href="combien-coute-lia.html"><strong>Combien coûte l'IA</strong></a> — abonnements vs API, les ordres de grandeur.</li>
+          <li>→ <a href="../journal/fable-5-revue-site-geo.html"><strong>Fable 5 passe ce site en revue</strong></a> — mon premier test grandeur nature, en prod le jour même.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Sources.</strong> Annonce officielle Anthropic (9 juin 2026), couvertures TechCrunch, The Decoder et NBC News du même jour.</p>
+      </aside>
+
+    </div>
+  </div>
+</article>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
+      <h2>Tu te demandes quel modèle utiliser ?</h2>
+      <p class="prose">Abonnement ou API, Sonnet ou Fable, pour quel usage : c'est souvent une question d'ordres de grandeur plus que de technique. Parlons-en — je documente tout en public.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Fable%20—%20échange">M'écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navigation principale — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      </div>
+
+      <nav aria-label="Liens de pied de page">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
+          <li><a href="/knowledge-hub/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/a-propos/" style="text-decoration:none;">À propos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
+        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="../search.js?v=20260601d" defer></script>
+<script src="../lexique.js?v=20260601d" defer></script>
+<script src="../theme.js?v=20260601d" defer></script>
+</body>
+</html>

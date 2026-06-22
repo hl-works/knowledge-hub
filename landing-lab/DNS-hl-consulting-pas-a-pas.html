@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>DNS hl-consulting.tech — pas à pas (IONOS → GitHub Pages)</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --ink:#0A0A0A; --paper:#FFFFFF; --coral:#FF8C7A; --bw:3px; --off:6px;
+    --green:#1f7a3d; --greenbg:#e8f7ec; --red:#b3261e; --redbg:#fdeceb; --keepbg:#eef1f5; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--coral);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;
+    line-height:1.45;padding:32px 18px 60px;}
+  .wrap{max-width:1000px;margin:0 auto;}
+  h1{font-size:clamp(26px,5vw,42px);text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin:0 0 6px;}
+  .sub{font-family:"Space Mono",monospace;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 28px;}
+  h2{font-size:20px;text-transform:uppercase;letter-spacing:-.01em;margin:34px 0 12px;
+    display:flex;align-items:center;gap:10px;}
+  .pill{font-family:"Space Mono",monospace;font-size:12px;font-weight:700;padding:3px 9px;border:2px solid var(--ink);text-transform:uppercase;}
+  .pill.del{background:var(--red);color:#fff;border-color:var(--red);}
+  .pill.add{background:var(--green);color:#fff;border-color:var(--green);}
+  .pill.keep{background:#444;color:#fff;border-color:#444;}
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:var(--bw) solid var(--ink);
+    box-shadow:var(--off) var(--off) 0 var(--ink);margin-bottom:8px;font-size:14px;}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.14);}
+  th{font-family:"Space Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:var(--ink);color:var(--paper);}
+  td.mono,th.mono{font-family:"Space Mono",monospace;}
+  tr.del td{background:var(--redbg);}
+  tr.add td{background:var(--greenbg);}
+  tr.keep td{background:var(--keepbg);}
+  .note{font-size:13px;font-family:"Space Mono",monospace;margin:6px 0 0;}
+  ol{padding-left:20px;} ol li{margin:8px 0;}
+  .box{background:var(--paper);border:var(--bw) solid var(--ink);box-shadow:var(--off) var(--off) 0 var(--ink);padding:18px 20px;margin:14px 0;}
+  code{font-family:"Space Mono",monospace;background:#f1ede7;padding:1px 5px;border:1px solid rgba(0,0,0,.15);}
+  .warn{border-left:6px solid var(--red);padding-left:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>DNS — hl-consulting.tech</h1>
+  <p class="sub">IONOS → GitHub Pages · pas à pas · ne touche PAS au mail</p>
+
+  <div class="box warn">
+    <strong>Le domaine pointe aujourd'hui vers Squarespace</strong> (IP 198.185.159.x et 198.49.23.x).
+    On retire les enregistrements <em>web</em> de Squarespace et on met ceux de GitHub Pages.
+    Tout ce qui est <strong>Mail</strong> (MX, SPF, DKIM, DMARC, autodiscover) reste <strong>intact</strong>.
+  </div>
+
+  <!-- SUPPRIMER -->
+  <h2><span class="pill del">1 · Supprimer</span> les 10 enregistrements Squarespace</h2>
+  <table>
+    <tr><th>Type</th><th class="mono">Nom d'hôte</th><th class="mono">Valeur</th><th>Pourquoi</th></tr>
+    <tr class="del"><td>A</td><td class="mono">@</td><td class="mono">198.185.159.144</td><td>Squarespace</td></tr>
+    <tr class="del"><td>A</td><td class="mono">@</td><td class="mono">198.185.159.145</td><td>Squarespace</td></tr>
+    <tr class="del"><td>A</td><td class="mono">@</td><td class="mono">198.49.23.144</td><td>Squarespace</td></tr>
+    <tr class="del"><td>A</td><td class="mono">@</td><td class="mono">198.49.23.145</td><td>Squarespace</td></tr>
+    <tr class="del"><td>A</td><td class="mono">www</td><td class="mono">198.185.159.144</td><td>Squarespace</td></tr>
+    <tr class="del"><td>A</td><td class="mono">www</td><td class="mono">198.185.159.145</td><td>Squarespace</td></tr>
+    <tr class="del"><td>A</td><td class="mono">www</td><td class="mono">198.49.23.144</td><td>Squarespace</td></tr>
+    <tr class="del"><td>A</td><td class="mono">www</td><td class="mono">198.49.23.145</td><td>Squarespace</td></tr>
+    <tr class="del"><td>CNAME</td><td class="mono">5bsaexymnwytbbfle9am</td><td class="mono">verify.squarespace.com</td><td>Vérif Squarespace</td></tr>
+    <tr class="del"><td>CNAME</td><td class="mono">_domainconnect</td><td class="mono">verify.squarespace.com</td><td>Squarespace</td></tr>
+  </table>
+  <p class="note">→ Coche les lignes et clique sur la corbeille 🗑️ (icône à droite de chaque ligne).</p>
+
+  <!-- AJOUTER -->
+  <h2><span class="pill add">2 · Ajouter</span> les enregistrements GitHub Pages</h2>
+  <table>
+    <tr><th>Type</th><th class="mono">Nom d'hôte</th><th class="mono">Valeur / Pointe vers</th><th>TTL</th></tr>
+    <tr class="add"><td>A</td><td class="mono">@</td><td class="mono">185.199.108.153</td><td>1h</td></tr>
+    <tr class="add"><td>A</td><td class="mono">@</td><td class="mono">185.199.109.153</td><td>1h</td></tr>
+    <tr class="add"><td>A</td><td class="mono">@</td><td class="mono">185.199.110.153</td><td>1h</td></tr>
+    <tr class="add"><td>A</td><td class="mono">@</td><td class="mono">185.199.111.153</td><td>1h</td></tr>
+    <tr class="add"><td>CNAME</td><td class="mono">www</td><td class="mono">hl-works.github.io</td><td>1h</td></tr>
+  </table>
+  <p class="note">Bouton <strong>« Ajouter un enregistrement »</strong>. Pour les A : Type=A, Nom d'hôte=<code>@</code>, Valeur=l'IP. Une ligne par IP (4 au total).<br>
+  Pour le www : Type=CNAME, Nom d'hôte=<code>www</code>, Valeur=<code>hl-works.github.io</code> (avec le point final si IONOS l'exige : <code>hl-works.github.io.</code>).</p>
+  <p class="note">Option IPv6 (facultatif, tu peux l'ignorer) : 4 enregistrements <strong>AAAA</strong> <code>@</code> →
+  <code>2606:50c0:8000::153</code>, <code>::8001::153</code>, <code>::8002::153</code>, <code>::8003::153</code>.</p>
+
+  <!-- NE PAS TOUCHER -->
+  <h2><span class="pill keep">3 · Ne PAS toucher</span> (mail IONOS)</h2>
+  <table>
+    <tr><th>Type</th><th class="mono">Nom d'hôte</th><th class="mono">Valeur</th><th>Service</th></tr>
+    <tr class="keep"><td>MX</td><td class="mono">@</td><td class="mono">mx00.ionos.fr</td><td>Mail</td></tr>
+    <tr class="keep"><td>MX</td><td class="mono">@</td><td class="mono">mx01.ionos.fr</td><td>Mail</td></tr>
+    <tr class="keep"><td>TXT</td><td class="mono">@</td><td class="mono">v=spf1 include:_spf-eu.ionos.com ~all</td><td>SPF</td></tr>
+    <tr class="keep"><td>CNAME</td><td class="mono">_dmarc</td><td class="mono">dmarc.ionos.fr</td><td>DMARC</td></tr>
+    <tr class="keep"><td>CNAME</td><td class="mono">s1-ionos._domainkey</td><td class="mono">s1.dkim.ionos.com</td><td>DKIM</td></tr>
+    <tr class="keep"><td>CNAME</td><td class="mono">s2-ionos._domainkey</td><td class="mono">s2.dkim.ionos.com</td><td>DKIM</td></tr>
+    <tr class="keep"><td>CNAME</td><td class="mono">s42582890._domainkey</td><td class="mono">s42582890.dkim.ionos.com</td><td>DKIM</td></tr>
+    <tr class="keep"><td>CNAME</td><td class="mono">autodiscover</td><td class="mono">adsredir.ionos.info</td><td>Mail</td></tr>
+  </table>
+
+  <!-- GITHUB -->
+  <h2><span class="pill add">4 · Côté GitHub</span> (je m'en occupe / ou toi en 30s)</h2>
+  <div class="box">
+    <ol>
+      <li>Repo <code>hl-works/knowledge-hub</code> → <strong>Settings → Pages</strong>.</li>
+      <li>Champ <strong>Custom domain</strong> : saisir <code>hl-consulting.tech</code> → <em>Save</em>. (Ça crée un fichier <code>CNAME</code> dans le repo — ou je l'ajoute moi-même au moment du merge.)</li>
+      <li>Attendre la vérification DNS (✓ vert), puis cocher <strong>Enforce HTTPS</strong> (peut prendre jusqu'à ~1h le temps du certificat).</li>
+    </ol>
+  </div>
+
+  <h2>Ordre &amp; délais</h2>
+  <div class="box">
+    <ol>
+      <li><strong>Toi</strong> : étapes 1 &amp; 2 dans IONOS (supprimer Squarespace, ajouter GitHub).</li>
+      <li><strong>Moi</strong> : je prépare la restructure du site (landing à la racine + contenu sous <code>/knowledge-hub/</code>) sur une branche, prête à merger.</li>
+      <li>On branche le custom domain (étape 4) au moment du merge.</li>
+      <li><strong>Propagation DNS</strong> : souvent 15 min–1h, parfois plus. On vérifie ensemble avant d'annoncer quoi que ce soit.</li>
+    </ol>
+    <p class="note">Pendant la propagation, le mail continue de marcher (on n'y a pas touché) et l'ancien site reste joignable sur <code>hl-works.github.io/knowledge-hub/</code>.</p>
+  </div>
+</div>
+</body>
+</html>

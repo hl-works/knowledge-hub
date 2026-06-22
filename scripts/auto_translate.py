@@ -19,8 +19,9 @@ Env : ANTHROPIC_API_KEY (requis), KH_MODEL (défaut claude-sonnet-4-6).
 """
 import os, sys, json, re, urllib.request, urllib.error
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "scripts"))
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.join(REPO, "knowledge-hub")
+sys.path.insert(0, os.path.join(REPO, "scripts"))
 import i18n_scaffold as sc
 
 API_URL = "https://api.anthropic.com/v1/messages"
@@ -28,7 +29,7 @@ MODEL = os.environ.get("KH_MODEL", "claude-sonnet-4-6")
 MAX_TOKENS = 32000
 
 def guide():
-    with open(os.path.join(ROOT, "scripts", "TRANSLATION_GUIDE.md"), encoding="utf-8") as f:
+    with open(os.path.join(REPO, "scripts", "TRANSLATION_GUIDE.md"), encoding="utf-8") as f:
         return f.read()
 
 def call_claude(system, user, api_key):

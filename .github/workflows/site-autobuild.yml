@@ -11,11 +11,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "**.html"
+      - "knowledge-hub/**.html"
       - "!landing-lab/**"
-      - "veille-ia/feed.json"
-      - "lexique/*.json"
-      - "en/lexique/*.json"
+      - "knowledge-hub/veille-ia/feed.json"
+      - "knowledge-hub/lexique/*.json"
+      - "knowledge-hub/en/lexique/*.json"
   workflow_dispatch:
 
 concurrency:

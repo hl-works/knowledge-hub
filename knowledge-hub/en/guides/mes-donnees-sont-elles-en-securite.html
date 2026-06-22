@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Is my data safe with AI? — Guides · Hugo Lahutte</title>
+<meta name="description" content="Where your data goes when you use AI, who can see it, is it used to train models — and the simple habits for plugging AI into your business without stress.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/mes-donnees-sont-elles-en-securite.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/mes-donnees-sont-elles-en-securite.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Is my data safe with AI?">
+<meta property="og:description" content="Where your data goes, who sees it, is it used to train models — and the simple habits to stay comfortable.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/mes-donnees-sont-elles-en-securite.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-05-31">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260601h">
+
+<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Is my data safe with AI?",
+      "description": "Where your data goes when you use AI, who can see it, is it used to train models, and the simple habits to stay comfortable.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-05-31",
+      "dateModified": "2026-05-31",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html",
+      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/knowledge-hub/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "about": ["data privacy", "AI security", "GDPR", "data sovereignty", "model training", "privacy"],
+      "keywords": "AI data security, privacy, model training, GDPR, data sovereignty, Mistral"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Is my data safe?", "item": "https://hl-consulting.tech/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Where does my data go when I use AI?", "acceptedAnswer": {"@type": "Answer", "text": "Your exchanges go to the provider's servers (the 'cloud'), encrypted in transit (HTTPS). By default, an assistant doesn't 'retain' your data from one conversation to the next, unless a memory feature is enabled. The real question isn't 'is it in the cloud' but 'who can see it and what do they do with it.'"}},
+        {"@type": "Question", "name": "Is my data used to train AI?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the plan. On consumer plans (often free), your conversations may be used to improve models — generally opt-outable in privacy settings. On professional, enterprise, and API plans from major providers, the default commitment is not to train on your content. Policies vary and evolve: check the terms of your plan."}},
+        {"@type": "Question", "name": "What about data sovereignty or GDPR?", "acceptedAnswer": {"@type": "Answer", "text": "For regulated or strategic data, you can require European hosting (GDPR concern), turn to a European provider like Mistral, or run an open model on your own server — at the cost of more complexity."}},
+        {"@type": "Question", "name": "What are the simple habits to stay comfortable?", "acceptedAnswer": {"@type": "Answer", "text": "Four: choose the right plan (pro/enterprise for work); opt out of training data use if the option exists; don't paste unnecessary secrets (passwords, third-party personal data); and reserve sovereign solutions for truly sensitive data."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../a-propos/">About</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Let's talk</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Is my data safe?</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · General</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Is my data safe with AI?</h1>
+    <hr class="rule--accent">
+    <p class="lead">The real question before plugging AI into your business: <strong>where does your data go, who can see it, is it used to train models</strong> — and the simple habits to stay comfortable.</p>
+    <div class="meta-bar">
+      <span>By <strong>Hugo Lahutte</strong></span><span>·</span>
+      <time datetime="2026-05-31">May 31, 2026</time><span>·</span><span>~5 min read</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="securite" data-tagsearch="securite" href="/knowledge-hub/en/guides/">security</a>
+      <a class="tag" data-tag="donnees" data-tagsearch="donnees" href="/knowledge-hub/en/guides/">data</a>
+      <a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a>
+      <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/en/guides/">explainer</a>
+    </div>
+    <ul class="levels" aria-label="Reading levels">
+      <li class="level-pill"><b>1</b> In 30 seconds</li>
+      <li class="level-pill"><b>2</b> The body, visual</li>
+      <li class="level-pill"><b>3</b> Go deeper</li>
+    </ul>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <aside class="callout callout--tldr prose" aria-label="30-second summary">
+      <p class="kicker">In 30 seconds</p>
+      <ul>
+        <li>Your exchanges go to the provider's servers (the "cloud"), <strong>encrypted in transit</strong>. The real question isn't "is it in the cloud" but <strong>"who can see it and what do they do with it."</strong></li>
+        <li>Key distinction: <strong>consumer plans</strong> (often free) may use your conversations to improve models — unless you opt out; <strong>pro / enterprise / API plans</strong> from serious providers commit by default to <strong>not</strong> training on your data.</li>
+        <li>For anything truly sensitive: <strong>data sovereignty</strong> (European hosting, a provider like Mistral, or a self-hosted open model). And always: don't paste secrets you don't need.</li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Contents">
+      <p class="kicker">Contents</p>
+      <ul>
+        <li><a href="#ou-vont">1. Where does my data go?</a></li>
+        <li><a href="#entrainement">2. Is it used to train AI?</a></li>
+        <li><a href="#souverainete">3. What about data sovereignty / GDPR?</a></li>
+        <li><a href="#reflexes">4. The simple habits</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="ou-vont">1. Where does my data go?</h2>
+      <p>When you use AI, your messages go to the <strong>provider's servers</strong> — just like any online service. They travel <strong>encrypted</strong> (the HTTPS padlock), so nobody reads them "on the wire" between you and the service.</p>
+      <p>Two reassuring things to know: by default, an assistant doesn't <strong>"retain"</strong> your data from one conversation to the next (unless you activate a memory feature), and it's <strong>not connected to your tools</strong> unless you explicitly connect it. The real question isn't "is it in the cloud?" — it is, just like your email — but <strong>"who can see it, and what does the provider do with it?"</strong> That's where the plan you choose makes all the difference.</p>
+
+      <h2 id="entrainement">2. Is it used to train AI?</h2>
+      <p>That's <em>the</em> classic concern — and the answer depends entirely on the <strong>plan</strong> you're using:</p>
+      <ul>
+        <li>On <strong>consumer plans</strong> (often free), your conversations <strong>may</strong> be used to improve models. It's generally <strong>opt-outable</strong> in privacy settings — but you have to actually go do it.</li>
+        <li>On <strong>pro, enterprise, and API plans</strong> from major providers, the default commitment is to <strong>not</strong> train on your content, often with contractual guarantees.</li>
+      </ul>
+      <p>Policies <strong>vary by provider and evolve over time</strong>: the right habit isn't to take their word for it — it's to <strong>check the "training" clause</strong> of your plan. Some providers, including Anthropic (Claude), put privacy at the center of their positioning — but that's something to verify, not assume.</p>
+
+      <figure class="diagram">
+        <div class="compare" role="img" aria-label="Comparison: consumer plan (conversations may be used for training, opt-outable, for testing) versus pro/enterprise/API plan (no training by default, contractual commitments, for work).">
+          <div class="compare__side">
+            <span class="compare__tag">Consumer (free)</span>
+            <h4>For testing</h4>
+            <ul>
+              <li>May be used to improve models</li>
+              <li>Opt-outable in settings</li>
+              <li>Avoid sensitive data here</li>
+            </ul>
+          </div>
+          <div class="compare__arrow" aria-hidden="true">→</div>
+          <div class="compare__side compare__side--after">
+            <span class="compare__tag">Pro / Enterprise / API</span>
+            <h4>For work</h4>
+            <ul>
+              <li>No training on your data by default</li>
+              <li>Contractual commitments</li>
+              <li>The plan to use in business</li>
+            </ul>
+          </div>
+        </div>
+        <figcaption class="caption">Same model, two different contracts. For professional use, take the pro plan — and read the "training" clause.</figcaption>
+      </figure>
+
+      <h2 id="souverainete">3. What about data sovereignty / GDPR?</h2>
+      <p>For most use cases of a retailer or SMB, a serious pro plan is enough. But if you handle <strong>regulated or strategic data</strong> (health data, HR, sensitive customer files), you can step it up:</p>
+      <ul>
+        <li>require <strong>European hosting</strong> (GDPR concern);</li>
+        <li>turn to a <strong>European provider</strong> like <strong>Mistral</strong>;</li>
+        <li>or run an <strong>open model on your own server</strong> (nothing leaves your infrastructure) — at the cost of more complexity.</li>
+      </ul>
+      <p>It's a trade-off: the more control you want, the more time and resources it takes. There's no need to deploy sovereign infrastructure to write product descriptions.</p>
+
+      <h2 id="reflexes">4. The simple habits</h2>
+      <p>In practice, 90% of your peace of mind comes from four habits:</p>
+
+      <figure class="diagram">
+        <div class="card-grid" role="img" aria-label="Four habits: choose the right plan, opt out of training, don't paste unnecessary secrets, reserve sovereign solutions for sensitive data.">
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Habit 1</span>
+            <span class="card__title">The right plan</span>
+            <span class="card__desc">For work, a pro / enterprise / API plan rather than the free tier. And read the "training" clause.</span>
+          </div>
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Habit 2</span>
+            <span class="card__title">Opt out of training</span>
+            <span class="card__desc">If the option exists (consumer plans), disable the use of your data in privacy settings.</span>
+          </div>
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Habit 3</span>
+            <span class="card__title">No unnecessary secrets</span>
+            <span class="card__desc">Passwords, card numbers, third-party personal data: only if necessary — otherwise, anonymize.</span>
+          </div>
+          <div class="card" style="min-height:auto;">
+            <span class="card__kicker">Habit 4</span>
+            <span class="card__title">Sensitive = sovereignty</span>
+            <span class="card__desc">Regulated data: European hosting, a European provider, or a self-hosted model.</span>
+          </div>
+        </div>
+        <figcaption class="caption">Nothing complicated: the right plan, the right settings, a bit of hygiene, and sovereignty reserved for what's truly sensitive.</figcaption>
+      </figure>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Go deeper</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="cest-quoi-mcp-connecter-claude.html"><strong>What is an MCP</strong></a> — connecting AI means opening access: all the more reason to set boundaries.</li>
+          <li>→ <a href="cest-quoi-ia-llm.html"><strong>What is AI and an LLM</strong></a> — where Mistral and the data sovereignty question come from.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Real case.</strong> Sharing context with a team without ever exposing credentials → <a href="../journal/collegues-sur-claude.html">The team's arrival on Claude</a>.</p>
+      </aside>
+
+      <p class="caption" style="margin-top:var(--space-8);">This guide provides general pointers, not legal advice: for a specific regulated case, have it reviewed by a DPO or a lawyer.</p>
+
+    </div>
+  </div>
+</article>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
+      <h2>Unsure about your data?</h2>
+      <p class="prose">If you're hesitating to plug AI into your tools because of data concerns, let's talk — often the right plan and two settings are all it takes. I document everything in public, with nothing to sell.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Sécurité%20des%20données%20—%20échange">Send me a message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navigation principale — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependency</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private space">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

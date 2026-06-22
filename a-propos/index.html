@@ -1,256 +1,892 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ===== SEO ===== -->
-<title>À propos — Hugo Lahutte : DG de Cobra, éditeur de Haute Fidélité</title>
-<meta name="description" content="Hugo Lahutte : 17 ans chez Son-Vidéo.com (de 10 à 62 M€), aujourd'hui DG de Cobra, éditeur du magazine Haute Fidélité et fondateur de HL Consulting. Parcours, projets et méthode de travail avec Claude.">
-<link rel="canonical" href="https://hl-works.github.io/knowledge-hub/a-propos/">
-<link rel="alternate" hreflang="fr" href="https://hl-works.github.io/knowledge-hub/a-propos/">
-<link rel="alternate" hreflang="en" href="https://hl-works.github.io/knowledge-hub/en/a-propos/">
-<link rel="alternate" hreflang="x-default" href="https://hl-works.github.io/knowledge-hub/a-propos/">
-<meta name="author" content="Hugo Lahutte">
-<meta name="robots" content="index, follow, max-image-preview:large">
-
-<meta property="og:type" content="profile">
-<meta property="og:title" content="À propos — Hugo Lahutte">
-<meta property="og:description" content="DG de Cobra, éditeur de Haute Fidélité, fondateur de HL Consulting. 17 ans dans l'audio/vidéo haut de gamme.">
-<meta property="og:url" content="https://hl-works.github.io/knowledge-hub/a-propos/">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:locale:alternate" content="en_US">
-<meta property="profile:first_name" content="Hugo">
-<meta property="profile:last_name" content="Lahutte">
-
-<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
-
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="../favicon.ico" sizes="any">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="manifest" href="../site.webmanifest">
-<meta name="theme-color" content="#FFFCF8">
-<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../style.css?v=20260601h">
-
-<!-- ===== JSON-LD : ProfilePage + Person enrichi (GEO authorship) ===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "url": "https://hl-works.github.io/knowledge-hub/a-propos/",
-  "inLanguage": "fr-FR",
-  "mainEntity": {
-    "@type": "Person",
-    "@id": "https://hl-works.github.io/knowledge-hub/#hugo",
-    "name": "Hugo Lahutte",
-    "givenName": "Hugo",
-    "familyName": "Lahutte",
-    "email": "mailto:hugo@hl-consulting.tech",
-    "url": "https://hl-works.github.io/knowledge-hub/",
-    "jobTitle": "Directeur général de Cobra · Éditeur de Haute Fidélité · Fondateur de HL Consulting",
-    "address": {"@type": "PostalAddress", "addressLocality": "Chennevières-sur-Marne", "addressRegion": "Île-de-France", "addressCountry": "FR"},
-    "description": "17 ans chez Son-Vidéo.com (achats, vente, marketing, publicité, création/import de marques), aujourd'hui DG de Cobra, éditeur du magazine Haute Fidélité et fondateur de HL Consulting. Construit ses projets et son contenu avec Claude.",
-    "knowsAbout": ["HiFi", "audio haut de gamme", "home cinéma", "e-commerce", "retail", "transformation digitale", "marketing", "achats", "Claude", "automatisation", "Odoo", "Shopify"],
-    "worksFor": [
-      {"@type": "Organization", "name": "Cobra", "url": "https://www.cobra.fr"},
-      {"@type": "Organization", "name": "Haute Fidélité", "url": "https://www.hautefidelite-hifi.com"},
-      {"@type": "Organization", "name": "HL Consulting"}
-    ],
-    "alumniOf": [
-      {"@type": "CollegeOrUniversity", "name": "ESGCI — MBA E-business"},
-      {"@type": "CollegeOrUniversity", "name": "Université de Versailles Saint-Quentin-en-Yvelines — Génie Logistique"}
-    ],
-    "sameAs": [
-      "https://www.linkedin.com/in/hugo-lahutte",
-      "https://x.com/hugolh_ai",
-      "https://www.hautefidelite-hifi.com",
-      "https://www.cobra.fr"
-    ]
-  }
-}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://hl-consulting.tech/a-propos/" />
+<meta name="author" content="Hugo Lahutte" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="À propos — Hugo Lahutte" />
+<meta property="og:description" content="Passionné d'audio et d'image. 17 ans à faire grandir Son-Vidéo.com, aujourd'hui DG de Cobra, éditeur de Haute Fidélité et fondateur de HL Consulting — et il construit ses outils avec l'IA." />
+<meta property="og:url" content="https://hl-consulting.tech/a-propos/" />
+<meta property="og:locale" content="fr_FR" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FF8C7A" />
+<title>À propos — Hugo Lahutte</title>
+<meta name="description" content="À propos de Hugo Lahutte : passionné d'audio et d'image, 17 ans chez Son-Vidéo.com, DG de Cobra, éditeur de Haute Fidélité, fondateur de HL Consulting. Il bâtit ses outils et son contenu avec l'IA." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<!-- Anti-FOUC: set lang + theme + signal color before paint -->
+<script>
+(function () {
+  try {
+    var l = localStorage.getItem("hl-lang") || "fr";
+    var t = localStorage.getItem("hl-theme") || "light";
+    var s = localStorage.getItem("hl-e-signal");
+    document.documentElement.setAttribute("lang", l);
+    document.documentElement.setAttribute("data-theme", t);
+    document.documentElement.setAttribute("data-lang", l);
+    if (s && /^#[0-9A-Fa-f]{6}$/.test(s)) {
+      document.documentElement.style.setProperty("--e-signal", s);
+    }
+  } catch (e) {}
+})();
 </script>
+<style>
+  /* ============ TOKENS ============ */
+  :root {
+    --e-signal: #FF8C7A;       /* CORAIL — défaut (live-swappable) */
+    --e-ink: #0A0A0A;          /* black type */
+    --e-paper: #FFFFFF;        /* stark white panels */
+    --e-field: var(--e-signal);
+    --e-on-field: var(--e-ink);
+    --e-panel: var(--e-paper);
+    --e-on-panel: var(--e-ink);
+    --e-bar: var(--e-ink);     /* black bar */
+    --e-on-bar: var(--e-signal);
+    --e-border: var(--e-ink);
+    --e-shadow: var(--e-ink);
+    --e-bw: 3px;               /* border weight */
+    --e-off: 8px;              /* hard offset shadow */
+  }
+  html[data-theme="dark"] {
+    --e-field: #0A0A0A;        /* black field */
+    --e-on-field: var(--e-signal);
+    --e-panel: #141414;
+    --e-on-panel: #F4F4F4;
+    --e-bar: var(--e-signal);
+    --e-on-bar: #0A0A0A;
+    --e-border: var(--e-signal);
+    --e-shadow: var(--e-signal);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--e-field);
+    color: var(--e-on-field);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    line-height: 1.15;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .e-mono { font-family: "Space Mono", ui-monospace, monospace; }
+
+  /* lang visibility */
+  html[data-lang="fr"] .e-en { display: none; }
+  html[data-lang="en"] .e-fr { display: none; }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 4px solid var(--e-bar);
+    outline-offset: 2px;
+  }
+  html[data-theme="dark"] :focus-visible { outline-color: var(--e-signal); }
+
+  .e-wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  /* ============ HEADER ============ */
+  .e-header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--e-field);
+    border-bottom: var(--e-bw) solid var(--e-border);
+  }
+  .e-headrow {
+    display: flex; align-items: center; gap: 16px;
+    padding: 12px 20px; max-width: 1180px; margin: 0 auto;
+  }
+  .e-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex: 0 0 auto; }
+  .e-mono-sq {
+    width: 40px; height: 40px; flex: 0 0 auto;
+    display: grid; place-items: center;
+    background: var(--e-bar); color: var(--e-on-bar);
+    border: var(--e-bw) solid var(--e-border);
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 18px;
+  }
+  .e-brand-txt { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  .e-brand-txt small { display: block; font-weight: 400; font-size: 11px; }
+  .e-nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+  .e-nav a {
+    font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; text-decoration: none; padding: 6px 8px;
+    border: 2px solid transparent;
+  }
+  .e-nav a:hover, .e-nav a:focus-visible {
+    background: var(--e-bar); color: var(--e-on-bar);
+  }
+  .e-nav a[aria-current="page"] {
+    background: var(--e-bar); color: var(--e-on-bar);
+  }
+  .e-tools { display: flex; gap: 6px; align-items: center; }
+  .e-btn-mini {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    background: var(--e-panel); color: var(--e-on-panel);
+    border: var(--e-bw) solid var(--e-border); padding: 6px 9px;
+    cursor: pointer; line-height: 1; text-transform: uppercase;
+  }
+  .e-btn-mini:hover { background: var(--e-bar); color: var(--e-on-bar); }
+  .e-burger { display: none; }
+
+  /* ============ PALETTE SWITCHER (dropdown) ============ */
+  .e-palette { position: relative; padding-left: 8px; margin-left: 2px; border-left: var(--e-bw) solid var(--e-border); }
+  .e-palette-trigger { display: inline-flex; align-items: center; gap: 6px; }
+  .e-palette-dot { width: 15px; height: 15px; background: var(--e-signal); border: 2px solid currentColor; line-height: 0; }
+  .e-palette-menu {
+    position: absolute; top: calc(100% + 8px); right: 0; z-index: 60;
+    background: var(--e-panel); border: var(--e-bw) solid var(--e-border);
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow); padding: 12px;
+  }
+  .e-palette-menu[hidden] { display: none; }
+  .e-palette-label {
+    display: block; margin-bottom: 8px;
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.04em; line-height: 1;
+  }
+  .e-swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .e-swatch {
+    width: 24px; height: 24px; flex: 0 0 auto; padding: 0; cursor: pointer;
+    background: var(--sw, #000); border: var(--e-bw) solid var(--e-border);
+    box-shadow: 3px 3px 0 var(--e-shadow); line-height: 0;
+    transition: transform .08s linear, box-shadow .08s linear;
+  }
+  .e-swatch:hover {
+    transform: translate(3px, 3px); box-shadow: 0 0 0 var(--e-shadow);
+  }
+  .e-swatch[aria-pressed="true"] {
+    transform: translate(3px, 3px); box-shadow: 0 0 0 var(--e-shadow);
+    outline: 2px solid var(--e-border); outline-offset: -7px;
+  }
+
+  @media (max-width: 860px) {
+    .e-nav { display: none; width: 100%; flex-direction: column; margin: 0; }
+    .e-nav.e-open { display: flex; }
+    .e-headrow { flex-wrap: wrap; }
+    .e-burger { display: inline-flex; margin-left: auto; order: 3; }
+    .e-tools { order: 2; }
+    .e-nav a { border: 2px solid var(--e-border); }
+    .e-swatch { width: 30px; height: 30px; }
+  }
+
+  /* ============ HERO ============ */
+  .e-hero { padding: 56px 0 0; }
+  .e-eyebrow {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px;
+    display: inline-block; border: var(--e-bw) solid var(--e-border);
+    background: var(--e-panel); color: var(--e-on-panel); padding: 6px 12px;
+  }
+  .e-name {
+    font-weight: 700; line-height: 0.84; letter-spacing: -0.04em;
+    font-size: clamp(44px, 9.4vw, 132px); margin: 0;
+    text-transform: uppercase; word-break: normal; overflow-wrap: normal; hyphens: none;
+  }
+  .e-tagline {
+    font-family: "Space Mono", monospace; font-weight: 700; line-height: 1.14;
+    font-size: clamp(18px, 3.2vw, 30px); margin: 18px 0 6px; text-transform: uppercase;
+    max-width: 24ch;
+  }
+  .e-tagline .e-hl { background: var(--e-bar); color: var(--e-on-bar); padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .e-subtag {
+    font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 500;
+    font-size: clamp(15px, 1.9vw, 19px); line-height: 1.45; margin: 0 0 4px; max-width: 46ch;
+  }
+  .e-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .e-tags li { display: flex; }
+  .e-tag {
+    font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; padding: 6px 10px; text-decoration: none;
+    border: var(--e-bw) solid var(--e-border); background: var(--e-panel); color: var(--e-on-panel);
+    transition: transform .1s linear, box-shadow .1s linear, background .1s, color .1s;
+  }
+  .e-tag:hover, .e-tag:focus-visible {
+    background: var(--e-bar); color: var(--e-on-bar);
+    box-shadow: 4px 4px 0 var(--e-shadow); transform: translate(-2px, -2px);
+  }
+  .e-cta-row { margin: 28px 0 40px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .e-btn {
+    display: inline-block; text-decoration: none;
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 16px;
+    text-transform: uppercase; padding: 16px 24px;
+    background: var(--e-panel); color: var(--e-on-panel);
+    border: var(--e-bw) solid var(--e-border);
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+    transition: transform .08s linear, box-shadow .08s linear;
+  }
+  .e-btn.e-btn-primary { background: var(--e-bar); color: var(--e-on-bar); }
+  .e-btn:hover, .e-btn:focus-visible {
+    transform: translate(var(--e-off), var(--e-off));
+    box-shadow: 0 0 0 var(--e-shadow);
+  }
+
+  /* ============ MARQUEE ============ */
+  .e-marquee {
+    background: var(--e-bar); color: var(--e-on-bar);
+    border-top: var(--e-bw) solid var(--e-border);
+    border-bottom: var(--e-bw) solid var(--e-border);
+    overflow: hidden; white-space: nowrap; padding: 12px 0;
+  }
+  .e-marquee-track {
+    display: inline-block; will-change: transform;
+    animation: e-scroll 26s linear infinite;
+  }
+  .e-marquee-track span {
+    font-family: "Space Mono", monospace; font-weight: 700;
+    font-size: clamp(16px, 3vw, 26px); text-transform: uppercase; padding: 0 4px;
+  }
+  @keyframes e-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .e-marquee-track { animation: none; }
+  }
+
+  /* ============ SECTION SHELL ============ */
+  .e-section { padding: 64px 0; }
+  .e-section-head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 28px;
+    border-bottom: var(--e-bw) solid var(--e-border); padding-bottom: 14px;
+  }
+  .e-idx { font-family: "Space Mono", monospace; font-weight: 700; font-size: 18px; }
+  .e-section-title {
+    font-weight: 700; font-size: clamp(28px, 6vw, 56px); margin: 0;
+    text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
+  }
+
+  /* ============ FOOTER ============ */
+  .e-footer {
+    background: var(--e-bar); color: var(--e-on-bar);
+    border-top: var(--e-bw) solid var(--e-border);
+    padding: 56px 0 28px;
+  }
+  .e-foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+  .e-foot-grid h4 {
+    font-family: "Space Mono", monospace; font-size: 13px; font-weight: 700;
+    text-transform: uppercase; margin: 0 0 14px; letter-spacing: 0.04em;
+  }
+  .e-foot-monogram { font-weight: 700; font-size: 40px; text-transform: uppercase; letter-spacing: -0.02em; margin: 0 0 10px; }
+  .e-foot-list { list-style: none; padding: 0; margin: 0; }
+  .e-foot-list li { margin-bottom: 8px; }
+  .e-foot-list a {
+    font-family: "Space Mono", monospace; font-size: 14px; text-decoration: none; font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+  .e-foot-list a:hover, .e-foot-list a:focus-visible { border-bottom-color: currentColor; }
+  .e-foot-bottom {
+    margin-top: 40px; padding-top: 18px; border-top: 2px solid currentColor;
+    font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  @media (max-width: 700px) {
+    .e-foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 460px) {
+    .e-foot-grid { grid-template-columns: 1fr; }
+  }
+
+  .e-skip {
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    background: var(--e-bar); color: var(--e-on-bar); padding: 10px 16px;
+    font-family: "Space Mono", monospace; font-weight: 700; text-decoration: none;
+  }
+  .e-skip:focus { left: 8px; top: 8px; }
+
+  /* ===== DUOTONE PHOTO FRAME (corail/noir, suit --e-signal) ===== */
+  .e-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(22px, 4vw, 52px); align-items: center; }
+  .e-hero-main { min-width: 0; }
+  .e-portrait-frame {
+    position: relative; isolation: isolate; overflow: hidden;
+    aspect-ratio: 4 / 5; width: 100%;
+    background: #0A0A0A;
+    border: var(--e-bw) solid var(--e-border);
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+  }
+  .e-portrait-frame img {
+    display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;
+    filter: url(#e-duo);
+    transform: scale(1.001);
+    transition: filter .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1);
+  }
+  .e-portrait-frame::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      radial-gradient(120% 90% at 50% 35%, transparent 55%, rgba(10,10,10,.32) 100%);
+    transition: opacity .5s cubic-bezier(.22,1,.36,1);
+  }
+  .e-portrait-frame:hover img,
+  .e-portrait-frame:focus-within img { filter: none; transform: scale(1.03); }
+  .e-portrait-frame:hover::after,
+  .e-portrait-frame:focus-within::after { opacity: 0; }
+  .e-portrait-frame::before {
+    content: "VOIR EN COULEUR ↗"; position: absolute; top: 0; right: 0; z-index: 3;
+    font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .06em; font-weight: 700;
+    background: var(--e-bar); color: var(--e-on-bar); padding: 5px 9px;
+    border-left: var(--e-bw) solid var(--e-border); border-bottom: var(--e-bw) solid var(--e-border);
+    opacity: 1; transition: opacity .3s;
+  }
+  html[data-lang="en"] .e-portrait-frame::before { content: "SEE IN COLOUR ↗"; }
+  .e-portrait-frame:hover::before, .e-portrait-frame:focus-within::before { opacity: 0; }
+  .e-portrait-cap {
+    position: absolute; left: 0; bottom: 0; z-index: 2;
+    background: var(--e-bar); color: var(--e-on-bar);
+    font-family: "Space Mono", monospace;
+    font-size: 12px; letter-spacing: .04em; padding: 6px 10px;
+    border-top: var(--e-bw) solid var(--e-border); border-right: var(--e-bw) solid var(--e-border);
+  }
+  @media (max-width: 820px) {
+    .e-hero-grid { grid-template-columns: 1fr; }
+    .e-hero-grid .e-portrait-frame { order: -1; max-width: 340px; margin: 0 0 6px; }
+  }
+
+  /* ============ À PROPOS — page-specific (ap-) ============ */
+  /* Alternating photo / prose rows */
+  .ap-row {
+    display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(22px, 4vw, 48px);
+    align-items: center;
+  }
+  .ap-row.ap-flip { grid-template-columns: 1.15fr .85fr; }
+  .ap-row.ap-flip .ap-media { order: 2; }
+  .ap-row.ap-flip .ap-prose { order: 1; }
+  .ap-media .e-portrait-frame { aspect-ratio: 4 / 5; }
+  .ap-media.ap-wide .e-portrait-frame { aspect-ratio: 16 / 11; }
+  .ap-prose p {
+    font-size: clamp(15px, 1.9vw, 18px); line-height: 1.55; margin: 0 0 16px; max-width: 60ch;
+  }
+  .ap-prose p:last-child { margin-bottom: 0; }
+  .ap-lead {
+    font-family: "Space Mono", monospace; font-weight: 700;
+    font-size: clamp(15px, 2vw, 19px) !important; line-height: 1.4 !important;
+    text-transform: uppercase; margin-bottom: 22px !important;
+  }
+  .ap-prose strong { font-weight: 700; }
+  .ap-prose a.ap-inline {
+    font-weight: 700; text-decoration: none;
+    border-bottom: var(--e-bw) solid var(--e-signal);
+  }
+  html[data-theme="light"] .ap-prose a.ap-inline { border-bottom-color: var(--e-ink); }
+  .ap-prose a.ap-inline:hover, .ap-prose a.ap-inline:focus-visible {
+    background: var(--e-bar); color: var(--e-on-bar);
+  }
+  @media (max-width: 820px) {
+    .ap-row, .ap-row.ap-flip { grid-template-columns: 1fr; }
+    .ap-row.ap-flip .ap-media { order: -1; }
+    .ap-row.ap-flip .ap-prose { order: 0; }
+    .ap-media { max-width: 380px; }
+    .ap-media.ap-wide { max-width: 100%; }
+  }
+
+  /* Twin-photo stack for sections with two images */
+  .ap-twin { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  /* keep the twin pair calm: drop the per-photo "see in colour" badge (still hover-reveals) */
+  .ap-twin .e-portrait-frame::before { content: none; }
+  @media (max-width: 480px) { .ap-twin { grid-template-columns: 1fr; } }
+
+  /* Timeline / facts grid (non-clickable info — flat, not card-like) */
+  .ap-facts { list-style: none; margin: 28px 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .ap-fact {
+    border-top: var(--e-bw) solid var(--e-border);
+    margin: -1.5px 0 0 0; padding: 18px 20px 22px;
+  }
+  .ap-facts .ap-fact:not(:nth-child(3n)) { border-right: var(--e-bw) solid var(--e-border); margin-right: -1.5px; }
+  .ap-fact-k {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    text-transform: uppercase; letter-spacing: .04em; margin: 0 0 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .ap-fact-k::before { content: "▸"; color: var(--e-signal); -webkit-text-fill-color: currentColor; }
+  html[data-theme="light"] .ap-fact-k::before { color: var(--e-ink); }
+  .ap-fact h3 { font-weight: 700; font-size: 18px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: -0.01em; }
+  .ap-fact p { margin: 0; font-size: 14px; line-height: 1.45; }
+  @media (max-width: 760px) { .ap-facts { grid-template-columns: 1fr 1fr; }
+    .ap-facts .ap-fact:not(:nth-child(3n)) { border-right: 0; margin-right: 0; }
+    .ap-facts .ap-fact:nth-child(odd) { border-right: var(--e-bw) solid var(--e-border); margin-right: -1.5px; }
+  }
+  @media (max-width: 460px) { .ap-facts { grid-template-columns: 1fr; }
+    .ap-facts .ap-fact:nth-child(odd) { border-right: 0; margin-right: 0; }
+  }
+
+  /* Contact block */
+  .ap-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 32px; }
+  .ap-contact-item {
+    border: var(--e-bw) solid var(--e-border); margin: -1.5px 0 0 -1.5px;
+    background: var(--e-panel); color: var(--e-on-panel);
+    padding: 22px; text-decoration: none; display: flex; flex-direction: column; gap: 6px;
+    transition: transform .1s linear, box-shadow .1s linear, background .1s, color .1s;
+    position: relative;
+  }
+  .ap-contact-item:hover, .ap-contact-item:focus-visible {
+    background: var(--e-bar); color: var(--e-on-bar); z-index: 2;
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+    transform: translate(calc(var(--e-off) * -0.5), calc(var(--e-off) * -0.5));
+  }
+  .ap-contact-k {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .04em; opacity: .85;
+  }
+  .ap-contact-v {
+    font-weight: 700; font-size: clamp(16px, 2.4vw, 22px); letter-spacing: -0.01em;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .ap-contact-v::after { content: "->"; font-family: "Space Mono", monospace; transition: transform .15s ease; }
+  .ap-contact-item:hover .ap-contact-v::after,
+  .ap-contact-item:focus-visible .ap-contact-v::after { transform: translateX(5px); }
+  @media (max-width: 560px) { .ap-contact-grid { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) {
+    .ap-contact-item, .e-portrait-frame img, .e-portrait-frame::after { transition: none; }
+    .ap-contact-v::after, .e-blk-link::after { transition: none; }
+  }
+</style>
 </head>
 <body>
-<a class="skip-link" href="#main">Aller au contenu</a>
+<a href="#top" class="e-skip"><span class="e-fr">Aller au contenu</span><span class="e-en">Skip to content</span></a>
 
-<header class="nav">
-  <a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a>
-  <nav aria-label="Principale">
-    <ul class="nav__links" id="nav-links">
-      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
-      <li><a href="../how-to/">Méthode</a></li>
-      <li><a href="../guides/">Guides</a></li>
-      <li><a href="../veille-ia/">Veille IA</a></li>
-      <li><a href="./" aria-current="page">À propos</a></li>
-      <li><a href="../#projets">Projets</a></li>
-      <li><a href="../journal/">Journal</a></li>
-      <li><a href="../#contact">Échanger</a></li>
-      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
-      <li class="nav__lang"><a href="/knowledge-hub/en/a-propos/" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
-    </ul>
-    <div class="nav__actions">
-      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
-      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+<!-- Filtre duotone corail (ombres encre → hautes lumières corail clair) -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <filter id="e-duo" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.10 1.0"/>
+      <feFuncG type="table" tableValues="0.055 0.80"/>
+      <feFuncB type="table" tableValues="0.045 0.74"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="e-header">
+  <div class="e-headrow">
+    <a href="/" class="e-brand" aria-label="Hugo Lahutte — accueil">
+      <span class="e-mono-sq" aria-hidden="true">HL</span>
+      <span class="e-brand-txt">Hugo Lahutte<small class="e-mono">Consulting</small></span>
+    </a>
+    <button class="e-btn-mini e-burger" id="e-burger" aria-expanded="false" aria-controls="e-nav" aria-label="Menu">≡</button>
+    <nav class="e-nav" id="e-nav" aria-label="Worlds">
+      <a href="/#hub">Hub</a>
+      <a href="/#cobra">Cobra</a>
+      <a href="/#hifi">HiFi Lovers</a>
+      <a href="/#mag">Magazine</a>
+      <a href="/#savoir-faire"><span class="e-fr">Savoir-faire</span><span class="e-en">Skills</span></a>
+      <a href="/a-propos/" aria-current="page"><span class="e-fr">À propos</span><span class="e-en">About</span></a>
+    </nav>
+    <div class="e-tools">
+      <button class="e-btn-mini" id="e-lang" aria-label="Language / Langue">FR/EN</button>
+      <button class="e-btn-mini" id="e-theme" aria-label="Light / dark theme" title="Theme">◐</button>
+      <div class="e-palette" id="e-palette">
+        <button class="e-btn-mini e-palette-trigger" id="e-palette-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Couleur signal / Signal colour" title="Couleur signal">
+          <span class="e-palette-dot" aria-hidden="true"></span><span aria-hidden="true">▾</span>
+        </button>
+        <div class="e-palette-menu" id="e-palette-menu" role="menu" hidden>
+          <span class="e-palette-label" aria-hidden="true"><span class="e-fr">Couleur signal</span><span class="e-en">Signal colour</span></span>
+          <div class="e-swatches" id="e-swatches"></div>
+        </div>
+      </div>
     </div>
-  </nav>
+  </div>
 </header>
 
-<main id="main">
-
-<!-- ===== HERO ===== -->
-<section class="hero" style="padding-bottom:var(--space-12);">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <p class="kicker">À propos</p>
-        <h1>Hugo<br>Lahutte</h1>
-        <hr class="rule--accent">
-        <p class="lead">Passionné d'audio, d'image et de tout ce qui procure de l'émotion. 17 ans à faire grandir <strong>Son-Vidéo.com</strong>, aujourd'hui <strong>DG de Cobra</strong>, <strong>éditeur de Haute Fidélité</strong> et fondateur de <strong>HL Consulting</strong> — et je construis désormais la quasi-totalité de mes outils et de mon contenu avec Claude.</p>
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="e-hero">
+    <div class="e-wrap e-hero-grid">
+      <div class="e-hero-main">
+        <p class="e-eyebrow e-mono">
+          <span class="e-fr">À PROPOS</span>
+          <span class="e-en">ABOUT</span>
+        </p>
+        <h1 class="e-name">Hugo<br />Lahutte</h1>
+        <p class="e-subtag">
+          <span class="e-fr">Passionné d'audio, d'image et de tout ce qui procure de l'émotion. 17 ans à faire grandir <strong>Son-Vidéo.com</strong>, aujourd'hui <strong>DG de Cobra</strong>, éditeur de <strong>Haute Fidélité</strong> et fondateur de <strong>HL Consulting</strong> — et je construis désormais l'essentiel de mes outils et de mon contenu avec l'IA.</span>
+          <span class="e-en">Driven by audio, image and anything that stirs emotion. 17 years growing <strong>Son-Vidéo.com</strong>, today <strong>CEO of Cobra</strong>, publisher of <strong>Haute Fidélité</strong> and founder of <strong>HL Consulting</strong> — and I now build most of my tools and my content with AI.</span>
+        </p>
+        <ul class="e-tags">
+          <li><a class="e-tag" href="/#cobra">Cobra</a></li>
+          <li><a class="e-tag" href="/#mag">Haute Fidélité</a></li>
+          <li><a class="e-tag" href="/#hifi">HiFi Lovers</a></li>
+          <li><a class="e-tag" href="/knowledge-hub/">Knowledge Hub</a></li>
+        </ul>
+        <div class="e-cta-row">
+          <a class="e-btn e-btn-primary" href="#echanger"><span class="e-fr">Me contacter →</span><span class="e-en">Get in touch →</span></a>
+          <a class="e-btn" href="#parcours"><span class="e-fr">Le parcours →</span><span class="e-en">The path →</span></a>
+        </div>
       </div>
-      <!-- PHOTO CIBLE : cobra-portrait (bureau, mains jointes, veste Technics) — ratio 4/5 -->
-      <figure class="figure">
-        <img src="../assets/img/cobra-portrait.webp" alt="Portrait de Hugo Lahutte à son bureau chez Cobra, mains jointes" width="962" height="1536" loading="lazy" decoding="async" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);">
-        <figcaption class="caption">À mon bureau, chez Cobra.</figcaption>
+      <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Portrait de Hugo Lahutte à son bureau / Portrait of Hugo Lahutte at his desk">
+        <img src="/knowledge-hub/assets/img/cobra-portrait.webp" width="800" height="1000"
+             alt="Hugo Lahutte à son bureau, en train de travailler / Hugo Lahutte at his desk, working" loading="eager" />
+        <figcaption class="e-portrait-cap e-mono"><span class="e-fr">Au bureau · Cobra</span><span class="e-en">At the desk · Cobra</span></figcaption>
       </figure>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="e-marquee" aria-hidden="true">
+    <div class="e-marquee-track">
+      <span>AUDIO · IMAGE · IA — AUDIO · IMAGE · AI — ÉVÉNEMENTIEL · VIDÉO · VOYAGE — </span>
+      <span>AUDIO · IMAGE · IA — AUDIO · IMAGE · AI — ÉVÉNEMENTIEL · VIDÉO · VOYAGE — </span>
     </div>
   </div>
-</section>
 
-<article class="article" style="padding-top:0;">
-  <div class="container">
-    <div class="prose">
-
-      <h2>Mon parcours</h2>
-      <p>Tout commence par une passion : la musique et le cinéma. Étudiant, je vends de l'électronique chez Darty, puis je touche à l'événementiel et à la culture japonaise en participant à l'organisation de <strong>Japan Expo</strong> pendant cinq ans — régisseur de la grande salle, logistique, son. On y apprend à s'adapter à tout.</p>
-      <p>Puis vient l'aventure structurante : <strong>16 ans chez Son-Vidéo.com</strong>, le numéro 1 français de la vente en ligne hi-fi et home-cinéma. J'y touche à tout — achats, vente, stratégie commerciale, marketing, publicité (on et offline), création et importation de marques. Directeur des achats, puis de la communication marketing, puis de la stratégie commerciale, puis des partenariats. C'est là que j'apprends à faire passer une entreprise <strong>de 10 à 62 M€</strong>, et que je construis un réseau dans tout le secteur.</p>
-
-      <!-- Parcours / l'histoire — post LinkedIn -->
-      <figure class="li-embed" style="margin:var(--space-8) auto;">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7212469012247494657?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen title="Hugo Lahutte — parcours (post LinkedIn)" loading="lazy"></iframe>
-        <figcaption class="caption">Mon parcours, raconté sur LinkedIn.</figcaption>
-      </figure>
-
-      <h2>Les projets à date</h2>
-      <p>Depuis 2024, je mets toute cette expérience au service de mes propres projets — cohérents, sur un même terrain : l'audio et l'image d'exception.</p>
+  <!-- ============ [01] PARCOURS ============ -->
+  <section class="e-section" id="parcours">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx">[01]</span>
+        <h2 class="e-section-title"><span class="e-fr">Le parcours</span><span class="e-en">The path</span></h2>
+      </div>
+      <div class="ap-prose">
+        <p class="ap-lead">
+          <span class="e-fr">De la passion à la stratégie : musique, cinéma, événementiel, e-commerce, puis l'IA.</span>
+          <span class="e-en">From passion to strategy: music, cinema, live events, e-commerce, then AI.</span>
+        </p>
+        <p>
+          <span class="e-fr">Tout part de la musique et du cinéma. Étudiant, je vends de l'électronique chez <strong>Darty</strong>, et je touche à l'événementiel et à la culture japonaise via <strong>Japan Expo</strong> — cinq ans à la régie de la grande salle, à la logistique et au son.</span>
+          <span class="e-en">It all starts with music and cinema. As a student I sell electronics at <strong>Darty</strong>, and I get into live events and Japanese culture through <strong>Japan Expo</strong> — five years running the main hall's stage management, logistics and sound.</span>
+        </p>
+        <p>
+          <span class="e-fr">Puis <strong>17 ans chez Son-Vidéo.com</strong>, n°1 français de la vente en ligne hi-fi et home-cinéma : achats, vente, stratégie commerciale, marketing, publicité (online et offline), création et importation de marques. Directeur des achats, puis communication marketing, puis stratégie commerciale, puis partenariats. Sur cette période, l'entreprise passe de <strong>10 à 62 M€</strong> — et j'y tisse un réseau dans tout le secteur.</span>
+          <span class="e-en">Then <strong>17 years at Son-Vidéo.com</strong>, France's leading online hi-fi and home-cinema retailer: buying, sales, commercial strategy, marketing, advertising (online and offline), creating and importing brands. Head of buying, then marketing communications, then commercial strategy, then partnerships. Over that span the company grows from <strong>€10M to €62M</strong> — and I build a network across the whole industry.</span>
+        </p>
+        <p>
+          <span class="e-fr">Depuis 2024, je construis mon propre trio : <strong>DG de Cobra</strong> (oct. 2024), <strong>éditeur et directeur de publication de Haute Fidélité</strong> (janv. 2025), et <strong>fondateur de HL Consulting</strong> (juil. 2024). J'enseigne aussi le marketing à <strong>Creapole-ESDI</strong>. Formé à l'<strong>ESGCI</strong> (MBA E-business) et à l'<strong>UVSQ</strong> (Génie Logistique).</span>
+          <span class="e-en">Since 2024 I've been building my own trio: <strong>CEO of Cobra</strong> (Oct. 2024), <strong>publisher and editorial director of Haute Fidélité</strong> (Jan. 2025), and <strong>founder of HL Consulting</strong> (Jul. 2024). I also teach marketing at <strong>Creapole-ESDI</strong>. Educated at <strong>ESGCI</strong> (MBA E-business) and <strong>UVSQ</strong> (Logistics Engineering).</span>
+        </p>
+      </div>
+      <ul class="ap-facts">
+        <li class="ap-fact">
+          <p class="ap-fact-k"><span class="e-fr">Aujourd'hui</span><span class="e-en">Today</span></p>
+          <h3>Cobra · Haute Fidélité · HL</h3>
+          <p><span class="e-fr">DG, éditeur, fondateur — audio, image et IA réunis.</span><span class="e-en">CEO, publisher, founder — audio, image and AI brought together.</span></p>
+        </li>
+        <li class="ap-fact">
+          <p class="ap-fact-k"><span class="e-fr">17 ans</span><span class="e-en">17 years</span></p>
+          <h3>Son-Vidéo.com</h3>
+          <p><span class="e-fr">De 10 à 62 M€ : achats, marketing, stratégie, partenariats.</span><span class="e-en">From €10M to €62M: buying, marketing, strategy, partnerships.</span></p>
+        </li>
+        <li class="ap-fact">
+          <p class="ap-fact-k"><span class="e-fr">Transmettre</span><span class="e-en">Teaching</span></p>
+          <h3>Creapole-ESDI</h3>
+          <p><span class="e-fr">J'enseigne le marketing. ESGCI (MBA) &amp; UVSQ (logistique).</span><span class="e-en">I teach marketing. ESGCI (MBA) &amp; UVSQ (logistics).</span></p>
+        </li>
+      </ul>
     </div>
+  </section>
 
-    <!-- Projets en avant : Cobra + Haute-Fidélité -->
-    <div class="card-grid" style="margin-top:var(--space-8);">
-      <a class="card" href="../cobra/">
-        <span class="card__kicker">Depuis oct. 2024 · DG</span>
-        <span class="card__title">Cobra</span>
-        <span class="card__desc">Enseigne emblématique de la HiFi et du Home Cinéma. Je pilote sa transformation : repositionnement, expérience retail &amp; e-commerce (cobra.fr), digitalisation. C'est aussi mon terrain de jeu Claude Code.</span>
-        <span class="card__foot">Voir le projet →</span>
-      </a>
-      <a class="card" href="../haute-fidelite/">
-        <span class="card__kicker">Depuis janv. 2025 · Éditeur</span>
-        <span class="card__title">Haute Fidélité</span>
-        <span class="card__desc">Reprise et relance du magazine de référence depuis 30+ ans — dernier titre spécialisé en kiosque. Nouvelle formule 2025 : exigence, émotion, expérience. Presse papier premium + présence digitale.</span>
-        <span class="card__foot">Voir le projet →</span>
-      </a>
-      <a class="card" href="../#contact">
-        <span class="card__kicker">Depuis juil. 2024 · Fondateur</span>
-        <span class="card__title">HL Consulting</span>
-        <span class="card__desc">Ma structure perso : le fil conducteur de mes projets, de mes explorations IA et de tout ce que je partage ici. Le point de contact si tu veux échanger.</span>
-        <span class="card__foot">Échanger →</span>
-      </a>
-    </div>
-
-    <div class="prose" style="margin-top:var(--space-16);">
-      <h2>Ce qui me fait avancer</h2>
-      <p>Geek assumé, amoureux de musique et de cinéma, sensible au design et au bel objet — mon bureau ressemble à mes centres d'intérêt (Star Wars, Dune, vinyles, belles enceintes…). Cet univers nourrit directement <a href="../hifi-lovers/">HiFi Lovers</a>.</p>
-      <p>Aujourd'hui, ce qui m'anime c'est de <strong>transmettre</strong> : montrer comment l'IA change concrètement le quotidien d'une équipe, et aider le plus grand nombre à s'en emparer. C'est tout le sens de ce Knowledge Hub et de <a href="../how-to/">ma méthode</a>.</p>
-
-      <!-- PHOTO CIBLE : cobra-shelf (étagère geek/design/rétro) — ratio 16/9 -->
-      <figure class="figure" style="margin-block:var(--space-8);">
-        <img src="../assets/img/cobra-shelf.webp" alt="Étagère du bureau de Hugo Lahutte : Star Wars, Dune, vinyles, casques et enceintes design" width="1536" height="1211" loading="lazy" decoding="async" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);">
-        <figcaption class="caption">L'univers : musique, cinéma, design, culture pop.</figcaption>
+  <!-- ============ [02] ÉVÉNEMENTIEL ============ -->
+  <section class="e-section" id="evenementiel">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx">[02]</span>
+        <h2 class="e-section-title"><span class="e-fr">Faire vivre des moments</span><span class="e-en">Making moments happen</span></h2>
+      </div>
+      <div class="ap-row">
+        <div class="ap-media">
+          <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Hugo Lahutte sur scène lors d'une conférence / Hugo Lahutte on stage at a talk">
+            <img src="/knowledge-hub/assets/img/stage-talk.webp" width="800" height="1000"
+                 alt="Hugo Lahutte sur scène, micro en main, pendant une conférence / Hugo Lahutte on stage with a microphone during a talk" loading="lazy" />
+            <figcaption class="e-portrait-cap e-mono"><span class="e-fr">Sur scène</span><span class="e-en">On stage</span></figcaption>
+          </figure>
+        </div>
+        <div class="ap-prose">
+          <p>
+            <span class="e-fr">L'événementiel est un fil rouge depuis le début. À <strong>Japan Expo</strong>, j'ai passé cinq ans à la régie de la grande salle : son, logistique, coordination d'une scène devant des milliers de personnes.</span>
+            <span class="e-en">Live events have been a constant thread from the start. At <strong>Japan Expo</strong>, I spent five years running the main hall's stage management: sound, logistics, coordinating a stage in front of thousands.</span>
+          </p>
+          <p>
+            <span class="e-fr">Aujourd'hui, ce même goût de l'organisation et de la mise en scène se retrouve dans le <strong>salon Haute Fidélité</strong> — un gros projet où l'on rassemble la communauté audio autour d'écoutes, de rencontres et de démonstrations.</span>
+            <span class="e-en">Today that same taste for organising and staging shows up in the <strong>Haute Fidélité show</strong> — a major project bringing the audio community together around listening sessions, encounters and demos.</span>
+          </p>
+        </div>
+      </div>
+      <figure class="ap-media ap-wide" style="margin:28px 0 0;">
+        <div class="e-portrait-frame" tabindex="0" aria-label="Panel sur scène au salon Haute Fidélité / Panel on stage at the Haute Fidélité show">
+          <img src="/knowledge-hub/assets/img/stage-panel-wide.webp" width="1280" height="880"
+               alt="Vue large d'un panel sur scène lors d'un salon audio / Wide shot of a panel on stage at an audio show" loading="lazy" />
+          <figcaption class="e-portrait-cap e-mono"><span class="e-fr">Salon Haute Fidélité · panel</span><span class="e-en">Haute Fidélité show · panel</span></figcaption>
+        </div>
       </figure>
+    </div>
+  </section>
 
-      <h2>Échangeons</h2>
-      <p>Je documente tout ça en public et j'aime en discuter. Une question sur ma méthode, un projet qui t'intrigue, ou juste l'envie de comparer nos approches ? Écris-moi :
-        <a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a>.<br>
-        On peut aussi se suivre sur <a href="https://www.linkedin.com/in/hugo-lahutte" rel="me">LinkedIn</a> et <a href="https://x.com/hugolh_ai" rel="me">X</a>.</p>
-
-      <div class="btn-row">
-        <a class="btn btn--primary" href="../how-to/">Lire ma méthode →</a>
-        <a class="btn btn--ghost" href="../#projets">Voir les projets</a>
+  <!-- ============ [03] VIDÉO & YOUTUBE ============ -->
+  <section class="e-section" id="video">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx">[03]</span>
+        <h2 class="e-section-title"><span class="e-fr">Derrière et devant la caméra</span><span class="e-en">Behind and in front of the camera</span></h2>
+      </div>
+      <div class="ap-prose">
+        <p class="ap-lead">
+          <span class="e-fr">10 ans de production vidéo : chaînes complètes, lives, films.</span>
+          <span class="e-en">10 years of video production: full channels, livestreams, films.</span>
+        </p>
+        <p>
+          <span class="e-fr">J'ai construit et animé des dispositifs vidéo pendant <strong>une dizaine d'années</strong> : chaînes YouTube complètes, directs et films. D'abord <strong>derrière la caméra</strong> — réalisation, montage, production — puis, de plus en plus, <strong>devant</strong>.</span>
+          <span class="e-en">I built and ran video operations for about <strong>ten years</strong>: full YouTube channels, livestreams and films. First <strong>behind the camera</strong> — directing, editing, producing — then, increasingly, <strong>in front of it</strong>.</span>
+        </p>
+        <p>
+          <span class="e-fr">Ce même dispositif, je l'ai recréé chez <strong>Cobra</strong> : un vrai studio interne pour produire du contenu audio et image, en continu.</span>
+          <span class="e-en">I've recreated that same setup at <strong>Cobra</strong>: a real in-house studio to produce audio and image content, continuously.</span>
+        </p>
       </div>
     </div>
+  </section>
 
-  </div>
-</article>
+  <!-- ============ [04] CE QUI ME FAIT AVANCER ============ -->
+  <section class="e-section" id="moteur">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx">[04]</span>
+        <h2 class="e-section-title"><span class="e-fr">Ce qui me fait avancer</span><span class="e-en">What drives me</span></h2>
+      </div>
+      <div class="ap-row ap-flip">
+        <div class="ap-prose">
+          <p>
+            <span class="e-fr">Je suis un <strong>geek assumé</strong> : Star Wars, Dune, des vinyles, de belles enceintes. Amoureux de musique, de cinéma, de design et de culture pop — tout un univers qui nourrit directement <strong>HiFi Lovers</strong>.</span>
+            <span class="e-en">I'm an <strong>unapologetic geek</strong>: Star Wars, Dune, vinyl, beautiful speakers. In love with music, cinema, design and pop culture — a whole world that feeds straight into <strong>HiFi Lovers</strong>.</span>
+          </p>
+          <p>
+            <span class="e-fr">Et puis il y a l'envie de <strong>transmettre</strong> : montrer, concrètement, comment l'IA change le quotidien d'une équipe. C'est exactement ce que je fais en public avec le Knowledge Hub.</span>
+            <span class="e-en">And then there's the urge to <strong>pass it on</strong>: to show, concretely, how AI changes a team's day-to-day. That's exactly what I do in public with the Knowledge Hub.</span>
+          </p>
+        </div>
+        <div class="ap-media">
+          <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Étagère geek et design : vinyles, figurines, objets de culture pop / Geek and design shelf: vinyl, figurines, pop-culture objects">
+            <img src="/knowledge-hub/assets/img/cobra-shelf.webp" width="800" height="1000"
+                 alt="Étagère couverte de vinyles, figurines et objets de culture pop et design / Shelf covered with vinyl, figurines and pop-culture and design objects" loading="lazy" />
+            <figcaption class="e-portrait-cap e-mono"><span class="e-fr">L'étagère</span><span class="e-en">The shelf</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [05] VOYAGE ============ -->
+  <section class="e-section" id="voyage">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx">[05]</span>
+        <h2 class="e-section-title"><span class="e-fr">En famille, autour du monde</span><span class="e-en">As a family, around the world</span></h2>
+      </div>
+      <div class="ap-row">
+        <div class="ap-media">
+          <div class="ap-twin">
+            <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Portrait en voyage à Osaka, Japon / Travel portrait in Osaka, Japan">
+              <img src="/knowledge-hub/assets/img/osaka-portrait.webp" width="800" height="1000"
+                   alt="Hugo Lahutte en voyage à Osaka, au Japon / Hugo Lahutte travelling in Osaka, Japan" loading="lazy" />
+            </figure>
+            <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Moment de voyage en famille à Osaka / Family travel moment in Osaka">
+              <img src="/knowledge-hub/assets/img/osaka-ojas.webp" width="800" height="1000"
+                   alt="Scène de voyage en famille dans les rues d'Osaka / Family travel scene in the streets of Osaka" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+        <div class="ap-prose">
+          <p class="ap-lead">
+            <span class="e-fr">Le voyage est essentiel — il explique vraiment qui je suis.</span>
+            <span class="e-en">Travel is essential — it really explains who I am.</span>
+          </p>
+          <p>
+            <span class="e-fr">Les <strong>voyages en famille</strong> comptent énormément. Nous avons déjà bouclé un <strong>premier tour du monde</strong>, et un <strong>second est en préparation</strong>. Et, pourquoi pas un jour, en faire quelque chose côté pro — du conseil, du récit, autre chose encore.</span>
+            <span class="e-en">Our <strong>family trips</strong> matter enormously. We've already completed a <strong>first round-the-world journey</strong>, and a <strong>second is in the works</strong>. And maybe one day I'll turn it into something professional — consulting, storytelling, who knows.</span>
+          </p>
+          <p>
+            <span class="e-fr">On documente tout ça ici :
+              <a class="ap-inline" href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="noopener">@amhe.tourdumonde</a>.</span>
+            <span class="e-en">We document it all here:
+              <a class="ap-inline" href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="noopener">@amhe.tourdumonde</a>.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [06] ÉCHANGER ============ -->
+  <section class="e-section" id="echanger">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx">[06]</span>
+        <h2 class="e-section-title"><span class="e-fr">Échanger</span><span class="e-en">Let's talk</span></h2>
+      </div>
+      <div class="ap-contact-grid">
+        <a class="ap-contact-item" href="mailto:hugo@hl-consulting.tech">
+          <span class="ap-contact-k">Email</span>
+          <span class="ap-contact-v">hugo@hl-consulting.tech</span>
+        </a>
+        <a class="ap-contact-item" href="https://www.linkedin.com/in/hugo-lahutte" target="_blank" rel="noopener">
+          <span class="ap-contact-k">LinkedIn</span>
+          <span class="ap-contact-v">hugo-lahutte</span>
+        </a>
+        <a class="ap-contact-item" href="https://x.com/hugolh_ai" target="_blank" rel="noopener">
+          <span class="ap-contact-k">X</span>
+          <span class="ap-contact-v">@hugolh_ai</span>
+        </a>
+        <a class="ap-contact-item" href="https://www.instagram.com/hlh31" target="_blank" rel="noopener">
+          <span class="ap-contact-k">Instagram <span class="e-fr">(perso)</span><span class="e-en">(personal)</span></span>
+          <span class="ap-contact-v">@hlh31</span>
+        </a>
+        <a class="ap-contact-item" href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="noopener">
+          <span class="ap-contact-k">Instagram <span class="e-fr">(voyage)</span><span class="e-en">(travel)</span></span>
+          <span class="ap-contact-v">@amhe.tourdumonde</span>
+        </a>
+      </div>
+      <div class="e-cta-row">
+        <a class="e-btn e-btn-primary" href="/knowledge-hub/">Knowledge Hub →</a>
+        <a class="e-btn" href="https://www.cobra.fr" target="_blank" rel="noopener">Cobra →</a>
+        <a class="e-btn" href="https://www.hautefidelite-hifi.com" target="_blank" rel="noopener">Haute Fidélité →</a>
+      </div>
+    </div>
+  </section>
 </main>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Navigation principale — Knowledge Hub",
-  "itemListElement": [
-    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hl-works.github.io/knowledge-hub/how-to/"},
-    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-works.github.io/knowledge-hub/guides/"},
-    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hl-works.github.io/knowledge-hub/veille-ia/"},
-    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hl-works.github.io/knowledge-hub/lexique/"},
-    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hl-works.github.io/knowledge-hub/a-propos/"},
-    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-works.github.io/knowledge-hub/journal/"}
-  ]
-}
-</script>
-<footer class="footer">
-  <div class="container">
-    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
-
-      <div style="max-width:300px;">
-        <a class="nav__wordmark" href="/knowledge-hub/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
-        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
-        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
-        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
-      </div>
-
-      <nav aria-label="Liens de pied de page">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
-        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
-          <li><a href="/knowledge-hub/how-to/" style="text-decoration:none;">Méthode</a></li>
-          <li><a href="/knowledge-hub/guides/" style="text-decoration:none;">Guides</a></li>
-          <li><a href="/knowledge-hub/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
-          <li><a href="/knowledge-hub/lexique/" style="text-decoration:none;">Lexique</a></li>
-          <li><a href="/knowledge-hub/journal/" style="text-decoration:none;">Journal</a></li>
-          <li><a href="/knowledge-hub/a-propos/" style="text-decoration:none;">À propos</a></li>
-        </ul>
-      </nav>
-
+<!-- ============ FOOTER ============ -->
+<footer class="e-footer" id="contact">
+  <div class="e-wrap">
+    <div class="e-foot-grid">
       <div>
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
-        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
-          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
-          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
-          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
-          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+        <p class="e-foot-monogram">HL</p>
+        <h4>Hugo Lahutte · Consulting</h4>
+        <ul class="e-foot-list">
+          <li><a href="mailto:hugo@hl-consulting.tech">hugo@hl-consulting.tech</a></li>
         </ul>
       </div>
-
-      <div style="max-width:260px;">
-        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
-        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
-        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
-        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      <div>
+        <h4 class="e-fr">Les projets</h4>
+        <h4 class="e-en">Projects</h4>
+        <ul class="e-foot-list">
+          <li><a href="/knowledge-hub/">[01] Knowledge Hub</a></li>
+          <li><a href="/#cobra">[02] Cobra</a></li>
+          <li><a href="/#mag">[03] Haute Fidélité</a></li>
+          <li><a href="/#hifi">[04] HiFi Lovers</a></li>
+          <li><a href="/a-propos/">[05] <span class="e-fr">À propos</span><span class="e-en">About</span></a></li>
+        </ul>
       </div>
-
+      <div>
+        <h4>Social</h4>
+        <ul class="e-foot-list">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte" target="_blank" rel="noopener">LinkedIn / hugo-lahutte</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="noopener">X / @hugolh_ai</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="noopener">Instagram / hlh31 <span class="e-fr">(perso)</span><span class="e-en">(personal)</span></a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="noopener">Instagram / <span class="e-fr">voyage en famille</span><span class="e-en">family travel</span></a></li>
+        </ul>
+      </div>
     </div>
-    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+    <div class="e-foot-bottom">
+      <span>© 2026 Hugo Lahutte</span>
+      <span>hl-consulting.tech · <span class="e-fr">Audio · Image · IA</span><span class="e-en">Audio · Image · AI</span></span>
+    </div>
   </div>
 </footer>
 
-<script src="../search.js?v=20260601d" defer></script>
-<script src="../lexique.js?v=20260601d" defer></script>
-<script src="../theme.js?v=20260601d" defer></script>
+<script>
+  (function () {
+    var root = document.documentElement;
+
+    // Lang toggle
+    document.getElementById("e-lang").addEventListener("click", function () {
+      var next = root.getAttribute("data-lang") === "fr" ? "en" : "fr";
+      root.setAttribute("data-lang", next);
+      root.setAttribute("lang", next);
+      try { localStorage.setItem("hl-lang", next); } catch (e) {}
+    });
+
+    // Theme toggle
+    document.getElementById("e-theme").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("hl-theme", next); } catch (e) {}
+    });
+
+    // Palette switcher — all swatches keep black type readable on the field (>=4.5:1 vs #0A0A0A)
+    var DEFAULT_SIGNAL = "#FF8C7A";
+    var PALETTE = [
+      { hex: "#E8FE5B", fr: "Jaune Signal", en: "Signal Yellow" },
+      { hex: "#FF8A33", fr: "Orange Vif",   en: "Bright Orange" },
+      { hex: "#C6F500", fr: "Lime Acide",   en: "Acid Lime" },
+      { hex: "#3BE8E8", fr: "Cyan Électrique", en: "Electric Cyan" },
+      { hex: "#FF6FA8", fr: "Magenta Pop",  en: "Pop Magenta" },
+      { hex: "#4DFFAD", fr: "Vert Menthe",  en: "Mint Green" },
+      { hex: "#C9B6FF", fr: "Lavande",      en: "Lavender" },
+      { hex: "#FF8C7A", fr: "Corail",       en: "Coral" }
+    ];
+
+    function currentSignal() {
+      try {
+        var s = localStorage.getItem("hl-e-signal");
+        if (s && /^#[0-9A-Fa-f]{6}$/.test(s)) return s.toUpperCase();
+      } catch (e) {}
+      return DEFAULT_SIGNAL;
+    }
+
+    var wrap = document.getElementById("e-swatches");
+
+    function applySignal(hex) {
+      root.style.setProperty("--e-signal", hex);
+      try { localStorage.setItem("hl-e-signal", hex); } catch (e) {}
+      var btns = wrap.querySelectorAll(".e-swatch");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].setAttribute("aria-pressed", btns[i].dataset.hex === hex ? "true" : "false");
+      }
+    }
+
+    var active = currentSignal();
+    PALETTE.forEach(function (c) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "e-swatch";
+      b.dataset.hex = c.hex;
+      b.style.setProperty("--sw", c.hex);
+      b.setAttribute("aria-pressed", c.hex === active ? "true" : "false");
+      b.setAttribute("aria-label",
+        (root.getAttribute("data-lang") === "en" ? c.en : c.fr) + " — " + c.hex);
+      b.addEventListener("click", function () {
+        applySignal(c.hex);
+        var m = document.getElementById("e-palette-menu"), t = document.getElementById("e-palette-trigger");
+        if (m) m.hidden = true; if (t) t.setAttribute("aria-expanded", "false");
+      });
+      wrap.appendChild(b);
+    });
+
+    // Dropdown couleur
+    var pTrigger = document.getElementById("e-palette-trigger");
+    var pMenu = document.getElementById("e-palette-menu");
+    if (pTrigger && pMenu) {
+      pTrigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var willOpen = pMenu.hidden;
+        pMenu.hidden = !willOpen;
+        pTrigger.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      });
+      document.addEventListener("click", function (e) {
+        if (!pMenu.hidden && !pMenu.contains(e.target) && !pTrigger.contains(e.target)) {
+          pMenu.hidden = true; pTrigger.setAttribute("aria-expanded", "false");
+        }
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !pMenu.hidden) {
+          pMenu.hidden = true; pTrigger.setAttribute("aria-expanded", "false"); pTrigger.focus();
+        }
+      });
+    }
+
+    // Burger
+    var burger = document.getElementById("e-burger");
+    var nav = document.getElementById("e-nav");
+    burger.addEventListener("click", function () {
+      var open = nav.classList.toggle("e-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("e-open");
+        burger.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>
 </body>
 </html>

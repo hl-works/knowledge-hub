@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hugo Lahutte — CV vivant · build in public</title>
+<meta name="description" content="Le CV vivant de Hugo Lahutte — DG de Cobra, Éditeur de Haute Fidélité, Fondateur de HL Consulting. Build in public avec Claude.">
+
+<!-- ---- CHAPEAU : head links + anti-FOUC (verbatim) ---- -->
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<script>/* anti-FOUC : applique thème + langue avant paint */
+(function(){try{var t=localStorage.getItem("hl-theme");
+ document.documentElement.setAttribute("data-theme",(t==="dark"||t==="light")?t:
+   (matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
+ var l=localStorage.getItem("hl-lang");
+ document.documentElement.setAttribute("data-lang",(l==="en")?"en":"fr");
+ document.documentElement.setAttribute("lang",(l==="en")?"en":"fr");
+}catch(e){document.documentElement.setAttribute("data-theme","light");
+ document.documentElement.setAttribute("data-lang","fr");}})();</script>
+
+<!-- ============================================================
+     CSS PROPRE À CETTE LANDING — "LE TERMINAL / BUILD-IN-PUBLIC"
+     Toutes les classes sont préfixées c- pour ne pas clasher.
+     ============================================================ -->
+<style>
+/* ---------- Layout général main ---------- */
+.c-main{padding:0 0 clamp(3rem,7vw,6rem)}
+.c-sec{padding:clamp(3rem,7vw,5.5rem) 0 0}
+.c-eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-muted);margin:0 0 .9rem;
+  display:flex;align-items:center;gap:.55rem}
+.c-eyebrow .c-tick{width:7px;height:7px;border-radius:50%;background:var(--acc,var(--w-hub));flex:none}
+.c-h2{font-family:var(--f-display);font-weight:900;letter-spacing:-.02em;
+  line-height:1.04;font-size:clamp(1.7rem,4.4vw,2.7rem);margin:0 0 .7rem}
+.c-lede{color:var(--text-muted);max-width:62ch;font-size:1.04rem;margin:0}
+
+/* ---------- HERO : terminal panel ---------- */
+.c-hero{padding:clamp(2.2rem,5vw,4rem) 0 0}
+.c-hero__tag{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-muted);margin:0 0 1rem;
+  display:inline-flex;align-items:center;gap:.6rem}
+.c-hero__tag .c-blip{width:8px;height:8px;border-radius:50%;background:var(--w-hub);
+  box-shadow:0 0 0 0 color-mix(in srgb,var(--w-hub) 60%,transparent);
+  animation:c-pulse 2.4s var(--ease) infinite}
+@keyframes c-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--w-hub) 55%,transparent)}
+  70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.c-hero__title{font-family:var(--f-display);font-weight:900;letter-spacing:-.03em;
+  line-height:1;font-size:clamp(2.3rem,7vw,4.6rem);margin:0 0 1rem}
+.c-hero__title em{font-style:normal;color:var(--w-hub)}
+.c-hero__sub{font-size:clamp(1.02rem,2.3vw,1.22rem);color:var(--text-muted);
+  max-width:54ch;margin:0 0 1.8rem}
+
+/* terminal window */
+.c-term{border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--surface);box-shadow:var(--shadow);overflow:hidden;max-width:760px}
+.c-term__bar{display:flex;align-items:center;gap:.5rem;padding:.7rem .95rem;
+  border-bottom:1px solid var(--border);background:var(--surface-2)}
+.c-dot{width:11px;height:11px;border-radius:50%;flex:none}
+.c-dot.r{background:#EA5045}.c-dot.y{background:var(--c-gold)}.c-dot.g{background:#3FB068}
+.c-term__name{font-family:var(--f-mono);font-size:.78rem;color:var(--text-muted);
+  margin-left:.5rem;letter-spacing:.02em}
+.c-term__body{font-family:var(--f-mono);font-size:clamp(.82rem,1.9vw,.98rem);
+  line-height:1.7;padding:1.15rem 1.15rem 1.3rem;background:var(--surface);
+  white-space:pre-wrap;word-break:break-word}
+.c-prompt{color:var(--text-muted)}
+.c-prompt b{color:var(--w-hub);font-weight:600}
+.c-cmd{color:var(--text);font-weight:500}
+.c-out{display:block;color:var(--text)}
+.c-out .k{color:var(--w-cobra);font-weight:600}
+.c-out .c-acc{color:var(--w-hub)}
+.c-cur{display:inline-block;width:.62ch;height:1.05em;vertical-align:-.18em;
+  background:var(--w-hub);margin-left:.12em;animation:c-blink 1.05s steps(1) infinite}
+@keyframes c-blink{50%{opacity:0}}
+
+/* typing: lignes cachées révélées par JS ; sans JS = tout visible */
+.c-line{display:block}
+.js .c-typing .c-line{opacity:0}
+.js .c-typing .c-line.is-on{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .js .c-typing .c-line{opacity:1!important}
+  .c-cur{animation:none}
+}
+
+/* status bar (living-CV signature) */
+.c-status{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;
+  font-family:var(--f-mono);font-size:.8rem;color:var(--text-muted);
+  margin-top:1.4rem;border:1px dashed var(--border);border-radius:999px;
+  padding:.55rem 1rem;width:fit-content;max-width:100%}
+.c-status .c-live{width:7px;height:7px;border-radius:50%;background:#3FB068;flex:none}
+
+/* ---------- WORLDS : dashboard modules ---------- */
+.c-grid{display:grid;gap:1.1rem;grid-template-columns:repeat(6,1fr);margin-top:1.8rem}
+.c-mod{grid-column:span 3;border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--surface);padding:1.4rem 1.4rem 1.5rem;display:flex;flex-direction:column;
+  position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;
+  text-decoration:none;color:inherit}
+.c-mod::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--acc)}
+.c-mod:hover{border-color:color-mix(in srgb,var(--acc) 55%,var(--border));
+  transform:translateY(-3px);box-shadow:var(--shadow)}
+.c-mod:focus-visible{outline:2.5px solid var(--acc);outline-offset:3px}
+.c-mod--star{grid-column:span 6;background:
+  linear-gradient(180deg,color-mix(in srgb,var(--w-hub) 7%,var(--surface)),var(--surface))}
+.c-meta{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;
+  gap:.5rem;margin:0 0 .85rem}
+.c-meta .c-tick{width:7px;height:7px;border-radius:50%;background:var(--acc);flex:none}
+.c-mod h3{font-family:var(--f-display);font-weight:800;letter-spacing:-.015em;
+  font-size:1.3rem;margin:0 0 .5rem;line-height:1.1}
+.c-mod--star h3{font-size:clamp(1.5rem,3.4vw,2rem)}
+.c-mod p{margin:0 0 1.1rem;color:var(--text-muted);font-size:.96rem;flex:1}
+.c-mod--star p{font-size:1.06rem;max-width:60ch}
+.c-cta{font-family:var(--f-mono);font-size:.84rem;font-weight:600;color:var(--acc);
+  display:inline-flex;align-items:center;gap:.4rem;margin-top:auto;letter-spacing:.02em}
+.c-cta .c-arr{transition:transform .25s}
+.c-mod:hover .c-cta .c-arr{transform:translateX(4px)}
+.c-badge{font-family:var(--f-mono);font-size:.7rem;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;border:1px solid var(--acc);color:var(--acc);
+  border-radius:999px;padding:.15rem .55rem;align-self:flex-start;margin-bottom:.9rem}
+.c-pull{font-family:var(--f-mono);font-size:.86rem;color:var(--text);
+  border-left:2px solid var(--w-hub);padding:.1rem 0 .1rem .8rem;margin:.2rem 0 1.1rem}
+
+/* ---------- PARCOURS : timeline ---------- */
+.c-time{display:flex;flex-direction:column;gap:0;margin-top:1.8rem;
+  border-left:1px solid var(--border);padding-left:1.4rem}
+.c-step{position:relative;padding:0 0 1.6rem}
+.c-step:last-child{padding-bottom:0}
+.c-step::before{content:"";position:absolute;left:-1.4rem;top:.35rem;width:9px;height:9px;
+  border-radius:50%;background:var(--bg);border:2px solid var(--w-legacy);
+  transform:translateX(-50%)}
+.c-step .c-when{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.05em;
+  color:var(--text-muted);text-transform:uppercase}
+.c-step .c-what{font-family:var(--f-display);font-weight:800;font-size:1.06rem;margin:.2rem 0 .25rem}
+.c-step .c-desc{color:var(--text-muted);font-size:.95rem;margin:0;max-width:62ch}
+
+/* scroll-reveal */
+.c-reveal{opacity:0;transform:translateY(16px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.c-reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.c-reveal{opacity:1;transform:none}}
+html:not(.js) .c-reveal{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:820px){
+  .c-mod{grid-column:span 6}
+}
+@media (max-width:380px){
+  .c-term__name{display:none}
+  .c-hero__title{font-size:2.1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ---- HEADER (chapeau, verbatim) ---- -->
+<a class="skip-link" href="#main" data-fr>Aller au contenu</a><a class="skip-link" href="#main" data-en>Skip to content</a>
+<header class="hl-hd">
+  <div class="container hl-hd__in">
+    <a class="hl-brand" href="#top" aria-label="HL Consulting — accueil">
+      <span class="hl-mono">HL</span>
+      <span class="hl-brand__txt"><b>Hugo Lahutte</b> <span>· Consulting</span></span>
+    </a>
+    <button class="hl-btn hl-burger" aria-label="Menu" aria-expanded="false" aria-controls="hl-nav">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="hl-nav" id="hl-nav" aria-label="Univers">
+      <a href="#hub"    style="--acc:var(--w-hub)"><span class="dot"></span>Knowledge Hub</a>
+      <a href="#cobra"  style="--acc:var(--w-cobra)"><span class="dot"></span>Cobra</a>
+      <a href="#hifi"   style="--acc:var(--w-hifi)"><span class="dot"></span>HiFi Lovers</a>
+      <a href="#mag"    style="--acc:var(--w-mag)"><span class="dot"></span><span data-fr>Haute Fidélité</span><span data-en>Haute Fidélité</span></a>
+      <a href="#parcours" style="--acc:var(--w-legacy)"><span class="dot"></span><span data-fr>Parcours</span><span data-en>Career</span></a>
+      <div class="hl-tools">
+        <button class="hl-btn hl-lang" data-lang-toggle aria-label="Switch language">
+          <b data-fr>FR</b><span class="off" data-fr>/EN</span><b data-en>EN</b><span class="off" data-en>/FR</span>
+        </button>
+        <button class="hl-btn" data-theme-toggle aria-label="Thème clair / sombre" title="Thème">
+          <svg class="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg>
+          <svg class="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main" class="c-main">
+
+  <!-- ---------- HERO / TERMINAL ---------- -->
+  <section id="top" class="c-hero">
+    <div class="container">
+      <p class="c-hero__tag"><span class="c-blip" aria-hidden="true"></span>
+        <span data-fr>Le CV vivant de Hugo Lahutte</span>
+        <span data-en>Hugo Lahutte&rsquo;s living résumé</span>
+      </p>
+      <h1 class="c-hero__title">
+        <span data-fr>Multi-casquette.<br><em>Build in public</em> avec Claude.</span>
+        <span data-en>Many hats.<br><em>Building in public</em> with Claude.</span>
+      </h1>
+      <p class="c-hero__sub">
+        <span data-fr>Passionné d&rsquo;audio, d&rsquo;image et d&rsquo;émotion. Je construis mes projets et leur contenu en public — et cette page se met à jour avec moi.</span>
+        <span data-en>Driven by audio, image and emotion. I build my projects and their content in public — and this page updates with me.</span>
+      </p>
+
+      <!-- terminal -->
+      <div class="c-term" role="img"
+        aria-label="Terminal : hugo@hl-consulting:~$ whoami --now → DG de Cobra, Éditeur de Haute Fidélité, Fondateur de HL Consulting, build in public avec Claude.">
+        <div class="c-term__bar" aria-hidden="true">
+          <span class="c-dot r"></span><span class="c-dot y"></span><span class="c-dot g"></span>
+          <span class="c-term__name">hugo@hl-consulting — zsh</span>
+        </div>
+        <div class="c-term__body" aria-hidden="true">
+<span class="c-prompt"><b>hugo@hl-consulting</b>:~$ </span><span class="c-cmd">whoami --now</span>
+<div class="c-typing" id="c-typing">
+<span class="c-out c-line" data-fr>&gt; <span class="k">DG</span> de Cobra <span class="c-acc">·</span> HiFi &amp; Home Cinéma</span><span class="c-out c-line" data-en>&gt; <span class="k">CEO</span> of Cobra <span class="c-acc">·</span> HiFi &amp; Home Cinema</span>
+<span class="c-out c-line" data-fr>&gt; <span class="k">Éditeur</span> de Haute Fidélité <span class="c-acc">·</span> magazine de référence</span><span class="c-out c-line" data-en>&gt; <span class="k">Publisher</span> of Haute Fidélité <span class="c-acc">·</span> reference magazine</span>
+<span class="c-out c-line" data-fr>&gt; <span class="k">Fondateur</span> de HL Consulting</span><span class="c-out c-line" data-en>&gt; <span class="k">Founder</span> of HL Consulting</span>
+<span class="c-out c-line" data-fr>&gt; <span class="k">build in public</span> avec Claude<span class="c-cur" id="c-cur"></span></span><span class="c-out c-line" data-en>&gt; <span class="k">building in public</span> with Claude<span class="c-cur" id="c-cur-en"></span></span>
+</div>
+        </div>
+      </div>
+
+      <p class="c-status">
+        <span class="c-live" aria-hidden="true"></span>
+        <span data-fr>CV vivant · synchronisé depuis le Knowledge Hub</span>
+        <span data-en>Living CV · synced from the Knowledge Hub</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- KNOWLEDGE HUB — LA STAR ---------- -->
+  <section id="hub" class="c-sec" style="--acc:var(--w-hub)">
+    <div class="container">
+      <p class="c-eyebrow c-reveal"><span class="c-tick" aria-hidden="true"></span>
+        <span data-fr>// les univers — modules</span><span data-en>// the worlds — modules</span>
+      </p>
+      <div class="c-grid">
+
+        <a class="c-mod c-mod--star c-reveal" href="https://hl-works.github.io/knowledge-hub/" target="_blank" rel="noopener" style="--acc:var(--w-hub)">
+          <span class="c-badge"><span data-fr>★ Le hub</span><span data-en>★ The hub</span></span>
+          <p class="c-meta"><span class="c-tick" aria-hidden="true"></span>
+            <span data-fr>knowledge-hub · MAJ en continu · FR/EN · SEO+GEO</span>
+            <span data-en>knowledge-hub · always-on · FR/EN · SEO+GEO</span>
+          </p>
+          <h3>Knowledge Hub</h3>
+          <p>
+            <span data-fr>Le hub de contenu qui alimente ce CV vivant : méthode, guides, veille IA, journal, lexique. Bilingue FR/EN, pensé SEO + GEO — fait pour être lu et cité par les LLMs.</span>
+            <span data-en>The content hub that powers this living CV: method, guides, AI watch, journal, lexicon. Bilingual FR/EN, built for SEO + GEO — made to be read and cited by LLMs.</span>
+          </p>
+          <p class="c-pull">
+            <span data-fr>&ldquo;Tout ce que j&rsquo;apprends en IA, documenté en public.&rdquo;</span>
+            <span data-en>&ldquo;Everything I learn about AI, documented in public.&rdquo;</span>
+          </p>
+          <span class="c-cta"><span data-fr>Ouvrir le hub</span><span data-en>Open the hub</span> <span class="c-arr" aria-hidden="true">→</span></span>
+        </a>
+
+        <!-- COBRA -->
+        <a class="c-mod c-reveal" id="cobra" href="https://www.cobra.fr" target="_blank" rel="noopener" style="--acc:var(--w-cobra)">
+          <p class="c-meta"><span class="c-tick" aria-hidden="true"></span>
+            <span data-fr>role: DG · depuis oct. 2024</span>
+            <span data-en>role: CEO · since Oct. 2024</span>
+          </p>
+          <h3>Cobra</h3>
+          <p>
+            <span data-fr>Enseigne emblématique HiFi &amp; Home Cinéma, en pleine transformation : repositionnement, retail &amp; e-commerce (cobra.fr), digitalisation, dev Odoo/Shopify, agents IA. Mon terrain de jeu Claude Code.</span>
+            <span data-en>Iconic HiFi &amp; Home Cinema retailer in full transformation: repositioning, retail &amp; e-commerce (cobra.fr), digitalisation, Odoo/Shopify dev, AI agents. My Claude Code playground.</span>
+          </p>
+          <span class="c-cta">cobra.fr <span class="c-arr" aria-hidden="true">→</span></span>
+        </a>
+
+        <!-- HIFI LOVERS -->
+        <div class="c-mod c-reveal" id="hifi" style="--acc:var(--w-hifi)">
+          <p class="c-meta"><span class="c-tick" aria-hidden="true"></span>
+            <span data-fr>brand: HL Média · néo-rétro</span>
+            <span data-en>brand: HL Média · neo-retro</span>
+          </p>
+          <h3>HiFi Lovers</h3>
+          <p>
+            <span data-fr>Marque néo-rétro audiophile — musique, cinéma, design, culture pop. Un univers HL Média, extensible.</span>
+            <span data-en>Neo-retro audiophile brand — music, cinema, design, pop culture. An HL Média universe, extensible.</span>
+          </p>
+          <span class="c-cta"><span data-fr>bientôt</span><span data-en>soon</span> <span class="c-arr" aria-hidden="true">·</span></span>
+        </div>
+
+        <!-- HAUTE FIDÉLITÉ -->
+        <a class="c-mod c-reveal" id="mag" href="https://www.hautefidelite-hifi.com" target="_blank" rel="noopener" style="--acc:var(--w-mag)">
+          <p class="c-meta"><span class="c-tick" aria-hidden="true"></span>
+            <span data-fr>role: Éditeur · depuis janv. 2025</span>
+            <span data-en>role: Publisher · since Jan. 2025</span>
+          </p>
+          <h3>Haute Fidélité</h3>
+          <p>
+            <span data-fr>Reprise et relance du magazine de référence depuis 30+ ans — dernier titre spécialisé en kiosque. Nouvelle formule 2025 : presse papier premium + digital.</span>
+            <span data-en>Revival of the reference magazine for 30+ years — the last specialist title on newsstands. New 2025 edition: premium print + digital.</span>
+          </p>
+          <span class="c-cta">hautefidelite-hifi.com <span class="c-arr" aria-hidden="true">→</span></span>
+        </a>
+
+        <!-- PARCOURS (module qui ancre + lien vers section) -->
+        <a class="c-mod c-reveal" href="#parcours" style="--acc:var(--w-legacy)">
+          <p class="c-meta"><span class="c-tick" aria-hidden="true"></span>
+            <span data-fr>legacy: Son-Vidéo.com · 17 ans</span>
+            <span data-en>legacy: Son-Vidéo.com · 17 years</span>
+          </p>
+          <h3><span data-fr>Parcours</span><span data-en>Career</span></h3>
+          <p>
+            <span data-fr>17 ans chez Son-Vidéo.com, n°1 FR de la vente en ligne hifi/home-cinéma — de 10 à 62 M€. Le socle de tout le reste.</span>
+            <span data-en>17 years at Son-Vidéo.com, France&rsquo;s n°1 online hifi/home-cinema retailer — from €10M to €62M. The foundation for everything else.</span>
+          </p>
+          <span class="c-cta"><span data-fr>Voir le parcours</span><span data-en>See the career</span> <span class="c-arr" aria-hidden="true">↓</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PARCOURS (section détaillée) ---------- -->
+  <section id="parcours" class="c-sec" style="--acc:var(--w-legacy)">
+    <div class="container">
+      <p class="c-eyebrow c-reveal"><span class="c-tick" aria-hidden="true"></span>
+        <span data-fr>// git log --author=hugo</span><span data-en>// git log --author=hugo</span>
+      </p>
+      <h2 class="c-h2 c-reveal"><span data-fr>Le parcours</span><span data-en>The track record</span></h2>
+      <p class="c-lede c-reveal">
+        <span data-fr>De la grande salle de Japan Expo au n°1 français de la vente hifi en ligne — vingt ans à apprendre le terrain, le produit et la marque.</span>
+        <span data-en>From Japan Expo&rsquo;s main stage to France&rsquo;s n°1 online hifi retailer — twenty years learning the field, the product and the brand.</span>
+      </p>
+
+      <div class="c-time">
+        <div class="c-step c-reveal">
+          <p class="c-when">2007 — 2024 · Son-Vidéo.com</p>
+          <p class="c-what"><span data-fr>17 ans · n°1 FR vente en ligne hifi / home-cinéma</span><span data-en>17 years · France&rsquo;s n°1 online hifi / home-cinema retailer</span></p>
+          <p class="c-desc">
+            <span data-fr>De 10 à 62 M€. Achats, vente, marketing, publicité, création &amp; import de marques.</span>
+            <span data-en>From €10M to €62M. Buying, sales, marketing, advertising, brand creation &amp; import.</span>
+          </p>
+        </div>
+        <div class="c-step c-reveal">
+          <p class="c-when">2002 — 2007 · Japan Expo</p>
+          <p class="c-what"><span data-fr>5 ans · régie grande salle</span><span data-en>5 years · main-stage management</span></p>
+          <p class="c-desc">
+            <span data-fr>Production et régie de la plus grande salle de l&rsquo;événement.</span>
+            <span data-en>Production and stage management of the event&rsquo;s largest hall.</span>
+          </p>
+        </div>
+        <div class="c-step c-reveal">
+          <p class="c-when"><span data-fr>Formation</span><span data-en>Education</span></p>
+          <p class="c-what">ESGCI · UVSQ</p>
+          <p class="c-desc">
+            <span data-fr>MBA E-business (ESGCI) &amp; Génie Logistique (UVSQ).</span>
+            <span data-en>MBA E-business (ESGCI) &amp; Logistics Engineering (UVSQ).</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ---- FOOTER (chapeau, verbatim) ---- -->
+<footer class="hl-ft" id="contact">
+  <div class="container">
+    <div class="hl-ft__grid">
+      <div class="hl-ft__brand">
+        <a class="hl-brand" href="#top"><span class="hl-mono">HL</span>
+          <span class="hl-brand__txt"><b>Hugo Lahutte</b></span></a>
+        <p class="muted" data-fr>DG de Cobra · Éditeur de Haute Fidélité · Fondateur de HL Consulting. Je construis mes projets et mon contenu en public, avec Claude.</p>
+        <p class="muted" data-en>CEO of Cobra · Publisher of Haute Fidélité · Founder of HL Consulting. I build my projects and content in public, with Claude.</p>
+        <a class="hl-cta-mail" href="mailto:hugo@hl-consulting.tech">hugo@hl-consulting.tech →</a>
+      </div>
+      <div>
+        <h4 data-fr>Les univers</h4><h4 data-en>The worlds</h4>
+        <ul>
+          <li><a href="#hub">Knowledge Hub</a></li>
+          <li><a href="#cobra">Cobra</a></li>
+          <li><a href="#hifi">HiFi Lovers</a></li>
+          <li><a href="#mag">Haute Fidélité</a></li>
+          <li><a href="#parcours"><span data-fr>Parcours · Son-Vidéo</span><span data-en>Career · Son-Vidéo</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Me suivre</h4><h4 data-en>Follow</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" rel="me noopener" target="_blank">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" rel="me noopener" target="_blank">X · @hugolh_ai</a></li>
+          <li><a href="https://www.instagram.com/hlh31" rel="me noopener" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-fr>Échanger</h4><h4 data-en>Get in touch</h4>
+        <p class="muted" data-fr>Le mieux : ajoute-moi sur LinkedIn avec un mot, ou écris-moi.</p>
+        <p class="muted" data-en>Best way: add me on LinkedIn with a note, or email me.</p>
+        <a class="hl-cta-mail" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener"><span data-fr>M'ajouter →</span><span data-en>Connect →</span></a>
+      </div>
+    </div>
+    <div class="hl-ft__bottom">
+      <span class="muted">© 2026 Hugo Lahutte — HL Consulting · <span data-fr>HTML/CSS statique, zéro dépendance</span><span data-en>Static HTML/CSS, zero dependency</span></span>
+      <span class="hl-ft__kata">ハイファイ</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ---- JS chapeau (verbatim) ---- -->
+<script>
+(function(){
+  var root=document.documentElement;
+  document.querySelectorAll("[data-theme-toggle]").forEach(function(b){b.addEventListener("click",function(){
+    var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+    root.setAttribute("data-theme",n);try{localStorage.setItem("hl-theme",n)}catch(e){}});});
+  document.querySelectorAll("[data-lang-toggle]").forEach(function(b){b.addEventListener("click",function(){
+    var n=root.getAttribute("data-lang")==="en"?"fr":"en";
+    root.setAttribute("data-lang",n);root.setAttribute("lang",n);try{localStorage.setItem("hl-lang",n)}catch(e){}});});
+  var burger=document.querySelector(".hl-burger"),nav=document.getElementById("hl-nav");
+  if(burger&&nav){burger.addEventListener("click",function(){
+    var o=nav.classList.toggle("open");burger.setAttribute("aria-expanded",o);});
+    nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){
+      nav.classList.remove("open");burger.setAttribute("aria-expanded","false");});});}
+})();
+</script>
+
+<!-- ---- JS PROPRE : typing + scroll-reveal (dégrade sans JS) ---- -->
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add("js"); /* active les états "cachés" seulement si JS dispo */
+  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+  /* --- typing : révèle les lignes du terminal une à une --- */
+  var box=document.getElementById("c-typing");
+  if(box){
+    var lines=Array.prototype.slice.call(box.querySelectorAll(".c-line"));
+    if(reduce){ lines.forEach(function(l){l.classList.add("is-on");}); }
+    else{
+      var i=0;
+      var step=function(){
+        if(i<lines.length){ lines[i].classList.add("is-on"); i++; setTimeout(step,520); }
+      };
+      setTimeout(step,500);
+    }
+  }
+
+  /* --- scroll reveal --- */
+  var rev=document.querySelectorAll(".c-reveal");
+  if(reduce || !("IntersectionObserver" in window)){
+    rev.forEach(function(el){el.classList.add("is-in");});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("is-in"); io.unobserve(e.target); } });
+    },{rootMargin:"0px 0px -8% 0px",threshold:.08});
+    rev.forEach(function(el){io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>
