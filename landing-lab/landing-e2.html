@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hugo Lahutte · CV Vivant / Living CV</title>
+<meta name="description" content="Hugo Lahutte — CV vivant. DG Cobra, éditeur Haute Fidélité, build in public. Le Knowledge Hub qui alimente tout." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<!-- Anti-FOUC: set lang + theme + signal color before paint -->
+<script>
+(function () {
+  try {
+    var l = localStorage.getItem("hl-lang") || "fr";
+    var t = localStorage.getItem("hl-theme") || "light";
+    var s = localStorage.getItem("hl-e-signal");
+    document.documentElement.setAttribute("lang", l);
+    document.documentElement.setAttribute("data-theme", t);
+    document.documentElement.setAttribute("data-lang", l);
+    if (s && /^#[0-9A-Fa-f]{6}$/.test(s)) {
+      document.documentElement.style.setProperty("--e-signal", s);
+    }
+  } catch (e) {}
+})();
+</script>
+<style>
+  /* ============ TOKENS ============ */
+  :root {
+    --e-signal: #E8FE5B;       /* signal yellow field (live-swappable) */
+    --e-ink: #0A0A0A;          /* black type */
+    --e-paper: #FFFFFF;        /* stark white panels */
+    --e-field: var(--e-signal);
+    --e-on-field: var(--e-ink);
+    --e-panel: var(--e-paper);
+    --e-on-panel: var(--e-ink);
+    --e-bar: var(--e-ink);     /* black bar */
+    --e-on-bar: var(--e-signal);
+    --e-border: var(--e-ink);
+    --e-shadow: var(--e-ink);
+    --e-bw: 3px;               /* border weight */
+    --e-off: 8px;              /* hard offset shadow */
+  }
+  html[data-theme="dark"] {
+    --e-field: #0A0A0A;        /* black field */
+    --e-on-field: var(--e-signal);
+    --e-panel: #141414;
+    --e-on-panel: #F4F4F4;
+    --e-bar: var(--e-signal);
+    --e-on-bar: #0A0A0A;
+    --e-border: var(--e-signal);
+    --e-shadow: var(--e-signal);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--e-field);
+    color: var(--e-on-field);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    line-height: 1.15;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .e-mono { font-family: "Space Mono", ui-monospace, monospace; }
+
+  /* lang visibility */
+  html[data-lang="fr"] .e-en { display: none; }
+  html[data-lang="en"] .e-fr { display: none; }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 4px solid var(--e-bar);
+    outline-offset: 2px;
+  }
+  html[data-theme="dark"] :focus-visible { outline-color: var(--e-signal); }
+
+  .e-wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  /* ============ HEADER ============ */
+  .e-header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--e-field);
+    border-bottom: var(--e-bw) solid var(--e-border);
+  }
+  .e-headrow {
+    display: flex; align-items: center; gap: 16px;
+    padding: 12px 20px; max-width: 1180px; margin: 0 auto;
+  }
+  .e-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex: 0 0 auto; }
+  .e-mono-sq {
+    width: 40px; height: 40px; flex: 0 0 auto;
+    display: grid; place-items: center;
+    background: var(--e-bar); color: var(--e-on-bar);
+    border: var(--e-bw) solid var(--e-border);
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 18px;
+  }
+  .e-brand-txt { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  .e-brand-txt small { display: block; font-weight: 400; font-size: 11px; }
+  .e-nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+  .e-nav a {
+    font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; text-decoration: none; padding: 6px 8px;
+    border: 2px solid transparent;
+  }
+  .e-nav a:hover, .e-nav a:focus-visible {
+    background: var(--e-bar); color: var(--e-on-bar);
+  }
+  .e-tools { display: flex; gap: 6px; align-items: center; }
+  .e-btn-mini {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    background: var(--e-panel); color: var(--e-on-panel);
+    border: var(--e-bw) solid var(--e-border); padding: 6px 9px;
+    cursor: pointer; line-height: 1; text-transform: uppercase;
+  }
+  .e-btn-mini:hover { background: var(--e-bar); color: var(--e-on-bar); }
+  .e-burger { display: none; }
+
+  /* ============ PALETTE SWITCHER ============ */
+  .e-palette {
+    display: flex; align-items: center; gap: 6px;
+    padding-left: 8px; margin-left: 2px;
+    border-left: var(--e-bw) solid var(--e-border);
+  }
+  .e-palette-label {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.04em; line-height: 1;
+  }
+  .e-swatches { display: flex; gap: 5px; flex-wrap: wrap; }
+  .e-swatch {
+    width: 24px; height: 24px; flex: 0 0 auto; padding: 0; cursor: pointer;
+    background: var(--sw, #000); border: var(--e-bw) solid var(--e-border);
+    box-shadow: 3px 3px 0 var(--e-shadow); line-height: 0;
+    transition: transform .08s linear, box-shadow .08s linear;
+  }
+  .e-swatch:hover {
+    transform: translate(3px, 3px); box-shadow: 0 0 0 var(--e-shadow);
+  }
+  .e-swatch[aria-pressed="true"] {
+    transform: translate(3px, 3px); box-shadow: 0 0 0 var(--e-shadow);
+    outline: 2px solid var(--e-border); outline-offset: -7px;
+  }
+
+  @media (max-width: 860px) {
+    .e-nav { display: none; width: 100%; flex-direction: column; margin: 0; }
+    .e-nav.e-open { display: flex; }
+    .e-headrow { flex-wrap: wrap; }
+    .e-burger { display: inline-flex; margin-left: auto; order: 3; }
+    .e-tools { order: 2; }
+    .e-nav a { border: 2px solid var(--e-border); }
+    /* palette wraps below lang/theme inside the tools row on mobile */
+    .e-palette { flex-wrap: wrap; }
+    .e-palette-label { width: 100%; }
+    .e-swatch { width: 30px; height: 30px; }
+  }
+
+  /* ============ HERO ============ */
+  .e-hero { padding: 56px 0 0; }
+  .e-eyebrow {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px;
+    display: inline-block; border: var(--e-bw) solid var(--e-border);
+    background: var(--e-panel); color: var(--e-on-panel); padding: 6px 12px;
+  }
+  .e-name {
+    font-weight: 700; line-height: 0.84; letter-spacing: -0.035em;
+    font-size: clamp(52px, 15.5vw, 184px); margin: 0;
+    text-transform: uppercase; word-break: break-word; hyphens: none;
+  }
+  .e-tagline {
+    font-family: "Space Mono", monospace; font-weight: 700;
+    font-size: clamp(20px, 5vw, 40px); margin: 18px 0 4px; text-transform: uppercase;
+  }
+  .e-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .e-tags li {
+    font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; padding: 6px 10px;
+    border: var(--e-bw) solid var(--e-border); background: var(--e-panel); color: var(--e-on-panel);
+  }
+  .e-cta-row { margin: 28px 0 40px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .e-btn {
+    display: inline-block; text-decoration: none;
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 16px;
+    text-transform: uppercase; padding: 16px 24px;
+    background: var(--e-panel); color: var(--e-on-panel);
+    border: var(--e-bw) solid var(--e-border);
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+    transition: transform .08s linear, box-shadow .08s linear;
+  }
+  .e-btn.e-btn-primary { background: var(--e-bar); color: var(--e-on-bar); }
+  .e-btn:hover, .e-btn:focus-visible {
+    transform: translate(var(--e-off), var(--e-off));
+    box-shadow: 0 0 0 var(--e-shadow);
+  }
+
+  /* ============ MARQUEE ============ */
+  .e-marquee {
+    background: var(--e-bar); color: var(--e-on-bar);
+    border-top: var(--e-bw) solid var(--e-border);
+    border-bottom: var(--e-bw) solid var(--e-border);
+    overflow: hidden; white-space: nowrap; padding: 12px 0;
+  }
+  .e-marquee-track {
+    display: inline-block; will-change: transform;
+    animation: e-scroll 26s linear infinite;
+  }
+  .e-marquee-track span {
+    font-family: "Space Mono", monospace; font-weight: 700;
+    font-size: clamp(16px, 3vw, 26px); text-transform: uppercase; padding: 0 4px;
+  }
+  @keyframes e-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .e-marquee-track { animation: none; }
+  }
+
+  /* ============ SECTION SHELL ============ */
+  .e-section { padding: 64px 0; }
+  .e-section-head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 28px;
+    border-bottom: var(--e-bw) solid var(--e-border); padding-bottom: 14px;
+  }
+  .e-idx { font-family: "Space Mono", monospace; font-weight: 700; font-size: 18px; }
+  .e-section-title {
+    font-weight: 700; font-size: clamp(28px, 6vw, 56px); margin: 0;
+    text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
+  }
+
+  /* ============ WORLDS GRID ============ */
+  .e-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; }
+  .e-block {
+    border: var(--e-bw) solid var(--e-border); margin: -1.5px 0 0 -1.5px;
+    background: var(--e-panel); color: var(--e-on-panel);
+    padding: 26px; text-decoration: none; display: flex; flex-direction: column;
+    transition: transform .1s linear, box-shadow .1s linear, background .1s, color .1s;
+    position: relative;
+  }
+  .e-block:hover, .e-block:focus-visible {
+    background: var(--e-bar); color: var(--e-on-bar);
+    z-index: 2;
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+    transform: translate(calc(var(--e-off) * -0.5), calc(var(--e-off) * -0.5));
+  }
+  .e-block .e-blk-idx {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 14px; margin-bottom: 12px;
+  }
+  .e-block .e-blk-meta {
+    font-family: "Space Mono", monospace; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; margin-bottom: 10px; opacity: .85;
+  }
+  .e-block h3 {
+    font-weight: 700; font-size: clamp(22px, 3.4vw, 34px); margin: 0 0 12px;
+    text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.98;
+  }
+  .e-block p { font-size: 15px; line-height: 1.4; margin: 0 0 18px; flex: 1; }
+  .e-blk-link {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .e-blk-link::after { content: "->"; }
+  /* spans of grid */
+  .e-block.e-star { grid-column: span 6; }
+  .e-block.e-half { grid-column: span 3; }
+
+  .e-star h3 { font-size: clamp(34px, 7vw, 64px); }
+  .e-star .e-badge {
+    align-self: flex-start; font-family: "Space Mono", monospace; font-weight: 700;
+    font-size: 11px; text-transform: uppercase; padding: 4px 8px;
+    border: 2px solid currentColor; margin-bottom: 14px;
+  }
+
+  @media (max-width: 760px) {
+    .e-block.e-half { grid-column: span 6; }
+  }
+
+  /* ============ FOOTER ============ */
+  .e-footer {
+    background: var(--e-bar); color: var(--e-on-bar);
+    border-top: var(--e-bw) solid var(--e-border);
+    padding: 56px 0 28px;
+  }
+  .e-foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+  .e-foot-grid h4 {
+    font-family: "Space Mono", monospace; font-size: 13px; font-weight: 700;
+    text-transform: uppercase; margin: 0 0 14px; letter-spacing: 0.04em;
+  }
+  .e-foot-monogram { font-weight: 700; font-size: 40px; text-transform: uppercase; letter-spacing: -0.02em; margin: 0 0 10px; }
+  .e-foot-list { list-style: none; padding: 0; margin: 0; }
+  .e-foot-list li { margin-bottom: 8px; }
+  .e-foot-list a {
+    font-family: "Space Mono", monospace; font-size: 14px; text-decoration: none; font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+  .e-foot-list a:hover, .e-foot-list a:focus-visible { border-bottom-color: currentColor; }
+  .e-foot-bottom {
+    margin-top: 40px; padding-top: 18px; border-top: 2px solid currentColor;
+    font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  @media (max-width: 700px) {
+    .e-foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 460px) {
+    .e-foot-grid { grid-template-columns: 1fr; }
+  }
+
+  .e-skip {
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    background: var(--e-bar); color: var(--e-on-bar); padding: 10px 16px;
+    font-family: "Space Mono", monospace; font-weight: 700; text-decoration: none;
+  }
+  .e-skip:focus { left: 8px; top: 8px; }
+</style>
+</head>
+<body>
+<a href="#top" class="e-skip"><span class="e-fr">Aller au contenu</span><span class="e-en">Skip to content</span></a>
+
+<!-- ============ HEADER ============ -->
+<header class="e-header">
+  <div class="e-headrow">
+    <a href="#top" class="e-brand" aria-label="Hugo Lahutte — accueil">
+      <span class="e-mono-sq" aria-hidden="true">HL</span>
+      <span class="e-brand-txt">Hugo Lahutte<small class="e-mono">Consulting</small></span>
+    </a>
+    <button class="e-btn-mini e-burger" id="e-burger" aria-expanded="false" aria-controls="e-nav" aria-label="Menu">≡</button>
+    <nav class="e-nav" id="e-nav" aria-label="Worlds">
+      <a href="#hub">Hub</a>
+      <a href="#cobra">Cobra</a>
+      <a href="#hifi">HiFi Lovers</a>
+      <a href="#mag">Magazine</a>
+      <a href="#parcours"><span class="e-fr">Parcours</span><span class="e-en">Path</span></a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="e-tools">
+      <button class="e-btn-mini" id="e-lang" aria-label="Language / Langue">FR/EN</button>
+      <button class="e-btn-mini" id="e-theme" aria-label="Light / dark theme" title="Theme">◐</button>
+      <div class="e-palette" id="e-palette" role="group" aria-label="Couleur signal / Signal color">
+        <span class="e-palette-label" aria-hidden="true"><span class="e-fr">Signal</span><span class="e-en">Signal</span></span>
+        <div class="e-swatches" id="e-swatches"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="e-hero">
+    <div class="e-wrap">
+      <p class="e-eyebrow e-mono">
+        <span class="e-fr">CV VIVANT · BUILD IN PUBLIC</span>
+        <span class="e-en">LIVING CV · BUILD IN PUBLIC</span>
+      </p>
+      <h1 class="e-name">Hugo<br />Lahutte</h1>
+      <p class="e-tagline">
+        <span class="e-fr">CV vivant.</span>
+        <span class="e-en">Living CV.</span>
+      </p>
+      <ul class="e-tags" aria-label="Roles">
+        <li>DG Cobra</li>
+        <li class="e-fr">Éditeur Haute Fidélité</li>
+        <li class="e-en">Publisher Haute Fidélité</li>
+        <li class="e-fr">Transformation Retail</li>
+        <li class="e-en">Retail Transformation</li>
+        <li>Claude Code</li>
+        <li class="e-fr">SEO + GEO</li>
+        <li class="e-en">SEO + GEO</li>
+      </ul>
+      <div class="e-cta-row">
+        <a class="e-btn e-btn-primary" href="https://hl-works.github.io/knowledge-hub/" target="_blank" rel="noopener">
+          <span class="e-fr">Ouvrir le Knowledge Hub</span><span class="e-en">Open the Knowledge Hub</span>
+        </a>
+        <a class="e-btn" href="#hub">
+          <span class="e-fr">Les 5 mondes</span><span class="e-en">The 5 worlds</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="e-marquee" aria-hidden="true">
+    <div class="e-marquee-track">
+      <span>BUILD IN PUBLIC ·&nbsp;</span><span>DG COBRA ·&nbsp;</span><span>ÉDITEUR HAUTE FIDÉLITÉ ·&nbsp;</span><span>RETAIL + E-COMMERCE ·&nbsp;</span><span>CLAUDE CODE ·&nbsp;</span><span>SEO + GEO ·&nbsp;</span><span>CV VIVANT ·&nbsp;</span>
+      <span>BUILD IN PUBLIC ·&nbsp;</span><span>DG COBRA ·&nbsp;</span><span>ÉDITEUR HAUTE FIDÉLITÉ ·&nbsp;</span><span>RETAIL + E-COMMERCE ·&nbsp;</span><span>CLAUDE CODE ·&nbsp;</span><span>SEO + GEO ·&nbsp;</span><span>CV VIVANT ·&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============ WORLDS ============ -->
+  <section class="e-section" id="worlds">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx e-mono">[ 5 ]</span>
+        <h2 class="e-section-title">
+          <span class="e-fr">Les 5 mondes</span><span class="e-en">The 5 worlds</span>
+        </h2>
+      </div>
+
+      <div class="e-grid">
+        <!-- HUB — STAR -->
+        <a class="e-block e-star" id="hub" href="https://hl-works.github.io/knowledge-hub/" target="_blank" rel="noopener">
+          <span class="e-badge e-mono"><span class="e-fr">★ LE CŒUR DU SYSTÈME</span><span class="e-en">★ THE CORE</span></span>
+          <span class="e-blk-idx e-mono">[01] / KNOWLEDGE HUB</span>
+          <h3>Knowledge Hub</h3>
+          <p>
+            <span class="e-fr">Le hub de contenu qui alimente ce CV vivant : méthode, guides, veille IA, journal, lexique. Bilingue FR/EN, pensé SEO + GEO.</span>
+            <span class="e-en">The content hub that powers this living CV: method, guides, AI watch, journal, lexicon. Bilingual FR/EN, built for SEO + GEO.</span>
+          </p>
+          <span class="e-blk-link e-mono"><span class="e-fr">Entrer dans le Hub</span><span class="e-en">Enter the Hub</span></span>
+        </a>
+
+        <!-- COBRA -->
+        <a class="e-block e-half" id="cobra" href="https://www.cobra.fr" target="_blank" rel="noopener">
+          <span class="e-blk-idx e-mono">[02]</span>
+          <span class="e-blk-meta e-mono"><span class="e-fr">DEPUIS OCT. 2024 · DG</span><span class="e-en">SINCE OCT. 2024 · CEO</span></span>
+          <h3>Cobra</h3>
+          <p>
+            <span class="e-fr">Enseigne HiFi & Home Cinéma. Transformation : repositionnement, retail & e-commerce, digitalisation, dev Odoo/Shopify, agents IA. Terrain de jeu Claude Code.</span>
+            <span class="e-en">HiFi & Home Cinema retailer. Transformation: repositioning, retail & e-commerce, digitalization, Odoo/Shopify dev, AI agents. Claude Code playground.</span>
+          </p>
+          <span class="e-blk-link e-mono">cobra.fr</span>
+        </a>
+
+        <!-- HAUTE FIDÉLITÉ -->
+        <a class="e-block e-half" id="mag" href="https://www.hautefidelite-hifi.com" target="_blank" rel="noopener">
+          <span class="e-blk-idx e-mono">[03]</span>
+          <span class="e-blk-meta e-mono"><span class="e-fr">DEPUIS JANV. 2025 · ÉDITEUR</span><span class="e-en">SINCE JAN. 2025 · PUBLISHER</span></span>
+          <h3>Haute Fidélité</h3>
+          <p>
+            <span class="e-fr">Relance du magazine de référence (30+ ans), dernier titre spécialisé en kiosque. Nouvelle formule 2025 : presse papier premium + digital.</span>
+            <span class="e-en">Relaunch of the reference magazine (30+ yrs), last specialist title on newsstands. New 2025 formula: premium print + digital.</span>
+          </p>
+          <span class="e-blk-link e-mono">hautefidelite-hifi.com</span>
+        </a>
+
+        <!-- HIFI LOVERS -->
+        <a class="e-block e-half" id="hifi" href="#hifi">
+          <span class="e-blk-idx e-mono">[04]</span>
+          <span class="e-blk-meta e-mono"><span class="e-fr">HL MÉDIA · MARQUE</span><span class="e-en">HL MEDIA · BRAND</span></span>
+          <h3>HiFi Lovers</h3>
+          <p>
+            <span class="e-fr">Marque néo-rétro audiophile : musique, cinéma, design, culture pop. Univers HL Média, extensible.</span>
+            <span class="e-en">Neo-retro audiophile brand: music, cinema, design, pop culture. HL Media universe, expandable.</span>
+          </p>
+          <span class="e-blk-link e-mono"><span class="e-fr">Univers</span><span class="e-en">Universe</span></span>
+        </a>
+
+        <!-- PARCOURS -->
+        <a class="e-block e-half" id="parcours" href="#parcours">
+          <span class="e-blk-idx e-mono">[05]</span>
+          <span class="e-blk-meta e-mono"><span class="e-fr">LEGACY · PARCOURS</span><span class="e-en">LEGACY · PATH</span></span>
+          <h3 class="e-fr">Parcours</h3>
+          <h3 class="e-en">Path</h3>
+          <p>
+            <span class="e-fr">17 ans chez Son-Vidéo.com, n°1 FR de la vente en ligne hifi/home-cinéma — de 10 à 62 M€. Achats, vente, marketing, pub, création & import de marques. Avant : Japan Expo (5 ans). Formé ESGCI (MBA E-business) & UVSQ (Génie Logistique).</span>
+            <span class="e-en">17 years at Son-Vidéo.com, France's n°1 online hifi/home-cinema retailer — from €10M to €62M. Buying, sales, marketing, advertising, brand creation & import. Before: Japan Expo (5 years). Trained at ESGCI (MBA E-business) & UVSQ (Logistics Engineering).</span>
+          </p>
+          <span class="e-blk-link e-mono">Son-Vidéo.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="e-footer" id="contact">
+  <div class="e-wrap">
+    <div class="e-foot-grid">
+      <div>
+        <p class="e-foot-monogram">HL</p>
+        <h4>Hugo Lahutte · Consulting</h4>
+        <ul class="e-foot-list">
+          <li><a href="mailto:hugo@hl-consulting.tech">hugo@hl-consulting.tech</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="e-fr">Index des mondes</h4>
+        <h4 class="e-en">Worlds index</h4>
+        <ul class="e-foot-list">
+          <li><a href="#hub">[01] Knowledge Hub</a></li>
+          <li><a href="#cobra">[02] Cobra</a></li>
+          <li><a href="#mag">[03] Haute Fidélité</a></li>
+          <li><a href="#hifi">[04] HiFi Lovers</a></li>
+          <li><a href="#parcours">[05] <span class="e-fr">Parcours</span><span class="e-en">Path</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <ul class="e-foot-list">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte" target="_blank" rel="noopener">LinkedIn / hugo-lahutte</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="noopener">X / @hugolh_ai</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="noopener">Instagram / hlh31</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="e-foot-bottom">
+      <span>© 2026 Hugo Lahutte</span>
+      <span>hl-consulting.tech · <span class="e-fr">CV vivant</span><span class="e-en">Living CV</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+
+    // Lang toggle
+    document.getElementById("e-lang").addEventListener("click", function () {
+      var next = root.getAttribute("data-lang") === "fr" ? "en" : "fr";
+      root.setAttribute("data-lang", next);
+      root.setAttribute("lang", next);
+      try { localStorage.setItem("hl-lang", next); } catch (e) {}
+    });
+
+    // Theme toggle
+    document.getElementById("e-theme").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("hl-theme", next); } catch (e) {}
+    });
+
+    // Palette switcher — all swatches keep black type readable on the field (>=4.5:1 vs #0A0A0A)
+    var DEFAULT_SIGNAL = "#E8FE5B";
+    var PALETTE = [
+      { hex: "#E8FE5B", fr: "Jaune Signal", en: "Signal Yellow" },
+      { hex: "#FF8A33", fr: "Orange Vif",   en: "Bright Orange" },
+      { hex: "#C6F500", fr: "Lime Acide",   en: "Acid Lime" },
+      { hex: "#3BE8E8", fr: "Cyan Électrique", en: "Electric Cyan" },
+      { hex: "#FF6FA8", fr: "Magenta Pop",  en: "Pop Magenta" },
+      { hex: "#4DFFAD", fr: "Vert Menthe",  en: "Mint Green" },
+      { hex: "#C9B6FF", fr: "Lavande",      en: "Lavender" },
+      { hex: "#FF8C7A", fr: "Corail",       en: "Coral" }
+    ];
+
+    function currentSignal() {
+      try {
+        var s = localStorage.getItem("hl-e-signal");
+        if (s && /^#[0-9A-Fa-f]{6}$/.test(s)) return s.toUpperCase();
+      } catch (e) {}
+      return DEFAULT_SIGNAL;
+    }
+
+    function applySignal(hex) {
+      root.style.setProperty("--e-signal", hex);
+      try { localStorage.setItem("hl-e-signal", hex); } catch (e) {}
+      var btns = wrap.querySelectorAll(".e-swatch");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].setAttribute("aria-pressed", btns[i].dataset.hex === hex ? "true" : "false");
+      }
+    }
+
+    var wrap = document.getElementById("e-swatches");
+    var active = currentSignal();
+    PALETTE.forEach(function (c) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "e-swatch";
+      b.dataset.hex = c.hex;
+      b.style.setProperty("--sw", c.hex);
+      b.setAttribute("aria-pressed", c.hex === active ? "true" : "false");
+      b.setAttribute("aria-label",
+        (root.getAttribute("data-lang") === "en" ? c.en : c.fr) + " — " + c.hex);
+      b.addEventListener("click", function () { applySignal(c.hex); });
+      wrap.appendChild(b);
+    });
+
+    // Burger
+    var burger = document.getElementById("e-burger");
+    var nav = document.getElementById("e-nav");
+    burger.addEventListener("click", function () {
+      var open = nav.classList.toggle("e-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("e-open");
+        burger.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
+</script>
+</body>
+</html>
