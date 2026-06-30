@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && rm -f ../atlas-asie/content-assets.mjs ../atlas-asie/content-modules.mjs",
     "preview": "astro preview",
     "check": "astro check"
   },

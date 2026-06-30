@@ -8,6 +8,13 @@ export default defineConfig({
   base: '/atlas-asie',
   // Sortie 100% statique : on réplique le montage "dossier committé" du hub.
   output: 'static',
+  // Le build écrit directement dans /atlas-asie/ à la racine du repo,
+  // dossier servi par GitHub Pages (déploiement "option 1" : output committé).
+  outDir: '../atlas-asie',
+  build: {
+    // Pas de purge globale au cas où, on garde la maîtrise du dossier cible.
+    assets: '_astro',
+  },
   trailingSlash: 'ignore',
   i18n: {
     defaultLocale: 'fr',
