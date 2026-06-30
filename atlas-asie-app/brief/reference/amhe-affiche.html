@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas d'Asie — V2 Affiche de voyage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#FFF4E2; --ink:#241A14; --ink-soft:#5E4B3C; --muted:#9A8268;
+    --coral:#FF5E3A; --coral-deep:#D83E1E; --gold:#FFB22E; --jade:#149E7C; --teal:#0C5A5E;
+    --line:#EAD7BC;
+    --disp:"Anton",system-ui,sans-serif; --sans:"Inter",system-ui,sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--cream);padding:.6rem 1rem;z-index:50;}
+  .skip-link:focus{left:0;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px);}
+  a{color:var(--coral-deep);}
+  ::selection{background:var(--coral);color:#fff;}
+  .disp{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.92;}
+
+  .topbar{background:var(--ink);color:var(--cream);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:1rem;}
+  .brand{display:flex;align-items:center;gap:.55rem;color:var(--cream);text-decoration:none;font-family:var(--disp);font-size:1.2rem;letter-spacing:.02em;text-transform:uppercase;}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);display:inline-block;box-shadow:0 0 0 4px rgba(255,94,58,.25);}
+  .nav{display:flex;align-items:center;gap:clamp(12px,2.5vw,24px);}
+  .nav .links{display:flex;gap:inherit;}
+  .nav a{color:var(--cream);text-decoration:none;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85;}
+  .nav a:hover{opacity:1;color:var(--gold);}
+  .lang{display:inline-flex;border:2px solid var(--cream);border-radius:999px;overflow:hidden;}
+  .lang button{appearance:none;border:0;background:transparent;cursor:pointer;font:700 .74rem var(--sans);letter-spacing:.06em;color:var(--cream);padding:6px 12px;min-width:44px;}
+  .lang button[aria-pressed="true"]{background:var(--coral);}
+  .lang button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  /* hero poster */
+  .hero{position:relative;background:var(--teal);overflow:hidden;}
+  .hero svg.scene{position:absolute;inset:0;width:100%;height:100%;}
+  .hero .inner{position:relative;padding:clamp(48px,9vw,120px) 0 clamp(40px,7vw,90px);}
+  .badge-top{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--ink);font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;padding:6px 14px;border-radius:999px;}
+  .hero h1{color:var(--cream);font-family:var(--disp);font-size:clamp(3.2rem,13vw,9rem);text-transform:uppercase;line-height:.86;margin:1.1rem 0 1rem;text-shadow:0 4px 0 rgba(0,0,0,.12);}
+  .hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--cream);}
+  .hero h1 .fill{color:var(--gold);}
+  .hero .lede{color:var(--cream);max-width:42ch;font-size:clamp(1rem,2vw,1.25rem);opacity:.95;margin:0;}
+  .ticker{margin-top:1.6rem;display:flex;gap:.6rem;flex-wrap:wrap;}
+  .chip{background:rgba(255,244,226,.16);color:var(--cream);border:1px solid rgba(255,244,226,.4);border-radius:999px;padding:5px 13px;font-size:.78rem;font-weight:600;letter-spacing:.03em;}
+
+  .section{padding:clamp(38px,6vw,76px) 0;}
+  .section-head{display:flex;align-items:baseline;gap:1rem;justify-content:space-between;flex-wrap:wrap;margin-bottom:clamp(22px,3vw,40px);}
+  .section-head h2{font-family:var(--disp);font-size:clamp(2.1rem,6vw,3.6rem);text-transform:uppercase;margin:0;}
+  .section-head h2 b{color:var(--coral);}
+  .count{font-weight:700;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+
+  /* route = boarding passes */
+  .route{display:grid;gap:clamp(12px,2vw,18px);}
+  .pass{display:grid;grid-template-columns:84px 1fr auto;align-items:center;gap:clamp(14px,2.5vw,28px);
+    background:#fff;border:2px solid var(--ink);border-radius:14px;overflow:hidden;
+    box-shadow:5px 5px 0 var(--ink);transition:transform .18s ease, box-shadow .18s ease;}
+  .pass:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--coral);}
+  .pass .stub{align-self:stretch;background:var(--coral);color:#fff;display:grid;place-items:center;
+    font-family:var(--disp);font-size:2.2rem;border-right:2px dashed rgba(255,255,255,.7);}
+  .pass .mid{padding:14px 0;}
+  .pass .mid h3{font-family:var(--sans);font-weight:700;font-size:clamp(1.1rem,2.4vw,1.45rem);margin:0 0 .3rem;}
+  .pass .mid .meta{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .pass .mid .meta .pill{display:inline-flex;align-items:center;gap:.35rem;}
+  .pass .mid .meta svg{color:var(--jade);}
+  .pass .mid .resume{margin:.35rem 0 0;color:var(--ink-soft);font-size:.92rem;}
+  .pass .mid .resume.empty{color:var(--muted);font-style:italic;}
+  .pass .code{padding:0 clamp(14px,2vw,24px);font-family:var(--disp);font-size:1.4rem;color:var(--teal);letter-spacing:.05em;}
+
+  /* countries = mini posters */
+  .countries{display:grid;gap:clamp(16px,2.5vw,26px);grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
+  .poster{border:2px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff;
+    box-shadow:5px 5px 0 var(--ink);transition:transform .18s ease, box-shadow .18s ease;display:flex;flex-direction:column;}
+  .poster:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--gold);}
+  .poster .art{position:relative;aspect-ratio:4/3;}
+  .poster .art svg{display:block;width:100%;height:100%;}
+  .poster .art .tag{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-family:var(--disp);font-size:.9rem;padding:3px 9px;border-radius:6px;letter-spacing:.05em;}
+  .poster .pbody{padding:clamp(14px,2vw,20px);display:flex;flex-direction:column;gap:.4rem;flex:1;}
+  .poster h3{font-family:var(--disp);font-size:1.5rem;text-transform:uppercase;margin:0;}
+  .poster .cap{display:inline-flex;align-items:center;gap:.35rem;color:var(--ink-soft);font-size:.9rem;font-weight:500;}
+  .poster .cap svg{color:var(--jade);}
+  .poster .note{color:var(--ink-soft);font-size:.9rem;margin:0;}
+  .poster .note.empty{color:var(--muted);font-style:italic;}
+  .poster .coords{margin-top:auto;font-size:.74rem;letter-spacing:.05em;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:600;}
+
+  footer{background:var(--ink);color:var(--cream);padding:clamp(28px,4vw,46px) 0;}
+  footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.85rem;opacity:.85;}
+  footer .badge{font-family:var(--disp);letter-spacing:.04em;color:var(--gold);opacity:1;}
+  :where(a,button):focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+  @media (max-width:600px){.nav .links{display:none;}.pass{grid-template-columns:64px 1fr;}.pass .code{display:none;}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link" data-i18n="skip">Aller au contenu</a>
+
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="#"><span class="dot"></span><span data-i18n="brand">Atlas d'Asie</span></a>
+  <nav class="nav" aria-label="Principale">
+    <span class="links"><a href="#route" data-i18n="nav.route">Le parcours</a><a href="#countries" data-i18n="nav.countries">Les pays</a></span>
+    <span class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </span>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <svg class="scene" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0C5A5E"/><stop offset="1" stop-color="#149E7C"/></linearGradient>
+      <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB22E"/><stop offset="1" stop-color="#FF5E3A"/></linearGradient>
+    </defs>
+    <rect width="1200" height="620" fill="url(#sky)"/>
+    <!-- sun + rings -->
+    <g transform="translate(870,250)">
+      <circle r="120" fill="url(#sun)"/>
+      <g fill="none" stroke="#FFD27A" stroke-opacity=".5" stroke-width="3"><circle r="150"/><circle r="180"/><circle r="210"/></g>
+    </g>
+    <!-- birds -->
+    <g fill="none" stroke="#FFF4E2" stroke-width="3" stroke-linecap="round" opacity=".85">
+      <path d="M210 150q14 -12 28 0q14 -12 28 0"/><path d="M300 110q11 -9 22 0q11 -9 22 0"/><path d="M150 200q11 -9 22 0q11 -9 22 0"/>
+    </g>
+    <!-- layered mountains -->
+    <path d="M0 430 180 300 320 410 470 280 640 440 820 320 1000 460 1200 360V620H0Z" fill="#0A4E52"/>
+    <path d="M0 520 220 400 400 510 600 390 800 520 1000 410 1200 510V620H0Z" fill="#0A4146"/>
+    <!-- sea with foam lines -->
+    <rect y="540" width="1200" height="80" fill="#08363A"/>
+    <g stroke="#1FBF98" stroke-width="3" stroke-linecap="round" opacity=".6">
+      <path d="M40 570h70M150 588h90M300 566h70M430 590h90M620 572h80M780 590h90M960 570h80M1080 588h80" fill="none"/>
+    </g>
+    <!-- palm -->
+    <g transform="translate(120,540)" fill="#0A4E52">
+      <rect x="-6" y="-120" width="12" height="120" rx="5" transform="rotate(-6)"/>
+      <g fill="#0E6E5A"><path d="M0 -120q-70 -8 -110 26q60 -10 110 -2Z"/><path d="M0 -120q70 -8 110 26q-60 -10 -110 -2Z"/><path d="M0 -122q-20 -70 -64 -96q20 56 64 90Z"/><path d="M0 -122q20 -70 64 -96q-20 56 -64 90Z"/></g>
+    </g>
+  </svg>
+  <div class="inner"><div class="wrap">
+    <span class="badge-top" data-i18n="kicker">Carnet de voyage · 2026</span>
+    <h1 class="disp"><span class="out" data-i18n="title.a">Atlas</span><br><span class="fill" data-i18n="title.b">d'Asie</span></h1>
+    <p class="lede" data-i18n="lede">Du Siam aux îles du Japon — un itinéraire en affiches, alimenté par une feuille de calcul, en deux langues.</p>
+    <div class="ticker">
+      <span class="chip" data-i18n="chip.a">Thaïlande</span><span class="chip" data-i18n="chip.b">Viêt Nam</span>
+      <span class="chip" data-i18n="chip.c">Cambodge</span><span class="chip" data-i18n="chip.d">Japon</span>
+    </div>
+  </div></div>
+</section>
+
+<main id="main">
+  <section class="section" id="route"><div class="wrap">
+    <div class="section-head"><h2 class="disp"><span data-i18n="route.title">Le parcours</span> <b>—</b></h2><span class="count" id="route-count"></span></div>
+    <div class="route" id="route-list"></div>
+  </div></section>
+  <section class="section" id="countries"><div class="wrap">
+    <div class="section-head"><h2 class="disp"><span data-i18n="countries.title">Les pays</span> <b>—</b></h2><span class="count" id="countries-count"></span></div>
+    <div class="countries" id="countries-list"></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <span data-i18n="footer.note">Proto V2 — données d'exemple (fixtures).</span>
+  <span class="badge">hl-consulting.tech / atlas-asie</span>
+</div></footer>
+
+<script>
+const PAYS=[
+ {code:"TH",nom_fr:"Thaïlande",nom_en:"Thailand",capitale:"Bangkok",lat:"15.87",lng:"100.99",note_fr:"Royaume du Siam, climat tropical",note_en:"Kingdom of Siam, tropical climate",pal:["#FFB22E","#FF5E3A","#D83E1E"]},
+ {code:"VN",nom_fr:"Viêt Nam",nom_en:"Vietnam",capitale:"Hanoï",lat:"14.06",lng:"108.28",note_fr:'Café « robusta » et street food',note_en:'“Robusta” coffee and street food',pal:["#36C9A3","#149E7C","#0C5A5E"]},
+ {code:"KH",nom_fr:"Cambodge",nom_en:"Cambodia",capitale:"Phnom Penh",lat:"12.57",lng:"104.99",note_fr:"",note_en:"",pal:["#FFCF6B","#E89B2E","#B86A12"]},
+ {code:"JP",nom_fr:"Japon",nom_en:"Japan",capitale:"Tokyo",lat:"36.20",lng:"138.25",note_fr:"Archipel, 4 grandes îles",note_en:"Archipelago, 4 main islands",pal:["#FF8DA3","#F2516F","#C12B49"]},
+];
+const PARCOURS=[
+ {ordre:"1",pays:"TH",titre_fr:"Arrivée à Bangkok",titre_en:"Arrival in Bangkok",dates:"2026-09-01",resume_fr:"Temples, marchés flottants",resume_en:"Temples, floating markets"},
+ {ordre:"2",pays:"TH",titre_fr:"Chiang Mai",titre_en:"Chiang Mai",dates:"2026-09-08",resume_fr:"Trek et cuisine du Nord",resume_en:"Trekking and northern cuisine"},
+ {ordre:"3",pays:"VN",titre_fr:"Hanoï",titre_en:"Hanoi",dates:"2026-09-20",resume_fr:"Vieille ville, baie d'Halong",resume_en:"Old quarter, Ha Long Bay"},
+ {ordre:"4",pays:"KH",titre_fr:"Angkor",titre_en:"Angkor",dates:"2026-10-05",resume_fr:"",resume_en:""},
+];
+const I18N={
+ fr:{skip:"Aller au contenu",brand:"Atlas d'Asie","nav.route":"Le parcours","nav.countries":"Les pays",
+   kicker:"Carnet de voyage · 2026","title.a":"Atlas","title.b":"d'Asie",
+   lede:"Du Siam aux îles du Japon — un itinéraire en affiches, alimenté par une feuille de calcul, en deux langues.",
+   "chip.a":"Thaïlande","chip.b":"Viêt Nam","chip.c":"Cambodge","chip.d":"Japon",
+   "route.title":"Le parcours","countries.title":"Les pays","footer.note":"Proto V2 — données d'exemple (fixtures).",
+   "empty.note":"Note à venir","empty.resume":"Récit à venir",cLegs:n=>`${n} étapes`,cCountries:n=>`${n} pays`,htmllang:"fr",datefmt:"fr-FR"},
+ en:{skip:"Skip to content",brand:"Atlas of Asia","nav.route":"The route","nav.countries":"The countries",
+   kicker:"Travel journal · 2026","title.a":"Atlas","title.b":"of Asia",
+   lede:"From Siam to the islands of Japan — an itinerary in posters, powered by a spreadsheet, in two languages.",
+   "chip.a":"Thailand","chip.b":"Vietnam","chip.c":"Cambodia","chip.d":"Japan",
+   "route.title":"The route","countries.title":"The countries","footer.note":"Prototype V2 — sample data (fixtures).",
+   "empty.note":"Note coming soon","empty.resume":"Story coming soon",cLegs:n=>`${n} stages`,cCountries:n=>`${n} countries`,htmllang:"en",datefmt:"en-GB"},
+};
+const ICON={
+ pin:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
+ cal:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>',
+};
+/* Mini-affiche SVG par pays : soleil + montagnes + mer, duotone propre au pays */
+function posterSVG(p){const[a,b,c]=p.pal;
+ return `<svg viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Paysage ${p.nom_fr}">
+   <rect width="240" height="180" fill="${a}"/>
+   <circle cx="180" cy="58" r="34" fill="#FFF4E2" opacity=".92"/>
+   <g fill="none" stroke="#FFF4E2" stroke-opacity=".5" stroke-width="2"><circle cx="180" cy="58" r="44"/><circle cx="180" cy="58" r="54"/></g>
+   <path d="M0 130 60 80 110 124 150 70 200 120 240 96V180H0Z" fill="${b}"/>
+   <path d="M0 160 50 120 110 158 170 116 240 150V180H0Z" fill="${c}"/>
+   <g stroke="#FFF4E2" stroke-width="2" stroke-linecap="round" opacity=".55"><path d="M16 168h28M70 174h34M150 168h30M196 174h30" fill="none"/></g>
+ </svg>`;}
+let LANG="fr";
+function fmtDate(iso,l){if(!iso)return"";return new Date(iso+"T00:00:00").toLocaleDateString(I18N[l].datefmt,{day:"numeric",month:"long",year:"numeric"});}
+function renderRoute(){const t=I18N[LANG];document.getElementById("route-list").innerHTML=PARCOURS.map(l=>{
+ const titre=LANG==="en"?l.titre_en:l.titre_fr,resume=LANG==="en"?l.resume_en:l.resume_fr;
+ const p=PAYS.find(x=>x.code===l.pays),nom=p?(LANG==="en"?p.nom_en:p.nom_fr):l.pays;
+ return `<article class="pass"><div class="stub">${l.ordre}</div><div class="mid">
+   <h3>${titre}</h3><div class="meta"><span class="pill">${ICON.pin}${nom}</span><span class="pill">${ICON.cal}${fmtDate(l.dates,LANG)}</span></div>
+   <p class="resume ${resume?"":"empty"}">${resume||t["empty.resume"]}</p></div><div class="code">${l.pays}</div></article>`;}).join("");
+ document.getElementById("route-count").textContent=t.cLegs(PARCOURS.length);}
+function renderCountries(){const t=I18N[LANG];document.getElementById("countries-list").innerHTML=PAYS.map(p=>{
+ const nom=LANG==="en"?p.nom_en:p.nom_fr,note=LANG==="en"?p.note_en:p.note_fr;
+ return `<article class="poster"><div class="art">${posterSVG(p)}<span class="tag">${p.code}</span></div>
+   <div class="pbody"><h3>${nom}</h3><span class="cap">${ICON.pin}${p.capitale}</span>
+   <p class="note ${note?"":"empty"}">${note||t["empty.note"]}</p><span class="coords">${p.lat}, ${p.lng}</span></div></article>`;}).join("");
+ document.getElementById("countries-count").textContent=t.cCountries(PAYS.length);}
+function applyChrome(){const t=I18N[LANG];document.documentElement.lang=t.htmllang;
+ document.querySelectorAll("[data-i18n]").forEach(e=>{const k=e.getAttribute("data-i18n");if(typeof t[k]==="string")e.textContent=t[k];});
+ document.querySelectorAll("[data-set-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.setLang===LANG)));}
+function setLang(l){LANG=l;applyChrome();renderRoute();renderCountries();}
+document.querySelectorAll("[data-set-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.setLang)));
+setLang("fr");
+</script>
+</body>
+</html>

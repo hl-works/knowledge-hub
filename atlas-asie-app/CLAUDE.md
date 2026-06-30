@@ -58,12 +58,13 @@ Voyage : **HM26 Atlas d'Asie été 2026**, famille Lahutte (Hugo, Marion, Alexis
 
 ## Univers graphique — AMHE
 
-L'identité visuelle vient d'**AMHE** (les initiales A·M·H·E + jeu de mots avec « âme »), la marque du premier grand voyage de la famille. **Source de vérité = une page HTML existante** qui porte déjà le style, les couleurs et les animations AMHE.
+L'identité visuelle vient d'**AMHE** (initiales A·M·H·E + jeu de mots avec « âme »), la marque du premier grand voyage de la famille.
 
-- Déposer cette page dans le repo (ex. `reference/amhe.html`). CC doit l'**étudier et en extraire le système** : palette, polices, animations/transitions — et reconstituer ces tokens en **variables CSS réutilisables**.
-- Réutiliser le style et les animations AMHE sur tout le site ; reprendre le wordmark / l'esprit AMHE.
-- CC **n'invente pas** une autre direction visuelle : il reproduit et étend l'univers AMHE.
-- Contraintes **structurelles** (valables par-dessus la charte) : photo full-bleed, beaucoup d'air, hiérarchie typo claire, mobile-first, grandes zones tactiles (enfants + grands-parents), perf (Lighthouse vert).
+- **Source de vérité = `brief/amhe-design.md`** : le système de design distillé (concept, colonne vertébrale commune, 3 directions avec tokens exacts, do/don't).
+- **Maquettes de référence** dans `brief/reference/` : `amhe-expedition.html`, `amhe-affiche.html`, `amhe-nuit.html`.
+- CC reconstitue la colonne vertébrale commune en variables CSS, implémente la **direction retenue par Hugo** comme thème principal, et **n'invente pas** une autre identité.
+- ⚠️ Les **données dans les maquettes sont des fixtures bidon** (Thaïlande/Vietnam/Angkor) : les vraies données sont dans `parcours.csv` / `pays.csv` / `quiz.csv`.
+- Contraintes **structurelles** : photo full-bleed, beaucoup d'air, hiérarchie typo claire, mobile-first, grandes zones tactiles, perf (Lighthouse vert), animations sobres (`prefers-reduced-motion` respecté).
 
 ## i18n
 
