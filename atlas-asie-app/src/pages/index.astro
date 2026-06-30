@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Atlas Asie" lang="fr" description="Atlas de voyage en Asie — données pilotées par Google Sheets.">
+  <h1>Atlas Asie</h1>
+  <p>
+    Page de validation du pipeline de données (étape 4). Les données ci-dessous
+    sont chargées et parsées <strong>côté client</strong> depuis les fixtures
+    locales tant que les URLs publiées de la Sheet ne sont pas branchées.
+  </p>
+
+  <section>
+    <h2>Pays</h2>
+    <div id="pays" aria-busy="true">Chargement…</div>
+  </section>
+
+  <section>
+    <h2>Parcours</h2>
+    <div id="parcours" aria-busy="true">Chargement…</div>
+  </section>
+
+  <script>
+    import { fetchTab, isUsingFixture } from '../lib/data';
+
+    function renderTable(rows: Record<string, string>[]): HTMLElement {
+      if (rows.length === 0) {
+        const p = document.createElement('p');
+        p.textContent = 'Aucune ligne.';
+        return p;
+      }
+      const headers = Object.keys(rows[0]);
+      const table = document.createElement('table');
+      table.border = '1';
+      table.style.borderCollapse = 'collapse';
+
+      const thead = table.createTHead();
+      const hr = thead.insertRow();
+      for (const h of headers) {
+        const th = document.createElement('th');
+        th.textContent = h;
+        hr.appendChild(th);
+      }
+
+      const tbody = table.createTBody();
+      for (const row of rows) {
+        const tr = tbody.insertRow();
+        for (const h of headers) {
+          const td = tr.insertCell();
+          td.textContent = row[h] ?? '';
+        }
+      }
+      return table;
+    }
+
+    async function load(key: 'pays' | 'parcours') {
+      const el = document.getElementById(key)!;
+      try {
+        const rows = await fetchTab(key);
+        el.replaceChildren(renderTable(rows));
+        el.removeAttribute('aria-busy');
+        if (isUsingFixture(key)) {
+          const note = document.createElement('p');
+          note.innerHTML = '<em>(fixture locale — URL Sheet non encore branchée)</em>';
+          el.appendChild(note);
+        }
+      } catch (err) {
+        el.textContent = String(err);
+        el.removeAttribute('aria-busy');
+      }
+    }
+
+    load('pays');
+    load('parcours');
+  </script>
+</Base>
