@@ -28,6 +28,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={new URL(`${base}brand/og.jpg`, Astro.site).href} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href={`${base}manifest.webmanifest`} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Atlas d'Asie" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,6 +48,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <div id="progress" aria-hidden="true"></div>
     <div id="splash" aria-hidden="true"><img src={`${base}brand/amhe-anim.gif`} alt="" width="300" height="256" /></div>
     <slot />
+    <div id="offline" role="status">Hors ligne — dernières infos connues</div>
 
     <style is:global>
       #progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:70;background:linear-gradient(90deg,var(--orange),var(--yellow));}
@@ -73,6 +82,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         addEventListener('scroll', upd, { passive: true });
         addEventListener('resize', upd);
         upd();
+      })();
+      // PWA : service worker + indicateur hors-ligne.
+      (function () {
+        const base = document.querySelector('link[rel="manifest"]')?.getAttribute('href')?.replace('manifest.webmanifest', '') || '/';
+        if ('serviceWorker' in navigator) navigator.serviceWorker.register(base + 'sw.js').catch(() => {});
+        const setOff = () => document.body.toggleAttribute('data-offline', !navigator.onLine);
+        addEventListener('online', setOff);
+        addEventListener('offline', setOff);
+        setOff();
       })();
     </script>
   </body>
