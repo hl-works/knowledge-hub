@@ -1,0 +1,37 @@
+---
+interface Props { credit?: string; }
+const { credit = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+---
+<footer class="ftr">
+  <div class="wrap">
+    <div class="top">
+      <div class="sig">
+        <img class="logo" src={`${base}brand/amhe-logo-orange.png`} alt="AMHE — One Love" width="132" height="150" />
+        <p><strong>Alexis · Marion · Hugo · Emma.</strong> AMHE, comme « âme » — l'âme de nos voyages. Atlas d'Asie, été 2026.</p>
+      </div>
+      <nav aria-label="Pied de page">
+        <a href={base + 'parcours'}>Le parcours</a>
+        <a href={base + 'pays'}>Les pays</a>
+        <a href={base + 'carnet'}>Le carnet</a>
+        <a href={base + 'galerie'}>Galerie</a>
+      </nav>
+    </div>
+    <div class="baseline">
+      <span>hl-consulting.tech / atlas-asie</span>
+      <span>{credit ? credit + ' · ' : ''}Données : Google Sheet</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ftr{background:var(--ink);color:var(--cream);padding:clamp(40px,6vw,68px) 0 clamp(24px,3vw,36px);margin-top:clamp(30px,5vw,56px);}
+  .top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start;}
+  .sig{max-width:40ch;}
+  .sig .logo{width:132px;height:auto;margin-bottom:14px;}
+  .sig p{color:#cdbb9f;font-size:.92rem;margin:0;}
+  .ftr nav{display:flex;flex-direction:column;gap:.5rem;}
+  .ftr nav a{color:var(--cream);text-decoration:none;font-size:.9rem;opacity:.85;}
+  .ftr nav a:hover{opacity:1;color:var(--yellow);}
+  .baseline{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:#a8997f;}
+</style>

@@ -1,75 +1,224 @@
 ---
 import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wikimedia Commons, CC BY-SA 2.0';
 ---
-<Base title="Atlas Asie" lang="fr" description="Atlas de voyage en Asie — données pilotées par Google Sheets.">
-  <h1>Atlas Asie</h1>
-  <p>
-    Page de validation du pipeline de données (étape 4). Les données ci-dessous
-    sont chargées et parsées <strong>côté client</strong> depuis les fixtures
-    locales tant que les URLs publiées de la Sheet ne sont pas branchées.
-  </p>
+<Base>
+  <Header variant="over" active="accueil" />
 
-  <section>
-    <h2>Pays</h2>
-    <div id="pays" aria-busy="true">Chargement…</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" style={`background-image:url('${base}brand/hero-issyk-kul.jpg')`}></div>
+    <div class="scrim"></div>
+    <div class="inner"><div class="wrap">
+      <span class="badge">Carnet de voyage · Été 2026</span>
+      <h1 class="disp title">AMHE</h1>
+      <p class="under"><span class="ad">Atlas d'Asie</span><span class="one">— One Love</span></p>
+      <p class="sub">Le voyage de la famille Lahutte — du Kazakhstan à l'Indonésie. Où on est, où on va, et tout ce qu'il y a à découvrir.</p>
+      <div class="live"><span class="pulse"></span><span id="live-txt">Chargement…</span><span class="cd" id="live-cd"></span></div>
+    </div></div>
   </section>
 
-  <section>
-    <h2>Parcours</h2>
-    <div id="parcours" aria-busy="true">Chargement…</div>
-  </section>
+  <!-- CARTE (remonte sur le hero) -->
+  <div class="routewrap"><div class="wrap">
+    <div class="routecard">
+      <div class="rhead"><span class="t">L'itinéraire</span><span class="k" id="route-k">Kazakhstan → Indonésie</span></div>
+      <svg id="routesvg" viewBox="0 0 1000 420" role="img" aria-label="Carte de l'itinéraire"></svg>
+    </div>
+  </div></div>
 
-  <script>
-    import { fetchTab, isUsingFixture } from '../lib/data';
+  <!-- COMPTEURS -->
+  <section class="counters" aria-label="Le voyage en chiffres"><div class="wrap">
+    <div class="counter"><b id="c-pays" data-count="0">0</b><span>Pays</span></div>
+    <div class="counter"><b id="c-escales" data-count="0">0</b><span>Escales</span></div>
+    <div class="counter"><b id="c-nuits" data-count="0">0</b><span>Nuits</span></div>
+    <div class="counter"><b id="c-km" data-count="0">0</b><span>km parcourus</span></div>
+    <div class="counter"><b id="c-jours" data-count="0">0</b><span>Jours</span></div>
+  </div></section>
 
-    function renderTable(rows: Record<string, string>[]): HTMLElement {
-      if (rows.length === 0) {
-        const p = document.createElement('p');
-        p.textContent = 'Aucune ligne.';
-        return p;
-      }
-      const headers = Object.keys(rows[0]);
-      const table = document.createElement('table');
-      table.border = '1';
-      table.style.borderCollapse = 'collapse';
+  <!-- PAYS (tampons) -->
+  <main id="main">
+    <section class="section" id="pays"><div class="wrap">
+      <p class="eyebrow">Découverte</p>
+      <h2 class="disp">Les <span class="hl">pays</span> du voyage</h2>
+      <div class="stamps" id="stamps"></div>
+    </div></section>
+  </main>
 
-      const thead = table.createTHead();
-      const hr = thead.insertRow();
-      for (const h of headers) {
-        const th = document.createElement('th');
-        th.textContent = h;
-        hr.appendChild(th);
-      }
-
-      const tbody = table.createTBody();
-      for (const row of rows) {
-        const tr = tbody.insertRow();
-        for (const h of headers) {
-          const td = tr.insertCell();
-          td.textContent = row[h] ?? '';
-        }
-      }
-      return table;
-    }
-
-    async function load(key: 'pays' | 'parcours') {
-      const el = document.getElementById(key)!;
-      try {
-        const rows = await fetchTab(key);
-        el.replaceChildren(renderTable(rows));
-        el.removeAttribute('aria-busy');
-        if (isUsingFixture(key)) {
-          const note = document.createElement('p');
-          note.innerHTML = '<em>(fixture locale — URL Sheet non encore branchée)</em>';
-          el.appendChild(note);
-        }
-      } catch (err) {
-        el.textContent = String(err);
-        el.removeAttribute('aria-busy');
-      }
-    }
-
-    load('pays');
-    load('parcours');
-  </script>
+  <Footer credit={heroCredit} />
 </Base>
+
+<style>
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0c0a08;}
+  .hero-bg{position:absolute;inset:-3%;background-size:cover;background-position:center;transform:scale(1.06);animation:kenburns 26s ease-in-out infinite alternate;z-index:0;}
+  .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,12,8,.32) 0%,rgba(20,12,8,0) 26%,rgba(20,12,8,.10) 55%,rgba(20,12,8,.80) 100%);}
+  @keyframes kenburns{0%{transform:scale(1.06) translate3d(0,0,0)}100%{transform:scale(1.15) translate3d(0,-1.4%,0)}}
+  .hero .inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(96px,12vw,150px);}
+  .badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange);color:#fff;font-weight:800;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;padding:7px 15px;border-radius:999px;}
+  .title{font-size:clamp(4.5rem,20vw,13rem);margin:1rem 0 .1rem;text-shadow:0 6px 34px rgba(0,0,0,.4);letter-spacing:.01em;}
+  .under{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin:0 0 1.2rem;}
+  .under .ad{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.4rem,4vw,2.4rem);letter-spacing:.02em;}
+  .under .one{color:var(--yellow);font-weight:800;letter-spacing:.28em;font-size:.8rem;text-transform:uppercase;}
+  .sub{max-width:44ch;font-size:clamp(1.05rem,2vw,1.3rem);opacity:.97;margin:0 0 1.5rem;}
+  .live{display:inline-flex;align-items:center;gap:1rem;flex-wrap:wrap;background:rgba(20,12,8,.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 18px;}
+  .live .pulse{width:11px;height:11px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 rgba(243,234,93,.7);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(243,234,93,.7)}70%{box-shadow:0 0 0 12px rgba(243,234,93,0)}100%{box-shadow:0 0 0 0 rgba(243,234,93,0)}}
+  .live .cd{font-family:var(--disp);font-size:1.6rem;color:var(--yellow);font-variant-numeric:tabular-nums;}
+
+  .routewrap{position:relative;z-index:6;margin-top:clamp(-130px,-9vw,-80px);}
+  .routecard{background:var(--teal);border:3px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:8px 8px 0 var(--ink);}
+  .rhead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px 18px;background:var(--ink);color:var(--cream);flex-wrap:wrap;}
+  .rhead .t{font-family:var(--disp);font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;}
+  .rhead .k{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);font-weight:700;}
+  .routecard svg{display:block;width:100%;height:auto;}
+
+  .counters{background:var(--ink);color:var(--cream);}
+  .counters .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;padding:clamp(26px,4vw,44px) clamp(20px,5vw,56px);}
+  .counter b{font-family:var(--disp);font-size:clamp(2rem,5vw,3.4rem);display:block;line-height:1;color:var(--yellow);font-variant-numeric:tabular-nums;}
+  .counter span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#d9c9ad;}
+
+  .section{padding:clamp(44px,6vw,84px) 0;}
+  .eyebrow{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-deep);margin:0 0 .6rem;}
+  .eyebrow::before{content:"";width:26px;height:3px;background:var(--orange);}
+  .section h2{font-size:clamp(2rem,5.5vw,3.4rem);margin:0 0 1.6rem;}
+  .section h2 .hl{background:linear-gradient(transparent 62%, var(--yellow) 62%);padding:0 .1em;}
+  .stamps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(14px,2vw,26px);}
+  .stamp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;opacity:0;transform:translateY(16px) scale(.62) rotate(-12deg);}
+  .stamp.in{opacity:1;transform:none;transition:opacity .5s ease, transform .55s cubic-bezier(.2,.9,.3,1.35);}
+  .stamp .medallion{transition:transform .25s ease;}
+  .stamp:hover .medallion{transform:rotate(-5deg) scale(1.05);}
+  .stamp h3{font-weight:700;font-size:1rem;margin:.1rem 0 0;}
+  .stamp small{color:var(--muted);font-size:.8rem;}
+
+  @media (prefers-reduced-motion:reduce){.hero-bg{transform:none!important;}.stamp{opacity:1;transform:none;}}
+  @media (max-width:820px){.counters .wrap{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:480px){.counters .wrap{grid-template-columns:repeat(2,1fr);}}
+</style>
+
+<script>
+  import { fetchTab } from '../lib/data';
+  import { toStops, toCountries, computeCounters, computeLive } from '../lib/model';
+  import type { Stop, Country } from '../lib/model';
+
+  // Présentation par pays (code + palette + capitale courte pour le tampon).
+  const META: Record<string, { code: string; cap: string; pal: [string, string, string] }> = {
+    Kazakhstan: { code: 'KZ', cap: 'Astana', pal: ['#FFB22E', '#FA4616', '#C9330B'] },
+    Kirghizistan: { code: 'KG', cap: 'Bichkek', pal: ['#36C9A3', '#149E7C', '#0C5A5E'] },
+    Mongolie: { code: 'MN', cap: 'Oulan-Bator', pal: ['#FFCF6B', '#E89B2E', '#B86A12'] },
+    Chine: { code: 'CN', cap: 'Pékin', pal: ['#FF8DA3', '#F2516F', '#C12B49'] },
+    'Hong-Kong': { code: 'HK', cap: 'Hong Kong', pal: ['#5BC8E8', '#1E96C8', '#0C5A7E'] },
+    Indonésie: { code: 'ID', cap: 'Jakarta', pal: ['#36C9A3', '#149E7C', '#0C5A5E'] },
+    Malaisie: { code: 'MY', cap: 'Kuala Lumpur', pal: ['#F3EA5D', '#E89B2E', '#B86A12'] },
+  };
+  const codeFor = (nom: string) => META[nom]?.code ?? nom.slice(0, 2).toUpperCase();
+  const capFor = (c: Country) => META[c.pays]?.cap ?? c.capitale.split(/[(,]/)[0].trim();
+  const palFor = (nom: string): [string, string, string] => META[nom]?.pal ?? ['#FFB22E', '#FA4616', '#C9330B'];
+
+  const $ = (id: string) => document.getElementById(id)!;
+
+  function countUp(el: HTMLElement) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = +(el.dataset.count || '0');
+    const t0 = performance.now();
+    const step = (t: number) => {
+      const p = Math.min(1, (t - t0) / 1100);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('fr-FR');
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  function renderCounters(c: { pays: number; escales: number; nuits: number; km: number; jours: number }) {
+    ($('c-pays') as HTMLElement).dataset.count = String(c.pays);
+    ($('c-escales') as HTMLElement).dataset.count = String(c.escales);
+    ($('c-nuits') as HTMLElement).dataset.count = String(c.nuits);
+    ($('c-km') as HTMLElement).dataset.count = String(c.km);
+    ($('c-jours') as HTMLElement).dataset.count = String(c.jours);
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { countUp(e.target as HTMLElement); io.unobserve(e.target); } }), { threshold: 0.4 });
+    document.querySelectorAll('[data-count]').forEach((el) => io.observe(el));
+    setTimeout(() => document.querySelectorAll('[data-count]').forEach((el) => countUp(el as HTMLElement)), 2000);
+  }
+
+  function renderLive(live: ReturnType<typeof computeLive>) {
+    const txt = $('live-txt'), cd = $('live-cd');
+    if (live.state === 'avant') {
+      txt.innerHTML = `Départ pour <strong>${live.next?.ville ?? ''}</strong> dans`;
+      cd.textContent = live.daysToStart + ' j';
+    } else if (live.state === 'pendant' && live.current) {
+      txt.innerHTML = `Jour ${live.dayIndex} · on est à <strong>${live.current.ville}</strong>`;
+      cd.textContent = live.next ? '→ ' + live.next.ville : '';
+    } else {
+      txt.innerHTML = '<strong>Voyage terminé</strong> — merci de nous avoir suivis';
+      cd.textContent = '';
+    }
+  }
+
+  function stampSVG(c: Country) {
+    const [a, b, d] = palFor(c.pays);
+    const code = codeFor(c.pays), cap = capFor(c).toUpperCase(), id = 'a_' + code;
+    return `<svg class="medallion" width="138" height="138" viewBox="0 0 150 150" role="img" aria-label="Tampon ${c.pays}"><circle cx="75" cy="75" r="70" fill="none" stroke="${b}" stroke-width="3"/><circle cx="75" cy="75" r="62" fill="none" stroke="${b}" stroke-width="1" stroke-dasharray="3 4"/><circle cx="75" cy="60" r="15" fill="${a}"/><path d="M28 98 56 64 80 92 100 68 122 98Z" fill="${d}"/><path d="M28 98h94" stroke="${b}" stroke-width="2"/><path id="${id}" d="M75 16a59 59 0 0 1 0 118" fill="none"/><text font-family="Inter,sans-serif" font-weight="700" font-size="11" letter-spacing="2.5" fill="${d}"><textPath href="#${id}" startOffset="4%">${cap}</textPath></text><text x="75" y="128" text-anchor="middle" font-family="Anton,sans-serif" font-size="20" fill="${d}">${code}</text></svg>`;
+  }
+
+  function renderStamps(countries: Country[]) {
+    const host = $('stamps');
+    host.innerHTML = countries
+      .filter((c) => c.pays && c.pays.toLowerCase() !== 'france')
+      .map((c) => `<div class="stamp">${stampSVG(c)}<h3>${c.pays}</h3><small>${c.capitale.split(/[(,]/)[0].trim()}</small></div>`)
+      .join('');
+    const reveal = () => [...document.querySelectorAll('.stamp:not(.in)')].forEach((s, i) => setTimeout(() => s.classList.add('in'), i * 80));
+    const so = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { reveal(); so.disconnect(); } }), { threshold: 0.15 });
+    so.observe(host);
+    setTimeout(reveal, 2000);
+  }
+
+  function renderMap(stops: Stop[]) {
+    const pts = stops.filter((s) => s.lat && s.lng);
+    if (!pts.length) return;
+    const W = 1000, H = 420, pad = 50, laMin = 2, laMax = 53, loMin = 73, loMax = 140;
+    const X = (lo: number) => pad + ((lo - loMin) / (loMax - loMin)) * (W - 2 * pad);
+    const Y = (la: number) => pad + ((laMax - la) / (laMax - laMin)) * (H - 2 * pad);
+    const xy = pts.map((s) => [X(s.lng), Y(s.lat)] as [number, number]);
+    const d = xy.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(0) + ' ' + p[1].toFixed(0)).join(' ');
+    const dot = (p: [number, number], s: Stop, i: number) => {
+      const last = i === xy.length - 1;
+      const fill = s.statut === 'passe' ? '#FA4616' : s.statut === 'en-cours' ? '#F3EA5D' : '#FFF4E2';
+      const r = last || i === 0 || s.statut === 'en-cours' ? 6 : 4;
+      const pulse = s.statut === 'en-cours' ? `<animate attributeName="r" values="6;9;6" dur="1.8s" repeatCount="indefinite"/>` : '';
+      return `<circle cx="${p[0].toFixed(0)}" cy="${p[1].toFixed(0)}" r="${r}" fill="${fill}" stroke="#0C5A5E" stroke-width="1.5">${pulse}</circle>`;
+    };
+    const grid = `<g fill="none" stroke="#1FBF98" stroke-opacity=".16" stroke-width="1">${Array.from({ length: 8 }, (_, i) => `<path d="M0 ${(i * H) / 7} H${W}"/>`).join('')}${Array.from({ length: 13 }, (_, i) => `<path d="M${(i * W) / 12} 0 V${H}"/>`).join('')}</g>`;
+    $('routesvg').innerHTML =
+      `<rect width="${W}" height="${H}" fill="#0C5A5E"/>${grid}` +
+      `<path d="${d}" fill="none" stroke="#FA4616" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 9"><animate attributeName="stroke-dashoffset" from="110" to="0" dur="12s" repeatCount="indefinite"/></path>` +
+      xy.map((p, i) => dot(p, pts[i], i)).join('') +
+      `<text x="${xy[0][0]}" y="${xy[0][1] - 13}" fill="#fff" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle">${pts[0].ville}</text>`;
+  }
+
+  (async () => {
+    try {
+      const [pRows, cRows] = await Promise.all([fetchTab('parcours'), fetchTab('pays')]);
+      const stops = toStops(pRows);
+      const countries = toCountries(cRows);
+      renderCounters(computeCounters(stops));
+      renderLive(computeLive(stops));
+      renderStamps(countries);
+      renderMap(stops);
+      const first = stops.find((s) => s.pays.toLowerCase() !== 'france');
+      const lastVisited = [...stops].reverse().find((s) => s.pays.toLowerCase() !== 'france');
+      if (first && lastVisited) $('route-k').textContent = `${first.pays} → ${lastVisited.pays}`;
+    } catch (err) {
+      $('live-txt').textContent = String(err);
+    }
+  })();
+
+  // Bascule de langue (démo — l'EN complet viendra plus tard).
+  document.querySelectorAll('.lang button').forEach((b) =>
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.lang button').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+      b.setAttribute('aria-pressed', 'true');
+    }),
+  );
+</script>

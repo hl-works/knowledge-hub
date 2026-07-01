@@ -1,12 +1,16 @@
 ---
-// Layout de base, neutre. Le design system viendra plus tard ;
-// ici on reste minimal pour valider le pipeline (étapes 1-4).
+import '../styles/tokens.css';
 interface Props {
-  title: string;
-  lang?: string;
+  title?: string;
   description?: string;
+  lang?: string;
 }
-const { title, lang = 'fr', description = '' } = Astro.props;
+const {
+  title = "Atlas d'Asie — AMHE",
+  description = "Le voyage de la famille Lahutte, du Kazakhstan à l'Indonésie. Suivi en direct, pays, étapes et découvertes.",
+  lang = 'fr',
+} = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -15,12 +19,60 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonical.href} />
+    <meta name="theme-color" content="#FA4616" />
+    <link rel="icon" href={`${base}brand/amhe-icon-orange.png`} />
+    <link rel="apple-touch-icon" href={`${base}brand/amhe-icon-orange.png`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <main>
-      <slot />
-    </main>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+    <div id="progress" aria-hidden="true"></div>
+    <div id="splash" aria-hidden="true"><img src={`${base}brand/amhe-anim.gif`} alt="" width="300" height="256" /></div>
+    <slot />
+
+    <style is:global>
+      #progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:70;background:linear-gradient(90deg,var(--orange),var(--yellow));}
+      #splash{position:fixed;inset:0;z-index:100;background:#fff;display:grid;place-items:center;transition:opacity .6s ease;}
+      #splash img{width:min(300px,62vw);height:auto;}
+      #splash.done{opacity:0;pointer-events:none;}
+      @media (prefers-reduced-motion:reduce){#splash{display:none;}}
+    </style>
+
+    <script>
+      // Splash d'intro (logo AMHE animé ~3.6s), clic pour passer, 1×/session.
+      (function () {
+        const s = document.getElementById('splash');
+        if (!s) return;
+        const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
+        const kill = () => { s.classList.add('done'); setTimeout(() => s.remove(), 700); };
+        if (rm || sessionStorage.getItem('amhe_splash')) { s.remove(); return; }
+        sessionStorage.setItem('amhe_splash', '1');
+        s.addEventListener('click', kill);
+        setTimeout(kill, 3600);
+      })();
+      // Barre de progression au scroll.
+      (function () {
+        const p = document.getElementById('progress');
+        if (!p) return;
+        const h = document.documentElement;
+        const upd = () => {
+          const m = h.scrollHeight - h.clientHeight;
+          p.style.width = (m > 0 ? (h.scrollTop / m) * 100 : 0) + '%';
+        };
+        addEventListener('scroll', upd, { passive: true });
+        addEventListener('resize', upd);
+        upd();
+      })();
+    </script>
   </body>
 </html>

@@ -1,0 +1,46 @@
+/* ============================================================
+   Tokens AMHE — source de vérité : brief/charte-amhe.html
+   (couleurs officielles du pack de marque, typo, espacements)
+   ============================================================ */
+:root{
+  /* Marque */
+  --orange:#FA4616; --orange-deep:#C9330B; --yellow:#F3EA5D;
+  /* Neutres chauds */
+  --cream:#FFF4E2; --peach:#FEE3DC; --card:#FFFDF8;
+  --ink:#241A14; --ink-soft:#5E4B3C; --muted:#9A8268; --line:#EAD7BC;
+  /* Secondaires mer / nature */
+  --teal:#0C5A5E; --jade:#149E7C; --gold:#FFB22E;
+
+  /* Typo */
+  --disp:"Anton",system-ui,-apple-system,sans-serif;
+  --sans:"Inter",system-ui,-apple-system,sans-serif;
+
+  /* Layout / échelle */
+  --maxw:1180px; --r:18px;
+  --shadow:6px 6px 0 var(--ink);
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px; --sp-6:48px; --sp-8:64px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:var(--orange-deep);}
+::selection{background:var(--orange);color:#fff;}
+img{max-width:100%;display:block;}
+
+.disp{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:.9;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px);}
+
+.skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--cream);padding:.6rem 1rem;z-index:90;}
+.skip-link:focus{left:0;}
+
+:where(a,button):focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:4px;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation:none!important;transition:none!important;}
+}

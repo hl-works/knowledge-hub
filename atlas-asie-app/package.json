@@ -10,6 +10,8 @@
     "check": "astro check"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "@types/papaparse": "^5.5.2",
+    "astro": "^5.0.0",
+    "papaparse": "^5.5.4"
   }
 }
