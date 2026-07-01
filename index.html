@@ -10,6 +10,16 @@
 <meta property="og:description" content="Je relance un magazine papier. Et je code avec l'IA. Oui, les deux." />
 <meta property="og:url" content="https://hl-consulting.tech/" />
 <meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:site_name" content="HL Consulting" />
+<meta property="og:image" content="https://hl-consulting.tech/assets/img/og-hl-consulting.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Hugo Lahutte — HL Consulting : je bâtis des marques audio & image, en public, avec l'IA." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hugo Lahutte — HL Consulting" />
+<meta name="twitter:description" content="DG de Cobra, éditeur de Haute Fidélité. Je bâtis des marques audio &amp; image, en public, avec l'IA." />
+<meta name="twitter:image" content="https://hl-consulting.tech/assets/img/og-hl-consulting.jpg" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -34,6 +44,57 @@
     }
   } catch (e) {}
 })();
+</script>
+<!-- ===== JSON-LD : authorship (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://hl-consulting.tech/#hugo",
+      "name": "Hugo Lahutte",
+      "givenName": "Hugo",
+      "familyName": "Lahutte",
+      "url": "https://hl-consulting.tech/",
+      "email": "mailto:hugo@hl-consulting.tech",
+      "jobTitle": "Directeur général de Cobra · Éditeur de Haute Fidélité · Fondateur de HL Consulting",
+      "address": {"@type": "PostalAddress", "addressLocality": "Chennevières-sur-Marne", "addressRegion": "Île-de-France", "addressCountry": "FR"},
+      "knowsAbout": ["HiFi", "audio haut de gamme", "home cinéma", "e-commerce", "retail", "transformation digitale", "Claude", "Claude Code", "Compound Engineering", "Odoo", "Shopify", "automatisation"],
+      "worksFor": [
+        {"@type": "Organization", "name": "Cobra", "url": "https://www.cobra.fr"},
+        {"@type": "Organization", "name": "Haute Fidélité", "url": "https://www.hautefidelite-hifi.com"},
+        {"@id": "https://hl-consulting.tech/#hlconsulting"}
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/hugo-lahutte",
+        "https://x.com/hugolh_ai",
+        "https://www.hautefidelite-hifi.com",
+        "https://www.cobra.fr"
+      ],
+      "description": "17 ans chez Son-Vidéo.com, aujourd'hui DG de Cobra, éditeur du magazine Haute Fidélité et fondateur de HL Consulting. Construit ses projets et son contenu avec Claude, et documente sa méthode en public."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hl-consulting.tech/#hlconsulting",
+      "name": "HL Consulting",
+      "url": "https://hl-consulting.tech/",
+      "email": "mailto:hugo@hl-consulting.tech",
+      "founder": {"@id": "https://hl-consulting.tech/#hugo"},
+      "description": "Structure de Hugo Lahutte regroupant ses projets et explorations : Cobra, Haute Fidélité, HiFi Lovers, le Knowledge Hub."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hl-consulting.tech/#site",
+      "url": "https://hl-consulting.tech/",
+      "name": "Hugo Lahutte — HL Consulting",
+      "inLanguage": "fr-FR",
+      "author": {"@id": "https://hl-consulting.tech/#hugo"},
+      "publisher": {"@id": "https://hl-consulting.tech/#hlconsulting"},
+      "about": "Marques audio & image, méthode et journal de bord du travail réalisé avec Claude."
+    }
+  ]
+}
 </script>
 <style>
   /* ============ TOKENS ============ */
@@ -743,7 +804,7 @@
     <div class="e-wrap">
       <div class="e-section-head">
         <span class="e-idx e-mono">[ 06 ]</span>
-        <h2 class="e-section-title"><span class="e-fr">La chaîne</span><span class="e-en">The channel</span></h2>
+        <h2 class="e-section-title"><span class="e-fr">La chaîne YouTube</span><span class="e-en">The YouTube channel</span></h2>
       </div>
       <p class="e-subtag" style="max-width:640px; margin:0 0 26px;">
         <span class="e-fr">Haute Fidélité en vidéo : bancs d'essai, reportages, salons. Le test d'écoute filmé — pas seulement écrit.</span>
@@ -809,7 +870,8 @@
         <span class="e-en">A family trip around the world, a logbook in reels. The personal flip-side of build in public.</span>
       </p>
       <a class="e-atlas" href="/atlas-asie/">
-        <span class="e-atlas-media" aria-hidden="true" style="background-image:url('/atlas-asie/brand/hero-issyk-kul.jpg')"></span>
+        <!-- Photo : lac Issyk-Koul (Kirghizistan) © Vilya Shoni — Wikimedia Commons, CC BY-SA 4.0 -->
+        <span class="e-atlas-media" aria-hidden="true" style="background-image:url('/assets/img/atlas-issyk-kul.jpg')"></span>
         <span class="e-atlas-body">
           <span class="e-blk-idx e-mono">AMHE · CARNET DE VOYAGE</span>
           <h3>Atlas d'Asie</h3>
