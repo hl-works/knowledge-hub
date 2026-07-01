@@ -190,7 +190,7 @@ const SCENES: Record<string, Scene> = { KZ: scKZ, KG: scKG, MN: scMN, CN: scCN, 
 const scFallback = (ink: string, _p: string, id: string, code: string): string => `
   <circle cx="75" cy="75" r="72" fill="none" stroke="${ink}" stroke-width="3.5"/>
   <circle cx="75" cy="75" r="50" fill="none" stroke="${ink}" stroke-width="1.5"/>
-  ${topStars(ink)}<text x="75" y="86" text-anchor="middle" font-family="Anton,sans-serif" font-size="30" fill="${ink}">${code}</text>`;
+  ${topOrn(ink)}<text x="75" y="86" text-anchor="middle" font-family="Anton,sans-serif" font-size="30" fill="${ink}">${code}</text>`;
 
 /**
  * Tampon eki d'un pays (chaîne SVG).
