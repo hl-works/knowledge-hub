@@ -1,9 +1,14 @@
-name: Site autobuild (llms-full, feeds, veille statique)
+name: Site autobuild (llms-full, feeds, veille + atlas statiques)
 
 # Régénère les artefacts dérivés du contenu à chaque push sur main :
 # - llms-full.txt + en/llms-full.txt (depuis les pages HTML)
 # - feed.xml + veille-ia/feed.xml (RSS)
 # - rendu statique de la veille dans les pages veille (crawlers IA sans JS)
+# - atlas-asie : rendu statique pays/parcours + sitemap.xml + llms.txt
+#   (mêmes crawlers sans JS ; un rebuild Astro committé efface ces blocs,
+#   le workflow les réinjecte aussitôt)
+# Le cron quotidien resynchronise le statique de l'atlas avec la Google
+# Sheet publiée (les données changent sans passer par un push).
 # Commit automatique uniquement s'il y a un diff. Les pushes du bot
 # (GITHUB_TOKEN) ne redéclenchent pas les workflows : pas de boucle.
 
@@ -16,6 +21,11 @@ on:
       - "knowledge-hub/veille-ia/feed.json"
       - "knowledge-hub/lexique/*.json"
       - "knowledge-hub/en/lexique/*.json"
+      - "atlas-asie/**.html"
+      - "atlas-asie/fixtures/*.csv"
+      - "atlas-asie-app/src/lib/sheets.ts"
+  schedule:
+    - cron: "0 5 * * *" # 05:00 UTC — suit la Google Sheet de l'atlas
   workflow_dispatch:
 
 concurrency:
@@ -37,6 +47,7 @@ jobs:
           python3 scripts/build_veille_static.py
           python3 scripts/build_llms_full.py
           python3 scripts/build_feeds.py
+          python3 scripts/build_atlas_static.py
       - name: Vérifier la cohérence
         run: python3 scripts/check_site_health.py
       - name: Commit si diff
@@ -45,5 +56,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git diff --cached --quiet && echo "Rien à committer" && exit 0
-          git commit -m "data: régénération auto (llms-full, feeds, veille statique)"
+          git commit -m "data: régénération auto (llms-full, feeds, veille + atlas statiques)"
           git push origin main

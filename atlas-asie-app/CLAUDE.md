@@ -103,14 +103,20 @@ L'identité visuelle vient d'**AMHE** (initiales A·M·H·E + jeu de mots avec �
 - **Accueil à états selon la phase du voyage** : avant le 04/07 = compte à rebours ; pendant = bloc Live ; après le 27/08 = récap (compteurs finaux, carte complète).
 - **Signature visuelle** : l'audace se dépense sur les éléments AMHE distinctifs (jetons par pays, tampons, tracé pointillé de la carte) — le reste reste sobre et discipliné. Éviter que la base « crème + serif + accent chaud » ressemble à un template générique : c'est la signature qui différencie.
 
-## Partage & SEO (portée volontairement limitée)
+## Partage, SEO & GEO
 
 - **Priorité n°1 : Open Graph** — le site sera partagé sur WhatsApp (grands-parents). Chaque page a `og:title`, `og:description` et une **belle `og:image`** (l'accueil : visuel AMHE du voyage). Tester le rendu du lien partagé.
-- Basiques : `<title>`/meta par page, sitemap, URLs propres. **Pas plus** : site perso sous sous-chemin, aucun enjeu de ranking. Pas de llms.txt ni d'optimisation GEO.
+- **SEO + GEO en place depuis juillet 2026** (décision Hugo, remplace l'ancien « pas de GEO ») : **lire `GUIDE-EVERGREEN.md`** avant de toucher au contenu Pays ou au head des pages. Pipeline : `scripts/build_atlas_static.py` (rendu statique pays/parcours pour crawlers sans JS + `sitemap.xml` + `llms.txt`), relancé par le workflow `site-autobuild.yml` (push + cron quotidien).
+- Le head SEO (canonical, OG, JSON-LD avec le `@id` canonique `https://hl-consulting.tech/#hugo`) vit dans `src/layouts/Base.astro`.
+- ⚠️ Un `npm run build` purge `../atlas-asie/` (blocs statiques, sitemap, llms.txt compris) : normal, le workflow réinjecte au push ; en local relancer `python3 scripts/build_atlas_static.py` après un build.
 
 ## i18n
 
-FR d'abord. Mettre en place la structure i18n d'Astro pour pouvoir ajouter l'EN plus tard **sans refactor**. Ne PAS bloquer la V1 sur la traduction.
+Site **monolingue FR** (décision juin 2026 : pas de version EN, une coquille EN
+autour d'une Sheet FR ne vaut rien). La config i18n d'Astro reste en place dans
+`astro.config.mjs` pour pouvoir ajouter l'EN plus tard sans refactor — mais pas
+de page `/en/`, pas de hreflang, pas de toggle de langue tant qu'il n'y a pas de
+vraies données EN (voir `GUIDE-EVERGREEN.md` §5).
 
 ## Médias & photos
 

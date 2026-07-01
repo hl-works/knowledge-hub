@@ -11,7 +11,39 @@ const {
   lang = 'fr',
 } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// Toutes les routes sont des dossiers : canonical normalisé avec slash final.
+const canonical = new URL(
+  Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/',
+  Astro.site,
+);
+const siteUrl = new URL(base, Astro.site).href;
+// JSON-LD authorship (GEO) : même @id #hugo canonique que le reste du domaine.
+const HUGO = 'https://hl-consulting.tech/#hugo';
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Person', '@id': HUGO, name: 'Hugo Lahutte', url: 'https://hl-consulting.tech/' },
+    {
+      '@type': 'WebSite',
+      '@id': siteUrl + '#site',
+      url: siteUrl,
+      name: "Atlas d'Asie — AMHE",
+      inLanguage: 'fr-FR',
+      author: { '@id': HUGO },
+      about:
+        "Carnet de voyage de la famille Lahutte en Asie, été 2026 : parcours en direct du Kazakhstan à l'Indonésie, fiches pays éducatives (evergreen), photos.",
+    },
+    {
+      '@type': 'WebPage',
+      url: canonical.href,
+      name: title,
+      description,
+      inLanguage: lang === 'en' ? 'en' : 'fr-FR',
+      isPartOf: { '@id': siteUrl + '#site' },
+      author: { '@id': HUGO },
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang={lang}>
@@ -30,8 +62,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical.href} />
     <meta property="og:image" content={new URL(`${base}brand/og.jpg`, Astro.site).href} />
+    <meta property="og:image:alt" content="AMHE — Atlas d'Asie, le voyage de la famille Lahutte" />
     <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Atlas d'Asie — AMHE" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
     <link rel="manifest" href={`${base}manifest.webmanifest`} />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Atlas d'Asie" />
