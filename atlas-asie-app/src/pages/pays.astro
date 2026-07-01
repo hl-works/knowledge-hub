@@ -83,6 +83,27 @@ import Footer from '../components/Footer.astro';
   .acard .ou{font-size:.78rem;color:var(--muted);margin:.15rem 0 .4rem;}
   .acard .fa{font-size:.86rem;color:var(--ink-soft);margin:0;}
 
+  /* La grande histoire (récits longs, typo mode lecture) */
+  .recit{border:2px solid var(--ink);border-radius:14px;background:var(--card);margin:0 0 10px;overflow:hidden;}
+  .recit summary{cursor:pointer;list-style:none;padding:14px 16px;display:grid;gap:2px;}
+  .recit summary::-webkit-details-marker{display:none;}
+  .recit .rtit{font-family:var(--disp);text-transform:uppercase;font-size:1.05rem;color:var(--ink);}
+  .recit .racc{color:var(--ink-soft);font-size:.92rem;}
+  .recit .rplus{margin-top:4px;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep);}
+  .recit .rplus::after{content:" ▾";}
+  .recit[open] .rplus::after{content:" ▴";}
+  .recit .rbody{padding:4px 18px 20px;}
+  .recit .rbody p{font-family:'Fraunces',Georgia,serif;font-size:1.06rem;line-height:1.75;max-width:64ch;color:var(--ink);margin:0 0 1em;}
+  .recit .rimg{width:100%;max-height:260px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin:0 0 14px;}
+  /* Miam (gastronomie) */
+  .miam{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+  .mcard{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;display:flex;flex-direction:column;}
+  .mcard .mimg{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .mcard .mtxt{padding:10px 12px 12px;}
+  .mcard .mn{font-weight:700;}
+  .mcard .mn .ml{color:var(--muted);font-weight:600;font-size:.85em;margin-left:.25rem;}
+  .mcard .md{margin:.35rem 0 0;font-size:.85rem;color:var(--ink-soft);}
+  .cc-note{font-size:.72rem;color:var(--muted);margin:14px 0 0;}
   .lex{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;}
   .lcard{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;}
   .lcard .fr{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
@@ -109,9 +130,10 @@ import Footer from '../components/Footer.astro';
 
 <script>
   import { fetchTab } from '../lib/data';
-  import { toCountries, toQuiz, toAnimals, toLexique, toPratique, toStops } from '../lib/model';
+  import { toCountries, toQuiz, toAnimals, toLexique, toPratique, toStops, toMiam, toRecits } from '../lib/model';
   import { PAL, slugPays as slug } from '../lib/paysMeta';
-  import type { Country, QuizQ, Animal, Mot, Pratique, Stop } from '../lib/model';
+  import type { Country, QuizQ, Animal, Mot, Pratique, Stop, Plat, Recit } from '../lib/model';
+  import { loadPhotos, ccImg } from '../lib/photos';
   import { stampEki, flag, codeForPays } from '../lib/stamps';
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
@@ -131,7 +153,7 @@ import Footer from '../components/Footer.astro';
     paw: sv('<circle cx="6" cy="11" r="1.6"/><circle cx="10" cy="8" r="1.6"/><circle cx="14" cy="8" r="1.6"/><circle cx="18" cy="11" r="1.6"/><path d="M8 16a4 4 0 0 1 8 0 2.5 2.5 0 0 1-2.5 2.5h-3A2.5 2.5 0 0 1 8 16Z"/>'),
   };
 
-  type Ctx = { quiz: QuizQ[]; animals: Animal[]; mots: Mot[]; prat?: Pratique };
+  type Ctx = { quiz: QuizQ[]; animals: Animal[]; mots: Mot[]; prat?: Pratique; plats: Plat[]; recits: Recit[] };
 
   // Pays « au centre » selon les dates : en cours si aujourd'hui tombe dedans,
   // sinon le prochain à venir, sinon le dernier visité.
@@ -188,6 +210,33 @@ import Footer from '../components/Footer.astro';
     return `${langue}<div class="lex">${body}</div>`;
   }
 
+  // « La grande histoire » : les textes longs à lire (accroche + dépliage).
+  function recitsPane(recits: Recit[]): string {
+    if (!recits.length) return '';
+    return recits
+      .map((r) => {
+        const img = ccImg(r.photoQuery, r.titre, 'rimg');
+        const paras = r.texte.split(/\n{2,}/).map((t) => `<p>${esc(t.trim())}</p>`).join('');
+        return `<details class="recit">
+          <summary><span class="rtit">${esc(r.titre)}</span><span class="racc">${esc(r.accroche)}</span><span class="rplus">Lire la suite</span></summary>
+          <div class="rbody">${img}${paras}</div>
+        </details>`;
+      })
+      .join('');
+  }
+
+  // « Miam » : la gastronomie du pays en cartes photo.
+  function miamPane(plats: Plat[]): string {
+    if (!plats.length) return '';
+    const body = plats
+      .map((m) => {
+        const img = ccImg(m.photoQuery, m.plat, 'mimg');
+        return `<div class="mcard">${img}<div class="mtxt"><div class="mn">${esc(m.plat)}${m.nomLocal && m.nomLocal !== m.plat ? ` <span class="ml">${esc(m.nomLocal)}</span>` : ''}</div><p class="md">${esc(m.description)}</p></div></div>`;
+      })
+      .join('');
+    return `<div class="miam">${body}</div><p class="cc-note">Photos : Wikimedia Commons, libres de droits — crédit au survol.</p>`;
+  }
+
   function quizPane(qs: QuizQ[]): string {
     if (!qs.length) return '';
     const items = qs.map((q, i) => {
@@ -201,6 +250,8 @@ import Footer from '../components/Footer.astro';
     const [c1, c2] = PAL[c.pays] ?? ['#FA4616', '#C9330B'];
     const tabs = [
       { key: 'apercu', label: 'Aperçu', html: apercuPane(c) },
+      { key: 'histoires', label: 'Histoires', html: recitsPane(ctx.recits) },
+      { key: 'miam', label: 'Miam', html: miamPane(ctx.plats) },
       { key: 'arrivee', label: "À l'arrivée", html: pratPane(ctx.prat) },
       { key: 'animaux', label: 'Animaux', html: animPane(ctx.animals) },
       { key: 'mots', label: 'Mots', html: motsPane(ctx.mots) },
@@ -256,11 +307,13 @@ import Footer from '../components/Footer.astro';
     const ficheHost = document.getElementById('fiches')!;
     const switchRow = document.getElementById('switch-row')!;
     try {
-      const [pRows, qRows, bRows, lRows, prRows, parcRows] = await Promise.all([
+      const [pRows, qRows, bRows, lRows, prRows, parcRows, mRows, rRows] = await Promise.all([
         fetchTab('pays'), fetchTab('quiz'), fetchTab('bestiaire'), fetchTab('lexique'), fetchTab('pratique'), fetchTab('parcours'),
+        fetchTab('miam'), fetchTab('recits'), loadPhotos().then(() => []),
       ]);
       const countries = toCountries(pRows).filter((c) => c.pays);
       const quiz = toQuiz(qRows), animals = toAnimals(bRows), lex = toLexique(lRows), prat = toPratique(prRows);
+      const plats = toMiam(mRows), recits = toRecits(rRows);
       if (!countries.length) { ficheHost.innerHTML = '<p class="loading">Aucun pays pour le moment.</p>'; switchRow.innerHTML = ''; return; }
       const focus = tripFocus(toStops(parcRows), new Set(countries.map((c) => c.pays)));
 
@@ -269,6 +322,8 @@ import Footer from '../components/Footer.astro';
         animals: animals.filter((a) => a.pays === c.pays),
         mots: lex.filter((m) => m.pays.includes(c.pays)),
         prat: prat.find((p) => p.pays === c.pays),
+        plats: plats.filter((m) => m.pays === c.pays),
+        recits: recits.filter((r) => r.pays.includes(c.pays)),
       });
 
       // Sélecteur de pays (drapeau + nom)

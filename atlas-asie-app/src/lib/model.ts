@@ -198,6 +198,65 @@ export function toTransports(rows: Row[]): Trajet[] {
     .sort((a, b) => a.ordre - b.ordre);
 }
 
+export interface Lieu {
+  ordre: number; // escale du Parcours à laquelle le lieu est rattaché
+  pays: string;
+  lieu: string;
+  statut: string; // ex. « UNESCO 1987 », vide sinon
+  texte: string;
+  photoQuery: string;
+}
+export function toLieux(rows: Row[]): Lieu[] {
+  return rows
+    .map((r) => ({
+      ordre: num(r.ordre),
+      pays: (r.pays ?? '').trim(),
+      lieu: (r.lieu ?? '').trim(),
+      statut: (r.statut ?? '').trim(),
+      texte: (r.texte ?? '').trim(),
+      photoQuery: (r.photo_query ?? '').trim(),
+    }))
+    .filter((l) => l.lieu);
+}
+
+export interface Plat {
+  pays: string;
+  plat: string;
+  nomLocal: string;
+  description: string;
+  photoQuery: string;
+}
+export function toMiam(rows: Row[]): Plat[] {
+  return rows
+    .map((r) => ({
+      pays: (r.pays ?? '').trim(),
+      plat: (r.plat ?? '').trim(),
+      nomLocal: (r.nom_local ?? '').trim(),
+      description: (r.description ?? '').trim(),
+      photoQuery: (r.photo_query ?? '').trim(),
+    }))
+    .filter((p) => p.plat);
+}
+
+export interface Recit {
+  pays: string[]; // un récit peut concerner plusieurs pays
+  titre: string;
+  accroche: string;
+  texte: string;
+  photoQuery: string;
+}
+export function toRecits(rows: Row[]): Recit[] {
+  return rows
+    .map((r) => ({
+      pays: (r.pays ?? '').split(',').map((p) => p.trim()).filter(Boolean),
+      titre: (r.titre ?? '').trim(),
+      accroche: (r.accroche ?? '').trim(),
+      texte: (r.texte ?? '').trim(),
+      photoQuery: (r.photo_query ?? '').trim(),
+    }))
+    .filter((r) => r.titre);
+}
+
 export interface Aeroport {
   code: string; // IATA (ALA, PEK, PKX…) — présent dans les champs de/vers du Parcours
   ville: string;

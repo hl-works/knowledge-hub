@@ -1,6 +1,6 @@
 // Registre des onglets Google Sheet publiés en CSV.
 //
-// ⚠️ RÈGLE DE SÉCURITÉ (brief) : n'exposer QUE ces 8 onglets.
+// ⚠️ RÈGLE DE SÉCURITÉ (brief) : n'exposer QUE ces 11 onglets.
 // Ne JAMAIS ajouter ici `Passeport` (n° de passeport), `Financier` (budget),
 // ni l'onglet Vols privé (références de réservation Trip.com/Booking).
 // Aucune donnée sensible ne doit toucher le site, ni en build ni en runtime.
@@ -26,6 +26,9 @@ export const SHEET_TABS = {
   transports: { key: 'transports', label: 'Transports', csvUrl: '' },
   pratique: { key: 'pratique', label: 'Pratique', csvUrl: '' },
   aeroports: { key: 'aeroports', label: 'Aeroports', csvUrl: '' },
+  lieux: { key: 'lieux', label: 'Lieux', csvUrl: '' },
+  miam: { key: 'miam', label: 'Miam', csvUrl: '' },
+  recits: { key: 'recits', label: 'Recits', csvUrl: '' },
 } satisfies Record<string, SheetTab>;
 
 export type SheetKey = keyof typeof SHEET_TABS;

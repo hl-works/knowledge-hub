@@ -19,7 +19,7 @@ Voyage : **HM26 Atlas d'Asie été 2026**, famille Lahutte (Hugo, Marion, Alexis
 
 ## Source de données — RÈGLE DE SÉCURITÉ (non négociable)
 
-- Onglets publiés en CSV et lus par le site : **`Parcours`**, **`Pays`**, **`Quiz`**, **`Bestiaire`**, **`Lexique`**, **`Transports`**, **`Pratique`**, **`Aeroports`**.
+- Onglets publiés en CSV et lus par le site : **`Parcours`**, **`Pays`**, **`Quiz`**, **`Bestiaire`**, **`Lexique`**, **`Transports`**, **`Pratique`**, **`Aeroports`**, **`Lieux`**, **`Miam`**, **`Recits`**.
 - **NE JAMAIS lire, publier ni afficher** les onglets **`Passeport`** (numéros de passeport en clair) ni **`Financier`** (budget). Aucune donnée personnelle sensible ne doit toucher le site, ni en build ni en runtime.
 - **Références de réservation** (numéros Trip.com/Booking) : sensibles aussi (résa accessible avec réf + nom). Elles restent dans l'onglet Vols privé, **jamais publiées**. L'onglet `Transports` du site n'en contient pas.
 - Les CSV publiés sont récupérés au chargement de la page, parsés, rendus.
@@ -71,6 +71,24 @@ Voyage : **HM26 Atlas d'Asie été 2026**, famille Lahutte (Hugo, Marion, Alexis
 `ordre` · `date` · `type` (Avion / Bus / Bateau) · `de` · `depart_h` · `vers` · `arrivee_h` · `compagnie` · `vol` · `statut` (Réservé / À trouver)
 
 - Une ligne = un trajet entre deux escales. Pas de référence de réservation (cf. règle de sécurité). Alimente la page « Les trajets » ; on peut aussi rattacher le trajet correspondant à chaque escale du Parcours (par date).
+
+### Onglet `Lieux` (une ligne par incontournable — le « à voir » du Routard)
+
+`ordre` (référence à l'escale du Parcours) · `pays` · `lieu` · `statut` (ex. « UNESCO 1987 », vide sinon) · `texte` · `photo_query`
+
+- Affiché en bloc **« À voir »** sur chaque escale de la page Le Parcours (2-4 lieux par grande escale ; les escales de transit n'en ont pas → ne rien afficher). Badge visuel pour le statut UNESCO.
+
+### Onglet `Miam` (une ligne par plat — la gastronomie)
+
+`pays` · `plat` · `nom_local` · `description` · `photo_query`
+
+- ~5 plats par pays. Affiché en bloc **« Miam »** sur la fiche Pays (cartes avec photo libre de droits via `photo_query`).
+
+### Onglet `Recits` (une ligne par grande histoire — « de quoi lire »)
+
+`pays` (peut lister plusieurs pays, séparés par virgule) · `titre` · `accroche` · `texte` (long, 200-300 mots) · `photo_query`
+
+- Les textes longs du site : Gengis Khan, la Route de la Soie, la Grande Muraille, la route des épices, la ceinture de feu… Affichés en **« La grande histoire »** sur la fiche Pays (accroche + « Lire la suite » qui déplie, typographie généreuse type mode lecture, Fraunces).
 
 ### Onglet `Aeroports` (une ligne par aéroport — référentiel taxi)
 
@@ -132,7 +150,7 @@ vraies données EN (voir `GUIDE-EVERGREEN.md` §5).
 Stratégie photo à deux niveaux, pour avoir un max de belles images sans coller d'URLs à la main :
 
 1. **Photo perso prioritaire** — si un champ photo (`hotel_photo`, `photos`, `photo_hero`) contient une URL dans la sheet, on l'affiche. Les photos du voyage passent toujours devant.
-2. **Fallback automatique via API photo gratuite (Pexels)** — sinon, le site va chercher une image à partir du champ `photo_query` de l'escale / du pays. Légal, gratuit, hotlinkable, et ça couvre les 26 escales + 7 pays sans travail manuel.
+2. **Fallback libre de droits via Wikimedia Commons** — `scripts/resolve_photos_commons.py` résout une fois pour toutes chaque `photo_query` (Lieux, Miam, Recits, Bestiaire) en image libre (CC / domaine public) dans `public/fixtures/photos.json` ; le site lit ce mapping statique (zéro appel API au runtime, hotlink officiellement autorisé, crédit dans le `title` de chaque image + mention sur la page). Relancer le script quand des `photo_query` changent. (L'option Pexels du brief d'origine nécessitait une clé API ; Commons n'en demande pas.)
 
 > **Photos d'hôtels** : pas de récup auto depuis Booking (aucune API publique, scraping fragile et contraire aux CGU). Pour montrer le *vrai* hôtel, Hugo colle une URL dans `hotel_photo` (à réserver aux hôtels qui comptent). Sinon, fallback Pexels sur le nom de la ville.
 

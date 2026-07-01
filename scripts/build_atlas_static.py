@@ -94,7 +94,7 @@ def load_tab(key: str) -> list[dict]:
 
 # ---------- rendu statique : fiches pays ----------
 
-def render_pays(rows: list[dict]) -> str:
+def render_pays(rows: list[dict], recits: list[dict], miam: list[dict]) -> str:
     out = []
     for c in rows:
         pays = c.get("pays", "")
@@ -121,9 +121,37 @@ def render_pays(rows: list[dict]) -> str:
             f'<div class="facts">{facts}</div>'
             + (f'<p class="histoire">{esc(c["histoire"])}</p>' if c.get("histoire") else "")
             + (f'<div class="block savais"><h3>Le savais-tu ?</h3><ul>{funs}</ul></div>' if funs else "")
+            + recits_html(pays, recits)
+            + miam_html(pays, miam)
             + "</div></article>"
         )
     return "\n".join(out)
+
+
+def recits_html(pays: str, recits: list[dict]) -> str:
+    mine = [r for r in recits if pays in [p.strip() for p in r.get("pays", "").split(",")]]
+    if not mine:
+        return ""
+    out = ['<div class="block"><h3>La grande histoire</h3>']
+    for r in mine:
+        out.append(f'<details class="recit"><summary><span class="rtit">{esc(r["titre"])}</span>'
+                   f'<span class="racc">{esc(r.get("accroche", ""))}</span></summary>'
+                   f'<div class="rbody"><p>{esc(r.get("texte", ""))}</p></div></details>')
+    out.append("</div>")
+    return "".join(out)
+
+
+def miam_html(pays: str, miam: list[dict]) -> str:
+    mine = [m for m in miam if m.get("pays") == pays and m.get("plat")]
+    if not mine:
+        return ""
+    items = "".join(
+        f'<div class="mcard"><div class="mtxt"><div class="mn">{esc(m["plat"])}'
+        + (f' <span class="ml">{esc(m["nom_local"])}</span>' if m.get("nom_local") and m["nom_local"] != m["plat"] else "")
+        + f'</div><p class="md">{esc(m.get("description", ""))}</p></div></div>'
+        for m in mine
+    )
+    return f'<div class="block"><h3>Miam</h3><div class="miam">{items}</div></div>'
 
 
 # ---------- rendu statique : timeline parcours ----------
@@ -133,7 +161,7 @@ def iso(d: str) -> str:
     return f"{m.group(3)}-{m.group(2)}-{m.group(1)}" if m else ""
 
 
-def render_parcours(rows: list[dict]) -> str:
+def render_parcours(rows: list[dict], lieux: list[dict]) -> str:
     rows = sorted((r for r in rows if r.get("ville")),
                   key=lambda r: int(r.get("ordre") or 0))
     out = ['<ol class="tl-static" style="list-style:none;margin:0;padding:0;display:grid;gap:18px;">']
@@ -144,12 +172,22 @@ def render_parcours(rows: list[dict]) -> str:
             if r.get("date_depart"):
                 dates += f' → <time datetime="{iso(r["date_depart"])}">{esc(r["date_depart"])}</time>'
         hotel = f' · Hébergement : {esc(r["hotel_nom"])}' if r.get("hotel_nom") else ""
+        mes_lieux = [l for l in lieux if l.get("ordre") == r.get("ordre") and l.get("lieu")]
+        avoir = ""
+        if mes_lieux:
+            lis = "".join(
+                f'<li><b>{esc(l["lieu"])}</b>'
+                + (f' <em>({esc(l["statut"])})</em>' if l.get("statut") else "")
+                + f' — {esc(l.get("texte", ""))}</li>' for l in mes_lieux
+            )
+            avoir = f'<p style="margin:8px 0 0;font-weight:700;">À voir :</p><ul style="margin:4px 0 0;">{lis}</ul>'
         out.append(
             '<li style="border:2px solid var(--ink);border-radius:14px;background:var(--card);padding:16px 18px;">'
             f'<p style="margin:0;font-weight:700;">{esc(r["ville"])} — {esc(r.get("pays", ""))}</p>'
             f'<p style="margin:4px 0 0;font-size:.9rem;color:var(--ink-soft);">{dates}{hotel}</p>'
             + (f'<p style="margin:6px 0 0;color:var(--ink-soft);">{esc(r["description"])}</p>'
                if r.get("description") else "")
+            + avoir
             + "</li>"
         )
     out.append("</ol>")
@@ -218,9 +256,10 @@ def build_llms(pays: list[dict], parcours: list[dict]) -> None:
         "## Pages",
         "",
         f"- [Accueil]({BASE_URL}): carte animée de l'itinéraire, bloc « où on est », compteurs du voyage.",
-        f"- [Le parcours]({BASE_URL}parcours/): timeline des escales — villes, hôtels, dates, météo.",
-        f"- [Les pays]({BASE_URL}pays/): fiches evergreen par pays — histoire, fun facts, infos"
-        " pratiques à l'arrivée, animaux à repérer, mots à connaître, mini-quiz.",
+        f"- [Le parcours]({BASE_URL}parcours/): timeline des escales — villes, hôtels, dates, météo, incontournables à voir (badges UNESCO).",
+        f"- [Les pays]({BASE_URL}pays/): fiches evergreen par pays — histoire, grands récits"
+        " à lire, gastronomie, fun facts, infos pratiques à l'arrivée, animaux à repérer,"
+        " mots à connaître, mini-quiz.",
         f"- [Nos hôtels]({BASE_URL}hotels/): tous les hébergements du voyage, dates et adresses.",
         f"- [Les trajets]({BASE_URL}trajets/): vols, bus et bateaux entre les escales.",
         f"- [Le carnet]({BASE_URL}carnet/): le fil Instagram du voyage.",
@@ -247,9 +286,12 @@ def build_llms(pays: list[dict], parcours: list[dict]) -> None:
 if __name__ == "__main__":
     pays = load_tab("pays")
     parcours = load_tab("parcours")
-    inject(ATLAS / "pays" / "index.html", "pays", render_pays(pays),
+    recits = load_tab("recits")
+    miam = load_tab("miam")
+    lieux = load_tab("lieux")
+    inject(ATLAS / "pays" / "index.html", "pays", render_pays(pays, recits, miam),
            r'(<div id="fiches">)')
-    inject(ATLAS / "parcours" / "index.html", "parcours", render_parcours(parcours),
+    inject(ATLAS / "parcours" / "index.html", "parcours", render_parcours(parcours, lieux),
            r'(<div class="timeline" id="timeline">)')
     build_sitemap()
     build_llms(pays, parcours)
