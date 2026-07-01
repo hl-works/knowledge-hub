@@ -11,17 +11,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
         <p><strong>Alexis · Marion · Hugo · Emma.</strong> AMHE, comme « âme » — l'âme de nos voyages. Atlas d'Asie, été 2026.</p>
       </div>
       <nav aria-label="Pied de page">
-        <a href={base + 'parcours'}>Le parcours</a>
-        <a href={base + 'pays'}>Les pays</a>
-        <a href={base + 'hotels'}>Nos hôtels</a>
-        <a href={base + 'trajets'}>Les trajets</a>
-        <a href={base + 'carnet'}>Le carnet</a>
-        <a href={base + 'galerie'}>Galerie</a>
+        <a href={base + 'parcours/'}>Le parcours</a>
+        <a href={base + 'pays/'}>Les pays</a>
+        <a href={base + 'hotels/'}>Nos hôtels</a>
+        <a href={base + 'trajets/'}>Les trajets</a>
+        <a href={base + 'carnet/'}>Le carnet</a>
+        <a href={base + 'galerie/'}>Galerie</a>
       </nav>
     </div>
     <div class="baseline">
-      <span>hl-consulting.tech / atlas-asie</span>
-      <span>{credit ? credit + ' · ' : ''}Données : Google Sheet</span>
+      <span><a class="home" href="https://hl-consulting.tech/">hl-consulting.tech</a> / atlas-asie</span>
+      <span><span id="hero-credit">{credit ? credit + ' · ' : ''}</span>Données : Google Sheet</span>
     </div>
   </div>
 </footer>
@@ -36,4 +36,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
   .ftr nav a{color:var(--cream);text-decoration:none;font-size:.9rem;opacity:.85;}
   .ftr nav a:hover{opacity:1;color:var(--yellow);}
   .baseline{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:#a8997f;}
+  .baseline .home{color:inherit;text-decoration:underline;text-underline-offset:2px;}
+  .baseline .home:hover{color:var(--yellow);}
 </style>

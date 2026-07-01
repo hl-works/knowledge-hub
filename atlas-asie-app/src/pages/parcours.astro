@@ -76,6 +76,7 @@ import Footer from '../components/Footer.astro';
   import { fetchTab } from '../lib/data';
   import { toStops } from '../lib/model';
   import type { Stop } from '../lib/model';
+  import { paysHead } from '../lib/paysMeta';
   import { fetchWeather, weatherIcon } from '../lib/weather';
 
   const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
@@ -111,9 +112,10 @@ import Footer from '../components/Footer.astro';
     const host = document.getElementById('timeline')!;
     try {
       const stops = toStops(await fetchTab('parcours'));
+      let paysCourant = '';
       host.innerHTML = stops
         .map(
-          (s) => `
+          (s) => `${s.pays !== paysCourant ? paysHead((paysCourant = s.pays)) : ''}
         <article class="leg leg--${s.statut}" id="e-${s.ordre}">
           <div class="rail"><span class="node"></span><span class="ord">${s.ordre}</span></div>
           <div class="card"><div class="body">

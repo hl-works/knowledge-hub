@@ -198,6 +198,27 @@ export function toTransports(rows: Row[]): Trajet[] {
     .sort((a, b) => a.ordre - b.ordre);
 }
 
+export interface Aeroport {
+  code: string; // IATA (ALA, PEK, PKX…) — présent dans les champs de/vers du Parcours
+  ville: string;
+  pays: string;
+  nomEn: string;
+  nomLocal: string; // écriture locale, à montrer au chauffeur / coller dans DiDi
+  adresseEn: string;
+}
+export function toAeroports(rows: Row[]): Aeroport[] {
+  return rows
+    .map((r) => ({
+      code: (r.code ?? '').trim().toUpperCase(),
+      ville: (r.ville ?? '').trim(),
+      pays: (r.pays ?? '').trim(),
+      nomEn: (r.nom_en ?? '').trim(),
+      nomLocal: (r.nom_local ?? '').trim(),
+      adresseEn: (r.adresse_en ?? '').trim(),
+    }))
+    .filter((a) => a.code);
+}
+
 export interface Pratique {
   pays: string;
   visa: string;

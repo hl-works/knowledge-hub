@@ -372,15 +372,7 @@
   .e-portrait-frame:focus-within img { filter: none; transform: scale(1.03); }
   .e-portrait-frame:hover::after,
   .e-portrait-frame:focus-within::after { opacity: 0; }
-  .e-portrait-frame::before {
-    content: "VOIR EN COULEUR ↗"; position: absolute; top: 0; right: 0; z-index: 3;
-    font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .06em; font-weight: 700;
-    background: var(--e-bar); color: var(--e-on-bar); padding: 5px 9px;
-    border-left: var(--e-bw) solid var(--e-border); border-bottom: var(--e-bw) solid var(--e-border);
-    opacity: 1; transition: opacity .3s;
-  }
-  html[data-lang="en"] .e-portrait-frame::before { content: "SEE IN COLOUR ↗"; }
-  .e-portrait-frame:hover::before, .e-portrait-frame:focus-within::before { opacity: 0; }
+  .e-portrait-frame::before { content: none; }
   .e-portrait-cap {
     position: absolute; left: 0; bottom: 0; z-index: 2;
     background: var(--e-bar); color: var(--e-on-bar);
@@ -435,6 +427,8 @@
   /* keep the twin pair calm: drop the per-photo "see in colour" badge (still hover-reveals) */
   .ap-twin .e-portrait-frame::before { content: none; }
   @media (max-width: 480px) { .ap-twin { grid-template-columns: 1fr; } }
+  .ap-ig { border: var(--e-bw) solid var(--e-border); box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow); background: #fff; line-height: 0; overflow: hidden; }
+  .ap-ig iframe { width: 100%; height: 640px; border: 0; display: block; }
 
   /* Timeline / facts grid (non-clickable info — flat, not card-like) */
   .ap-facts { list-style: none; margin: 28px 0 0; padding: 0;
@@ -591,7 +585,15 @@
         <span class="e-idx">[01]</span>
         <h2 class="e-section-title"><span class="e-fr">Le parcours</span><span class="e-en">The path</span></h2>
       </div>
-      <div class="ap-prose">
+      <div class="ap-row">
+        <div class="ap-media">
+          <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Hugo Lahutte à la Klipsch Ojas Listening Room, Hôtel Patina, Kyoto / Hugo Lahutte at the Klipsch Ojas Listening Room, Hotel Patina, Kyoto">
+            <img src="/knowledge-hub/assets/img/osaka-ojas.webp" width="800" height="1000"
+                 alt="Hugo Lahutte dans la Klipsch Ojas Listening Room de l'Hôtel Patina, à Kyoto, Japon / Hugo Lahutte in the Klipsch Ojas Listening Room at Hotel Patina, Kyoto, Japan" loading="lazy" />
+            <figcaption class="e-portrait-cap e-mono"><span class="e-fr">Klipsch Ojas Listening Room · Hôtel Patina, Kyoto</span><span class="e-en">Klipsch Ojas Listening Room · Hotel Patina, Kyoto</span></figcaption>
+          </figure>
+        </div>
+        <div class="ap-prose">
         <p class="ap-lead">
           <span class="e-fr">De la passion à la stratégie : musique, cinéma, événementiel, e-commerce, puis l'IA.</span>
           <span class="e-en">From passion to strategy: music, cinema, live events, e-commerce, then AI.</span>
@@ -608,6 +610,7 @@
           <span class="e-fr">Depuis 2024, je construis mon propre trio : <strong>DG de Cobra</strong> (oct. 2024), <strong>éditeur et directeur de publication de Haute Fidélité</strong> (janv. 2025), et <strong>fondateur de HL Consulting</strong> (juil. 2024). J'enseigne aussi le marketing à <strong>Creapole-ESDI</strong>. Formé à l'<strong>ESGCI</strong> (MBA E-business) et à l'<strong>UVSQ</strong> (Génie Logistique).</span>
           <span class="e-en">Since 2024 I've been building my own trio: <strong>CEO of Cobra</strong> (Oct. 2024), <strong>publisher and editorial director of Haute Fidélité</strong> (Jan. 2025), and <strong>founder of HL Consulting</strong> (Jul. 2024). I also teach marketing at <strong>Creapole-ESDI</strong>. Educated at <strong>ESGCI</strong> (MBA E-business) and <strong>UVSQ</strong> (Logistics Engineering).</span>
         </p>
+        </div>
       </div>
       <ul class="ap-facts">
         <li class="ap-fact">
@@ -727,25 +730,18 @@
       </div>
       <div class="ap-row">
         <div class="ap-media">
-          <div class="ap-twin">
-            <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Portrait en voyage à Osaka, Japon / Travel portrait in Osaka, Japan">
-              <img src="/knowledge-hub/assets/img/osaka-portrait.webp" width="800" height="1000"
-                   alt="Hugo Lahutte en voyage à Osaka, au Japon / Hugo Lahutte travelling in Osaka, Japan" loading="lazy" />
-            </figure>
-            <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Moment de voyage en famille à Osaka / Family travel moment in Osaka">
-              <img src="/knowledge-hub/assets/img/osaka-ojas.webp" width="800" height="1000"
-                   alt="Scène de voyage en famille dans les rues d'Osaka / Family travel scene in the streets of Osaka" loading="lazy" />
-            </figure>
-          </div>
+          <figure class="ap-ig" style="margin:0;">
+            <iframe src="https://www.instagram.com/p/DNSqFIyIaTa/embed" loading="lazy" title="Publication Instagram — voyage en famille (@amhe.tourdumonde)" allowfullscreen></iframe>
+          </figure>
         </div>
         <div class="ap-prose">
           <p class="ap-lead">
-            <span class="e-fr">Le voyage est essentiel — il explique vraiment qui je suis.</span>
-            <span class="e-en">Travel is essential — it really explains who I am.</span>
+            <span class="e-fr">Le voyage, c'est notre fil rouge de famille — ça explique une bonne part de qui nous sommes.</span>
+            <span class="e-en">Travel is our family's constant thread — it explains a good part of who we are.</span>
           </p>
           <p>
-            <span class="e-fr">Les <strong>voyages en famille</strong> comptent énormément. Nous avons déjà bouclé un <strong>premier tour du monde</strong>, et un <strong>second est en préparation</strong>. Et, pourquoi pas un jour, en faire quelque chose côté pro — du conseil, du récit, autre chose encore.</span>
-            <span class="e-en">Our <strong>family trips</strong> matter enormously. We've already completed a <strong>first round-the-world journey</strong>, and a <strong>second is in the works</strong>. And maybe one day I'll turn it into something professional — consulting, storytelling, who knows.</span>
+            <span class="e-fr">Les <strong>voyages en famille</strong> comptent énormément pour nous. Ensemble, nous avons déjà bouclé un <strong>premier tour du monde</strong>, et un <strong>second est en préparation</strong>. Peut-être qu'un jour on en fera quelque chose côté pro — du conseil, du récit, autre chose encore.</span>
+            <span class="e-en">Our <strong>family trips</strong> matter enormously to us. Together we've already completed a <strong>first round-the-world journey</strong>, and a <strong>second is in the works</strong>. Maybe one day we'll turn it into something professional — consulting, storytelling, who knows.</span>
           </p>
           <p>
             <span class="e-fr">On documente tout ça ici :

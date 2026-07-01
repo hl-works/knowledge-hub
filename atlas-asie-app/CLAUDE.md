@@ -19,7 +19,7 @@ Voyage : **HM26 Atlas d'Asie été 2026**, famille Lahutte (Hugo, Marion, Alexis
 
 ## Source de données — RÈGLE DE SÉCURITÉ (non négociable)
 
-- Onglets publiés en CSV et lus par le site : **`Parcours`**, **`Pays`**, **`Quiz`**, **`Bestiaire`**, **`Lexique`**, **`Transports`**, **`Pratique`**.
+- Onglets publiés en CSV et lus par le site : **`Parcours`**, **`Pays`**, **`Quiz`**, **`Bestiaire`**, **`Lexique`**, **`Transports`**, **`Pratique`**, **`Aeroports`**.
 - **NE JAMAIS lire, publier ni afficher** les onglets **`Passeport`** (numéros de passeport en clair) ni **`Financier`** (budget). Aucune donnée personnelle sensible ne doit toucher le site, ni en build ni en runtime.
 - **Références de réservation** (numéros Trip.com/Booking) : sensibles aussi (résa accessible avec réf + nom). Elles restent dans l'onglet Vols privé, **jamais publiées**. L'onglet `Transports` du site n'en contient pas.
 - Les CSV publiés sont récupérés au chargement de la page, parsés, rendus.
@@ -72,6 +72,14 @@ Voyage : **HM26 Atlas d'Asie été 2026**, famille Lahutte (Hugo, Marion, Alexis
 
 - Une ligne = un trajet entre deux escales. Pas de référence de réservation (cf. règle de sécurité). Alimente la page « Les trajets » ; on peut aussi rattacher le trajet correspondant à chaque escale du Parcours (par date).
 
+### Onglet `Aeroports` (une ligne par aéroport — référentiel taxi)
+
+`code` · `ville` · `pays` · `nom_en` · `nom_local` · `adresse_en`
+
+- `code` = IATA (ALA, PEK, PKX…), la clé : les champs `de`/`vers` de `Transports` le contiennent (« Pékin PKX (Daxing) ») et la page Trajets fait la jointure dessus.
+- `nom_local` = l'écriture locale (中文, кириллица…) : c'est ce qu'on montre au chauffeur ou qu'on colle dans DiDi ; le bouton « Copier » copie cette valeur.
+- Rendu : bloc dépliant « Aéroports & taxi » sous chaque vol (nom EN + adresse EN + nom local en grand + boutons Carte / Copier).
+
 ## Pages (V1)
 
 1. **Accueil** — hero plein cadre (photo ou vidéo), titre du voyage, **carte animée du parcours**, **bloc Live** ("Jour X · on est à [escale] · prochaine étape [ville] dans N jours" + mini compte à rebours), et **compteurs animés** (pays visités, vols pris, nuits, km parcourus, plus haut sommet) — tout calculé depuis le Parcours.
@@ -102,15 +110,22 @@ L'identité visuelle vient d'**AMHE** (initiales A·M·H·E + jeu de mots avec �
 - **PWA légère** : manifest + icônes pour « Ajouter à l'écran d'accueil ». Le site doit se vivre comme une app.
 - **Accueil à états selon la phase du voyage** : avant le 04/07 = compte à rebours ; pendant = bloc Live ; après le 27/08 = récap (compteurs finaux, carte complète).
 - **Signature visuelle** : l'audace se dépense sur les éléments AMHE distinctifs (jetons par pays, tampons, tracé pointillé de la carte) — le reste reste sobre et discipliné. Éviter que la base « crème + serif + accent chaud » ressemble à un template générique : c'est la signature qui différencie.
+- **Groupage par pays** : les listes (Hôtels, Parcours, Galerie) sont sectionnées par pays via `paysHead()` (`src/lib/paysMeta.ts`, source unique palette/codes — miroir Python dans `scripts/build_atlas_static.py`). Chaque en-tête contient un **`.stamp-slot`** : l'emplacement réservé au futur tampon AMHE du pays (placeholder = code pays dans un rond pointillé, à remplacer quand le design des tampons est prêt).
 
-## Partage & SEO (portée volontairement limitée)
+## Partage, SEO & GEO
 
 - **Priorité n°1 : Open Graph** — le site sera partagé sur WhatsApp (grands-parents). Chaque page a `og:title`, `og:description` et une **belle `og:image`** (l'accueil : visuel AMHE du voyage). Tester le rendu du lien partagé.
-- Basiques : `<title>`/meta par page, sitemap, URLs propres. **Pas plus** : site perso sous sous-chemin, aucun enjeu de ranking. Pas de llms.txt ni d'optimisation GEO.
+- **SEO + GEO en place depuis juillet 2026** (décision Hugo, remplace l'ancien « pas de GEO ») : **lire `GUIDE-EVERGREEN.md`** avant de toucher au contenu Pays ou au head des pages. Pipeline : `scripts/build_atlas_static.py` (rendu statique pays/parcours pour crawlers sans JS + `sitemap.xml` + `llms.txt`), relancé par le workflow `site-autobuild.yml` (push + cron quotidien).
+- Le head SEO (canonical, OG, JSON-LD avec le `@id` canonique `https://hl-consulting.tech/#hugo`) vit dans `src/layouts/Base.astro`.
+- ⚠️ Un `npm run build` purge `../atlas-asie/` (blocs statiques, sitemap, llms.txt compris) : normal, le workflow réinjecte au push ; en local relancer `python3 scripts/build_atlas_static.py` après un build.
 
 ## i18n
 
-FR d'abord. Mettre en place la structure i18n d'Astro pour pouvoir ajouter l'EN plus tard **sans refactor**. Ne PAS bloquer la V1 sur la traduction.
+Site **monolingue FR** (décision juin 2026 : pas de version EN, une coquille EN
+autour d'une Sheet FR ne vaut rien). La config i18n d'Astro reste en place dans
+`astro.config.mjs` pour pouvoir ajouter l'EN plus tard sans refactor — mais pas
+de page `/en/`, pas de hreflang, pas de toggle de langue tant qu'il n'y a pas de
+vraies données EN (voir `GUIDE-EVERGREEN.md` §5).
 
 ## Médias & photos
 
