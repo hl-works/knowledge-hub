@@ -3,54 +3,75 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Base title="Les pays — Atlas d'Asie" description="Une fiche par pays : histoire, infos pratiques, animaux, mots à connaître et un mini-quiz. Du Kazakhstan à l'Indonésie.">
+<Base title="Les pays — Atlas d'Asie" description="Un mini-site par pays : histoire, infos pratiques, animaux, mots à connaître et un mini-quiz. Du Kazakhstan à l'Indonésie.">
   <Header variant="solid" active="pays" />
   <main id="main">
     <section class="intro"><div class="wrap">
       <p class="eyebrow">Découverte</p>
       <h1 class="disp">Les pays</h1>
-      <p class="lead">Une fiche par pays traversé : histoire, <em>routard de poche</em>, animaux à repérer, mots à connaître, et un <strong>mini-quiz</strong> pour tester Alexis, Emma… et les parents.</p>
+      <p class="lead">Choisis un pays : histoire, <em>routard de poche</em>, animaux, mots et <strong>mini-quiz</strong>, rangés par onglets pour ne pas te noyer.</p>
     </div></section>
-    <section class="fiches"><div class="wrap">
-      <div id="fiches"><div class="sk sk-card"></div><div class="sk sk-card"></div><div class="sk sk-card"></div></div>
-    </div></section>
+    <nav class="pays-switch" id="switch" aria-label="Choisir un pays"><div class="wrap"><div class="switch-row" id="switch-row"><div class="sk" style="height:38px;width:160px;border-radius:999px"></div><div class="sk" style="height:38px;width:150px;border-radius:999px"></div><div class="sk" style="height:38px;width:140px;border-radius:999px"></div></div></div></nav>
+    <section class="fiches"><div class="wrap"><div id="fiches"><div class="sk sk-card"></div><div class="sk sk-card"></div></div></div></section>
   </main>
   <Footer />
 </Base>
 
 <style is:global>
-  .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,18px);}
+  .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,14px);}
   .intro h1{font-size:clamp(2.6rem,8vw,5rem);margin:0 0 .6rem;}
-  .fiches{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
-  .fiche{scroll-margin-top:84px;margin:0 0 clamp(28px,4vw,44px);border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:var(--card);}
+
+  /* Sélecteur de pays (sticky) */
+  .pays-switch{position:sticky;top:0;z-index:9;background:var(--cream);border-bottom:2px solid var(--line);padding:10px 0;}
+  .pays-switch .switch-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .pays-switch .switch-row::-webkit-scrollbar{display:none;}
+  .pchip{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:999px;background:var(--card);padding:6px 15px 6px 7px;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;white-space:nowrap;color:var(--ink);transition:background .15s,color .15s;}
+  .pchip .fl{width:26px;height:17px;border-radius:3px;overflow:hidden;border:1px solid rgba(0,0,0,.2);flex:none;}
+  .pchip .fl svg{display:block;width:100%;height:100%;}
+  .pchip[aria-current="true"]{background:var(--ink);color:var(--cream);}
+  .pchip[aria-current="true"] .fl{border-color:rgba(255,255,255,.4);}
+  .pchip:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;}
+
+  .fiches{padding:clamp(18px,3vw,30px) 0 clamp(40px,6vw,80px);}
+  .fiche{scroll-margin-top:70px;border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:var(--card);}
   .fiche .banner{position:relative;padding:clamp(22px,4vw,40px) clamp(20px,4vw,34px);color:#fff;overflow:hidden;}
   .fiche .banner::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 120% at 85% 15%, rgba(255,255,255,.18), transparent 55%);}
   .fiche .banner .stamp-wm{position:absolute;right:clamp(6px,2vw,26px);top:50%;transform:translateY(-50%) rotate(-6deg);width:clamp(92px,15vw,150px);pointer-events:none;z-index:1;filter:drop-shadow(0 2px 6px rgba(0,0,0,.18));}
   .fiche .banner .stamp-wm svg{width:100%;height:auto;}
   .fiche .banner h2{font-family:var(--disp);font-size:clamp(2rem,6vw,3.4rem);text-transform:uppercase;margin:0;line-height:.95;position:relative;}
   .fiche .banner .cap{position:relative;font-weight:600;opacity:.95;margin-top:.2rem;}
-  .fiche .body{padding:clamp(18px,3vw,30px);}
+  .fiche .body{padding:clamp(16px,3vw,28px) clamp(18px,3vw,30px) clamp(18px,3vw,30px);}
+
+  /* Onglets internes */
+  .ptabbar{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);margin:0 0 20px;scrollbar-width:none;}
+  .ptabbar::-webkit-scrollbar{display:none;}
+  .ptab{border:0;background:none;font:inherit;font-weight:700;color:var(--ink-soft);padding:11px 14px;margin-bottom:-2px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;}
+  .ptab[aria-selected="true"]{color:var(--orange-deep);border-bottom-color:var(--orange);}
+  .ptab:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px;border-radius:6px;}
+  .tabpane{display:none;animation:fade .25s ease;}
+  .tabpane.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.tabpane{animation:none;}}
+
   .facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem;}
   .facts .chip{background:var(--peach);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.82rem;color:var(--ink-soft);}
   .facts .chip b{color:var(--ink);}
   .histoire{color:var(--ink-soft);max-width:70ch;margin:0 0 1.6rem;}
-  .block{margin:0 0 1.8rem;}
+  .block{margin:0 0 1.4rem;}
+  .block:last-child{margin-bottom:0;}
   .block > h3{font-family:var(--disp);text-transform:uppercase;font-size:1.2rem;margin:0 0 .9rem;color:var(--orange-deep);display:flex;align-items:center;gap:.5rem;}
   .block > h3::before{content:"";width:22px;height:3px;background:var(--yellow);}
 
-  /* À l'arrivée (Pratique) */
   .prat{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
   .pcard{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:14px;}
   .pcard .ph{display:flex;align-items:center;gap:.5rem;font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-bottom:.5rem;}
   .pcard .ph svg{color:var(--orange-deep);flex:none;}
   .pcard p{margin:.3rem 0 0;font-size:.88rem;color:var(--ink-soft);}
 
-  /* Savais-tu */
   .savais ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;}
   .savais li{position:relative;padding-left:26px;color:var(--ink-soft);}
   .savais li::before{content:"";position:absolute;left:4px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);}
 
-  /* Animaux */
   .bestiaire{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
   .acard{background:var(--peach);border:1px solid var(--line);border-radius:12px;padding:14px;}
   .acard .an{font-weight:700;display:flex;align-items:center;gap:.45rem;}
@@ -58,14 +79,12 @@ import Footer from '../components/Footer.astro';
   .acard .ou{font-size:.78rem;color:var(--muted);margin:.15rem 0 .4rem;}
   .acard .fa{font-size:.86rem;color:var(--ink-soft);margin:0;}
 
-  /* Lexique */
   .lex{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;}
   .lcard{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;}
   .lcard .fr{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
   .lcard .loc{font-size:1.15rem;font-weight:700;color:var(--ink);margin:.1rem 0;}
   .lcard .pron{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;color:var(--orange-deep);}
 
-  /* Quiz */
   .quiz{background:var(--peach);border:1px solid var(--line);border-radius:14px;padding:clamp(16px,2.4vw,24px);}
   .quiz h3{font-family:var(--disp);text-transform:uppercase;font-size:1.15rem;margin:0 0 .8rem;color:var(--orange-deep);}
   .q{margin:0 0 1.1rem;}
@@ -87,13 +106,12 @@ import Footer from '../components/Footer.astro';
 <script>
   import { fetchTab } from '../lib/data';
   import { toCountries, toQuiz, toAnimals, toLexique, toPratique } from '../lib/model';
-  import { PAL, CODE, slugPays as slug } from '../lib/paysMeta';
+  import { PAL, slugPays as slug } from '../lib/paysMeta';
   import type { Country, QuizQ, Animal, Mot, Pratique } from '../lib/model';
-  import { stampEki } from '../lib/stamps';
+  import { stampEki, flag, codeForPays } from '../lib/stamps';
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
   const paras = (s: string) => s.split(/\n{2,}|\s•\s/).map((p) => `<p>${esc(p.trim())}</p>`).join('');
-
 
   const sv = (inner: string) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
   const IC = {
@@ -109,7 +127,22 @@ import Footer from '../components/Footer.astro';
     paw: sv('<circle cx="6" cy="11" r="1.6"/><circle cx="10" cy="8" r="1.6"/><circle cx="14" cy="8" r="1.6"/><circle cx="18" cy="11" r="1.6"/><path d="M8 16a4 4 0 0 1 8 0 2.5 2.5 0 0 1-2.5 2.5h-3A2.5 2.5 0 0 1 8 16Z"/>'),
   };
 
-  function pratiqueBlock(p: Pratique | undefined): string {
+  type Ctx = { quiz: QuizQ[]; animals: Animal[]; mots: Mot[]; prat?: Pratique };
+
+  function apercuPane(c: Country): string {
+    const facts = [
+      c.capitale && `<span class="chip"><b>Capitale</b> ${esc(c.capitale)}</span>`,
+      c.monnaie && `<span class="chip"><b>Monnaie</b> ${esc(c.monnaie)}</span>`,
+      c.langue && `<span class="chip"><b>Langue</b> ${esc(c.langue)}</span>`,
+      c.population && `<span class="chip"><b>Population</b> ${esc(c.population)}</span>`,
+    ].filter(Boolean).join('');
+    const funs = c.funFacts.map((f) => `<li>${esc(f)}</li>`).join('');
+    return `${facts ? `<div class="facts">${facts}</div>` : ''}
+      ${c.histoire ? `<p class="histoire">${esc(c.histoire)}</p>` : ''}
+      ${funs ? `<div class="block savais"><h3>Le savais-tu ?</h3><ul>${funs}</ul></div>` : ''}`;
+  }
+
+  function pratPane(p: Pratique | undefined): string {
     if (!p) return '';
     const cards: Array<[string, string, string]> = [
       [IC.doc, 'Visa & formalités', [p.visa, p.formalites].filter(Boolean).join('\n\n')],
@@ -122,52 +155,42 @@ import Footer from '../components/Footer.astro';
       [IC.sos, 'Urgences', p.urgences],
       [IC.clock, 'Décalage', p.decalage],
     ];
-    const body = cards
-      .filter(([, , txt]) => txt)
-      .map(([icon, label, txt]) => `<div class="pcard"><div class="ph">${icon}${esc(label)}</div>${paras(txt)}</div>`)
-      .join('');
-    return `<div class="block"><h3>À l'arrivée</h3><div class="prat">${body}</div></div>`;
+    const body = cards.filter(([, , txt]) => txt).map(([icon, label, txt]) => `<div class="pcard"><div class="ph">${icon}${esc(label)}</div>${paras(txt)}</div>`).join('');
+    return body ? `<div class="prat">${body}</div>` : '';
   }
 
-  function bestiaireBlock(animals: Animal[]): string {
+  function animPane(animals: Animal[]): string {
     if (!animals.length) return '';
-    const body = animals
-      .map((a) => `<div class="acard"><div class="an">${IC.paw}${esc(a.animal)}</div><div class="ou">${esc(a.ouVoir)}</div><p class="fa">${esc(a.fait)}</p></div>`)
-      .join('');
-    return `<div class="block"><h3>Animaux à repérer</h3><div class="bestiaire">${body}</div></div>`;
+    return `<div class="bestiaire">${animals.map((a) => `<div class="acard"><div class="an">${IC.paw}${esc(a.animal)}</div><div class="ou">${esc(a.ouVoir)}</div><p class="fa">${esc(a.fait)}</p></div>`).join('')}</div>`;
   }
 
-  function lexiqueBlock(mots: Mot[]): string {
+  function motsPane(mots: Mot[]): string {
     if (!mots.length) return '';
-    const body = mots
-      .map((m) => `<div class="lcard"><div class="fr">${esc(m.francais)}</div><div class="loc">${esc(m.motLocal)}</div><div class="pron">${esc(m.prononciation)}</div></div>`)
-      .join('');
-    const langue = mots[0]?.langue ? ` <span style="color:var(--muted);font-size:.7em">· ${esc(mots[0].langue)}</span>` : '';
-    return `<div class="block"><h3>Mots à connaître${langue}</h3><div class="lex">${body}</div></div>`;
+    const body = mots.map((m) => `<div class="lcard"><div class="fr">${esc(m.francais)}</div><div class="loc">${esc(m.motLocal)}</div><div class="pron">${esc(m.prononciation)}</div></div>`).join('');
+    const langue = mots[0]?.langue ? `<p style="color:var(--muted);font-size:.85rem;margin:0 0 .8rem">Langue : <b style="color:var(--ink)">${esc(mots[0].langue)}</b></p>` : '';
+    return `${langue}<div class="lex">${body}</div>`;
   }
 
-  function quizBlock(qs: QuizQ[]): string {
+  function quizPane(qs: QuizQ[]): string {
     if (!qs.length) return '';
-    const items = qs
-      .map((q, i) => {
-        const opts = q.choix
-          .map((c, j) => (c ? `<button class="opt" data-k="${['a', 'b', 'c'][j]}" data-good="${q.bonne}"><span class="k">${['A', 'B', 'C'][j]}</span><span>${esc(c)}</span></button>` : ''))
-          .join('');
-        return `<div class="q"><p class="qq">${i + 1}. ${esc(q.question)}</p><div class="opts">${opts}</div><p class="expl">${esc(q.explication)}</p></div>`;
-      })
-      .join('');
-    return `<div class="block"><div class="quiz"><h3>Mini-quiz · duel Alexis / Emma</h3>${items}<p class="score" data-total="${qs.length}"></p></div></div>`;
+    const items = qs.map((q, i) => {
+      const opts = q.choix.map((c, j) => (c ? `<button class="opt" data-k="${['a', 'b', 'c'][j]}" data-good="${q.bonne}"><span class="k">${['A', 'B', 'C'][j]}</span><span>${esc(c)}</span></button>` : '')).join('');
+      return `<div class="q"><p class="qq">${i + 1}. ${esc(q.question)}</p><div class="opts">${opts}</div><p class="expl">${esc(q.explication)}</p></div>`;
+    }).join('');
+    return `<div class="quiz"><h3>Mini-quiz · duel Alexis / Emma</h3>${items}<p class="score" data-total="${qs.length}"></p></div>`;
   }
 
-  function ficheHTML(c: Country, ctx: { quiz: QuizQ[]; animals: Animal[]; mots: Mot[]; prat?: Pratique }): string {
+  function ficheHTML(c: Country, ctx: Ctx): string {
     const [c1, c2] = PAL[c.pays] ?? ['#FA4616', '#C9330B'];
-    const facts = [
-      c.capitale && `<span class="chip"><b>Capitale</b> ${esc(c.capitale)}</span>`,
-      c.monnaie && `<span class="chip"><b>Monnaie</b> ${esc(c.monnaie)}</span>`,
-      c.langue && `<span class="chip"><b>Langue</b> ${esc(c.langue)}</span>`,
-      c.population && `<span class="chip"><b>Population</b> ${esc(c.population)}</span>`,
-    ].filter(Boolean).join('');
-    const funs = c.funFacts.map((f) => `<li>${esc(f)}</li>`).join('');
+    const tabs = [
+      { key: 'apercu', label: 'Aperçu', html: apercuPane(c) },
+      { key: 'arrivee', label: "À l'arrivée", html: pratPane(ctx.prat) },
+      { key: 'animaux', label: 'Animaux', html: animPane(ctx.animals) },
+      { key: 'mots', label: 'Mots', html: motsPane(ctx.mots) },
+      { key: 'quiz', label: 'Quiz', html: quizPane(ctx.quiz) },
+    ].filter((t) => t.html);
+    const bar = tabs.map((t, i) => `<button class="ptab" role="tab" data-tab="${t.key}" aria-selected="${i === 0 ? 'true' : 'false'}">${t.label}</button>`).join('');
+    const panes = tabs.map((t, i) => `<div class="tabpane ${i === 0 ? 'active' : ''}" data-pane="${t.key}" role="tabpanel">${t.html}</div>`).join('');
     return `
       <article class="fiche" id="${slug(c.pays)}">
         <div class="banner" style="background:linear-gradient(135deg, ${c1}, ${c2})">
@@ -176,67 +199,83 @@ import Footer from '../components/Footer.astro';
           ${c.capitale ? `<div class="cap">${esc(c.capitale)}</div>` : ''}
         </div>
         <div class="body">
-          <div class="facts">${facts}</div>
-          ${c.histoire ? `<p class="histoire">${esc(c.histoire)}</p>` : ''}
-          ${pratiqueBlock(ctx.prat)}
-          ${funs ? `<div class="block savais"><h3>Le savais-tu ?</h3><ul>${funs}</ul></div>` : ''}
-          ${bestiaireBlock(ctx.animals)}
-          ${lexiqueBlock(ctx.mots)}
-          ${quizBlock(ctx.quiz)}
+          <div class="ptabbar" role="tablist">${bar}</div>
+          ${panes}
         </div>
       </article>`;
   }
 
+  function bindFiche(root: HTMLElement) {
+    // Onglets
+    const bar = root.querySelector('.ptabbar');
+    const panes = root.querySelectorAll<HTMLElement>('.tabpane');
+    bar?.querySelectorAll<HTMLButtonElement>('.ptab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        bar.querySelectorAll('.ptab').forEach((t) => t.setAttribute('aria-selected', 'false'));
+        tab.setAttribute('aria-selected', 'true');
+        panes.forEach((p) => p.classList.toggle('active', p.dataset.pane === tab.dataset.tab));
+      });
+    });
+    // Quiz
+    root.querySelectorAll('.quiz').forEach((quizEl) => {
+      const total = quizEl.querySelectorAll('.q').length;
+      let answered = 0, score = 0;
+      quizEl.querySelectorAll('.q').forEach((qEl) => {
+        const opts = qEl.querySelectorAll<HTMLButtonElement>('.opt');
+        opts.forEach((opt) => opt.addEventListener('click', () => {
+          const good = opt.dataset.good!;
+          opts.forEach((o) => { o.disabled = true; if (o.dataset.k === good) o.classList.add('good'); });
+          if (opt.dataset.k !== good) opt.classList.add('bad');
+          qEl.querySelector('.expl')?.classList.add('show');
+          answered++;
+          if (opt.dataset.k === good) score++;
+          if (answered === total) quizEl.querySelector<HTMLElement>('.score')!.textContent = `Score : ${score} / ${total}`;
+        }));
+      });
+    });
+  }
+
   (async () => {
-    const host = document.getElementById('fiches')!;
+    const ficheHost = document.getElementById('fiches')!;
+    const switchRow = document.getElementById('switch-row')!;
     try {
       const [pRows, qRows, bRows, lRows, prRows] = await Promise.all([
         fetchTab('pays'), fetchTab('quiz'), fetchTab('bestiaire'), fetchTab('lexique'), fetchTab('pratique'),
       ]);
       const countries = toCountries(pRows).filter((c) => c.pays);
-      const quiz = toQuiz(qRows);
-      const animals = toAnimals(bRows);
-      const lex = toLexique(lRows);
-      const prat = toPratique(prRows);
+      const quiz = toQuiz(qRows), animals = toAnimals(bRows), lex = toLexique(lRows), prat = toPratique(prRows);
+      if (!countries.length) { ficheHost.innerHTML = '<p class="loading">Aucun pays pour le moment.</p>'; switchRow.innerHTML = ''; return; }
 
-      host.innerHTML = countries
-        .map((c) =>
-          ficheHTML(c, {
-            quiz: quiz.filter((q) => q.pays === c.pays),
-            animals: animals.filter((a) => a.pays === c.pays),
-            mots: lex.filter((m) => m.pays.includes(c.pays)),
-            prat: prat.find((p) => p.pays === c.pays),
-          }),
-        )
-        .join('');
-
-      // Interaction quiz : une réponse par question, score final.
-      host.querySelectorAll('.quiz').forEach((quizEl) => {
-        const total = quizEl.querySelectorAll('.q').length;
-        let answered = 0;
-        let score = 0;
-        quizEl.querySelectorAll('.q').forEach((qEl) => {
-          const opts = qEl.querySelectorAll<HTMLButtonElement>('.opt');
-          opts.forEach((opt) => {
-            opt.addEventListener('click', () => {
-              const good = opt.dataset.good!;
-              opts.forEach((o) => { o.disabled = true; if (o.dataset.k === good) o.classList.add('good'); });
-              if (opt.dataset.k !== good) opt.classList.add('bad');
-              qEl.querySelector('.expl')?.classList.add('show');
-              answered++;
-              if (opt.dataset.k === good) score++;
-              if (answered === total) quizEl.querySelector<HTMLElement>('.score')!.textContent = `Score : ${score} / ${total}`;
-            });
-          });
-        });
+      const ctxOf = (c: Country): Ctx => ({
+        quiz: quiz.filter((q) => q.pays === c.pays),
+        animals: animals.filter((a) => a.pays === c.pays),
+        mots: lex.filter((m) => m.pays.includes(c.pays)),
+        prat: prat.find((p) => p.pays === c.pays),
       });
 
-      if (location.hash) {
-        const t = document.getElementById(location.hash.slice(1));
-        if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      // Sélecteur de pays (drapeau + nom)
+      switchRow.innerHTML = countries.map((c) => `<button class="pchip" data-slug="${slug(c.pays)}" aria-current="false"><span class="fl" aria-hidden="true">${flag(codeForPays(c.pays))}</span>${esc(c.pays)}</button>`).join('');
+      const chips = switchRow.querySelectorAll<HTMLButtonElement>('.pchip');
+
+      function show(c: Country, opts: { scroll?: boolean } = {}) {
+        ficheHost.innerHTML = ficheHTML(c, ctxOf(c));
+        bindFiche(ficheHost.firstElementChild as HTMLElement);
+        chips.forEach((ch) => ch.setAttribute('aria-current', ch.dataset.slug === slug(c.pays) ? 'true' : 'false'));
+        history.replaceState(null, '', '#' + slug(c.pays));
+        const active = switchRow.querySelector('[aria-current="true"]') as HTMLElement | null;
+        active?.scrollIntoView({ block: 'nearest', inline: 'center' });
+        if (opts.scroll) document.getElementById('switch')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+
+      chips.forEach((ch) => ch.addEventListener('click', () => {
+        const c = countries.find((x) => slug(x.pays) === ch.dataset.slug);
+        if (c) show(c, { scroll: true });
+      }));
+
+      const fromHash = location.hash ? countries.find((c) => slug(c.pays) === location.hash.slice(1)) : undefined;
+      show(fromHash ?? countries[0]);
     } catch (err) {
-      host.innerHTML = `<p class="loading">${String(err)}</p>`;
+      ficheHost.innerHTML = `<p class="loading">${String(err)}</p>`;
     }
   })();
 </script>
