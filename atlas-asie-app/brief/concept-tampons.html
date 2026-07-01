@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<title>Concept design · Les tampons AMHE — Atlas d'Asie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --orange:#FA4616;--orange-deep:#C9330B;--yellow:#F3EA5D;
+  --cream:#FFF4E2;--peach:#FEE3DC;--kraft:#EADFC4;--card:#FFFDF8;
+  --ink:#241A14;--ink-soft:#5E4B3C;--muted:#9A8268;--line:#EAD7BC;
+  --teal:#0C5A5E;--jade:#149E7C;
+  --disp:"Anton",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif;--serif:"Fraunces",Georgia,serif;
+  --maxw:1180px;--r:16px;--shadow:6px 6px 0 var(--ink);
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+img,svg{display:block;max-width:100%;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px);}
+.disp{font-family:var(--disp);text-transform:uppercase;line-height:.9;}
+
+/* Header */
+header.top{background:var(--ink);color:var(--cream);position:sticky;top:0;z-index:20;border-bottom:2px solid #000;}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:14px 0;}
+header .brand{display:flex;align-items:center;gap:12px;}
+header .brand .mk{width:34px;height:34px;}
+header .brand b{font-family:var(--disp);font-size:1.4rem;letter-spacing:.02em;}
+header .brand span{display:block;font-size:.62rem;letter-spacing:.22em;color:#cdbb9f;text-transform:uppercase;margin-top:-3px;}
+header nav{display:flex;gap:18px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#cdbb9f;flex-wrap:wrap;}
+header nav a{color:#cdbb9f;text-decoration:none;}header nav a:hover{color:var(--yellow);}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;border-bottom:3px solid var(--ink);position:relative;overflow:hidden;}
+.hero .wrap{padding:clamp(48px,8vw,96px) clamp(20px,5vw,56px);position:relative;z-index:2;}
+.hero .eyebrow{color:#fff;opacity:.9;}
+.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2.6rem,8vw,5.4rem);margin:.4rem 0 .6rem;text-shadow:0 4px 20px rgba(0,0,0,.2);}
+.hero p{max-width:60ch;font-size:clamp(1.05rem,2vw,1.3rem);opacity:.98;margin:0;}
+.hero .wm{position:absolute;right:-40px;bottom:-70px;width:340px;opacity:.14;z-index:1;transform:rotate(-8deg);}
+
+.eyebrow{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-deep);margin:0 0 .3rem;}
+.eyebrow .n{color:var(--muted);}
+
+section.blk{padding:clamp(46px,7vw,88px) 0;border-bottom:1px solid var(--line);}
+section.blk h2{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.8rem,4.6vw,3rem);margin:0 0 .5rem;}
+section.blk .lead{color:var(--ink-soft);max-width:70ch;margin:0 0 2rem;font-size:1.08rem;}
+
+/* Principe : 3 piliers */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:760px){.pillars{grid-template-columns:1fr;}}
+.pillar{background:var(--card);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;}
+.pillar .ic{font-size:1.6rem;}
+.pillar h3{font-family:var(--disp);text-transform:uppercase;font-size:1.2rem;margin:.5rem 0 .3rem;}
+.pillar p{margin:0;color:var(--ink-soft);font-size:.95rem;}
+
+/* Collection : passport panel */
+.passport{background:var(--kraft);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(22px,3vw,40px);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M40 0H0V40' fill='none' stroke='%23000' stroke-opacity='0.05'/%3E%3C/svg%3E");}
+.stampgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(16px,2.4vw,30px);}
+.stampcell{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.4rem;}
+.stampcell .medallion{transition:transform .25s ease;}
+.stampcell:hover .medallion{transform:rotate(-5deg) scale(1.05);}
+.stampcell h3{font-weight:700;font-size:1rem;margin:.2rem 0 0;}
+.stampcell small{color:var(--muted);font-size:.8rem;}
+
+/* Flags */
+.flags{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;}
+.flagcard{background:var(--card);border:2px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:12px;text-align:center;}
+.flagcard svg{width:100%;height:auto;border-radius:5px;border:1px solid rgba(0,0,0,.15);}
+.flagcard .nm{font-weight:700;font-size:.86rem;margin-top:8px;}
+
+/* Couleurs */
+.cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
+.colcard{background:var(--card);border:2px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);overflow:hidden;}
+.colcard .sw{height:74px;display:flex;align-items:flex-end;justify-content:space-between;padding:8px 12px;color:#fff;}
+.colcard .sw .hex{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;font-weight:700;background:rgba(0,0,0,.22);padding:2px 7px;border-radius:6px;}
+.colcard .bd{padding:12px 14px;}
+.colcard .bd b{font-family:var(--disp);text-transform:uppercase;font-size:1.05rem;}
+.colcard .bd p{margin:.2rem 0 0;font-size:.85rem;color:var(--ink-soft);}
+
+/* Anatomie */
+.anat{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:30px;align-items:center;}
+@media(max-width:760px){.anat{grid-template-columns:1fr;}}
+.anat .stage{background:var(--card);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:24px;display:grid;place-items:center;}
+.anat ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.anat li{display:flex;gap:14px;align-items:flex-start;}
+.anat li .k{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--yellow);font-family:var(--disp);display:grid;place-items:center;font-size:1rem;}
+.anat li b{display:block;}
+.anat li p{margin:.1rem 0 0;color:var(--ink-soft);font-size:.92rem;}
+
+/* Vivent partout */
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:820px){.demo{grid-template-columns:1fr;}}
+.box{background:var(--card);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;}
+.box .cap{font-size:.74rem;color:var(--muted);padding:9px 15px;border-top:1px solid var(--line);}
+.pbanner{position:relative;padding:24px;color:#fff;display:flex;flex-direction:column;justify-content:center;min-height:150px;overflow:hidden;}
+.pbanner h3{font-family:var(--disp);text-transform:uppercase;font-size:2.2rem;margin:0;line-height:.9;position:relative;z-index:1;}
+.pbanner .cp{opacity:.95;font-weight:600;position:relative;z-index:1;}
+.pbanner .stamp-wm{position:absolute;right:16px;top:50%;transform:translateY(-50%) rotate(-6deg);width:132px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.18));}
+.hrow{display:flex;align-items:center;gap:14px;padding:16px 18px;}
+.hrow .flagchip{width:30px;height:20px;flex:none;border-radius:4px;overflow:hidden;border:1px solid rgba(0,0,0,.2);}
+.hrow .h{font-family:var(--disp);text-transform:uppercase;font-size:1.3rem;line-height:1;}
+.hrow .loc{font-size:.8rem;color:var(--muted);}
+.mapdemo{position:relative;height:190px;background:#0C1124;}
+.popup{position:absolute;left:26px;top:30px;background:var(--card);border:2px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:12px 14px;max-width:210px;}
+.popup .tag{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:999px;color:#fff;background:var(--orange);}
+.popup .v{font-family:var(--disp);text-transform:uppercase;font-size:1.15rem;margin-top:5px;}
+.popup .s{font-size:.8rem;color:var(--ink-soft);display:flex;align-items:center;gap:6px;}
+.popup .s .fl{width:20px;height:13px;border-radius:2px;overflow:hidden;border:1px solid rgba(0,0,0,.25);flex:none;}
+.mapdemo .mini{position:absolute;right:24px;bottom:18px;width:70px;}
+.passmini{background:var(--kraft);padding:18px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M40 0H0V40' fill='none' stroke='%23000' stroke-opacity='0.05'/%3E%3C/svg%3E");}
+
+footer{padding:40px 0;color:var(--muted);font-size:.86rem;text-align:center;}
+footer b{color:var(--ink);}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand"><span class="mk" id="hmk"></span><div><b>AMHE</b><span>Atlas d'Asie · Concept</span></div></div>
+  <nav><a href="#principe">Principe</a><a href="#collection">Collection</a><a href="#drapeaux">Drapeaux</a><a href="#couleurs">Couleurs</a><a href="#anatomie">Anatomie</a><a href="#partout">Partout</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <p class="eyebrow"><span class="n">Concept design</span> · à valider</p>
+  <h1>Les tampons<br/>du voyage</h1>
+  <p>Chaque pays traversé laisse une empreinte : un tampon dessiné, façon carnet de gare japonais. Une forme propre, une scène qui raconte le lieu, l'encre à la couleur du pays. C'est la signature d'Atlas d'Asie — et la collection que la famille remplit au fil de la route.</p>
+  <div class="wm" id="herowm"></div>
+</div></div>
+
+<!-- PRINCIPE -->
+<section class="blk" id="principe"><div class="wrap">
+  <p class="eyebrow"><span class="n">01</span> · Le principe</p>
+  <h2>Un tampon, une histoire</h2>
+  <p class="lead">Pas le même rond décliné sept fois. À la manière des tampons <em>eki</em> (gares & temples japonais), chaque pays a son empreinte unique — reconnaissable en un clin d'œil, mémorisable par un enfant.</p>
+  <div class="pillars">
+    <div class="pillar"><div class="ic">✒️</div><h3>Une forme propre</h3><p>Cercle, ovale vertical, arche, coussin… la silhouette elle-même distingue le pays avant même le motif.</p></div>
+    <div class="pillar"><div class="ic">🏔️</div><h3>Une scène qui raconte</h3><p>Un monument, un animal, un paysage emblématique. Le ger mongol, la jonque de Hong-Kong, le volcan indonésien.</p></div>
+    <div class="pillar"><div class="ic">🎨</div><h3>La couleur du pays</h3><p>L'encre prend une teinte signature par pays. Côte à côte, la collection forme un mur multicolore, très « carnet ».</p></div>
+  </div>
+</div></section>
+
+<!-- COLLECTION -->
+<section class="blk" id="collection"><div class="wrap">
+  <p class="eyebrow"><span class="n">02</span> · La collection</p>
+  <h2>Sept pays, sept empreintes</h2>
+  <p class="lead">La page de passeport telle qu'elle apparaît sur l'accueil : les tampons se posent au scroll (chute + petite rotation). Survole-les.</p>
+  <div class="passport"><div class="stampgrid" id="coll-grid"></div></div>
+</div></section>
+
+<!-- DRAPEAUX -->
+<section class="blk" id="drapeaux"><div class="wrap">
+  <p class="eyebrow"><span class="n">03</span> · Le petit format</p>
+  <h2>Les drapeaux stylisés</h2>
+  <p class="lead">Quand la scène serait illisible (listes d'hôtels, pins de carte, en-têtes), on bascule sur le drapeau redessiné à plat — même identité, à 20&nbsp;px.</p>
+  <div class="flags" id="flags"></div>
+</div></section>
+
+<!-- COULEURS -->
+<section class="blk" id="couleurs"><div class="wrap">
+  <p class="eyebrow"><span class="n">04</span> · Le système couleur</p>
+  <h2>Une teinte par pays</h2>
+  <p class="lead">Les drapeaux sont presque tous rouges : on choisit donc des teintes signatures évocatrices ET assez variées pour un beau mur. Toutes s'accordent avec la base crème + encre AMHE.</p>
+  <div class="cols" id="cols"></div>
+</div></section>
+
+<!-- ANATOMIE -->
+<section class="blk" id="anatomie"><div class="wrap">
+  <p class="eyebrow"><span class="n">05</span> · Anatomie</p>
+  <h2>Comment c'est construit</h2>
+  <p class="lead">Chaque tampon suit la même grammaire — c'est ce qui rend la collection cohérente malgré les formes différentes.</p>
+  <div class="anat">
+    <div class="stage" id="anatstage"></div>
+    <ul>
+      <li><span class="k">1</span><div><b>L'anneau</b><p>Bord plein + liseré pointillé « encre pressée ». La forme (cercle / ovale / arche) est propre au pays.</p></div></li>
+      <li><span class="k">2</span><div><b>Le nom arqué</b><p>Le pays seul, en bas, façon cachet de douane. On a retiré « ATLAS D'ASIE » : redondant et illisible.</p></div></li>
+      <li><span class="k">3</span><div><b>Les étoiles</b><p>★ ✦ ★ en tête — le petit rituel du tampon officiel, clin d'œil AMHE.</p></div></li>
+      <li><span class="k">4</span><div><b>La scène</b><p>Le motif-histoire du pays, dessiné à l'encre sur fond papier. Le cœur du tampon.</p></div></li>
+      <li><span class="k">5</span><div><b>L'encre</b><p>Une seule couleur, la teinte signature du pays. Légère rotation pour l'effet « posé main ».</p></div></li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- PARTOUT -->
+<section class="blk" id="partout" style="border-bottom:0"><div class="wrap">
+  <p class="eyebrow"><span class="n">06</span> · Ça vit partout</p>
+  <h2>Le fil rouge du site</h2>
+  <p class="lead">Le tampon n'est pas qu'un ornement d'accueil : il relie toutes les pages.</p>
+  <div class="demo">
+    <div class="box">
+      <div class="pbanner" id="demo-banner">
+        <div class="stamp-wm" id="demo-banner-wm"></div>
+        <h3>Mongolie</h3><div class="cp">Oulan-Bator · 14 → 23 juil.</div>
+      </div>
+      <div class="cap">Fiche pays — tampon en filigrane blanc dans le bandeau</div>
+    </div>
+    <div class="box">
+      <div class="passmini" id="demo-strip"></div>
+      <div class="cap">Accueil — la « page de passeport » qui se collectionne au scroll</div>
+    </div>
+    <div class="box">
+      <div class="hrow"><span class="flagchip" id="demo-hrow-fl"></span><div><div class="h">Royal Plaza Hotel</div><div class="loc">Hong Kong · Hong-Kong</div></div></div>
+      <div class="cap">Hôtels — pastille drapeau en tête de ligne</div>
+    </div>
+    <div class="box">
+      <div class="mapdemo">
+        <div class="popup"><span class="tag">Passé</span><div class="v">Almaty</div><div class="s"><span class="fl" id="demo-pop-fl"></span>Kazakhstan · 5 juil.</div></div>
+        <div class="mini" id="demo-map-mini"></div>
+      </div>
+      <div class="cap">Carte — drapeau dans les popups, tampon au survol</div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Concept design · <b>Les tampons AMHE</b> — Atlas d'Asie · à valider. Le code SVG de cette page est celui du site (<b>src/lib/stamps.ts</b>).</div></footer>
+
+<script>
+/* ==== code identique à src/lib/stamps.ts (pour que ce concept = le site) ==== */
+const COUNTRIES=[
+ {code:"KZ",nom:"Kazakhstan",cap:"Astana",col:"#0E9CB8",why:"Turquoise — le ciel immense de la steppe."},
+ {code:"KG",nom:"Kirghizistan",cap:"Bichkek",col:"#D62839",why:"Rouge du drapeau — le tunduk sur fond vif."},
+ {code:"MN",nom:"Mongolie",cap:"Oulan-Bator",col:"#C0552B",why:"Terracotta — les terres du Gobi et de la steppe."},
+ {code:"CN",nom:"Chine",cap:"Pékin",col:"#C1121F",why:"Rouge impérial — la couleur emblème du pays."},
+ {code:"HK",nom:"Hong-Kong",cap:"Hong Kong",col:"#C71F6B",why:"Magenta — la fleur de bauhinia du drapeau."},
+ {code:"MY",nom:"Malaisie",cap:"Kuala Lumpur",col:"#12457A",why:"Bleu nuit — les tours dans le ciel du soir."},
+ {code:"ID",nom:"Indonésie",cap:"Jakarta",col:"#0E8A6B",why:"Vert-jade — la jungle et la mer des îles."},
+];
+const PAPER="#FFFDF8";
+function star(cx,cy,r,fill,rot=0){let p="";for(let i=0;i<5;i++){const a=(-90+rot+i*72)*Math.PI/180,a2=a+36*Math.PI/180;p+=(i?"L":"M")+(cx+r*Math.cos(a)).toFixed(1)+" "+(cy+r*Math.sin(a)).toFixed(1)+"L"+(cx+r*0.4*Math.cos(a2)).toFixed(1)+" "+(cy+r*0.4*Math.sin(a2)).toFixed(1);}return `<path d="${p}Z" fill="${fill}"/>`;}
+function flag(code){let g="";switch(code){
+ case"KZ":g=`<rect width="30" height="20" fill="#00AFCA"/><g stroke="#FFD200" stroke-width="0.5">${Array.from({length:12},(_,i)=>{const a=i*30*Math.PI/180;return `<line x1="16" y1="9" x2="${16+6*Math.cos(a)}" y2="${9+6*Math.sin(a)}"/>`}).join("")}</g><circle cx="16" cy="9" r="3.4" fill="#FFD200"/><rect width="2" height="20" fill="#FFD200"/>`;break;
+ case"KG":g=`<rect width="30" height="20" fill="#E8112D"/><g stroke="#FFD200" stroke-width="0.5">${Array.from({length:16},(_,i)=>{const a=i*22.5*Math.PI/180;return `<line x1="15" y1="10" x2="${15+6*Math.cos(a)}" y2="${10+6*Math.sin(a)}"/>`}).join("")}</g><circle cx="15" cy="10" r="3.6" fill="#FFD200"/><line x1="12" y1="10" x2="18" y2="10" stroke="#E8112D" stroke-width="0.5"/><line x1="15" y1="7.5" x2="15" y2="12.5" stroke="#E8112D" stroke-width="0.5"/>`;break;
+ case"MN":g=`<rect width="10" height="20" fill="#C4272E"/><rect x="10" width="10" height="20" fill="#015197"/><rect x="20" width="10" height="20" fill="#C4272E"/><g fill="#F9CF02"><circle cx="5" cy="6" r="1.1"/><path d="M3.6 8h2.8v1H3.6z"/><path d="M3.8 10.2 5 9l1.2 1.2-1.2 1.2z"/><path d="M3.6 12.5h2.8v1H3.6z"/></g>`;break;
+ case"CN":g=`<rect width="30" height="20" fill="#DE2910"/>${star(6,5,3.4,"#FFDE00",0)}${star(11,2.4,1.1,"#FFDE00",20)}${star(12.6,4.6,1.1,"#FFDE00",40)}${star(12.6,7.6,1.1,"#FFDE00",-40)}${star(11,9.8,1.1,"#FFDE00",-20)}`;break;
+ case"HK":g=`<rect width="30" height="20" fill="#DE2910"/><g fill="#fff">${Array.from({length:5},(_,i)=>{const a=(-90+i*72)*Math.PI/180;return `<ellipse cx="${15+3.4*Math.cos(a)}" cy="${10+3.4*Math.sin(a)}" rx="1.5" ry="3.4" transform="rotate(${i*72} ${15+3.4*Math.cos(a)} ${10+3.4*Math.sin(a)})"/>`}).join("")}</g><circle cx="15" cy="10" r="1.3" fill="#DE2910"/>`;break;
+ case"MY":g=`${Array.from({length:14},(_,i)=>`<rect y="${i*20/14}" width="30" height="${20/14}" fill="${i%2?'#fff':'#CC0001'}"/>`).join("")}<rect width="15" height="${20/14*8}" fill="#010066"/><circle cx="6.5" cy="5.5" r="3" fill="#FFCC00"/><circle cx="7.8" cy="5.5" r="2.6" fill="#010066"/>${star(10.4,5.5,1.8,"#FFCC00",0)}`;break;
+ case"ID":g=`<rect width="30" height="10" fill="#FF0000"/><rect y="10" width="30" height="10" fill="#fff"/>`;break;}
+ return `<svg viewBox="0 0 30 20" preserveAspectRatio="none" role="img" aria-label="Drapeau ${code}">${g}</svg>`;}
+function topStars(ink){return `<text x="75" y="26" text-anchor="middle" font-size="11" fill="${ink}">★ ✦ ★</text>`;}
+function nameArc(id,txt,ink,r=64){const off=txt.length>9?'4%':'8%';return `<path id="bn${id}" d="M75 ${75+r}a${r} ${r} 0 0 1 0 ${-2*r}" fill="none"/><text font-family="Inter,sans-serif" font-weight="800" font-size="12" letter-spacing="2.2" fill="${ink}"><textPath href="#bn${id}" startOffset="${off}">${txt.toUpperCase()}</textPath></text>`;}
+function ringDashed(ink,r=71){return `<circle cx="75" cy="75" r="${r}" fill="none" stroke="${ink}" stroke-width="2" stroke-dasharray="1 4"/>`;}
+const scKZ=(ink,paper,id)=>`<clipPath id="c${id}"><circle cx="75" cy="75" r="60"/></clipPath><g clip-path="url(#c${id})"><circle cx="75" cy="50" r="10" fill="${ink}"/><g stroke="${ink}" stroke-width="1.5">${Array.from({length:12},(_,i)=>{const a=i*30*Math.PI/180;return `<line x1="${75+12*Math.cos(a)}" y1="${50+12*Math.sin(a)}" x2="${75+16*Math.cos(a)}" y2="${50+16*Math.sin(a)}"/>`}).join("")}</g><g fill="${paper}" stroke="${ink}" stroke-width="2" stroke-linejoin="round"><path d="M75 82 C61 70 49 72 35 84 C51 80 63 80 75 88Z"/><path d="M75 82 C89 70 101 72 115 84 C99 80 87 80 75 88Z"/><path d="M71 87 L75 100 L79 87Z"/></g><circle cx="75" cy="80" r="3" fill="${ink}"/></g><circle cx="75" cy="75" r="60" fill="none" stroke="${ink}" stroke-width="3"/>${ringDashed(ink)}${topStars(ink)}${nameArc(id,'Kazakhstan',ink)}`;
+const scKG=(ink,paper,id)=>`<g fill="${ink}">${Array.from({length:24},(_,i)=>{const a=i*15*Math.PI/180;return `<path d="M${(75+58*Math.cos(a-0.05)).toFixed(1)} ${(75+58*Math.sin(a-0.05)).toFixed(1)} L${(75+68*Math.cos(a)).toFixed(1)} ${(75+68*Math.sin(a)).toFixed(1)} L${(75+58*Math.cos(a+0.05)).toFixed(1)} ${(75+58*Math.sin(a+0.05)).toFixed(1)}Z"/>`}).join("")}</g><circle cx="75" cy="75" r="58" fill="none" stroke="${ink}" stroke-width="3"/><clipPath id="c${id}"><circle cx="75" cy="75" r="55"/></clipPath><g clip-path="url(#c${id})"><path d="M18 100 L44 70 L62 90 L82 64 L104 92 L132 100Z" fill="none" stroke="${ink}" stroke-width="1.8" stroke-linejoin="round"/></g><g transform="translate(75,64)"><circle r="17" fill="${paper}" stroke="${ink}" stroke-width="2.5"/><g stroke="${ink}" stroke-width="2" fill="none"><path d="M-17 0A17 17 0 0 1 17 0"/><path d="M-12 -8A15 15 0 0 1 12 -8"/><path d="M-12 8A15 15 0 0 0 12 8"/></g><line x1="-17" y1="0" x2="17" y2="0" stroke="${ink}" stroke-width="1.4"/><line x1="0" y1="-17" x2="0" y2="17" stroke="${ink}" stroke-width="1.4"/><line x1="-12" y1="-12" x2="12" y2="12" stroke="${ink}" stroke-width="1"/><line x1="12" y1="-12" x2="-12" y2="12" stroke="${ink}" stroke-width="1"/></g>${topStars(ink)}${nameArc(id,'Kirghizistan',ink)}`;
+const scMN=(ink,paper,id)=>`<clipPath id="c${id}"><circle cx="75" cy="75" r="60"/></clipPath><g clip-path="url(#c${id})"><circle cx="102" cy="52" r="9" fill="${ink}"/><g stroke="${ink}" stroke-width="1.5">${Array.from({length:8},(_,i)=>{const a=i*45*Math.PI/180;return `<line x1="${102+11*Math.cos(a)}" y1="${52+11*Math.sin(a)}" x2="${102+15*Math.cos(a)}" y2="${52+15*Math.sin(a)}"/>`}).join("")}</g><path d="M15 96 L38 66 L52 84 L70 56 L90 82 L110 68 L135 96Z" fill="none" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M28 52q4 -5 8 0q4 -5 8 0" fill="none" stroke="${ink}" stroke-width="1.4"/><path d="M46 44q3 -4 6 0q3 -4 6 0" fill="none" stroke="${ink}" stroke-width="1.2"/><path d="M60 100 V82 H90 V100" fill="${paper}" stroke="${ink}" stroke-width="2"/><path d="M55 82 Q75 63 95 82" fill="none" stroke="${ink}" stroke-width="2"/><line x1="75" y1="63" x2="75" y2="70" stroke="${ink}" stroke-width="1.4"/><rect x="71" y="88" width="8" height="12" fill="${ink}"/></g><circle cx="75" cy="75" r="60" fill="none" stroke="${ink}" stroke-width="3"/>${ringDashed(ink)}${topStars(ink)}${nameArc(id,'Mongolie',ink)}`;
+const scCN=(ink,paper,id)=>`<clipPath id="c${id}"><ellipse cx="75" cy="75" rx="54" ry="64"/></clipPath><g clip-path="url(#c${id})"><circle cx="98" cy="42" r="8" fill="${ink}"/><g fill="${paper}" stroke="${ink}" stroke-width="2" stroke-linejoin="round"><path d="M52 108 V58 Q52 50 57 50 Q62 50 62 58 V108Z"/><path d="M66 108 V44 Q66 36 71 36 Q76 36 76 44 V108Z"/><path d="M80 108 V64 Q80 56 85 56 Q90 56 90 64 V108Z"/><path d="M92 108 V72 Q92 66 96 66 Q100 66 100 72 V108Z"/></g><g stroke="${ink}" stroke-width="1.2" opacity=".7"><path d="M40 86 q18 -5 34 0" fill="none"/><path d="M56 98 q16 -5 34 0" fill="none"/></g></g><ellipse cx="75" cy="75" rx="54" ry="64" fill="none" stroke="${ink}" stroke-width="3"/><ellipse cx="75" cy="75" rx="60" ry="70" fill="none" stroke="${ink}" stroke-width="1.5" stroke-dasharray="1 4"/><text x="75" y="24" text-anchor="middle" font-size="11" fill="${ink}">★ ✦ ★</text><text x="75" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="12" letter-spacing="2" fill="${ink}">CHINE</text>`;
+const scHK=(ink,paper,id)=>`<clipPath id="c${id}"><circle cx="75" cy="75" r="60"/></clipPath><g clip-path="url(#c${id})"><g fill="none" stroke="${ink}" stroke-width="2"><path d="M30 74 V54 M38 74 V44 M46 74 V50"/><path d="M96 74 V48 M104 74 V40 M112 74 V52 M120 74 V58"/></g><line x1="20" y1="74" x2="130" y2="74" stroke="${ink}" stroke-width="1.5"/><g fill="${ink}"><path d="M62 72 V40 L84 72Z"/><path d="M60 72 V46 L44 72Z"/></g><line x1="61" y1="36" x2="61" y2="74" stroke="${ink}" stroke-width="2"/><path d="M46 74 H92 L86 84 H52Z" fill="${paper}" stroke="${ink}" stroke-width="2"/><g stroke="${ink}" stroke-width="1.2" opacity=".7"><path d="M28 92 q10 -4 20 0t20 0 20 0 20 0" fill="none"/><path d="M34 100 q10 -4 20 0t20 0 20 0" fill="none"/></g></g><circle cx="75" cy="75" r="60" fill="none" stroke="${ink}" stroke-width="3"/>${ringDashed(ink)}${topStars(ink)}${nameArc(id,'Hong-Kong',ink)}`;
+const scMY=(ink,paper,id)=>`<clipPath id="c${id}"><ellipse cx="75" cy="75" rx="52" ry="64"/></clipPath><g clip-path="url(#c${id})"><path d="M104 34 a11 11 0 1 0 3 15 a8.5 8.5 0 1 1 -3 -15Z" fill="${ink}"/><g fill="${paper}" stroke="${ink}" stroke-width="2" stroke-linejoin="round"><path d="M56 116 V58 Q56 50 62 48 Q68 50 68 58 V116Z"/><path d="M82 116 V58 Q82 50 88 48 Q94 50 94 58 V116Z"/></g><g stroke="${ink}" stroke-width="1.6"><line x1="62" y1="48" x2="62" y2="38"/><line x1="88" y1="48" x2="88" y2="38"/></g><g stroke="${ink}" stroke-width="1.2" opacity=".8">${[64,76,88,100].map(y=>`<line x1="56" y1="${y}" x2="68" y2="${y}"/><line x1="82" y1="${y}" x2="94" y2="${y}"/>`).join("")}</g><path d="M68 72 H82 M68 76 H82" stroke="${ink}" stroke-width="2"/><path d="M71 72 L75 76 L79 72 M71 76 L75 72 L79 76" stroke="${ink}" stroke-width="1" fill="none"/><line x1="24" y1="116" x2="126" y2="116" stroke="${ink}" stroke-width="1.5"/></g><ellipse cx="75" cy="75" rx="52" ry="64" fill="none" stroke="${ink}" stroke-width="3"/><text x="75" y="22" text-anchor="middle" font-size="11" fill="${ink}">★ ✦ ★</text><text x="75" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="12" letter-spacing="2" fill="${ink}">MALAISIE</text>`;
+const scID=(ink,paper,id)=>`<clipPath id="c${id}"><path d="M75 16 C112 16 134 38 134 75 C134 112 112 134 75 134 C38 134 16 112 16 75 C16 38 38 16 75 16Z"/></clipPath><g clip-path="url(#c${id})"><circle cx="75" cy="46" r="8" fill="${ink}"/><path d="M40 104 L66 56 Q75 44 84 56 L110 104Z" fill="${paper}" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M66 58 q9 6 18 0" fill="none" stroke="${ink}" stroke-width="1.6"/><path d="M72 52 q3 8 -2 16 M78 52 q-3 8 2 16" fill="none" stroke="${ink}" stroke-width="1.6"/><g stroke="${ink}" stroke-width="2" fill="none"><path d="M112 104 V78"/><path d="M112 78 q-10 -8 -20 -6 M112 78 q10 -8 20 -6 M112 78 q-6 -12 -14 -14 M112 78 q6 -12 14 -14 M112 80 q-14 -2 -22 4 M112 80 q14 -2 22 4"/></g><line x1="18" y1="104" x2="132" y2="104" stroke="${ink}" stroke-width="1.5"/><g stroke="${ink}" stroke-width="1.2" opacity=".6"><path d="M24 114 q10 -4 20 0t20 0 20 0 20 0" fill="none"/></g></g><path d="M75 16 C112 16 134 38 134 75 C134 112 112 134 75 134 C38 134 16 112 16 75 C16 38 38 16 75 16Z" fill="none" stroke="${ink}" stroke-width="3"/>${topStars(ink)}<text x="75" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="11.5" letter-spacing="1.6" fill="${ink}">INDONÉSIE</text>`;
+const SCENES={KZ:scKZ,KG:scKG,MN:scMN,CN:scCN,HK:scHK,MY:scMY,ID:scID};
+let _uid=0;
+function stampEki(c,opts={}){const ink=opts.ink??c.col;const paper=opts.paper??PAPER;const size=opts.size??138;const op=opts.opacity??1;const id=c.code+"_"+_uid++;const inner=SCENES[c.code](ink,paper,id);return `<svg class="medallion" width="${size}" height="${size}" viewBox="0 0 150 150" role="img" aria-label="Tampon ${c.nom}"${op!==1?` style="opacity:${op}"`:""}>${inner}</svg>`;}
+function amheMark(color){return `<svg viewBox="0 0 48 48"><g fill="none" stroke="${color}" stroke-width="2.4"><rect x="3.2" y="3.2" width="41.6" height="41.6" rx="11"/><path fill="${color}" stroke="none" fill-rule="evenodd" d="M24 9.5a12.5 12.5 0 1 1 0 25 12.5 12.5 0 0 1 0-25Z M24 30.6c3.9-2.7 6.6-5 6.6-7.9 0-1.9-1.5-3.3-3.3-3.3-1.4 0-2.6.8-3.3 2-.7-1.2-1.9-2-3.3-2-1.8 0-3.3 1.4-3.3 3.3 0 2.9 2.7 5.2 6.6 7.9Z"/><path stroke="${color}" stroke-linecap="round" d="M9 35.5h30"/></g></svg>`;}
+const byCode=c=>COUNTRIES.find(x=>x.code===c);
+
+// header + hero marks
+document.getElementById("hmk").innerHTML=amheMark("#FFF4E2");
+document.getElementById("herowm").innerHTML=amheMark("#ffffff");
+// collection
+document.getElementById("coll-grid").innerHTML=COUNTRIES.map(c=>`<div class="stampcell">${stampEki(c)}<h3>${c.nom}</h3><small>${c.cap}</small></div>`).join("");
+// flags
+document.getElementById("flags").innerHTML=COUNTRIES.map(c=>`<div class="flagcard">${flag(c.code)}<div class="nm">${c.nom}</div></div>`).join("");
+// couleurs
+document.getElementById("cols").innerHTML=COUNTRIES.map(c=>`<div class="colcard"><div class="sw" style="background:${c.col}"><span>${c.nom}</span><span class="hex">${c.col}</span></div><div class="bd"><b>${c.code}</b><p>${c.why}</p></div></div>`).join("");
+// anatomie (Mongolie en grand)
+document.getElementById("anatstage").innerHTML=stampEki(byCode("MN"),{size:280});
+// partout
+document.getElementById("demo-banner").style.background=`linear-gradient(135deg, ${byCode("MN").col}, #241A14)`;
+document.getElementById("demo-banner-wm").innerHTML=stampEki(byCode("MN"),{ink:"#ffffff",paper:"none",size:132,opacity:.92});
+document.getElementById("demo-strip").innerHTML=COUNTRIES.map(c=>`<div style="width:96px">${stampEki(c,{size:96})}</div>`).join("");
+document.getElementById("demo-hrow-fl").innerHTML=flag("HK");
+document.getElementById("demo-pop-fl").innerHTML=flag("KZ");
+document.getElementById("demo-map-mini").innerHTML=stampEki(byCode("ID"),{size:70});
+</script>
+</body>
+</html>
