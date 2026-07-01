@@ -22,7 +22,7 @@ import Footer from '../components/Footer.astro';
   .ht{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
   .hrow{background:var(--card);border:2px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);padding:16px 18px;margin:0 0 12px;display:grid;grid-template-columns:1fr auto;gap:12px 20px;align-items:start;}
   .hrow .loc{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;}
-  .hrow h2{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.15rem,2.6vw,1.6rem);margin:.15rem 0 .1rem;}
+  .hrow h3{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.15rem,2.6vw,1.6rem);margin:.15rem 0 .1rem;}
   .hrow .adr{font-size:.86rem;color:var(--ink-soft);}
   .hrow .actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
   .hrow .st{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap;}
@@ -39,6 +39,7 @@ import Footer from '../components/Footer.astro';
   import { fetchTab } from '../lib/data';
   import { toStops } from '../lib/model';
   import type { Stop } from '../lib/model';
+  import { paysHead, groupByPays } from '../lib/paysMeta';
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
   const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
   const dm = (d: Date | null) => (d ? `${d.getDate()} ${MON[d.getMonth()]}` : '');
@@ -54,8 +55,8 @@ import Footer from '../components/Footer.astro';
     const bookBtn = s.hotelLien ? `<a class="btn btn--book" href="${esc(s.hotelLien)}" target="_blank" rel="noopener">${LINK} Réservation</a>` : '';
     return `<article class="hrow">
       <div>
-        <div class="loc">${esc(s.ville)} · ${esc(s.pays)}${dates ? ' · ' + dates : ''}</div>
-        <h2>${esc(s.hotelNom || 'Hôtel à trouver')}</h2>
+        <div class="loc">${esc(s.ville)}${dates ? ' · ' + dates : ''}</div>
+        <h3>${esc(s.hotelNom || 'Hôtel à trouver')}</h3>
         ${s.hotelAdresse ? `<div class="adr">${esc(s.hotelAdresse)}</div>` : ''}
       </div>
       <div class="actions">${st}${mapBtn}${bookBtn}</div>
@@ -66,7 +67,12 @@ import Footer from '../components/Footer.astro';
     const host = document.getElementById('hotels')!;
     try {
       const stops = toStops(await fetchTab('parcours')).filter((s) => s.pays.toLowerCase() !== 'france');
-      host.innerHTML = stops.map(row).join('');
+      host.innerHTML = groupByPays(stops, (s) => s.pays)
+        .map((g) => {
+          const n = g.items.length;
+          return paysHead(g.pays, `${n} hébergement${n > 1 ? 's' : ''}`) + g.items.map(row).join('');
+        })
+        .join('');
     } catch (err) {
       host.innerHTML = `<p class="loading">${String(err)}</p>`;
     }

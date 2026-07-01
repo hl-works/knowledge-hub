@@ -86,18 +86,12 @@ import Footer from '../components/Footer.astro';
 <script>
   import { fetchTab } from '../lib/data';
   import { toCountries, toQuiz, toAnimals, toLexique, toPratique } from '../lib/model';
+  import { PAL, CODE, slugPays as slug } from '../lib/paysMeta';
   import type { Country, QuizQ, Animal, Mot, Pratique } from '../lib/model';
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
-  const slug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const paras = (s: string) => s.split(/\n{2,}|\s•\s/).map((p) => `<p>${esc(p.trim())}</p>`).join('');
 
-  const PAL: Record<string, [string, string]> = {
-    Kazakhstan: ['#FA4616', '#C9330B'], Kirghizistan: ['#149E7C', '#0C5A5E'],
-    Mongolie: ['#E89B2E', '#B86A12'], Chine: ['#F2516F', '#C12B49'],
-    'Hong-Kong': ['#1E96C8', '#0C5A7E'], Indonésie: ['#149E7C', '#0C5A5E'], Malaisie: ['#E89B2E', '#B86A12'],
-  };
-  const CODE: Record<string, string> = { Kazakhstan: 'KZ', Kirghizistan: 'KG', Mongolie: 'MN', Chine: 'CN', 'Hong-Kong': 'HK', Indonésie: 'ID', Malaisie: 'MY' };
 
   const sv = (inner: string) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
   const IC = {

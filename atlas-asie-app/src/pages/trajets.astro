@@ -31,13 +31,29 @@ import Footer from '../components/Footer.astro';
   .trip .st{display:inline-block;margin-top:.4rem;font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:#fff;}
   .st--ok{background:var(--jade);} .st--todo{background:var(--gold);color:var(--ink);}
   .loading{color:var(--muted);}
+  .taxi{grid-column:1 / -1;border-top:1px dashed var(--line);margin-top:4px;padding-top:8px;}
+  .taxi summary{cursor:pointer;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);list-style:none;display:inline-flex;align-items:center;gap:.4rem;}
+  .taxi summary::before{content:"🚕";font-size:.95rem;}
+  .taxi summary::after{content:"▾";transition:transform .15s;}
+  .taxi[open] summary::after{transform:rotate(180deg);}
+  .taxi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:10px;}
+  .apt{background:var(--peach);border:1px solid var(--line);border-radius:12px;padding:12px 14px;}
+  .apt-lbl{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
+  .apt-en{font-weight:700;font-size:.92rem;}
+  .apt-adr{font-size:.8rem;color:var(--ink-soft);margin-top:.15rem;}
+  .apt-local{font-size:1.25rem;font-weight:600;margin-top:.45rem;line-height:1.3;}
+  .apt-btns{display:flex;gap:8px;margin-top:.65rem;flex-wrap:wrap;}
+  .btn-apt{display:inline-flex;align-items:center;gap:.35rem;font:700 .78rem var(--sans);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;text-decoration:none;}
+  .btn-apt svg{width:14px;height:14px;}
+  .btn-apt--map{background:var(--orange);color:#fff;}
+  .btn-apt--copy{background:var(--card);color:var(--ink);}
   @media(max-width:560px){.trip{grid-template-columns:44px 1fr;}.trip .right{grid-column:1 / -1;text-align:left;display:flex;gap:12px;align-items:center;justify-content:space-between;}}
 </style>
 
 <script>
   import { fetchTab } from '../lib/data';
-  import { toTransports } from '../lib/model';
-  import type { Trajet } from '../lib/model';
+  import { toTransports, toAeroports } from '../lib/model';
+  import type { Trajet, Aeroport } from '../lib/model';
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
   const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
   const sv = (i: string) => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${i}</svg>`;
@@ -47,7 +63,44 @@ import Footer from '../components/Footer.astro';
     Bateau: sv('<path d="M3 14l1.5 5a2 2 0 0 0 2 1.5h11a2 2 0 0 0 2-1.5L21 14M5 14V7l7-3 7 3v7M12 4v10"/>'),
   };
 
-  function trip(t: Trajet): string {
+  // "Almaty ALA T2" -> code IATA "ALA" ; "Pékin PKX (Daxing)" -> "PKX".
+  const iata = (leg: string) => (leg.match(/\b([A-Z]{3})\b/) ?? [])[1] ?? '';
+  const term = (leg: string) => (leg.match(/\bT(\d)\b/) ?? [])[1] ?? '';
+  const PIN = sv('<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>');
+  const COPY = sv('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>');
+
+  function aptSide(label: string, leg: string, apt: Aeroport | undefined): string {
+    if (!apt) return '';
+    const t = term(leg);
+    const suffix = t ? ` · T${t}` : '';
+    const local = apt.nomLocal && apt.nomLocal !== apt.nomEn ? apt.nomLocal + suffix : '';
+    const copyTxt = (local || apt.nomEn + suffix).trim();
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${apt.nomEn} ${apt.code}`)}`;
+    return `<div class="apt">
+      <span class="apt-lbl">${label}</span>
+      <div class="apt-en">${esc(apt.nomEn)}${suffix}</div>
+      ${apt.adresseEn ? `<div class="apt-adr">${esc(apt.adresseEn)}</div>` : ''}
+      ${local ? `<div class="apt-local">${esc(local)}</div>` : ''}
+      <div class="apt-btns">
+        <a class="btn-apt btn-apt--map" href="${mapUrl}" target="_blank" rel="noopener">${PIN} Carte</a>
+        <button type="button" class="btn-apt btn-apt--copy" data-copy="${esc(copyTxt)}">${COPY} Copier</button>
+      </div>
+    </div>`;
+  }
+
+  // Bloc « taxi » : l'aéroport en anglais + en écriture locale (à montrer au
+  // chauffeur ou à coller dans Waze / Uber / DiDi), carte + copier.
+  function taxiBlock(t: Trajet, apts: Map<string, Aeroport>): string {
+    const de = aptSide('Départ', t.de, apts.get(iata(t.de)));
+    const vers = aptSide('Arrivée', t.vers, apts.get(iata(t.vers)));
+    if (!de && !vers) return '';
+    return `<details class="taxi">
+      <summary>Aéroports & taxi</summary>
+      <div class="taxi-grid">${de}${vers}</div>
+    </details>`;
+  }
+
+  function trip(t: Trajet, apts: Map<string, Aeroport>): string {
     const d = t.date ? `${t.date.getDate()} ${MON[t.date.getMonth()]}` : esc(t.dateRaw);
     const hours = [t.departH, t.arriveeH].filter(Boolean).join(' → ');
     const comp = [t.compagnie, t.vol].filter(Boolean).join(' · ');
@@ -63,14 +116,30 @@ import Footer from '../components/Footer.astro';
         <div class="date">${d}</div>
         <span class="st ${ok ? 'st--ok' : 'st--todo'}">${esc(t.statut || '—')}</span>
       </div>
+      ${taxiBlock(t, apts)}
     </article>`;
   }
 
   (async () => {
     const host = document.getElementById('trajets')!;
     try {
-      const trajets = toTransports(await fetchTab('transports'));
-      host.innerHTML = trajets.map(trip).join('');
+      const [trajets, aeroports] = await Promise.all([
+        fetchTab('transports').then(toTransports),
+        fetchTab('aeroports').then(toAeroports).catch(() => []),
+      ]);
+      const apts = new Map(aeroports.map((a) => [a.code, a]));
+      host.innerHTML = trajets.map((t) => trip(t, apts)).join('');
+
+      host.addEventListener('click', async (e) => {
+        const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.btn-apt--copy');
+        if (!btn) return;
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copy!);
+          const old = btn.innerHTML;
+          btn.innerHTML = '✓ Copié';
+          setTimeout(() => { btn.innerHTML = old; }, 1400);
+        } catch { /* clipboard indisponible : le texte reste visible à sélectionner */ }
+      });
     } catch (err) {
       host.innerHTML = `<p class="loading">${String(err)}</p>`;
     }
