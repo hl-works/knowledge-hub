@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Les pays — Atlas d'Asie" description="Une fiche par pays : histoire, culture, fun facts et un mini-quiz. De quoi apprendre en s'amusant, du Kazakhstan à l'Indonésie.">
+  <Header variant="solid" active="pays" />
+  <main id="main">
+    <section class="intro"><div class="wrap">
+      <p class="eyebrow">Découverte</p>
+      <h1 class="disp">Les pays</h1>
+      <p class="lead">Une fiche par pays traversé : un peu d'histoire, des <em>fun facts</em>, et un <strong>mini-quiz</strong> pour tester Alexis, Emma… et les parents.</p>
+    </div></section>
+    <section class="fiches"><div class="wrap">
+      <div id="fiches"><p class="loading">Chargement des pays…</p></div>
+    </div></section>
+  </main>
+  <Footer />
+</Base>
+
+<style is:global>
+  .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,18px);}
+  .intro h1{font-size:clamp(2.6rem,8vw,5rem);margin:0 0 .6rem;}
+  .fiches{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
+  .fiche{scroll-margin-top:84px;margin:0 0 clamp(28px,4vw,44px);border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:var(--card);}
+  .fiche .banner{position:relative;padding:clamp(22px,4vw,40px) clamp(20px,4vw,34px);color:#fff;overflow:hidden;}
+  .fiche .banner::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 120% at 85% 15%, rgba(255,255,255,.18), transparent 55%);}
+  .fiche .banner .code{position:absolute;top:14px;right:18px;font-family:var(--disp);font-size:2.6rem;opacity:.35;}
+  .fiche .banner h2{font-family:var(--disp);font-size:clamp(2rem,6vw,3.4rem);text-transform:uppercase;margin:0;line-height:.95;position:relative;}
+  .fiche .banner .cap{position:relative;font-weight:600;opacity:.95;margin-top:.2rem;}
+  .fiche .body{padding:clamp(18px,3vw,30px);}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem;}
+  .facts .chip{background:var(--peach);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.82rem;color:var(--ink-soft);}
+  .facts .chip b{color:var(--ink);}
+  .histoire{color:var(--ink-soft);max-width:70ch;margin:0 0 1.4rem;}
+  .savais h3,.quiz h3{font-family:var(--disp);text-transform:uppercase;font-size:1.15rem;margin:0 0 .7rem;color:var(--orange-deep);}
+  .savais ul{margin:0 0 1.6rem;padding:0;list-style:none;display:grid;gap:8px;}
+  .savais li{position:relative;padding-left:26px;color:var(--ink-soft);}
+  .savais li::before{content:"";position:absolute;left:4px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);}
+  .quiz{background:var(--peach);border:1px solid var(--line);border-radius:14px;padding:clamp(16px,2.4vw,24px);}
+  .q{margin:0 0 1.1rem;}
+  .q:last-child{margin-bottom:0;}
+  .q .qq{font-weight:700;margin:0 0 .5rem;}
+  .q .opts{display:grid;gap:8px;}
+  .opt{display:flex;align-items:center;gap:10px;text-align:left;background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:9px 12px;cursor:pointer;font:inherit;color:var(--ink);transition:transform .1s ease;}
+  .opt:hover:not(:disabled){transform:translateX(2px);}
+  .opt .k{font-family:var(--disp);color:var(--orange-deep);width:1.2em;}
+  .opt.good{background:#DFF3E4;border-color:#1E8A5B;}
+  .opt.bad{background:#FBE0DA;border-color:#C9330B;}
+  .opt:disabled{cursor:default;}
+  .expl{margin:.6rem 0 0;font-size:.9rem;color:var(--ink-soft);border-left:3px solid var(--yellow);padding-left:10px;display:none;}
+  .expl.show{display:block;}
+  .score{font-family:var(--disp);color:var(--orange-deep);font-size:1.1rem;margin-top:.4rem;}
+  .loading{color:var(--muted);}
+</style>
+
+<script>
+  import { fetchTab } from '../lib/data';
+  import { toCountries, toQuiz } from '../lib/model';
+  import type { Country, QuizQ } from '../lib/model';
+
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+  const slug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+  const PAL: Record<string, [string, string]> = {
+    Kazakhstan: ['#FA4616', '#C9330B'], Kirghizistan: ['#149E7C', '#0C5A5E'],
+    Mongolie: ['#E89B2E', '#B86A12'], Chine: ['#F2516F', '#C12B49'],
+    'Hong-Kong': ['#1E96C8', '#0C5A7E'], Indonésie: ['#149E7C', '#0C5A5E'],
+    Malaisie: ['#E89B2E', '#B86A12'],
+  };
+  const CODE: Record<string, string> = {
+    Kazakhstan: 'KZ', Kirghizistan: 'KG', Mongolie: 'MN', Chine: 'CN',
+    'Hong-Kong': 'HK', Indonésie: 'ID', Malaisie: 'MY',
+  };
+
+  function quizBlock(qs: QuizQ[]): string {
+    if (!qs.length) return '';
+    const items = qs
+      .map((q, i) => {
+        const opts = q.choix
+          .map((c, j) => {
+            if (!c) return '';
+            const k = ['a', 'b', 'c'][j];
+            return `<button class="opt" data-k="${k}" data-good="${q.bonne}"><span class="k">${k.toUpperCase()}</span><span>${esc(c)}</span></button>`;
+          })
+          .join('');
+        return `<div class="q" data-q="${i}">
+          <p class="qq">${i + 1}. ${esc(q.question)}</p>
+          <div class="opts">${opts}</div>
+          <p class="expl">${esc(q.explication)}</p>
+        </div>`;
+      })
+      .join('');
+    return `<div class="quiz"><h3>Mini-quiz · duel Alexis / Emma</h3>${items}<p class="score" data-total="${qs.length}"></p></div>`;
+  }
+
+  function ficheHTML(c: Country, qs: QuizQ[]): string {
+    const [c1, c2] = PAL[c.pays] ?? ['#FA4616', '#C9330B'];
+    const facts = [
+      c.capitale && `<span class="chip"><b>Capitale</b> ${esc(c.capitale)}</span>`,
+      c.monnaie && `<span class="chip"><b>Monnaie</b> ${esc(c.monnaie)}</span>`,
+      c.langue && `<span class="chip"><b>Langue</b> ${esc(c.langue)}</span>`,
+      c.population && `<span class="chip"><b>Population</b> ${esc(c.population)}</span>`,
+    ].filter(Boolean).join('');
+    const funs = c.funFacts.map((f) => `<li>${esc(f)}</li>`).join('');
+    return `
+      <article class="fiche" id="${slug(c.pays)}">
+        <div class="banner" style="background:linear-gradient(135deg, ${c1}, ${c2})">
+          <span class="code">${CODE[c.pays] ?? ''}</span>
+          <h2>${esc(c.pays)}</h2>
+          ${c.capitale ? `<div class="cap">${esc(c.capitale)}</div>` : ''}
+        </div>
+        <div class="body">
+          <div class="facts">${facts}</div>
+          ${c.histoire ? `<p class="histoire">${esc(c.histoire)}</p>` : ''}
+          ${funs ? `<div class="savais"><h3>Le savais-tu ?</h3><ul>${funs}</ul></div>` : ''}
+          ${quizBlock(qs)}
+        </div>
+      </article>`;
+  }
+
+  (async () => {
+    const host = document.getElementById('fiches')!;
+    try {
+      const [pRows, qRows] = await Promise.all([fetchTab('pays'), fetchTab('quiz')]);
+      const countries = toCountries(pRows).filter((c) => c.pays);
+      const quiz = toQuiz(qRows);
+      host.innerHTML = countries.map((c) => ficheHTML(c, quiz.filter((q) => q.pays === c.pays))).join('');
+
+      // Interaction quiz : une réponse par question, score affiché à la fin.
+      host.querySelectorAll('.quiz').forEach((quizEl) => {
+        const total = quizEl.querySelectorAll('.q').length;
+        let answered = 0;
+        let score = 0;
+        quizEl.querySelectorAll('.q').forEach((qEl) => {
+          const opts = qEl.querySelectorAll<HTMLButtonElement>('.opt');
+          opts.forEach((opt) => {
+            opt.addEventListener('click', () => {
+              const good = opt.dataset.good!;
+              const chosen = opt.dataset.k!;
+              opts.forEach((o) => {
+                o.disabled = true;
+                if (o.dataset.k === good) o.classList.add('good');
+              });
+              if (chosen !== good) opt.classList.add('bad');
+              qEl.querySelector('.expl')?.classList.add('show');
+              answered++;
+              if (chosen === good) score++;
+              if (answered === total) {
+                quizEl.querySelector<HTMLElement>('.score')!.textContent = `Score : ${score} / ${total}`;
+              }
+            });
+          });
+        });
+      });
+
+      if (location.hash) {
+        const t = document.getElementById(location.hash.slice(1));
+        if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    } catch (err) {
+      host.innerHTML = `<p class="loading">${String(err)}</p>`;
+    }
+  })();
+</script>
