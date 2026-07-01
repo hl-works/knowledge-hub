@@ -44,3 +44,27 @@ img{max-width:100%;display:block;}
   html{scroll-behavior:auto;}
   *{animation:none!important;transition:none!important;}
 }
+
+/* ============ Carte Leaflet — habillage AMHE ============ */
+.leaflet-container{font-family:var(--sans);background:#0b1020;}
+.pin{display:block;width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.5);}
+.pin--passe{background:#FA4616;}
+.pin--a-venir{background:#FFF4E2;}
+.pin--en-cours,.pin--now{background:#F3EA5D;}
+.pin--pulse{box-shadow:0 0 0 0 rgba(243,234,93,.7);animation:pinpulse 1.8s infinite;}
+@keyframes pinpulse{0%{box-shadow:0 0 0 0 rgba(243,234,93,.7)}70%{box-shadow:0 0 0 14px rgba(243,234,93,0)}100%{box-shadow:0 0 0 0 rgba(243,234,93,0)}}
+.route-line--anim{animation:routemarch 14s linear infinite;}
+@keyframes routemarch{to{stroke-dashoffset:-100;}}
+.route-glow{filter:drop-shadow(0 0 4px #FA4616);}
+.leaflet-popup-content-wrap{background:var(--card);border:2px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink);}
+.leaflet-popup-content{margin:12px 14px;font-family:var(--sans);}
+.leaflet-popup-tip{background:var(--card);border:2px solid var(--ink);}
+.pp-tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:999px;color:#fff;}
+.pp-tag--passe{background:#FA4616;} .pp-tag--en-cours{background:#0C5A5E;} .pp-tag--a-venir{background:#9A8268;}
+.pp-ville{font-family:var(--disp);font-size:1.15rem;text-transform:uppercase;margin-top:5px;color:var(--ink);}
+.pp-sub{font-size:.82rem;color:var(--ink-soft);}
+.pp-hotel{font-size:.8rem;color:var(--ink-soft);margin-top:5px;}
+.pp-links{display:flex;gap:10px;margin-top:9px;flex-wrap:wrap;}
+.pp-links a{font-size:.78rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
+.leaflet-bar a{background:var(--ink);color:var(--cream);border-bottom-color:rgba(255,255,255,.2);}
+.leaflet-bar a:hover{background:#000;}

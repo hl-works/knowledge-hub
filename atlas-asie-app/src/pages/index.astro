@@ -25,7 +25,8 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   <div class="routewrap"><div class="wrap">
     <div class="routecard">
       <div class="rhead"><span class="t">L'itinéraire</span><span class="k" id="route-k">Kazakhstan → Indonésie</span></div>
-      <svg id="routesvg" viewBox="0 0 1000 420" role="img" aria-label="Carte de l'itinéraire"></svg>
+      <div id="map" role="application" aria-label="Carte interactive de l'itinéraire"></div>
+      <p class="rhint">Clique un point pour l'étape et le pays · molette pour zoomer une fois la carte sélectionnée</p>
     </div>
   </div></div>
 
@@ -50,7 +51,7 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   <Footer credit={heroCredit} />
 </Base>
 
-<style>
+<style is:global>
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0c0a08;}
   .hero-bg{position:absolute;inset:-3%;background-size:cover;background-position:center;transform:scale(1.06);animation:kenburns 26s ease-in-out infinite alternate;z-index:0;}
   .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,12,8,.32) 0%,rgba(20,12,8,0) 26%,rgba(20,12,8,.10) 55%,rgba(20,12,8,.80) 100%);}
@@ -72,7 +73,8 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   .rhead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px 18px;background:var(--ink);color:var(--cream);flex-wrap:wrap;}
   .rhead .t{font-family:var(--disp);font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;}
   .rhead .k{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);font-weight:700;}
-  .routecard svg{display:block;width:100%;height:auto;}
+  #map{height:clamp(340px,54vh,560px);background:#0b1020;}
+  .rhint{margin:0;padding:8px 14px;background:var(--ink);color:#9a8c73;font-size:.72rem;letter-spacing:.02em;text-align:center;}
 
   .counters{background:var(--ink);color:var(--cream);}
   .counters .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;padding:clamp(26px,4vw,44px) clamp(20px,5vw,56px);}
@@ -101,6 +103,9 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   import { fetchTab } from '../lib/data';
   import { toStops, toCountries, computeCounters, computeLive } from '../lib/model';
   import type { Stop, Country } from '../lib/model';
+  import { initMap } from '../lib/map';
+
+  const BASE = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
   // Présentation par pays (code + palette + capitale courte pour le tampon).
   const META: Record<string, { code: string; cap: string; pal: [string, string, string] }> = {
@@ -174,29 +179,6 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
     setTimeout(reveal, 2000);
   }
 
-  function renderMap(stops: Stop[]) {
-    const pts = stops.filter((s) => s.lat && s.lng);
-    if (!pts.length) return;
-    const W = 1000, H = 420, pad = 50, laMin = 2, laMax = 53, loMin = 73, loMax = 140;
-    const X = (lo: number) => pad + ((lo - loMin) / (loMax - loMin)) * (W - 2 * pad);
-    const Y = (la: number) => pad + ((laMax - la) / (laMax - laMin)) * (H - 2 * pad);
-    const xy = pts.map((s) => [X(s.lng), Y(s.lat)] as [number, number]);
-    const d = xy.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(0) + ' ' + p[1].toFixed(0)).join(' ');
-    const dot = (p: [number, number], s: Stop, i: number) => {
-      const last = i === xy.length - 1;
-      const fill = s.statut === 'passe' ? '#FA4616' : s.statut === 'en-cours' ? '#F3EA5D' : '#FFF4E2';
-      const r = last || i === 0 || s.statut === 'en-cours' ? 6 : 4;
-      const pulse = s.statut === 'en-cours' ? `<animate attributeName="r" values="6;9;6" dur="1.8s" repeatCount="indefinite"/>` : '';
-      return `<circle cx="${p[0].toFixed(0)}" cy="${p[1].toFixed(0)}" r="${r}" fill="${fill}" stroke="#0C5A5E" stroke-width="1.5">${pulse}</circle>`;
-    };
-    const grid = `<g fill="none" stroke="#1FBF98" stroke-opacity=".16" stroke-width="1">${Array.from({ length: 8 }, (_, i) => `<path d="M0 ${(i * H) / 7} H${W}"/>`).join('')}${Array.from({ length: 13 }, (_, i) => `<path d="M${(i * W) / 12} 0 V${H}"/>`).join('')}</g>`;
-    $('routesvg').innerHTML =
-      `<rect width="${W}" height="${H}" fill="#0C5A5E"/>${grid}` +
-      `<path d="${d}" fill="none" stroke="#FA4616" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 9"><animate attributeName="stroke-dashoffset" from="110" to="0" dur="12s" repeatCount="indefinite"/></path>` +
-      xy.map((p, i) => dot(p, pts[i], i)).join('') +
-      `<text x="${xy[0][0]}" y="${xy[0][1] - 13}" fill="#fff" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle">${pts[0].ville}</text>`;
-  }
-
   (async () => {
     try {
       const [pRows, cRows] = await Promise.all([fetchTab('parcours'), fetchTab('pays')]);
@@ -205,7 +187,7 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
       renderCounters(computeCounters(stops));
       renderLive(computeLive(stops));
       renderStamps(countries);
-      renderMap(stops);
+      initMap($('map'), stops, BASE);
       const first = stops.find((s) => s.pays.toLowerCase() !== 'france');
       const lastVisited = [...stops].reverse().find((s) => s.pays.toLowerCase() !== 'france');
       if (first && lastVisited) $('route-k').textContent = `${first.pays} → ${lastVisited.pays}`;
