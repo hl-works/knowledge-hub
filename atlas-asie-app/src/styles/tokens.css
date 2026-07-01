@@ -68,3 +68,57 @@ img{max-width:100%;display:block;}
 .pp-links a{font-size:.78rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
 .leaflet-bar a{background:var(--ink);color:var(--cream);border-bottom-color:rgba(255,255,255,.2);}
 .leaflet-bar a:hover{background:#000;}
+
+/* ============ Signature AMHE : grain papier + motifs ============ */
+/* Grain papier subtil sur toute la page (carnet de voyage, pas template plat). */
+body{
+  background-color:var(--cream);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+/* Eyebrow signature : petit soleil AMHE au lieu d'un simple trait. */
+.eyebrow{display:flex !important;align-items:center;gap:.55rem !important;font-weight:800;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-deep);}
+.eyebrow::before{
+  content:"" !important;width:17px !important;height:17px !important;
+  background:none !important;border:0 !important;border-radius:0 !important;flex:none !important;
+  background-image:url("/atlas-asie/favicon.svg") !important;
+  background-size:contain !important;background-repeat:no-repeat !important;
+}
+/* Filet « trace de carte » (pointillé orange) pour séparer les sections. */
+.trail{height:0;border:0;border-top:3px dashed var(--orange);opacity:.5;max-width:var(--maxw);margin:0 auto;}
+
+/* ============ Skeleton loaders (chargement de marque) ============ */
+.sk{position:relative;overflow:hidden;background:#efe3cc;border-radius:12px;}
+.sk::after{content:"";position:absolute;inset:0;transform:translateX(-100%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);animation:shimmer 1.3s infinite;}
+@keyframes shimmer{100%{transform:translateX(100%)}}
+.sk-card{height:120px;border:2px solid var(--line);margin-bottom:12px;}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+@media (prefers-reduced-motion:reduce){.sk::after{animation:none;}}
+
+/* ============ Barre d'onglets mobile (nav du bas) ============ */
+.tabbar{display:none;}
+@media (max-width:820px){
+  .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:var(--ink);border-top:2px solid #000;
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom));justify-content:space-around;}
+  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
+    color:#cdbb9f;text-decoration:none;font-size:.6rem;font-weight:700;letter-spacing:.02em;padding:4px 0;min-height:44px;justify-content:center;}
+  .tabbar a svg{width:22px;height:22px;}
+  .tabbar a[aria-current]{color:var(--yellow);}
+  body{padding-bottom:64px;} /* place pour la barre */
+}
+
+/* ============ Bandeau hors-ligne ============ */
+#offline{display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:74px;z-index:55;
+  background:var(--ink);color:var(--yellow);font-size:.76rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.2);}
+body[data-offline] #offline{display:block;}
+@media (min-width:821px){#offline{bottom:18px;}}
+.tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;cursor:pointer;color:#cdbb9f;font:700 .6rem var(--sans);letter-spacing:.02em;padding:4px 0;min-height:44px;}
+.tabbar button svg{width:22px;height:22px;}
+.tabbar button[aria-expanded="true"]{color:var(--yellow);}
+.more-sheet{display:none;position:fixed;right:10px;bottom:70px;z-index:56;background:var(--ink);border:2px solid #000;border-radius:14px;padding:8px;flex-direction:column;min-width:180px;box-shadow:0 10px 30px rgba(0,0,0,.45);}
+.more-sheet.open{display:flex;}
+.more-sheet a{display:flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600;font-size:.92rem;}
+.more-sheet a svg{width:20px;height:20px;flex:none;color:var(--yellow);}
+.more-sheet a:hover,.more-sheet a[aria-current]{background:rgba(255,255,255,.08);}
+@media (min-width:821px){.more-sheet{display:none!important;}}
