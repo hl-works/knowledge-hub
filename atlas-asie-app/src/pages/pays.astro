@@ -25,7 +25,8 @@ import Footer from '../components/Footer.astro';
   .fiche{scroll-margin-top:84px;margin:0 0 clamp(28px,4vw,44px);border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:var(--card);}
   .fiche .banner{position:relative;padding:clamp(22px,4vw,40px) clamp(20px,4vw,34px);color:#fff;overflow:hidden;}
   .fiche .banner::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 120% at 85% 15%, rgba(255,255,255,.18), transparent 55%);}
-  .fiche .banner .code{position:absolute;top:14px;right:18px;font-family:var(--disp);font-size:2.6rem;opacity:.35;}
+  .fiche .banner .stamp-wm{position:absolute;right:clamp(6px,2vw,26px);top:50%;transform:translateY(-50%) rotate(-6deg);width:clamp(92px,15vw,150px);pointer-events:none;z-index:1;filter:drop-shadow(0 2px 6px rgba(0,0,0,.18));}
+  .fiche .banner .stamp-wm svg{width:100%;height:auto;}
   .fiche .banner h2{font-family:var(--disp);font-size:clamp(2rem,6vw,3.4rem);text-transform:uppercase;margin:0;line-height:.95;position:relative;}
   .fiche .banner .cap{position:relative;font-weight:600;opacity:.95;margin-top:.2rem;}
   .fiche .body{padding:clamp(18px,3vw,30px);}
@@ -88,6 +89,7 @@ import Footer from '../components/Footer.astro';
   import { toCountries, toQuiz, toAnimals, toLexique, toPratique } from '../lib/model';
   import { PAL, CODE, slugPays as slug } from '../lib/paysMeta';
   import type { Country, QuizQ, Animal, Mot, Pratique } from '../lib/model';
+  import { stampEki } from '../lib/stamps';
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
   const paras = (s: string) => s.split(/\n{2,}|\s•\s/).map((p) => `<p>${esc(p.trim())}</p>`).join('');
@@ -169,7 +171,7 @@ import Footer from '../components/Footer.astro';
     return `
       <article class="fiche" id="${slug(c.pays)}">
         <div class="banner" style="background:linear-gradient(135deg, ${c1}, ${c2})">
-          <span class="code">${CODE[c.pays] ?? ''}</span>
+          <div class="stamp-wm" aria-hidden="true">${stampEki(c.pays, { ink: '#ffffff', paper: 'none', size: 150, opacity: 0.92 })}</div>
           <h2>${esc(c.pays)}</h2>
           ${c.capitale ? `<div class="cap">${esc(c.capitale)}</div>` : ''}
         </div>

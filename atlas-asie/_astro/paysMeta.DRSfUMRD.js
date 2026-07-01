@@ -1,5 +1,0 @@
-const c={Kazakhstan:["#FA4616","#C9330B"],Kirghizistan:["#149E7C","#0C5A5E"],Mongolie:["#E89B2E","#B86A12"],Chine:["#F2516F","#C12B49"],"Hong-Kong":["#1E96C8","#0C5A7E"],Indonésie:["#149E7C","#0C5A5E"],Malaisie:["#E89B2E","#B86A12"]},p={Kazakhstan:"KZ",Kirghizistan:"KG",Mongolie:"MN",Chine:"CN","Hong-Kong":"HK",Indonésie:"ID",Malaisie:"MY"},g=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""),i=s=>s.replace(/[&<>"]/g,a=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[a]);function l(s,a=""){const[n,e]=c[s]??["#FA4616","#C9330B"];return`<div class="pays-head" style="--pc1:${n};--pc2:${e}">
-    <span class="stamp-slot" data-pays="${g(s)}" aria-hidden="true">${p[s]??""}</span>
-    <h2 class="disp">${i(s)}</h2>
-    ${a?`<span class="pays-sub">${i(a)}</span>`:""}
-  </div>`}function r(s,a){const n=[],e=new Map;for(const o of s){const t=a(o);e.has(t)||(e.set(t,n.length),n.push({pays:t,items:[]})),n[e.get(t)].items.push(o)}return n}export{p as C,c as P,r as g,l as p,g as s};

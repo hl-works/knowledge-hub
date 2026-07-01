@@ -6,7 +6,7 @@
   /* Marque */
   --orange:#FA4616; --orange-deep:#C9330B; --yellow:#F3EA5D;
   /* Neutres chauds */
-  --cream:#FFF4E2; --peach:#FEE3DC; --card:#FFFDF8;
+  --cream:#FFF4E2; --peach:#FEE3DC; --card:#FFFDF8; --kraft:#EADFC4;
   --ink:#241A14; --ink-soft:#5E4B3C; --muted:#9A8268; --line:#EAD7BC;
   /* Secondaires mer / nature */
   --teal:#0C5A5E; --jade:#149E7C; --gold:#FFB22E;
@@ -63,6 +63,8 @@ img{max-width:100%;display:block;}
 .pp-tag--passe{background:#FA4616;} .pp-tag--en-cours{background:#0C5A5E;} .pp-tag--a-venir{background:#9A8268;}
 .pp-ville{font-family:var(--disp);font-size:1.15rem;text-transform:uppercase;margin-top:5px;color:var(--ink);}
 .pp-sub{font-size:.82rem;color:var(--ink-soft);}
+.pp-flag{display:inline-block;width:20px;height:13px;vertical-align:-1px;border-radius:2px;overflow:hidden;border:1px solid rgba(0,0,0,.25);margin-right:6px;}
+.pp-flag svg{display:block;width:100%;height:100%;}
 .pp-hotel{font-size:.8rem;color:var(--ink-soft);margin-top:5px;}
 .pp-links{display:flex;gap:10px;margin-top:9px;flex-wrap:wrap;}
 .pp-links a{font-size:.78rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
@@ -124,10 +126,10 @@ body[data-offline] #offline{display:block;}
 @media (min-width:821px){.more-sheet{display:none!important;}}
 
 /* ============ Groupes par pays (hôtels, parcours, galerie…) ============ */
-/* .stamp-slot = emplacement réservé au tampon AMHE du pays : le design le
-   remplira ; d'ici là le code pays sert de placeholder. */
-.pays-head{display:flex;align-items:center;gap:14px;margin:clamp(26px,5vw,44px) 0 14px;position:relative;z-index:1;}
+/* .stamp-slot = le tampon AMHE eki du pays, en tête de groupe. */
+.pays-head{display:flex;align-items:center;gap:12px;margin:clamp(26px,5vw,44px) 0 14px;position:relative;z-index:1;}
 .pays-head:first-child{margin-top:0;}
 .pays-head h2{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(1.5rem,4vw,2.2rem);margin:0;line-height:1;}
 .pays-head .pays-sub{margin-left:auto;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
-.stamp-slot{flex:none;width:56px;height:56px;display:grid;place-items:center;border:2px dashed var(--pc1,var(--orange));border-radius:50%;color:var(--pc1,var(--orange));font-family:var(--disp);font-size:1.05rem;transform:rotate(-8deg);background:var(--card);}
+.stamp-slot{flex:none;width:58px;height:58px;display:grid;place-items:center;transform:rotate(-6deg);}
+.stamp-slot svg{width:100%;height:100%;}

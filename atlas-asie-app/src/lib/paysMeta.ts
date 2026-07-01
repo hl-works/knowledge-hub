@@ -18,6 +18,8 @@ export const CODE: Record<string, string> = {
 export const slugPays = (s: string) =>
   s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
+import { stampEki } from './stamps';
+
 const esc = (s: string) =>
   s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
 
@@ -30,7 +32,7 @@ const esc = (s: string) =>
 export function paysHead(pays: string, sub = ''): string {
   const [c1, c2] = PAL[pays] ?? ['#FA4616', '#C9330B'];
   return `<div class="pays-head" style="--pc1:${c1};--pc2:${c2}">
-    <span class="stamp-slot" data-pays="${slugPays(pays)}" aria-hidden="true">${CODE[pays] ?? ''}</span>
+    <span class="stamp-slot" data-pays="${slugPays(pays)}" aria-hidden="true">${stampEki(pays, { size: 58 })}</span>
     <h2 class="disp">${esc(pays)}</h2>
     ${sub ? `<span class="pays-sub">${esc(sub)}</span>` : ''}
   </div>`;
