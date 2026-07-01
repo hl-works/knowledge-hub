@@ -4,6 +4,7 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Stop } from './model';
+import { flag, codeForPays } from './stamps';
 
 export function slugPays(s: string): string {
   return s
@@ -76,7 +77,7 @@ export function initMap(el: HTMLElement, stops: Stop[], base: string): void {
       <div class="pp">
         <span class="pp-tag pp-tag--${s.statut}">${STATUT_LABEL[s.statut]}</span>
         <div class="pp-ville">${s.ville}</div>
-        <div class="pp-sub">${s.pays}${dates ? ' · ' + dates : ''}</div>
+        <div class="pp-sub"><span class="pp-flag">${flag(codeForPays(s.pays))}</span>${s.pays}${dates ? ' · ' + dates : ''}</div>
         ${hotel}
         <div class="pp-links">
           <a href="${etapeHref}">Voir l'étape →</a>

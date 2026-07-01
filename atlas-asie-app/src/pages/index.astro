@@ -42,9 +42,9 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   <!-- PAYS (tampons) -->
   <main id="main">
     <section class="section" id="pays"><div class="wrap">
-      <p class="eyebrow">Découverte</p>
-      <h2 class="disp">Les <span class="hl">pays</span> du voyage</h2>
-      <div class="stamps" id="stamps"></div>
+      <p class="eyebrow">Le passeport</p>
+      <h2 class="disp">Les <span class="hl">pays</span>, tamponnés</h2>
+      <div class="passport"><div class="stamps" id="stamps"></div></div>
     </div></section>
   </main>
 
@@ -86,6 +86,8 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   .eyebrow::before{content:"";width:26px;height:3px;background:var(--orange);}
   .section h2{font-size:clamp(2rem,5.5vw,3.4rem);margin:0 0 1.6rem;}
   .section h2 .hl{background:linear-gradient(transparent 62%, var(--yellow) 62%);padding:0 .1em;}
+  .passport{background:var(--kraft,#EADFC4);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(20px,3vw,36px);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M40 0H0V40' fill='none' stroke='%23000' stroke-opacity='0.05'/%3E%3C/svg%3E");}
   .stamps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(14px,2vw,26px);}
   .stamp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;opacity:0;transform:translateY(16px) scale(.62) rotate(-12deg);}
   .stamp.in{opacity:1;transform:none;transition:opacity .5s ease, transform .55s cubic-bezier(.2,.9,.3,1.35);}
@@ -104,22 +106,9 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   import { toStops, toCountries, computeCounters, computeLive } from '../lib/model';
   import type { Stop, Country } from '../lib/model';
   import { initMap } from '../lib/map';
+  import { stampEki } from '../lib/stamps';
 
   const BASE = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
-
-  // Présentation par pays (code + palette + capitale courte pour le tampon).
-  const META: Record<string, { code: string; cap: string; pal: [string, string, string] }> = {
-    Kazakhstan: { code: 'KZ', cap: 'Astana', pal: ['#FFB22E', '#FA4616', '#C9330B'] },
-    Kirghizistan: { code: 'KG', cap: 'Bichkek', pal: ['#36C9A3', '#149E7C', '#0C5A5E'] },
-    Mongolie: { code: 'MN', cap: 'Oulan-Bator', pal: ['#FFCF6B', '#E89B2E', '#B86A12'] },
-    Chine: { code: 'CN', cap: 'Pékin', pal: ['#FF8DA3', '#F2516F', '#C12B49'] },
-    'Hong-Kong': { code: 'HK', cap: 'Hong Kong', pal: ['#5BC8E8', '#1E96C8', '#0C5A7E'] },
-    Indonésie: { code: 'ID', cap: 'Jakarta', pal: ['#36C9A3', '#149E7C', '#0C5A5E'] },
-    Malaisie: { code: 'MY', cap: 'Kuala Lumpur', pal: ['#F3EA5D', '#E89B2E', '#B86A12'] },
-  };
-  const codeFor = (nom: string) => META[nom]?.code ?? nom.slice(0, 2).toUpperCase();
-  const capFor = (c: Country) => META[c.pays]?.cap ?? c.capitale.split(/[(,]/)[0].trim();
-  const palFor = (nom: string): [string, string, string] => META[nom]?.pal ?? ['#FFB22E', '#FA4616', '#C9330B'];
 
   const $ = (id: string) => document.getElementById(id)!;
 
@@ -161,17 +150,11 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
     }
   }
 
-  function stampSVG(c: Country) {
-    const [a, b, d] = palFor(c.pays);
-    const code = codeFor(c.pays), cap = capFor(c).toUpperCase(), id = 'a_' + code;
-    return `<svg class="medallion" width="138" height="138" viewBox="0 0 150 150" role="img" aria-label="Tampon ${c.pays}"><circle cx="75" cy="75" r="70" fill="none" stroke="${b}" stroke-width="3"/><circle cx="75" cy="75" r="62" fill="none" stroke="${b}" stroke-width="1" stroke-dasharray="3 4"/><circle cx="75" cy="60" r="15" fill="${a}"/><path d="M28 98 56 64 80 92 100 68 122 98Z" fill="${d}"/><path d="M28 98h94" stroke="${b}" stroke-width="2"/><path id="${id}" d="M75 16a59 59 0 0 1 0 118" fill="none"/><text font-family="Inter,sans-serif" font-weight="700" font-size="11" letter-spacing="2.5" fill="${d}"><textPath href="#${id}" startOffset="4%">${cap}</textPath></text><text x="75" y="128" text-anchor="middle" font-family="Anton,sans-serif" font-size="20" fill="${d}">${code}</text></svg>`;
-  }
-
   function renderStamps(countries: Country[]) {
     const host = $('stamps');
     host.innerHTML = countries
       .filter((c) => c.pays && c.pays.toLowerCase() !== 'france')
-      .map((c) => `<div class="stamp">${stampSVG(c)}<h3>${c.pays}</h3><small>${c.capitale.split(/[(,]/)[0].trim()}</small></div>`)
+      .map((c) => `<div class="stamp">${stampEki(c.pays)}<h3>${c.pays}</h3><small>${c.capitale.split(/[(,]/)[0].trim()}</small></div>`)
       .join('');
     const reveal = () => [...document.querySelectorAll('.stamp:not(.in)')].forEach((s, i) => setTimeout(() => s.classList.add('in'), i * 80));
     const so = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { reveal(); so.disconnect(); } }), { threshold: 0.15 });
