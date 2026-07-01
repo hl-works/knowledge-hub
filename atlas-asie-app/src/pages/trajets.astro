@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Les trajets — Atlas d'Asie" description="Tous les vols, bus et bateaux du voyage, avec horaires et statut de réservation.">
+  <Header variant="solid" active="trajets" />
+  <main id="main">
+    <section class="intro"><div class="wrap">
+      <p class="eyebrow">Le pense-bête</p>
+      <h1 class="disp">Les trajets</h1>
+      <p class="lead">Tous les vols, bus et bateaux dans l'ordre — horaires, compagnie, et ce qui reste <strong>à réserver</strong>.</p>
+    </div></section>
+    <section class="tj"><div class="wrap"><div id="trajets"><p class="loading">Chargement…</p></div></div></section>
+  </main>
+  <Footer />
+</Base>
+
+<style is:global>
+  .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,18px);}
+  .intro h1{font-size:clamp(2.6rem,8vw,5rem);margin:0 0 .6rem;}
+  .tj{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
+  .trip{display:grid;grid-template-columns:52px 1fr auto;gap:clamp(12px,2vw,20px);align-items:center;background:var(--card);border:2px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);padding:14px 16px;margin:0 0 12px;}
+  .trip .tico{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:var(--peach);color:var(--orange-deep);border:1px solid var(--line);}
+  .trip .mid .route{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1rem,2.4vw,1.35rem);line-height:1;}
+  .trip .mid .route .arrow{color:var(--orange);margin:0 .3rem;}
+  .trip .mid .sub{font-size:.82rem;color:var(--ink-soft);margin-top:.35rem;font-variant-numeric:tabular-nums;}
+  .trip .mid .comp{color:var(--muted);font-size:.8rem;margin-top:.2rem;}
+  .trip .right{text-align:right;}
+  .trip .date{font-weight:700;font-size:.82rem;font-variant-numeric:tabular-nums;}
+  .trip .st{display:inline-block;margin-top:.4rem;font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:#fff;}
+  .st--ok{background:var(--jade);} .st--todo{background:var(--gold);color:var(--ink);}
+  .loading{color:var(--muted);}
+  @media(max-width:560px){.trip{grid-template-columns:44px 1fr;}.trip .right{grid-column:1 / -1;text-align:left;display:flex;gap:12px;align-items:center;justify-content:space-between;}}
+</style>
+
+<script>
+  import { fetchTab } from '../lib/data';
+  import { toTransports } from '../lib/model';
+  import type { Trajet } from '../lib/model';
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+  const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+  const sv = (i: string) => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${i}</svg>`;
+  const ICON: Record<string, string> = {
+    Avion: sv('<path d="M17.8 19.2 16 11l3.5-3.5a2 2 0 0 0-2.8-2.8L13 8.2 4.8 6.4a1 1 0 0 0-.9 1.7l6 3.3-2.3 2.3-2-.3-1 1 3 1.5L12 20l1-1-.3-2 2.3-2.3 3.3 6a1 1 0 0 0 1.7-.9Z"/>'),
+    Bus: sv('<rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 11h16M8 17v2M16 17v2"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/>'),
+    Bateau: sv('<path d="M3 14l1.5 5a2 2 0 0 0 2 1.5h11a2 2 0 0 0 2-1.5L21 14M5 14V7l7-3 7 3v7M12 4v10"/>'),
+  };
+
+  function trip(t: Trajet): string {
+    const d = t.date ? `${t.date.getDate()} ${MON[t.date.getMonth()]}` : esc(t.dateRaw);
+    const hours = [t.departH, t.arriveeH].filter(Boolean).join(' → ');
+    const comp = [t.compagnie, t.vol].filter(Boolean).join(' · ');
+    const ok = /réserv/i.test(t.statut);
+    return `<article class="trip">
+      <span class="tico">${ICON[t.type] ?? ICON.Avion}</span>
+      <div class="mid">
+        <div class="route">${esc(t.de)}<span class="arrow">→</span>${esc(t.vers)}</div>
+        ${hours ? `<div class="sub">${esc(hours)}</div>` : ''}
+        ${comp ? `<div class="comp">${esc(comp)}</div>` : ''}
+      </div>
+      <div class="right">
+        <div class="date">${d}</div>
+        <span class="st ${ok ? 'st--ok' : 'st--todo'}">${esc(t.statut || '—')}</span>
+      </div>
+    </article>`;
+  }
+
+  (async () => {
+    const host = document.getElementById('trajets')!;
+    try {
+      const trajets = toTransports(await fetchTab('transports'));
+      host.innerHTML = trajets.map(trip).join('');
+    } catch (err) {
+      host.innerHTML = `<p class="loading">${String(err)}</p>`;
+    }
+  })();
+</script>

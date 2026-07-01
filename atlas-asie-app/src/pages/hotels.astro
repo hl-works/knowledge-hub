@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Nos hôtels — Atlas d'Asie" description="Où dort la famille, escale par escale : adresses, liens et plan. La page à garder sous la main.">
+  <Header variant="solid" active="hotels" />
+  <main id="main">
+    <section class="intro"><div class="wrap">
+      <p class="eyebrow">Où on dort</p>
+      <h1 class="disp">Nos hôtels</h1>
+      <p class="lead">La liste complète des hébergements, dans l'ordre — avec adresse, lien et <strong>« Voir sur le plan »</strong>. Pour la famille et les grands-parents.</p>
+    </div></section>
+    <section class="ht"><div class="wrap"><div id="hotels"><p class="loading">Chargement…</p></div></div></section>
+  </main>
+  <Footer />
+</Base>
+
+<style is:global>
+  .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,18px);}
+  .intro h1{font-size:clamp(2.6rem,8vw,5rem);margin:0 0 .6rem;}
+  .ht{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
+  .hrow{background:var(--card);border:2px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);padding:16px 18px;margin:0 0 12px;display:grid;grid-template-columns:1fr auto;gap:12px 20px;align-items:start;}
+  .hrow .loc{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .hrow h2{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.15rem,2.6vw,1.6rem);margin:.15rem 0 .1rem;}
+  .hrow .adr{font-size:.86rem;color:var(--ink-soft);}
+  .hrow .actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+  .hrow .st{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap;}
+  .st--ok{background:var(--jade);} .st--todo{background:var(--gold);color:var(--ink);}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.8rem;border-radius:999px;padding:8px 14px;border:2px solid var(--ink);text-decoration:none;white-space:nowrap;}
+  .btn--map{background:var(--orange);color:#fff;}
+  .btn--book{background:transparent;color:var(--ink);}
+  .btn svg{flex:none;}
+  .loading{color:var(--muted);}
+  @media(max-width:560px){.hrow{grid-template-columns:1fr;}.hrow .actions{flex-direction:row;align-items:center;justify-content:space-between;}}
+</style>
+
+<script>
+  import { fetchTab } from '../lib/data';
+  import { toStops } from '../lib/model';
+  import type { Stop } from '../lib/model';
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+  const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+  const dm = (d: Date | null) => (d ? `${d.getDate()} ${MON[d.getMonth()]}` : '');
+  const MAP = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
+  const LINK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>';
+
+  function row(s: Stop): string {
+    const dates = [dm(s.arrivee), dm(s.depart)].filter(Boolean).join(' → ');
+    const toFind = !s.hotelNom || /à trouver/i.test(s.hotelNom);
+    const st = toFind ? '<span class="st st--todo">À trouver</span>' : '<span class="st st--ok">Réservé</span>';
+    const mapUrl = s.lat && s.lng ? `https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}` : '';
+    const mapBtn = mapUrl ? `<a class="btn btn--map" href="${mapUrl}" target="_blank" rel="noopener">${MAP} Voir sur le plan</a>` : '';
+    const bookBtn = s.hotelLien ? `<a class="btn btn--book" href="${esc(s.hotelLien)}" target="_blank" rel="noopener">${LINK} Réservation</a>` : '';
+    return `<article class="hrow">
+      <div>
+        <div class="loc">${esc(s.ville)} · ${esc(s.pays)}${dates ? ' · ' + dates : ''}</div>
+        <h2>${esc(s.hotelNom || 'Hôtel à trouver')}</h2>
+        ${s.hotelAdresse ? `<div class="adr">${esc(s.hotelAdresse)}</div>` : ''}
+      </div>
+      <div class="actions">${st}${mapBtn}${bookBtn}</div>
+    </article>`;
+  }
+
+  (async () => {
+    const host = document.getElementById('hotels')!;
+    try {
+      const stops = toStops(await fetchTab('parcours')).filter((s) => s.pays.toLowerCase() !== 'france');
+      host.innerHTML = stops.map(row).join('');
+    } catch (err) {
+      host.innerHTML = `<p class="loading">${String(err)}</p>`;
+    }
+  })();
+</script>
