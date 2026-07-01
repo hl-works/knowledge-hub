@@ -435,6 +435,8 @@
   /* keep the twin pair calm: drop the per-photo "see in colour" badge (still hover-reveals) */
   .ap-twin .e-portrait-frame::before { content: none; }
   @media (max-width: 480px) { .ap-twin { grid-template-columns: 1fr; } }
+  .ap-ig { border: var(--e-bw) solid var(--e-border); box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow); background: #fff; line-height: 0; overflow: hidden; }
+  .ap-ig iframe { width: 100%; height: 640px; border: 0; display: block; }
 
   /* Timeline / facts grid (non-clickable info — flat, not card-like) */
   .ap-facts { list-style: none; margin: 28px 0 0; padding: 0;
@@ -591,7 +593,15 @@
         <span class="e-idx">[01]</span>
         <h2 class="e-section-title"><span class="e-fr">Le parcours</span><span class="e-en">The path</span></h2>
       </div>
-      <div class="ap-prose">
+      <div class="ap-row">
+        <div class="ap-media">
+          <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Hugo Lahutte entouré d'enceintes hi-fi / Hugo Lahutte surrounded by hi-fi speakers">
+            <img src="/knowledge-hub/assets/img/osaka-ojas.webp" width="800" height="1000"
+                 alt="Hugo Lahutte entouré d'enceintes hi-fi, skyline de nuit en arrière-plan / Hugo Lahutte surrounded by hi-fi speakers with a night skyline behind" loading="lazy" />
+            <figcaption class="e-portrait-cap e-mono"><span class="e-fr">Dans mon élément</span><span class="e-en">In my element</span></figcaption>
+          </figure>
+        </div>
+        <div class="ap-prose">
         <p class="ap-lead">
           <span class="e-fr">De la passion à la stratégie : musique, cinéma, événementiel, e-commerce, puis l'IA.</span>
           <span class="e-en">From passion to strategy: music, cinema, live events, e-commerce, then AI.</span>
@@ -608,6 +618,7 @@
           <span class="e-fr">Depuis 2024, je construis mon propre trio : <strong>DG de Cobra</strong> (oct. 2024), <strong>éditeur et directeur de publication de Haute Fidélité</strong> (janv. 2025), et <strong>fondateur de HL Consulting</strong> (juil. 2024). J'enseigne aussi le marketing à <strong>Creapole-ESDI</strong>. Formé à l'<strong>ESGCI</strong> (MBA E-business) et à l'<strong>UVSQ</strong> (Génie Logistique).</span>
           <span class="e-en">Since 2024 I've been building my own trio: <strong>CEO of Cobra</strong> (Oct. 2024), <strong>publisher and editorial director of Haute Fidélité</strong> (Jan. 2025), and <strong>founder of HL Consulting</strong> (Jul. 2024). I also teach marketing at <strong>Creapole-ESDI</strong>. Educated at <strong>ESGCI</strong> (MBA E-business) and <strong>UVSQ</strong> (Logistics Engineering).</span>
         </p>
+        </div>
       </div>
       <ul class="ap-facts">
         <li class="ap-fact">
@@ -727,16 +738,9 @@
       </div>
       <div class="ap-row">
         <div class="ap-media">
-          <div class="ap-twin">
-            <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Portrait en voyage à Osaka, Japon / Travel portrait in Osaka, Japan">
-              <img src="/knowledge-hub/assets/img/osaka-portrait.webp" width="800" height="1000"
-                   alt="Hugo Lahutte en voyage à Osaka, au Japon / Hugo Lahutte travelling in Osaka, Japan" loading="lazy" />
-            </figure>
-            <figure class="e-portrait-frame" style="margin:0;" tabindex="0" aria-label="Moment de voyage en famille à Osaka / Family travel moment in Osaka">
-              <img src="/knowledge-hub/assets/img/osaka-ojas.webp" width="800" height="1000"
-                   alt="Scène de voyage en famille dans les rues d'Osaka / Family travel scene in the streets of Osaka" loading="lazy" />
-            </figure>
-          </div>
+          <figure class="ap-ig" style="margin:0;">
+            <iframe src="https://www.instagram.com/p/DNSqFIyIaTa/embed" loading="lazy" title="Publication Instagram — voyage en famille (@amhe.tourdumonde)" allowfullscreen></iframe>
+          </figure>
         </div>
         <div class="ap-prose">
           <p class="ap-lead">
