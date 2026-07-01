@@ -7,9 +7,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 // Le premier sert de rendu par défaut (crawlers / sans JS) ; le crédit du
 // footer suit la photo tirée.
 const HEROES = [
-  { img: 'brand/hero-issyk-kul.jpg', credit: "Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wikimedia Commons, CC BY-SA 2.0" },
-  { img: 'brand/hero-zhangjiajie.jpg', credit: "Forêt de pics de Tianzi Shan, Zhangjiajie, Chine — chensiyuan, Wikimedia Commons, CC BY-SA 4.0" },
-  { img: 'brand/hero-padar.jpg', credit: "L'île de Padar, parc national de Komodo, Indonésie — Jakub Hałun, Wikimedia Commons, CC BY 4.0" },
+  { img: 'brand/hero-issyk-kul.jpg', lieu: 'Lac Issyk-Kul · Kirghizistan', credit: "Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wikimedia Commons, CC BY-SA 2.0" },
+  { img: 'brand/hero-zhangjiajie.jpg', lieu: 'Zhangjiajie · Chine', credit: "Forêt de pics de Tianzi Shan, Zhangjiajie, Chine — chensiyuan, Wikimedia Commons, CC BY-SA 4.0" },
+  { img: 'brand/hero-padar.jpg', lieu: 'Île de Padar, Komodo · Indonésie', credit: "L'île de Padar, parc national de Komodo, Indonésie — Jakub Hałun, Wikimedia Commons, CC BY 4.0" },
 ];
 const heroCredit = HEROES[0].credit;
 ---
@@ -25,13 +25,18 @@ const heroCredit = HEROES[0].credit;
         const h = HEROES[Math.floor(Math.random() * HEROES.length)];
         document.getElementById('hero-bg').style.backgroundImage = `url('${base}${h.img}')`;
         addEventListener('DOMContentLoaded', () => {
+          const l = document.getElementById('hero-lieu');
+          if (l) l.textContent = h.lieu;
           const c = document.getElementById('hero-credit');
           if (c) c.textContent = h.credit + ' · ';
         });
       })();
     </script>
     <div class="scrim"></div>
-    <img class="hero-mark" src={`${base}brand/amhe-icon-white.png`} alt="" aria-hidden="true" width="1200" height="850" />
+    <div class="hero-mark">
+      <img src={`${base}brand/amhe-icon-white.png`} alt="" aria-hidden="true" width="1200" height="850" />
+      <span class="lieu" id="hero-lieu">{HEROES[0].lieu}</span>
+    </div>
     <div class="inner"><div class="wrap">
       <span class="badge">Carnet de voyage · Été 2026</span>
       <h1 class="disp title">AMHE</h1>
@@ -114,8 +119,11 @@ const heroCredit = HEROES[0].credit;
   .stamp h3{font-weight:700;font-size:1rem;margin:.1rem 0 0;}
   .stamp small{color:var(--muted);font-size:.8rem;}
 
-  .hero-mark{position:absolute;z-index:1;right:clamp(24px,7vw,110px);top:44%;transform:translateY(-50%);width:clamp(150px,20vw,300px);height:auto;opacity:.92;filter:drop-shadow(0 10px 40px rgba(0,0,0,.45));}
-  @media (max-width:820px){.hero-mark{width:112px;top:96px;right:16px;transform:none;}}
+  .hero-mark{position:absolute;z-index:1;right:clamp(24px,7vw,110px);top:44%;transform:translateY(-50%);width:clamp(150px,20vw,300px);display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .hero-mark img{width:100%;height:auto;opacity:.92;filter:drop-shadow(0 10px 40px rgba(0,0,0,.45));}
+  .hero-mark .lieu{display:inline-flex;align-items:center;gap:.45rem;background:rgba(20,12,8,.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 13px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:#fff;}
+  .hero-mark .lieu::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--yellow);flex:none;}
+  @media (max-width:820px){.hero-mark{width:112px;top:96px;right:16px;transform:none;align-items:flex-end;gap:9px;}.hero-mark .lieu{font-size:.62rem;padding:5px 10px;}}
 
   @media (prefers-reduced-motion:reduce){.hero-bg{transform:none!important;}.stamp{opacity:1;transform:none;}}
   @media (max-width:820px){.counters .wrap{grid-template-columns:repeat(3,1fr);}}
