@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas d'Asie — V1 Expédition cartographique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F3E7CE; --paper-2:#ECDCBC; --ink:#22251F; --ink-soft:#5A5848;
+    --muted:#8C7E63; --line:#D8C49C; --sea:#86A79A; --sea-deep:#3C6E60;
+    --route:#C0552F; --route-deep:#8E3A1B; --gold:#C2922F;
+    --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;
+    background-image:radial-gradient(circle at 12% 18%, rgba(194,146,47,.06), transparent 38%),
+                     radial-gradient(circle at 88% 70%, rgba(60,110,96,.07), transparent 42%);}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.6rem 1rem;z-index:50;}
+  .skip-link:focus{left:0;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px);}
+  a{color:var(--route-deep);}
+  ::selection{background:var(--route);color:#fff;}
+
+  /* topbar */
+  .topbar{border-bottom:1.5px solid var(--ink);background:var(--paper);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem;}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--ink);text-decoration:none;letter-spacing:.01em;}
+  .brand .seal{color:var(--route);}
+  .nav{display:flex;align-items:center;gap:clamp(12px,2.5vw,26px);}
+  .nav .links{display:flex;gap:inherit;}
+  .nav a{text-decoration:none;color:var(--ink-soft);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;}
+  .nav a:hover{color:var(--route-deep);}
+  .lang{display:inline-flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;}
+  .lang button{appearance:none;border:0;background:transparent;cursor:pointer;font:600 .76rem var(--sans);letter-spacing:.06em;color:var(--muted);padding:7px 12px;min-width:44px;}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+  .lang button:focus-visible{outline:2px solid var(--route);outline-offset:2px;}
+
+  /* hero map */
+  .hero{position:relative;border-bottom:1.5px solid var(--ink);overflow:hidden;}
+  .hero .map{display:block;width:100%;height:auto;}
+  .hero .overlay{position:absolute;inset:0;display:flex;align-items:center;}
+  .hero .overlay .wrap{width:100%;}
+  .kicker{display:inline-flex;align-items:center;gap:.55rem;font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--route-deep);margin:0 0 .9rem;}
+  .kicker::before{content:"";width:30px;height:2px;background:var(--route);}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.6rem,7vw,5.4rem);line-height:.95;letter-spacing:-.02em;margin:0 0 1rem;max-width:13ch;}
+  .hero h1 em{font-style:italic;color:var(--route);}
+  .hero .lede{max-width:40ch;color:var(--ink-soft);font-size:clamp(1rem,2vw,1.25rem);margin:0 0 1.4rem;
+    background:color-mix(in srgb,var(--paper) 70%, transparent);backdrop-filter:blur(2px);padding:.3rem .1rem;}
+  .stats{display:flex;gap:2rem;flex-wrap:wrap;border-top:1.5px solid var(--ink);padding-top:1rem;max-width:34ch;}
+  .stats b{display:block;font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--route-deep);line-height:1;font-variant-numeric:tabular-nums;}
+  .stats span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+  /* sections */
+  .section{padding:clamp(34px,5vw,64px) 0;}
+  #route{border-bottom:1.5px solid var(--ink);}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:clamp(20px,3vw,38px);flex-wrap:wrap;}
+  .section-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,4vw,2.7rem);margin:0;letter-spacing:-.01em;}
+  .section-head h2 .deco{color:var(--route);}
+  .count{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+
+  /* route timeline with dashed connector */
+  .route{position:relative;}
+  .route::before{content:"";position:absolute;left:27px;top:14px;bottom:14px;width:2px;
+    background:repeating-linear-gradient(var(--route) 0 8px, transparent 8px 16px);}
+  .leg{position:relative;display:grid;grid-template-columns:56px 1fr;gap:clamp(14px,2.5vw,28px);padding:clamp(14px,2vw,22px) 0;}
+  .leg .stop{position:relative;z-index:1;width:56px;height:56px;display:grid;place-items:center;}
+  .leg .stop svg{filter:drop-shadow(0 2px 0 rgba(34,37,31,.15));}
+  .leg .body h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.2rem,2.5vw,1.6rem);margin:.2rem 0 .45rem;}
+  .leg .meta{display:flex;flex-wrap:wrap;gap:.35rem 1rem;font-size:.8rem;color:var(--muted);margin-bottom:.55rem;font-variant-numeric:tabular-nums;letter-spacing:.02em;}
+  .leg .meta .pill{display:inline-flex;align-items:center;gap:.35rem;}
+  .leg .meta svg{color:var(--sea-deep);}
+  .leg .resume{margin:0;color:var(--ink-soft);max-width:60ch;}
+  .leg .resume.empty{color:var(--muted);font-style:italic;}
+
+  /* countries as passport stamps */
+  .countries{display:grid;gap:clamp(18px,3vw,30px);grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}
+  .stamp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;}
+  .stamp .medallion{transition:transform .25s ease;}
+  .stamp:hover .medallion{transform:rotate(-4deg) scale(1.03);}
+  .stamp h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;margin:.2rem 0 0;}
+  .stamp .cap{display:inline-flex;align-items:center;gap:.35rem;color:var(--ink-soft);font-size:.9rem;}
+  .stamp .cap svg{color:var(--sea-deep);}
+  .stamp .note{color:var(--ink-soft);font-size:.88rem;margin:.1rem 0 0;max-width:30ch;}
+  .stamp .note.empty{color:var(--muted);font-style:italic;}
+  .stamp .coords{font-size:.72rem;letter-spacing:.06em;color:var(--muted);font-variant-numeric:tabular-nums;}
+
+  footer{border-top:1.5px solid var(--ink);padding:clamp(24px,4vw,40px) 0;color:var(--muted);font-size:.85rem;}
+  footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+  footer .badge{font-family:var(--serif);font-style:italic;color:var(--ink-soft);}
+  :where(a,button):focus-visible{outline:2px solid var(--route);outline-offset:3px;}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;} .dash{stroke-dasharray:none!important;animation:none!important;}}
+  @media (max-width:600px){ .nav .links{display:none;} .hero .overlay{position:static;background:var(--paper-2);padding:24px 0;} .hero .map{opacity:1;} }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link" data-i18n="skip">Aller au contenu</a>
+
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="#">
+    <span class="seal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m12 4 1.8 4.4 4.7.3-3.6 3 1.2 4.6L12 15.4 7.7 16.3l1.2-4.6-3.6-3 4.7-.3L12 4Z" fill="currentColor" stroke="none"/></svg></span>
+    <span data-i18n="brand">Atlas d'Asie</span>
+  </a>
+  <nav class="nav" aria-label="Principale">
+    <span class="links"><a href="#route" data-i18n="nav.route">Le parcours</a><a href="#countries" data-i18n="nav.countries">Les pays</a></span>
+    <span class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </span>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <svg class="map" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Carte illustrée d'Asie avec itinéraire">
+    <defs>
+      <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#9DBDB0"/><stop offset="1" stop-color="#7FA395"/>
+      </linearGradient>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0V40" fill="none" stroke="#6E8C80" stroke-opacity=".18" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="560" fill="url(#seaGrad)"/>
+    <rect width="1200" height="560" fill="url(#grid)"/>
+    <!-- depth contour rings around route -->
+    <g fill="none" stroke="#5E7E72" stroke-opacity=".25">
+      <path d="M250 360q140 -120 360 -90t330 -10" stroke-dasharray="2 8"/>
+      <path d="M210 410q170 -150 420 -110t360 30" stroke-dasharray="2 8"/>
+    </g>
+    <!-- stylised landmasses -->
+    <g fill="#E9DBB8" stroke="#C9A86A" stroke-width="2">
+      <path d="M120 120c70-26 150-18 196 26 40 38 28 96 70 120 50 28 70 84 40 132-24 38-90 36-150 22-78-18-150 8-206-30-58-40-58-128-26-188 18-34 38-82 86-104Z"/>
+      <path d="M760 70c64-8 120 22 150 70 26 42 8 92 44 124 40 36 36 92-2 124-40 34-104 18-150-12-44-28-58-86-96-110-40-26-46-86-12-126 18-22 36-58 66-64Z"/>
+      <path d="M540 420c40-10 84 4 96 36 12 30-8 62-44 70-40 8-86-10-94-42-7-30 12-56 42-64Z"/>
+    </g>
+    <!-- route dashed path -->
+    <path class="dash" d="M300 300 Q430 230 470 250 T660 210 Q760 180 880 150" fill="none" stroke="#C0552F" stroke-width="4" stroke-linecap="round" stroke-dasharray="3 12">
+      <animate attributeName="stroke-dashoffset" from="150" to="0" dur="14s" repeatCount="indefinite"/>
+    </path>
+    <!-- stops -->
+    <g font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">
+      <g><circle cx="300" cy="300" r="14" fill="#C0552F" stroke="#fff" stroke-width="3"/><text x="300" y="305">1</text></g>
+      <g><circle cx="470" cy="250" r="14" fill="#C0552F" stroke="#fff" stroke-width="3"/><text x="470" y="255">2</text></g>
+      <g><circle cx="660" cy="210" r="14" fill="#C0552F" stroke="#fff" stroke-width="3"/><text x="660" y="215">3</text></g>
+      <g><circle cx="880" cy="150" r="14" fill="#C0552F" stroke="#fff" stroke-width="3"/><text x="880" y="155">4</text></g>
+    </g>
+    <!-- compass rose -->
+    <g transform="translate(1080,440)" stroke="#8E3A1B" fill="#C0552F">
+      <circle r="40" fill="none" stroke="#8E3A1B" stroke-width="1.5"/>
+      <circle r="30" fill="none" stroke="#8E3A1B" stroke-width="1" stroke-dasharray="2 4"/>
+      <path d="M0 -38 6 0 0 10 -6 0Z"/><path d="M0 38 6 0 0 -10 -6 0Z" fill="#8E3A1B"/>
+      <path d="M38 0 0 6 -10 0 0 -6Z" fill="#E9DBB8"/><path d="M-38 0 0 6 10 0 0 -6Z" fill="#E9DBB8"/>
+      <text x="0" y="-46" text-anchor="middle" font-family="Fraunces, serif" font-size="14" fill="#8E3A1B" stroke="none" font-weight="700">N</text>
+    </g>
+  </svg>
+  <div class="overlay"><div class="wrap">
+    <p class="kicker" data-i18n="kicker">Carnet d'expédition</p>
+    <h1 data-i18n-html="title">L'<em>Asie</em>, étape par étape</h1>
+    <p class="lede" data-i18n="lede">Un itinéraire tracé sur la carte, alimenté par une feuille de calcul, raconté en deux langues.</p>
+    <div class="stats">
+      <div><b id="s-legs">4</b><span data-i18n="stat.legs">étapes</span></div>
+      <div><b id="s-countries">4</b><span data-i18n="stat.countries">pays</span></div>
+      <div><b data-i18n="stat.daysVal">35</b><span data-i18n="stat.days">jours</span></div>
+    </div>
+  </div></div>
+</section>
+
+<main id="main">
+  <section class="section" id="route"><div class="wrap">
+    <div class="section-head"><h2><span class="deco">✳</span> <span data-i18n="route.title">Le parcours</span></h2><span class="count" id="route-count"></span></div>
+    <div class="route" id="route-list"></div>
+  </div></section>
+
+  <section class="section" id="countries"><div class="wrap">
+    <div class="section-head"><h2><span class="deco">✳</span> <span data-i18n="countries.title">Les pays</span></h2><span class="count" id="countries-count"></span></div>
+    <div class="countries" id="countries-list"></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <span data-i18n="footer.note">Proto V1 — données d'exemple (fixtures).</span>
+  <span class="badge">hl-consulting.tech / atlas-asie</span>
+</div></footer>
+
+<script>
+const PAYS=[
+ {code:"TH",nom_fr:"Thaïlande",nom_en:"Thailand",capitale:"Bangkok",lat:"15.87",lng:"100.99",note_fr:"Royaume du Siam, climat tropical",note_en:"Kingdom of Siam, tropical climate",hue:18},
+ {code:"VN",nom_fr:"Viêt Nam",nom_en:"Vietnam",capitale:"Hanoï",lat:"14.06",lng:"108.28",note_fr:'Café « robusta » et street food',note_en:'“Robusta” coffee and street food',hue:158},
+ {code:"KH",nom_fr:"Cambodge",nom_en:"Cambodia",capitale:"Phnom Penh",lat:"12.57",lng:"104.99",note_fr:"",note_en:"",hue:38},
+ {code:"JP",nom_fr:"Japon",nom_en:"Japan",capitale:"Tokyo",lat:"36.20",lng:"138.25",note_fr:"Archipel, 4 grandes îles",note_en:"Archipelago, 4 main islands",hue:350},
+];
+const PARCOURS=[
+ {ordre:"1",pays:"TH",titre_fr:"Arrivée à Bangkok",titre_en:"Arrival in Bangkok",dates:"2026-09-01",resume_fr:"Temples, marchés flottants",resume_en:"Temples, floating markets"},
+ {ordre:"2",pays:"TH",titre_fr:"Chiang Mai",titre_en:"Chiang Mai",dates:"2026-09-08",resume_fr:"Trek et cuisine du Nord",resume_en:"Trekking and northern cuisine"},
+ {ordre:"3",pays:"VN",titre_fr:"Hanoï",titre_en:"Hanoi",dates:"2026-09-20",resume_fr:"Vieille ville, baie d'Halong",resume_en:"Old quarter, Ha Long Bay"},
+ {ordre:"4",pays:"KH",titre_fr:"Angkor",titre_en:"Angkor",dates:"2026-10-05",resume_fr:"",resume_en:""},
+];
+const I18N={
+ fr:{skip:"Aller au contenu",brand:"Atlas d'Asie","nav.route":"Le parcours","nav.countries":"Les pays",
+   kicker:"Carnet d'expédition",title:"L'<em>Asie</em>, étape par étape",
+   lede:"Un itinéraire tracé sur la carte, alimenté par une feuille de calcul, raconté en deux langues.",
+   "stat.legs":"étapes","stat.countries":"pays","stat.days":"jours","stat.daysVal":"35",
+   "route.title":"Le parcours","countries.title":"Les pays","footer.note":"Proto V1 — données d'exemple (fixtures).",
+   "empty.note":"Note à venir","empty.resume":"Récit à venir",
+   cLegs:n=>`${n} étapes`,cCountries:n=>`${n} pays`,htmllang:"fr",
+   datefmt:"fr-FR"},
+ en:{skip:"Skip to content",brand:"Atlas of Asia","nav.route":"The route","nav.countries":"The countries",
+   kicker:"Expedition journal",title:"<em>Asia</em>, stage by stage",
+   lede:"A route drawn on the map, powered by a spreadsheet, told in two languages.",
+   "stat.legs":"stages","stat.countries":"countries","stat.days":"days","stat.daysVal":"35",
+   "route.title":"The route","countries.title":"The countries","footer.note":"Prototype V1 — sample data (fixtures).",
+   "empty.note":"Note coming soon","empty.resume":"Story coming soon",
+   cLegs:n=>`${n} stages`,cCountries:n=>`${n} countries`,htmllang:"en",datefmt:"en-GB"},
+};
+const ICON={
+ pin:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
+ cal:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>',
+};
+/* SVG "pin numéroté" pour la timeline */
+function stopSVG(n){return `<svg width="44" height="56" viewBox="0 0 44 56"><path d="M22 2C11 2 2 11 2 22c0 14 20 32 20 32s20-18 20-32C42 11 33 2 22 2Z" fill="#C0552F" stroke="#8E3A1B" stroke-width="2"/><circle cx="22" cy="22" r="13" fill="#F3E7CE"/><text x="22" y="27" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="16" fill="#8E3A1B">${n}</text></svg>`;}
+/* Médaillon "tampon de passeport" par pays */
+function stampSVG(p){const h=p.hue;const c=`hsl(${h} 55% 42%)`,c2=`hsl(${h} 50% 30%)`;
+ return `<svg class="medallion" width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Tampon ${p.code}">
+   <circle cx="75" cy="75" r="70" fill="none" stroke="${c}" stroke-width="3"/>
+   <circle cx="75" cy="75" r="62" fill="none" stroke="${c}" stroke-width="1" stroke-dasharray="3 4"/>
+   <g fill="${c}"><!-- mini paysage -->
+     <circle cx="75" cy="60" r="14" fill="${c}" opacity=".9"/>
+     <path d="M30 96 56 64 78 92 96 70 120 96Z" fill="${c2}"/>
+     <path d="M30 96h90" stroke="${c}" stroke-width="2"/>
+   </g>
+   <path id="arc${p.code}" d="M75 14a61 61 0 0 1 0 122" fill="none"/>
+   <text font-family="Inter,sans-serif" font-weight="700" font-size="12" letter-spacing="3" fill="${c2}">
+     <textPath href="#arc${p.code}" startOffset="3%">${p.capitale.toUpperCase()}</textPath>
+   </text>
+   <text x="75" y="128" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="22" fill="${c2}">${p.code}</text>
+ </svg>`;}
+let LANG="fr";
+function fmtDate(iso,l){if(!iso)return"";return new Date(iso+"T00:00:00").toLocaleDateString(I18N[l].datefmt,{day:"numeric",month:"long",year:"numeric"});}
+function renderRoute(){const t=I18N[LANG];document.getElementById("route-list").innerHTML=PARCOURS.map(l=>{
+ const titre=LANG==="en"?l.titre_en:l.titre_fr,resume=LANG==="en"?l.resume_en:l.resume_fr;
+ const p=PAYS.find(x=>x.code===l.pays),nom=p?(LANG==="en"?p.nom_en:p.nom_fr):l.pays;
+ return `<article class="leg"><div class="stop">${stopSVG(l.ordre)}</div><div class="body">
+   <h3>${titre}</h3><div class="meta"><span class="pill">${ICON.pin}${nom}</span><span class="pill">${ICON.cal}${fmtDate(l.dates,LANG)}</span></div>
+   <p class="resume ${resume?"":"empty"}">${resume||t["empty.resume"]}</p></div></article>`;}).join("");
+ document.getElementById("route-count").textContent=t.cLegs(PARCOURS.length);}
+function renderCountries(){const t=I18N[LANG];document.getElementById("countries-list").innerHTML=PAYS.map(p=>{
+ const nom=LANG==="en"?p.nom_en:p.nom_fr,note=LANG==="en"?p.note_en:p.note_fr;
+ return `<article class="stamp">${stampSVG(p)}<h3>${nom}</h3><span class="cap">${ICON.pin}${p.capitale}</span>
+   <p class="note ${note?"":"empty"}">${note||t["empty.note"]}</p><span class="coords">${p.lat}, ${p.lng}</span></article>`;}).join("");
+ document.getElementById("countries-count").textContent=t.cCountries(PAYS.length);}
+function applyChrome(){const t=I18N[LANG];document.documentElement.lang=t.htmllang;
+ document.querySelectorAll("[data-i18n]").forEach(e=>{const k=e.getAttribute("data-i18n");if(typeof t[k]==="string")e.textContent=t[k];});
+ document.querySelectorAll("[data-i18n-html]").forEach(e=>{const k=e.getAttribute("data-i18n-html");if(t[k]!=null)e.innerHTML=t[k];});
+ document.querySelectorAll("[data-set-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.setLang===LANG)));
+ document.getElementById("s-legs").textContent=PARCOURS.length;document.getElementById("s-countries").textContent=PAYS.length;}
+function setLang(l){LANG=l;applyChrome();renderRoute();renderCountries();}
+document.querySelectorAll("[data-set-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.setLang)));
+setLang("fr");
+</script>
+</body>
+</html>

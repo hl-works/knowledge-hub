@@ -1,0 +1,70 @@
+/* ============================================================
+   Tokens AMHE — source de vérité : brief/charte-amhe.html
+   (couleurs officielles du pack de marque, typo, espacements)
+   ============================================================ */
+:root{
+  /* Marque */
+  --orange:#FA4616; --orange-deep:#C9330B; --yellow:#F3EA5D;
+  /* Neutres chauds */
+  --cream:#FFF4E2; --peach:#FEE3DC; --card:#FFFDF8;
+  --ink:#241A14; --ink-soft:#5E4B3C; --muted:#9A8268; --line:#EAD7BC;
+  /* Secondaires mer / nature */
+  --teal:#0C5A5E; --jade:#149E7C; --gold:#FFB22E;
+
+  /* Typo */
+  --disp:"Anton",system-ui,-apple-system,sans-serif;
+  --sans:"Inter",system-ui,-apple-system,sans-serif;
+
+  /* Layout / échelle */
+  --maxw:1180px; --r:18px;
+  --shadow:6px 6px 0 var(--ink);
+  --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:32px; --sp-6:48px; --sp-8:64px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:var(--orange-deep);}
+::selection{background:var(--orange);color:#fff;}
+img{max-width:100%;display:block;}
+
+.disp{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:.9;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px);}
+
+.skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--cream);padding:.6rem 1rem;z-index:90;}
+.skip-link:focus{left:0;}
+
+:where(a,button):focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:4px;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation:none!important;transition:none!important;}
+}
+
+/* ============ Carte Leaflet — habillage AMHE ============ */
+.leaflet-container{font-family:var(--sans);background:#0b1020;}
+.pin{display:block;width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.5);}
+.pin--passe{background:#FA4616;}
+.pin--a-venir{background:#FFF4E2;}
+.pin--en-cours,.pin--now{background:#F3EA5D;}
+.pin--pulse{box-shadow:0 0 0 0 rgba(243,234,93,.7);animation:pinpulse 1.8s infinite;}
+@keyframes pinpulse{0%{box-shadow:0 0 0 0 rgba(243,234,93,.7)}70%{box-shadow:0 0 0 14px rgba(243,234,93,0)}100%{box-shadow:0 0 0 0 rgba(243,234,93,0)}}
+.route-line--anim{animation:routemarch 14s linear infinite;}
+@keyframes routemarch{to{stroke-dashoffset:-100;}}
+.route-glow{filter:drop-shadow(0 0 4px #FA4616);}
+.leaflet-popup-content-wrap{background:var(--card);border:2px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink);}
+.leaflet-popup-content{margin:12px 14px;font-family:var(--sans);}
+.leaflet-popup-tip{background:var(--card);border:2px solid var(--ink);}
+.pp-tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:999px;color:#fff;}
+.pp-tag--passe{background:#FA4616;} .pp-tag--en-cours{background:#0C5A5E;} .pp-tag--a-venir{background:#9A8268;}
+.pp-ville{font-family:var(--disp);font-size:1.15rem;text-transform:uppercase;margin-top:5px;color:var(--ink);}
+.pp-sub{font-size:.82rem;color:var(--ink-soft);}
+.pp-hotel{font-size:.8rem;color:var(--ink-soft);margin-top:5px;}
+.pp-links{display:flex;gap:10px;margin-top:9px;flex-wrap:wrap;}
+.pp-links a{font-size:.78rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
+.leaflet-bar a{background:var(--ink);color:var(--cream);border-bottom-color:rgba(255,255,255,.2);}
+.leaflet-bar a:hover{background:#000;}
