@@ -3,15 +3,35 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
-const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wikimedia Commons, CC BY-SA 2.0';
+// Pool de heros iconiques du voyage — un tirage aléatoire à chaque chargement.
+// Le premier sert de rendu par défaut (crawlers / sans JS) ; le crédit du
+// footer suit la photo tirée.
+const HEROES = [
+  { img: 'brand/hero-issyk-kul.jpg', credit: "Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wikimedia Commons, CC BY-SA 2.0" },
+  { img: 'brand/hero-zhangjiajie.jpg', credit: "Forêt de pics de Tianzi Shan, Zhangjiajie, Chine — chensiyuan, Wikimedia Commons, CC BY-SA 4.0" },
+  { img: 'brand/hero-padar.jpg', credit: "L'île de Padar, parc national de Komodo, Indonésie — Jakub Hałun, Wikimedia Commons, CC BY 4.0" },
+];
+const heroCredit = HEROES[0].credit;
 ---
 <Base>
   <Header variant="over" active="accueil" />
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" style={`background-image:url('${base}brand/hero-issyk-kul.jpg')`}></div>
+    <div class="hero-bg" id="hero-bg" style={`background-image:url('${HEROES[0].img.startsWith('http') ? HEROES[0].img : base + HEROES[0].img}')`}></div>
+    <script is:inline define:vars={{ HEROES, base }}>
+      // Exécuté avant la première peinture : seule la photo tirée est téléchargée.
+      (function () {
+        const h = HEROES[Math.floor(Math.random() * HEROES.length)];
+        document.getElementById('hero-bg').style.backgroundImage = `url('${base}${h.img}')`;
+        addEventListener('DOMContentLoaded', () => {
+          const c = document.getElementById('hero-credit');
+          if (c) c.textContent = h.credit + ' · ';
+        });
+      })();
+    </script>
     <div class="scrim"></div>
+    <img class="hero-mark" src={`${base}brand/amhe-icon-white.png`} alt="" aria-hidden="true" width="1200" height="850" />
     <div class="inner"><div class="wrap">
       <span class="badge">Carnet de voyage · Été 2026</span>
       <h1 class="disp title">AMHE</h1>
@@ -93,6 +113,9 @@ const heroCredit = 'Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wik
   .stamp:hover .medallion{transform:rotate(-5deg) scale(1.05);}
   .stamp h3{font-weight:700;font-size:1rem;margin:.1rem 0 0;}
   .stamp small{color:var(--muted);font-size:.8rem;}
+
+  .hero-mark{position:absolute;z-index:1;right:clamp(24px,7vw,110px);top:44%;transform:translateY(-50%);width:clamp(150px,20vw,300px);height:auto;opacity:.92;filter:drop-shadow(0 10px 40px rgba(0,0,0,.45));}
+  @media (max-width:820px){.hero-mark{width:112px;top:96px;right:16px;transform:none;}}
 
   @media (prefers-reduced-motion:reduce){.hero-bg{transform:none!important;}.stamp{opacity:1;transform:none;}}
   @media (max-width:820px){.counters .wrap{grid-template-columns:repeat(3,1fr);}}
