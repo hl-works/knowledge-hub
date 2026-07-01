@@ -132,6 +132,105 @@ export function toQuiz(rows: Row[]): QuizQ[] {
   }));
 }
 
+export interface Animal {
+  pays: string;
+  animal: string;
+  ouVoir: string;
+  fait: string;
+  photoQuery: string;
+}
+export function toAnimals(rows: Row[]): Animal[] {
+  return rows.map((r) => ({
+    pays: (r.pays ?? '').trim(),
+    animal: (r.animal ?? '').trim(),
+    ouVoir: (r.ou_voir ?? '').trim(),
+    fait: (r.fait ?? '').trim(),
+    photoQuery: (r.photo_query ?? '').trim(),
+  }));
+}
+
+export interface Mot {
+  langue: string;
+  pays: string[]; // un mot peut servir plusieurs pays (ex. russe → KZ + KG)
+  francais: string;
+  motLocal: string;
+  prononciation: string;
+}
+export function toLexique(rows: Row[]): Mot[] {
+  return rows.map((r) => ({
+    langue: (r.langue ?? '').trim(),
+    pays: splitList(r.pays, ','),
+    francais: (r.francais ?? '').trim(),
+    motLocal: (r.mot_local ?? '').trim(),
+    prononciation: (r.prononciation ?? '').trim(),
+  }));
+}
+
+export type TransportType = 'Avion' | 'Bus' | 'Bateau' | string;
+export interface Trajet {
+  ordre: number;
+  date: Date | null;
+  dateRaw: string;
+  type: TransportType;
+  de: string;
+  departH: string;
+  vers: string;
+  arriveeH: string;
+  compagnie: string;
+  vol: string;
+  statut: string; // Réservé / À trouver
+}
+export function toTransports(rows: Row[]): Trajet[] {
+  return rows
+    .map((r) => ({
+      ordre: num(r.ordre),
+      date: parseDMY(r.date),
+      dateRaw: (r.date ?? '').trim(),
+      type: (r.type ?? '').trim(),
+      de: (r.de ?? '').trim(),
+      departH: (r.depart_h ?? '').trim(),
+      vers: (r.vers ?? '').trim(),
+      arriveeH: (r.arrivee_h ?? '').trim(),
+      compagnie: (r.compagnie ?? '').trim(),
+      vol: (r.vol ?? '').trim(),
+      statut: (r.statut ?? '').trim(),
+    }))
+    .sort((a, b) => a.ordre - b.ordre);
+}
+
+export interface Pratique {
+  pays: string;
+  visa: string;
+  formalites: string;
+  argent: string;
+  budgetRepere: string;
+  prises: string;
+  internet: string;
+  apps: string;
+  eau: string;
+  pourboire: string;
+  doDont: string;
+  urgences: string;
+  decalage: string;
+}
+export function toPratique(rows: Row[]): Pratique[] {
+  return rows.map((r) => ({
+    pays: (r.pays ?? '').trim(),
+    visa: (r.visa ?? '').trim(),
+    formalites: (r.formalites ?? '').trim(),
+    argent: (r.argent ?? '').trim(),
+    budgetRepere: (r.budget_repere ?? '').trim(),
+    prises: (r.prises ?? '').trim(),
+    internet: (r.internet ?? '').trim(),
+    apps: (r.apps ?? '').trim(),
+    eau: (r.eau ?? '').trim(),
+    pourboire: (r.pourboire ?? '').trim(),
+    doDont: (r.do_dont ?? '').trim(),
+    urgences: (r.urgences ?? '').trim(),
+    decalage: (r.decalage ?? '').trim(),
+  }));
+}
+
 /** Distance grand-cercle en km entre deux points [lat, lng]. */
 export function haversine(a: [number, number], b: [number, number]): number {
   const R = 6371;
