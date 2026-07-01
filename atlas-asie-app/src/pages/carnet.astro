@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+// feed-id Behold.so à coller quand le compte Instagram est connecté.
+const BEHOLD_FEED_ID = '';
+---
+<Base title="Le carnet — Atlas d'Asie" description="Le fil Instagram du voyage : reels et photos au jour le jour.">
+  <Header variant="solid" active="carnet" />
+  <main id="main">
+    <section class="intro"><div class="wrap">
+      <p class="eyebrow">Au jour le jour</p>
+      <h1 class="disp">Le carnet</h1>
+      <p class="lead">Le fil <strong>Instagram</strong> du voyage — reels et photos, mis à jour depuis le téléphone.</p>
+    </div></section>
+
+    <section class="feed"><div class="wrap">
+      {BEHOLD_FEED_ID ? (
+        <Fragment>
+          <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
+          <script is:inline defer src="https://w.behold.so/widget.js" type="module"></script>
+        </Fragment>
+      ) : (
+        <div class="empty">
+          <div class="ig">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <h2>Le fil arrive bientôt</h2>
+          <p>Le carnet Instagram s'affichera ici dès que le compte sera connecté (widget <strong>Behold.so</strong>). Il suffira de coller le <code>feed-id</code> dans la page.</p>
+          <p class="note">⚠️ Instagram est bloqué en Chine continentale (23/07 → 03/08) : ces jours-là, le fil ne bougera pas.</p>
+        </div>
+      )}
+    </div></section>
+  </main>
+  <Footer />
+</Base>
+
+<style is:global>
+  .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,18px);}
+  .intro h1{font-size:clamp(2.6rem,8vw,5rem);margin:0 0 .6rem;}
+  .feed{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
+  .empty{border:2px dashed var(--line);border-radius:var(--r);background:var(--card);padding:clamp(30px,6vw,60px);text-align:center;max-width:60ch;margin:0 auto;}
+  .empty .ig{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,var(--orange),var(--yellow));color:#fff;margin-bottom:14px;}
+  .empty h2{font-family:var(--disp);text-transform:uppercase;font-size:1.6rem;margin:0 0 .5rem;}
+  .empty p{color:var(--ink-soft);margin:.4rem 0;}
+  .empty .note{font-size:.86rem;color:var(--muted);margin-top:1rem;}
+</style>

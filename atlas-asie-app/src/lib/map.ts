@@ -24,7 +24,8 @@ const STATUT_LABEL: Record<Stop['statut'], string> = {
 };
 
 export function initMap(el: HTMLElement, stops: Stop[], base: string): void {
-  const geo = stops.filter((s) => s.lat && s.lng);
+  // On exclut le départ/retour France : la carte se concentre sur l'Asie.
+  const geo = stops.filter((s) => s.lat && s.lng && s.pays.toLowerCase() !== 'france');
   if (!geo.length) return;
   const reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
 

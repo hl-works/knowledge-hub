@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Galerie — Atlas d'Asie" description="Toutes les photos du voyage, réunies depuis les escales.">
+  <Header variant="solid" active="galerie" />
+  <main id="main">
+    <section class="intro"><div class="wrap">
+      <p class="eyebrow">En images</p>
+      <h1 class="disp">Galerie</h1>
+      <p class="lead">Toutes les photos des escales, réunies au même endroit — alimentées directement depuis le carnet de route.</p>
+    </div></section>
+    <section class="gal"><div class="wrap">
+      <div id="grid"><p class="loading">Chargement…</p></div>
+    </div></section>
+  </main>
+  <Footer />
+</Base>
+
+<div id="lightbox" class="lb" aria-hidden="true"><img id="lb-img" alt="" /><button id="lb-close" aria-label="Fermer">✕</button></div>
+
+<style is:global>
+  .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,18px);}
+  .intro h1{font-size:clamp(2.6rem,8vw,5rem);margin:0 0 .6rem;}
+  .gal{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+  .grid figure{margin:0;position:relative;border:2px solid var(--ink);border-radius:12px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;box-shadow:var(--shadow);}
+  .grid img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+  .grid figure:hover img{transform:scale(1.05);}
+  .grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:.78rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(20,12,8,.75));}
+  .empty{border:2px dashed var(--line);border-radius:var(--r);background:var(--card);padding:clamp(30px,6vw,60px);text-align:center;max-width:56ch;margin:0 auto;color:var(--ink-soft);}
+  .empty h2{font-family:var(--disp);text-transform:uppercase;font-size:1.5rem;margin:0 0 .5rem;color:var(--ink);}
+  .loading{color:var(--muted);}
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,8,6,.92);display:none;place-items:center;padding:20px;}
+  .lb.open{display:grid;}
+  .lb img{max-width:94vw;max-height:88vh;border-radius:8px;border:2px solid #fff;}
+  .lb button{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer;}
+</style>
+
+<script>
+  import { fetchTab } from '../lib/data';
+  import { toStops } from '../lib/model';
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+
+  (async () => {
+    const host = document.getElementById('grid')!;
+    try {
+      const stops = toStops(await fetchTab('parcours'));
+      const items = stops.flatMap((s) => s.photos.map((url) => ({ url, ville: s.ville })));
+      if (!items.length) {
+        host.innerHTML = `<div class="empty"><h2>Bientôt en images</h2><p>Les photos apparaîtront ici automatiquement dès qu'elles seront ajoutées aux escales (colonne <code>photos</code>). Aucune double saisie.</p></div>`;
+        return;
+      }
+      host.className = 'grid';
+      host.innerHTML = items
+        .map((it) => `<figure data-full="${esc(it.url)}"><img src="${esc(it.url)}" alt="Photo ${esc(it.ville)}" loading="lazy" /><figcaption>${esc(it.ville)}</figcaption></figure>`)
+        .join('');
+
+      const lb = document.getElementById('lightbox')!;
+      const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+      const open = (url: string) => { lbImg.src = url; lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); };
+      const close = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); lbImg.src = ''; };
+      host.querySelectorAll<HTMLElement>('figure').forEach((f) => f.addEventListener('click', () => open(f.dataset.full!)));
+      document.getElementById('lb-close')!.addEventListener('click', close);
+      lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+      addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    } catch (err) {
+      host.innerHTML = `<p class="loading">${String(err)}</p>`;
+    }
+  })();
+</script>
