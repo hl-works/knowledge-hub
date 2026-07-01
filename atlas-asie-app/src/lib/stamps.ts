@@ -87,30 +87,31 @@ const CUSHION_IN = 'M75 17 C110 17 133 40 133 75 C133 110 110 133 75 133 C40 133
 const scKZ: Scene = (ink, paper, id) => `
   <clipPath id="c${id}"><circle cx="75" cy="72" r="52"/></clipPath>
   <g clip-path="url(#c${id})">
-    <circle cx="75" cy="52" r="9" fill="${ink}"/>${rays(75, 52, 11, 15, 12, ink)}
+    <circle cx="75" cy="48" r="8" fill="${ink}"/>${rays(75, 48, 10, 14, 12, ink)}
     <g fill="${paper}" stroke="${ink}" stroke-width="2" stroke-linejoin="round">
-      <path d="M75 84 C61 72 49 74 36 85 C51 81 63 81 75 90Z"/>
-      <path d="M75 84 C89 72 101 74 114 85 C99 81 87 81 75 90Z"/>
-      <path d="M71 88 L75 100 L79 88Z"/>
+      <path d="M75 78 C63 68 53 70 43 79 C55 76 65 76 75 83Z"/>
+      <path d="M75 78 C87 68 97 70 107 79 C95 76 85 76 75 83Z"/>
+      <path d="M72 82 L75 92 L78 82Z"/>
     </g>
-    <circle cx="75" cy="82" r="3" fill="${ink}"/>
+    <circle cx="75" cy="77" r="2.6" fill="${ink}"/>
   </g>
   ${circleFrame(ink)}${topOrn(ink)}${nameArc(id, 'Kazakhstan', ink, 60)}`;
 
-// KIRGHIZISTAN — cercle rayonnant · tunduk (couronne de yourte) sur les monts
+// KIRGHIZISTAN — cercle · le soleil-tunduk (emblème du drapeau) sur les monts
 const scKG: Scene = (ink, paper, id) => `
-  ${rayCrown(75, 75, 54, 62, 28, ink)}
-  <circle cx="75" cy="75" r="54" fill="none" stroke="${ink}" stroke-width="2.4"/>
-  <circle cx="75" cy="75" r="50" fill="none" stroke="${ink}" stroke-width="0.9"/>
-  <clipPath id="c${id}"><circle cx="75" cy="72" r="48"/></clipPath>
-  <g clip-path="url(#c${id})"><path d="M22 98 L46 72 L62 88 L80 66 L100 90 L128 98Z" fill="none" stroke="${ink}" stroke-width="1.7" stroke-linejoin="round"/></g>
-  <g transform="translate(75,61)">
-    <circle r="15" fill="${paper}" stroke="${ink}" stroke-width="2.2"/>
-    <g stroke="${ink}" stroke-width="1.8" fill="none"><path d="M-15 0A15 15 0 0 1 15 0"/><path d="M-11 -7A13 13 0 0 1 11 -7"/><path d="M-11 7A13 13 0 0 0 11 7"/></g>
-    <line x1="-15" y1="0" x2="15" y2="0" stroke="${ink}" stroke-width="1.3"/><line x1="0" y1="-15" x2="0" y2="15" stroke="${ink}" stroke-width="1.3"/>
-    <line x1="-10.6" y1="-10.6" x2="10.6" y2="10.6" stroke="${ink}" stroke-width="1"/><line x1="10.6" y1="-10.6" x2="-10.6" y2="10.6" stroke="${ink}" stroke-width="1"/>
+  <clipPath id="c${id}"><circle cx="75" cy="72" r="52"/></clipPath>
+  <g clip-path="url(#c${id})">
+    <path d="M20 96 L44 74 L60 88 L80 68 L100 90 L130 96Z" fill="none" stroke="${ink}" stroke-width="1.8" stroke-linejoin="round"/>
+    ${rays(75, 53, 14, 19, 20, ink, 1.2)}
+    <circle cx="75" cy="53" r="13" fill="${paper}" stroke="${ink}" stroke-width="2"/>
+    <g transform="translate(75,53)" stroke="${ink}" fill="none">
+      <path d="M-11 0A11 11 0 0 1 11 0" stroke-width="1.5"/>
+      <path d="M-8 -5A10 10 0 0 1 8 -5" stroke-width="1.1"/>
+      <path d="M-8 5A10 10 0 0 0 8 5" stroke-width="1.1"/>
+      <line x1="-11" y1="0" x2="11" y2="0" stroke-width="1.1"/><line x1="0" y1="-11" x2="0" y2="11" stroke-width="1.1"/>
+    </g>
   </g>
-  ${topOrn(ink)}${nameArc(id, 'Kirghizistan', ink, 44)}`;
+  ${circleFrame(ink)}${topOrn(ink)}${nameArc(id, 'Kirghizistan', ink, 60)}`;
 
 // MONGOLIE — cercle · ger (yourte) dans la steppe, aigles, soleil
 const scMN: Scene = (ink, paper, id) => `
