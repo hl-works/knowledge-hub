@@ -1,7 +1,7 @@
 // Service worker minimal — coquille hors-ligne pour Atlas d'Asie.
 // Stratégie réseau d'abord, repli sur le cache (utile en bus/steppe sans réseau).
-const CACHE = 'atlas-asie-v1';
-const SHELL = ['./', './parcours/', './pays/', './hotels/', './trajets/', './carnet/', './galerie/'];
+const CACHE = 'atlas-asie-v2';
+const SHELL = ['./', './parcours/', './pays/', './hotels/', './trajets/', './carnet/', './galerie/', './offline.html'];
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
@@ -25,6 +25,14 @@ self.addEventListener('fetch', (e) => {
         }
         return res;
       })
-      .catch(() => caches.match(req).then((m) => m || caches.match('./'))),
+      .catch(async () => {
+        const hit = await caches.match(req);
+        if (hit) return hit;
+        // Navigation vers une page jamais visitée : page hors-ligne tamponnée.
+        if (req.destination === 'document') {
+          return (await caches.match('./offline.html')) || caches.match('./');
+        }
+        return caches.match('./');
+      }),
   );
 });

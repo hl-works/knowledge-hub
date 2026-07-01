@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Page introuvable</title>
+<meta name="description" content="Cette page n'existe pas. Tampon : entrée refusée.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFF4E2">
+<link rel="icon" href="/atlas-asie/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#FFF4E2;--card:#FFFDF8;--ink:#241A14;--ink-soft:#5E4B3C;--muted:#9A8268;--line:#EAD7BC;
+    --orange:#FA4616;--orange-deep:#C9330B;--yellow:#F3EA5D;--jade:#149E7C;
+    --disp:"Anton",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif;}
+  *{box-sizing:border-box;}
+  body{margin:0;min-height:100svh;display:grid;place-items:center;padding:28px 20px 48px;overflow-x:hidden;
+    background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    background-image:radial-gradient(60% 40% at 15% 8%, rgba(250,70,22,.05), transparent),
+                     radial-gradient(50% 36% at 88% 90%, rgba(20,158,124,.06), transparent);}
+  .page{max-width:660px;width:100%;text-align:center;}
+  .brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);margin-bottom:clamp(14px,3vw,26px);}
+  .brand img{height:34px;width:auto;}
+  .brand b{font-family:var(--disp);font-weight:400;font-size:1.25rem;letter-spacing:.02em;}
+  .stampbox{position:relative;width:min(320px,68vw);margin:0 auto 26px;}
+  .stampbox svg{display:block;width:100%;height:auto;mix-blend-mode:multiply;}
+  .medal{transform:rotate(-8deg);animation:tampon .45s cubic-bezier(.2,.9,.3,1.35) both .15s;}
+  svg.visa{position:absolute;left:-14%;bottom:-8%;width:52%;transform:rotate(-6deg);animation:tampon .45s cubic-bezier(.2,.9,.3,1.35) both .5s;}
+  @keyframes tampon{from{opacity:0;transform:scale(1.7) rotate(-20deg);}to{opacity:1;}}
+  h1{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:1.02;
+    font-size:clamp(1.7rem,5.4vw,2.6rem);margin:clamp(20px,4vw,32px) 0 .5rem;}
+  .sub{color:var(--ink-soft);max-width:46ch;margin:0 auto;}
+  .quiz{margin:clamp(20px,4vw,30px) auto 0;max-width:480px;background:var(--card);border:2px solid var(--ink);
+    border-radius:14px;box-shadow:5px 5px 0 var(--ink);padding:16px 18px;text-align:left;display:none;}
+  .quiz p{font-weight:700;margin:0 0 .6rem;}
+  .quiz .opts{display:grid;gap:8px;}
+  .quiz button{display:flex;gap:10px;align-items:center;text-align:left;font:inherit;color:var(--ink);
+    background:var(--cream);border:2px solid var(--ink);border-radius:10px;padding:9px 12px;cursor:pointer;}
+  .quiz button:hover:not(:disabled){transform:translateX(2px);}
+  .quiz button:disabled{cursor:default;}
+  .quiz button.bad{background:#FBE0DA;border-color:var(--orange-deep);}
+  .quiz .k{font-family:var(--disp);color:var(--orange-deep);}
+  .quiz .expl{display:none;margin:.7rem 0 0;font-size:.9rem;color:var(--ink-soft);border-left:3px solid var(--yellow);padding-left:10px;}
+  .quiz .expl.show{display:block;}
+  .links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:clamp(22px,4vw,32px);}
+  .links a{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.88rem;text-decoration:none;
+    border:2px solid var(--ink);border-radius:999px;padding:10px 18px;color:var(--ink);background:var(--card);}
+  .links a.main{background:var(--orange);color:#fff;}
+  .links a:hover{transform:translate(1px,-1px);box-shadow:3px 3px 0 var(--ink);}
+  .baseline{margin-top:clamp(26px,5vw,40px);font-size:.74rem;color:var(--muted);}
+  .baseline a{color:inherit;}
+  :where(a,button):focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px;}
+  @media (prefers-reduced-motion:reduce){.medal,.visa{animation:none;}}
+</style>
+</head>
+<body>
+<main class="page">
+  <a class="brand" href="/" id="brand"><img src="/atlas-asie/brand/amhe-icon-orange.png" alt="" width="47" height="34"><b id="brand-name">hl-consulting.tech</b></a>
+
+  <div class="stampbox" aria-hidden="true">
+    <!-- Tampon médaillon 404, même langage que les tampons pays de l'atlas -->
+    <svg class="medal" viewBox="0 0 150 150">
+      <circle cx="75" cy="75" r="70" fill="none" stroke="#C9330B" stroke-width="3"/>
+      <circle cx="75" cy="75" r="62" fill="none" stroke="#C9330B" stroke-width="1" stroke-dasharray="3 4"/>
+      <circle cx="75" cy="58" r="14" fill="#F3EA5D"/>
+      <path d="M28 96 56 62 80 90 100 66 122 96Z" fill="#C9330B" opacity=".9"/>
+      <path d="M28 96h94" stroke="#C9330B" stroke-width="2"/>
+      <path id="arc" d="M75 16a59 59 0 0 1 0 118" fill="none"/>
+      <text font-family="Inter,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4" fill="#C9330B">
+        <textPath href="#arc" startOffset="2%">PAGE INTROUVABLE</textPath>
+      </text>
+      <text x="75" y="132" text-anchor="middle" font-family="Anton,sans-serif" font-size="26" fill="#C9330B">404</text>
+    </svg>
+    <!-- Tampon rectangulaire type douane -->
+    <svg class="visa" viewBox="0 0 200 74">
+      <rect x="3" y="3" width="194" height="68" rx="8" fill="none" stroke="#0C5A5E" stroke-width="3"/>
+      <rect x="10" y="10" width="180" height="54" rx="5" fill="none" stroke="#0C5A5E" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="100" y="34" text-anchor="middle" font-family="Anton,sans-serif" font-size="19" fill="#0C5A5E">ENTRÉE REFUSÉE</text>
+      <text x="100" y="54" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="9.5" letter-spacing="2.2" fill="#0C5A5E">CONTRÔLE DES PAGES</text>
+    </svg>
+  </div>
+
+  <h1 id="joke">Cette page a raté sa correspondance.</h1>
+  <p class="sub" id="sub">Vérifie l'adresse, ou reprends une route connue ci-dessous.</p>
+
+  <div class="quiz" id="quiz">
+    <p>Où est passée cette page&nbsp;?</p>
+    <div class="opts">
+      <button><span class="k">A</span> Restée bloquée à la douane, sans tampon</button>
+      <button><span class="k">B</span> Partie voir les dragons de Komodo</button>
+      <button><span class="k">C</span> Dans le bus Almaty–Bichkek, sans réseau</button>
+    </div>
+    <p class="expl" id="expl"></p>
+  </div>
+
+  <nav class="links" id="links" aria-label="Reprendre la route"></nav>
+
+  <p class="baseline"><a href="/">hl-consulting.tech</a> · erreur 404</p>
+</main>
+
+<script>
+(function () {
+  // La 404 est servie pour tout le domaine : on adapte blagues et liens au
+  // territoire où on s'est perdu (?p=… permet de tester chaque variante).
+  var path = new URLSearchParams(location.search).get('p') || location.pathname;
+  var MODES = {
+    atlas: {
+      name: "Atlas d'Asie",
+      home: '/atlas-asie/',
+      jokes: [
+        'Cette page a raté sa correspondance à Kuala Lumpur.',
+        'Escale inconnue — même la carte du parcours refuse de l\'afficher.',
+        'Cette page est bloquée en Chine. Sans VPN.',
+        'Cette page est partie chasser à l\'aigle au Kirghizistan, sans laisser d\'adresse.',
+        'Perdue. Comme une valise entre deux terminaux.',
+      ],
+      sub: 'Pas de panique : le voyage, lui, continue.',
+      quiz: true,
+      links: [
+        ['/atlas-asie/', "Retour à l'accueil du voyage", true],
+        ['/atlas-asie/parcours/', 'Le parcours'],
+        ['/atlas-asie/pays/', 'Les pays'],
+      ],
+    },
+    hub: {
+      name: 'Knowledge Hub',
+      home: '/knowledge-hub/',
+      jokes: [
+        'Cette page a été refactorée sans laisser d\'adresse.',
+        '404 — même la recherche du hub ne la retrouve pas.',
+        'Cette page est passée en veille. Prolongée.',
+      ],
+      sub: 'Le lien a peut-être changé — tout le reste est bien là.',
+      quiz: false,
+      links: [
+        ['/knowledge-hub/', 'Accueil du hub', true],
+        ['/knowledge-hub/journal/', 'Le journal'],
+        ['/knowledge-hub/guides/', 'Les guides'],
+      ],
+    },
+    root: {
+      name: 'hl-consulting.tech',
+      home: '/',
+      jokes: [
+        'Cette page n\'existe pas. (Encore ?)',
+        'Rien ici — mais le reste vaut le détour.',
+      ],
+      sub: 'Trois pistes sûres ci-dessous.',
+      quiz: false,
+      links: [
+        ['/', 'HL Consulting', true],
+        ['/knowledge-hub/', 'Knowledge Hub'],
+        ['/atlas-asie/', "Atlas d'Asie"],
+      ],
+    },
+  };
+  var m = path.indexOf('/atlas-asie') === 0 ? MODES.atlas : path.indexOf('/knowledge-hub') === 0 ? MODES.hub : MODES.root;
+
+  document.getElementById('brand').href = m.home;
+  document.getElementById('brand-name').textContent = m.name;
+  document.getElementById('joke').textContent = m.jokes[Math.floor(Math.random() * m.jokes.length)];
+  document.getElementById('sub').textContent = m.sub;
+  document.getElementById('links').innerHTML = m.links
+    .map(function (l) { return '<a href="' + l[0] + '"' + (l[2] ? ' class="main"' : '') + '>' + l[1] + '</a>'; })
+    .join('');
+
+  if (m.quiz) {
+    var q = document.getElementById('quiz');
+    q.style.display = 'block';
+    q.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        q.querySelectorAll('button').forEach(function (o) { o.disabled = true; });
+        b.classList.add('bad');
+        var e = document.getElementById('expl');
+        e.textContent = 'Perdu : elle n\'existe pas. C\'était un piège — zéro point pour tout le monde, même Alexis et Emma.';
+        e.classList.add('show');
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
