@@ -374,6 +374,30 @@
   .e-kiosque-intro { padding-right: 28px; }
   @media (max-width: 760px) { .e-media2 { grid-template-columns: 1fr; } .e-kiosque-intro { padding-right: 0; margin-bottom: 24px; } }
 
+  /* ---- Atlas d'Asie : encart voyage (carte photo + texte) ---- */
+  .e-atlas {
+    display: grid; grid-template-columns: 1.1fr 1fr; margin: 0 0 26px;
+    border: var(--e-bw) solid var(--e-border); background: var(--e-panel); color: var(--e-on-panel);
+    text-decoration: none; overflow: hidden;
+    transition: transform .1s linear, box-shadow .1s linear;
+  }
+  .e-atlas:hover, .e-atlas:focus-visible {
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+    transform: translate(calc(var(--e-off) * -0.5), calc(var(--e-off) * -0.5));
+  }
+  .e-atlas-media {
+    min-height: 300px; border-right: var(--e-bw) solid var(--e-border);
+    background: linear-gradient(135deg, var(--e-signal), var(--e-ink)) center/cover no-repeat;
+  }
+  .e-atlas-body { padding: 28px 30px; display: flex; flex-direction: column; justify-content: center; }
+  .e-atlas-body h3 { font-weight: 700; font-size: clamp(30px, 5vw, 52px); margin: 8px 0 12px; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.96; }
+  .e-atlas-body p { font-size: 15px; line-height: 1.45; margin: 0 0 18px; max-width: 44ch; }
+  .e-atlas:hover .e-blk-link::after, .e-atlas:focus-visible .e-blk-link::after { transform: translateX(5px); }
+  @media (max-width: 720px) {
+    .e-atlas { grid-template-columns: 1fr; }
+    .e-atlas-media { border-right: 0; border-bottom: var(--e-bw) solid var(--e-border); min-height: 190px; }
+  }
+
   /* ============ REELS (Instagram, iframe sans script tiers) ============ */
   .e-reels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .e-reel { border: var(--e-bw) solid var(--e-border); background: #fff; line-height: 0; overflow: hidden; box-shadow: 6px 6px 0 var(--e-shadow); }
@@ -698,6 +722,18 @@
           </p>
           <span class="e-blk-link e-mono">Son-Vidéo.com</span>
         </a>
+
+        <!-- ATLAS D'ASIE -->
+        <a class="e-block e-half" id="atlas" href="/atlas-asie/">
+          <span class="e-blk-idx e-mono">[06]</span>
+          <span class="e-blk-meta e-mono"><span class="e-fr">AMHE · CARNET DE VOYAGE</span><span class="e-en">AMHE · TRAVEL LOG</span></span>
+          <h3>Atlas d'Asie</h3>
+          <p>
+            <span class="e-fr">Le carnet de voyage @amhe passe à l'Asie : itinéraires, rencontres, photos, pays après pays. Le contre-champ perso du build in public, en version site.</span>
+            <span class="e-en">The @amhe travel log turns to Asia: routes, encounters, photos, country by country. The personal flip-side of build in public, as a site.</span>
+          </p>
+          <span class="e-blk-link e-mono"><span class="e-fr">Ouvrir l'Atlas</span><span class="e-en">Open the Atlas</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -772,6 +808,18 @@
         <span class="e-fr">Le tour du monde en famille, carnet de bord en reels. Le contre-champ perso du build in public.</span>
         <span class="e-en">A family trip around the world, a logbook in reels. The personal flip-side of build in public.</span>
       </p>
+      <a class="e-atlas" href="/atlas-asie/">
+        <span class="e-atlas-media" aria-hidden="true" style="background-image:url('/atlas-asie/brand/hero-issyk-kul.jpg')"></span>
+        <span class="e-atlas-body">
+          <span class="e-blk-idx e-mono">AMHE · CARNET DE VOYAGE</span>
+          <h3>Atlas d'Asie</h3>
+          <p>
+            <span class="e-fr">Le nouveau chapitre du carnet @amhe : l'Asie en profondeur — itinéraires, rencontres, photos, pays après pays. Un atlas vivant, en version site.</span>
+            <span class="e-en">The new chapter of the @amhe logbook: Asia in depth — routes, encounters, photos, country by country. A living atlas, as a site.</span>
+          </p>
+          <span class="e-blk-link e-mono"><span class="e-fr">Ouvrir l'Atlas</span><span class="e-en">Open the Atlas</span></span>
+        </span>
+      </a>
       <div class="e-reels">
         <div class="e-reel"><iframe src="https://www.instagram.com/reel/DNrEbcU2JnJ/embed" loading="lazy" title="Reel Instagram — tour du monde en famille" allowfullscreen></iframe></div>
         <div class="e-reel"><iframe src="https://www.instagram.com/reel/C5cyRx-L6U0/embed" loading="lazy" title="Reel Instagram — tour du monde en famille" allowfullscreen></iframe></div>
@@ -805,6 +853,7 @@
           <li><a href="#mag">[03] Haute Fidélité</a></li>
           <li><a href="#hifi">[04] HiFi Lovers</a></li>
           <li><a href="#parcours">[05] <span class="e-fr">Parcours</span><span class="e-en">Path</span></a></li>
+          <li><a href="#atlas">[06] Atlas d'Asie</a></li>
           <li><a href="/a-propos/"><span class="e-fr">À propos</span><span class="e-en">About</span></a></li>
         </ul>
       </div>
