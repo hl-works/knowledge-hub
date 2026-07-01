@@ -544,14 +544,7 @@
   .e-portrait-frame:focus-within img { filter: none; transform: scale(1.03); }
   .e-portrait-frame:hover::after,
   .e-portrait-frame:focus-within::after { opacity: 0; }
-  .e-portrait-frame::before {
-    content: "VOIR EN COULEUR ↗"; position: absolute; top: 0; right: 0; z-index: 3;
-    font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .06em; font-weight: 700;
-    background: var(--e-bar); color: var(--e-on-bar); padding: 5px 9px;
-    border-left: var(--e-bw) solid var(--e-border); border-bottom: var(--e-bw) solid var(--e-border);
-    opacity: 1; transition: opacity .3s;
-  }
-  .e-portrait-frame:hover::before, .e-portrait-frame:focus-within::before { opacity: 0; }
+  .e-portrait-frame::before { content: none; }
   .e-portrait-cap {
     position: absolute; left: 0; bottom: 0; z-index: 2;
     background: var(--e-bar); color: var(--e-on-bar);
