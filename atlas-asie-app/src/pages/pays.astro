@@ -31,6 +31,10 @@ import Footer from '../components/Footer.astro';
   .pchip[aria-current="true"]{background:var(--ink);color:var(--cream);}
   .pchip[aria-current="true"] .fl{border-color:rgba(255,255,255,.4);}
   .pchip:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;}
+  .pchip .live-dot{width:8px;height:8px;border-radius:50%;background:var(--jade);flex:none;box-shadow:0 0 0 0 rgba(20,158,124,.6);animation:livepulse 2s infinite;}
+  .pchip[aria-current="true"] .live-dot{background:var(--yellow);box-shadow:0 0 0 0 rgba(243,234,93,.6);}
+  @keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(20,158,124,.55)}70%{box-shadow:0 0 0 7px rgba(20,158,124,0)}100%{box-shadow:0 0 0 0 rgba(20,158,124,0)}}
+  @media (prefers-reduced-motion:reduce){.pchip .live-dot{animation:none;}}
 
   .fiches{padding:clamp(18px,3vw,30px) 0 clamp(40px,6vw,80px);}
   .fiche{scroll-margin-top:70px;border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:var(--card);}
@@ -105,9 +109,9 @@ import Footer from '../components/Footer.astro';
 
 <script>
   import { fetchTab } from '../lib/data';
-  import { toCountries, toQuiz, toAnimals, toLexique, toPratique } from '../lib/model';
+  import { toCountries, toQuiz, toAnimals, toLexique, toPratique, toStops } from '../lib/model';
   import { PAL, slugPays as slug } from '../lib/paysMeta';
-  import type { Country, QuizQ, Animal, Mot, Pratique } from '../lib/model';
+  import type { Country, QuizQ, Animal, Mot, Pratique, Stop } from '../lib/model';
   import { stampEki, flag, codeForPays } from '../lib/stamps';
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
@@ -128,6 +132,19 @@ import Footer from '../components/Footer.astro';
   };
 
   type Ctx = { quiz: QuizQ[]; animals: Animal[]; mots: Mot[]; prat?: Pratique };
+
+  // Pays « au centre » selon les dates : en cours si aujourd'hui tombe dedans,
+  // sinon le prochain à venir, sinon le dernier visité.
+  function tripFocus(stops: Stop[], names: Set<string>): { pays?: string; live: boolean } {
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const valid = stops.filter((s) => s.pays && names.has(s.pays) && s.arrivee);
+    const cur = valid.find((s) => s.arrivee! <= today && (!s.depart || today <= s.depart));
+    if (cur) return { pays: cur.pays, live: true };
+    const next = valid.find((s) => s.arrivee! > today);
+    if (next) return { pays: next.pays, live: false };
+    const past = [...valid].reverse().find((s) => s.arrivee! <= today);
+    return { pays: (past ?? valid[0])?.pays, live: false };
+  }
 
   function apercuPane(c: Country): string {
     const facts = [
@@ -239,12 +256,13 @@ import Footer from '../components/Footer.astro';
     const ficheHost = document.getElementById('fiches')!;
     const switchRow = document.getElementById('switch-row')!;
     try {
-      const [pRows, qRows, bRows, lRows, prRows] = await Promise.all([
-        fetchTab('pays'), fetchTab('quiz'), fetchTab('bestiaire'), fetchTab('lexique'), fetchTab('pratique'),
+      const [pRows, qRows, bRows, lRows, prRows, parcRows] = await Promise.all([
+        fetchTab('pays'), fetchTab('quiz'), fetchTab('bestiaire'), fetchTab('lexique'), fetchTab('pratique'), fetchTab('parcours'),
       ]);
       const countries = toCountries(pRows).filter((c) => c.pays);
       const quiz = toQuiz(qRows), animals = toAnimals(bRows), lex = toLexique(lRows), prat = toPratique(prRows);
       if (!countries.length) { ficheHost.innerHTML = '<p class="loading">Aucun pays pour le moment.</p>'; switchRow.innerHTML = ''; return; }
+      const focus = tripFocus(toStops(parcRows), new Set(countries.map((c) => c.pays)));
 
       const ctxOf = (c: Country): Ctx => ({
         quiz: quiz.filter((q) => q.pays === c.pays),
@@ -254,7 +272,10 @@ import Footer from '../components/Footer.astro';
       });
 
       // Sélecteur de pays (drapeau + nom)
-      switchRow.innerHTML = countries.map((c) => `<button class="pchip" data-slug="${slug(c.pays)}" aria-current="false"><span class="fl" aria-hidden="true">${flag(codeForPays(c.pays))}</span>${esc(c.pays)}</button>`).join('');
+      switchRow.innerHTML = countries.map((c) => {
+        const live = focus.live && c.pays === focus.pays;
+        return `<button class="pchip${live ? ' live' : ''}" data-slug="${slug(c.pays)}" aria-current="false"${live ? ' title="On y est en ce moment"' : ''}><span class="fl" aria-hidden="true">${flag(codeForPays(c.pays))}</span>${esc(c.pays)}${live ? '<span class="live-dot" aria-hidden="true"></span>' : ''}</button>`;
+      }).join('');
       const chips = switchRow.querySelectorAll<HTMLButtonElement>('.pchip');
 
       function show(c: Country, opts: { scroll?: boolean } = {}) {
@@ -273,7 +294,8 @@ import Footer from '../components/Footer.astro';
       }));
 
       const fromHash = location.hash ? countries.find((c) => slug(c.pays) === location.hash.slice(1)) : undefined;
-      show(fromHash ?? countries[0]);
+      const focused = focus.pays ? countries.find((c) => c.pays === focus.pays) : undefined;
+      show(fromHash ?? focused ?? countries[0]);
     } catch (err) {
       ficheHost.innerHTML = `<p class="loading">${String(err)}</p>`;
     }
