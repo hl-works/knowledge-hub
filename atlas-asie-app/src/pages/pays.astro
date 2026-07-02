@@ -166,6 +166,28 @@ import Footer from '../components/Footer.astro';
     Russe: 'ru-RU', Mongol: 'mn-MN', Mandarin: 'zh-CN', Cantonais: 'zh-HK', Malais: 'ms-MY', Indonésien: 'id-ID',
   };
   const SPK = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8a4 4 0 0 1 0 8M18.7 5.3a8 8 0 0 1 0 13.4"/></svg>';
+  let VOICES: SpeechSynthesisVoice[] = [];
+  if (TTS_OK) {
+    const loadV = () => { VOICES = speechSynthesis.getVoices(); };
+    loadV();
+    speechSynthesis.addEventListener('voiceschanged', loadV);
+  }
+  // Choisit la meilleure voix dispo pour la langue : on privilégie les voix
+  // haute qualité (Enhanced/Premium/Neural/Siri) plutôt que la « compacte » par défaut.
+  function pickVoice(lang: string): SpeechSynthesisVoice | undefined {
+    if (!VOICES.length) VOICES = speechSynthesis.getVoices();
+    const norm = (l: string) => l.replace('_', '-').toLowerCase();
+    const base = norm(lang).split('-')[0];
+    const forLang = VOICES.filter((v) => norm(v.lang).split('-')[0] === base);
+    if (!forLang.length) return undefined;
+    const exact = forLang.filter((v) => norm(v.lang) === norm(lang));
+    const pool = exact.length ? exact : forLang;
+    return (
+      pool.find((v) => /enhanced|premium|neural|siri/i.test(v.name)) ||
+      pool.find((v) => !/compact|eloquence/i.test(v.name)) ||
+      pool[0]
+    );
+  }
   function speak(btn: HTMLElement) {
     const text = btn.dataset.say || '', lang = btn.dataset.lang || '';
     if (!TTS_OK || !text) return;
@@ -173,10 +195,9 @@ import Footer from '../components/Footer.astro';
       speechSynthesis.cancel();
       document.querySelectorAll('.say.speaking').forEach((e) => e.classList.remove('speaking'));
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = lang; u.rate = 0.9;
-      const voices = speechSynthesis.getVoices();
-      const v = voices.find((x) => x.lang === lang) || voices.find((x) => x.lang.split('-')[0] === lang.split('-')[0]);
-      if (v) u.voice = v;
+      u.lang = lang; u.rate = 0.85;
+      const v = pickVoice(lang);
+      if (v) { u.voice = v; u.lang = v.lang; }
       u.onend = u.onerror = () => btn.classList.remove('speaking');
       btn.classList.add('speaking');
       speechSynthesis.speak(u);
