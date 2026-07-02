@@ -146,6 +146,29 @@ autour d'une Sheet FR ne vaut rien). La config i18n d'Astro reste en place dans
 de page `/en/`, pas de hreflang, pas de toggle de langue tant qu'il n'y a pas de
 vraies données EN (voir `GUIDE-EVERGREEN.md` §5).
 
+## Ajouter les photos du voyage (procédure Claude — pendant le voyage)
+
+Le site fusionne deux sources de photos par escale : la colonne `photos` de la
+Sheet (URLs) **et** les photos committées dans le repo
+(`atlas-asie-app/public/photos/<ordre>/NN.jpg` + `public/photos/manifest.json`).
+Le repo est la voie recommandée : URLs stables, servies par le site, hors ligne.
+
+**Quand Hugo envoie des photos dans une conversation avec un n° ou un nom
+d'escale** (ex. « escale 12 » ou « Bichkek : ces 3 photos, légende … ») :
+
+1. Retrouver l'`ordre` de l'escale dans `public/fixtures/parcours.csv` si Hugo
+   donne un nom de ville.
+2. `node scripts/add-photos.mjs <ordre> [--legende "…"] <fichiers>` — le script
+   redimensionne (1600 px, JPEG q75), range et met à jour le manifest. Une
+   légende différente par photo → un appel par photo.
+3. Rebuild : `cd atlas-asie-app && npm run build` puis
+   `python3 scripts/build_atlas_static.py` (le build purge `atlas-asie/`).
+4. Commit + passage en prod (`content(atlas): photos escale <ordre> — <ville>`).
+
+Les photos apparaissent automatiquement sur **l'escale du Parcours** et dans la
+**Galerie** (groupée par pays, légende affichée). Pas de page d'upload sur le
+site : statique sans back, c'est Claude le guichet.
+
 ## Médias & photos
 
 Stratégie photo à deux niveaux, pour avoir un max de belles images sans coller d'URLs à la main :

@@ -103,6 +103,7 @@ import Footer from '../components/Footer.astro';
   import type { Stop, Lieu, Recit } from '../lib/model';
   import { paysHead } from '../lib/paysMeta';
   import { loadPhotos, ccImg } from '../lib/photos';
+  import { loadTripPhotos, tripPhotos } from '../lib/tripPhotos';
   import { fetchWeather, weatherIcon } from '../lib/weather';
 
   const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
@@ -155,7 +156,14 @@ import Footer from '../components/Footer.astro';
   }
 
   function mediaBlock(s: Stop): string {
-    const imgs = s.photos.map((u) => `<img src="${esc(u)}" alt="Photo ${esc(s.ville)}" loading="lazy" />`).join('');
+    // Fusion : photos de la Sheet (colonne `photos`) + photos du repo (manifest).
+    const all = [
+      ...s.photos.map((u) => ({ url: u, legende: undefined as string | undefined })),
+      ...tripPhotos(s.ordre),
+    ];
+    const imgs = all
+      .map((p) => `<img src="${esc(p.url)}" alt="${esc(p.legende || 'Photo ' + s.ville)}"${p.legende ? ` title="${esc(p.legende)}"` : ''} loading="lazy" />`)
+      .join('');
     const vid = s.video ? `<a class="vid" href="${esc(s.video)}" target="_blank" rel="noopener">▶ Vidéo</a>` : '';
     return imgs || vid ? `<div class="media">${imgs}${vid}</div>` : '';
   }
@@ -168,6 +176,7 @@ import Footer from '../components/Footer.astro';
         fetchTab('lieux').catch(() => []),
         fetchTab('recits').catch(() => []),
         loadPhotos(),
+        loadTripPhotos(),
       ]);
       const stops = toStops(pRows);
       const lieux = toLieux(lieuxRows);

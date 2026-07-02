@@ -1,6 +1,6 @@
 // Service worker minimal — coquille hors-ligne pour Atlas d'Asie.
 // Stratégie réseau d'abord, repli sur le cache (utile en bus/steppe sans réseau).
-const CACHE = 'atlas-asie-v3';
+const CACHE = 'atlas-asie-v4';
 // Coquille + données précachées à l'installation : le site complet se
 // consulte hors ligne dès la première visite (bus en Mongolie approuvé).
 const SHELL = [
@@ -8,7 +8,7 @@ const SHELL = [
   './fixtures/parcours.csv', './fixtures/pays.csv', './fixtures/quiz.csv', './fixtures/bestiaire.csv',
   './fixtures/lexique.csv', './fixtures/transports.csv', './fixtures/pratique.csv', './fixtures/aeroports.csv',
   './fixtures/lieux.csv', './fixtures/miam.csv', './fixtures/recits.csv', './fixtures/photos.json',
-  './manifest.webmanifest',
+  './manifest.webmanifest', './photos/manifest.json',
 ];
 
 self.addEventListener('install', (e) => {

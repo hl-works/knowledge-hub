@@ -42,19 +42,24 @@ import Footer from '../components/Footer.astro';
   import { fetchTab } from '../lib/data';
   import { toStops } from '../lib/model';
   import { paysHead, groupByPays } from '../lib/paysMeta';
+  import { loadTripPhotos, tripPhotos } from '../lib/tripPhotos';
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
 
   (async () => {
     const host = document.getElementById('grid')!;
     try {
-      const stops = toStops(await fetchTab('parcours'));
-      const items = stops.flatMap((s) => s.photos.map((url) => ({ url, ville: s.ville, pays: s.pays })));
+      const [pRows] = await Promise.all([fetchTab('parcours'), loadTripPhotos()]);
+      const stops = toStops(pRows);
+      const items = stops.flatMap((s) => [
+        ...s.photos.map((url) => ({ url, ville: s.ville, pays: s.pays, legende: undefined as string | undefined })),
+        ...tripPhotos(s.ordre).map((p) => ({ url: p.url, ville: s.ville, pays: s.pays, legende: p.legende })),
+      ]);
       if (!items.length) {
         host.innerHTML = `<div class="empty"><h2>Bientôt en images</h2><p>Les photos apparaîtront ici automatiquement dès qu'elles seront ajoutées aux escales (colonne <code>photos</code>). Aucune double saisie.</p></div>`;
         return;
       }
-      const fig = (it: { url: string; ville: string }) =>
-        `<figure data-full="${esc(it.url)}"><img src="${esc(it.url)}" alt="Photo ${esc(it.ville)}" loading="lazy" /><figcaption>${esc(it.ville)}</figcaption></figure>`;
+      const fig = (it: { url: string; ville: string; legende?: string }) =>
+        `<figure data-full="${esc(it.url)}"><img src="${esc(it.url)}" alt="${esc(it.legende || 'Photo ' + it.ville)}" loading="lazy" /><figcaption>${esc(it.legende ? `${it.ville} — ${it.legende}` : it.ville)}</figcaption></figure>`;
       host.innerHTML = groupByPays(items, (it) => it.pays)
         .map((g) => paysHead(g.pays, `${g.items.length} photo${g.items.length > 1 ? 's' : ''}`) + `<div class="grid">${g.items.map(fig).join('')}</div>`)
         .join('');
