@@ -44,6 +44,22 @@ import Footer from '../components/Footer.astro';
   .loading{color:var(--muted);padding-left:60px;}
   .avoir{margin-top:14px;}
   .avoir h3{font-family:var(--disp);text-transform:uppercase;font-size:1rem;margin:0 0 .6rem;color:var(--orange-deep);}
+
+  /* La grande histoire — récits du pays, en tête de section */
+  .grande-histoire{margin:0 0 clamp(16px,3vw,26px);padding-left:56px;}
+  .grande-histoire > h3{font-family:var(--disp);text-transform:uppercase;font-size:1.15rem;margin:0 0 .8rem;color:var(--orange-deep);display:flex;align-items:center;gap:.5rem;}
+  .grande-histoire > h3::before{content:"";width:22px;height:3px;background:var(--yellow);}
+  .recit{border:2px solid var(--ink);border-radius:14px;background:var(--card);margin:0 0 10px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);}
+  .recit summary{cursor:pointer;list-style:none;padding:14px 16px;display:grid;gap:2px;}
+  .recit summary::-webkit-details-marker{display:none;}
+  .recit .rtit{font-family:var(--disp);text-transform:uppercase;font-size:1.05rem;color:var(--ink);}
+  .recit .racc{color:var(--ink-soft);font-size:.92rem;}
+  .recit .rplus{margin-top:4px;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep);}
+  .recit .rplus::after{content:" ▾";}
+  .recit[open] .rplus::after{content:" ▴";}
+  .recit .rbody{padding:4px 18px 20px;}
+  .recit .rbody p{font-family:'Fraunces',Georgia,serif;font-size:1.06rem;line-height:1.75;max-width:64ch;color:var(--ink);margin:0 0 1em;}
+  .recit .rimg{width:100%;max-height:260px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin:0 0 14px;}
   .lieux{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;}
   .lieu{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;}
   .lieu .limg{width:100%;aspect-ratio:16/9;object-fit:cover;}
@@ -78,13 +94,13 @@ import Footer from '../components/Footer.astro';
   .media img{width:120px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}
   .media a.vid{align-self:center;font-size:.82rem;font-weight:700;color:var(--orange-deep);}
 
-  @media (max-width:560px){.leg{grid-template-columns:40px 1fr;gap:12px;}.timeline::before{left:18px;}.hotel img{display:none;}}
+  @media (max-width:560px){.leg{grid-template-columns:40px 1fr;gap:12px;}.timeline::before{left:18px;}.hotel img{display:none;}.grande-histoire{padding-left:40px;}}
 </style>
 
 <script>
   import { fetchTab } from '../lib/data';
-  import { toStops, toLieux } from '../lib/model';
-  import type { Stop, Lieu } from '../lib/model';
+  import { toStops, toLieux, toRecits } from '../lib/model';
+  import type { Stop, Lieu, Recit } from '../lib/model';
   import { paysHead } from '../lib/paysMeta';
   import { loadPhotos, ccImg } from '../lib/photos';
   import { fetchWeather, weatherIcon } from '../lib/weather';
@@ -125,6 +141,19 @@ import Footer from '../components/Footer.astro';
     return `<div class="avoir"><h3>À voir</h3><div class="lieux">${body}</div></div>`;
   }
 
+  // « La grande histoire » : les récits longs du pays, en tête de sa section.
+  function recitsBlock(recits: Recit[]): string {
+    if (!recits.length) return '';
+    const body = recits
+      .map((r) => {
+        const img = ccImg(r.photoQuery, r.titre, 'rimg');
+        const paras = r.texte.split(/\n{2,}/).map((t) => `<p>${esc(t.trim())}</p>`).join('');
+        return `<details class="recit"><summary><span class="rtit">${esc(r.titre)}</span><span class="racc">${esc(r.accroche)}</span><span class="rplus">Lire la suite</span></summary><div class="rbody">${img}${paras}</div></details>`;
+      })
+      .join('');
+    return `<div class="grande-histoire"><h3>La grande histoire</h3>${body}</div>`;
+  }
+
   function mediaBlock(s: Stop): string {
     const imgs = s.photos.map((u) => `<img src="${esc(u)}" alt="Photo ${esc(s.ville)}" loading="lazy" />`).join('');
     const vid = s.video ? `<a class="vid" href="${esc(s.video)}" target="_blank" rel="noopener">▶ Vidéo</a>` : '';
@@ -134,17 +163,24 @@ import Footer from '../components/Footer.astro';
   (async () => {
     const host = document.getElementById('timeline')!;
     try {
-      const [pRows, lieuxRows] = await Promise.all([
+      const [pRows, lieuxRows, recitsRows] = await Promise.all([
         fetchTab('parcours'),
         fetchTab('lieux').catch(() => []),
+        fetchTab('recits').catch(() => []),
         loadPhotos(),
       ]);
       const stops = toStops(pRows);
       const lieux = toLieux(lieuxRows);
+      const recits = toRecits(recitsRows);
       let paysCourant = '';
       host.innerHTML = stops
-        .map(
-          (s) => `${s.pays !== paysCourant ? paysHead((paysCourant = s.pays)) : ''}
+        .map((s) => {
+          let head = '';
+          if (s.pays !== paysCourant) {
+            paysCourant = s.pays;
+            head = paysHead(s.pays) + recitsBlock(recits.filter((r) => r.pays.includes(s.pays)));
+          }
+          return `${head}
         <article class="leg leg--${s.statut}" id="e-${s.ordre}">
           <div class="rail"><span class="node"></span><span class="ord">${s.ordre}</span></div>
           <div class="card"><div class="body">
@@ -159,8 +195,8 @@ import Footer from '../components/Footer.astro';
             ${lieuxBlock(lieux.filter((l) => l.ordre === s.ordre))}
             ${mediaBlock(s)}
           </div></div>
-        </article>`,
-        )
+        </article>`;
+        })
         .join('');
 
       // Météo paresseuse : on ne sollicite Open-Meteo qu'à l'apparition de la carte.
