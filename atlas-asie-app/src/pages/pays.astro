@@ -142,6 +142,7 @@ import Footer from '../components/Footer.astro';
   import type { Country, QuizQ, Animal, Mot, Pratique, Stop, Plat, Recit } from '../lib/model';
   import { loadPhotos, ccImg } from '../lib/photos';
   import { stampEki, flag, codeForPays } from '../lib/stamps';
+  import { loadAudio, audioUrl } from '../lib/audio';
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
   const paras = (s: string) => s.split(/\n{2,}|\s•\s/).map((p) => `<p>${esc(p.trim())}</p>`).join('');
@@ -164,6 +165,10 @@ import Footer from '../components/Footer.astro';
   const TTS_OK = typeof window !== 'undefined' && 'speechSynthesis' in window;
   const LANG: Record<string, string> = {
     Russe: 'ru-RU', Mongol: 'mn-MN', Mandarin: 'zh-CN', Cantonais: 'zh-HK', Malais: 'ms-MY', Indonésien: 'id-ID',
+  };
+  // Code TTS des MP3 pré-générés (scripts/gen_audio.py). Mongol = pas de fichier → voix native.
+  const TL: Record<string, string> = {
+    Russe: 'ru', Mandarin: 'zh-CN', Cantonais: 'yue', Malais: 'ms', Indonésien: 'id',
   };
   const SPK = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8a4 4 0 0 1 0 8M18.7 5.3a8 8 0 0 1 0 13.4"/></svg>';
   let VOICES: SpeechSynthesisVoice[] = [];
@@ -188,12 +193,28 @@ import Footer from '../components/Footer.astro';
       pool[0]
     );
   }
+  // Joue d'abord le MP3 pré-généré (qualité homogène) ; sinon voix native.
   function speak(btn: HTMLElement) {
-    const text = btn.dataset.say || '', lang = btn.dataset.lang || '';
-    if (!TTS_OK || !text) return;
+    const text = btn.dataset.say || '', lang = btn.dataset.lang || '', tl = btn.dataset.tl || '';
+    if (!text) return;
+    document.querySelectorAll('.say.speaking').forEach((e) => e.classList.remove('speaking'));
+    if (TTS_OK) { try { speechSynthesis.cancel(); } catch { /* ok */ } }
+    const stop = () => btn.classList.remove('speaking');
+    btn.classList.add('speaking');
+    const url = audioUrl(tl, text);
+    if (url) {
+      const a = new Audio(url);
+      a.addEventListener('ended', stop);
+      a.addEventListener('error', () => { stop(); nativeSpeak(btn, text, lang); });
+      a.play().catch(() => { stop(); nativeSpeak(btn, text, lang); });
+      return;
+    }
+    nativeSpeak(btn, text, lang);
+  }
+  function nativeSpeak(btn: HTMLElement, text: string, lang: string) {
+    if (!TTS_OK || !text) { btn.classList.remove('speaking'); return; }
     try {
       speechSynthesis.cancel();
-      document.querySelectorAll('.say.speaking').forEach((e) => e.classList.remove('speaking'));
       const u = new SpeechSynthesisUtterance(text);
       u.lang = lang; u.rate = 0.85;
       const v = pickVoice(lang);
@@ -201,7 +222,7 @@ import Footer from '../components/Footer.astro';
       u.onend = u.onerror = () => btn.classList.remove('speaking');
       btn.classList.add('speaking');
       speechSynthesis.speak(u);
-    } catch { /* silencieux */ }
+    } catch { btn.classList.remove('speaking'); }
   }
 
   type Ctx = { quiz: QuizQ[]; animals: Animal[]; mots: Mot[]; prat?: Pratique; plats: Plat[]; recits: Recit[] };
@@ -257,8 +278,9 @@ import Footer from '../components/Footer.astro';
   function motsPane(mots: Mot[]): string {
     if (!mots.length) return '';
     const body = mots.map((m) => {
-      const lang = LANG[m.langue] || '';
-      const btn = TTS_OK && lang && m.motLocal ? `<button class="say" data-say="${esc(m.motLocal)}" data-lang="${lang}" title="Écouter" aria-label="Écouter la prononciation">${SPK}</button>` : '';
+      const lang = LANG[m.langue] || '', tl = TL[m.langue] || '';
+      const canPlay = !!m.motLocal && (!!audioUrl(tl, m.motLocal) || (TTS_OK && !!lang));
+      const btn = canPlay ? `<button class="say" data-say="${esc(m.motLocal)}" data-lang="${lang}" data-tl="${tl}" title="Écouter" aria-label="Écouter la prononciation">${SPK}</button>` : '';
       return `<div class="lcard"><div class="fr">${esc(m.francais)}</div><div class="loc"><span>${esc(m.motLocal)}</span>${btn}</div><div class="pron">${esc(m.prononciation)}</div></div>`;
     }).join('');
     const langue = mots[0]?.langue ? `<p style="color:var(--muted);font-size:.85rem;margin:0 0 .8rem">Langue : <b style="color:var(--ink)">${esc(mots[0].langue)}</b></p>` : '';
@@ -366,7 +388,7 @@ import Footer from '../components/Footer.astro';
     try {
       const [pRows, qRows, bRows, lRows, prRows, parcRows, mRows, rRows] = await Promise.all([
         fetchTab('pays'), fetchTab('quiz'), fetchTab('bestiaire'), fetchTab('lexique'), fetchTab('pratique'), fetchTab('parcours'),
-        fetchTab('miam'), fetchTab('recits'), loadPhotos().then(() => []),
+        fetchTab('miam'), fetchTab('recits'), loadPhotos().then(() => []), loadAudio().then(() => []),
       ]);
       const countries = toCountries(pRows).filter((c) => c.pays);
       const quiz = toQuiz(qRows), animals = toAnimals(bRows), lex = toLexique(lRows), prat = toPratique(prRows);
