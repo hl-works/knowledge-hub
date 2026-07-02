@@ -46,7 +46,10 @@ img{max-width:100%;display:block;}
 }
 
 /* ============ Carte Leaflet — habillage AMHE ============ */
-.leaflet-container{font-family:var(--sans);background:#0b1020;}
+/* Fond réchauffé « carte ancienne » : on teinte les tuiles CARTO sombres en
+   brun-espresso pour sortir du noir froid et coller à la palette crème/orange. */
+.leaflet-container{font-family:var(--sans);background:#241A14;}
+.leaflet-tile{filter:sepia(.55) saturate(.82) brightness(1.06) contrast(.97) hue-rotate(-10deg);}
 .pin{display:block;width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.5);}
 .pin--passe{background:#FA4616;}
 .pin--a-venir{background:#FFF4E2;}
