@@ -91,7 +91,7 @@ import Footer from '../components/Footer.astro';
   .hotel a.hlink{font-size:.8rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
   .hotel img{width:110px;height:80px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}
   .media{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
-  .media img{width:120px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}
+  .media img{width:120px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}.media video{width:120px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}
   .media a.vid{align-self:center;font-size:.82rem;font-weight:700;color:var(--orange-deep);}
 
   @media (max-width:560px){.leg{grid-template-columns:40px 1fr;gap:12px;}.timeline::before{left:18px;}.hotel img{display:none;}.grande-histoire{padding-left:40px;}}
@@ -158,11 +158,14 @@ import Footer from '../components/Footer.astro';
   function mediaBlock(s: Stop): string {
     // Fusion : photos de la Sheet (colonne `photos`) + photos du repo (manifest).
     const all = [
-      ...s.photos.map((u) => ({ url: u, legende: undefined as string | undefined })),
+      ...s.photos.map((u) => ({ url: u, legende: undefined as string | undefined, type: undefined as 'video' | undefined, poster: undefined as string | undefined })),
       ...tripPhotos(s.ordre),
     ];
     const imgs = all
-      .map((p) => `<img src="${esc(p.url)}" alt="${esc(p.legende || 'Photo ' + s.ville)}"${p.legende ? ` title="${esc(p.legende)}"` : ''} loading="lazy" />`)
+      .map((p) =>
+        p.type === 'video'
+          ? `<video controls playsinline preload="metadata"${p.poster ? ` poster="${esc(p.poster)}"` : ''} src="${esc(p.url)}"${p.legende ? ` title="${esc(p.legende)}"` : ''}></video>`
+          : `<img src="${esc(p.url)}" alt="${esc(p.legende || 'Photo ' + s.ville)}"${p.legende ? ` title="${esc(p.legende)}"` : ''} loading="lazy" />`)
       .join('');
     const vid = s.video ? `<a class="vid" href="${esc(s.video)}" target="_blank" rel="noopener">▶ Vidéo</a>` : '';
     return imgs || vid ? `<div class="media">${imgs}${vid}</div>` : '';

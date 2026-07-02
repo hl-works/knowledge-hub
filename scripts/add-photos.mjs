@@ -3,8 +3,8 @@
 //
 //   node scripts/add-photos.mjs <ordre> [--legende "…"] fichier1.jpg [fichier2.heic …]
 //
-// - redimensionne à 1600 px max (JPEG qualité 75, ~200-400 Ko) via sharp
-// - range dans atlas-asie-app/public/photos/<ordre>/NN.jpg
+// - redimensionne à 1600 px max (WebP qualité 78, ~150-300 Ko) via sharp
+// - range dans atlas-asie-app/public/photos/<ordre>/NN.webp
 // - met à jour public/photos/manifest.json (fusionné par le site avec la Sheet)
 // La légende s'applique à toutes les photos de l'appel (relancer par lot sinon).
 // Ensuite : rebuild Astro + build_atlas_static.py + commit (cf. CLAUDE.md).
@@ -34,13 +34,13 @@ const manifestPath = resolve(photosDir, 'manifest.json');
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 manifest[ordre] ??= [];
 
-let n = readdirSync(destDir).filter((f) => f.endsWith('.jpg')).length;
+let n = readdirSync(destDir).filter((f) => /\.(jpg|webp|mp4)$/.test(f) && !f.includes('-poster')).length;
 for (const file of args) {
   n += 1;
-  const name = String(n).padStart(2, '0') + '.jpg';
+  const name = String(n).padStart(2, '0') + '.webp';
   const out = resolve(destDir, name);
   await sharp(file).rotate().resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
-    .jpeg({ quality: 75, mozjpeg: true }).toFile(out);
+    .webp({ quality: 78 }).toFile(out);
   const entry = { src: `photos/${ordre}/${name}` };
   if (legende) entry.legende = legende;
   manifest[ordre].push(entry);

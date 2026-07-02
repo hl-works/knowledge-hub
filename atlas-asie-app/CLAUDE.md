@@ -170,9 +170,18 @@ d'escale** (ex. « escale 12 » ou « Bichkek : ces 3 photos, légende … ») :
 
 1. Retrouver l'`ordre` de l'escale dans `public/fixtures/parcours.csv` si Hugo
    donne un nom de ville.
-2. `node scripts/add-photos.mjs <ordre> [--legende "…"] <fichiers>` — le script
-   redimensionne (1600 px, JPEG q75), range et met à jour le manifest. Une
-   légende différente par photo → un appel par photo.
+2. Photos : `node scripts/add-photos.mjs <ordre> [--legende "…"] <fichiers>` —
+   redimensionne (1600 px, WebP q78, ~150-300 Ko), range et met à jour le
+   manifest. Une légende différente par photo → un appel par photo.
+   Vidéos : `node scripts/add-video.mjs <ordre> [--legende "…"] <fichier>` —
+   H.264 720p CRF 27 + AAC + poster WebP, rendue en <video> sur l'escale
+   (pas dans la Galerie). ⚠️ ffmpeg complet requis :
+   `apt-get update && apt-get install -y ffmpeg` (celui de Playwright n'a ni
+   H.264 ni audio). Viser des clips courts (< 60 s / < 25 Mo, le script
+   avertit au-delà).
+   **Limites de poids** : pièces jointes Claude ~30 Mo par fichier ; GitHub
+   100 Mo max par fichier ; GitHub Pages ~1 Go pour tout le site → photos
+   quasi illimitées, vidéos avec parcimonie (garder les meilleures).
 3. Rebuild : `cd atlas-asie-app && npm run build` puis
    `python3 scripts/build_atlas_static.py` (le build purge `atlas-asie/`).
 4. Commit + passage en prod (`content(atlas): photos escale <ordre> — <ville>`).
