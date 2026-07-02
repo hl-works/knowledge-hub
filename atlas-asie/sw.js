@@ -1,7 +1,15 @@
 // Service worker minimal — coquille hors-ligne pour Atlas d'Asie.
 // Stratégie réseau d'abord, repli sur le cache (utile en bus/steppe sans réseau).
-const CACHE = 'atlas-asie-v2';
-const SHELL = ['./', './parcours/', './pays/', './hotels/', './trajets/', './carnet/', './galerie/', './offline.html'];
+const CACHE = 'atlas-asie-v3';
+// Coquille + données précachées à l'installation : le site complet se
+// consulte hors ligne dès la première visite (bus en Mongolie approuvé).
+const SHELL = [
+  './', './parcours/', './pays/', './hotels/', './trajets/', './carnet/', './galerie/', './offline.html',
+  './fixtures/parcours.csv', './fixtures/pays.csv', './fixtures/quiz.csv', './fixtures/bestiaire.csv',
+  './fixtures/lexique.csv', './fixtures/transports.csv', './fixtures/pratique.csv', './fixtures/aeroports.csv',
+  './fixtures/lieux.csv', './fixtures/miam.csv', './fixtures/recits.csv', './fixtures/photos.json',
+  './manifest.webmanifest',
+];
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
@@ -19,9 +27,13 @@ self.addEventListener('fetch', (e) => {
   e.respondWith(
     fetch(req)
       .then((res) => {
-        if (res.ok && (req.url.endsWith('.csv') || req.destination === 'document')) {
+        // Réseau d'abord, et on garde une copie de TOUT ce qui servira hors
+        // ligne : pages, CSS/JS (_astro), données (CSV/JSON — y compris les
+        // URLs Google Sheets publiées, qui ne finissent pas par .csv), images
+        // (Commons est en CORS via crossorigin), fontes.
+        if (res.ok || res.type === 'opaque') {
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy));
+          caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
         }
         return res;
       })

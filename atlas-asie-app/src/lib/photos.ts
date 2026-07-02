@@ -30,5 +30,7 @@ const esc = (s: string) =>
 export function ccImg(query: string, alt: string, cls = ''): string {
   const p = map[query];
   if (!p) return '';
-  return `<img${cls ? ` class="${cls}"` : ''} src="${esc(p.src)}" alt="${esc(alt)}" title="${esc(p.credit)}" loading="lazy" />`;
+  // crossorigin : Commons sert du CORS → réponses cachables telles quelles
+  // par le service worker (pas d'opaque qui gonfle le quota hors ligne).
+  return `<img${cls ? ` class="${cls}"` : ''} src="${esc(p.src)}" alt="${esc(alt)}" title="${esc(p.credit)}" loading="lazy" crossorigin="anonymous" />`;
 }
