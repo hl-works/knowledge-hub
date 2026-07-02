@@ -1,6 +1,6 @@
 // Service worker minimal — coquille hors-ligne pour Atlas d'Asie.
 // Stratégie réseau d'abord, repli sur le cache (utile en bus/steppe sans réseau).
-const CACHE = 'atlas-asie-v4';
+const CACHE = 'atlas-asie-v5';
 // Coquille + données précachées à l'installation : le site complet se
 // consulte hors ligne dès la première visite (bus en Mongolie approuvé).
 const SHELL = [
@@ -8,12 +8,26 @@ const SHELL = [
   './fixtures/parcours.csv', './fixtures/pays.csv', './fixtures/quiz.csv', './fixtures/bestiaire.csv',
   './fixtures/lexique.csv', './fixtures/transports.csv', './fixtures/pratique.csv', './fixtures/aeroports.csv',
   './fixtures/lieux.csv', './fixtures/miam.csv', './fixtures/recits.csv', './fixtures/photos.json',
-  './manifest.webmanifest', './photos/manifest.json',
+  './fixtures/audio.json', './manifest.webmanifest', './photos/manifest.json',
 ];
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL).catch(() => {})));
+  e.waitUntil(
+    caches.open(CACHE).then(async (c) => {
+      await c.addAll(SHELL).catch(() => {});
+      // Précache les prononciations (MP3 listés dans audio.json) → l'onglet Mots
+      // fonctionne hors ligne dès la 1re visite (pour les enfants, dans l'avion).
+      try {
+        const res = await fetch('./fixtures/audio.json');
+        if (res.ok) {
+          const map = await res.json();
+          const files = [...new Set(Object.values(map))].map((f) => './fixtures/audio/' + f);
+          await c.addAll(files).catch(() => {});
+        }
+      } catch (_) { /* pas d'audio, tant pis */ }
+    }),
+  );
 });
 
 self.addEventListener('activate', (e) => {
