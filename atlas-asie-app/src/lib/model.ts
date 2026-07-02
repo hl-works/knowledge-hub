@@ -80,6 +80,14 @@ export function computeStatut(
   return 'a-venir';
 }
 
+// Coordonnées de secours par escale (bundlées) : la Google Sheet n'a que des
+// noms de villes — si ses colonnes lat/lng sont vides ou absentes, on retombe
+// sur ce référentiel (jointure par `ordre`). Une valeur présente dans la
+// Sheet gagne toujours. Source : scripts (fixtures corrigées) ; à régénérer si
+// le parcours change : voir CLAUDE.md « Données pas à jour ».
+import COORDS from './coords.json';
+const FALLBACK = COORDS as Record<string, { ville: string; lat: number; lng: number }>;
+
 export function toStops(rows: Row[], today: Date = startOfToday()): Stop[] {
   return rows
     .map((r) => {
@@ -95,8 +103,8 @@ export function toStops(rows: Row[], today: Date = startOfToday()): Stop[] {
         hotelLien: (r.hotel_lien ?? '').trim(),
         hotelAdresse: (r.hotel_adresse ?? '').trim(),
         hotelPhoto: (r.hotel_photo ?? '').trim(),
-        lat: num(r.lat),
-        lng: num(r.lng),
+        lat: num(r.lat) || FALLBACK[String(num(r.ordre))]?.lat || 0,
+        lng: num(r.lng) || FALLBACK[String(num(r.ordre))]?.lng || 0,
         description: (r.description ?? '').trim(),
         photos: splitList(r.photos, ','),
         video: (r.video ?? '').trim(),
