@@ -1,1 +1,0 @@
-let e={};async function n(){try{const a="/atlas-asie".replace(/\/$/,""),t=await fetch(`${a}/photos/manifest.json`);t.ok&&(e=await t.json())}catch{e={}}}function o(a){const t="/atlas-asie".replace(/\/$/,"");return(e[String(a)]??[]).map(s=>({url:s.src.startsWith("http")?s.src:`${t}/${s.src.replace(/^\//,"")}`,legende:s.legende}))}export{n as l,o as t};

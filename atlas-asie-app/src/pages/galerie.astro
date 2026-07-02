@@ -52,7 +52,7 @@ import Footer from '../components/Footer.astro';
       const stops = toStops(pRows);
       const items = stops.flatMap((s) => [
         ...s.photos.map((url) => ({ url, ville: s.ville, pays: s.pays, legende: undefined as string | undefined })),
-        ...tripPhotos(s.ordre).map((p) => ({ url: p.url, ville: s.ville, pays: s.pays, legende: p.legende })),
+        ...tripPhotos(s.ordre).filter((p) => p.type !== 'video').map((p) => ({ url: p.url, ville: s.ville, pays: s.pays, legende: p.legende })),
       ]);
       if (!items.length) {
         host.innerHTML = `<div class="empty"><h2>Bientôt en images</h2><p>Les photos apparaîtront ici automatiquement dès qu'elles seront ajoutées aux escales (colonne <code>photos</code>). Aucune double saisie.</p></div>`;

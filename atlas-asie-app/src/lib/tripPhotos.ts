@@ -9,6 +9,8 @@
 export interface TripPhoto {
   src: string; // relatif à la base du site
   legende?: string;
+  type?: 'video'; // absent = photo
+  poster?: string; // image d'attente des vidéos
 }
 
 let manifest: Record<string, TripPhoto[]> = {};
@@ -24,10 +26,13 @@ export async function loadTripPhotos(): Promise<void> {
 }
 
 /** Photos du repo pour une escale (URL absolue de base résolue). */
-export function tripPhotos(ordre: number): Array<{ url: string; legende?: string }> {
+export function tripPhotos(ordre: number): Array<{ url: string; legende?: string; type?: 'video'; poster?: string }> {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const abs = (u: string) => (u.startsWith('http') ? u : `${base}/${u.replace(/^\//, '')}`);
   return (manifest[String(ordre)] ?? []).map((p) => ({
-    url: p.src.startsWith('http') ? p.src : `${base}/${p.src.replace(/^\//, '')}`,
+    url: abs(p.src),
     legende: p.legende,
+    type: p.type,
+    poster: p.poster ? abs(p.poster) : undefined,
   }));
 }
