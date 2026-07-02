@@ -107,8 +107,15 @@ import Footer from '../components/Footer.astro';
   .lex{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;}
   .lcard{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;}
   .lcard .fr{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
-  .lcard .loc{font-size:1.15rem;font-weight:700;color:var(--ink);margin:.1rem 0;}
+  .lcard .loc{font-size:1.15rem;font-weight:700;color:var(--ink);margin:.1rem 0;display:flex;align-items:center;gap:8px;justify-content:space-between;}
   .lcard .pron{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;color:var(--orange-deep);}
+  .say{flex:none;display:inline-grid;place-items:center;width:30px;height:30px;padding:0;border:1.5px solid var(--line);border-radius:50%;background:var(--peach);color:var(--orange-deep);cursor:pointer;transition:transform .1s ease,background .15s,color .15s;}
+  .say:hover{background:var(--orange);color:#fff;transform:scale(1.08);}
+  .say:active{transform:scale(.94);}
+  .say:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;}
+  .say.speaking{background:var(--orange);color:#fff;box-shadow:0 0 0 0 rgba(250,70,22,.5);animation:saypulse 1s infinite;}
+  @keyframes saypulse{0%{box-shadow:0 0 0 0 rgba(250,70,22,.5)}70%{box-shadow:0 0 0 8px rgba(250,70,22,0)}100%{box-shadow:0 0 0 0 rgba(250,70,22,0)}}
+  @media (prefers-reduced-motion:reduce){.say.speaking{animation:none;}}
 
   .quiz{background:var(--peach);border:1px solid var(--line);border-radius:14px;padding:clamp(16px,2.4vw,24px);}
   .quiz h3{font-family:var(--disp);text-transform:uppercase;font-size:1.15rem;margin:0 0 .8rem;color:var(--orange-deep);}
@@ -152,6 +159,29 @@ import Footer from '../components/Footer.astro';
     clock: sv('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
     paw: sv('<circle cx="6" cy="11" r="1.6"/><circle cx="10" cy="8" r="1.6"/><circle cx="14" cy="8" r="1.6"/><circle cx="18" cy="11" r="1.6"/><path d="M8 16a4 4 0 0 1 8 0 2.5 2.5 0 0 1-2.5 2.5h-3A2.5 2.5 0 0 1 8 16Z"/>'),
   };
+
+  // Lecture audio des mots — API navigateur Web Speech (sans clé ni dépendance).
+  const TTS_OK = typeof window !== 'undefined' && 'speechSynthesis' in window;
+  const LANG: Record<string, string> = {
+    Russe: 'ru-RU', Mongol: 'mn-MN', Mandarin: 'zh-CN', Cantonais: 'zh-HK', Malais: 'ms-MY', Indonésien: 'id-ID',
+  };
+  const SPK = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8a4 4 0 0 1 0 8M18.7 5.3a8 8 0 0 1 0 13.4"/></svg>';
+  function speak(btn: HTMLElement) {
+    const text = btn.dataset.say || '', lang = btn.dataset.lang || '';
+    if (!TTS_OK || !text) return;
+    try {
+      speechSynthesis.cancel();
+      document.querySelectorAll('.say.speaking').forEach((e) => e.classList.remove('speaking'));
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang; u.rate = 0.9;
+      const voices = speechSynthesis.getVoices();
+      const v = voices.find((x) => x.lang === lang) || voices.find((x) => x.lang.split('-')[0] === lang.split('-')[0]);
+      if (v) u.voice = v;
+      u.onend = u.onerror = () => btn.classList.remove('speaking');
+      btn.classList.add('speaking');
+      speechSynthesis.speak(u);
+    } catch { /* silencieux */ }
+  }
 
   type Ctx = { quiz: QuizQ[]; animals: Animal[]; mots: Mot[]; prat?: Pratique; plats: Plat[]; recits: Recit[] };
 
@@ -205,7 +235,11 @@ import Footer from '../components/Footer.astro';
 
   function motsPane(mots: Mot[]): string {
     if (!mots.length) return '';
-    const body = mots.map((m) => `<div class="lcard"><div class="fr">${esc(m.francais)}</div><div class="loc">${esc(m.motLocal)}</div><div class="pron">${esc(m.prononciation)}</div></div>`).join('');
+    const body = mots.map((m) => {
+      const lang = LANG[m.langue] || '';
+      const btn = TTS_OK && lang && m.motLocal ? `<button class="say" data-say="${esc(m.motLocal)}" data-lang="${lang}" title="Écouter" aria-label="Écouter la prononciation">${SPK}</button>` : '';
+      return `<div class="lcard"><div class="fr">${esc(m.francais)}</div><div class="loc"><span>${esc(m.motLocal)}</span>${btn}</div><div class="pron">${esc(m.prononciation)}</div></div>`;
+    }).join('');
     const langue = mots[0]?.langue ? `<p style="color:var(--muted);font-size:.85rem;margin:0 0 .8rem">Langue : <b style="color:var(--ink)">${esc(mots[0].langue)}</b></p>` : '';
     return `${langue}<div class="lex">${body}</div>`;
   }
@@ -284,6 +318,8 @@ import Footer from '../components/Footer.astro';
         panes.forEach((p) => p.classList.toggle('active', p.dataset.pane === tab.dataset.tab));
       });
     });
+    // Lecteur audio des mots
+    root.querySelectorAll<HTMLButtonElement>('.say').forEach((b) => b.addEventListener('click', () => speak(b)));
     // Quiz
     root.querySelectorAll('.quiz').forEach((quizEl) => {
       const total = quizEl.querySelectorAll('.q').length;
