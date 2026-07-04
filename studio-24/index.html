@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>STUDIO 24 — Dossier de marque &amp; projet Nantes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0D1B2E;
+  --nuit2:#142943;
+  --laiton:#C49A55;
+  --laiton-clair:#E0C28A;
+  --creme:#F1EBDF;
+  --papier:#F7F3EA;
+  --encre:#17181A;
+  --gris:#6B6A66;
+  --bois:#7A5C3E;
+  --prune:#472B3D;
+  --vert:#2E4438;
+  --rouge:#8C3A2E;
+  --maxw:1060px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--papier);
+  color:var(--encre);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:'IBM Plex Mono',monospace}
+.display{font-family:'Archivo',sans-serif}
+
+/* ---------- HEADER / HERO ---------- */
+header{
+  background:var(--nuit);
+  color:var(--creme);
+  position:relative;
+  overflow:hidden;
+}
+.hero-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:64px 32px 56px;
+  position:relative;
+  z-index:2;
+}
+.hero-eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:.28em;
+  color:var(--laiton);
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+.hero-logo{
+  font-family:'Archivo',sans-serif;
+  font-weight:900;
+  font-stretch:112%;
+  line-height:.86;
+  letter-spacing:-.015em;
+}
+.hero-logo .studio{
+  display:block;
+  font-size:clamp(30px,5.4vw,58px);
+  letter-spacing:.34em;
+  font-weight:600;
+  font-stretch:100%;
+  margin-bottom:6px;
+  margin-left:4px;
+}
+.hero-logo .n24{
+  display:block;
+  font-size:clamp(120px,22vw,236px);
+  color:var(--laiton);
+}
+.hero-base{
+  margin-top:30px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:14px 28px;
+}
+.hero-base .bl{
+  font-family:'Archivo',sans-serif;
+  font-weight:600;
+  font-size:clamp(17px,2.4vw,22px);
+  letter-spacing:.02em;
+}
+.hero-base .spec{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  letter-spacing:.14em;
+  color:rgba(241,235,223,.62);
+}
+.groove{
+  position:absolute;
+  right:-180px;
+  top:-180px;
+  width:640px;
+  height:640px;
+  z-index:1;
+  opacity:.5;
+}
+.hero-note{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 32px 40px;
+  position:relative;z-index:2;
+  font-size:13.5px;
+  color:rgba(241,235,223,.55);
+}
+
+/* ---------- NAV / ONGLETS ---------- */
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--creme);
+  border-bottom:2px solid var(--encre);
+}
+.tabs{
+  max-width:var(--maxw);
+  margin:0 auto;
+  display:flex;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  appearance:none;border:none;background:none;cursor:pointer;
+  font-family:'Archivo',sans-serif;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  padding:17px 20px 15px;
+  color:var(--gris);
+  border-bottom:3px solid transparent;
+  white-space:nowrap;
+  transition:color .15s;
+}
+.tab:hover{color:var(--encre)}
+.tab:focus-visible{outline:2px solid var(--laiton);outline-offset:-2px}
+.tab.active{color:var(--encre);border-bottom-color:var(--laiton)}
+.tab .tn{
+  font-family:'IBM Plex Mono',monospace;
+  font-weight:500;
+  color:var(--laiton);
+  margin-right:7px;
+  font-size:11px;
+}
+
+/* ---------- SECTIONS ---------- */
+main{max-width:var(--maxw);margin:0 auto;padding:0 32px 90px}
+section.panel{display:none;padding-top:54px}
+section.panel.active{display:block}
+
+h2{
+  font-family:'Archivo',sans-serif;
+  font-weight:900;
+  font-stretch:110%;
+  font-size:clamp(28px,4.4vw,42px);
+  line-height:1.04;
+  margin-bottom:8px;
+}
+.kicker{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--laiton);
+  margin-bottom:14px;
+}
+.lead{font-size:17.5px;max-width:70ch;color:#33342f;margin-bottom:36px}
+
+h3{
+  font-family:'Archivo',sans-serif;
+  font-weight:800;
+  font-size:20px;
+  margin:44px 0 12px;
+}
+h4{
+  font-family:'Archivo',sans-serif;
+  font-weight:700;
+  font-size:15.5px;
+  margin:24px 0 8px;
+}
+p{max-width:74ch;margin-bottom:14px}
+ul.clean{list-style:none;max-width:74ch}
+ul.clean li{padding:9px 0 9px 26px;position:relative;border-bottom:1px solid rgba(23,24,26,.09)}
+ul.clean li::before{content:"—";position:absolute;left:0;color:var(--laiton);font-weight:600}
+
+.rule{height:2px;background:var(--encre);margin:52px 0 0;opacity:.9}
+
+/* cards / grids */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin:22px 0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin:22px 0}
+.card{
+  background:#fff;
+  border:1.5px solid var(--encre);
+  padding:24px 22px 20px;
+}
+.card h4{margin-top:0}
+.card .tag{
+  display:inline-block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--creme);
+  background:var(--nuit);
+  padding:3px 9px;
+  margin-bottom:12px;
+}
+.card.dark{background:var(--nuit);color:var(--creme);border-color:var(--nuit)}
+.card.dark .tag{background:var(--laiton);color:var(--nuit)}
+
+/* baseline blocks */
+.bl3mots{
+  font-family:'Archivo',sans-serif;
+  font-weight:900;
+  font-stretch:108%;
+  font-size:clamp(30px,5.2vw,52px);
+  line-height:1.06;
+  margin:14px 0 6px;
+}
+.bl3mots span{color:var(--laiton)}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0 8px}
+.sw{border:1.5px solid var(--encre)}
+.sw .chip{height:86px}
+.sw .lbl{padding:10px 12px;background:#fff}
+.sw .lbl b{font-family:'Archivo',sans-serif;font-size:13.5px;display:block}
+.sw .lbl .mono{font-size:11px;color:var(--gris)}
+
+/* logo concept frames */
+.logoframe{
+  border:1.5px solid var(--encre);
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+}
+.logoframe .stage{
+  min-height:230px;
+  display:flex;align-items:center;justify-content:center;
+  padding:28px;
+}
+.logoframe .stage.dark{background:var(--nuit)}
+.logoframe .stage.cream{background:var(--creme)}
+.logoframe .cap{
+  border-top:1.5px solid var(--encre);
+  padding:14px 16px;
+  font-size:13.5px;
+  background:#fff;
+}
+.logoframe .cap b{font-family:'Archivo',sans-serif;display:block;font-size:14px;margin-bottom:3px}
+
+/* tables */
+table{width:100%;border-collapse:collapse;margin:18px 0 8px;background:#fff;font-size:14.5px}
+th,td{border:1.5px solid var(--encre);padding:10px 13px;text-align:left;vertical-align:top}
+th{
+  font-family:'Archivo',sans-serif;
+  font-weight:700;font-size:12.5px;
+  letter-spacing:.06em;text-transform:uppercase;
+  background:var(--nuit);color:var(--creme);
+}
+td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13.5px}
+tr.total td{font-weight:600;background:var(--creme)}
+.tablewrap{overflow-x:auto}
+
+/* callouts */
+.callout{
+  border-left:5px solid var(--laiton);
+  background:#fff;
+  border-top:1.5px solid var(--encre);
+  border-right:1.5px solid var(--encre);
+  border-bottom:1.5px solid var(--encre);
+  padding:18px 22px;
+  margin:26px 0;
+  max-width:78ch;
+}
+.callout.dark{background:var(--nuit);color:var(--creme);border-color:var(--nuit);border-left-color:var(--laiton)}
+.callout b{font-family:'Archivo',sans-serif}
+
+/* photo placeholders */
+.ph{
+  border:1.5px dashed var(--gris);
+  background:repeating-linear-gradient(45deg,#efe9dc,#efe9dc 12px,#f7f3ea 12px,#f7f3ea 24px);
+  min-height:170px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:20px;
+  color:var(--gris);
+  font-size:13px;
+  font-family:'IBM Plex Mono',monospace;
+}
+
+/* org chart */
+.org{display:flex;flex-direction:column;align-items:center;gap:0;margin:30px 0}
+.orgbox{
+  border:2px solid var(--encre);
+  background:#fff;
+  padding:16px 26px;
+  text-align:center;
+  min-width:290px;
+}
+.orgbox b{font-family:'Archivo',sans-serif;font-size:16px;display:block}
+.orgbox .sub{font-size:13px;color:var(--gris)}
+.orgbox.nuit{background:var(--nuit);color:var(--creme);border-color:var(--nuit)}
+.orgbox.nuit .sub{color:rgba(241,235,223,.65)}
+.orglink{
+  width:2px;height:34px;background:var(--encre);
+  position:relative;
+}
+.orglink .lab{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+  white-space:nowrap;color:var(--gris);
+}
+
+/* zone plan */
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin:20px 0}
+.zone{
+  border:1.5px solid var(--encre);background:#fff;padding:18px 18px 15px;
+}
+.zone .zn{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:var(--laiton);display:block;margin-bottom:8px;text-transform:uppercase;
+}
+.zone b{font-family:'Archivo',sans-serif;font-size:15.5px}
+.zone p{font-size:13.5px;margin:7px 0 0;color:#3a3b36}
+
+footer{
+  background:var(--nuit);color:rgba(241,235,223,.6);
+  text-align:center;padding:34px 20px;font-size:12.5px;
+  font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;
+}
+footer b{color:var(--laiton)}
+
+/* ---------- PORTE À MOT DE PASSE ---------- */
+body.locked header,body.locked nav,body.locked main,body.locked footer{display:none}
+#gate{
+  position:fixed;inset:0;z-index:1000;
+  background:var(--nuit);
+  display:none;
+  align-items:center;justify-content:center;
+  padding:24px;
+}
+body.locked #gate{display:flex}
+.gatebox{max-width:400px;width:100%;text-align:center}
+.gatebox .glogo{font-family:'Archivo',sans-serif;color:var(--creme)}
+.gatebox .glogo .s{display:block;font-weight:600;letter-spacing:.36em;font-size:17px}
+.gatebox .glogo .n{display:block;font-weight:900;font-stretch:112%;font-size:88px;line-height:.95;color:var(--laiton)}
+.gatebox p{color:rgba(241,235,223,.6);font-size:13.5px;margin:18px 0 22px}
+.gatebox input{
+  width:100%;padding:13px 16px;
+  font-family:'IBM Plex Mono',monospace;font-size:15px;
+  background:#0A1524;color:var(--creme);
+  border:1.5px solid rgba(196,154,85,.5);
+  text-align:center;letter-spacing:.08em;
+}
+.gatebox input:focus{outline:none;border-color:var(--laiton)}
+.gatebox button{
+  width:100%;margin-top:12px;padding:13px;
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;
+  letter-spacing:.12em;text-transform:uppercase;
+  background:var(--laiton);color:var(--nuit);
+  border:none;cursor:pointer;
+}
+.gatebox button:hover{background:var(--laiton-clair)}
+.gatebox .gerr{color:#E08A7A;font-size:13px;margin-top:12px;min-height:18px;font-family:'IBM Plex Mono',monospace}
+
+@media (max-width:640px){
+  .hero-inner{padding:44px 20px 40px}
+  main{padding:0 20px 70px}
+  .groove{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate" role="dialog" aria-label="Accès protégé">
+  <div class="gatebox">
+    <div class="glogo"><span class="s">STUDIO</span><span class="n">24</span></div>
+    <p>Dossier confidentiel — entrez le mot de passe pour accéder au document.</p>
+    <input type="password" id="gpass" placeholder="Mot de passe" autocomplete="off">
+    <button id="gbtn" type="button">Entrer</button>
+    <div class="gerr" id="gerr"></div>
+  </div>
+</div>
+
+<header>
+  <svg class="groove" viewBox="0 0 600 600" aria-hidden="true">
+    <g fill="none" stroke="#C49A55" stroke-opacity=".35">
+      <circle cx="300" cy="300" r="290" stroke-width="1"/>
+      <circle cx="300" cy="300" r="262" stroke-width="1"/>
+      <circle cx="300" cy="300" r="236" stroke-width="1"/>
+      <circle cx="300" cy="300" r="212" stroke-width="1"/>
+      <circle cx="300" cy="300" r="190" stroke-width="1"/>
+      <circle cx="300" cy="300" r="170" stroke-width="1"/>
+      <circle cx="300" cy="300" r="152" stroke-width="1"/>
+      <circle cx="300" cy="300" r="136" stroke-width="1"/>
+      <circle cx="300" cy="300" r="60" stroke-width="1.5" stroke-opacity=".6"/>
+    </g>
+    <circle cx="300" cy="300" r="7" fill="#C49A55"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Dossier de marque · Projet Nantes · Juillet 2026 · Confidentiel</div>
+    <div class="hero-logo">
+      <span class="studio">STUDIO</span>
+      <span class="n24">24</span>
+    </div>
+    <div class="hero-base">
+      <span class="bl">Hi-Fi &nbsp;·&nbsp; Home Cinéma</span>
+      <span class="spec">24 IMAGES / SECONDE&nbsp;&nbsp;—&nbsp;&nbsp;24 BITS</span>
+    </div>
+  </div>
+  <div class="hero-note">Document de travail interne — marque en cours de dépôt. Nom, couleurs et visuels : pistes à valider ensemble.</div>
+</header>
+
+<nav aria-label="Sections du dossier">
+  <div class="tabs" role="tablist">
+    <button class="tab active" role="tab" data-panel="p1"><span class="tn">01</span>La marque</button>
+    <button class="tab" role="tab" data-panel="p2"><span class="tn">02</span>Identité visuelle</button>
+    <button class="tab" role="tab" data-panel="p3"><span class="tn">03</span>Le concept magasin</button>
+    <button class="tab" role="tab" data-panel="p4"><span class="tn">04</span>Dossier Nantes</button>
+    <button class="tab" role="tab" data-panel="p5"><span class="tn">05</span>Juridique &amp; franchise</button>
+    <button class="tab" role="tab" data-panel="p6"><span class="tn">06</span>Roadmap</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ==================== 01 LA MARQUE ==================== -->
+<section class="panel active" id="p1">
+  <div class="kicker">01 — Plateforme de marque</div>
+  <h2>Pourquoi « Studio 24 »</h2>
+  <p class="lead">Un nom court, français dans l'usage, international dans la lecture. Un chiffre qui appartient aux deux mondes du magasin : <b>24 images par seconde</b> — la cadence du cinéma depuis 1927 — et <b>24 bits</b> — la résolution du son de studio. Personne n'a à choisir entre l'image et le son : le nom fait déjà la synthèse.</p>
+
+  <div class="grid3">
+    <div class="card dark">
+      <span class="tag">Cinéma</span>
+      <h4>24 images / seconde</h4>
+      <p style="font-size:14px">La cadence historique du cinéma. Le chiffre que tout projectionniste, tout cinéphile reconnaît instantanément.</p>
+    </div>
+    <div class="card dark">
+      <span class="tag">Audio</span>
+      <h4>24 bits</h4>
+      <p style="font-size:14px">La résolution du master de studio, au-dessus du CD (16 bits). Le standard de la haute fidélité moderne et du streaming Hi-Res.</p>
+    </div>
+    <div class="card dark">
+      <span class="tag">Lieu</span>
+      <h4>Le studio</h4>
+      <p style="font-size:14px">Là où la musique s'enregistre et où les films se fabriquent. Un mot chaud, artisanal, qui dit la curation et le savoir-faire — l'esprit Kith appliqué au son et à l'image.</p>
+    </div>
+  </div>
+
+  <h3>Le lockup officiel</h3>
+  <p>Le nom seul, puis le nom avec son descripteur. Le descripteur accompagne systématiquement la marque tant qu'elle n'est pas installée.</p>
+  <div class="grid2">
+    <div class="logoframe">
+      <div class="stage cream">
+        <div style="text-align:center">
+          <div class="display" style="font-weight:600;letter-spacing:.36em;font-size:19px">STUDIO</div>
+          <div class="display" style="font-weight:900;font-stretch:112%;font-size:84px;line-height:.9;color:var(--nuit)">24</div>
+        </div>
+      </div>
+      <div class="cap"><b>Studio 24</b>Marque mère — usage seul quand le contexte est établi.</div>
+    </div>
+    <div class="logoframe">
+      <div class="stage cream">
+        <div style="text-align:center">
+          <div class="display" style="font-weight:600;letter-spacing:.36em;font-size:19px">STUDIO</div>
+          <div class="display" style="font-weight:900;font-stretch:112%;font-size:84px;line-height:.9;color:var(--nuit)">24</div>
+          <div class="mono" style="font-size:11px;letter-spacing:.3em;margin-top:10px;color:var(--bois)">HI-FI · HOME CINÉMA</div>
+        </div>
+      </div>
+      <div class="cap"><b>Studio 24 — Hi-Fi · Home Cinéma</b>Lockup complet — façade, web, print, réseaux. C'est la version par défaut.</div>
+    </div>
+  </div>
+
+  <h3>La baseline — trois formats</h3>
+
+  <h4>En trois mots</h4>
+  <div class="bl3mots">Le son. L'image. <span>Chez vous.</span></div>
+  <p class="mono" style="font-size:12.5px;color:var(--gris)">Alternatives : « Écouter. Regarder. Vivre. » · « Voir grand, écouter vrai. »</p>
+
+  <h4>En trois phrases</h4>
+  <div class="callout">
+    <p style="margin:0">Studio 24, c'est le magasin où le cinéma et la musique reprennent leur place à la maison. Une sélection courte de ce qui se fait de mieux — projection, streaming, vinyle, casques — installée par ceux qui la vendent. On y entre par curiosité, on y reste pour l'écoute.</p>
+  </div>
+
+  <h4>En trois paragraphes — l'univers de marque</h4>
+  <p><b>Le lieu.</b> Studio 24 n'est pas un magasin d'électronique : c'est un studio ouvert au public. On y entre par un vinyl bar — platines en écoute, disques choisis, enceintes rétro, un vrai café tiré sur une machine La Marzocco aux couleurs de la maison. Plus loin, un salon de projection courte focale allumé en permanence, un mur de casques qu'on essaie assis, une vraie salle de cinéma. Tout fonctionne, tout s'écoute, tout se regarde. Rien n'est sous blister.</p>
+  <p><b>La sélection.</b> Nous ne vendons pas tout. Nous vendons ce que nous avons choisi, écouté, comparé, installé chez nous. Chaque produit présent chez Studio 24 a une raison d'y être — et l'équipe sait la raconter. C'est la logique du disquaire appliquée à la technologie : peu de références, zéro déchet, un avis assumé.</p>
+  <p><b>Les gens.</b> Studio 24 parle à ceux qui aiment les films et la musique avant d'aimer la technique — les 30–50 ans, femmes et hommes, qui veulent du beau, du simple et du durable dans leur salon. Pas de jargon, pas de mur de spécifications : une démonstration, un conseil, une installation. Le niveau d'exigence d'un auditorium, l'accueil d'un café de quartier.</p>
+
+  <h3>Positionnement en une ligne</h3>
+  <div class="callout dark">
+    <p style="margin:0"><b>Le concept-store du son et de l'image</b> — la curation d'un disquaire, l'exigence d'un auditorium, le design d'un lieu où l'on a envie de rester. Premium accessible, jamais élitiste.</p>
+  </div>
+
+  <h3>Valeurs &amp; ton de voix</h3>
+  <div class="grid2">
+    <div class="card"><h4>Curation</h4><p style="font-size:14px">Peu de marques, bien choisies : projection courte focale, Sonos, platines, casques sélectionnés. Dire non à un produit est un acte de marque.</p></div>
+    <div class="card"><h4>Hospitalité</h4><p style="font-size:14px">On accueille comme dans un bar, pas comme dans un rayon. Café, vinyle qui tourne, démonstration sans rendez-vous. La vente vient après l'expérience.</p></div>
+    <div class="card"><h4>Transmission</h4><p style="font-size:14px">Expliquer sans jargonner. Une cliente qui n'a jamais possédé de platine doit repartir en sachant exactement quoi faire — et avec l'envie de revenir.</p></div>
+    <div class="card"><h4>Durabilité</h4><p style="font-size:14px">Du matériel qui se garde, se répare, se transmet. Le contraire de l'électronique jetable. Installation et SAV faits maison.</p></div>
+  </div>
+  <p><b>Ton :</b> chaleureux, précis, un brin cinéphile. On tutoie sur les réseaux, on vouvoie en magasin et par écrit. Jamais de superlatifs vides (« incroyable », « révolutionnaire ») — on décrit, on raconte, on fait écouter.</p>
+  <div class="rule"></div>
+</section>
+
+<!-- ==================== 02 IDENTITÉ VISUELLE ==================== -->
+<section class="panel" id="p2">
+  <div class="kicker">02 — Identité visuelle</div>
+  <h2>Néo-vintage, jazz graphique</h2>
+  <p class="lead">L'inspiration : les pochettes Blue Note des années 50–60 (typographies grasses, aplats francs), les listening bars de Tokyo, et la rigueur d'espace de Kith. Moderne dans la construction, vintage dans la matière : bleu nuit, laiton, bois, crème.</p>
+
+  <h3>Direction couleur recommandée — « Bleu Nuit &amp; Laiton »</h3>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#0D1B2E"></div><div class="lbl"><b>Bleu Nuit</b><span class="mono">#0D1B2E — couleur maîtresse</span></div></div>
+    <div class="sw"><div class="chip" style="background:#C49A55"></div><div class="lbl"><b>Laiton</b><span class="mono">#C49A55 — accent, logo, détails</span></div></div>
+    <div class="sw"><div class="chip" style="background:#F1EBDF"></div><div class="lbl"><b>Crème Studio</b><span class="mono">#F1EBDF — fonds, papier</span></div></div>
+    <div class="sw"><div class="chip" style="background:#7A5C3E"></div><div class="lbl"><b>Bois Noyer</b><span class="mono">#7A5C3E — mobilier, matière</span></div></div>
+    <div class="sw"><div class="chip" style="background:#17181A"></div><div class="lbl"><b>Encre</b><span class="mono">#17181A — texte</span></div></div>
+  </div>
+  <p>Le bleu nuit est la couleur de la salle de cinéma juste avant la séance ; le laiton est celui des potentiomètres, des pavillons, des cellules. Ensemble ils sont immédiatement « audio de caractère » sans tomber dans le rétro-kitsch.</p>
+
+  <h3>Deux directions alternatives (à trancher ensemble)</h3>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag">Piste B</span>
+      <h4>Prune &amp; Crème</h4>
+      <div class="swatches" style="margin:12px 0 6px">
+        <div class="sw"><div class="chip" style="background:#472B3D"></div><div class="lbl"><b>Prune</b><span class="mono">#472B3D</span></div></div>
+        <div class="sw"><div class="chip" style="background:#D9A05B"></div><div class="lbl"><b>Ambre</b><span class="mono">#D9A05B</span></div></div>
+      </div>
+      <p style="font-size:14px">Plus feutré, plus « listening bar ». Très fort en intérieur velours, un peu moins lisible en façade et en digital.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Piste C</span>
+      <h4>Vert Anglais &amp; Cuivre</h4>
+      <div class="swatches" style="margin:12px 0 6px">
+        <div class="sw"><div class="chip" style="background:#2E4438"></div><div class="lbl"><b>Vert Anglais</b><span class="mono">#2E4438</span></div></div>
+        <div class="sw"><div class="chip" style="background:#B4693F"></div><div class="lbl"><b>Cuivre</b><span class="mono">#B4693F</span></div></div>
+      </div>
+      <p style="font-size:14px">Esprit club / bibliothèque anglaise, très chic, mais plus attendu dans l'univers hi-fi vintage (beaucoup d'acteurs y sont déjà).</p>
+    </div>
+  </div>
+
+  <h3>Typographies</h3>
+  <div class="grid3">
+    <div class="card"><h4 class="display" style="font-weight:900;font-stretch:112%;font-size:22px">Archivo Black / Expanded</h4><p style="font-size:14px"><b>Display.</b> Titres, logo, façade. Grasse, légèrement élargie — l'énergie des pochettes jazz sans les imiter.</p></div>
+    <div class="card"><h4 style="font-family:'Inter';font-weight:600;font-size:20px">Inter</h4><p style="font-size:14px"><b>Texte.</b> Web, print, étiquettes. Neutre, lisible, contemporaine.</p></div>
+    <div class="card"><h4 class="mono" style="font-size:19px">IBM Plex Mono</h4><p style="font-size:14px"><b>Technique.</b> Prix, fiches produit, spécifications, numérotation. Le clin d'œil « studio d'enregistrement ».</p></div>
+  </div>
+
+  <h3>Six pistes de logo — série 2</h3>
+  <p>Nouvelle série, plus incarnée : chaque piste s'appuie sur un objet réel de l'univers (macaron de disque, néon de façade, vu-mètre, ticket de cinéma, tampon). Constructions dessinées — à finaliser avec un graphiste une fois la direction choisie.</p>
+  <div class="grid2">
+
+    <div class="logoframe">
+      <div class="stage dark">
+        <svg viewBox="0 0 320 220" width="270" role="img" aria-label="Piste 1 — Le Macaron">
+          <defs>
+            <path id="circTop" d="M 160 110 m -76 0 a 76 76 0 1 1 152 0"/>
+            <path id="circBot" d="M 160 110 m -76 0 a 76 76 0 1 0 152 0"/>
+          </defs>
+          <circle cx="160" cy="110" r="98" fill="#C49A55"/>
+          <circle cx="160" cy="110" r="92" fill="none" stroke="#0D1B2E" stroke-width="2"/>
+          <circle cx="160" cy="110" r="62" fill="none" stroke="#0D1B2E" stroke-width="1.6"/>
+          <text font-family="Archivo" font-weight="700" font-size="15.5" letter-spacing="4" fill="#0D1B2E">
+            <textPath href="#circTop" startOffset="50%" text-anchor="middle">STUDIO VINGT-QUATRE</textPath>
+          </text>
+          <text font-family="Archivo" font-weight="700" font-size="12.5" letter-spacing="4" fill="#0D1B2E">
+            <textPath href="#circBot" startOffset="50%" text-anchor="middle">HI-FI · HOME CINÉMA</textPath>
+          </text>
+          <text x="160" y="130" text-anchor="middle" fill="#0D1B2E" font-family="Archivo" font-weight="900" font-size="58">24</text>
+          <circle cx="160" cy="110" r="4.5" fill="#0D1B2E"/>
+        </svg>
+      </div>
+      <div class="cap"><b>Piste 1 — Le Macaron</b>Le rond central d'un 33 tours, avec le trou de l'axe. Laiton sur bleu nuit. Fonctionne en sticker, tampon, sous-verre du bar, avatar réseaux — et tourne littéralement sur les platines du magasin.</div>
+    </div>
+
+    <div class="logoframe">
+      <div class="stage dark">
+        <svg viewBox="0 0 320 220" width="270" role="img" aria-label="Piste 2 — Le Néon">
+          <defs>
+            <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="4" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <text x="160" y="84" text-anchor="middle" fill="#E8D9B8" font-family="Archivo" font-style="italic" font-weight="500" font-size="40" letter-spacing="3" filter="url(#glow)">studio</text>
+          <text x="160" y="172" text-anchor="middle" fill="none" stroke="#C49A55" stroke-width="3" font-family="Archivo" font-weight="900" font-size="98" filter="url(#glow)">24</text>
+          <line x1="70" y1="196" x2="250" y2="196" stroke="#C49A55" stroke-width="2" filter="url(#glow)"/>
+        </svg>
+      </div>
+      <div class="cap"><b>Piste 2 — Le Néon</b>Pensé directement comme l'enseigne de façade : « studio » en néon crème, « 24 » en tube laiton, filet lumineux. La version qu'on photographie de nuit Place Aristide Briand.</div>
+    </div>
+
+    <div class="logoframe">
+      <div class="stage cream">
+        <svg viewBox="0 0 320 220" width="280" role="img" aria-label="Piste 3 — Le Vu-mètre">
+          <path d="M 52 150 A 108 108 0 0 1 268 150" fill="none" stroke="#0D1B2E" stroke-width="3"/>
+          <g stroke="#0D1B2E" stroke-width="2">
+            <line x1="58" y1="146" x2="70" y2="140"/>
+            <line x1="83" y1="112" x2="93" y2="121"/>
+            <line x1="122" y1="86" x2="128" y2="98"/>
+            <line x1="198" y1="86" x2="192" y2="98"/>
+            <line x1="237" y1="112" x2="227" y2="121"/>
+            <line x1="262" y1="146" x2="250" y2="140"/>
+          </g>
+          <line x1="160" y1="152" x2="228" y2="92" stroke="#B4483A" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="160" cy="152" r="7" fill="#0D1B2E"/>
+          <text x="160" y="196" text-anchor="middle" fill="#0D1B2E" font-family="Archivo" font-weight="900" font-size="40" letter-spacing="2">STUDIO 24</text>
+          <text x="266" y="76" text-anchor="middle" fill="#C49A55" font-family="IBM Plex Mono" font-weight="500" font-size="15">+24</text>
+        </svg>
+      </div>
+      <div class="cap"><b>Piste 3 — Le Vu-mètre</b>L'aiguille d'un vu-mètre qui pointe sur +24. L'objet le plus « hi-fi » qui soit, lisible par tous. Se décline animé sur le web (l'aiguille bouge au survol) et en horloge murale dans le magasin.</div>
+    </div>
+
+    <div class="logoframe">
+      <div class="stage cream">
+        <svg viewBox="0 0 320 220" width="290" role="img" aria-label="Piste 4 — La Pellicule">
+          <rect x="24" y="58" width="272" height="104" fill="#0D1B2E"/>
+          <g fill="#F1EBDF">
+            <rect x="34" y="66" width="13" height="9" rx="2"/><rect x="57" y="66" width="13" height="9" rx="2"/><rect x="80" y="66" width="13" height="9" rx="2"/><rect x="103" y="66" width="13" height="9" rx="2"/><rect x="126" y="66" width="13" height="9" rx="2"/><rect x="149" y="66" width="13" height="9" rx="2"/><rect x="172" y="66" width="13" height="9" rx="2"/><rect x="195" y="66" width="13" height="9" rx="2"/><rect x="218" y="66" width="13" height="9" rx="2"/><rect x="241" y="66" width="13" height="9" rx="2"/><rect x="264" y="66" width="13" height="9" rx="2"/>
+            <rect x="34" y="145" width="13" height="9" rx="2"/><rect x="57" y="145" width="13" height="9" rx="2"/><rect x="80" y="145" width="13" height="9" rx="2"/><rect x="103" y="145" width="13" height="9" rx="2"/><rect x="126" y="145" width="13" height="9" rx="2"/><rect x="149" y="145" width="13" height="9" rx="2"/><rect x="172" y="145" width="13" height="9" rx="2"/><rect x="195" y="145" width="13" height="9" rx="2"/><rect x="218" y="145" width="13" height="9" rx="2"/><rect x="241" y="145" width="13" height="9" rx="2"/><rect x="264" y="145" width="13" height="9" rx="2"/>
+          </g>
+          <text x="160" y="128" text-anchor="middle" fill="#C49A55" font-family="Archivo" font-weight="900" font-size="44" letter-spacing="6">STUDIO 24</text>
+          <text x="160" y="188" text-anchor="middle" fill="#7A5C3E" font-family="IBM Plex Mono" font-size="11" letter-spacing="5">24 IMAGES / SECONDE — 24 BITS</text>
+        </svg>
+      </div>
+      <div class="cap"><b>Piste 4 — La Pellicule</b>Le nom pris dans une bande 35 mm, perforations crème. Le plus cinéma de la série — très fort en bandeau web, papier cadeau, adhésif de vitrine.</div>
+    </div>
+
+    <div class="logoframe">
+      <div class="stage cream">
+        <svg viewBox="0 0 320 220" width="290" role="img" aria-label="Piste 5 — Le Ticket">
+          <path d="M 40 62 h 240 a 10 10 0 0 1 10 10 v 22 a 14 14 0 0 0 0 32 v 22 a 10 10 0 0 1 -10 10 h -240 a 10 10 0 0 1 -10 -10 v -22 a 14 14 0 0 0 0 -32 v -22 a 10 10 0 0 1 10 -10 z" fill="#0D1B2E"/>
+          <line x1="228" y1="70" x2="228" y2="152" stroke="#F1EBDF" stroke-width="2" stroke-dasharray="5 6"/>
+          <text x="130" y="105" text-anchor="middle" fill="#F1EBDF" font-family="Archivo" font-weight="900" font-size="30" letter-spacing="2">STUDIO 24</text>
+          <text x="130" y="132" text-anchor="middle" fill="#C49A55" font-family="IBM Plex Mono" font-size="11" letter-spacing="4">SÉANCE PERMANENTE</text>
+          <text x="262" y="120" text-anchor="middle" fill="#C49A55" font-family="Archivo" font-weight="900" font-size="30">24</text>
+          <text x="160" y="192" text-anchor="middle" fill="#7A5C3E" font-family="IBM Plex Mono" font-size="10.5" letter-spacing="3">NANTES · PLACE ARISTIDE BRIAND</text>
+        </svg>
+      </div>
+      <div class="cap"><b>Piste 5 — Le Ticket</b>Un ticket de cinéma avec sa souche détachable « 24 ». Raconte l'expérience (« séance permanente ») et devient naturellement carte de fidélité, invitation aux Séances du jeudi, bon cadeau.</div>
+    </div>
+
+    <div class="logoframe">
+      <div class="stage dark">
+        <svg viewBox="0 0 320 220" width="250" role="img" aria-label="Piste 6 — Le Tampon">
+          <rect x="70" y="30" width="180" height="160" fill="none" stroke="#C49A55" stroke-width="4"/>
+          <rect x="80" y="40" width="160" height="140" fill="none" stroke="#C49A55" stroke-width="1.5"/>
+          <text x="160" y="86" text-anchor="middle" fill="#F1EBDF" font-family="Archivo" font-weight="700" font-size="20" letter-spacing="7">STU</text>
+          <text x="160" y="112" text-anchor="middle" fill="#F1EBDF" font-family="Archivo" font-weight="700" font-size="20" letter-spacing="7">DIO</text>
+          <text x="160" y="166" text-anchor="middle" fill="#C49A55" font-family="Archivo" font-weight="900" font-size="52">24</text>
+        </svg>
+      </div>
+      <div class="cap"><b>Piste 6 — Le Tampon</b>Monogramme vertical compact, double filet. Le format « poinçon » : gravure sur la Marzocco, marquage à chaud sur les pochettes, coin des factures, broderie.</div>
+    </div>
+  </div>
+  <p class="mono" style="font-size:12px;color:var(--gris)">Recommandation : un système à deux pièces — le <b>Macaron</b> (piste 1) comme symbole + une version typographique simple pour les usages courants. Le <b>Néon</b> (piste 2) reste la traduction façade quel que soit le choix.</p>
+
+  <h3>La star du vinyl bar : la La Marzocco « Édition Studio 24 »</h3>
+  <p>La pièce maîtresse du bar n'est pas un appareil hi-fi — c'est <b>la machine espresso La Marzocco</b>, customisée aux couleurs de la maison. La Marzocco réalise des machines sur-mesure via ses ateliers de Florence, et <b>Calcaire (Paris)</b> est le spécialiste français de ces customs : couleur au choix, finitions laiton/cuivre/bois, logo gravé. Autour d'elle : le comptoir bois, les platines, les enceintes rétro. Elle fait le café, elle fait la photo, elle fait la marque.</p>
+
+  <h4>Bleu ou or ? → Bleu Nuit, détails laiton</h4>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag">Recommandée</span>
+      <h4>Carrosserie Bleu Nuit #0D1B2E</h4>
+      <p style="font-size:14px">Détails laiton : leviers, porte-filtres, aigle, plaque gravée « STUDIO 24 ». <b>Pourquoi :</b> le bleu nuit est LA couleur propriétaire de la marque — la machine devient le logo en trois dimensions. Sur un comptoir bois avec des enceintes vintage (déjà chaudes), elle claque. Et surtout : personne n'en a une comme ça.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Écartée</span>
+      <h4>Carrosserie or / laiton intégral</h4>
+      <p style="font-size:14px">Magnifique en soi, mais : les Marzocco dorées/laiton sont devenues courantes dans les coffee shops, et sur un décor bois + laiton, elle se fondrait au lieu de trancher. On garde l'or pour les <b>détails</b> — c'est là qu'il est précieux.</p>
+    </div>
+  </div>
+
+  <h4>Simulation — le vinyl bar Studio 24</h4>
+  <div class="logoframe">
+    <div class="stage cream" style="min-height:300px;padding:16px">
+      <svg viewBox="0 0 900 420" width="100%" role="img" aria-label="Simulation du vinyl bar Studio 24 : comptoir bois, platine, enceinte rétro, machine La Marzocco bleu nuit et laiton, néon Studio 24">
+        <!-- mur bleu nuit -->
+        <rect x="0" y="0" width="900" height="420" fill="#0D1B2E"/>
+        <!-- néon mural -->
+        <text x="450" y="66" text-anchor="middle" fill="none" stroke="#C49A55" stroke-width="1.8" font-family="Archivo" font-weight="900" font-size="44" letter-spacing="10" opacity=".95">STUDIO 24</text>
+        <!-- suspensions -->
+        <g stroke="#3A4A5E" stroke-width="2">
+          <line x1="160" y1="0" x2="160" y2="96"/><line x1="740" y1="0" x2="740" y2="96"/>
+        </g>
+        <g>
+          <path d="M 140 96 h 40 l -8 22 h -24 z" fill="#C49A55"/>
+          <ellipse cx="160" cy="121" rx="9" ry="5" fill="#F3D9A4" opacity=".9"/>
+          <path d="M 720 96 h 40 l -8 22 h -24 z" fill="#C49A55"/>
+          <ellipse cx="740" cy="121" rx="9" ry="5" fill="#F3D9A4" opacity=".9"/>
+        </g>
+        <!-- étagère vinyles -->
+        <rect x="70" y="150" width="330" height="8" fill="#7A5C3E"/>
+        <g>
+          <rect x="84" y="102" width="46" height="46" fill="#3E2F4F"/><circle cx="107" cy="125" r="14" fill="none" stroke="#C49A55" stroke-width="1.6"/>
+          <rect x="136" y="102" width="46" height="46" fill="#8C3A2E"/><rect x="146" y="112" width="26" height="26" fill="none" stroke="#F1EBDF" stroke-width="1.6"/>
+          <rect x="188" y="102" width="46" height="46" fill="#2E4438"/><circle cx="211" cy="125" r="13" fill="#F1EBDF" opacity=".85"/>
+          <rect x="240" y="102" width="46" height="46" fill="#C49A55"/><rect x="250" y="118" width="26" height="4" fill="#0D1B2E"/><rect x="250" y="126" width="26" height="4" fill="#0D1B2E"/>
+          <rect x="292" y="102" width="46" height="46" fill="#142943" stroke="#3A4A5E" stroke-width="1"/><circle cx="315" cy="125" r="14" fill="none" stroke="#8FA3B8" stroke-width="1.6"/>
+          <rect x="344" y="106" width="8" height="42" fill="#4A2C3F"/><rect x="356" y="104" width="8" height="44" fill="#8C3A2E"/><rect x="368" y="108" width="8" height="40" fill="#2E4438"/>
+        </g>
+        <!-- enceinte rétro à droite -->
+        <rect x="742" y="160" width="112" height="150" rx="8" fill="#7A5C3E" stroke="#5E4630" stroke-width="3"/>
+        <rect x="754" y="172" width="88" height="126" rx="5" fill="#D8C9A6"/>
+        <circle cx="798" cy="212" r="26" fill="#3B2E22"/><circle cx="798" cy="212" r="16" fill="#5E4630"/><circle cx="798" cy="212" r="5" fill="#C49A55"/>
+        <circle cx="798" cy="268" r="15" fill="#3B2E22"/><circle cx="798" cy="268" r="5" fill="#C49A55"/>
+        <!-- comptoir -->
+        <rect x="0" y="310" width="900" height="26" fill="#8A6A47"/>
+        <rect x="0" y="336" width="900" height="84" fill="#6E4F33"/>
+        <g stroke="#5E4229" stroke-width="2"><line x1="120" y1="336" x2="120" y2="420"/><line x1="340" y1="336" x2="340" y2="420"/><line x1="560" y1="336" x2="560" y2="420"/><line x1="780" y1="336" x2="780" y2="420"/></g>
+        <!-- platine vinyle à gauche -->
+        <rect x="60" y="266" width="190" height="44" rx="6" fill="#17181A"/>
+        <circle cx="128" cy="288" r="32" fill="#101418"/><circle cx="128" cy="288" r="30" fill="none" stroke="#3A4A5E" stroke-width="1"/><circle cx="128" cy="288" r="10" fill="#C49A55"/>
+        <line x1="212" y1="270" x2="176" y2="292" stroke="#C49A55" stroke-width="3.4" stroke-linecap="round"/>
+        <circle cx="214" cy="270" r="6" fill="#C49A55"/>
+        <!-- LA MARZOCCO bleu nuit / laiton -->
+        <g>
+          <!-- corps -->
+          <rect x="380" y="196" width="300" height="114" rx="10" fill="#12233B" stroke="#0A1524" stroke-width="2"/>
+          <!-- flancs bleu nuit brillant -->
+          <rect x="380" y="196" width="26" height="114" rx="10" fill="#1B3355"/>
+          <rect x="654" y="196" width="26" height="114" rx="10" fill="#1B3355"/>
+          <!-- plateau chauffe-tasses + tasses -->
+          <rect x="388" y="186" width="284" height="12" rx="4" fill="#C49A55"/>
+          <g fill="#F1EBDF"><path d="M420 186 v-12 h20 v12 z"/><path d="M470 186 v-12 h20 v12 z"/><path d="M600 186 v-12 h20 v12 z"/></g>
+          <!-- bandeau supérieur laiton -->
+          <rect x="392" y="206" width="276" height="6" fill="#C49A55" opacity=".85"/>
+          <!-- aigle + gravure -->
+          <path d="M 530 224 l -14 10 8 2 -6 8 10 -3 2 9 2 -9 10 3 -6 -8 8 -2 z" fill="#C49A55"/>
+          <text x="530" y="256" text-anchor="middle" fill="#C49A55" font-family="IBM Plex Mono" font-size="12" letter-spacing="4">STUDIO 24</text>
+          <!-- groupes -->
+          <g>
+            <rect x="426" y="264" width="46" height="22" rx="4" fill="#C49A55"/>
+            <rect x="440" y="286" width="18" height="14" fill="#8A6B39"/>
+            <path d="M 438 300 h 22 l 6 6 h -34 z" fill="#C49A55"/>
+            <rect x="588" y="264" width="46" height="22" rx="4" fill="#C49A55"/>
+            <rect x="602" y="286" width="18" height="14" fill="#8A6B39"/>
+            <path d="M 600 300 h 22 l 6 6 h -34 z" fill="#C49A55"/>
+          </g>
+          <!-- leviers vapeur -->
+          <line x1="398" y1="238" x2="376" y2="278" stroke="#C49A55" stroke-width="4" stroke-linecap="round"/>
+          <line x1="662" y1="238" x2="684" y2="278" stroke="#C49A55" stroke-width="4" stroke-linecap="round"/>
+          <!-- manomètre -->
+          <circle cx="530" cy="286" r="12" fill="#F1EBDF" stroke="#C49A55" stroke-width="2.5"/>
+          <line x1="530" y1="286" x2="537" y2="279" stroke="#8C3A2E" stroke-width="2"/>
+          <!-- tasses sous les groupes -->
+          <g fill="#F1EBDF"><path d="M438 306 v8 h18 v-8 z"/><path d="M600 306 v8 h18 v-8 z"/></g>
+        </g>
+        <!-- moulin -->
+        <rect x="706" y="252" width="26" height="58" rx="5" fill="#12233B"/>
+        <path d="M 706 252 l 6 -18 h 14 l 6 18 z" fill="#1B3355"/>
+        <circle cx="719" cy="282" r="6" fill="#C49A55"/>
+        <!-- tasses sur le comptoir -->
+        <g fill="#F1EBDF"><path d="M292 296 v14 h22 v-14 z"/><path d="M318 302 v8 h16 v-8 z"/></g>
+      </svg>
+    </div>
+    <div class="cap"><b>Le décor signature</b>Mur bleu nuit, néon laiton, vinyles en étagère, platine en écoute, enceinte rétro — et au centre, la La Marzocco bleu nuit à leviers et détails laiton, gravée « STUDIO 24 ». C'est cette image qu'on retrouve sur Instagram, sur le site, sur les affiches.</div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <tr><th style="width:30%">La machine</th><th>Détail</th></tr>
+    <tr><td>Modèle pressenti</td><td><b>Linea Mini</b> (l'icône, 1 groupe — parfaite pour un service d'appoint soigné) ou <b>Linea PB 2 groupes</b> si le café devient un vrai flux du bar. À trancher selon l'ambition café.</td></tr>
+    <tr><td>Customisation</td><td>Via <b>Calcaire Paris</b> (distributeur La Marzocco &amp; spécialiste custom en France — 01 84 60 23 23, hello@calcaire.co) : carrosserie Bleu Nuit #0D1B2E, finitions laiton, gravure du logo. Fabrication avec les ateliers La Marzocco en Italie — délais à anticiper dans la roadmap.</td></tr>
+    <tr><td>Statut</td><td>Jamais à vendre. Un exemplaire unique par magasin — la « Marzocco Studio 24 » fait partie de l'identité, comme le néon de façade.</td></tr>
+    <tr><td>Bonus SAV</td><td>Calcaire assure installation, formation et maintenance — le café reste bon même quand on est des vendeurs hi-fi.</td></tr>
+  </table></div>
+
+  <h3>Références &amp; moodboard (photos à intégrer)</h3>
+  <div class="grid3">
+    <div class="ph">KITH NYC — rigueur des rayonnages,<br>curation, matériaux</div>
+    <div class="ph">HARK PARIS — atelier vinyle &amp; audio,<br>proximité, réparation</div>
+    <div class="ph">LISTENING BARS TOKYO —<br>bois sombre, lumière chaude, silence habité</div>
+    <div class="ph">POCHETTES BLUE NOTE —<br>typographies, aplats, cadrages</div>
+    <div class="ph">LOCAL PLACE ARISTIDE BRIAND —<br>verrière, escalier métal, fenêtre en arc</div>
+    <div class="ph">PROJECTION COURTE FOCALE —<br>mise en scène salon, lumière tamisée</div>
+  </div>
+  <p class="mono" style="font-size:12px;color:var(--gris)">Emplacements réservés — on injecte les vraies photos (local, références, produits) au prochain passage.</p>
+  <div class="rule"></div>
+</section>
+
+<!-- ==================== 03 LE CONCEPT MAGASIN ==================== -->
+<section class="panel" id="p3">
+  <div class="kicker">03 — Le concept magasin</div>
+  <h2>Un studio ouvert au public</h2>
+  <p class="lead">150–250 m² pensés comme une suite d'expériences, pas comme des rayons. À Nantes : le local Place Aristide Briand (105 m², deux niveaux, verrière + fenêtre en arc) s'y prête parfaitement — le parcours ci-dessous s'y adapte directement.</p>
+
+  <div class="zones">
+    <div class="zone"><span class="zn">Zone 01 · Entrée</span><b>Le Vinyl Bar</b><p>Comptoir bois, deux platines en écoute, enceintes rétro, sélection de disques neufs + belles rééditions — et la machine La Marzocco « Édition Studio 24 » en pièce maîtresse, vrai café servi au comptoir. C'est le décor Instagram du lieu.</p></div>
+    <div class="zone"><span class="zn">Zone 02 · Cœur</span><b>Le Salon Projection</b><p>Projection courte focale allumée en continu dans un vrai décor de salon : canapé, tapis, lumière tamisée. Le produit vedette du moment, démontré dans la vie réelle — l'argument n°1 pour la clientèle féminine et les familles.</p></div>
+    <div class="zone"><span class="zn">Zone 03 · Mur</span><b>L'Espace Casques</b><p>10 à 15 casques sélectionnés, 3–4 marques, écoute assise au calme. Étiquettes claires : « pour le train », « pour le canapé », « pour le studio ». Zéro mur de 60 références.</p></div>
+    <div class="zone"><span class="zn">Zone 04 · Étage</span><b>La Salle 24</b><p>Salle de démonstration home cinéma complète : projection, multicanal, fauteuils, traitement acoustique. Sur rendez-vous — « réserver une séance » comme on réserve une table.</p></div>
+    <div class="zone"><span class="zn">Zone 05 · Diffus</span><b>Le Multiroom</b><p>Sonos &amp; streaming intégrés partout dans le magasin : la démonstration, c'est le lieu lui-même. On montre l'app en main, pièce par pièce.</p></div>
+    <div class="zone"><span class="zn">Zone 06 · Fond</span><b>L'Atelier / Bureau</b><p>Derrière la verrière : devis, plans d'installation, SAV léger, préparation des livraisons. Visible — l'artisanat fait partie du décor.</p></div>
+  </div>
+
+  <h3>Ce qu'on vend (architecture d'offre)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Pôle</th><th>Contenu</th><th>Rôle économique</th></tr>
+    <tr><td><b>Image</b></td><td>Projection courte focale (produit-signature), vidéoprojection classique, TV grand format sélectionnées</td><td>Panier élevé, différenciation, moteur des installations</td></tr>
+    <tr><td><b>Son du quotidien</b></td><td>Sonos &amp; multiroom, enceintes connectées, barres de son</td><td>Volume, récurrence, porte d'entrée grand public</td></tr>
+    <tr><td><b>Vinyle</b></td><td>Platines (entrée → passion), amplis, enceintes compactes, disques &amp; beaux objets</td><td>Trafic, image de marque, panier d'appoint, cadeaux</td></tr>
+    <tr><td><b>Casques</b></td><td>Sélection courte 10–15 modèles</td><td>Panier moyen, marge saine, achat plaisir</td></tr>
+    <tr><td><b>Services</b></td><td>Installation, calibration, câblage, reprise/upgrade, séances privées</td><td>Marge, fidélité, bouche-à-oreille prescripteurs</td></tr>
+  </table></div>
+
+  <h3>Rituels de marque</h3>
+  <ul class="clean">
+    <li><b>La Séance du jeudi</b> — projection d'un film culte dans la Salle 24, sur inscription, gratuite. Le magasin devient un mini ciné-club.</li>
+    <li><b>Le disque de la semaine</b> — un vinyle en écoute au bar, chroniqué sur les réseaux. Rendez-vous éditorial simple et tenable.</li>
+    <li><b>Les Sessions</b> — soirées d'écoute thématiques (jazz, hip-hop, BO de films) animées par l'équipe ou des invités. L'ADN rock/hip-hop d'Anthony s'exprime ici.</li>
+    <li><b>La visite à domicile</b> — tout devis d'installation au-dessus d'un seuil inclut le déplacement. Le studio vient chez vous.</li>
+  </ul>
+
+  <h3>Digital &amp; e-commerce</h3>
+  <p>Présence en ligne rapide mais proportionnée : <b>studio24.fr</b> en vitrine + prise de rendez-vous + click &amp; collect dès l'ouverture ; la vente en ligne complète (Shopify) dans un second temps, en s'appuyant sur ton savoir-faire Cobra / Haute Fidélité. Les réseaux (Instagram prioritaire) sont nourris par le lieu lui-même : le vinyl bar, la Marzocco bleu nuit, les Séances du jeudi.</p>
+  <div class="rule"></div>
+</section>
+
+<!-- ==================== 04 DOSSIER NANTES ==================== -->
+<section class="panel" id="p4">
+  <div class="kicker">04 — Dossier d'ouverture · Nantes</div>
+  <h2>Studio 24 Nantes</h2>
+  <p class="lead">Reprise intégrale du dossier existant (v20), adapté à la marque Studio 24 : le franchiseur n'est plus Cobra mais la holding propriétaire de la marque ; la redevance devient progressive ; Cobra peut rester fournisseur référencé. Tout le travail de financement, de local et de prévisionnel reste valable.</p>
+
+  <h3>Les porteurs de projet</h3>
+  <div class="grid3">
+    <div class="card"><span class="tag">≈64%</span><h4>Anthony — Président</h4><p style="font-size:14px">10 ans responsable Son-Vidéo.com Nantes, CA personnel de référence 1,2 M€. Réseau fournisseurs, marques et prescripteurs. Porte le projet au quotidien.</p></div>
+    <div class="card"><span class="tag">≈31%</span><h4>Christian — Associé opérationnel</h4><p style="font-size:14px">Issu de Son-Vidéo.com Nantes — duo rodé, zéro période de rodage. Apport en capital + expertise terrain.</p></div>
+    <div class="card"><span class="tag">5%</span><h4>Hugo — Associé fondateur de la marque</h4><p style="font-size:14px">Créateur et propriétaire de la marque Studio 24 (via holding). Participation de 5% : engagement dans l'aventure aux côtés de l'équipe. Apporte marque, marketing, digital, relations fournisseurs.</p></div>
+  </div>
+  <p class="mono" style="font-size:12px;color:var(--gris)">Répartition exacte à caler au pacte d'associés — base de travail : Anthony ~64% / Christian ~31% / Hugo 5%. Variante : option d'entrée différée de Hugo (voir onglet 05).</p>
+
+  <h3>Le marché nantais</h3>
+  <div class="grid3">
+    <div class="card dark"><h4 style="font-size:30px" class="display">650 K</h4><p style="font-size:13.5px">habitants dans la métropole — 6ᵉ ville de France</p></div>
+    <div class="card dark"><h4 style="font-size:30px" class="display">1,2 M€</h4><p style="font-size:13.5px">CA historique de référence (Son-Vidéo Nantes)</p></div>
+    <div class="card dark"><h4 style="font-size:30px" class="display">0</h4><p style="font-size:13.5px">concept-store son &amp; image de ce type dans la région</p></div>
+  </div>
+  <div class="tablewrap"><table>
+    <tr><th>Concurrent</th><th>Lecture</th></tr>
+    <tr><td><b>Son-Vidéo.com</b> — Place de la Bourse</td><td>Concurrent principal (4,7/5, 256 avis), en transition d'équipe. Les avis citent les vendeurs par leur nom : la clientèle suit les personnes — c'est-à-dire Anthony et Christian.</td></tr>
+    <tr><td><b>L'Auditorium</b> — rue Jean Jaurès</td><td>Format confidentiel, audiophiles purs. Segment différent.</td></tr>
+    <tr><td><b>Comme À La Radio</b> — rue Marceau</td><td>Niche vintage, ouvert 3 j/semaine. Complémentaire plus que concurrent.</td></tr>
+    <tr><td><b>Hifi Nantes</b> — Orvault</td><td>Périphérie, positionnement différent.</td></tr>
+  </table></div>
+  <div class="callout"><p style="margin:0"><b>Le timing :</b> la clientèle fidèle de Son-Vidéo Nantes cherche sa nouvelle adresse. Studio 24 lui offre les vendeurs qu'elle connaît — dans un lieu qu'elle n'a jamais vu.</p></div>
+
+  <h3>Le local — Place Aristide Briand (identifié, visité, négocié)</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:32%">Élément</th><th>Détail</th></tr>
+    <tr><td>Référence</td><td>Réf. 7211 — Blot Immobilier (Marine Batigne · 02 40 02 02 03)</td></tr>
+    <tr><td>Surface</td><td>105 m² sur 2 niveaux — RDC verrière atelier + étage open-space, fenêtre en arc signature</td></tr>
+    <tr><td>Loyer négocié</td><td class="num">32 000 € HT/an (−4 000 € obtenus) — 3 200 € TTC/mois</td></tr>
+    <tr><td>Bail / état</td><td>Commercial 9 ans — refait à neuf, travaux minimes, PMR, fibré, rideau métallique</td></tr>
+    <tr><td>Affectation Studio 24</td><td><b>RDC :</b> Vinyl Bar + Salon Projection + Espace Casques + atelier verrière · <b>Étage :</b> La Salle 24 (home cinéma) sous la fenêtre en arc</td></tr>
+  </table></div>
+
+  <h3>Le modèle : showroom pur, zéro stock dormant</h3>
+  <ul class="clean">
+    <li>50 000 € de matériel d'exposition aux prix démo marques (valeur publique &gt; 100 000 €)</li>
+    <li>Vente sur commande avec acompte 30% — livraison depuis les stocks fournisseurs, zéro invendu</li>
+    <li>Trois flux : vente conseil · B2B (architectes, décorateurs, hôtellerie) · services &amp; séances privées</li>
+    <li>Objectif 30 jours de paiement fournisseur = BFR quasi nul (priorité absolue des négociations)</li>
+  </ul>
+
+  <h3>Besoins au démarrage — 140 000 €</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Poste</th><th class="num">Montant</th></tr>
+    <tr><td>Droit d'entrée marque Studio 24 (holding Hugo)</td><td class="num">10 000 €</td></tr>
+    <tr><td>Caution bail (3 mois TTC)</td><td class="num">9 600 €</td></tr>
+    <tr><td>Honoraires Blot Immobilier</td><td class="num">11 520 €</td></tr>
+    <tr><td>Aménagement (vinyl bar, salon projection, Salle 24)</td><td class="num">15 000 €</td></tr>
+    <tr><td>Matériel exposition (prix démo marques)</td><td class="num">50 000 €</td></tr>
+    <tr><td>Informatique / caisse / logiciels</td><td class="num">5 000 €</td></tr>
+    <tr><td>Communication / site / inauguration</td><td class="num">8 000 €</td></tr>
+    <tr><td>Trésorerie de précaution + BFR</td><td class="num">30 880 €</td></tr>
+    <tr class="total"><td><b>Total besoins</b></td><td class="num"><b>140 000 €</b></td></tr>
+  </table></div>
+  <p style="font-size:14px">Financement inchangé par rapport au dossier v20 : apports 32 000 € + 2 prêts d'honneur Réseau Entreprendre (2 × 50 000 €) + prêt bancaire 8 000 € (scénario A) — ou apports + prêt bancaire 108 000 € garanti BPI 70% (scénario B). Stratégie ARE 8 mois conservée (phase 1 sans salaires).</p>
+
+  <h3>Prévisionnel 3 ans — avec redevance progressive</h3>
+  <p style="font-size:14px">Marge brute 32%. La redevance de marque passe de 3% fixe (version Cobra) à <b>1,5% / 2% / 3%</b> — ce qui améliore les deux premières années.</p>
+  <div class="tablewrap"><table>
+    <tr><th></th><th class="num">Année 1</th><th class="num">Année 2</th><th class="num">Année 3</th></tr>
+    <tr><td>CA prévisionnel</td><td class="num">500 000 €</td><td class="num">600 000 €</td><td class="num">800 000 €</td></tr>
+    <tr><td>Marge brute (32%)</td><td class="num">160 000 €</td><td class="num">192 000 €</td><td class="num">256 000 €</td></tr>
+    <tr><td>Charges fixes</td><td class="num">122 252 €</td><td class="num">193 716 €</td><td class="num">193 716 €</td></tr>
+    <tr><td>Redevance marque (1,5% / 2% / 3%)</td><td class="num">7 500 €</td><td class="num">12 000 €</td><td class="num">24 000 €</td></tr>
+    <tr class="total"><td><b>Résultat avant IS</b></td><td class="num"><b>+30 248 €</b></td><td class="num"><b>−13 716 €</b></td><td class="num"><b>+38 284 €</b></td></tr>
+  </table></div>
+  <p style="font-size:14px">Lecture identique au dossier v20 : an 1 bénéficiaire grâce à l'ARE, an 2 en creux (12 mois de salaires pleins + remboursement des prêts d'honneur) entièrement couvert par le bénéfice an 1 et la trésorerie, an 3 en croisière à seulement ⅔ du CA historique de référence. La redevance progressive rend même l'an 2 moins déficitaire que la version Cobra (−13,7 k€ contre −19,7 k€).</p>
+
+  <h3>Ce que la marque apporte au magasin (contrepartie de la redevance)</h3>
+  <div class="grid2">
+    <div class="card"><h4>Identité &amp; concept</h4><p style="font-size:14px">Nom, logo, charte, concept magasin, aménagement type, merchandising, éditions sur-mesure (La Marzocco bleu nuit).</p></div>
+    <div class="card"><h4>Digital</h4><p style="font-size:14px">Site studio24.fr, e-commerce, SEO, réseaux nationaux, photo/vidéo — le savoir-faire Cobra / Haute Fidélité mis au service du réseau.</p></div>
+    <div class="card"><h4>Marques &amp; achats</h4><p style="font-size:14px">Référencements fournisseurs, conditions négociées groupe, accès aux nouveautés, éventuel sourcing via Cobra en fournisseur référencé.</p></div>
+    <div class="card"><h4>Méthodes</h4><p style="font-size:14px">Manuel opératoire, rituels (Séance du jeudi, Sessions), outils de gestion, formation, animation du réseau à mesure qu'il grandit.</p></div>
+  </div>
+  <div class="rule"></div>
+</section>
+
+<!-- ==================== 05 JURIDIQUE & FRANCHISE ==================== -->
+<section class="panel" id="p5">
+  <div class="kicker">05 — Montage juridique &amp; franchise</div>
+  <h2>Qui possède quoi</h2>
+  <p class="lead">Principe simple : <b>la marque appartient à Hugo</b> (via sa holding), <b>le magasin appartient à ceux qui l'exploitent</b>. La marque se loue ; le magasin se vit. Ce montage sépare proprement les deux et rend le concept duplicable ville par ville.</p>
+
+  <div class="org">
+    <div class="orgbox nuit"><b>HL Holding (Hugo)</b><span class="sub">Propriétaire de la marque STUDIO 24 (dépôt INPI) · concept · charte · digital</span></div>
+    <div class="orglink"><span class="lab">licence de marque · redevance 1,5 → 3% CA</span></div>
+    <div class="orgbox"><b>SAS Studio 24 Nantes</b><span class="sub">Anthony ~64% · Christian ~31% · Hugo 5% — exploite le magasin Place Aristide Briand</span></div>
+    <div class="orglink"><span class="lab">demain : même contrat, autre ville</span></div>
+    <div class="orgbox" style="border-style:dashed;color:var(--gris)"><b style="color:var(--gris)">SAS Studio 24 [Ville]</b><span class="sub">Futur partenaire local — même modèle, territoire exclusif</span></div>
+  </div>
+
+  <h3>Le dépôt de la marque (première urgence)</h3>
+  <ul class="clean">
+    <li><b>Titulaire :</b> HL Holding (ou une société dédiée « Studio 24 Développement » si on veut isoler l'actif — à trancher avec l'expert-comptable).</li>
+    <li><b>Dépôt INPI</b> semi-figuratif (nom + logo) — classes recommandées : <span class="mono">35</span> (commerce de détail d'appareils audio/vidéo), <span class="mono">37</span> (installation, maintenance), <span class="mono">41</span> (événements, séances, divertissement), <span class="mono">9</span> (appareils, si éditions propres). Coût indicatif : ~190 € + 40 €/classe supplémentaire.</li>
+    <li><b>Vérification préalable :</b> recherche d'antériorité INPI approfondie (les homonymes repérés — agence « Studio 24/24 », sociétés radiées — n'opèrent pas dans nos classes, mais la recherche formelle reste indispensable avant dépôt).</li>
+    <li><b>Domaines :</b> studio24.fr (disponible à l'achat sur le marché secondaire) + studio-24.fr, studio24nantes.fr en protection. Réserver les handles Instagram/TikTok immédiatement.</li>
+  </ul>
+
+  <h3>Le contrat de licence / franchise</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:30%">Clause</th><th>Position de départ</th></tr>
+    <tr><td>Droit d'entrée</td><td>10 000 € HT — couvre concept, charte, formation, accompagnement à l'ouverture</td></tr>
+    <tr><td>Redevance</td><td>Progressive : <b>1,5%</b> du CA HT années 1–2 · <b>2%</b> année 3 · <b>3%</b> ensuite (paliers à affiner) — le temps que la marque prouve sa valeur</td></tr>
+    <tr><td>Territoire</td><td>Exclusivité sur la métropole nantaise pendant la durée du contrat</td></tr>
+    <tr><td>Durée</td><td>7 ans renouvelables (aligné sur le bail et les prêts)</td></tr>
+    <tr><td>Obligations franchiseur</td><td>Marque protégée, concept documenté, site &amp; digital, référencements fournisseurs, animation</td></tr>
+    <tr><td>Obligations franchisé</td><td>Respect du concept et de la charte, reporting CA mensuel, participation aux rituels de marque</td></tr>
+    <tr><td>E-commerce</td><td>Site national opéré par la holding ; les ventes web livrées/installées sur le territoire sont commissionnées au magasin local (mécanisme gagnant-gagnant à chiffrer)</td></tr>
+    <tr><td>Sortie</td><td>Non-concurrence locale limitée, droit de préemption de la holding sur les titres, sort des enseignes/éléments de marque en fin de contrat</td></tr>
+  </table></div>
+  <div class="callout"><p style="margin:0"><b>Point de vigilance (loi Doubin) :</b> avant toute signature avec un franchisé, le franchiseur doit remettre un Document d'Information Précontractuelle (DIP) 20 jours avant. Pour Nantes, Anthony étant co-constructeur du concept, on est davantage sur une licence de marque + pacte d'associés que sur une franchise classique — c'est plus léger et plus honnête. Le format « franchise » complet servira pour les villes suivantes. À valider avec un avocat.</p></div>
+
+  <h3>La participation de Hugo : 5% — deux options</h3>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag">Option A — immédiate</span>
+      <h4>5% dès la création</h4>
+      <p style="font-size:14px">Souscription de 5% du capital (≈ 1 600 € sur 32 000 € de capital social — l'engagement total de 140 k€ passant par comptes courants et emprunts). Symbole fort : Hugo est dans le bateau dès le jour 1.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Option B — différée</span>
+      <h4>Option d'entrée à 5% (3–5 ans)</h4>
+      <p style="font-size:14px">Si les clauses actuelles de Hugo chez Cobra l'exigent : promesse de cession croisée dans le pacte d'associés — Hugo peut acquérir 5% à tout moment pendant 5 ans, à une valorisation prédéfinie (formule sur l'EBE ou valeur nominale + prime fixée d'avance). Aucun conflit à la création, même résultat à terme.</p>
+    </div>
+  </div>
+  <p style="font-size:14px"><b>Ce que rapporte le montage à la holding :</b> an 1 ≈ 7 500 € de redevance, an 3 ≈ 24 000 € — de quoi financer le développement de la marque (site, contenu, dépôts, déplacements) sans peser sur le magasin ni sur toi. Les dividendes éventuels des 5% restent accessoires : ta rémunération, c'est la marque.</p>
+
+  <h3>Comptabilité — rester simple</h3>
+  <ul class="clean">
+    <li><b>SAS Nantes :</b> expert-comptable local classique (ou Wedoo si tu veux mutualiser), TVA mensuelle, caisse certifiée reliée au logiciel de gestion. Pour 600 k€ et 2 personnes, ~500 €/mois suffit — c'est déjà dans le prévisionnel.</li>
+    <li><b>Holding :</b> facture le droit d'entrée et la redevance à la SAS (facturation trimestrielle simple), encaisse sur Qonto — même mécanique que HL Média aujourd'hui.</li>
+    <li><b>Pas d'ERP lourd au départ :</b> caisse + tableur de pilotage suffisent la première année. Odoo (ou équivalent) seulement quand le 2ᵉ magasin arrive et que la consolidation devient utile.</li>
+  </ul>
+  <div class="rule"></div>
+</section>
+
+<!-- ==================== 06 ROADMAP ==================== -->
+<section class="panel" id="p6">
+  <div class="kicker">06 — Roadmap</div>
+  <h2>De la marque à l'ouverture</h2>
+  <p class="lead">Objectif calé sur le dossier v20 : ouverture Place Aristide Briand sous 4 à 5 mois. Les jalons marque (à ta main) et les jalons magasin (à la main d'Anthony) avancent en parallèle.</p>
+
+  <h3>Jalons marque — Hugo / holding</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:14%">Quand</th><th>Action</th></tr>
+    <tr><td class="mono">S1–S2</td><td>Recherche d'antériorité INPI formelle · achat <b>studio24.fr</b> (marché secondaire) + domaines de protection · réservation des handles sociaux</td></tr>
+    <tr><td class="mono">S2–S4</td><td>Dépôt INPI semi-figuratif (classes 9, 35, 37, 41) au nom de la holding · choix de la piste logo et brief graphiste pour finalisation</td></tr>
+    <tr><td class="mono">S4–S6</td><td>Contrat de licence de marque + pacte d'associés (option 5%) rédigés avec avocat · validation loi Doubin / format licence</td></tr>
+    <tr><td class="mono">S6–S10</td><td>Charte complète, signalétique façade, gabarits réseaux · commande de la La Marzocco custom « Édition Studio 24 » via Calcaire (délais ateliers Italie à anticiper) · site vitrine + prise de RDV</td></tr>
+    <tr><td class="mono">S10–S16</td><td>Shooting du lieu, contenus de lancement, plan d'inauguration (Séance n°1), press kit local (Ouest-France, médias nantais)</td></tr>
+  </table></div>
+
+  <h3>Jalons magasin — Anthony / SAS (repris du dossier v20)</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:14%">Priorité</th><th>Action</th></tr>
+    <tr><td class="mono">①</td><td>France Travail (3949) — confirmer la durée ARE de chacun</td></tr>
+    <tr><td class="mono">②</td><td>Réseau Entreprendre Atlantique (02 72 56 80 40) — deux dossiers de prêt d'honneur</td></tr>
+    <tr><td class="mono">③ ✓</td><td>Local Aristide Briand : visité, loyer négocié 32 000 €/an — confirmer taxe foncière et charges avant signature</td></tr>
+    <tr><td class="mono">④</td><td>Négociations fournisseurs : 30 jours de paiement (priorité absolue) + prix démo exposition — Cobra en fournisseur référencé si pertinent</td></tr>
+    <tr><td class="mono">⑤</td><td>Constitution SAS Studio 24 Nantes + statuts + pacte d'associés + ACRE (60 jours) + SACEM (−20% avant ouverture)</td></tr>
+    <tr><td class="mono">⑥</td><td>Aménagement : Vinyl Bar, Salon Projection, Espace Casques (RDC) · La Salle 24 (étage)</td></tr>
+    <tr><td class="mono">⑦</td><td>Ouverture — horizon 4 à 5 mois · inauguration = première « Séance du jeudi »</td></tr>
+  </table></div>
+
+  <div class="callout dark">
+    <p style="margin:0"><b>La suite :</b> Nantes valide le concept pendant 18–24 mois (chiffres, rituels, manuel opératoire). Ensuite seulement : ville n°2 avec le format licence/franchise complet — et le réseau Studio 24 existe.</p>
+  </div>
+
+  <h3>Ce qu'il reste à décider ensemble</h3>
+  <ul class="clean">
+    <li>Valider le nom <b>Studio 24</b> avec Anthony et Christian (et l'achat du domaine)</li>
+    <li>Choisir la piste logo (1–4) et la direction couleur (Bleu Nuit &amp; Laiton recommandée)</li>
+    <li>Valider la La Marzocco « Édition Studio 24 » : bleu nuit + laiton (recommandé) et le modèle (Linea Mini ou Linea PB) — devis custom Calcaire</li>
+    <li>Trancher : participation 5% immédiate ou option différée</li>
+    <li>Arrêter les paliers exacts de redevance et le contenu du droit d'entrée</li>
+  </ul>
+  <div class="rule"></div>
+</section>
+
+</main>
+
+<footer>
+  <b>STUDIO 24</b> · HI-FI — HOME CINÉMA · 24 FPS / 24 BIT · DOSSIER DE TRAVAIL — JUILLET 2026
+</footer>
+
+<script>
+/* ---- porte à mot de passe ---- */
+const GATE_HASH="6b3bec820528c2e5ebfac9cde682682d2adb72fd902787522eb59fa28abdd0b4";
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function tryUnlock(){
+  const v=document.getElementById('gpass').value.trim();
+  let ok=false;
+  try{
+    if(window.crypto&&crypto.subtle){ ok=(await sha256(v))===GATE_HASH; }
+    else{ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
+  }catch(e){ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
+  if(ok){ document.body.classList.remove('locked'); }
+  else{
+    document.getElementById('gerr').textContent="Mot de passe incorrect.";
+    document.getElementById('gpass').value="";
+    document.getElementById('gpass').focus();
+  }
+}
+document.getElementById('gbtn').addEventListener('click',tryUnlock);
+document.getElementById('gpass').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+
+/* ---- onglets ---- */
+const tabs=document.querySelectorAll('.tab');
+const panels=document.querySelectorAll('.panel');
+tabs.forEach(t=>{
+  t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.panel).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>

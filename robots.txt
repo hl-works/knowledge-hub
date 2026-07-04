@@ -3,27 +3,32 @@ Allow: /
 Disallow: /knowledge-hub/coffre/
 Disallow: /knowledge-hub/docs/
 Disallow: /landing-lab/
+Disallow: /studio-24/
 
 # Agents IA / LLMs bienvenus (GEO)
 User-agent: GPTBot
 Allow: /
 Disallow: /knowledge-hub/coffre/
 Disallow: /knowledge-hub/docs/
+Disallow: /studio-24/
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /knowledge-hub/coffre/
 Disallow: /knowledge-hub/docs/
+Disallow: /studio-24/
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /knowledge-hub/coffre/
 Disallow: /knowledge-hub/docs/
+Disallow: /studio-24/
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /knowledge-hub/coffre/
 Disallow: /knowledge-hub/docs/
+Disallow: /studio-24/
 
 Sitemap: https://hl-consulting.tech/sitemap.xml
 Sitemap: https://hl-consulting.tech/knowledge-hub/sitemap.xml
