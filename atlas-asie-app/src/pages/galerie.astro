@@ -9,7 +9,7 @@ import Footer from '../components/Footer.astro';
     <section class="intro"><div class="wrap">
       <p class="eyebrow">En images</p>
       <h1 class="disp">Galerie</h1>
-      <p class="lead">Toutes les photos des escales, réunies au même endroit — alimentées directement depuis le carnet de route.</p>
+      <p class="lead">Toutes les photos et vidéos des escales, réunies au même endroit — alimentées directement depuis le carnet de route.</p>
     </div></section>
     <section class="gal"><div class="wrap">
       <div id="grid"><div class="sk-grid"><div class="sk" style="aspect-ratio:4/3"></div><div class="sk" style="aspect-ratio:4/3"></div><div class="sk" style="aspect-ratio:4/3"></div><div class="sk" style="aspect-ratio:4/3"></div></div></div>
@@ -18,7 +18,7 @@ import Footer from '../components/Footer.astro';
   <Footer />
 </Base>
 
-<div id="lightbox" class="lb" aria-hidden="true"><img id="lb-img" alt="" /><button id="lb-close" aria-label="Fermer">✕</button></div>
+<div id="lightbox" class="lb" aria-hidden="true"><img id="lb-img" alt="" /><video id="lb-vid" controls playsinline preload="metadata" hidden></video><button id="lb-close" aria-label="Fermer">✕</button></div>
 
 <style is:global>
   .intro{padding:clamp(30px,6vw,64px) 0 clamp(6px,2vw,18px);}
@@ -28,13 +28,15 @@ import Footer from '../components/Footer.astro';
   .grid figure{margin:0;position:relative;border:2px solid var(--ink);border-radius:12px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;box-shadow:var(--shadow);}
   .grid img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
   .grid figure:hover img{transform:scale(1.05);}
+  .grid .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(20,12,8,.55);border:2px solid #fff;display:grid;place-items:center;pointer-events:none;}
+  .grid .play::after{content:"";margin-left:3px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #fff;}
   .grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:.78rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(20,12,8,.75));}
   .empty{border:2px dashed var(--line);border-radius:var(--r);background:var(--card);padding:clamp(30px,6vw,60px);text-align:center;max-width:56ch;margin:0 auto;color:var(--ink-soft);}
   .empty h2{font-family:var(--disp);text-transform:uppercase;font-size:1.5rem;margin:0 0 .5rem;color:var(--ink);}
   .loading{color:var(--muted);}
   .lb{position:fixed;inset:0;z-index:120;background:rgba(12,8,6,.92);display:none;place-items:center;padding:20px;}
   .lb.open{display:grid;}
-  .lb img{max-width:94vw;max-height:88vh;border-radius:8px;border:2px solid #fff;}
+  .lb img,.lb video{max-width:94vw;max-height:88vh;border-radius:8px;border:2px solid #fff;}
   .lb button{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer;}
 </style>
 
@@ -50,25 +52,38 @@ import Footer from '../components/Footer.astro';
     try {
       const [pRows] = await Promise.all([fetchTab('parcours'), loadTripPhotos()]);
       const stops = toStops(pRows);
-      const items = stops.flatMap((s) => [
-        ...s.photos.map((url) => ({ url, ville: s.ville, pays: s.pays, legende: undefined as string | undefined })),
-        ...tripPhotos(s.ordre).filter((p) => p.type !== 'video').map((p) => ({ url: p.url, ville: s.ville, pays: s.pays, legende: p.legende })),
+      type Media = { url: string; ville: string; pays: string; legende?: string; video: boolean; poster?: string };
+      const items: Media[] = stops.flatMap((s) => [
+        ...s.photos.map((url) => ({ url, ville: s.ville, pays: s.pays, legende: undefined, video: false, poster: undefined })),
+        ...tripPhotos(s.ordre).map((p) => ({ url: p.url, ville: s.ville, pays: s.pays, legende: p.legende, video: p.type === 'video', poster: p.poster })),
       ]);
       if (!items.length) {
-        host.innerHTML = `<div class="empty"><h2>Bientôt en images</h2><p>Les photos apparaîtront ici automatiquement dès qu'elles seront ajoutées aux escales (colonne <code>photos</code>). Aucune double saisie.</p></div>`;
+        host.innerHTML = `<div class="empty"><h2>Bientôt en images</h2><p>Les photos et vidéos apparaîtront ici automatiquement dès qu'elles seront ajoutées aux escales. Aucune double saisie.</p></div>`;
         return;
       }
-      const fig = (it: { url: string; ville: string; legende?: string }) =>
-        `<figure data-full="${esc(it.url)}"><img src="${esc(it.url)}" alt="${esc(it.legende || 'Photo ' + it.ville)}" loading="lazy" /><figcaption>${esc(it.legende ? `${it.ville} — ${it.legende}` : it.ville)}</figcaption></figure>`;
+      const fig = (it: Media) => {
+        const thumb = it.video ? (it.poster || it.url) : it.url;
+        const cap = it.legende ? `${it.ville} — ${it.legende}` : it.ville;
+        return `<figure data-full="${esc(it.url)}" data-video="${it.video ? '1' : ''}"><img src="${esc(thumb)}" alt="${esc(it.legende || (it.video ? 'Vidéo ' : 'Photo ') + it.ville)}" loading="lazy" />${it.video ? '<span class="play"></span>' : ''}<figcaption>${esc(cap)}</figcaption></figure>`;
+      };
+      const tally = (g: Media[]) => {
+        const v = g.filter((it) => it.video).length, p = g.length - v;
+        return [p && `${p} photo${p > 1 ? 's' : ''}`, v && `${v} vidéo${v > 1 ? 's' : ''}`].filter(Boolean).join(' · ');
+      };
       host.innerHTML = groupByPays(items, (it) => it.pays)
-        .map((g) => paysHead(g.pays, `${g.items.length} photo${g.items.length > 1 ? 's' : ''}`) + `<div class="grid">${g.items.map(fig).join('')}</div>`)
+        .map((g) => paysHead(g.pays, tally(g.items)) + `<div class="grid">${g.items.map(fig).join('')}</div>`)
         .join('');
 
       const lb = document.getElementById('lightbox')!;
       const lbImg = document.getElementById('lb-img') as HTMLImageElement;
-      const open = (url: string) => { lbImg.src = url; lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); };
-      const close = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); lbImg.src = ''; };
-      host.querySelectorAll<HTMLElement>('figure').forEach((f) => f.addEventListener('click', () => open(f.dataset.full!)));
+      const lbVid = document.getElementById('lb-vid') as HTMLVideoElement;
+      const open = (url: string, video: boolean) => {
+        if (video) { lbImg.hidden = true; lbImg.src = ''; lbVid.hidden = false; lbVid.src = url; lbVid.play().catch(() => {}); }
+        else { lbVid.hidden = true; lbVid.removeAttribute('src'); lbVid.load(); lbImg.hidden = false; lbImg.src = url; }
+        lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
+      };
+      const close = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); lbImg.src = ''; lbVid.pause(); lbVid.removeAttribute('src'); lbVid.load(); };
+      host.querySelectorAll<HTMLElement>('figure').forEach((f) => f.addEventListener('click', () => open(f.dataset.full!, f.dataset.video === '1')));
       document.getElementById('lb-close')!.addEventListener('click', close);
       lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
       addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
