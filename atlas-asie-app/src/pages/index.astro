@@ -123,6 +123,8 @@ const heroCredit = HEROES[0].credit;
   .rphoto{position:relative;display:block;border:2px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);aspect-ratio:4/3;text-decoration:none;}
   .rphoto img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
   .rphoto:hover img{transform:scale(1.05);}
+  .rphoto .rplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(20,12,8,.55);border:2px solid #fff;display:grid;place-items:center;pointer-events:none;}
+  .rphoto .rplay::after{content:"";margin-left:3px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;}
   .rcap{position:absolute;left:0;right:0;bottom:0;padding:9px 11px;font-size:.82rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(20,12,8,.82));}
   .rall{display:inline-block;margin-top:16px;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
   .passport{background:var(--kraft,#EADFC4);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(20px,3vw,36px);
@@ -165,19 +167,27 @@ const heroCredit = HEROES[0].credit;
   const $ = (id: string) => document.getElementById(id)!;
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
 
-  // « Les derniers instants » : agrège les photos du voyage (repo + Sheet),
-  // les plus récentes d'abord. Section masquée tant qu'il n'y en a aucune.
+  // « Les derniers instants » : agrège photos ET vidéos du voyage (repo + Sheet),
+  // les plus récentes d'abord. Pas de date dans le manifest → on trie sur l'ordre
+  // d'ajout (seq croissant = chronologique) : le dernier média posté passe devant.
+  // Section masquée tant qu'il n'y en a aucun.
   function renderRecents(stops: Stop[]) {
-    const items: Array<{ url: string; cap: string; ordre: number }> = [];
+    const items: Array<{ url: string; cap: string; ordre: number; video: boolean; seq: number }> = [];
+    let seq = 0;
     for (const s of stops) {
-      for (const p of tripPhotos(s.ordre)) if (p.type !== 'video') items.push({ url: p.url, cap: p.legende || s.ville, ordre: s.ordre });
-      for (const u of s.photos ?? []) items.push({ url: u, cap: s.ville, ordre: s.ordre });
+      for (const p of tripPhotos(s.ordre)) {
+        const video = p.type === 'video';
+        const thumb = video ? p.poster : p.url;
+        if (!thumb) continue; // vidéo sans poster : rien à afficher en vignette
+        items.push({ url: thumb, cap: p.legende || s.ville, ordre: s.ordre, video, seq: seq++ });
+      }
+      for (const u of s.photos ?? []) items.push({ url: u, cap: s.ville, ordre: s.ordre, video: false, seq: seq++ });
     }
     if (!items.length) return;
-    items.sort((a, b) => b.ordre - a.ordre);
+    items.sort((a, b) => b.seq - a.seq);
     $('recents-grid').innerHTML = items
       .slice(0, 8)
-      .map((it) => `<a class="rphoto" href="${BASE}parcours#e-${it.ordre}"><img src="${esc(it.url)}" alt="${esc(it.cap)}" loading="lazy" /><span class="rcap">${esc(it.cap)}</span></a>`)
+      .map((it) => `<a class="rphoto" href="${BASE}parcours#e-${it.ordre}"><img src="${esc(it.url)}" alt="${esc(it.cap)}" loading="lazy" />${it.video ? '<span class="rplay"></span>' : ''}<span class="rcap">${esc(it.cap)}</span></a>`)
       .join('');
     ($('recents') as HTMLElement).hidden = false;
   }
