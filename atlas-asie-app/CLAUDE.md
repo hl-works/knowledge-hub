@@ -174,8 +174,9 @@ d'escale** (ex. « escale 12 » ou « Bichkek : ces 3 photos, légende … ») :
    redimensionne (1600 px, WebP q78, ~150-300 Ko), range et met à jour le
    manifest. Une légende différente par photo → un appel par photo.
    Vidéos : `node scripts/add-video.mjs <ordre> [--legende "…"] <fichier>` —
-   H.264 720p CRF 27 + AAC + poster WebP, rendue en <video> sur l'escale
-   (pas dans la Galerie). ⚠️ ffmpeg complet requis :
+   H.264 720p CRF 27 + AAC + poster WebP, rendue en <video> sur l'escale du
+   Parcours **et** dans la Galerie (vignette poster + badge ▶, lecture en
+   lightbox). ⚠️ ffmpeg complet requis :
    `apt-get update && apt-get install -y ffmpeg` (celui de Playwright n'a ni
    H.264 ni audio). Viser des clips courts (< 60 s / < 25 Mo, le script
    avertit au-delà).
