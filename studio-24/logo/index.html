@@ -12,7 +12,7 @@
 :root{
   --nuit:#0D1B2E; --nuit2:#142943; --laiton:#C49A55; --laiton-clair:#E0C28A;
   --creme:#F1EBDF; --papier:#F7F3EA; --encre:#17181A; --gris:#6B6A66;
-  --bois:#7A5C3E; --rouge:#8C3A2E; --maxw:1000px;
+  --bois:#7A5C3E; --rouge:#8C3A2E; --vert:#2E4438; --maxw:1000px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -48,16 +48,22 @@ header .sub{color:rgba(241,235,223,.72);font-size:15px;margin-top:14px;max-width
 main{padding:44px 0 70px}
 h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin:6px 0 18px;letter-spacing:-.3px}
 .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bois);margin-bottom:6px}
+.lead{max-width:640px;color:#4A4842;font-size:14.5px;margin:-4px 0 30px}
 
 /* brief */
 .brief{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 40px}
 .brief .b{background:#fff;border:1px solid #E7DECD;padding:18px 18px 20px}
 .brief .b h3{font-family:'Archivo',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--nuit);margin-bottom:8px}
-.brief .b.keep h3{color:var(--vert,#2E4438)}
+.brief .b.keep h3{color:var(--vert)}
 .brief .b p{font-size:13.5px;color:#4A4842}
 .brief .b ul{list-style:none;font-size:13.5px;color:#4A4842}
 .brief .b li{padding-left:16px;position:relative;margin-top:5px}
 .brief .b li::before{content:"—";position:absolute;left:0;color:var(--laiton)}
+
+/* section header */
+.sec{border-top:1px solid #E4DBC9;padding-top:22px;margin-top:6px}
+.sec .kicker{color:var(--nuit);margin-bottom:2px}
+.sec p{font-size:13.5px;color:var(--gris);margin-bottom:18px}
 
 /* cards */
 .card{margin-bottom:34px}
@@ -119,7 +125,7 @@ footer b{color:var(--laiton)}
         <li>Bleu nuit + laiton</li>
         <li>Le « 24 » comme héros (24 fps + 24 bit)</li>
         <li>Néo-vintage, matière, chaleur</li>
-        <li>Archivo (grasse, condensée)</li>
+        <li>Peu de couleur — le soin est dans la lettre</li>
       </ul>
     </div>
     <div class="b">
@@ -127,7 +133,7 @@ footer b{color:var(--laiton)}
       <ul>
         <li>Un signe simple, gravable et brodable</li>
         <li>Lisible en tout petit (avatar, plaque)</li>
-        <li>Un lien au monde hi-fi (VU, pellicule)</li>
+        <li>Le « 24 » mémorable au premier coup d'œil</li>
         <li>L'esprit A24 : sobre, culte, jamais tape-à-l'œil</li>
         <li>Autant à l'aise en clair qu'en sombre</li>
       </ul>
@@ -143,153 +149,152 @@ footer b{color:var(--laiton)}
     </div>
   </div>
 
-  <div class="kicker">Cinq directions</div>
-  <h2>À comparer, en clair et en sombre</h2>
+  <div class="kicker">Six directions — presque tout se joue dans la lettre</div>
+  <h2>Peu de couleur, beaucoup de typographie</h2>
+  <p class="lead">Deux familles : trois pistes <b>inspirées d'A24</b> (serif Didone, monochrome, retenue) et trois <b>nouvelles propositions</b>. À comparer en clair et en sombre.</p>
 
-  <!-- A — La Jauge -->
-  <div class="card">
-    <div class="lab"><b>A · La Jauge</b><span>Le signe signature : l'aiguille VU. Écho direct au monde McIntosh.</span></div>
-    <div class="stages">
-      <div class="stage cream">
-        <svg viewBox="0 0 520 250" role="img" aria-label="Logo A La Jauge sur fond crème">
-          <path d="M70 118 Q260 40 450 118" fill="none" stroke="#C49A55" stroke-width="3"/>
-          <g stroke="currentColor" stroke-width="2" opacity=".5">
-            <line x1="70" y1="118" x2="66" y2="132"/><line x1="165" y1="86" x2="163" y2="100"/>
-            <line x1="260" y1="74" x2="260" y2="88"/><line x1="355" y1="86" x2="357" y2="100"/>
-            <line x1="450" y1="118" x2="454" y2="132"/>
-          </g>
-          <g stroke="#C49A55" stroke-width="1.3" opacity=".7">
-            <line x1="117" y1="99" x2="115" y2="110"/><line x1="212" y1="78" x2="212" y2="89"/>
-            <line x1="308" y1="78" x2="308" y2="89"/><line x1="403" y1="99" x2="405" y2="110"/>
-          </g>
-          <line x1="260" y1="150" x2="330" y2="80" stroke="#8C3A2E" stroke-width="2.6" stroke-linecap="round"/>
-          <circle cx="260" cy="150" r="5" fill="#8C3A2E"/>
-          <text x="260" y="197" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="19" letter-spacing="7">STUDIO</text>
-          <text x="260" y="244" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="54">24</text>
-        </svg>
-      </div>
-      <div class="stage dark">
-        <svg viewBox="0 0 520 250" role="img" aria-label="Logo A La Jauge sur fond nuit">
-          <path d="M70 118 Q260 40 450 118" fill="none" stroke="#C49A55" stroke-width="3"/>
-          <g stroke="currentColor" stroke-width="2" opacity=".45">
-            <line x1="70" y1="118" x2="66" y2="132"/><line x1="165" y1="86" x2="163" y2="100"/>
-            <line x1="260" y1="74" x2="260" y2="88"/><line x1="355" y1="86" x2="357" y2="100"/>
-            <line x1="450" y1="118" x2="454" y2="132"/>
-          </g>
-          <g stroke="#C49A55" stroke-width="1.3" opacity=".7">
-            <line x1="117" y1="99" x2="115" y2="110"/><line x1="212" y1="78" x2="212" y2="89"/>
-            <line x1="308" y1="78" x2="308" y2="89"/><line x1="403" y1="99" x2="405" y2="110"/>
-          </g>
-          <line x1="260" y1="150" x2="330" y2="80" stroke="#E0876F" stroke-width="2.6" stroke-linecap="round"/>
-          <circle cx="260" cy="150" r="5" fill="#E0876F"/>
-          <text x="260" y="197" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="19" letter-spacing="7">STUDIO</text>
-          <text x="260" y="244" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="54">24</text>
-        </svg>
-      </div>
-    </div>
-    <p class="use">Usage : façade, avatar (l'aiguille peut s'animer au survol), tampon. Le plus ownable — un logo qui « lit » un signal.</p>
+  <!-- ==================== ① INSPIRÉES D'A24 ==================== -->
+  <div class="sec">
+    <div class="kicker">① Inspirées d'A24</div>
+    <p>Serif Didone (Bodoni), noir/blanc strict. La force est dans la coupe de la lettre.</p>
   </div>
 
-  <!-- B — Pellicule -->
+  <!-- 1 — Le Bloc -->
   <div class="card">
-    <div class="lab"><b>B · Pellicule &amp; onde</b><span>Le « 24 » à double lecture : perforations cinéma + onde sonore.</span></div>
+    <div class="lab"><b>1 · Le Bloc</b><span>STUDIO posé sur un 24 massif. Le classique, plein de retenue.</span></div>
     <div class="stages">
       <div class="stage cream">
-        <svg viewBox="0 0 520 250" role="img" aria-label="Logo B Pellicule sur fond crème">
-          <text x="300" y="40" text-anchor="middle" fill="currentColor" opacity=".65" class="mono" font-size="12" letter-spacing="4">24 IMAGES/SEC · 24 BITS</text>
-          <g fill="#C49A55"><rect x="120" y="80" width="22" height="20" rx="4"/><rect x="120" y="110" width="22" height="20" rx="4"/><rect x="120" y="140" width="22" height="20" rx="4"/><rect x="120" y="170" width="22" height="20" rx="4"/></g>
-          <text x="308" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150">24</text>
-          <path d="M175 228 q20 -18 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#C49A55" stroke-width="2.4"/>
-        </svg>
-      </div>
-      <div class="stage dark">
-        <svg viewBox="0 0 520 250" role="img" aria-label="Logo B Pellicule sur fond nuit">
-          <text x="300" y="40" text-anchor="middle" fill="currentColor" opacity=".65" class="mono" font-size="12" letter-spacing="4">24 IMAGES/SEC · 24 BITS</text>
-          <g fill="#C49A55"><rect x="120" y="80" width="22" height="20" rx="4"/><rect x="120" y="110" width="22" height="20" rx="4"/><rect x="120" y="140" width="22" height="20" rx="4"/><rect x="120" y="170" width="22" height="20" rx="4"/></g>
-          <text x="308" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150">24</text>
-          <path d="M175 228 q20 -18 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#C49A55" stroke-width="2.4"/>
-        </svg>
-      </div>
-    </div>
-    <p class="use">Usage : signe conceptuel fort pour l'éditorial (affiches, pochettes des « Sessions »). Le concept 24 fps + 24 bit devient visible.</p>
-  </div>
-
-  <!-- C — Le Sceau -->
-  <div class="card">
-    <div class="lab"><b>C · Le Sceau</b><span>Cachet circulaire — pour le petit, l'estampé, le brodé, l'avatar.</span></div>
-    <div class="stages">
-      <div class="stage cream">
-        <svg viewBox="0 0 250 250" role="img" aria-label="Logo C Le Sceau sur fond crème">
-          <circle cx="125" cy="125" r="116" fill="none" stroke="#C49A55" stroke-width="2.5"/>
-          <circle cx="125" cy="125" r="107" fill="none" stroke="#C49A55" stroke-width="1"/>
-          <defs><path id="sealA" d="M125 32 A93 93 0 1 1 124.9 32"/></defs>
-          <text fill="currentColor" class="display" font-weight="700" font-size="14.5" letter-spacing="4"><textPath href="#sealA" startOffset="0">STUDIO 24 · HI-FI · HOME CINÉMA · SON &amp; IMAGE · </textPath></text>
-          <text x="125" y="158" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="86">24</text>
-        </svg>
-      </div>
-      <div class="stage dark">
-        <svg viewBox="0 0 250 250" role="img" aria-label="Logo C Le Sceau sur fond nuit">
-          <circle cx="125" cy="125" r="116" fill="none" stroke="#C49A55" stroke-width="2.5"/>
-          <circle cx="125" cy="125" r="107" fill="none" stroke="#C49A55" stroke-width="1"/>
-          <defs><path id="sealB" d="M125 32 A93 93 0 1 1 124.9 32"/></defs>
-          <text fill="currentColor" class="display" font-weight="700" font-size="14.5" letter-spacing="4"><textPath href="#sealB" startOffset="0">STUDIO 24 · HI-FI · HOME CINÉMA · SON &amp; IMAGE · </textPath></text>
-          <text x="125" y="158" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="86">24</text>
-        </svg>
-      </div>
-    </div>
-    <p class="use">Usage : plaque gravée sur la machine, broderie, coin de facture, avatar réseaux. Se marie avec l'une des trois autres pistes comme « sceau » secondaire.</p>
-  </div>
-
-  <!-- D — Wordmark -->
-  <div class="card">
-    <div class="lab"><b>D · Le Wordmark</b><span>La version de tous les jours : sobre, un filet laiton, rien de plus.</span></div>
-    <div class="stages">
-      <div class="stage cream">
-        <svg viewBox="0 0 520 240" role="img" aria-label="Logo D Wordmark sur fond crème">
-          <text x="260" y="64" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="24" letter-spacing="12">STUDIO</text>
-          <line x1="150" y1="84" x2="370" y2="84" stroke="#C49A55" stroke-width="1.5"/>
-          <text x="260" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="140">24</text>
-          <text x="260" y="228" text-anchor="middle" fill="#C49A55" class="mono" font-size="12" letter-spacing="6">24 FPS · 24 BIT</text>
-        </svg>
-      </div>
-      <div class="stage dark">
-        <svg viewBox="0 0 520 240" role="img" aria-label="Logo D Wordmark sur fond nuit">
-          <text x="260" y="64" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="24" letter-spacing="12">STUDIO</text>
-          <line x1="150" y1="84" x2="370" y2="84" stroke="#C49A55" stroke-width="1.5"/>
-          <text x="260" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="140">24</text>
-          <text x="260" y="228" text-anchor="middle" fill="#C49A55" class="mono" font-size="12" letter-spacing="6">24 FPS · 24 BIT</text>
-        </svg>
-      </div>
-    </div>
-    <p class="use">Usage : le socle. Web, print, mentions légales, bas de page. Les pistes A / B lui servent de « signe » quand il faut un logo, pas juste un nom.</p>
-  </div>
-
-  <!-- E — L'esprit A24 -->
-  <div class="card">
-    <div class="lab"><b>E · L'esprit A24</b><span>Wordmark Didone, monochrome, sans esbroufe. On partage le « 24 » — on partage la retenue.</span></div>
-    <div class="stages">
-      <div class="stage cream">
-        <svg viewBox="0 0 520 240" role="img" aria-label="Logo E esprit A24 sur fond crème">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 1 Le Bloc sur fond crème">
           <text x="260" y="80" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="25" letter-spacing="15">STUDIO</text>
           <text x="260" y="206" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="134" letter-spacing="2">24</text>
         </svg>
       </div>
       <div class="stage dark">
-        <svg viewBox="0 0 520 240" role="img" aria-label="Logo E esprit A24 sur fond nuit">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 1 Le Bloc sur fond nuit">
           <text x="260" y="80" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="25" letter-spacing="15">STUDIO</text>
           <text x="260" y="206" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="134" letter-spacing="2">24</text>
         </svg>
       </div>
     </div>
-    <p class="use">Usage : la piste la plus « studio de cinéma ». Serif à fort contraste (Bodoni), noir/blanc strict à la A24 — le laiton peut rester en accent unique. Intemporel, calme, on ne s'en lasse pas.</p>
+    <p class="use">Usage : le socle. Web, façade, papeterie. La version par défaut, celle qu'on ne se lasse pas de voir.</p>
+  </div>
+
+  <!-- 2 — Le Chiffre -->
+  <div class="card">
+    <div class="lab"><b>2 · Le Chiffre</b><span>Le « 24 » seul, en héros — comme A24 fait de « A24 » sa signature.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo 2 Le Chiffre sur fond crème">
+          <text x="260" y="56" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="16" letter-spacing="19">STUDIO</text>
+          <text x="260" y="214" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="172">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo 2 Le Chiffre sur fond nuit">
+          <text x="260" y="56" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="16" letter-spacing="19">STUDIO</text>
+          <text x="260" y="214" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="172">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : avatar, façade, générique. Le chiffre devient la marque ; « STUDIO » se réduit à une mention.</p>
+  </div>
+
+  <!-- 3 — La Ligne -->
+  <div class="card">
+    <div class="lab"><b>3 · La Ligne</b><span>Lockup horizontal encadré — un clin d'œil à l'amorce de pellicule.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 3 La Ligne sur fond crème">
+          <rect x="86" y="86" width="348" height="70" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="260" y="132" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="40" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 3 La Ligne sur fond nuit">
+          <rect x="86" y="86" width="348" height="70" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="260" y="132" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="40" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : bandeau façade, en-tête de site, tampon rectangulaire. Compact, filmique, « institutionnel » sans être froid.</p>
+  </div>
+
+  <!-- ==================== ② TROIS NOUVELLES PISTES ==================== -->
+  <div class="sec">
+    <div class="kicker">② Trois nouvelles pistes</div>
+    <p>On sort du serif classique : condensé moderne, tension de deux polices, monogramme serré.</p>
+  </div>
+
+  <!-- 4 — La Condensée -->
+  <div class="card">
+    <div class="lab"><b>4 · La Condensée</b><span>Grotesque ultra-condensée, calée à gauche. Moderne, franc, un brin brutaliste.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 4 La Condensée sur fond crème">
+          <g fill="currentColor" font-family="Archivo,system-ui,sans-serif" font-weight="900" transform="translate(48 0) scale(0.64 1)">
+            <text x="0" y="114" font-size="98" letter-spacing="-1">STUDIO</text>
+            <text x="0" y="212" font-size="98" letter-spacing="-1">24</text>
+          </g>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 4 La Condensée sur fond nuit">
+          <g fill="currentColor" font-family="Archivo,system-ui,sans-serif" font-weight="900" transform="translate(48 0) scale(0.64 1)">
+            <text x="0" y="114" font-size="98" letter-spacing="-1">STUDIO</text>
+            <text x="0" y="212" font-size="98" letter-spacing="-1">24</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : l'inverse d'A24 — contemporain, magazine, très « concept-store ». Fonctionne énorme sur une vitrine ou une affiche.</p>
+  </div>
+
+  <!-- 5 — Technique × Cinéma -->
+  <div class="card">
+    <div class="lab"><b>5 · Technique × Cinéma</b><span>Le mono de la fiche technique + le serif du cinéma. Le nom raconte les deux métiers.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 5 Technique et Cinéma sur fond crème">
+          <text x="260" y="78" text-anchor="middle" fill="currentColor" class="mono" font-size="21" letter-spacing="9">STUDIO</text>
+          <text x="260" y="208" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="140" letter-spacing="1">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 5 Technique et Cinéma sur fond nuit">
+          <text x="260" y="78" text-anchor="middle" fill="currentColor" class="mono" font-size="21" letter-spacing="9">STUDIO</text>
+          <text x="260" y="208" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="140" letter-spacing="1">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : la piste la plus « signature » — le 24 bit (mono, technique) rencontre le 24 fps (serif, cinéma). Ownable et racontable.</p>
+  </div>
+
+  <!-- 6 — Le Monogramme -->
+  <div class="card">
+    <div class="lab"><b>6 · Le Monogramme</b><span>« 24 » serré à l'extrême — une marque compacte pour le tout petit.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 6 Le Monogramme sur fond crème">
+          <text x="260" y="176" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150" letter-spacing="-13">24</text>
+          <text x="260" y="212" text-anchor="middle" fill="#C49A55" class="mono" font-size="11" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 6 Le Monogramme sur fond nuit">
+          <text x="260" y="176" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150" letter-spacing="-13">24</text>
+          <text x="260" y="212" text-anchor="middle" fill="#C49A55" class="mono" font-size="11" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : avatar, favicon, plaque, broderie, tampon. Le 2 et le 4 se rapprochent jusqu'à former un seul bloc — le raccourci de la marque. Le laiton reste le seul accent.</p>
   </div>
 
   <div class="reco">
-    <p><b>La leçon A24 :</b> un studio partenaire du « 24 » dont la force est un wordmark Didone ultra-sobre, <b>jamais changé depuis 2012</b> — grosse curation mais grand public, obsédé du détail, pas ultra-mainstream et parfaitement à l'aise avec ça. Ça pousse Studio 24 vers la <b>retenue</b>.</p>
-    <p style="margin-top:12px"><b>Ma reco :</b> mener avec <b>E (Didone)</b> ou <b>D (le wordmark)</b> comme socle intemporel, garder <b>A (la jauge)</b> comme unique signe expressif (avatar, façade, animation), et réserver <b>B / C</b> aux usages secondaires (éditorial, tampon gravé). Un seul geste fort, tenu longtemps — pas une collection d'idées.</p>
+    <p><b>La leçon A24 :</b> un wordmark serif ultra-sobre, jamais changé depuis 2012 — grande curation mais grand public, obsédé du détail, culte sans esbroufe. Avec si peu de couleur, tout se joue dans le dessin de la lettre : c'est là qu'il faut mettre le soin.</p>
+    <p style="margin-top:12px"><b>Ma reco :</b> mener avec <b>1 (Le Bloc)</b> ou <b>2 (Le Chiffre)</b> comme socle intemporel, garder <b>5 (Technique × Cinéma)</b> comme piste « signature » qui raconte les deux métiers, et <b>6 (Le Monogramme)</b> comme réduction pour l'avatar et le tampon. <b>4 (La Condensée)</b> si tu veux plus contemporain que classique. Un seul geste, tenu longtemps.</p>
   </div>
 
-  <p class="note">Maquettes de travail rendues en SVG (police système en secours d'Archivo). Le graphiste redessine les tracés définitifs — ici on valide l'intention, pas la courbe finale.</p>
+  <p class="note">Maquettes rendues en SVG (Bodoni Moda &amp; Archivo via Google Fonts). Le graphiste redessine les tracés définitifs — ici on valide l'intention, pas la courbe finale.</p>
 
 </div>
 </main>
