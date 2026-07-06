@@ -93,6 +93,7 @@ footer b{color:var(--laiton)}
 </style>
 </head>
 <body class="locked">
+<script>/* SSO : déjà déverrouillé sur ce site ? on ouvre sans redemander */try{if(localStorage.getItem('s24_ok')==='1')document.body.classList.remove('locked');}catch(e){}</script>
 
 <div id="gate" role="dialog" aria-label="Accès protégé">
   <div class="gatebox">
@@ -391,7 +392,7 @@ async function tryUnlock(){
     if(window.crypto&&crypto.subtle){ ok=(await sha256(v))===GATE_HASH; }
     else{ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
   }catch(e){ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
-  if(ok){ document.body.classList.remove('locked'); }
+  if(ok){ try{localStorage.setItem('s24_ok','1');}catch(e){} document.body.classList.remove('locked'); }
   else{
     document.getElementById('gerr').textContent="Mot de passe incorrect.";
     document.getElementById('gpass').value="";
