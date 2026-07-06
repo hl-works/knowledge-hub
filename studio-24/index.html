@@ -127,6 +127,7 @@ nav{
   max-width:var(--maxw);
   margin:0 auto;
   display:flex;
+  flex-wrap:wrap;
   overflow-x:auto;
   scrollbar-width:none;
 }
@@ -388,6 +389,7 @@ body.locked #gate{display:flex}
   .hero-inner{padding:44px 20px 40px}
   main{padding:0 20px 70px}
   .groove{display:none}
+  .tabs{flex-wrap:nowrap}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -443,7 +445,8 @@ body.locked #gate{display:flex}
     <button class="tab" role="tab" data-panel="p4"><span class="tn">04</span>Dossier Nantes</button>
     <button class="tab" role="tab" data-panel="p5"><span class="tn">05</span>Juridique &amp; franchise</button>
     <button class="tab" role="tab" data-panel="p6"><span class="tn">06</span>Roadmap</button>
-    <button class="tab" role="tab" data-panel="p7"><span class="tn">07</span>Présence &amp; contenu</button>
+    <button class="tab" role="tab" data-panel="p7"><span class="tn">07</span>Présence &amp; média</button>
+    <button class="tab" role="tab" data-panel="p8"><span class="tn">08</span>Contenu</button>
   </div>
 </nav>
 
@@ -1049,20 +1052,12 @@ body.locked #gate{display:flex}
 
 <!-- ==================== 07 PRÉSENCE & CONTENU ==================== -->
 <section class="panel" id="p7">
-  <div class="kicker">07 — Présence &amp; contenu</div>
+  <div class="kicker">07 — Présence &amp; média</div>
   <h2>Un magasin qui se filme</h2>
   <p class="lead">La vente hi-fi ne se joue plus seulement au comptoir : elle se joue en ligne, tous les jours. Studio 24 n'est pas un magasin qui « fait aussi des vidéos » — c'est un magasin où passer devant la caméra fait partie du métier, au même titre que conseiller ou installer. Anthony en première ligne ; Hugo pilote la stratégie et la production.</p>
 
   <h3>La personne avant le produit</h3>
   <p>Les avis de Son-Vidéo Nantes citent les vendeurs par leur nom : la clientèle suit des gens, pas une enseigne. C'est cette confiance qu'on met en ligne — un visage, une voix, un avis franc. La même parole qu'au comptoir, mais qui tourne 24h/24 et qui ramène du monde en boutique.</p>
-
-  <h3>Quatre formats, en boucle</h3>
-  <div class="grid2">
-    <div class="card"><h4>Le déballage</h4><p style="font-size:14px">Chaque nouveauté ouverte face caméra : premières impressions, finitions, ce qu'il y a dans le carton. Le format le plus regardé et le plus simple à tenir dans la durée.</p></div>
-    <div class="card"><h4>L'avis</h4><p style="font-size:14px">Le test honnête, défauts compris. La parole d'Anthony, pas une fiche marketing — exactement la franchise qui fait sa réputation en magasin.</p></div>
-    <div class="card"><h4>L'écoute</h4><p style="font-size:14px">Faire entendre une platine, un casque, une enceinte. Le son ne se raconte pas, il se montre — c'est là que le lieu physique reprend l'avantage sur une fiche produit.</p></div>
-    <div class="card"><h4>La discussion</h4><p style="font-size:14px">Comparatifs, face-à-face, questions du public. Le format qui crée la communauté et transforme un spectateur en client qui pousse la porte.</p></div>
-  </div>
 
   <h3>Trois maisons qu'on regarde</h3>
   <div class="tablewrap"><table>
@@ -1072,23 +1067,74 @@ body.locked #gate{display:flex}
     <tr><td><b>Son-Vidéo.com</b></td><td>Le contenu à l'échelle : tests écrits + vidéo. Hugo a monté leur chaîne YouTube, Anthony y a vendu dix ans — on connaît la recette de l'intérieur, il s'agit de la refaire à notre échelle et à notre nom.</td></tr>
   </table></div>
 
-  <h3>La cadence</h3>
-  <ul class="clean">
-    <li><b>Réseaux (Instagram + TikTok) — tous les jours.</b> Le lieu, le vinyl bar, un déballage court, une story d'écoute. C'est le flux qui entretient la présence.</li>
-    <li><b>YouTube — une vidéo par semaine, jour fixe.</b> Le rendez-vous qui installe l'audience, comme le mercredi d'Éric.</li>
-    <li><b>Le magasin nourrit le contenu, le contenu ramène au magasin.</b> Chaque démo filmée est un produit à vendre et une raison de venir écouter.</li>
-    <li><b>Horizon 12 mois :</b> une chaîne qui existe, un visage identifié, une audience locale qui se déplace.</li>
-  </ul>
-
-  <h3>Qui fait quoi</h3>
-  <div class="grid2">
-    <div class="card"><h4>Anthony — devant</h4><p style="font-size:14px">Passage caméra quotidien, non négociable : il déballe, teste, écoute, répond. C'est son visage et sa parole qui portent la marque. On n'attend pas qu'il soit « prêt » — on tourne, il progresse en tournant.</p></div>
-    <div class="card"><h4>Hugo — derrière</h4><p style="font-size:14px">Stratégie éditoriale, montage, calendrier, réseaux, et l'accompagnement d'Anthony devant l'objectif. Le savoir-faire Cobra / Haute Fidélité mis au service de la chaîne.</p></div>
-  </div>
-
   <div class="callout dark"><p style="margin:0">La présence en ligne n'est pas un bonus : c'est un canal d'acquisition et la première vitrine du magasin. Une chaîne installée devient un actif qui prend de la valeur — et un fossé difficile à combler pour un concurrent qui démarre. On la lance <b>dès l'ouverture</b>, pas « quand on aura le temps ».</p></div>
 
   <p class="mono" style="font-size:12px;color:var(--gris)">À approfondir : une étude courte des revendeurs hi-fi les plus forts en média (audience, formats, cadence) pour caler nos cibles et notre ligne éditoriale.</p>
+  <div class="rule"></div>
+</section>
+
+<!-- ==================== 08 CONTENU ==================== -->
+<section class="panel" id="p8">
+  <div class="kicker">08 — Contenu</div>
+  <h2>Le moteur de contenu</h2>
+  <p class="lead">L'onglet précédent pose le principe ; celui-ci l'organise. Les rubriques qu'on tient dans la durée, le rôle de chaque plateforme, le rythme d'une semaine, et comment on produit sans studio lourd. Anthony devant, Hugo à la production.</p>
+
+  <h3>Les rubriques — des rendez-vous, pas des posts au hasard</h3>
+  <div class="grid3">
+    <div class="card"><h4>Le Déballage</h4><p style="font-size:14px">Chaque nouveauté ouverte face caméra. Court sur TikTok et Reels, plus long sur YouTube. Le format d'entrée, le plus régulier.</p></div>
+    <div class="card"><h4>L'Écoute</h4><p style="font-size:14px">Faire entendre une platine, un casque, une enceinte, au vinyl bar. Le son se montre, il ne se raconte pas.</p></div>
+    <div class="card"><h4>Face-à-face</h4><p style="font-size:14px">Deux produits, un comparatif, on tranche. Le format qui installe la crédibilité et aide vraiment à choisir.</p></div>
+    <div class="card"><h4>La Séance</h4><p style="font-size:14px">Home cinéma dans la Salle 24 : une projection, une ambiance, le grand format. On montre le plaisir, pas la fiche technique.</p></div>
+    <div class="card"><h4>Studio Sessions</h4><p style="font-size:14px">Vinyle et musique, l'ADN rock / hip-hop d'Anthony. Le disque de la semaine, une écoute, un invité.</p></div>
+    <div class="card"><h4>Conseil &amp; SAV</h4><p style="font-size:14px">Questions des clients, réglages, installation. Le format utile qui fait de la chaîne un vrai service, pas une pub.</p></div>
+  </div>
+
+  <h3>Plateforme par plateforme</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Plateforme</th><th>Rôle</th><th>Format</th><th class="num">Cadence</th></tr>
+    <tr><td><b>Instagram</b></td><td>Vitrine + lien vers le magasin</td><td>Stories du lieu, reels, photos, écoutes</td><td class="num">tous les jours</td></tr>
+    <tr><td><b>TikTok</b></td><td>Découverte, acquisition</td><td>Extraits courts, déballages, accroches, réactivité aux tendances</td><td class="num">3–5 / sem.</td></tr>
+    <tr><td><b>YouTube</b></td><td>Le fond, la crédibilité, le référencement</td><td>Tests longs, comparatifs, la rubrique de la semaine</td><td class="num">1 / sem.</td></tr>
+  </table></div>
+
+  <h3>Une semaine type</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:16%">Jour</th><th>Réseaux</th><th>Tournage / YouTube</th></tr>
+    <tr><td>Lundi</td><td>Reel déballage · story écoute</td><td>Montage de la vidéo de la semaine</td></tr>
+    <tr><td>Mardi</td><td>TikTok comparatif</td><td>Tournage de la rubrique</td></tr>
+    <tr><td>Mercredi</td><td>Teaser + posts</td><td><b>Sortie de la vidéo YouTube</b></td></tr>
+    <tr><td>Jeudi</td><td>Story conseil / SAV</td><td>—</td></tr>
+    <tr><td>Vendredi</td><td>Reel « Séance du jeudi »</td><td>Tournage en lot (2–3 vidéos)</td></tr>
+    <tr><td>Week-end</td><td>Photos du lieu, best-of, reposts</td><td>Prépa de la semaine suivante</td></tr>
+  </table></div>
+  <p style="font-size:14px">Un jour fixe pour YouTube — le mercredi, comme Éric : c'est le rendez-vous qui installe l'audience. Le reste alimente le flux au quotidien.</p>
+
+  <h3>La production — léger mais régulier</h3>
+  <ul class="clean">
+    <li><b>Le matériel :</b> un téléphone récent, un micro-cravate, une lumière, un pied. Pas de studio, pas de caméra à 5 000 €.</li>
+    <li><b>Le décor est déjà là :</b> le vinyl bar, le mur de casques, la Salle 24. On tourne dans le magasin, tel quel.</li>
+    <li><b>Tourner en lot :</b> une demi-journée de tournage = plusieurs vidéos. Hugo monte et programme derrière.</li>
+    <li><b>La régularité prime sur la perfection :</b> correct chaque semaine vaut mieux que parfait une fois par mois.</li>
+  </ul>
+
+  <h3>Faire monter Anthony devant la caméra</h3>
+  <div class="tablewrap"><table>
+    <tr><th style="width:22%">Quand</th><th>Objectif</th></tr>
+    <tr><td>Semaines 1–4</td><td>Formats courts, sans enjeu, pour prendre le pli et apprivoiser l'objectif. On tourne beaucoup, on publie le meilleur.</td></tr>
+    <tr><td>Mois 2–3</td><td>La rubrique hebdo s'installe. Hugo débriefe après chaque tournage : rythme, regard caméra, accroche.</td></tr>
+    <tr><td>Mois 4 et +</td><td>Anthony est à l'aise et rapide — le naturel du comptoir, devant la caméra. La chaîne tourne d'elle-même.</td></tr>
+  </table></div>
+
+  <h3>Ce qu'on vise à 12 mois</h3>
+  <div class="grid3">
+    <div class="card dark"><h4 class="display" style="font-size:28px">50</h4><p style="font-size:13.5px">vidéos YouTube publiées — un rendez-vous hebdo jamais manqué</p></div>
+    <div class="card dark"><h4 class="display" style="font-size:28px">Un visage</h4><p style="font-size:13.5px">Anthony identifié localement — on vient au magasin « pour lui »</p></div>
+    <div class="card dark"><h4 class="display" style="font-size:28px">1ᵉʳ canal</h4><p style="font-size:13.5px">le contenu devient la première source de trafic, mesurée (RDV, leads, ventes attribuées)</p></div>
+  </div>
+
+  <div class="callout dark"><p style="margin:0">Le contenu, c'est un commercial qui travaille 24h/24 : il vend pendant qu'on dort et il fait venir les gens avant même qu'on ait parlé. C'est un actif qui grossit, pas une ligne de dépense.</p></div>
+
+  <p class="mono" style="font-size:12px;color:var(--gris)">À caler ensemble : le nom des rubriques, la ligne éditoriale précise, et les premiers tournages dès l'aménagement du magasin.</p>
   <div class="rule"></div>
 </section>
 
