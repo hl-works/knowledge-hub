@@ -302,6 +302,10 @@ tr.total td{font-weight:600;background:var(--creme)}
   font-size:13px;
   font-family:'IBM Plex Mono',monospace;
 }
+.refimg{position:relative;overflow:hidden;border:1px solid #E7DECD;margin:0;background:var(--nuit)}
+.refimg img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+.refimg figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 9px;background:linear-gradient(transparent,rgba(13,27,46,.9));color:var(--creme);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;line-height:1.35;text-align:left}
+.refimg figcaption b{color:var(--laiton-clair);font-weight:500}
 
 /* org chart */
 .org{display:flex;flex-direction:column;align-items:center;gap:0;margin:30px 0}
@@ -788,7 +792,8 @@ body.locked #gate{display:flex}
   <h3>Références &amp; moodboard (photos à intégrer)</h3>
   <div class="grid3">
     <div class="ph">KITH NYC — rigueur des rayonnages,<br>sélection, matériaux</div>
-    <div class="ph">KITH × McINTOSH — amplis &amp; vinyles<br>exposés en boutique (« Kith Records »)</div>
+    <figure class="refimg"><img src="/studio-24/ref/kith-mcintosh-1.jpg" alt="Boutique Kith Londres : vinyles, amplis McIntosh et prêt-à-porter dans un même espace" loading="lazy" width="1280" height="854"><figcaption><b>RÉFÉRENCE — KITH LONDRES</b><br>son + vinyle + lifestyle, un seul lieu</figcaption></figure>
+    <figure class="refimg"><img src="/studio-24/ref/kith-mcintosh-2.jpg" alt="Ampli McIntosh MC611 édition Kith Records, VU-mètre bleu rétroéclairé" loading="lazy" width="1280" height="1707"><figcaption><b>RÉFÉRENCE — McINTOSH × KITH</b><br>VU-mètre « Kith Records »</figcaption></figure>
     <div class="ph">HARK PARIS — atelier vinyle &amp; audio,<br>proximité, réparation</div>
     <div class="ph">LISTENING BARS TOKYO —<br>bois sombre, lumière chaude, silence habité</div>
     <div class="ph">POCHETTES BLUE NOTE —<br>typographies, aplats, cadrages</div>
