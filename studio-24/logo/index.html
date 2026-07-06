@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>STUDIO 24 — Pistes logo (itération)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0D1B2E; --nuit2:#142943; --laiton:#C49A55; --laiton-clair:#E0C28A;
+  --creme:#F1EBDF; --papier:#F7F3EA; --encre:#17181A; --gris:#6B6A66;
+  --bois:#7A5C3E; --rouge:#8C3A2E; --maxw:1000px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--papier);color:var(--encre);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.mono{font-family:'IBM Plex Mono',monospace}
+.display{font-family:'Archivo',sans-serif}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- PORTE À MOT DE PASSE (identique au dossier) ---------- */
+body.locked header,body.locked main,body.locked footer{display:none}
+#gate{position:fixed;inset:0;z-index:1000;background:var(--nuit);display:none;align-items:center;justify-content:center;padding:24px}
+body.locked #gate{display:flex}
+.gatebox{max-width:400px;width:100%;text-align:center}
+.gatebox .glogo{font-family:'Archivo',sans-serif;color:var(--creme)}
+.gatebox .glogo .s{display:block;font-weight:600;letter-spacing:.36em;font-size:17px}
+.gatebox .glogo .n{display:block;font-weight:900;font-size:88px;line-height:.95;color:var(--laiton)}
+.gatebox p{color:rgba(241,235,223,.6);font-size:13.5px;margin:18px 0 22px}
+.gatebox input{width:100%;padding:13px 16px;font-family:'IBM Plex Mono',monospace;font-size:15px;background:#0A1524;color:var(--creme);border:1.5px solid rgba(196,154,85,.5);text-align:center;letter-spacing:.08em}
+.gatebox input:focus{outline:none;border-color:var(--laiton)}
+.gatebox button{width:100%;margin-top:12px;padding:13px;font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase;background:var(--laiton);color:var(--nuit);border:none;cursor:pointer}
+.gatebox button:hover{background:var(--laiton-clair)}
+.gatebox .gerr{color:#E08A7A;font-size:13px;margin-top:12px;min-height:18px;font-family:'IBM Plex Mono',monospace}
+
+/* ---------- HEADER ---------- */
+header{background:var(--nuit);color:var(--creme);padding:46px 0 40px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--laiton);margin-bottom:16px}
+header h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,6vw,52px);line-height:1.02;letter-spacing:-.5px}
+header h1 span{color:var(--laiton)}
+header .sub{color:rgba(241,235,223,.72);font-size:15px;margin-top:14px;max-width:640px}
+.back{display:inline-block;margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;color:var(--laiton-clair);text-decoration:none;border-bottom:1px solid rgba(196,154,85,.4);padding-bottom:2px}
+.back:hover{color:#fff}
+
+main{padding:44px 0 70px}
+h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin:6px 0 18px;letter-spacing:-.3px}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bois);margin-bottom:6px}
+
+/* brief */
+.brief{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 40px}
+.brief .b{background:#fff;border:1px solid #E7DECD;padding:18px 18px 20px}
+.brief .b h3{font-family:'Archivo',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--nuit);margin-bottom:8px}
+.brief .b.keep h3{color:var(--vert,#2E4438)}
+.brief .b p{font-size:13.5px;color:#4A4842}
+.brief .b ul{list-style:none;font-size:13.5px;color:#4A4842}
+.brief .b li{padding-left:16px;position:relative;margin-top:5px}
+.brief .b li::before{content:"—";position:absolute;left:0;color:var(--laiton)}
+
+/* cards */
+.card{margin-bottom:34px}
+.lab{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.lab b{font-family:'Archivo',sans-serif;font-size:19px;font-weight:800;color:var(--nuit)}
+.lab span{font-size:13.5px;color:var(--gris)}
+.stages{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stage{display:flex;align-items:center;justify-content:center;padding:26px;min-height:220px;border:1px solid #E7DECD}
+.stage svg{width:100%;max-width:420px;height:auto;display:block}
+.cream{background:var(--creme);color:var(--nuit)}
+.dark{background:var(--nuit);color:var(--creme);border-color:var(--nuit)}
+.use{font-size:13.5px;color:#4A4842;margin-top:12px;padding-left:14px;border-left:2px solid var(--laiton)}
+
+.reco{background:var(--nuit);color:var(--creme);padding:24px 26px;margin-top:20px}
+.reco b{color:var(--laiton)}
+.reco p{font-size:14.5px;margin:0}
+.note{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gris);margin-top:26px}
+
+footer{background:var(--nuit);color:rgba(241,235,223,.7);text-align:center;padding:26px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em}
+footer b{color:var(--laiton)}
+
+@media (max-width:720px){
+  .brief{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate" role="dialog" aria-label="Accès protégé">
+  <div class="gatebox">
+    <div class="glogo"><span class="s">STUDIO</span><span class="n">24</span></div>
+    <p>Espace confidentiel — entrez le mot de passe pour accéder aux pistes.</p>
+    <input type="password" id="gpass" placeholder="Mot de passe" autocomplete="off">
+    <button id="gbtn" type="button">Entrer</button>
+    <div class="gerr" id="gerr"></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Studio 24 · Atelier logo · Itération</div>
+    <h1>Pistes <span>logo</span> — base de travail</h1>
+    <p class="sub">Espace pour converger sur une direction, avant de la confier à un graphiste pour finalisation. Rien ici n'est définitif : on garde, on jette, on affine ensemble.</p>
+    <a class="back" href="/studio-24/">← Retour au dossier de marque</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="kicker">Le cadre</div>
+  <h2>Ce qu'on garde, ce qu'on évite</h2>
+  <div class="brief">
+    <div class="b keep">
+      <h3>On garde</h3>
+      <ul>
+        <li>Bleu nuit + laiton</li>
+        <li>Le « 24 » comme héros (24 fps + 24 bit)</li>
+        <li>Néo-vintage, matière, chaleur</li>
+        <li>Archivo (grasse, condensée)</li>
+      </ul>
+    </div>
+    <div class="b">
+      <h3>On vise</h3>
+      <ul>
+        <li>Un signe simple, gravable et brodable</li>
+        <li>Lisible en tout petit (avatar, plaque)</li>
+        <li>Un lien au monde hi-fi (VU, pellicule)</li>
+        <li>Autant à l'aise en clair qu'en sombre</li>
+      </ul>
+    </div>
+    <div class="b">
+      <h3>On évite</h3>
+      <ul>
+        <li>Le rétro-kitsch et l'effet « vintage » facile</li>
+        <li>Les dégradés, les ombres, le 3D</li>
+        <li>Un dessin trop chargé qui ne tient pas en 16 px</li>
+        <li>Le déjà-vu du club anglais / cuivre partout</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kicker">Quatre directions</div>
+  <h2>À comparer, en clair et en sombre</h2>
+
+  <!-- A — La Jauge -->
+  <div class="card">
+    <div class="lab"><b>A · La Jauge</b><span>Le signe signature : l'aiguille VU. Écho direct au monde McIntosh.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo A La Jauge sur fond crème">
+          <path d="M70 118 Q260 40 450 118" fill="none" stroke="#C49A55" stroke-width="3"/>
+          <g stroke="currentColor" stroke-width="2" opacity=".5">
+            <line x1="70" y1="118" x2="66" y2="132"/><line x1="165" y1="86" x2="163" y2="100"/>
+            <line x1="260" y1="74" x2="260" y2="88"/><line x1="355" y1="86" x2="357" y2="100"/>
+            <line x1="450" y1="118" x2="454" y2="132"/>
+          </g>
+          <g stroke="#C49A55" stroke-width="1.3" opacity=".7">
+            <line x1="117" y1="99" x2="115" y2="110"/><line x1="212" y1="78" x2="212" y2="89"/>
+            <line x1="308" y1="78" x2="308" y2="89"/><line x1="403" y1="99" x2="405" y2="110"/>
+          </g>
+          <line x1="260" y1="150" x2="330" y2="80" stroke="#8C3A2E" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="260" cy="150" r="5" fill="#8C3A2E"/>
+          <text x="260" y="197" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="19" letter-spacing="7">STUDIO</text>
+          <text x="260" y="244" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="54">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo A La Jauge sur fond nuit">
+          <path d="M70 118 Q260 40 450 118" fill="none" stroke="#C49A55" stroke-width="3"/>
+          <g stroke="currentColor" stroke-width="2" opacity=".45">
+            <line x1="70" y1="118" x2="66" y2="132"/><line x1="165" y1="86" x2="163" y2="100"/>
+            <line x1="260" y1="74" x2="260" y2="88"/><line x1="355" y1="86" x2="357" y2="100"/>
+            <line x1="450" y1="118" x2="454" y2="132"/>
+          </g>
+          <g stroke="#C49A55" stroke-width="1.3" opacity=".7">
+            <line x1="117" y1="99" x2="115" y2="110"/><line x1="212" y1="78" x2="212" y2="89"/>
+            <line x1="308" y1="78" x2="308" y2="89"/><line x1="403" y1="99" x2="405" y2="110"/>
+          </g>
+          <line x1="260" y1="150" x2="330" y2="80" stroke="#E0876F" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="260" cy="150" r="5" fill="#E0876F"/>
+          <text x="260" y="197" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="19" letter-spacing="7">STUDIO</text>
+          <text x="260" y="244" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="54">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : façade, avatar (l'aiguille peut s'animer au survol), tampon. Le plus ownable — un logo qui « lit » un signal.</p>
+  </div>
+
+  <!-- B — Pellicule -->
+  <div class="card">
+    <div class="lab"><b>B · Pellicule &amp; onde</b><span>Le « 24 » à double lecture : perforations cinéma + onde sonore.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo B Pellicule sur fond crème">
+          <text x="300" y="40" text-anchor="middle" fill="currentColor" opacity=".65" class="mono" font-size="12" letter-spacing="4">24 IMAGES/SEC · 24 BITS</text>
+          <g fill="#C49A55"><rect x="120" y="80" width="22" height="20" rx="4"/><rect x="120" y="110" width="22" height="20" rx="4"/><rect x="120" y="140" width="22" height="20" rx="4"/><rect x="120" y="170" width="22" height="20" rx="4"/></g>
+          <text x="308" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150">24</text>
+          <path d="M175 228 q20 -18 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#C49A55" stroke-width="2.4"/>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo B Pellicule sur fond nuit">
+          <text x="300" y="40" text-anchor="middle" fill="currentColor" opacity=".65" class="mono" font-size="12" letter-spacing="4">24 IMAGES/SEC · 24 BITS</text>
+          <g fill="#C49A55"><rect x="120" y="80" width="22" height="20" rx="4"/><rect x="120" y="110" width="22" height="20" rx="4"/><rect x="120" y="140" width="22" height="20" rx="4"/><rect x="120" y="170" width="22" height="20" rx="4"/></g>
+          <text x="308" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150">24</text>
+          <path d="M175 228 q20 -18 40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#C49A55" stroke-width="2.4"/>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : signe conceptuel fort pour l'éditorial (affiches, pochettes des « Sessions »). Le concept 24 fps + 24 bit devient visible.</p>
+  </div>
+
+  <!-- C — Le Sceau -->
+  <div class="card">
+    <div class="lab"><b>C · Le Sceau</b><span>Cachet circulaire — pour le petit, l'estampé, le brodé, l'avatar.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 250 250" role="img" aria-label="Logo C Le Sceau sur fond crème">
+          <circle cx="125" cy="125" r="116" fill="none" stroke="#C49A55" stroke-width="2.5"/>
+          <circle cx="125" cy="125" r="107" fill="none" stroke="#C49A55" stroke-width="1"/>
+          <defs><path id="sealA" d="M125 32 A93 93 0 1 1 124.9 32"/></defs>
+          <text fill="currentColor" class="display" font-weight="700" font-size="14.5" letter-spacing="4"><textPath href="#sealA" startOffset="0">STUDIO 24 · HI-FI · HOME CINÉMA · SON &amp; IMAGE · </textPath></text>
+          <text x="125" y="158" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="86">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 250 250" role="img" aria-label="Logo C Le Sceau sur fond nuit">
+          <circle cx="125" cy="125" r="116" fill="none" stroke="#C49A55" stroke-width="2.5"/>
+          <circle cx="125" cy="125" r="107" fill="none" stroke="#C49A55" stroke-width="1"/>
+          <defs><path id="sealB" d="M125 32 A93 93 0 1 1 124.9 32"/></defs>
+          <text fill="currentColor" class="display" font-weight="700" font-size="14.5" letter-spacing="4"><textPath href="#sealB" startOffset="0">STUDIO 24 · HI-FI · HOME CINÉMA · SON &amp; IMAGE · </textPath></text>
+          <text x="125" y="158" text-anchor="middle" fill="#C49A55" class="display" font-weight="900" font-size="86">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : plaque gravée sur la machine, broderie, coin de facture, avatar réseaux. Se marie avec l'une des trois autres pistes comme « sceau » secondaire.</p>
+  </div>
+
+  <!-- D — Wordmark -->
+  <div class="card">
+    <div class="lab"><b>D · Le Wordmark</b><span>La version de tous les jours : sobre, un filet laiton, rien de plus.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo D Wordmark sur fond crème">
+          <text x="260" y="64" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="24" letter-spacing="12">STUDIO</text>
+          <line x1="150" y1="84" x2="370" y2="84" stroke="#C49A55" stroke-width="1.5"/>
+          <text x="260" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="140">24</text>
+          <text x="260" y="228" text-anchor="middle" fill="#C49A55" class="mono" font-size="12" letter-spacing="6">24 FPS · 24 BIT</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo D Wordmark sur fond nuit">
+          <text x="260" y="64" text-anchor="middle" fill="currentColor" class="display" font-weight="600" font-size="24" letter-spacing="12">STUDIO</text>
+          <line x1="150" y1="84" x2="370" y2="84" stroke="#C49A55" stroke-width="1.5"/>
+          <text x="260" y="200" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="140">24</text>
+          <text x="260" y="228" text-anchor="middle" fill="#C49A55" class="mono" font-size="12" letter-spacing="6">24 FPS · 24 BIT</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : le socle. Web, print, mentions légales, bas de page. Les pistes A / B lui servent de « signe » quand il faut un logo, pas juste un nom.</p>
+  </div>
+
+  <div class="reco">
+    <p><b>Ma reco pour démarrer :</b> partir d'un système à deux pièces — <b>D (le wordmark)</b> comme base lisible partout, + <b>A (la jauge)</b> comme signe reconnaissable (avatar, façade, animation). <b>C (le sceau)</b> vient en marquage secondaire (machine, broderie). <b>B</b> reste la piste « éditoriale » pour les affiches. Rien n'est figé — on tranche celle qu'on brief au graphiste.</p>
+  </div>
+
+  <p class="note">Maquettes de travail rendues en SVG (police système en secours d'Archivo). Le graphiste redessine les tracés définitifs — ici on valide l'intention, pas la courbe finale.</p>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap"><b>STUDIO 24</b> · ATELIER LOGO · CONFIDENTIEL · JUILLET 2026</div>
+</footer>
+
+<script>
+/* ---- porte à mot de passe (identique au dossier) ---- */
+const GATE_HASH="6b3bec820528c2e5ebfac9cde682682d2adb72fd902787522eb59fa28abdd0b4";
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function tryUnlock(){
+  const v=document.getElementById('gpass').value.trim();
+  let ok=false;
+  try{
+    if(window.crypto&&crypto.subtle){ ok=(await sha256(v))===GATE_HASH; }
+    else{ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
+  }catch(e){ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
+  if(ok){ document.body.classList.remove('locked'); }
+  else{
+    document.getElementById('gerr').textContent="Mot de passe incorrect.";
+    document.getElementById('gpass').value="";
+    document.getElementById('gpass').focus();
+  }
+}
+document.getElementById('gbtn').addEventListener('click',tryUnlock);
+document.getElementById('gpass').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+</script>
+</body>
+</html>
