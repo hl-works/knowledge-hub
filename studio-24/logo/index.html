@@ -7,7 +7,7 @@
 <title>STUDIO 24 — Pistes logo (itération)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bodoni+Moda:opsz,wght@6..96,400..900&family=DM+Serif+Display&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --nuit:#0D1B2E; --nuit2:#142943; --laiton:#C49A55; --laiton-clair:#E0C28A;
@@ -76,6 +76,9 @@ h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin:6px 0 
 .cream{background:var(--creme);color:var(--nuit)}
 .dark{background:var(--nuit);color:var(--creme);border-color:var(--nuit)}
 .use{font-size:13.5px;color:#4A4842;margin-top:12px;padding-left:14px;border-left:2px solid var(--laiton)}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.opts .stage{min-height:170px;padding:18px}
+.opts svg{width:100%;max-width:260px}
 
 .reco{background:var(--nuit);color:var(--creme);padding:24px 26px;margin-top:20px}
 .reco b{color:var(--laiton)}
@@ -88,6 +91,7 @@ footer b{color:var(--laiton)}
 @media (max-width:720px){
   .brief{grid-template-columns:1fr}
   .stages{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -342,6 +346,58 @@ footer b{color:var(--laiton)}
       </div>
     </div>
     <p class="use">Usage : la piste la plus « signature » — le 24 bit (mono, technique) rencontre le 24 fps (serif, cinéma). Ownable et racontable.</p>
+  </div>
+
+  <!-- 5 bis — Le 24 plus stylé -->
+  <div class="card">
+    <div class="lab"><b>5 · Le 24, plus stylé</b><span>Trois façons de rendre le chiffre plus caractériel — « STUDIO » reste en mono technique.</span></div>
+    <div class="opts">
+      <div class="stage cream">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en DM Serif Display, fond crème">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="150" text-anchor="middle" fill="currentColor" font-family="'DM Serif Display',serif" font-size="106">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">a · DRAMATIQUE</text>
+        </svg>
+      </div>
+      <div class="stage cream">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en ligature Bodoni, fond crème">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="112" letter-spacing="-20">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">b · LIGATURE</text>
+        </svg>
+      </div>
+      <div class="stage cream">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 Bodoni ajouré, fond crème">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="none" stroke="currentColor" stroke-width="1.1" font-family="'Bodoni Moda',serif" font-weight="600" font-size="108" letter-spacing="2">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">c · AJOURÉ</text>
+        </svg>
+      </div>
+    </div>
+    <div class="opts" style="margin-top:14px">
+      <div class="stage dark">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en DM Serif Display, fond nuit">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="150" text-anchor="middle" fill="currentColor" font-family="'DM Serif Display',serif" font-size="106">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">a · DRAMATIQUE</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en ligature Bodoni, fond nuit">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="112" letter-spacing="-20">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">b · LIGATURE</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 Bodoni ajouré, fond nuit">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="none" stroke="currentColor" stroke-width="1.1" font-family="'Bodoni Moda',serif" font-weight="600" font-size="108" letter-spacing="2">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">c · AJOURÉ</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use"><b>a</b> — DM Serif, plus théâtral. <b>b</b> — le 2 et le 4 imbriqués, un vrai monogramme. <b>c</b> — le 24 ajouré (contour seul), très éditorial/luxe. Dis-moi lequel et je le pousse dans la piste #5.</p>
   </div>
 
   <!-- 6 — Le Monogramme -->
