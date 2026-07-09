@@ -44,7 +44,7 @@ const heroCredit = HEROES[0].credit;
       <h1 class="disp title">AMHE</h1>
       <p class="under"><span class="ad">Atlas d'Asie</span><span class="one">— One Love</span></p>
       <p class="sub">Le voyage de la famille Lahutte — du Kazakhstan à l'Indonésie. Où on est, où on va, et tout ce qu'il y a à découvrir.</p>
-      <div class="live"><span class="pulse"></span><span id="live-txt">Chargement…</span><span class="cd" id="live-cd"></span></div>
+      <div class="live"><span class="pulse"></span><div class="lcol"><span id="live-txt">Chargement…</span><span class="cd" id="live-cd"></span></div></div>
       <div class="lieu-row"><span class="lieu" id="hero-lieu">{HEROES[0].lieu}</span></div>
     </div></div>
   </section>
@@ -99,10 +99,13 @@ const heroCredit = HEROES[0].credit;
   .under .ad{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.4rem,4vw,2.4rem);letter-spacing:.02em;}
   .under .one{color:var(--yellow);font-weight:800;letter-spacing:.28em;font-size:.8rem;text-transform:uppercase;}
   .sub{max-width:44ch;font-size:clamp(1.05rem,2vw,1.3rem);opacity:.97;margin:0 0 1.5rem;}
-  .live{display:inline-flex;align-items:center;gap:1rem;flex-wrap:wrap;background:rgba(20,12,8,.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 18px;}
-  .live .pulse{width:11px;height:11px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 rgba(243,234,93,.7);animation:pulse 2s infinite;}
+  /* Hiérarchie : l'escale ACTUELLE en grand (jaune), la prochaine en petit dessous. */
+  .live{display:inline-flex;align-items:flex-start;gap:.9rem;background:rgba(20,12,8,.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 18px;}
+  .live .pulse{width:11px;height:11px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 rgba(243,234,93,.7);animation:pulse 2s infinite;margin-top:6px;}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(243,234,93,.7)}70%{box-shadow:0 0 0 12px rgba(243,234,93,0)}100%{box-shadow:0 0 0 0 rgba(243,234,93,0)}}
-  .live .cd{font-family:var(--disp);font-size:1.6rem;color:var(--yellow);font-variant-numeric:tabular-nums;}
+  .live .lcol{display:grid;gap:2px;min-width:0;}
+  .live #live-txt strong{display:block;font-family:var(--disp);font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.08;color:var(--yellow);text-transform:uppercase;}
+  .live .cd{font-size:.95rem;color:rgba(255,255,255,.92);font-variant-numeric:tabular-nums;}
 
   .routewrap{position:relative;z-index:6;margin-top:clamp(-130px,-9vw,-80px);}
   .routecard{background:var(--teal);border:3px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:0 0 0 4px var(--cream), 8px 8px 0 var(--ink);}
@@ -222,11 +225,11 @@ const heroCredit = HEROES[0].credit;
   function renderLive(live: ReturnType<typeof computeLive>) {
     const txt = $('live-txt'), cd = $('live-cd');
     if (live.state === 'avant') {
-      txt.innerHTML = `Départ pour <strong>${live.next?.ville ?? ''}</strong> dans`;
-      cd.textContent = live.daysToStart + ' j';
+      txt.innerHTML = `Départ pour <strong>${live.next?.ville ?? ''}</strong>`;
+      cd.textContent = `dans ${live.daysToStart} j`;
     } else if (live.state === 'pendant' && live.current) {
       txt.innerHTML = `Jour ${live.dayIndex} · on est à <strong>${live.current.ville}</strong>`;
-      cd.textContent = live.next ? '→ ' + live.next.ville : '';
+      cd.textContent = live.next ? `→ Ensuite : ${live.next.ville}` : '';
     } else {
       txt.innerHTML = '<strong>Voyage terminé</strong> — merci de nous avoir suivis';
       cd.textContent = '';
