@@ -49,24 +49,29 @@ import Footer from '../components/Footer.astro';
   .grande-histoire{margin:0 0 clamp(16px,3vw,26px);padding-left:56px;}
   .grande-histoire > h3{font-family:var(--disp);text-transform:uppercase;font-size:1.15rem;margin:0 0 .8rem;color:var(--orange-deep);display:flex;align-items:center;gap:.5rem;}
   .grande-histoire > h3::before{content:"";width:22px;height:3px;background:var(--yellow);}
-  .recit{border:2px solid var(--ink);border-radius:14px;background:var(--card);margin:0 0 10px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);}
-  .recit summary{cursor:pointer;list-style:none;padding:14px 16px;display:grid;gap:2px;}
+  /* Tuiles fermées côte à côte ; un récit ouvert prend toute la largeur (mode lecture). */
+  .recits{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;}
+  .recit{border:2px solid var(--ink);border-radius:14px;background:var(--card);margin:0;overflow:hidden;box-shadow:4px 4px 0 var(--ink);}
+  .recit[open]{grid-column:1/-1;}
+  .recit summary{cursor:pointer;list-style:none;padding:12px 14px;display:grid;gap:2px;}
   .recit summary::-webkit-details-marker{display:none;}
-  .recit .rtit{font-family:var(--disp);text-transform:uppercase;font-size:1.05rem;color:var(--ink);}
-  .recit .racc{color:var(--ink-soft);font-size:.92rem;}
-  .recit .rplus{margin-top:4px;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep);}
+  .recit .rtit{font-family:var(--disp);text-transform:uppercase;font-size:1rem;color:var(--ink);}
+  .recit .racc{color:var(--ink-soft);font-size:.88rem;}
+  .recit:not([open]) .racc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .recit .rplus{margin-top:2px;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep);}
   .recit .rplus::after{content:" ▾";}
   .recit[open] .rplus::after{content:" ▴";}
   .recit .rbody{padding:4px 18px 20px;}
   .recit .rbody p{font-family:'Fraunces',Georgia,serif;font-size:1.06rem;line-height:1.75;max-width:64ch;color:var(--ink);margin:0 0 1em;}
   .recit .rimg{width:100%;max-height:260px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin:0 0 14px;}
-  .lieux{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;}
-  .lieu{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;}
-  .lieu .limg{width:100%;aspect-ratio:16/9;object-fit:cover;}
-  .lieu .ltxt{padding:9px 11px 11px;}
-  .lieu .ln{font-weight:700;font-size:.92rem;}
+  /* Cartes compactes : vignette à gauche, texte clampé à droite. */
+  .lieux{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px;}
+  .lieu{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;display:grid;grid-template-columns:104px 1fr;}
+  .lieu .limg{width:104px;height:100%;min-height:84px;object-fit:cover;}
+  .lieu .ltxt{padding:9px 11px 10px;min-width:0;}
+  .lieu .ln{font-weight:700;font-size:.9rem;}
   .lieu .unesco{display:inline-block;margin-left:.4rem;vertical-align:1px;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--teal);color:#fff;border-radius:999px;padding:2px 8px;}
-  .lieu .ld{margin:.3rem 0 0;font-size:.82rem;color:var(--ink-soft);}
+  .lieu .ld{margin:.25rem 0 0;font-size:.8rem;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
   .leg{position:relative;display:grid;grid-template-columns:56px 1fr;gap:clamp(14px,2.5vw,28px);padding:clamp(12px,2vw,20px) 0;scroll-margin-top:90px;}
   .rail{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;}
   .rail .node{width:20px;height:20px;border-radius:50%;border:3px solid var(--ink);background:#fff;margin-top:6px;}
@@ -152,7 +157,7 @@ import Footer from '../components/Footer.astro';
         return `<details class="recit"><summary><span class="rtit">${esc(r.titre)}</span><span class="racc">${esc(r.accroche)}</span><span class="rplus">Lire la suite</span></summary><div class="rbody">${img}${paras}</div></details>`;
       })
       .join('');
-    return `<div class="grande-histoire"><h3>La grande histoire</h3>${body}</div>`;
+    return `<div class="grande-histoire"><h3>La grande histoire</h3><div class="recits">${body}</div></div>`;
   }
 
   function mediaBlock(s: Stop): string {
