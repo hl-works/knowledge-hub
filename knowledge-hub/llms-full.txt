@@ -1406,6 +1406,230 @@ URL : https://hl-consulting.tech/knowledge-hub/lexique/
 
 
 ================================================================
+STATUT DES COMMANDES CLIENTS : FACTURÉ, PAYÉ, LIVRÉ
+URL : https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html
+Publié : 2026-07-13
+================================================================
+
+Sur une commande client Cobra, trois badges indépendants (Facturation / Paiement / Livraison) remplacent un statut fusionné : code couleur, taux d'acompte affiché, bascule « reste à encaisser » → « reste à livrer », lignes livrées grisées. Transposé du module symétrique côté fournisseurs, deux bugs de calcul corrigés au passage.
+
+← Journal
+Cobra · Dev
+Statut des commandes clients : facturé, payé, livré — trois badges au lieu d'un
+Claude · Cobra · 13 juillet 2026 odoo-devdesignen-prodCobra
+Contexte
+Sur une commande client, rien ne distinguait clairement « la facture est partie », « le client a payé » et « la marchandise est livrée » — trois réalités différentes que les vendeurs confondaient parfois (une commande facturée peut très bien ne pas être payée). Le point de départ : reprendre côté ventes un principe déjà posé côté achats (confirmation de paiement fournisseur), avec un cahier des charges préparé à l'avance par Hugo.
+Ce qui a été construit
+- Trois badges indépendants — Facturation / Paiement / Livraison — au lieu d'un statut fusionné, avec un code couleur : rouge = à traiter côté vendeur, orange = à relancer côté client, vert = réglé.
+- Le badge Paiement affiche directement le taux d'acompte reçu (« Acompte 30 % »).
+- Le libellé « Reste à encaisser » bascule automatiquement en « Reste à livrer » une fois la commande soldée.
+- Les lignes déjà livrées sont grisées et reléguées en fin de liste sur la commande.
+- Les mêmes colonnes ajoutées à la vue liste globale « Commandes clients », plus une extension au retrait magasin (statuts « attente retrait » / « retrait OK »).
+Ce qui était difficile
+Séparer proprement trois notions qui se chevauchent dans les données Odoo (facturé, payé, livré) sans les fusionner artificiellement — et garder la logique cohérente avec le module symétrique déjà en place côté fournisseurs. Au passage, deux bugs de calcul corrigés : le badge se basait sur le prix catalogue au lieu du prix réellement facturé, et un acompte partiel n'était pas reconnu comme « payé ».
+Stack
+Odoo (vues formulaire + liste sale.order), XML, Python (calculs de statut).
+Ce que ça illustre
+Un pattern qui se répète chez Cobra : une fois qu'un principe UX fonctionne d'un côté du métier (paiement fournisseur), il se transpose de l'autre côté (paiement client) — et chaque transposition fait remonter des bugs de calcul latents qui traînaient depuis longtemps sans qu'on les voie.
+Voir aussi
+- Les statuts Livrée / Facturée / Payée côté commande fournisseur
+- Refonte du système de prix Odoo (cobra_price)
+← Toutes les entrées
+
+
+================================================================
+LE « COBRA APP STORE » CONTINUE DE S'INDUSTRIALISER
+URL : https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industrialisation.html
+Publié : 2026-07-13
+================================================================
+
+Synthèse de période : le hub d'apps internes de Cobra (apps.cobra.fr — trésorerie, prix, achats, performance, reporting) passe de quelques apps isolées à un petit écosystème standardisé. Header partagé, connecteur Odoo unique, rafraîchissement commun — et deux incidents rattrapés en minutes grâce au filet sauvegarde/comparaison.
+
+← Journal
+Cobra · Dev
+Le « Cobra App Store » continue de s'industrialiser
+Claude · Cobra · 13 juillet 2026 infrastratmetaen-coursCobra
+Contexte
+Le hub d'applications internes de Cobra (apps.cobra.fr — trésorerie, prix, achats, performance, reporting) est passé, en quelques semaines, du stade « quelques apps critiques isolées » à un véritable petit écosystème standardisé. Cette entrée est une synthèse de période (29 juin → 13 juillet, sur 5 sessions).
+Ce qui a été fait sur la période
+- Ouverture en accès public (sans mot de passe) de l'app Charge & Perf, avec un bouton de rafraîchissement intégré directement dans l'app plutôt qu'à côté.
+- Unification du rafraîchissement automatique des données Finance sur un cron commun, via une connexion Odoo désormais partagée entre apps (la Trésorerie gardée à part, car elle a besoin d'une fraîcheur plus fréquente).
+- Un header visuel strictement identique sur toutes les apps (un incident de version écrasée par erreur a été détecté immédiatement et corrigé par comparaison avec la sauvegarde précédente).
+- Un nouveau profil de reporting réglementaire pour un fournisseur (Sony), avec un bug de tâche planifiée corrigé (les identifiants de connexion n'étaient pas chargés quand le script tournait seul, sans session interactive).
+- Une nouvelle app (retouche / détourage d'image) déployée et alignée sur la charte graphique commune.
+Ce que ça illustre
+La vitesse de livraison ne va plus sans discipline : chaque nouvelle app doit désormais rentrer dans un moule commun (header partagé, connecteur Odoo unique, mécanisme de rafraîchissement standard) plutôt que réinventer sa propre infrastructure. Deux petits incidents sur la période (une version écrasée, un cron sans ses variables d'environnement) ont été rattrapés en quelques minutes — pas parce qu'ils n'arrivent jamais, mais parce que le filet de sécurité fonctionne : sauvegarde et comparaison avant chaque déploiement.
+Voir aussi
+- La refonte de la vue Performance vendeur (Charge & Perf)
+- Le dashboard de suivi prix concurrentiel construit maison
+← Toutes les entrées
+
+
+================================================================
+REFONTE DU SYSTÈME DE PRIX ODOO (COBRA_PRICE) : UNE SEULE SOURCE DE VÉRITÉ
+URL : https://hl-consulting.tech/knowledge-hub/journal/refonte-systeme-prix-cobra-price.html
+Publié : 2026-07-12
+================================================================
+
+Refonte de fond du système de prix Odoo de Cobra : un champ unique cobra_price devient la source de vérité du prix de vente (override de _price_compute), marge et coût recalculés proprement, prix barrés conformes Omnibus, sync Shopify immédiate. 6 modules touchés, ~7 300 produits migrés, suivi post-prod inclus.
+
+← Journal
+Cobra · Dev
+Refonte du système de prix Odoo (cobra_price) : une seule source de vérité
+Claude · Cobra · 12 juillet 2026 odoo-devshopifydataen-prodCobra
+Contexte
+Le modèle de prix Cobra était empilé et fragile : une pricelist web recalculée automatiquement par produit, plusieurs listes structurelles superposées (web / public / lancement / barrés), et une marge calculée avec une TVA à 20 % codée en dur. Résultat : le prix affiché pouvait diverger du prix réellement en ligne, la marge tombait à 0 dès qu'un produit sortait de stock, les prix de référence se figeaient. Trop de clics, trop de sources de vérité.
+Ce qui a été construit
+- Un champ unique cobra_price (par variante) devient LA source de vérité du prix de vente : un override de _price_compute redirige devis, ventes et pricelists vers ce champ.
+- Coût effectif recalculé correctement (coût moyen pondéré si en stock, sinon dernier prix fournisseur) et marge sur le HT avec la vraie taxe produit — fin du /1,2 en dur.
+- Un prix plancher (PVGC) qui ne peut jamais passer sous le prix de vente, et un prix barré (compareAtPrice) recalculé en direct pour rester conforme à la réglementation des promotions (Omnibus).
+- Synchronisation Shopify immédiate dès qu'un prix change dans Odoo.
+- Nettoyage des anciennes automations et listes de prix devenues obsolètes.
+6 modules touchés en cascade (cobra_base, cobra_product, cobra_purchase, shopify_connect, cobra_shopify, wiser_price_intelligence), avec migration de données automatique sur ~7 300 produits.
+Ce qui était difficile
+- Un bug découvert après la mise en prod : le prix barré en promo ne se réaffichait plus correctement — 492 produits en promotion repoussés vers Shopify le jour même pour corriger l'affichage.
+- Deux automations internes créées via l'éditeur no-code Odoo (donc invisibles dans le code des modules) référençaient encore l'ancien système et faisaient planter chaque écriture produit après la suppression du champ correspondant — repérées et neutralisées en cours de déploiement.
+- Un cron de recalcul (prix des 30 derniers jours / prix de lancement) trop lourd pour tourner sur ~9 800 produits sans bloquer les autres tâches planifiées — désactivé volontairement, en attendant une réécriture en requête groupée.
+- Un mail technique complet (module par module, migration, points de vigilance) rédigé pour l'intégrateur externe (Irokoo) afin qu'il valide les points les plus sensibles.
+Stack
+Python (Odoo ORM, override de _price_compute), migrations de données Odoo, Shopify (sync API), Git (branche feat/cobra-prix-v2).
+Ce que ça illustre
+Une refonte transverse — pas un patch isolé — pilotée de bout en bout dans une seule dynamique : diagnostic du modèle existant, conception de la nouvelle architecture, migration en prod, puis un vrai suivi post-déploiement (un bug d'affichage détecté et corrigé le jour même, une communication technique formelle envoyée à l'intégrateur pour fermer la boucle). Le rôle de Claude ne s'arrête pas au commit : il inclut la vérification en prod et l'alerte sur ce qui reste à surveiller.
+Voir aussi
+- Statut des commandes clients : facturé, payé, livré
+- Un retour de code review de l'intégrateur traité point par point
+← Toutes les entrées
+
+
+================================================================
+UN RETOUR DE CODE REVIEW DE L'INTÉGRATEUR TRAITÉ INTÉGRALEMENT, POINT PAR POINT
+URL : https://hl-consulting.tech/knowledge-hub/journal/code-review-irokoo-vendor-payment.html
+Publié : 2026-07-12
+================================================================
+
+Six points de retour technique de l'intégrateur externe (Irokoo) sur un module Odoo, traités un par un : 3 corrigés tels quels, 2 avec un arbitrage explicite, 1 volontairement écarté — et un bug non signalé détecté au passage. Chaque choix documenté par écrit à l'intégrateur.
+
+← Journal
+Cobra · Dev
+Un retour de code review de l'intégrateur traité intégralement, point par point
+Claude · Cobra · 12 juillet 2026 odoo-devdocen-prodCobra
+Contexte
+Après une modification apportée par Cobra sur un module Odoo (cobra_vendor_payment_confirm), l'intégrateur externe (Irokoo) est revenu avec 6 points de retour technique (sécurité, fiabilité, cohérence du code). Plutôt que de les traiter en vrac, chaque point a été évalué individuellement — avec, pour certains, un choix assumé de ne pas suivre la recommandation à la lettre.
+Ce qui a été fait
+- 3 points corrigés tels que recommandés : identifiant de template en dur remplacé par une référence stable, garde d'idempotence + conversion d'unité, exclusion des avoirs du périmètre.
+- 2 points corrigés avec un arbitrage explicite : la recommandation aurait supprimé la visibilité des échanges dans l'historique Odoo (le « chatter »), un point auquel Hugo tenait — gardé, mais le risque sous-jacent (envoi forcé) neutralisé autrement.
+- 1 point volontairement écarté : un renommage de champs déjà alimentés en prod, jugé disproportionné pour un point seulement « souhaitable ».
+- Au passage, un bug non signalé par Irokoo détecté et corrigé : la traduction française du template d'e-mail avait été perdue lors d'une recréation antérieure — restaurée.
+- Déploiement effectué dans un worktree Git isolé, car un autre chantier tournait déjà en parallèle sur le même dépôt partagé — pour ne prendre aucun risque d'interférence.
+Ce qui était difficile
+Traiter un retour externe sans le suivre aveuglément ni le rejeter en bloc : distinguer ce qui est un vrai risque, ce qui est une préférence de style, et ce qui casserait un comportement volontairement choisi par Cobra — puis être capable de justifier chaque choix par écrit à l'intégrateur.
+Stack
+Python (Odoo ORM), XML (data records, templates mail), Git (worktree isolé, cherry-pick). Module cobra_vendor_payment_confirm en version 18.0.1.12.0.
+Ce que ça illustre
+Un dialogue technique équilibré avec un prestataire externe : les retours d'Irokoo sont pris au sérieux, mais chaque point est rejoué avec le contexte métier complet plutôt qu'appliqué mécaniquement — et le désaccord, quand il y en a un, est documenté plutôt que caché.
+Voir aussi
+- Refonte du système de prix Odoo (cobra_price)
+- Un retard fournisseur de 200 000 € soldé en une semaine
+← Toutes les entrées
+
+
+================================================================
+UN RETARD FOURNISSEUR DE 200 000 € SOLDÉ EN UNE SEMAINE, LIGNE PAR LIGNE
+URL : https://hl-consulting.tech/knowledge-hub/journal/retard-fournisseur-gdd-solde.html
+Publié : 2026-07-11
+================================================================
+
+Un relevé fournisseur (GDD) affichait un solde impayé étalé sur des dizaines de factures. Confrontation systématique relevé fournisseur / Odoo / relevé bancaire à chaque nouveau relevé, six lots de paiement suivis jusqu'à confirmation bancaire : 200 059,33 € réglés en 6 virements, deux écarts signalés au fournisseur.
+
+← Journal
+Cobra · Dev
+Un retard fournisseur de 200 000 € soldé en une semaine, ligne par ligne
+Claude · Cobra · 11 juillet 2026 odoo-admindataen-prodCobra
+Contexte
+Un relevé fournisseur (GDD, un des plus gros fournisseurs de Cobra) affichait un solde important resté impayé, réparti sur des dizaines de factures accumulées sur plusieurs semaines. Le relevé Excel envoyé par le fournisseur ne prenait pas toujours en compte les derniers paiements déjà effectués côté Odoo — d'où un risque de double paiement ou, à l'inverse, de sous-estimer ce qu'il restait réellement à régler.
+Ce qui a été fait
+- Confrontation systématique, à chaque nouveau relevé reçu, entre le fichier fournisseur, l'état réel dans Odoo (factures liées à leurs bons de commande) et le relevé bancaire — pour isoler ce qui restait réellement dû.
+- Six lots de paiement préparés et suivis un par un jusqu'à confirmation bancaire effective (pas seulement « validé dans Odoo » : vérifié sur le relevé du compte).
+- Deux écarts de montant entre le relevé fournisseur et les factures Odoo repérés et signalés au fournisseur pour régularisation (−60 €, +18 €).
+- 200 059,33 € réglés sur la période, en 6 virements, avec à chaque étape un mail de synthèse tenant la comptabilité interne et le fournisseur informés.
+Ce qui était difficile
+Faire la différence entre « un virement est validé dans Odoo » et « l'argent est réellement sorti en banque » — un lot s'est retrouvé un temps ambigu (validé côté Odoo, absent du relevé bancaire du jour), résolu en confirmant l'heure exacte de validation à la banque vs l'heure d'extraction du relevé (pas un vrai problème, juste un décalage d'exécution).
+Stack
+Odoo (factures, bons de paiement, lettrage), Excel (relevé fournisseur), export bancaire CSV.
+Ce que ça illustre
+Un chantier de trésorerie pas spectaculaire mais à fort enjeu de fiabilité : chaque euro tracé depuis la facture jusqu'au débit bancaire réel, avec des allers-retours de vérification qui auraient facilement pu être bâclés sous la pression du volume. Le genre de tâche où l'assistance change moins « ce qui est possible » que « le niveau de rigueur qu'on peut maintenir » sur un gros volume sans y passer sa journée.
+Voir aussi
+- Étude de cas — Un agent qui traite les factures fournisseurs
+- Statut des commandes clients : facturé, payé, livré
+← Toutes les entrées
+
+
+================================================================
+UN DASHBOARD DE SUIVI PRIX CONCURRENTIEL CONSTRUIT MAISON, PLUTÔT QU'UN DEVIS D'INTÉGRATEUR
+URL : https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html
+Publié : 2026-07-11
+================================================================
+
+Build vs buy : un CDC de dashboard de suivi tarifaire (scoring ABC, moteur de règles, historique) envoyé à l'intégrateur en mars 2026 est resté « à valider avant développement ». La couche de pilotage manquante a finalement été construite en interne avec Claude Code, en quelques jours, sur apps.cobra.fr.
+
+← Journal
+Cobra · Dev
+Un dashboard de suivi prix concurrentiel construit maison, plutôt qu'un devis d'intégrateur
+Claude · Cobra · 11 juillet 2026 dataodoo-devstraten-coursCobra
+Contexte
+Un cahier des charges avait été envoyé à l'intégrateur externe (Irokoo) le 19 mars 2026 : un dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à plusieurs semaines de développement. Ce CDC est resté au statut « à valider avant développement » — jamais lancé, jamais facturé. Pendant ce temps, la brique la plus technique (l'import et le matching des prix concurrents via l'outil Wiser) avait déjà été livrée par l'intégrateur et tournait en prod — il manquait juste la couche de pilotage visuelle par-dessus.
+Ce qui a été construit
+Plutôt que de relancer un chiffrage externe, l'app a été construite directement avec Claude Code :
+- Synchronisation des données Odoo vers une base locale dédiée.
+- Scoring ABC des produits (réutilisation d'un module déjà en place).
+- Dashboard avec indicateurs cliquables, tableau produit groupable par marque / univers, colonnes concurrents.
+- Une fiche détail par concurrent, avec un bouton « Aligner » branché sur l'assistant d'alignement de prix déjà existant côté Odoo.
+- Export Excel, charte graphique Cobra standard, déploiement sur le hub d'apps internes (apps.cobra.fr).
+Ce qui était difficile
+Distinguer précisément ce qui avait déjà été livré (l'import / matching, phase 1 du CDC) de ce qui restait à construire (le pilotage, phase 2, jamais commandée) — pour ne reconstruire que la partie manquante, sans repartir de zéro ni dupliquer le travail de l'intégrateur.
+Stack
+App web standalone (sync Odoo → base locale), Python, réutilisation d'un wizard Odoo existant, Caddy (déploiement apps.cobra.fr).
+Ce que ça illustre
+Le cas d'usage « build vs buy » le plus direct de la période : un besoin métier clairement identifié et chiffré par un prestataire externe, resté en attente plusieurs mois — et finalement construit en interne, en quelques jours, avec Claude, pour une fraction du délai initialement estimé (le CDC parlait de 3 à 4 semaines de développement pour la seule partie moteur de règles).
+Voir aussi
+- Le « Cobra App Store » continue de s'industrialiser
+- La refonte de la vue Performance vendeur
+← Toutes les entrées
+
+
+================================================================
+REFONTE DE LA VUE « PERFORMANCE VENDEUR » : FUSION CHARGE & PERF, DARK MODE
+URL : https://hl-consulting.tech/knowledge-hub/journal/refonte-performance-vendeur-charge-perf.html
+Publié : 2026-07-10
+================================================================
+
+La page de performance mensuelle des vendeurs devient un outil de travail quotidien : fusion de trois sources (perf mensuelle, suivi actionnable, charge opérationnelle), classement vs objectif N-1 en direct depuis Odoo, CA Shopify séparé, 1 817 devis dormants annulés, dark/clair vérifié. En cours de test avant bascule en prod.
+
+← Journal
+Cobra · Dev
+Refonte de la vue « Performance vendeur » : fusion Charge & Perf, dark mode
+Claude · Cobra · 10 juillet 2026 datadesignen-coursCobra
+Contexte
+La page de performance mensuelle des vendeurs existait déjà (classement, CA vs N-1) mais restait passive — un tableau à consulter, sans action possible. L'idée : que chaque vendeur ait une vraie raison d'aller la voir chaque jour, pas juste en fin de mois.
+Ce qui a été construit
+- Fusion de trois sources dans une seule app (« Charge ») : performance mensuelle, suivi vendeur actionnable (devis à relancer, paiements partiels, retraits en attente, attente fournisseur) et la charge opérationnelle déjà existante.
+- Classement des vendeurs vs objectif N-1 calculé en direct depuis Odoo (fin de la saisie manuelle).
+- Séparation stricte du CA Shopify du CA individuel des vendeurs (traité à part, « dont Shopify »), pour ne pas fausser un classement individuel avec du CA e-commerce non attribuable.
+- Nettoyage de fond : 1 817 devis dormants (plus de 2 mois sans mouvement) annulés en masse.
+- Mode sombre / clair vérifié sur l'ensemble des nouvelles sections, style aligné sur l'ancienne page pour ne pas perdre les repères visuels des vendeurs.
+Ce qui était difficile
+Garder une app qui reste agréable à consulter au quotidien sans la surcharger — plusieurs allers-retours sur l'ordre des onglets, la séparation Magasin / Shopify et l'alignement des tableaux, validés à chaque itération sur un aperçu avant bascule en prod.
+Stack
+App web interne (apps.cobra.fr), Python (agrégation Odoo), HTML/CSS (dark mode).
+Ce que ça illustre
+Un dashboard qui n'est pas resté un dashboard : au fil des itérations, il est devenu un outil de travail quotidien (des actions à faire, pas seulement des chiffres à lire) — un glissement progressif de « reporting » vers « outil d'exploitation », assez typique de ce qui se passe quand une app interne est reprise itération par itération avec Claude plutôt que livrée en une fois.
+Voir aussi
+- Le « Cobra App Store » continue de s'industrialiser
+- Un dashboard de suivi prix concurrentiel construit maison
+← Toutes les entrées
+
+
+================================================================
 L'AGENT FACTURES PASSE EN PROD : AUTONOME SUR SCALEWAY
 URL : https://hl-consulting.tech/knowledge-hub/journal/agent-factures-prod-scaleway.html
 Publié : 2026-06-17

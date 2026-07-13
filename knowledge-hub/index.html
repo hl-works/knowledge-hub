@@ -136,7 +136,7 @@
       <a class="btn btn--ghost" href="a-propos/">Qui je suis</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">52</b><span>Sessions documentées</span></div>
+      <div class="stat"><b id="stat-sessions">59</b><span>Sessions documentées</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Projets actifs</span></div>
       <div class="stat"><b>2</b><span>Agents Claude</span></div>
     </div>
@@ -283,10 +283,73 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 52 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 59 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-07-13">2026-07-13</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/statut-commandes-clients-facture-paye-livre.html">Statut des commandes clients : facturé, payé, livré — trois badges au lieu d'un</a></h3>
+          <p class="entry__excerpt">Rien ne distinguait clairement « la facture est partie », « le client a payé » et « la marchandise est livrée ». Trois badges indépendants (Facturation / Paiement / Livraison) remplacent le statut fusionné : code couleur, taux d'acompte affiché, bascule automatique reste à encaisser → reste à livrer, lignes livrées grisées. Transposé du module fournisseurs déjà en place ; deux bugs de calcul latents corrigés au passage.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="design" href="/knowledge-hub/journal/?tag=design">design</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-07-13">2026-07-13</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/cobra-app-store-industrialisation.html">Le « Cobra App Store » continue de s'industrialiser</a></h3>
+          <p class="entry__excerpt">Synthèse sur 5 sessions : le hub d'apps internes de Cobra (apps.cobra.fr) passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d'environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.</p>
+          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-07-12">2026-07-12</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/refonte-systeme-prix-cobra-price.html">Refonte du système de prix Odoo (cobra_price) : une seule source de vérité</a></h3>
+          <p class="entry__excerpt">Le modèle de prix Odoo était empilé et fragile : pricelist web auto-calculée, listes superposées, TVA à 20 % codée en dur, marge à 0 dès qu'un produit sortait de stock. Un champ unique cobra_price devient LA source de vérité via un override de _price_compute — coût et marge recalculés, prix barrés conformes Omnibus, sync Shopify immédiate. 6 modules touchés, ~7 300 produits migrés, avec un vrai suivi post-prod (bug d'affichage corrigé le jour même, 492 produits en promo repoussés).</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-07-12">2026-07-12</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/code-review-irokoo-vendor-payment.html">Un retour de code review de l'intégrateur traité intégralement, point par point</a></h3>
+          <p class="entry__excerpt">Après une modif de Cobra sur un module Odoo, l'intégrateur (Irokoo) est revenu avec 6 points techniques (sécurité, fiabilité, cohérence). Chacun évalué individuellement : 3 corrigés tels quels, 2 avec un arbitrage explicite (garder la visibilité chatter à laquelle Hugo tenait, tout en neutralisant le risque autrement), 1 volontairement écarté. Un bug non signalé par Irokoo détecté et corrigé au passage. Déploiement dans un worktree Git isolé pour ne pas interférer avec un autre chantier en cours.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="doc" href="/knowledge-hub/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-07-11">2026-07-11</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/dashboard-prix-concurrentiel-maison.html">Un dashboard de suivi prix concurrentiel construit maison, plutôt qu'un devis d'intégrateur</a></h3>
+          <p class="entry__excerpt">Le cas build vs buy le plus direct de la période : un CDC de dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à 3-4 semaines de dev, envoyé à l'intégrateur en mars 2026 — resté « à valider avant développement », jamais lancé. La brique la plus technique (import/matching des prix via Wiser) tournait déjà en prod ; il manquait la couche de pilotage. Construite en interne avec Claude Code, en quelques jours, sur apps.cobra.fr.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-07-11">2026-07-11</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/retard-fournisseur-gdd-solde.html">Un retard fournisseur de 200 000 € soldé en une semaine, ligne par ligne</a></h3>
+          <p class="entry__excerpt">Un relevé d'un gros fournisseur (GDD) affichait un solde impayé important, étalé sur des dizaines de factures — et ne prenait pas toujours en compte les derniers paiements côté Odoo, d'où un risque de double paiement. Confrontation systématique relevé fournisseur / Odoo / relevé bancaire à chaque nouveau relevé, six lots de paiement suivis un par un jusqu'à confirmation bancaire réelle : 200 059,33 € réglés en 6 virements, deux écarts (−60 €, +18 €) signalés au fournisseur pour régularisation.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-admin" href="/knowledge-hub/journal/?tag=odoo-admin">odoo-admin</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-07-10">2026-07-10</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/refonte-performance-vendeur-charge-perf.html">Refonte de la vue « Performance vendeur » : fusion Charge & Perf, dark mode</a></h3>
+          <p class="entry__excerpt">La page de performance mensuelle des vendeurs existait mais restait passive — un tableau à consulter en fin de mois. Refondue en outil quotidien : fusion de trois sources dans une seule app « Charge » (perf mensuelle, suivi actionnable, charge opérationnelle), classement vs objectif N-1 en direct depuis Odoo, CA Shopify séparé du CA individuel, 1 817 devis dormants annulés en masse, dark/clair vérifié partout. En cours de test avant bascule en prod.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="design" href="/knowledge-hub/journal/?tag=design">design</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-06-17">2026-06-17</time>
         <div>
@@ -341,71 +404,9 @@
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
       </li>
-      <li class="entry">
-        <time datetime="2026-06-10">2026-06-10</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/cobra-docs-contexte-claude.html">Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev</a></h3>
-          <p class="entry__excerpt">Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.</p>
-          <div class="tags"><a class="tag" data-tag="doc" href="/knowledge-hub/journal/?tag=doc">doc</a><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
-        </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-06-10">2026-06-10</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/fable-5-revue-site-geo.html">Fable 5 passe le site en revue : 4 bugs, du RSS et une veille enfin visible des LLMs</a></h3>
-          <p class="entry__excerpt">Premier test grandeur nature de Fable 5 : audit complet du site, 4 bugs corrigés, veille rendue visible des crawlers IA, flux RSS — tout en prod dans la session.</p>
-          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-06-02">2026-06-02</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/knowledge-hub-bilingue-fr-en.html">Knowledge Hub bilingue : version anglaise + auto-traduction</a></h3>
-          <p class="entry__excerpt">Miroir /en/ des 74 pages, hreflang, recherche et lexique bilingues — et un workflow GitHub Actions qui traduit chaque nouvelle page FR via l'API Claude.</p>
-          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-05-30">2026-05-30</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/systeme-instructions-claude-md.html">Système d'instructions personnalisées Claude (CLAUDE.md + extensions)</a></h3>
-          <p class="entry__excerpt">Standardiser le comportement de Claude sur tous mes projets : un CLAUDE.md universel + extensions strat et dev. Le socle de toute ma méthode.</p>
-          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-05-30">2026-05-30</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/gsc-json-ld-fix.html">Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery</a></h3>
-          <p class="entry__excerpt">7 pages produit en erreur « extraits de produits ». Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.</p>
-          <div class="tags"><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-05-29">2026-05-29</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/agent-factures-architecture.html">Agent autonome de traitement des factures fournisseurs</a></h3>
-          <p class="entry__excerpt">Cadrer toute l'architecture d'un agent factures (5 canaux, matching ligne par ligne, 4 sous-agents, actions Teams) avant d'écrire une ligne de code.</p>
-          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-05-30">2026-05-30</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/knowledge-hub.html">Ce Knowledge Hub lui-même</a></h3>
-          <p class="entry__excerpt">Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO.</p>
-          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
-      </li>
+
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">52 entrées au total — filtrer par tag dans le journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">59 entrées au total — filtrer par tag dans le journal →</a></p>
   </div>
 </section>
 

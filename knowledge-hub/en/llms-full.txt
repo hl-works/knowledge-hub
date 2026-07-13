@@ -1258,6 +1258,230 @@ URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 
 
 ================================================================
+CUSTOMER ORDER STATUS: INVOICED, PAID, DELIVERED
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/statut-commandes-clients-facture-paye-livre.html
+Published: 2026-07-13
+================================================================
+
+On a Cobra customer order, three independent badges (Invoicing / Payment / Delivery) replace a merged status: color coding, deposit rate shown, automatic switch from remaining-to-collect to remaining-to-deliver, delivered lines greyed out. Transposed from the symmetric supplier-side module, with two latent calculation bugs fixed along the way.
+
+← Journal
+Cobra · Dev
+Customer order status: invoiced, paid, delivered — three badges instead of one
+Claude · Cobra · July 13, 2026 odoo-devdesignen-prodCobra
+Context
+On a customer order, nothing clearly separated the invoice is out, the customer has paid and the goods are delivered — three different realities that sales reps sometimes conflated (an invoiced order can very well be unpaid). The starting point: bring to the sales side a principle already established on the purchasing side (supplier payment confirmation), with a spec prepared ahead of time by Hugo.
+What was built
+- Three independent badges — Invoicing / Payment / Delivery — instead of a merged status, with color coding: red = to handle on the rep's side, orange = to chase on the customer's side, green = settled.
+- The Payment badge directly shows the deposit rate received ("Deposit 30%").
+- The label "Remaining to collect" automatically switches to "Remaining to deliver" once the order is paid in full.
+- Already-delivered lines are greyed out and pushed to the bottom of the order.
+- The same columns added to the global "Customer orders" list view, plus an extension to in-store pickup ("awaiting pickup" / "pickup done" statuses).
+What was hard
+Cleanly separating three notions that overlap in Odoo's data (invoiced, paid, delivered) without merging them artificially — and keeping the logic consistent with the symmetric module already in place on the supplier side. Along the way, two calculation bugs fixed: the badge was based on the catalog price instead of the actually-invoiced price, and a partial deposit wasn't recognized as "paid".
+Stack
+Odoo (sale.order form + list views), XML, Python (status calculations).
+What this illustrates
+A pattern that keeps repeating at Cobra: once a UX principle works on one side of the business (supplier payment), it transposes to the other (customer payment) — and each transposition surfaces latent calculation bugs that had been lingering unseen for a long time.
+See also
+- The Delivered / Invoiced / Paid statuses on the purchase-order side
+- Odoo pricing-system overhaul (cobra_price)
+← All entries
+
+
+================================================================
+THE COBRA APP STORE KEEPS INDUSTRIALIZING
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/cobra-app-store-industrialisation.html
+Published: 2026-07-13
+================================================================
+
+Period synthesis: Cobra's internal app hub (apps.cobra.fr — treasury, pricing, purchasing, performance, reporting) goes from a few isolated apps to a small standardized ecosystem. Shared header, single Odoo connector, common refresh — and two incidents caught within minutes thanks to the backup/compare safety net.
+
+← Journal
+Cobra · Dev
+The Cobra App Store keeps industrializing
+Claude · Cobra · July 13, 2026 infrastratmetaen-coursCobra
+Context
+Cobra's internal app hub (apps.cobra.fr — treasury, pricing, purchasing, performance, reporting) went, in a few weeks, from a few isolated critical apps to a genuine small standardized ecosystem. This entry is a period synthesis (June 29 → July 13, across 5 sessions).
+What happened over the period
+- Opened the Charge & Perf app to public access (no password), with a refresh button built directly into the app rather than sitting beside it.
+- Unified the automatic refresh of Finance data onto a common cron, via an Odoo connection now shared across apps (Treasury kept separate, since it needs a more frequent refresh).
+- A strictly identical visual header across every app (an accidentally-overwritten version was caught immediately and fixed by comparing with the previous backup).
+- A new regulatory reporting profile for a supplier (Sony), with a scheduled-task bug fixed (the connection credentials weren't loaded when the script ran on its own, without an interactive session).
+- A new app (image retouching / cutout) deployed and aligned with the shared design system.
+What this illustrates
+Delivery speed no longer goes without discipline: every new app must now fit a common mold (shared header, single Odoo connector, standard refresh mechanism) rather than reinvent its own infrastructure. Two small incidents over the period (an overwritten version, a cron missing its env vars) were caught within minutes — not because they never happen, but because the safety net works: backup and compare before every deploy.
+See also
+- The Sales Performance view overhaul (Charge & Perf)
+- The competitive price-tracking dashboard built in-house
+← All entries
+
+
+================================================================
+ODOO PRICING-SYSTEM OVERHAUL (COBRA_PRICE): A SINGLE SOURCE OF TRUTH
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/refonte-systeme-prix-cobra-price.html
+Published: 2026-07-12
+================================================================
+
+A deep overhaul of Cobra's Odoo pricing system: a single cobra_price field becomes the source of truth for the sale price (a _price_compute override), margin and cost recomputed cleanly, Omnibus-compliant strikethrough prices, immediate Shopify sync. 6 modules touched, ~7,300 products migrated, post-deploy follow-up included.
+
+← Journal
+Cobra · Dev
+Odoo pricing-system overhaul (cobra_price): a single source of truth
+Claude · Cobra · July 12, 2026 odoo-devshopifydataen-prodCobra
+Context
+Cobra's pricing model was stacked and fragile: a web pricelist auto-computed per product, several structural lists layered on top (web / public / launch / strikethrough), and a margin computed with a hard-coded 20% VAT. The result: the displayed price could diverge from the actual online price, margin dropped to 0 the moment a product went out of stock, reference prices froze. Too many clicks, too many sources of truth.
+What was built
+- A single cobra_price field (per variant) becomes THE source of truth for the sale price: a _price_compute override redirects quotes, sales and pricelists to that field.
+- Effective cost recomputed correctly (weighted average cost if in stock, otherwise last supplier price), and margin on the pre-tax price with the real product tax — end of the hard-coded /1.2.
+- A price floor (regulated minimum) that can never go below the sale price, and a strikethrough price (compareAtPrice) recomputed live to stay compliant with promotion regulations (Omnibus).
+- Immediate Shopify sync as soon as a price changes in Odoo.
+- Cleanup of the old automations and pricelists that had become obsolete.
+6 modules touched in cascade (cobra_base, cobra_product, cobra_purchase, shopify_connect, cobra_shopify, wiser_price_intelligence), with automatic data migration across ~7,300 products.
+What was hard
+- A bug discovered after going to production: the promo strikethrough price no longer displayed correctly — 492 promo products re-pushed to Shopify the same day to fix the display.
+- Two internal automations created via Odoo's no-code editor (so invisible in the modules' code) still referenced the old system and crashed every product write after the corresponding field was removed — spotted and neutralized during the deploy.
+- A recompute cron (last-30-days prices / launch prices) too heavy to run on ~9,800 products without blocking the other scheduled tasks — deliberately disabled, pending a rewrite as a batched query.
+- A full technical email (module by module, migration, watch-outs) written for the external integrator (Irokoo) so they could validate the most sensitive points.
+Stack
+Python (Odoo ORM, _price_compute override), Odoo data migrations, Shopify (sync API), Git (feat/cobra-prix-v2 branch).
+What this illustrates
+A cross-cutting overhaul — not an isolated patch — driven end to end in a single flow: diagnosing the existing model, designing the new architecture, migrating in production, then real post-deploy follow-up (a display bug caught and fixed the same day, a formal technical note sent to the integrator to close the loop). Claude's role doesn't stop at the commit: it includes verifying in production and flagging what still needs watching.
+See also
+- Customer order status: invoiced, paid, delivered
+- An integrator code-review handled point by point
+← All entries
+
+
+================================================================
+AN INTEGRATOR CODE REVIEW HANDLED IN FULL, POINT BY POINT
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/code-review-irokoo-vendor-payment.html
+Published: 2026-07-12
+================================================================
+
+Six technical review points from the external integrator (Irokoo) on an Odoo module, handled one by one: 3 fixed as recommended, 2 with an explicit trade-off, 1 deliberately declined — plus an unreported bug caught along the way. Every choice documented in writing to the integrator.
+
+← Journal
+Cobra · Dev
+An integrator code review handled in full, point by point
+Claude · Cobra · July 12, 2026 odoo-devdocen-prodCobra
+Context
+After a change Cobra made to an Odoo module (cobra_vendor_payment_confirm), the external integrator (Irokoo) came back with 6 technical review points (security, reliability, code consistency). Rather than handling them in bulk, each point was evaluated individually — with, for some, a deliberate choice not to follow the recommendation to the letter.
+What was done
+- 3 points fixed as recommended: a hard-coded template identifier replaced with a stable reference, an idempotency guard + unit conversion, exclusion of credit notes from the scope.
+- 2 points fixed with an explicit trade-off: the recommendation would have removed the visibility of exchanges in the Odoo history (the "chatter"), something Hugo cared about — kept, but the underlying risk (forced send) neutralized another way.
+- 1 point deliberately declined: renaming fields already populated in production, judged disproportionate for a merely "nice-to-have" point.
+- Along the way, a bug not flagged by Irokoo caught and fixed: the French translation of the email template had been lost during an earlier recreation — restored.
+- Deployed in an isolated Git worktree, because another job was already running in parallel on the same shared repo — to take no risk of interference.
+What was hard
+Handling external feedback without following it blindly or rejecting it wholesale: telling apart what's a real risk, what's a style preference, and what would break a behavior deliberately chosen by Cobra — then being able to justify each choice in writing to the integrator.
+Stack
+Python (Odoo ORM), XML (data records, email templates), Git (isolated worktree, cherry-pick). Module cobra_vendor_payment_confirm at version 18.0.1.12.0.
+What this illustrates
+A balanced technical dialogue with an external provider: Irokoo's feedback is taken seriously, but each point is replayed with the full business context rather than applied mechanically — and disagreement, when there is any, is documented rather than hidden.
+See also
+- Odoo pricing-system overhaul (cobra_price)
+- A €200,000 supplier backlog cleared in a week
+← All entries
+
+
+================================================================
+A €200,000 SUPPLIER BACKLOG CLEARED IN A WEEK, LINE BY LINE
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/retard-fournisseur-gdd-solde.html
+Published: 2026-07-11
+================================================================
+
+A supplier statement (GDD) showed an unpaid balance spread across dozens of invoices. Systematic reconciliation of supplier statement / Odoo / bank statement on each new statement, six payment batches tracked to bank confirmation: €200,059.33 settled in 6 transfers, two discrepancies flagged to the supplier.
+
+← Journal
+Cobra · Dev
+A €200,000 supplier backlog cleared in a week, line by line
+Claude · Cobra · July 11, 2026 odoo-admindataen-prodCobra
+Context
+A supplier statement (GDD, one of Cobra's largest suppliers) showed a significant balance left unpaid, spread across dozens of invoices accumulated over several weeks. The Excel statement sent by the supplier didn't always account for the latest payments already made on the Odoo side — creating a risk of double payment or, conversely, of underestimating what was really left to pay.
+What was done
+- Systematic reconciliation, on each new statement received, between the supplier file, the real state in Odoo (invoices linked to their purchase orders) and the bank statement — to isolate what was actually still owed.
+- Six payment batches prepared and tracked one by one to actual bank confirmation (not just "validated in Odoo": verified against the account statement).
+- Two amount discrepancies between the supplier statement and the Odoo invoices spotted and flagged to the supplier for correction (−€60, +€18).
+- €200,059.33 settled over the period, in 6 transfers, with a summary email at each step keeping internal accounting and the supplier informed.
+What was hard
+Telling apart "a transfer is validated in Odoo" from "the money has actually left the bank" — one batch was briefly ambiguous (validated in Odoo, absent from the day's bank statement), resolved by confirming the exact validation time at the bank vs the statement's extraction time (not a real problem, just an execution lag).
+Stack
+Odoo (invoices, payment vouchers, reconciliation), Excel (supplier statement), bank CSV export.
+What this illustrates
+A treasury job that isn't spectacular but carries a high reliability stake: every euro traced from the invoice to the actual bank debit, with verification round-trips that could easily have been rushed under the pressure of volume. The kind of task where assistance changes less "what's possible" than "the level of rigor you can maintain" on a large volume without spending your whole day on it.
+See also
+- Case study — An agent that processes supplier invoices
+- Customer order status: invoiced, paid, delivered
+← All entries
+
+
+================================================================
+A COMPETITIVE PRICE-TRACKING DASHBOARD BUILT IN-HOUSE, RATHER THAN AN INTEGRATOR QUOTE
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/dashboard-prix-concurrentiel-maison.html
+Published: 2026-07-11
+================================================================
+
+Build vs buy: a spec for a price-tracking dashboard (ABC scoring, rules engine, history) sent to the integrator in March 2026 stayed at to-be-validated-before-development. The missing control layer was finally built in-house with Claude Code, in a few days, on apps.cobra.fr.
+
+← Journal
+Cobra · Dev
+A competitive price-tracking dashboard built in-house, rather than an integrator quote
+Claude · Cobra · July 11, 2026 dataodoo-devstraten-coursCobra
+Context
+A spec had been sent to the external integrator (Irokoo) on March 19, 2026: a competitive price-tracking dashboard (ABC scoring, rules engine, price history), estimated at several weeks of development. That spec stayed at "to be validated before development" — never started, never billed. Meanwhile, the most technical brick (importing and matching competitor prices via the Wiser tool) had already been delivered by the integrator and was running in production — only the visual control layer on top was missing.
+What was built
+Rather than kicking off another external quote, the app was built directly with Claude Code:
+- Syncing Odoo data into a dedicated local database.
+- ABC scoring of products (reusing a module already in place).
+- A dashboard with clickable indicators, a product table groupable by brand / category, competitor columns.
+- A detail view per competitor, with an "Align" button wired to the price-alignment assistant that already existed on the Odoo side.
+- Excel export, standard Cobra design system, deployment on the internal app hub (apps.cobra.fr).
+What was hard
+Precisely telling apart what had already been delivered (the import / matching, phase 1 of the spec) from what remained to build (the control layer, phase 2, never ordered) — so as to rebuild only the missing part, without starting over or duplicating the integrator's work.
+Stack
+Standalone web app (Odoo sync → local database), Python, reuse of an existing Odoo wizard, Caddy (deployment on apps.cobra.fr).
+What this illustrates
+The most direct build vs buy case of the period: a business need clearly identified and quoted by an external provider, left pending for months — and finally built in-house, in a few days, with Claude, for a fraction of the originally estimated time (the spec mentioned 3 to 4 weeks of development for the rules-engine part alone).
+See also
+- The Cobra App Store keeps industrializing
+- The Sales Performance view overhaul
+← All entries
+
+
+================================================================
+SALES PERFORMANCE VIEW OVERHAUL: MERGING CHARGE & PERF, DARK MODE
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/refonte-performance-vendeur-charge-perf.html
+Published: 2026-07-10
+================================================================
+
+The monthly sales-performance page becomes a daily working tool: merging three sources (monthly perf, actionable follow-up, operational load), ranking vs prior-year target live from Odoo, Shopify revenue separated, 1,817 dormant quotes cancelled, dark/light checked. In testing before switching to production.
+
+← Journal
+Cobra · Dev
+Sales Performance view overhaul: merging Charge & Perf, dark mode
+Claude · Cobra · July 10, 2026 datadesignen-coursCobra
+Context
+The monthly sales-performance page already existed (ranking, revenue vs prior year) but stayed passive — a table to consult, with no action possible. The idea: give each rep a real reason to look at it every day, not just at month-end.
+What was built
+- Merging three sources into a single app ("Charge"): monthly performance, actionable rep follow-up (quotes to chase, partial payments, pending pickups, awaiting supplier) and the pre-existing operational load.
+- Ranking of reps vs prior-year target computed live from Odoo (end of manual entry).
+- Strict separation of Shopify revenue from individual rep revenue (handled separately, "of which Shopify"), so an individual ranking isn't skewed by non-attributable e-commerce revenue.
+- A deep cleanup: 1,817 dormant quotes (over 2 months without movement) cancelled in bulk.
+- Dark / light mode checked across all the new sections, styling aligned with the old page so reps don't lose their visual bearings.
+What was hard
+Keeping an app that stays pleasant to check daily without overloading it — several round-trips on the tab order, the Store / Shopify separation and table alignment, validated at each iteration on a preview before switching to production.
+Stack
+Internal web app (apps.cobra.fr), Python (Odoo aggregation), HTML/CSS (dark mode).
+What this illustrates
+A dashboard that didn't stay a dashboard: over the iterations it became a daily working tool (things to do, not just numbers to read) — a gradual shift from "reporting" to "operating tool", fairly typical of what happens when an internal app is picked up iteration by iteration with Claude rather than delivered all at once.
+See also
+- The Cobra App Store keeps industrializing
+- A competitive price-tracking dashboard built in-house
+← All entries
+
+
+================================================================
 THE INVOICE AGENT GOES TO PRODUCTION: AUTONOMOUS ON SCALEWAY
 URL: https://hl-consulting.tech/knowledge-hub/en/journal/agent-factures-prod-scaleway.html
 Published: 2026-06-17
