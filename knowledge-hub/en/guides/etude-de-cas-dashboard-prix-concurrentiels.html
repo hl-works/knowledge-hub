@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Case study — A competitive price-tracking dashboard built in-house — Guides · Hugo Lahutte</title>
-<meta name="description" content="Build in public: the competitor price data (Wiser) was already in production, delivered by the integrator. The control layer was missing — quoted at several weeks and left pending. We built it in-house with Claude Code, in a few days: ABC scoring, competitor columns, an Align button. The most direct build-vs-buy case of the year.">
+<title>Case Study — A Homegrown Competitive Pricing Dashboard — Guides · Hugo Lahutte</title>
+<meta name="description" content="Build in public: the competitor pricing data (Wiser) was already in production, delivered by the integrator. What was missing was the control layer — quoted at several weeks out and stuck in the backlog. We built it in-house with Claude Code in a matter of days: ABC scoring, competitor columns, Align button. The most clear-cut build vs. buy case of the year.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
@@ -15,8 +15,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Case study — A competitive price-tracking dashboard built in-house">
-<meta property="og:description" content="The competitor data (Wiser) was already in production. The control layer was missing, quoted at several weeks and left pending. Built in-house with Claude Code in a few days. The most direct build-vs-buy case of the year.">
+<meta property="og:title" content="Case Study — A Homegrown Competitive Pricing Dashboard">
+<meta property="og:description" content="The competitor data (Wiser) was already in production. What was missing was the control layer — quoted at several weeks out and stuck in the backlog. Built in-house with Claude Code in a matter of days. The most clear-cut build vs. buy case of the year.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -93,16 +93,14 @@
   </nav>
 </header>
 
-<main id="main">
-
-<!-- ===== HERO ===== -->
+<main id="main"><!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
-    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Case study — Competitive price dashboard</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Case study · Build in public · Cobra</p>
-    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">A competitive price dashboard,<br>built in-house</h1>
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Case Study — Competitive Pricing Dashboard</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Case Study · Build in public · Cobra</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">A competitive pricing dashboard,<br>built in-house</h1>
     <hr class="rule--accent">
-    <p class="lead">The data was already there — competitor prices, collected via Wiser and integrated by our provider, running in production. What was missing was the <strong>control layer</strong> to actually do something with it: a spec, quoted at several weeks, left pending. We built it in-house with Claude Code, in a few days. The most direct <strong>build vs buy</strong> case of the year.</p>
+    <p class="lead">The data was already there — competitor prices pulled via Wiser and integrated by our vendor were running in prod. What was missing was the <strong>management layer</strong> to actually do something with it: a spec sheet, quoted at several weeks of work, sitting on the backburner. We built it in-house with Claude Code, in a matter of days. The most clear-cut <strong>build vs buy</strong> case of the year.</p>
     <div class="meta-bar">
       <span>By <strong>Hugo Lahutte</strong></span>
       <span>·</span>
@@ -118,18 +116,18 @@
   <div class="container">
 
     <figure class="figure" style="margin-block:var(--space-6) var(--space-8);">
-      <img src="/knowledge-hub/assets/suivi-prix-dashboard.svg" alt="Mockup of the internal competitive price-tracking dashboard: counters (too expensive / aligned / cheaper), filters, ABC scoring, Cobra price and market-min columns, per-product status. Example data." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);background:#fff;">
-      <figcaption class="caption">The dashboard built in-house: pricing-position counters, filters, ABC scoring, per-product status against competitors (illustrative preview, example data).</figcaption>
+      <img src="/knowledge-hub/assets/suivi-prix-dashboard.svg" alt="Mockup of the internal competitive pricing dashboard: counters (too expensive / aligned / cheaper), filters, ABC scoring, Cobra price and market minimum price columns, status per product. Sample data." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);background:#fff;">
+      <figcaption class="caption">The in-house dashboard: pricing position counters, filters, ABC scoring, per-product status vs. competitors (illustrative preview, sample data).</figcaption>
     </figure>
 
     <nav class="toc prose" aria-label="Contents">
       <p class="kicker">Contents</p>
       <ul>
-        <li><a href="#besoin">1. The need: steering your prices against the competition</a></li>
-        <li><a href="#donnee">2. The data already existed — delivered by the integrator</a></li>
-        <li><a href="#devis">3. The quote left pending</a></li>
+        <li><a href="#besoin">1. The need: managing your prices against the competition</a></li>
+        <li><a href="#donnee">2. The data was already there — delivered by the integrator</a></li>
+        <li><a href="#devis">3. The quote that sat untouched</a></li>
         <li><a href="#cadrer">4. Scoping the gap precisely</a></li>
-        <li><a href="#fondation">5. The foundation: a price that means something</a></li>
+        <li><a href="#fondation">5. The foundation: a price that actually means something</a></li>
         <li><a href="#build">6. What we built (first version)</a></li>
         <li><a href="#calcul">7. Build vs buy: the real math</a></li>
         <li><a href="#suite">What's next</a></li>
@@ -138,52 +136,52 @@
 
     <div class="prose">
 
-      <h2 id="besoin">1. The need: steering your prices against the competition</h2>
-      <p>In specialty retail, price is a permanent battlefield. Knowing, product by product, where you stand against competitors — cheaper, aligned, more expensive — isn't a comfort: it's the basis for deciding where to defend your margin and where to align so you don't lose the sale. But that information has to be <strong>readable and actionable</strong>, not buried in an unreadable export you open once a quarter.</p>
-      <p>At Cobra, the raw material already existed. What was missing was the tool to <em>look</em> at it and <em>act</em> on it.</p>
+      <h2 id="besoin">1. The need: managing your prices against the competition</h2>
+      <p>In specialty retail, pricing is a constant battlefield. Knowing, product by product, where you stand against competitors — cheaper, in line, more expensive — isn't a nice-to-have: it's the baseline for deciding where to defend your margin and where to align so you don't lose the sale. But that information has to be <strong>readable and actionable</strong>, not buried in an unreadable export you open once a quarter.</p>
+      <p>At Cobra, the raw material was already there. What was missing was the tool to actually <em>look</em> at it and <em>act</em> on it.</p>
 
-      <h2 id="donnee">2. The data already existed — delivered by the integrator</h2>
-      <p>The most technical brick — <strong>importing and matching competitor prices</strong> via the <strong>Wiser</strong> tool (a price-intelligence platform that collects the prices charged elsewhere and matches them to our catalog) — had already been delivered by our external integrator (Irokoo) and <strong>was running in production</strong>. Competitor prices were coming into the system, attached to the right products.</p>
-      <p>In other words: the "data" part of the problem was solved, and solved well. The gap was elsewhere — in the layer <strong>above</strong> the data.</p>
+      <h2 id="donnee">2. The data was already there — delivered by the integrator</h2>
+      <p>The most technical piece — the <strong>import and matching of competitor prices</strong> via <strong>Wiser</strong> (a pricing intelligence platform that scrapes prices from other retailers and maps them to our catalog) — had already been delivered by our external integrator (Irokoo) and was <strong>running in production</strong>. Competitor prices were flowing into the system, matched to the right products.</p>
+      <p>In other words: the "data" side of the problem was solved, and solved well. The gap was elsewhere — in the layer <strong>above</strong> the data.</p>
 
-      <h2 id="devis">3. The quote left pending</h2>
-      <p>A spec had in fact been sent to the integrator on <strong>March 19, 2026</strong> for that missing layer: a price-tracking dashboard (product ABC scoring, an alignment rules engine, price history), estimated at <strong>several weeks of development</strong>. That spec stayed at <em>"to be validated before development"</em> — never started, never billed.</p>
-      <p>Not a dramatic blocker: just a project waiting its turn, like dozens of others. Except that with Claude Code, "waiting its turn" no longer carries quite the same opportunity cost.</p>
+      <h2 id="devis">3. The quote that sat untouched</h2>
+      <p>A spec sheet had been sent to the integrator on <strong>March 19, 2026</strong> for this missing layer: a pricing dashboard (ABC product scoring, alignment rule engine, price history), estimated at <strong>several weeks of development</strong>. That spec sat at <em>"pending approval before development"</em> status — never kicked off, never invoiced.</p>
+      <p>Not a dramatic blocker: just a project waiting its turn, like dozens of others. Except that with Claude Code, "waiting your turn" no longer carries quite the same opportunity cost.</p>
 
       <h2 id="cadrer">4. Scoping the gap precisely</h2>
-      <p>Before building anything, we had to clearly separate <strong>what was already delivered</strong> (the import / matching, phase 1) from <strong>what was left to do</strong> (the control layer, phase 2, never ordered) — so as to rebuild only the missing part, without starting over or duplicating the integrator's work.</p>
-      <p>To precisely scope what the Wiser tool actually exposed (and therefore what the dashboard needed to show), we went about it differently than with yet another scoping workshop: thanks to <strong>Claude's built-in browser</strong> — a recent capability, Claude can now open a page and <em>watch</em> it — we had it view a <a href="https://www.youtube.com/watch?v=Yx6VcPhfAxM" target="_blank" rel="noopener">Wiser presentation video</a> and extract the features and data actually available. Enough to turn a demo into a <strong>concrete list of requirements</strong>, without going back to the provider.</p>
+      <p>Before building anything, we needed to clearly separate <strong>what had already been delivered</strong> (the import / matching, phase 1) from <strong>what still needed to be done</strong> (the management layer, phase 2, never commissioned) — so we'd only build the missing piece, without starting from scratch or duplicating the integrator's work.</p>
+      <p>To precisely scope what Wiser actually exposed (and therefore what the dashboard needed to display), we took a different approach than yet another scoping workshop: using <strong>Claude's built-in browser</strong> — a recent capability that lets Claude open a page and actually <em>look</em> at it — we had it watch a <a href="https://www.youtube.com/watch?v=Yx6VcPhfAxM" target="_blank" rel="noopener">Wiser demo video</a> and extract the features and data actually available. Enough to turn a sales demo into a <strong>concrete list of requirements</strong>, without going back to the vendor.</p>
       <aside class="callout">
-        <p class="kicker">The reflex that changes everything</p>
-        <p style="margin-top:var(--space-3);">The question is no longer <em>"how much does it cost to have this developed?"</em> but <em>"what already exists, and what's the smallest piece I'm actually missing?"</em>. Scoping the gap well is already half the savings.</p>
+        <p class="kicker">The mindset shift that changes everything</p>
+        <p style="margin-top:var(--space-3);">The question is no longer <em>"how much would it cost to have this built?"</em> but <em>"what already exists, and what's the smallest piece I'm actually missing?"</em>. Scoping the gap properly is already half the savings.</p>
       </aside>
 
-      <h2 id="fondation">5. The foundation: a price that means something</h2>
-      <p>A price-alignment dashboard is only worth it if "aligning a price" writes to the right place. That's the whole point of having, in parallel, <a href="../journal/refonte-systeme-prix-cobra-price.html">overhauled the Odoo pricing system</a> around a single field, the source of truth, that drives quotes, sales and Shopify sync. Without that foundation, an "Align" button would be wishful thinking; with it, it changes <strong>the</strong> price, everywhere, at once.</p>
+      <h2 id="fondation">5. The foundation: a price that actually means something</h2>
+      <p>A price alignment dashboard is only worth something if "aligning a price" writes to the right place. That's exactly why, in parallel, we <a href="../journal/refonte-systeme-prix-cobra-price.html">rebuilt the Odoo pricing system</a> around a single field — the source of truth — that drives quotes, sales, and Shopify sync. Without that foundation, an "Align" button would just be wishful thinking; with it, it updates <strong>the</strong> price, everywhere, in one shot.</p>
 
       <h2 id="build">6. What we built (first version)</h2>
-      <p>Rather than kicking off another external quote, the app was built directly with Claude Code — a <strong>first version</strong>, already being deployed:</p>
+      <p>Rather than commissioning another external quote, the app was built directly with Claude Code — a <strong>first version</strong>, already being deployed:</p>
       <ul>
-        <li>Syncing Odoo data into a dedicated local database.</li>
-        <li><strong>ABC scoring</strong> of products, reusing a module already in place rather than rebuilding it.</li>
-        <li>A dashboard with clickable indicators and a product table <strong>groupable by brand / category</strong>, with the competitor columns alongside.</li>
-        <li>A detail view per competitor, with an <strong>"Align"</strong> button wired to the price-alignment assistant that already existed on the Odoo side — so a click that really writes the new price.</li>
-        <li>Excel export, standard Cobra design system, and deployment on our <strong>internal app hub</strong>.</li>
+        <li>Syncing Odoo data to a dedicated local database.</li>
+        <li><strong>ABC scoring</strong> of products, reusing an existing module rather than rebuilding it.</li>
+        <li>A dashboard with clickable KPIs and a product table <strong>groupable by brand / category</strong>, with competitor columns alongside.</li>
+        <li>A per-competitor detail view, with an <strong>"Align"</strong> button wired to the existing price alignment assistant on the Odoo side — so one click actually writes the new price.</li>
+        <li>Excel export, standard Cobra branding, and deployment on our <strong>internal app hub</strong>.</li>
       </ul>
-      <p>Nothing speculative: we built exactly the missing piece, leaning on everything that already existed (the Wiser data, the scoring, the alignment assistant, the overhauled pricing system).</p>
+      <p>Nothing speculative: we built exactly the missing piece, building on everything that already existed (Wiser data, scoring, alignment assistant, the rebuilt pricing system).</p>
 
       <h2 id="calcul">7. Build vs buy: the real math</h2>
-      <p>The spec mentioned <strong>3 to 4 weeks of development</strong> for the rules-engine part alone. The first version was built in-house in <strong>a few days</strong>, for a fraction of that time — and above all, keeping control: each iteration is settled live, with no quoting round-trip.</p>
-      <p>The lesson isn't <em>"never use an integrator again"</em>. Quite the opposite: the integrator had delivered the hardest brick (the Wiser import / matching), and it's precisely because that base was solid that we could build fast on top of it. The real <strong>build vs buy</strong> math isn't "do everything yourself" — it's <strong>buy what's hard and standard, build what's specific and changing</strong>.</p>
+      <p>The spec sheet called for <strong>3 to 4 weeks of development</strong> for the rule engine alone. The first version was built in-house in <strong>a matter of days</strong>, for a fraction of that timeline — and more importantly, we kept full control: every iteration gets resolved on the spot, no back-and-forth quoting required.</p>
+      <p>The takeaway isn't <em>"you should never use an integrator again."</em> On the contrary: the integrator had delivered the hardest piece (the Wiser import / matching), and it's precisely because that foundation was solid that we could build on top of it so quickly. The real <strong>build vs buy</strong> calculation isn't "do everything yourself" — it's <strong>buy what's hard and standard, build what's specific and likely to change</strong>.</p>
 
       <h2 id="suite">What's next</h2>
-      <p>This dashboard isn't a standalone object: it joins a <strong>small ecosystem of internal apps</strong> growing fast at Cobra (treasury, purchasing, sales performance, reporting…), all built on the same mold — shared design system, shared Odoo connection, standardized deployment. That dynamic deserves its own story: <strong>a dedicated guide is in preparation</strong>.</p>
+      <p>This dashboard isn't a standalone object: it joins a <strong>small ecosystem of internal apps</strong> that's growing fast at Cobra (cash flow, purchasing, sales rep performance, reporting…), all built on the same template — shared design system, common Odoo connection, standardized deployment. That whole dynamic deserves its own write-up: <strong>a dedicated guide is in the works</strong>.</p>
 
       <aside class="callout" style="margin-top:var(--space-12);">
         <h3>See also</h3>
         <ul style="margin-top:var(--space-3);">
-          <li><a href="../journal/dashboard-prix-concurrentiel-maison.html">The journal entry — the competitive price dashboard</a></li>
-          <li><a href="../journal/refonte-systeme-prix-cobra-price.html">The Odoo pricing-system overhaul (cobra_price)</a></li>
+          <li><a href="../journal/dashboard-prix-concurrentiel-maison.html">Journal entry — the competitive pricing dashboard</a></li>
+          <li><a href="../journal/refonte-systeme-prix-cobra-price.html">Rebuilding the Odoo pricing system (cobra_price)</a></li>
           <li><a href="etude-de-cas-agent-facturation.html">Case study — An agent that processes supplier invoices</a></li>
           <li><a href="faut-il-encore-acheter-un-erp.html">Do you still need to buy an ERP when AI lets you build your own?</a></li>
         </ul>
@@ -193,11 +191,10 @@
 
     <div class="btn-row" style="margin-top:var(--space-12);">
       <a class="btn btn--ghost" href="./">← All guides</a>
-      <a class="btn btn--primary" href="../#contact">Let's talk about it →</a>
+      <a class="btn btn--primary" href="../#contact">Let's talk →</a>
     </div>
   </div>
-</article>
-</main>
+</article></main>
 
 <script type="application/ld+json">
 {
