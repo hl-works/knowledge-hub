@@ -9,7 +9,7 @@
 {
 "url": "/knowledge-hub/journal/cobra-app-store-industrialisation.html",
 "title": "Le « Cobra App Store » continue de s'industrialiser",
-"excerpt": "Synthèse sur 5 sessions : le hub d'apps internes de Cobra (apps.cobra.fr) passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d'environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.",
+"excerpt": "Synthèse sur 5 sessions : le hub d'apps internes de Cobra passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d'environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.",
 "kind": "Journal",
 "tags": "infra strat meta en-cours cobra"
 },
@@ -30,7 +30,7 @@
 {
 "url": "/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html",
 "title": "Un dashboard de suivi prix concurrentiel construit maison, plutôt qu'un devis d'intégrateur",
-"excerpt": "Le cas build vs buy le plus direct de la période : un CDC de dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à 3-4 semaines de dev, envoyé à l'intégrateur en mars 2026 — resté « à valider avant développement », jamais lancé. La brique la plus technique (import/matching des prix via Wiser) tournait déjà en prod ; il manquait la couche de pilotage. Construite en interne avec Claude Code, en quelques jours, sur apps.cobra.fr.",
+"excerpt": "Le cas build vs buy le plus direct de la période : un CDC de dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à 3-4 semaines de dev, envoyé à l'intégrateur en mars 2026 — resté « à valider avant développement », jamais lancé. La brique la plus technique (import/matching des prix via Wiser) tournait déjà en prod ; il manquait la couche de pilotage. Construite en interne avec Claude Code, en quelques jours, sur notre hub d'apps internes.",
 "kind": "Journal",
 "tags": "data odoo-dev strat en-cours cobra"
 },
