@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A competitive price-tracking dashboard built in-house, rather than an integrator quote — Journal · Hugo Lahutte</title>
-<meta name="description" content="Build vs buy: a spec for a price-tracking dashboard (ABC scoring, rules engine, history) sent to the integrator in March 2026 stayed at to-be-validated-before-development. The missing control layer was finally built in-house with Claude Code, in a few days, on apps.cobra.fr.">
+<meta name="description" content="Build vs buy: a spec for a price-tracking dashboard (ABC scoring, rules engine, history) sent to the integrator in March 2026 stayed at to-be-validated-before-development. The missing control layer was finally built in-house with Claude Code, in a few days, on our internal app hub.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/journal/dashboard-prix-concurrentiel-maison.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/dashboard-prix-concurrentiel-maison.html">
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "A competitive price-tracking dashboard built in-house, rather than an integrator quote",
-  "description": "A competitive price-tracking dashboard (ABC scoring, rules engine, history) quoted by an external integrator and left pending, finally built in-house with Claude Code on apps.cobra.fr.",
+  "description": "A competitive price-tracking dashboard (ABC scoring, rules engine, history) quoted by an external integrator and left pending, finally built in-house with Claude Code on our internal app hub.",
   "inLanguage": "en-US",
   "datePublished": "2026-07-11",
   "dateModified": "2026-07-11",
@@ -95,14 +95,14 @@
         <li>ABC scoring of products (reusing a module already in place).</li>
         <li>A dashboard with clickable indicators, a product table groupable by brand / category, competitor columns.</li>
         <li>A detail view per competitor, with an <strong>"Align"</strong> button wired to the price-alignment assistant that already existed on the Odoo side.</li>
-        <li>Excel export, standard Cobra design system, deployment on the internal app hub (<code>apps.cobra.fr</code>).</li>
+        <li>Excel export, standard Cobra design system, deployment on our internal app hub.</li>
       </ul>
 
       <h3>What was hard</h3>
       <p>Precisely telling apart what had <strong>already been delivered</strong> (the import / matching, phase 1 of the spec) from what remained to build (the control layer, phase 2, never ordered) — so as to rebuild only the missing part, without starting over or duplicating the integrator's work.</p>
 
       <h3>Stack</h3>
-      <p>Standalone web app (Odoo sync → local database), Python, reuse of an existing Odoo wizard, Caddy (deployment on <code>apps.cobra.fr</code>).</p>
+      <p>Standalone web app (Odoo sync → local database), Python, reuse of an existing Odoo wizard, Caddy (deployment on our internal app hub).</p>
 
       <h3>What this illustrates</h3>
       <p>The most direct <em>build vs buy</em> case of the period: a business need clearly identified and quoted by an external provider, left pending for months — and finally built in-house, in a few days, with Claude, for a <strong>fraction of the originally estimated time</strong> (the spec mentioned 3 to 4 weeks of development for the rules-engine part alone).</p>

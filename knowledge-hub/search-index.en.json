@@ -9,7 +9,7 @@
  {
   "url": "/knowledge-hub/en/journal/cobra-app-store-industrialisation.html",
   "title": "The Cobra App Store keeps industrializing",
-  "excerpt": "A synthesis across 5 sessions: Cobra's internal app hub (apps.cobra.fr) goes, in a few weeks, from a few isolated critical apps to a genuine small standardized ecosystem — identical header everywhere, shared Odoo connection, refresh on a common cron. Two incidents (an overwritten version, a cron missing its env vars) caught within minutes thanks to the backup/compare discipline before every deploy.",
+  "excerpt": "A synthesis across 5 sessions: Cobra's internal app hub goes, in a few weeks, from a few isolated critical apps to a genuine small standardized ecosystem — identical header everywhere, shared Odoo connection, refresh on a common cron. Two incidents (an overwritten version, a cron missing its env vars) caught within minutes thanks to the backup/compare discipline before every deploy.",
   "kind": "Journal",
   "tags": "infra strat meta en-cours cobra"
  },
@@ -30,7 +30,7 @@
  {
   "url": "/knowledge-hub/en/journal/dashboard-prix-concurrentiel-maison.html",
   "title": "A competitive price-tracking dashboard built in-house, rather than an integrator quote",
-  "excerpt": "The most direct build-vs-buy case of the period: a spec for a competitive price-tracking dashboard (ABC scoring, rules engine, price history), estimated at 3-4 weeks of dev, sent to the integrator in March 2026 — left at to-be-validated-before-development, never started. The most technical brick (price import/matching via Wiser) was already running in production; the control layer was missing. Built in-house with Claude Code, in a few days, on apps.cobra.fr.",
+  "excerpt": "The most direct build-vs-buy case of the period: a spec for a competitive price-tracking dashboard (ABC scoring, rules engine, price history), estimated at 3-4 weeks of dev, sent to the integrator in March 2026 — left at to-be-validated-before-development, never started. The most technical brick (price import/matching via Wiser) was already running in production; the control layer was missing. Built in-house with Claude Code, in a few days, on our internal app hub.",
   "kind": "Journal",
   "tags": "data odoo-dev strat en-cours cobra"
  },

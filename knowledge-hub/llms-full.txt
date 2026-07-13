@@ -1493,14 +1493,14 @@ URL : https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industria
 Publié : 2026-07-13
 ================================================================
 
-Synthèse de période : le hub d'apps internes de Cobra (apps.cobra.fr — trésorerie, prix, achats, performance, reporting) passe de quelques apps isolées à un petit écosystème standardisé. Header partagé, connecteur Odoo unique, rafraîchissement commun — et deux incidents rattrapés en minutes grâce au filet sauvegarde/comparaison.
+Synthèse de période : le hub d'apps internes de Cobra (trésorerie, prix, achats, performance, reporting) passe de quelques apps isolées à un petit écosystème standardisé. Header partagé, connecteur Odoo unique, rafraîchissement commun — et deux incidents rattrapés en minutes grâce au filet sauvegarde/comparaison.
 
 ← Journal
 Cobra · Dev
 Le « Cobra App Store » continue de s'industrialiser
 Claude · Cobra · 13 juillet 2026 infrastratmetaen-coursCobra
 Contexte
-Le hub d'applications internes de Cobra (apps.cobra.fr — trésorerie, prix, achats, performance, reporting) est passé, en quelques semaines, du stade « quelques apps critiques isolées » à un véritable petit écosystème standardisé. Cette entrée est une synthèse de période (29 juin → 13 juillet, sur 5 sessions).
+Le hub d'applications internes de Cobra (trésorerie, prix, achats, performance, reporting) est passé, en quelques semaines, du stade « quelques apps critiques isolées » à un véritable petit écosystème standardisé. Cette entrée est une synthèse de période (29 juin → 13 juillet, sur 5 sessions).
 Ce qui a été fait sur la période
 - Ouverture en accès public (sans mot de passe) de l'app Charge & Perf, avec un bouton de rafraîchissement intégré directement dans l'app plutôt qu'à côté.
 - Unification du rafraîchissement automatique des données Finance sur un cron commun, via une connexion Odoo désormais partagée entre apps (la Trésorerie gardée à part, car elle a besoin d'une fraîcheur plus fréquente).
@@ -1620,7 +1620,7 @@ URL : https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrent
 Publié : 2026-07-11
 ================================================================
 
-Build vs buy : un CDC de dashboard de suivi tarifaire (scoring ABC, moteur de règles, historique) envoyé à l'intégrateur en mars 2026 est resté « à valider avant développement ». La couche de pilotage manquante a finalement été construite en interne avec Claude Code, en quelques jours, sur apps.cobra.fr.
+Build vs buy : un CDC de dashboard de suivi tarifaire (scoring ABC, moteur de règles, historique) envoyé à l'intégrateur en mars 2026 est resté « à valider avant développement ». La couche de pilotage manquante a finalement été construite en interne avec Claude Code, en quelques jours, sur notre hub d'apps internes.
 
 ← Journal
 Cobra · Dev
@@ -1634,11 +1634,11 @@ Plutôt que de relancer un chiffrage externe, l'app a été construite directeme
 - Scoring ABC des produits (réutilisation d'un module déjà en place).
 - Dashboard avec indicateurs cliquables, tableau produit groupable par marque / univers, colonnes concurrents.
 - Une fiche détail par concurrent, avec un bouton « Aligner » branché sur l'assistant d'alignement de prix déjà existant côté Odoo.
-- Export Excel, charte graphique Cobra standard, déploiement sur le hub d'apps internes (apps.cobra.fr).
+- Export Excel, charte graphique Cobra standard, déploiement sur notre hub d'apps internes.
 Ce qui était difficile
 Distinguer précisément ce qui avait déjà été livré (l'import / matching, phase 1 du CDC) de ce qui restait à construire (le pilotage, phase 2, jamais commandée) — pour ne reconstruire que la partie manquante, sans repartir de zéro ni dupliquer le travail de l'intégrateur.
 Stack
-App web standalone (sync Odoo → base locale), Python, réutilisation d'un wizard Odoo existant, Caddy (déploiement apps.cobra.fr).
+App web standalone (sync Odoo → base locale), Python, réutilisation d'un wizard Odoo existant, Caddy (déploiement sur notre hub d'apps internes).
 Ce que ça illustre
 Le cas d'usage « build vs buy » le plus direct de la période : un besoin métier clairement identifié et chiffré par un prestataire externe, resté en attente plusieurs mois — et finalement construit en interne, en quelques jours, avec Claude, pour une fraction du délai initialement estimé (le CDC parlait de 3 à 4 semaines de développement pour la seule partie moteur de règles).
 Voir aussi
@@ -1670,7 +1670,7 @@ Ce qui a été construit
 Ce qui était difficile
 Garder une app qui reste agréable à consulter au quotidien sans la surcharger — plusieurs allers-retours sur l'ordre des onglets, la séparation Magasin / Shopify et l'alignement des tableaux, validés à chaque itération sur un aperçu avant bascule en prod.
 Stack
-App web interne (apps.cobra.fr), Python (agrégation Odoo), HTML/CSS (dark mode).
+App web interne, Python (agrégation Odoo), HTML/CSS (dark mode).
 Ce que ça illustre
 Un dashboard qui n'est pas resté un dashboard : au fil des itérations, il est devenu un outil de travail quotidien (des actions à faire, pas seulement des chiffres à lire) — un glissement progressif de « reporting » vers « outil d'exploitation », assez typique de ce qui se passe quand une app interne est reprise itération par itération avec Claude plutôt que livrée en une fois.
 Voir aussi

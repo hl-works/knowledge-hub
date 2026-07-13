@@ -1345,14 +1345,14 @@ URL: https://hl-consulting.tech/knowledge-hub/en/journal/cobra-app-store-industr
 Published: 2026-07-13
 ================================================================
 
-Period synthesis: Cobra's internal app hub (apps.cobra.fr — treasury, pricing, purchasing, performance, reporting) goes from a few isolated apps to a small standardized ecosystem. Shared header, single Odoo connector, common refresh — and two incidents caught within minutes thanks to the backup/compare safety net.
+Period synthesis: Cobra's internal app hub (treasury, pricing, purchasing, performance, reporting) goes from a few isolated apps to a small standardized ecosystem. Shared header, single Odoo connector, common refresh — and two incidents caught within minutes thanks to the backup/compare safety net.
 
 ← Journal
 Cobra · Dev
 The Cobra App Store keeps industrializing
 Claude · Cobra · July 13, 2026 infrastratmetaen-coursCobra
 Context
-Cobra's internal app hub (apps.cobra.fr — treasury, pricing, purchasing, performance, reporting) went, in a few weeks, from a few isolated critical apps to a genuine small standardized ecosystem. This entry is a period synthesis (June 29 → July 13, across 5 sessions).
+Cobra's internal app hub (treasury, pricing, purchasing, performance, reporting) went, in a few weeks, from a few isolated critical apps to a genuine small standardized ecosystem. This entry is a period synthesis (June 29 → July 13, across 5 sessions).
 What happened over the period
 - Opened the Charge & Perf app to public access (no password), with a refresh button built directly into the app rather than sitting beside it.
 - Unified the automatic refresh of Finance data onto a common cron, via an Odoo connection now shared across apps (Treasury kept separate, since it needs a more frequent refresh).
@@ -1472,7 +1472,7 @@ URL: https://hl-consulting.tech/knowledge-hub/en/journal/dashboard-prix-concurre
 Published: 2026-07-11
 ================================================================
 
-Build vs buy: a spec for a price-tracking dashboard (ABC scoring, rules engine, history) sent to the integrator in March 2026 stayed at to-be-validated-before-development. The missing control layer was finally built in-house with Claude Code, in a few days, on apps.cobra.fr.
+Build vs buy: a spec for a price-tracking dashboard (ABC scoring, rules engine, history) sent to the integrator in March 2026 stayed at to-be-validated-before-development. The missing control layer was finally built in-house with Claude Code, in a few days, on our internal app hub.
 
 ← Journal
 Cobra · Dev
@@ -1486,11 +1486,11 @@ Rather than kicking off another external quote, the app was built directly with 
 - ABC scoring of products (reusing a module already in place).
 - A dashboard with clickable indicators, a product table groupable by brand / category, competitor columns.
 - A detail view per competitor, with an "Align" button wired to the price-alignment assistant that already existed on the Odoo side.
-- Excel export, standard Cobra design system, deployment on the internal app hub (apps.cobra.fr).
+- Excel export, standard Cobra design system, deployment on our internal app hub.
 What was hard
 Precisely telling apart what had already been delivered (the import / matching, phase 1 of the spec) from what remained to build (the control layer, phase 2, never ordered) — so as to rebuild only the missing part, without starting over or duplicating the integrator's work.
 Stack
-Standalone web app (Odoo sync → local database), Python, reuse of an existing Odoo wizard, Caddy (deployment on apps.cobra.fr).
+Standalone web app (Odoo sync → local database), Python, reuse of an existing Odoo wizard, Caddy (deployment on our internal app hub).
 What this illustrates
 The most direct build vs buy case of the period: a business need clearly identified and quoted by an external provider, left pending for months — and finally built in-house, in a few days, with Claude, for a fraction of the originally estimated time (the spec mentioned 3 to 4 weeks of development for the rules-engine part alone).
 See also
@@ -1522,7 +1522,7 @@ What was built
 What was hard
 Keeping an app that stays pleasant to check daily without overloading it — several round-trips on the tab order, the Store / Shopify separation and table alignment, validated at each iteration on a preview before switching to production.
 Stack
-Internal web app (apps.cobra.fr), Python (Odoo aggregation), HTML/CSS (dark mode).
+Internal web app, Python (Odoo aggregation), HTML/CSS (dark mode).
 What this illustrates
 A dashboard that didn't stay a dashboard: over the iterations it became a daily working tool (things to do, not just numbers to read) — a gradual shift from "reporting" to "operating tool", fairly typical of what happens when an internal app is picked up iteration by iteration with Claude rather than delivered all at once.
 See also

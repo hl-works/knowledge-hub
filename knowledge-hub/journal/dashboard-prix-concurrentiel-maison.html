@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Un dashboard de suivi prix concurrentiel construit maison, plutôt qu'un devis d'intégrateur — Journal · Hugo Lahutte</title>
-<meta name="description" content="Build vs buy : un CDC de dashboard de suivi tarifaire (scoring ABC, moteur de règles, historique) envoyé à l'intégrateur en mars 2026 est resté « à valider avant développement ». La couche de pilotage manquante a finalement été construite en interne avec Claude Code, en quelques jours, sur apps.cobra.fr.">
+<meta name="description" content="Build vs buy : un CDC de dashboard de suivi tarifaire (scoring ABC, moteur de règles, historique) envoyé à l'intégrateur en mars 2026 est resté « à valider avant développement ». La couche de pilotage manquante a finalement été construite en interne avec Claude Code, en quelques jours, sur notre hub d'apps internes.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/dashboard-prix-concurrentiel-maison.html">
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Un dashboard de suivi prix concurrentiel construit maison, plutôt qu'un devis d'intégrateur",
-  "description": "Un dashboard de suivi prix concurrentiel (scoring ABC, moteur de règles, historique) chiffré par un intégrateur externe et resté en attente, finalement construit en interne avec Claude Code sur apps.cobra.fr.",
+  "description": "Un dashboard de suivi prix concurrentiel (scoring ABC, moteur de règles, historique) chiffré par un intégrateur externe et resté en attente, finalement construit en interne avec Claude Code sur notre hub d'apps internes.",
   "inLanguage": "fr-FR",
   "datePublished": "2026-07-11",
   "dateModified": "2026-07-11",
@@ -95,14 +95,14 @@
         <li>Scoring ABC des produits (réutilisation d'un module déjà en place).</li>
         <li>Dashboard avec indicateurs cliquables, tableau produit groupable par marque / univers, colonnes concurrents.</li>
         <li>Une fiche détail par concurrent, avec un bouton <strong>« Aligner »</strong> branché sur l'assistant d'alignement de prix déjà existant côté Odoo.</li>
-        <li>Export Excel, charte graphique Cobra standard, déploiement sur le hub d'apps internes (<code>apps.cobra.fr</code>).</li>
+        <li>Export Excel, charte graphique Cobra standard, déploiement sur notre hub d'apps internes.</li>
       </ul>
 
       <h3>Ce qui était difficile</h3>
       <p>Distinguer précisément ce qui avait <strong>déjà été livré</strong> (l'import / matching, phase 1 du CDC) de ce qui restait à construire (le pilotage, phase 2, jamais commandée) — pour ne reconstruire que la partie manquante, sans repartir de zéro ni dupliquer le travail de l'intégrateur.</p>
 
       <h3>Stack</h3>
-      <p>App web standalone (sync Odoo → base locale), Python, réutilisation d'un wizard Odoo existant, Caddy (déploiement <code>apps.cobra.fr</code>).</p>
+      <p>App web standalone (sync Odoo → base locale), Python, réutilisation d'un wizard Odoo existant, Caddy (déploiement sur notre hub d'apps internes).</p>
 
       <h3>Ce que ça illustre</h3>
       <p>Le cas d'usage <em>« build vs buy »</em> le plus direct de la période : un besoin métier clairement identifié et chiffré par un prestataire externe, resté en attente plusieurs mois — et finalement construit en interne, en quelques jours, avec Claude, pour une <strong>fraction du délai initialement estimé</strong> (le CDC parlait de 3 à 4 semaines de développement pour la seule partie moteur de règles).</p>
