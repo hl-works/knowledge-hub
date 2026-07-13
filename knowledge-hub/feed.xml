@@ -18,7 +18,7 @@
 <link>https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industrialisation.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industrialisation.html</guid>
 <pubDate>Mon, 13 Jul 2026 08:00:00 +0000</pubDate>
-<description>Synthèse sur 5 sessions : le hub d&#x27;apps internes de Cobra (apps.cobra.fr) passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d&#x27;environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.</description>
+<description>Synthèse sur 5 sessions : le hub d&#x27;apps internes de Cobra passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d&#x27;environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.</description>
 </item>
 <item>
 <title>Refonte du système de prix Odoo (cobra_price) : une seule source de vérité</title>
@@ -39,7 +39,7 @@
 <link>https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html</guid>
 <pubDate>Sat, 11 Jul 2026 08:00:00 +0000</pubDate>
-<description>Le cas build vs buy le plus direct de la période : un CDC de dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à 3-4 semaines de dev, envoyé à l&#x27;intégrateur en mars 2026 — resté « à valider avant développement », jamais lancé. La brique la plus technique (import/matching des prix via Wiser) tournait déjà en prod ; il manquait la couche de pilotage. Construite en interne avec Claude Code, en quelques jours, sur apps.cobra.fr.</description>
+<description>Le cas build vs buy le plus direct de la période : un CDC de dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à 3-4 semaines de dev, envoyé à l&#x27;intégrateur en mars 2026 — resté « à valider avant développement », jamais lancé. La brique la plus technique (import/matching des prix via Wiser) tournait déjà en prod ; il manquait la couche de pilotage. Construite en interne avec Claude Code, en quelques jours, sur notre hub d&#x27;apps internes.</description>
 </item>
 <item>
 <title>Un retard fournisseur de 200 000 € soldé en une semaine, ligne par ligne</title>
