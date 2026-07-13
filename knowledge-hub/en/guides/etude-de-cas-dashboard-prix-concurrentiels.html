@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Case study — A competitive price-tracking dashboard built in-house — Guides · Hugo Lahutte</title>
+<meta name="description" content="Build in public: the competitor price data (Wiser) was already in production, delivered by the integrator. The control layer was missing — quoted at several weeks and left pending. We built it in-house with Claude Code, in a few days: ABC scoring, competitor columns, an Align button. The most direct build-vs-buy case of the year.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Case study — A competitive price-tracking dashboard built in-house">
+<meta property="og:description" content="The competitor data (Wiser) was already in production. The control layer was missing, quoted at several weeks and left pending. Built in-house with Claude Code in a few days. The most direct build-vs-buy case of the year.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-07-13">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+
+<!-- ===== JSON-LD (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Case study — A competitive price-tracking dashboard built in-house",
+      "description": "The competitor price data (Wiser) was already delivered by the integrator and in production. The missing control layer, quoted at several weeks, was built in-house with Claude Code in a few days.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-07-13",
+      "dateModified": "2026-07-13",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html",
+      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "about": ["build vs buy", "competitive pricing", "Wiser", "Odoo", "Claude Code", "ABC scoring", "pricing", "build in public"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Case study — Competitive price dashboard", "item": "https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Case study — Competitive price dashboard</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Case study · Build in public · Cobra</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">A competitive price dashboard,<br>built in-house</h1>
+    <hr class="rule--accent">
+    <p class="lead">The data was already there — competitor prices, collected via Wiser and integrated by our provider, running in production. What was missing was the <strong>control layer</strong> to actually do something with it: a spec, quoted at several weeks, left pending. We built it in-house with Claude Code, in a few days. The most direct <strong>build vs buy</strong> case of the year.</p>
+    <div class="meta-bar">
+      <span>By <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-07-13">July 13, 2026</time>
+      <span>·</span>
+      <span>~8 min read</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="build-in-public" data-tagsearch="build-in-public" href="/knowledge-hub/en/guides/">build in public</a><a class="tag" data-tag="build-vs-buy" data-tagsearch="build-vs-buy" href="/knowledge-hub/en/guides/">build vs buy</a><a class="tag" data-tag="prix" data-tagsearch="prix" href="/knowledge-hub/en/guides/">prix</a><a class="tag" data-tag="wiser" data-tagsearch="wiser" href="/knowledge-hub/en/guides/">Wiser</a><a class="tag" data-tag="odoo" data-tagsearch="odoo" href="/knowledge-hub/en/guides/">Odoo</a><a class="tag" data-tag="claude-code" data-tagsearch="claude-code" href="/knowledge-hub/en/guides/">Claude Code</a></div>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <nav class="toc prose" aria-label="Contents">
+      <p class="kicker">Contents</p>
+      <ul>
+        <li><a href="#besoin">1. The need: steering your prices against the competition</a></li>
+        <li><a href="#donnee">2. The data already existed — delivered by the integrator</a></li>
+        <li><a href="#devis">3. The quote left pending</a></li>
+        <li><a href="#cadrer">4. Scoping the gap precisely</a></li>
+        <li><a href="#fondation">5. The foundation: a price that means something</a></li>
+        <li><a href="#build">6. What we built (first version)</a></li>
+        <li><a href="#calcul">7. Build vs buy: the real math</a></li>
+        <li><a href="#suite">What's next</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="besoin">1. The need: steering your prices against the competition</h2>
+      <p>In specialty retail, price is a permanent battlefield. Knowing, product by product, where you stand against competitors — cheaper, aligned, more expensive — isn't a comfort: it's the basis for deciding where to defend your margin and where to align so you don't lose the sale. But that information has to be <strong>readable and actionable</strong>, not buried in an unreadable export you open once a quarter.</p>
+      <p>At Cobra, the raw material already existed. What was missing was the tool to <em>look</em> at it and <em>act</em> on it.</p>
+
+      <h2 id="donnee">2. The data already existed — delivered by the integrator</h2>
+      <p>The most technical brick — <strong>importing and matching competitor prices</strong> via the <strong>Wiser</strong> tool (a price-intelligence platform that collects the prices charged elsewhere and matches them to our catalog) — had already been delivered by our external integrator (Irokoo) and <strong>was running in production</strong>. Competitor prices were coming into the system, attached to the right products.</p>
+      <p>In other words: the "data" part of the problem was solved, and solved well. The gap was elsewhere — in the layer <strong>above</strong> the data.</p>
+
+      <h2 id="devis">3. The quote left pending</h2>
+      <p>A spec had in fact been sent to the integrator on <strong>March 19, 2026</strong> for that missing layer: a price-tracking dashboard (product ABC scoring, an alignment rules engine, price history), estimated at <strong>several weeks of development</strong>. That spec stayed at <em>"to be validated before development"</em> — never started, never billed.</p>
+      <p>Not a dramatic blocker: just a project waiting its turn, like dozens of others. Except that with Claude Code, "waiting its turn" no longer carries quite the same opportunity cost.</p>
+
+      <h2 id="cadrer">4. Scoping the gap precisely</h2>
+      <p>Before building anything, we had to clearly separate <strong>what was already delivered</strong> (the import / matching, phase 1) from <strong>what was left to do</strong> (the control layer, phase 2, never ordered) — so as to rebuild only the missing part, without starting over or duplicating the integrator's work.</p>
+      <p>To precisely scope what the Wiser tool actually exposed (and therefore what the dashboard needed to show), we went about it differently than with yet another scoping workshop: thanks to <strong>Claude's built-in browser</strong> — a recent capability, Claude can now open a page and <em>watch</em> it — we had it view a <a href="https://www.youtube.com/watch?v=Yx6VcPhfAxM" target="_blank" rel="noopener">Wiser presentation video</a> and extract the features and data actually available. Enough to turn a demo into a <strong>concrete list of requirements</strong>, without going back to the provider.</p>
+      <aside class="callout">
+        <p class="kicker">The reflex that changes everything</p>
+        <p style="margin-top:var(--space-3);">The question is no longer <em>"how much does it cost to have this developed?"</em> but <em>"what already exists, and what's the smallest piece I'm actually missing?"</em>. Scoping the gap well is already half the savings.</p>
+      </aside>
+
+      <h2 id="fondation">5. The foundation: a price that means something</h2>
+      <p>A price-alignment dashboard is only worth it if "aligning a price" writes to the right place. That's the whole point of having, in parallel, <a href="../journal/refonte-systeme-prix-cobra-price.html">overhauled the Odoo pricing system</a> around a single field, the source of truth, that drives quotes, sales and Shopify sync. Without that foundation, an "Align" button would be wishful thinking; with it, it changes <strong>the</strong> price, everywhere, at once.</p>
+
+      <h2 id="build">6. What we built (first version)</h2>
+      <p>Rather than kicking off another external quote, the app was built directly with Claude Code — a <strong>first version</strong>, already being deployed:</p>
+      <ul>
+        <li>Syncing Odoo data into a dedicated local database.</li>
+        <li><strong>ABC scoring</strong> of products, reusing a module already in place rather than rebuilding it.</li>
+        <li>A dashboard with clickable indicators and a product table <strong>groupable by brand / category</strong>, with the competitor columns alongside.</li>
+        <li>A detail view per competitor, with an <strong>"Align"</strong> button wired to the price-alignment assistant that already existed on the Odoo side — so a click that really writes the new price.</li>
+        <li>Excel export, standard Cobra design system, and deployment on our <strong>internal app hub</strong>.</li>
+      </ul>
+      <p>Nothing speculative: we built exactly the missing piece, leaning on everything that already existed (the Wiser data, the scoring, the alignment assistant, the overhauled pricing system).</p>
+
+      <h2 id="calcul">7. Build vs buy: the real math</h2>
+      <p>The spec mentioned <strong>3 to 4 weeks of development</strong> for the rules-engine part alone. The first version was built in-house in <strong>a few days</strong>, for a fraction of that time — and above all, keeping control: each iteration is settled live, with no quoting round-trip.</p>
+      <p>The lesson isn't <em>"never use an integrator again"</em>. Quite the opposite: the integrator had delivered the hardest brick (the Wiser import / matching), and it's precisely because that base was solid that we could build fast on top of it. The real <strong>build vs buy</strong> math isn't "do everything yourself" — it's <strong>buy what's hard and standard, build what's specific and changing</strong>.</p>
+
+      <h2 id="suite">What's next</h2>
+      <p>This dashboard isn't a standalone object: it joins a <strong>small ecosystem of internal apps</strong> growing fast at Cobra (treasury, purchasing, sales performance, reporting…), all built on the same mold — shared design system, shared Odoo connection, standardized deployment. That dynamic deserves its own story: <strong>a dedicated guide is in preparation</strong>.</p>
+
+      <aside class="callout" style="margin-top:var(--space-12);">
+        <h3>See also</h3>
+        <ul style="margin-top:var(--space-3);">
+          <li><a href="../journal/dashboard-prix-concurrentiel-maison.html">The journal entry — the competitive price dashboard</a></li>
+          <li><a href="../journal/refonte-systeme-prix-cobra-price.html">The Odoo pricing-system overhaul (cobra_price)</a></li>
+          <li><a href="etude-de-cas-agent-facturation.html">Case study — An agent that processes supplier invoices</a></li>
+          <li><a href="faut-il-encore-acheter-un-erp.html">Do you still need to buy an ERP when AI lets you build your own?</a></li>
+        </ul>
+      </aside>
+
+    </div>
+
+    <div class="btn-row" style="margin-top:var(--space-12);">
+      <a class="btn btn--ghost" href="./">← All guides</a>
+      <a class="btn btn--primary" href="../#contact">Let's talk about it →</a>
+    </div>
+  </div>
+</article>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexicon", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependency</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private space">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

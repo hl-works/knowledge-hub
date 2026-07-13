@@ -217,6 +217,13 @@
 "tags": "build-in-public agent-ia api-claude github-actions guide"
 },
 {
+"url": "/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html",
+"title": "Étude de cas — Un dashboard de prix concurrentiels construit maison",
+"excerpt": "La donnée de prix concurrents (Wiser) était déjà livrée par l'intégrateur (Irokoo) et en prod. Il manquait la couche de pilotage, chiffrée à plusieurs semaines et restée en attente. Construite en interne avec Claude Code en quelques jours, sur la base de la refonte cobra_price. Le cas build vs buy le plus direct de l'année — cadrage aidé par le navigateur intégré de Claude (analyse d'une vidéo Wiser).",
+"kind": "Guide",
+"tags": "build-in-public build-vs-buy prix wiser odoo claude-code guide"
+},
+{
 "url": "/knowledge-hub/guides/etude-de-cas-agent-facturation.html",
 "title": "Étude de cas — Un agent IA qui traite les factures fournisseurs dans Odoo",
 "excerpt": "Un agent autonome qui lit les mails (Microsoft Graph), extrait les factures (OCR + API Claude), les rattache à la commande Odoo (3-way match garanti, contrôle prix) et les pousse pour validation dans Teams. Hébergé sur une instance Scaleway, cron 15 min. La dérive humaine chiffrée (~2 M€ hors-chaîne) et un workflow qui ne peut plus dériver.",

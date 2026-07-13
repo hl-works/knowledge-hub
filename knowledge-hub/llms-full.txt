@@ -1253,6 +1253,56 @@ Pour aller plus loin
 
 ================================================================
 ÉTUDE DE CAS
+URL : https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html
+Publié : 2026-07-13
+================================================================
+
+Build in public : la donnée de prix concurrents (Wiser) était déjà en prod, livrée par l'intégrateur. Il manquait la couche de pilotage — chiffrée à plusieurs semaines et restée en attente. On l'a construite en interne avec Claude Code, en quelques jours : scoring ABC, colonnes concurrents, bouton Aligner. Le cas build vs buy le plus direct de l'année.
+
+Accueil › Guides › Étude de cas — Dashboard prix concurrentiels
+Étude de cas · Build in public · Cobra
+Un dashboard de prix concurrentiels,construit maison
+La donnée était déjà là — les prix des concurrents, récupérés via Wiser et intégrés par notre prestataire, tournaient en prod. Il manquait la couche de pilotage pour en faire quelque chose : un cahier des charges, chiffré à plusieurs semaines, resté en attente. On l'a construite en interne avec Claude Code, en quelques jours. Le cas build vs buy le plus direct de l'année.
+Par Hugo Lahutte · 13 juillet 2026 · ~8 min de lecture build in publicbuild vs buyprixWiserOdooClaude Code
+1. Le besoin : piloter ses prix face à la concurrence
+Dans le retail spécialisé, le prix est un champ de bataille permanent. Savoir, produit par produit, où on se situe face aux concurrents — moins cher, aligné, plus cher — n'est pas un confort : c'est la base pour décider où défendre sa marge et où s'aligner pour ne pas perdre la vente. Encore faut-il que cette information soit lisible et actionnable, pas noyée dans un export illisible qu'on ouvre une fois par trimestre.
+Chez Cobra, la matière première existait déjà. Ce qui manquait, c'était l'outil pour la regarder et agir dessus.
+2. La donnée existait déjà — livrée par l'intégrateur
+La brique la plus technique — l'import et le matching des prix concurrents via l'outil Wiser (une plateforme d'intelligence tarifaire qui va relever les prix pratiqués ailleurs et les rapprocher de notre catalogue) — avait déjà été livrée par notre intégrateur externe (Irokoo) et tournait en production. Les prix concurrents arrivaient bien dans le système, rattachés aux bons produits.
+Autrement dit : la partie « données » du problème était réglée, et bien réglée. Le trou était ailleurs — dans la couche au-dessus de la donnée.
+3. Le devis resté en attente
+Un cahier des charges avait justement été envoyé à l'intégrateur le 19 mars 2026 pour cette couche manquante : un dashboard de suivi tarifaire (scoring ABC des produits, moteur de règles d'alignement, historique de prix), estimé à plusieurs semaines de développement. Ce CDC est resté au statut « à valider avant développement » — jamais lancé, jamais facturé.
+Pas un blocage dramatique : juste un projet qui attend son tour, comme il en existe des dizaines. Sauf qu'avec Claude Code, « attendre son tour » n'a plus tout à fait le même coût d'opportunité.
+4. Cadrer précisément le manque
+Avant de construire quoi que ce soit, il fallait séparer nettement ce qui était déjà livré (l'import / matching, phase 1) de ce qui restait à faire (le pilotage, phase 2, jamais commandée) — pour ne reconstruire que la partie manquante, sans repartir de zéro ni dupliquer le travail de l'intégrateur.
+Pour cadrer précisément ce que l'outil Wiser exposait réellement (et donc ce que le dashboard devait afficher), on a procédé autrement qu'avec un énième atelier de cadrage : grâce au navigateur intégré de Claude — une capacité récente, Claude peut désormais ouvrir une page et la regarder — on lui a fait visionner une vidéo de présentation de Wiser et en extraire les fonctionnalités et les données réellement disponibles. De quoi transformer une démo en liste de besoins concrets, sans re-solliciter le prestataire.
+Le réflexe qui change tout
+La question n'est plus « combien ça coûte de faire développer ça ? » mais « qu'est-ce qui existe déjà, et quelle est la plus petite pièce qui me manque vraiment ? ». Bien cadrer le manque, c'est déjà la moitié de l'économie.
+5. La fondation : un prix qui a du sens
+Un dashboard d'alignement de prix ne vaut que si « aligner un prix » écrit au bon endroit. C'est tout l'intérêt d'avoir, en parallèle, refondu le système de prix Odoo autour d'un champ unique, source de vérité, qui pilote devis, ventes et synchronisation Shopify. Sans cette fondation, un bouton « Aligner » ne serait qu'un vœu pieux ; avec elle, il modifie le prix, partout, d'un coup.
+6. Ce qu'on a construit (première version)
+Plutôt que de relancer un chiffrage externe, l'app a été construite directement avec Claude Code — une première version, déjà en cours de déploiement :
+- Synchronisation des données Odoo vers une base locale dédiée.
+- Scoring ABC des produits, en réutilisant un module déjà en place plutôt que de le refaire.
+- Un dashboard avec des indicateurs cliquables et un tableau produit groupable par marque / univers, avec les colonnes concurrents en face.
+- Une fiche détail par concurrent, avec un bouton « Aligner » branché sur l'assistant d'alignement de prix déjà existant côté Odoo — donc un clic qui écrit vraiment le nouveau prix.
+- Export Excel, charte graphique Cobra standard, et déploiement sur notre hub d'applications internes.
+Rien de spéculatif : on a construit exactement la pièce manquante, en s'appuyant sur tout ce qui existait déjà (la donnée Wiser, le scoring, l'assistant d'alignement, le système de prix refondu).
+7. Build vs buy : le vrai calcul
+Le CDC parlait de 3 à 4 semaines de développement pour la seule partie moteur de règles. La première version a été construite en interne en quelques jours, pour une fraction de ce délai — et surtout, en gardant la main : chaque itération se règle en direct, sans aller-retour de chiffrage.
+La leçon n'est pas « il ne faut plus jamais faire appel à un intégrateur ». Au contraire : l'intégrateur avait livré la brique la plus dure (l'import / matching Wiser), et c'est précisément parce que cette base était solide qu'on a pu construire vite par-dessus. Le vrai calcul build vs buy n'est pas « tout faire soi-même » — c'est acheter ce qui est difficile et standard, construire ce qui est spécifique et changeant.
+Et après
+Ce dashboard n'est pas un objet isolé : il rejoint un petit écosystème d'applications internes qui grandit vite chez Cobra (trésorerie, achats, performance vendeur, reporting…), toutes bâties sur le même moule — charte commune, connexion Odoo partagée, déploiement standardisé. Cette dynamique-là mérite son propre récit : un guide dédié est en préparation.
+Voir aussi
+- L'entrée de journal — le dashboard prix concurrentiel
+- La refonte du système de prix Odoo (cobra_price)
+- Étude de cas — Un agent qui traite les factures fournisseurs
+- Faut-il encore acheter un ERP quand l'IA permet de construire le sien ?
+← Tous les guides En discuter →
+
+
+================================================================
+ÉTUDE DE CAS
 URL : https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-agent-facturation.html
 Publié : 2026-06-17
 ================================================================
