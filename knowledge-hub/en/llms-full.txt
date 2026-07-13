@@ -57,6 +57,142 @@ Read the entry: Custom Claude instruction system →
 
 
 ================================================================
+CASE STUDY
+URL: https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html
+Published: 2026-07-13
+================================================================
+
+Build in public: the competitor price data (Wiser) was already in production, delivered by the integrator. The control layer was missing — quoted at several weeks and left pending. We built it in-house with Claude Code, in a few days: ABC scoring, competitor columns, an Align button. The most direct build-vs-buy case of the year.
+
+Home › Guides › Case study — Competitive price dashboard
+Case study · Build in public · Cobra
+A competitive price dashboard,built in-house
+The data was already there — competitor prices, collected via Wiser and integrated by our provider, running in production. What was missing was the control layer to actually do something with it: a spec, quoted at several weeks, left pending. We built it in-house with Claude Code, in a few days. The most direct build vs buy case of the year.
+By Hugo Lahutte · July 13, 2026 · ~8 min read build in publicbuild vs buyprixWiserOdooClaude Code
+1. The need: steering your prices against the competition
+In specialty retail, price is a permanent battlefield. Knowing, product by product, where you stand against competitors — cheaper, aligned, more expensive — isn't a comfort: it's the basis for deciding where to defend your margin and where to align so you don't lose the sale. But that information has to be readable and actionable, not buried in an unreadable export you open once a quarter.
+At Cobra, the raw material already existed. What was missing was the tool to look at it and act on it.
+2. The data already existed — delivered by the integrator
+The most technical brick — importing and matching competitor prices via the Wiser tool (a price-intelligence platform that collects the prices charged elsewhere and matches them to our catalog) — had already been delivered by our external integrator (Irokoo) and was running in production. Competitor prices were coming into the system, attached to the right products.
+In other words: the "data" part of the problem was solved, and solved well. The gap was elsewhere — in the layer above the data.
+3. The quote left pending
+A spec had in fact been sent to the integrator on March 19, 2026 for that missing layer: a price-tracking dashboard (product ABC scoring, an alignment rules engine, price history), estimated at several weeks of development. That spec stayed at "to be validated before development" — never started, never billed.
+Not a dramatic blocker: just a project waiting its turn, like dozens of others. Except that with Claude Code, "waiting its turn" no longer carries quite the same opportunity cost.
+4. Scoping the gap precisely
+Before building anything, we had to clearly separate what was already delivered (the import / matching, phase 1) from what was left to do (the control layer, phase 2, never ordered) — so as to rebuild only the missing part, without starting over or duplicating the integrator's work.
+To precisely scope what the Wiser tool actually exposed (and therefore what the dashboard needed to show), we went about it differently than with yet another scoping workshop: thanks to Claude's built-in browser — a recent capability, Claude can now open a page and watch it — we had it view a Wiser presentation video and extract the features and data actually available. Enough to turn a demo into a concrete list of requirements, without going back to the provider.
+The reflex that changes everything
+The question is no longer "how much does it cost to have this developed?" but "what already exists, and what's the smallest piece I'm actually missing?". Scoping the gap well is already half the savings.
+5. The foundation: a price that means something
+A price-alignment dashboard is only worth it if "aligning a price" writes to the right place. That's the whole point of having, in parallel, overhauled the Odoo pricing system around a single field, the source of truth, that drives quotes, sales and Shopify sync. Without that foundation, an "Align" button would be wishful thinking; with it, it changes the price, everywhere, at once.
+6. What we built (first version)
+Rather than kicking off another external quote, the app was built directly with Claude Code — a first version, already being deployed:
+- Syncing Odoo data into a dedicated local database.
+- ABC scoring of products, reusing a module already in place rather than rebuilding it.
+- A dashboard with clickable indicators and a product table groupable by brand / category, with the competitor columns alongside.
+- A detail view per competitor, with an "Align" button wired to the price-alignment assistant that already existed on the Odoo side — so a click that really writes the new price.
+- Excel export, standard Cobra design system, and deployment on our internal app hub.
+Nothing speculative: we built exactly the missing piece, leaning on everything that already existed (the Wiser data, the scoring, the alignment assistant, the overhauled pricing system).
+7. Build vs buy: the real math
+The spec mentioned 3 to 4 weeks of development for the rules-engine part alone. The first version was built in-house in a few days, for a fraction of that time — and above all, keeping control: each iteration is settled live, with no quoting round-trip.
+The lesson isn't "never use an integrator again". Quite the opposite: the integrator had delivered the hardest brick (the Wiser import / matching), and it's precisely because that base was solid that we could build fast on top of it. The real build vs buy math isn't "do everything yourself" — it's buy what's hard and standard, build what's specific and changing.
+What's next
+This dashboard isn't a standalone object: it joins a small ecosystem of internal apps growing fast at Cobra (treasury, purchasing, sales performance, reporting…), all built on the same mold — shared design system, shared Odoo connection, standardized deployment. That dynamic deserves its own story: a dedicated guide is in preparation.
+See also
+- The journal entry — the competitive price dashboard
+- The Odoo pricing-system overhaul (cobra_price)
+- Case study — An agent that processes supplier invoices
+- Do you still need to buy an ERP when AI lets you build your own?
+← All guides Let's talk about it →
+
+
+================================================================
+CASE STUDY
+URL: https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-agent-facturation.html
+Published: 2026-06-17
+================================================================
+
+Build in public: an autonomous agent that reads supplier emails, extracts invoices, links them to the right purchase order in Odoo, and pushes them for approval in Teams. Hosted on Scaleway, triggered every 15 min. The real win isn't speed: it's a workflow that no longer drifts.
+
+Home › Guides › Case study — Supplier invoice agent
+Case study · Build in public · Cobra
+An agent that processessupplier invoices
+It reads emails, extracts each invoice, links it to the right purchase order in Odoo, checks prices, and pushes it for one-click approval in Teams. Hosted on a Scaleway instance, triggered every 15 minutes. The real win isn't speed — it's a workflow that can no longer drift.
+By Hugo Lahutte · June 17, 2026 · ~10 min read build in publicagent IAOdooAPI ClaudeScalewayTeams The full flow: emails → extraction → line-by-line matching against the PO → Teams card → Odoo write. Design details in the "architecture" journal entry.
+1. The real problem: not speed, discipline
+Odoo has been in place at Cobra since February 2025. On paper, the accounting chain is crystal clear: sales order (SO) → purchase order (PO) → invoice → payment → SEPA batch. Each invoice should point to the order that triggered it — that's what enables the 3-way match (order / receipt / invoice), and therefore automatic price and quantity checks.
+In real life, this chain was never applied properly. The accounts-payable setup in place never mastered the tool: invoices were entered "flat," disconnected from their original order, payments rarely reconciled correctly. The result: an Odoo full of unreadable entries, and a chain impossible to follow end to end.
+The angle of this piece
+A rushed human skips linking to the order. Not out of carelessness — because it's the tedious step, and no alarm goes off when you forget it. Discipline doesn't hold over time. A coded rule does. That's the whole point of handing this to an agent: not "go faster," but make the error impossible by design.
+2. The drift, quantified
+Before writing a single line, we measured the database's real state (read-only, via XML-RPC). The numbers speak for themselves — out of 5,450 supplier invoices posted since February 2025:
+Symptom of the driftCountAmount Invoices with no link to a purchase order (PO)1,524€2,032,524 incl. tax Unpaid / partial for more than 2 months241€600,531 still to pay — of which prior to 2026 (5-6 months and up)130€371,762 In plain terms: ~€2M of supplier invoices entered off-chain, with no link to any order, and €600k of unpaid invoices lingering for more than two months. That's the cost of the drift — and precisely what the agent keeps from happening again.
+An honest caveat, because this site is build in public and not brochure mode: the drift is mostly historical. Of the invoices detached from an order, 1,379 are old (> 2 months) versus 145 recent. It improved over time — but those 145 recent ones prove that without an automatic constraint, human data entry drifts again, every time.
+Making the chain readable: the 3 statuses on the order
+First building block, on the Odoo side: I added three fields on the purchase order (purchase.order) to expose the full state directly from the PO — before, you had to dig through invoices and payments separately.
+FieldReads asOn confirmed POs DeliveredGoods received?full 3,439 · partial 77 · no 309 InvoicedInvoice received and linked?full 3,319 · partial 144 · no 362 PaidSettled?full 3,003 · partial 147 · no 675 At a glance on an order: delivered? invoiced? paid? The chain becomes readable again — which was impossible with invoices detached from their order.
+Why the paid status is vital here
+Cobra carries almost no supplier payables: most suppliers are paid on receipt or on short terms. So knowing at any moment what's invoiced and paid, order by order, isn't accounting comfort — it's cash-flow management. An invoice detached from its order is a payment you risk forgetting… or paying twice. That's exactly what these statuses, and their automatic tracking, make impossible.
+The purchasing control tower in Odoo: each order shows its delivered / invoiced / paid state, and the tiles aggregate unpaid amounts in real time. With no supplier payables, this is the view that drives cash flow.
+The detail of an order, augmented with the 3 statuses that make the chain readable end to end.
+3. What the agent does (and why it can't drift)
+The agent doesn't "help" you enter data better. It replaces data entry with a workflow it's incapable of not following. An invoice's journey, end to end:
+- Invoice collection (two sources). Every 15 minutes, the agent picks up invoices wherever they land: PDFs already attached to orders in Odoo (source A), and above all the mailboxes where suppliers converge — including a catch-all — via the Microsoft Graph API (sources B/C). It spots the attachments and email bodies that are invoices, and deduplicates (SHA-256 + message ID).
+- Extraction. Depending on the supplier, each invoice is read either by a dedicated parser (known, structured formats, highly reliable) or — the general case — by OCR + Claude API (Opus 4.8 model). Either way, the output is a clean structure with a confidence score: supplier, number, date, lines, amounts, VAT, WEEE, shipping.
+- Line-by-line matching. Each line is matched to the exact order line (identification hierarchy: supplier code → EAN → name → price), handling the silent traps (pair/unit quantities, WEEE and shipping bundled in or as a separate line).
+- Blocking checks. Duplicate? Price gap > 5%? Order not found? → the invoice doesn't go to draft: it's parked for human handling (the "intervention" channel, or "to sort" if there's no readable order reference in the document).
+- Human approval in Teams. A card (Adaptive Card) summarizes the invoice and offers the actions in one click. The human never touches the Odoo interface again, except for the weekly SEPA batch.
+The four guardrails that make drift structurally impossible:
+- Linking guaranteed by design. Every invoice line created points to the exact order line (purchase_line_id) and fills in the source automatically. The agent can't create a "free" invoice. 100% of what it creates is linked to its order — versus the 28% detached in the human history.
+- Duplicate prevention. It refuses to create if the supplier reference already exists, or if the order line is already invoiced.
+- Price consistency. Invoice vs order gap > 5% → block and request a corrected invoice from the supplier, before any write.
+- Consistency. The same rules, every 15 minutes, on every invoice, indefinitely. Code doesn't get tired, never skips the tedious step.
+The price-gap check, in code
+The "price consistency" guardrail isn't wishful thinking: it's a coded rule that blocks before any write to Odoo. Beyond a 5% gap between the invoiced price and the price negotiated on the order, the agent creates nothing — the invoice is parked and flagged.
+TOLERANCE_PRIX = 0.05 # 5%: beyond this, we create NOTHING, the invoice goes to intervention def controle_ecart_prix(ligne_facture, ligne_commande): """Compare the invoiced unit price to the price negotiated on the order (PO). ≤ 5% : minor gap (shipping absorbed, rounding) → the invoice follows the normal flow. > 5% : blocking → no draft is created, the invoice is parked and flagged. The human then requests a corrected invoice from the supplier. """ prix_po = ligne_commande.prix_unitaire_ht if not prix_po: # line with no order reference: not checkable here return Verdict(statut="non_controle") ecart = (ligne_facture.prix_unitaire_ht - prix_po) / prix_po if abs(ecart) <= TOLERANCE_PRIX: return Verdict(statut="ok", ecart_pct=round(ecart * 100, 1)) return Verdict( statut="bloquant", motif="ecart_prix", ecart_pct=round(ecart * 100, 1), message=( f"Invoiced price {ligne_facture.prix_unitaire_ht:.2f} € " f"vs order {prix_po:.2f} € ({ecart:+.1%}) — " f"beyond the {TOLERANCE_PRIX:.0%} tolerance" ), )
+A bloquant verdict goes up to the decision engine, which refuses to create the draft and routes the invoice to the "intervention" channel with its reason. That's anti-drift in one function: no human judgment on every invoice, a rule that applies on its own, always.
+An invoice extracted and matched to its order (here PO P06152, extraction confidence 95%), ready to handle from Teams: Approve, Create payment, Reject or View in Odoo — one click = Odoo write. On the left, the 3 channels To approve / To pay / Paid that track the payment state. Zero accounting interface.
+4. The production architecture on Scaleway
+The thing that changes everything compared to the design phase: the agent exists outside my computer. It runs on a Scaleway instance (BASIC3-X2C-4G VM: 2 vCPUs, 4 GB RAM, Paris region), for ~€36/month. French hosting — that matters for accounting data.
+- The batch: a cron every 15 minutes runs the agent's loop (read email → extraction → matching → Teams cards).
+- The endpoint: a small Flask server, meanwhile, runs continuously (systemd service) to receive clicks on the Teams card buttons and write back to Odoo. It's reachable via a dedicated subdomain (agent-factures.cobra.fr, DNS at Gandi) rather than a bare IP, with an HMAC signature on every incoming request.
+- Reading email: via Microsoft Graph (Microsoft 365 API, application flow), no IMAP. Reading email directly at the source is what makes the agent autonomous: no human intervention to "forward it" an invoice.
+- Odoo: Odoo 18 Enterprise, XML-RPC access + API key.
+LayerTech ExtractionClaude API (Opus 4.8) · pdfplumber · Tesseract OCR (fr/en) · Poppler LogicPython 3.14 · pydantic (strict schema) Teams endpointFlask · HMAC signature · Adaptive Cards v1.5 via Power Automate EmailMicrosoft Graph (application flow) HostingScaleway instance (Paris) · cron + systemd The email invoice collection module (fetch_mail.py), written with Claude Code: Microsoft Graph application flow, anti-noise filters, SHA-256 deduplication, PDF drop-off. Build in public right down to the code.
+Proof the agent lives outside my computer: the Scaleway instance running, in Paris.
+What a run actually looks like
+Here's the log of a real 15-minute cycle (37 seconds of execution). Nine invoices queued, and above all: every possible outcome shows up — approval, already-booked duplicate, price gap that blocks, order not found, non-invoiceable document rejected. The agent is the one sorting, applying the same rules to every line.
+$ python agent_loop.py --write 2026-06-17 08:15:00 [INFO] agent_loop — ═══ Loop run 2026-06-17T08:15:00Z (write=True) ═══ 2026-06-17 08:15:03 [INFO] fetch_po — [A] Odoo PO: 261 POs scanned · 4 candidate attachments · 2 collected · 2 dedup 2026-06-17 08:15:10 [INFO] fetch_mail — [B/C] Graph: 3 mailboxes (***@cobra.fr) → 87 messages · 31 PDF attachments 2026-06-17 08:15:10 [INFO] fetch_mail — → 7 collected · 22 dedup · 2 ignored (delivery note / payment reminder) 2026-06-17 08:15:10 [INFO] agent_loop — 9 new invoices in the processing queue 2026-06-17 08:15:13 [INFO] extract — [1/9] FA-2026-04417 · Supplier-A → LLM ok (confidence 0.94 · 3 lines · net 1,642.80 €) 2026-06-17 08:15:14 [INFO] orchestr. — [1/9] PO P06143 found · 3/3 lines matched · max price gap +1.2% → ✅ APPROVE 2026-06-17 08:15:14 [INFO] orchestr. — draft 150148 created · PDF attached · card → "To approve" channel 2026-06-17 08:15:17 [INFO] extract — [2/9] 26060940 · Supplier-B → regex parser (confidence 0.99 · 1 line + WEEE 0.75 €) 2026-06-17 08:15:18 [INFO] orchestr. — [2/9] PO P06122 · invoice already booked (ref exists) → 🟣 ALREADY PROCESSED → mirror card "To pay" 2026-06-17 08:15:21 [WARN] orchestr. — [3/9] PROF-5582 · Supplier-C · PO P06097 · line 2: 214.00 € vs 180.00 € (+18.9%) > 5% 2026-06-17 08:15:21 [WARN] orchestr. — → 🟠 INTERVENTION (ecart_prix) · no draft created · card → "To approve" 2026-06-17 08:15:24 [INFO] extract — [4/9] F007241 · Supplier-D → LLM ok (confidence 0.91 · 6 lines · shipping 12.00 €) 2026-06-17 08:15:25 [WARN] orchestr. — [4/9] no PO ref in the document (email source) → ⏸️ TO SORT · parked · no card 2026-06-17 08:15:27 [INFO] extract — [5/9] AVR-1180 · Supplier-E → LLM ok (confidence 0.86) 2026-06-17 08:15:28 [WARN] orchestr. — [5/9] PO P05904 · line already fully invoiced (qty_invoiced ≥ qty) → 🟠 INTERVENTION (doublon) 2026-06-17 08:15:30 [INFO] extract — [6/9] FC-77310 · Supplier-F → LLM ok (confidence 0.92 · 2 lines) 2026-06-17 08:15:31 [WARN] orchestr. — [6/9] PO ref "P06210" not found in Odoo → 🟠 INTERVENTION (commande_introuvable) 2026-06-17 08:15:33 [INFO] orchestr. — [7/9] FA-2026-04420 · Supplier-A · PO P06151 · 2/2 matched · +0.4% → ✅ APPROVE → draft 150149 2026-06-17 08:15:35 [INFO] orchestr. — [8/9] 26061002 · Supplier-B · PO P06160 · 1/1 matched · 0.0% → ✅ APPROVE → draft 150150 2026-06-17 08:15:36 [INFO] orchestr. — [9/9] BL-99317 → non-invoiceable document (delivery note) → rejected 2026-06-17 08:15:37 [INFO] agent_loop — [PIPELINE] {'total': 9, 'valider': 3, 'deja_traite': 1, 'intervention': 3, 'a_trier': 1, 'rejete': 1, 'erreur': 0} 2026-06-17 08:15:37 [INFO] agent_loop — ═══ Run finished in 37s — 3 drafts created, 3 intervention cards ═══
+Of these 9 invoices: 3 approved and moved to an Odoo draft linked to their order, 1 already booked (payment mirror card), 3 parked for intervention (price gap, duplicate, order not found), 1 to sort (no order reference) and 1 rejected (delivery note, not an invoice). None slipped off-chain — which is precisely what human data entry didn't guarantee.
+A note on the channels: "To approve" is the human action queue — it gathers both the clean drafts ready to approve in one click and the parked cases to handle (price gap, duplicate…). The "To pay" and "Paid" channels, meanwhile, track the payment state on the Odoo side.
+5. The numbers: volume, time, ROI
+Measured volume: ~349 supplier invoices/month, i.e. ~80/week.
+Human time per invoice (import, line-by-line check, reconciliation) is on the order of 7 to 12 minutes with manual entry. Taking a median of 9 minutes across 80 invoices/week:
+Human time / week Before the agent (entry + checking + reconciliation)~12 hrs (≈ 0.35 FTE) With the agent (approving Teams cards + intervention cases)~2 to 2.5 hrs Net time saved~9 to 10 hrs / week Honesty: measured volume, estimated minutes
+The volume (80/wk) is measured in Odoo. The minutes per invoice are a market range for manual accounts-payable entry — not a stopwatch measurement. To be adjusted with our real times. On the cost side: this role took up a full-time position in accounts payable, of which only about ten hours were actually productive for lack of mastery of the tool; on top of that came "extra" time taken from other people and an outside accounting firm. At ~€3k/month fully loaded for an equivalent role (market estimate), the agent pays back its hosting (~€36/month) several dozen times over.
+6. What the agent does NOT do
+To stay credible, you have to be clear about the scope. The agent guarantees the invoice → order link and price consistency. It does not do:
+- Reconciliation / bank matching. Payment and the SEPA batch stay a human and banking step. What the agent brings on the payment side is visibility, not execution: three Teams sub-channels (To approve / To pay / Paid) mirror the Odoo payment state. But by delivering invoices that are clean and linked to their order, it makes downstream reconciliation trivial and reliable — where a detached invoice makes it manual and fragile.
+- "In-place" updates of the Teams cards. On each state change, the agent posts a new mirror card in the right channel — it doesn't modify the existing card (a Power Automate webhook limitation). A true live-update via a Teams bot is identified as the next step, not done yet.
+- Cleaning up the past. The ~1,500 detached invoices and the 241 lingering unpaid ones remain a cleanup project. The agent doesn't fix the history — it guarantees the future stays clean.
+A point to harden (said honestly)
+Secrets (API keys, Odoo access) currently live in a protected .env file on the instance, not in a dedicated secrets manager. It works, it's acceptable for a single-operator start — but it's the first hardening on the list.
+7. What this illustrates
+The lesson isn't "AI processes invoices." It's: when a business process drifts because it depends on human discipline, the right move isn't to add more training or oversight — it's to code the rule so it applies on its own, always, without exception.
+The agent isn't "faster than an accountant." It's incapable of drifting. That's a different property, and it's the one that durably fixes an accounting chain, where no amount of human effort could.
+What's next
+- Live-update of the Teams cards (Teams bot rather than webhook) for a card that updates in place.
+- Secrets management via a dedicated vault.
+- Cleanup project for the history (detached invoices, lingering unpaid ones) — partly automatable once the incoming flow is under control.
+- Real measurement of before/after times to replace the market range with our own figures.
+See also
+- The agent's design: architecture, business rules, edge cases
+- Case study — AI Watch bot: from idea to production
+- What is an "AI agent"?
+← All guides Let's talk about it →
+
+
+================================================================
 WHAT IS AI, AND WHAT'S AN "LLM"?
 URL: https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-ia-llm.html
 Published: 2026-05-31
