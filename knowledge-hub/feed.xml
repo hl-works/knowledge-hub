@@ -7,6 +7,55 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Statut des commandes clients : facturé, payé, livré — trois badges au lieu d&#x27;un</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html</guid>
+<pubDate>Mon, 13 Jul 2026 08:00:00 +0000</pubDate>
+<description>Rien ne distinguait clairement « la facture est partie », « le client a payé » et « la marchandise est livrée ». Trois badges indépendants (Facturation / Paiement / Livraison) remplacent le statut fusionné : code couleur, taux d&#x27;acompte affiché, bascule automatique reste à encaisser → reste à livrer, lignes livrées grisées. Transposé du module fournisseurs déjà en place ; deux bugs de calcul latents corrigés au passage.</description>
+</item>
+<item>
+<title>Le « Cobra App Store » continue de s&#x27;industrialiser</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industrialisation.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industrialisation.html</guid>
+<pubDate>Mon, 13 Jul 2026 08:00:00 +0000</pubDate>
+<description>Synthèse sur 5 sessions : le hub d&#x27;apps internes de Cobra (apps.cobra.fr) passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d&#x27;environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.</description>
+</item>
+<item>
+<title>Refonte du système de prix Odoo (cobra_price) : une seule source de vérité</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/refonte-systeme-prix-cobra-price.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/refonte-systeme-prix-cobra-price.html</guid>
+<pubDate>Sun, 12 Jul 2026 08:00:00 +0000</pubDate>
+<description>Le modèle de prix Odoo était empilé et fragile : pricelist web auto-calculée, listes superposées, TVA à 20 % codée en dur, marge à 0 dès qu&#x27;un produit sortait de stock. Un champ unique cobra_price devient LA source de vérité via un override de _price_compute — coût et marge recalculés, prix barrés conformes Omnibus, sync Shopify immédiate. 6 modules touchés, ~7 300 produits migrés, avec un vrai suivi post-prod (bug d&#x27;affichage corrigé le jour même, 492 produits en promo repoussés).</description>
+</item>
+<item>
+<title>Un retour de code review de l&#x27;intégrateur traité intégralement, point par point</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/code-review-irokoo-vendor-payment.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/code-review-irokoo-vendor-payment.html</guid>
+<pubDate>Sun, 12 Jul 2026 08:00:00 +0000</pubDate>
+<description>Après une modif de Cobra sur un module Odoo, l&#x27;intégrateur (Irokoo) est revenu avec 6 points techniques (sécurité, fiabilité, cohérence). Chacun évalué individuellement : 3 corrigés tels quels, 2 avec un arbitrage explicite (garder la visibilité chatter à laquelle Hugo tenait, tout en neutralisant le risque autrement), 1 volontairement écarté. Un bug non signalé par Irokoo détecté et corrigé au passage. Déploiement dans un worktree Git isolé pour ne pas interférer avec un autre chantier en cours.</description>
+</item>
+<item>
+<title>Un dashboard de suivi prix concurrentiel construit maison, plutôt qu&#x27;un devis d&#x27;intégrateur</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html</guid>
+<pubDate>Sat, 11 Jul 2026 08:00:00 +0000</pubDate>
+<description>Le cas build vs buy le plus direct de la période : un CDC de dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à 3-4 semaines de dev, envoyé à l&#x27;intégrateur en mars 2026 — resté « à valider avant développement », jamais lancé. La brique la plus technique (import/matching des prix via Wiser) tournait déjà en prod ; il manquait la couche de pilotage. Construite en interne avec Claude Code, en quelques jours, sur apps.cobra.fr.</description>
+</item>
+<item>
+<title>Un retard fournisseur de 200 000 € soldé en une semaine, ligne par ligne</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/retard-fournisseur-gdd-solde.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/retard-fournisseur-gdd-solde.html</guid>
+<pubDate>Sat, 11 Jul 2026 08:00:00 +0000</pubDate>
+<description>Un relevé d&#x27;un gros fournisseur (GDD) affichait un solde impayé important, étalé sur des dizaines de factures — et ne prenait pas toujours en compte les derniers paiements côté Odoo, d&#x27;où un risque de double paiement. Confrontation systématique relevé fournisseur / Odoo / relevé bancaire à chaque nouveau relevé, six lots de paiement suivis un par un jusqu&#x27;à confirmation bancaire réelle : 200 059,33 € réglés en 6 virements, deux écarts (−60 €, +18 €) signalés au fournisseur pour régularisation.</description>
+</item>
+<item>
+<title>Refonte de la vue « Performance vendeur » : fusion Charge &amp; Perf, dark mode</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/refonte-performance-vendeur-charge-perf.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/refonte-performance-vendeur-charge-perf.html</guid>
+<pubDate>Fri, 10 Jul 2026 08:00:00 +0000</pubDate>
+<description>La page de performance mensuelle des vendeurs existait mais restait passive — un tableau à consulter en fin de mois. Refondue en outil quotidien : fusion de trois sources dans une seule app « Charge » (perf mensuelle, suivi actionnable, charge opérationnelle), classement vs objectif N-1 en direct depuis Odoo, CA Shopify séparé du CA individuel, 1 817 devis dormants annulés en masse, dark/clair vérifié partout. En cours de test avant bascule en prod.</description>
+</item>
+<item>
 <title>L&#x27;agent factures passe en prod : autonome sur Scaleway</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/agent-factures-prod-scaleway.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/agent-factures-prod-scaleway.html</guid>
@@ -96,55 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/sogetronic-import-prod.html</guid>
 <pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
 <description>Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l&#x27;EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.</description>
-</item>
-<item>
-<title>Setup Claude : documentation, onboarding et Knowledge Hub</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/setup-claude-onboarding.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/setup-claude-onboarding.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Documenter la logique du setup Claude (fichiers .md, projets, deux comptes) pour la transmettre à un ami qui démarre et capitaliser session après session.</description>
-</item>
-<item>
-<title>PPTX oral du brevet « Les addictions chez les jeunes » (Damien)</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/pptx-brevet-addictions-damien.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/pptx-brevet-addictions-damien.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Transformer un script d&#x27;élève de 3e en support d&#x27;oral du brevet : 9 slides « cyan glacé », chiffres sourcés, photos intégrées — sans dénaturer la voix de l&#x27;ado.</description>
-</item>
-<item>
-<title>PowerPoint anglais Alexis — « The Secrets of My Success »</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/powerpoint-anglais-alexis.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/powerpoint-anglais-alexis.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Un PowerPoint narré de 10 slides + script calibré à la seconde pour un projet d&#x27;anglais (Dual Diploma). Workflow itératif avec QA visuel slide par slide.</description>
-</item>
-<item>
-<title>Ce Knowledge Hub lui-même</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Un site GitHub Pages statique (HTML/CSS, zéro framework) : portfolio IA, journal opérationnel et référentiel GEO. Une page par entrée, llms.txt + JSON-LD authorship.</description>
-</item>
-<item>
-<title>Diagnostic GSC + fix JOIN Stories JSON-LD + setup BigQuery</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/gsc-json-ld-fix.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/gsc-json-ld-fix.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>7 pages produit en erreur « extraits de produits » dans GSC. Root cause : JOIN Stories injecte des entités Product implicites. Fix snippet non-invasif + setup BigQuery.</description>
-</item>
-<item>
-<title>Déclaratif ventes Epson : export Odoo → Google Sheets</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/epson-declaratif-ventes.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/epson-declaratif-ventes.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Un déclaratif Epson sur 7 périodes promo et 10 références projecteurs, malgré des SKU fournisseur absents d&#x27;Odoo. Mapping via supplierinfo, export Sheets formaté.</description>
-</item>
-<item>
-<title>Double Claude Code : Cobra vs HL</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/double-claude-code.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/double-claude-code.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Deux Claude Code : le compte Cobra (dev Odoo/Shopify) et un nouveau compte HL (perso, stratégie, Knowledge Hub). Les deux peuvent écrire dans le même journal.</description>
 </item>
 </channel>
 </rss>
