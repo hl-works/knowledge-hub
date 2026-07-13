@@ -196,6 +196,13 @@
   "tags": "build-in-public claude-code github-pages geo guide"
  },
  {
+  "url": "/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html",
+  "title": "Case study — A competitive price-tracking dashboard built in-house",
+  "excerpt": "The competitor price data (Wiser) was already delivered by the integrator (Irokoo) and in production. The control layer was missing — quoted at several weeks, left pending. Built in-house with Claude Code in a few days, on top of the cobra_price overhaul. The most direct build vs buy case of the year — scoping helped by Claude's built-in browser (analyzing a Wiser video).",
+  "kind": "Guide",
+  "tags": "build-in-public build-vs-buy prix wiser odoo claude-code guide"
+ },
+ {
   "url": "/knowledge-hub/en/guides/etude-de-cas-agent-facturation.html",
   "title": "Case study — An AI agent that processes supplier invoices in Odoo",
   "excerpt": "An autonomous agent that reads email (Microsoft Graph), extracts invoices (OCR + Claude API), links them to the Odoo purchase order (guaranteed 3-way match, price check) and pushes them for approval in Teams. Hosted on a Scaleway instance, 15-min cron. Human drift quantified (~€2M off-chain) and a workflow that can no longer drift.",

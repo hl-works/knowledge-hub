@@ -1037,6 +1037,56 @@ Go deeper
 
 ================================================================
 CASE STUDY
+URL: https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-dashboard-prix-concurrentiels.html
+Published: 2026-07-13
+================================================================
+
+Build in public: the competitor price data (Wiser) was already in production, delivered by the integrator. The control layer was missing — quoted at several weeks and left pending. We built it in-house with Claude Code, in a few days: ABC scoring, competitor columns, an Align button. The most direct build-vs-buy case of the year.
+
+Home › Guides › Case study — Competitive price dashboard
+Case study · Build in public · Cobra
+A competitive price dashboard,built in-house
+The data was already there — competitor prices, collected via Wiser and integrated by our provider, running in production. What was missing was the control layer to actually do something with it: a spec, quoted at several weeks, left pending. We built it in-house with Claude Code, in a few days. The most direct build vs buy case of the year.
+By Hugo Lahutte · July 13, 2026 · ~8 min read build in publicbuild vs buyprixWiserOdooClaude Code
+1. The need: steering your prices against the competition
+In specialty retail, price is a permanent battlefield. Knowing, product by product, where you stand against competitors — cheaper, aligned, more expensive — isn't a comfort: it's the basis for deciding where to defend your margin and where to align so you don't lose the sale. But that information has to be readable and actionable, not buried in an unreadable export you open once a quarter.
+At Cobra, the raw material already existed. What was missing was the tool to look at it and act on it.
+2. The data already existed — delivered by the integrator
+The most technical brick — importing and matching competitor prices via the Wiser tool (a price-intelligence platform that collects the prices charged elsewhere and matches them to our catalog) — had already been delivered by our external integrator (Irokoo) and was running in production. Competitor prices were coming into the system, attached to the right products.
+In other words: the "data" part of the problem was solved, and solved well. The gap was elsewhere — in the layer above the data.
+3. The quote left pending
+A spec had in fact been sent to the integrator on March 19, 2026 for that missing layer: a price-tracking dashboard (product ABC scoring, an alignment rules engine, price history), estimated at several weeks of development. That spec stayed at "to be validated before development" — never started, never billed.
+Not a dramatic blocker: just a project waiting its turn, like dozens of others. Except that with Claude Code, "waiting its turn" no longer carries quite the same opportunity cost.
+4. Scoping the gap precisely
+Before building anything, we had to clearly separate what was already delivered (the import / matching, phase 1) from what was left to do (the control layer, phase 2, never ordered) — so as to rebuild only the missing part, without starting over or duplicating the integrator's work.
+To precisely scope what the Wiser tool actually exposed (and therefore what the dashboard needed to show), we went about it differently than with yet another scoping workshop: thanks to Claude's built-in browser — a recent capability, Claude can now open a page and watch it — we had it view a Wiser presentation video and extract the features and data actually available. Enough to turn a demo into a concrete list of requirements, without going back to the provider.
+The reflex that changes everything
+The question is no longer "how much does it cost to have this developed?" but "what already exists, and what's the smallest piece I'm actually missing?". Scoping the gap well is already half the savings.
+5. The foundation: a price that means something
+A price-alignment dashboard is only worth it if "aligning a price" writes to the right place. That's the whole point of having, in parallel, overhauled the Odoo pricing system around a single field, the source of truth, that drives quotes, sales and Shopify sync. Without that foundation, an "Align" button would be wishful thinking; with it, it changes the price, everywhere, at once.
+6. What we built (first version)
+Rather than kicking off another external quote, the app was built directly with Claude Code — a first version, already being deployed:
+- Syncing Odoo data into a dedicated local database.
+- ABC scoring of products, reusing a module already in place rather than rebuilding it.
+- A dashboard with clickable indicators and a product table groupable by brand / category, with the competitor columns alongside.
+- A detail view per competitor, with an "Align" button wired to the price-alignment assistant that already existed on the Odoo side — so a click that really writes the new price.
+- Excel export, standard Cobra design system, and deployment on our internal app hub.
+Nothing speculative: we built exactly the missing piece, leaning on everything that already existed (the Wiser data, the scoring, the alignment assistant, the overhauled pricing system).
+7. Build vs buy: the real math
+The spec mentioned 3 to 4 weeks of development for the rules-engine part alone. The first version was built in-house in a few days, for a fraction of that time — and above all, keeping control: each iteration is settled live, with no quoting round-trip.
+The lesson isn't "never use an integrator again". Quite the opposite: the integrator had delivered the hardest brick (the Wiser import / matching), and it's precisely because that base was solid that we could build fast on top of it. The real build vs buy math isn't "do everything yourself" — it's buy what's hard and standard, build what's specific and changing.
+What's next
+This dashboard isn't a standalone object: it joins a small ecosystem of internal apps growing fast at Cobra (treasury, purchasing, sales performance, reporting…), all built on the same mold — shared design system, shared Odoo connection, standardized deployment. That dynamic deserves its own story: a dedicated guide is in preparation.
+See also
+- The journal entry — the competitive price dashboard
+- The Odoo pricing-system overhaul (cobra_price)
+- Case study — An agent that processes supplier invoices
+- Do you still need to buy an ERP when AI lets you build your own?
+← All guides Let's talk about it →
+
+
+================================================================
+CASE STUDY
 URL: https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-knowledge-hub.html
 Published: 2026-06-01
 ================================================================
