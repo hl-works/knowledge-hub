@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An integrator code review handled in full, point by point — Journal · Hugo Lahutte</title>
+<meta name="description" content="Six technical review points from the external integrator (Irokoo) on an Odoo module, handled one by one: 3 fixed as recommended, 2 with an explicit trade-off, 1 deliberately declined — plus an unreported bug caught along the way. Every choice documented in writing to the integrator.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/journal/code-review-irokoo-vendor-payment.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/code-review-irokoo-vendor-payment.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/code-review-irokoo-vendor-payment.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/journal/code-review-irokoo-vendor-payment.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An integrator code review handled in full, point by point">
+<meta property="og:description" content="Six Irokoo code-review points handled one by one: 3 fixed, 2 arbitrated, 1 declined — with a written justification each time.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/journal/code-review-irokoo-vendor-payment.html">
+<meta property="article:published_time" content="2026-07-12">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "An integrator code review handled in full, point by point",
+  "description": "Six technical review points from the external integrator (Irokoo) on an Odoo module, handled individually with a deliberate choice not to always follow the recommendation, and every decision justified in writing.",
+  "inLanguage": "en-US",
+  "datePublished": "2026-07-12",
+  "dateModified": "2026-07-12",
+  "url": "https://hl-consulting.tech/knowledge-hub/journal/code-review-irokoo-vendor-payment.html",
+  "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
+  "publisher": {"@type": "Organization", "name": "HL Consulting"},
+  "keywords": "odoo-dev, doc, en-prod",
+  "isPartOf": {"@type": "Blog", "name": "Knowledge Hub — Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"},
+  "about": {"@type": "Thing", "name": "Cobra"}
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">How-to</a></li>
+      <li><a href="../guides/">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="./" aria-current="page">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/journal/code-review-irokoo-vendor-payment.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<article class="article">
+  <div class="container">
+    <p class="caption"><a href="./">← Journal</a></p>
+    <p class="kicker">Cobra · Dev</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">An integrator code review handled in full, point by point</h1>
+    <hr class="rule--accent">
+    <div class="meta-bar">
+      <span><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></span>
+      <span>·</span>
+      <time datetime="2026-07-12">July 12, 2026</time>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
+
+    <div class="prose" style="margin-top:var(--space-8);">
+      <h3>Context</h3>
+      <p>After a change Cobra made to an Odoo module (<code>cobra_vendor_payment_confirm</code>), the external integrator (Irokoo) came back with <strong>6 technical review points</strong> (security, reliability, code consistency). Rather than handling them in bulk, each point was evaluated individually — with, for some, a deliberate choice <strong>not</strong> to follow the recommendation to the letter.</p>
+
+      <h3>What was done</h3>
+      <ul>
+        <li><strong>3 points fixed as recommended</strong>: a hard-coded template identifier replaced with a stable reference, an idempotency guard + unit conversion, exclusion of credit notes from the scope.</li>
+        <li><strong>2 points fixed with an explicit trade-off</strong>: the recommendation would have removed the visibility of exchanges in the Odoo history (the "chatter"), something Hugo cared about — kept, but the underlying risk (forced send) neutralized another way.</li>
+        <li><strong>1 point deliberately declined</strong>: renaming fields already populated in production, judged disproportionate for a merely "nice-to-have" point.</li>
+        <li>Along the way, a <strong>bug not flagged by Irokoo</strong> caught and fixed: the French translation of the email template had been lost during an earlier recreation — restored.</li>
+        <li>Deployed in an <strong>isolated Git worktree</strong>, because another job was already running in parallel on the same shared repo — to take no risk of interference.</li>
+      </ul>
+
+      <h3>What was hard</h3>
+      <p>Handling external feedback without following it blindly or rejecting it wholesale: telling apart what's a real risk, what's a style preference, and what would break a behavior deliberately chosen by Cobra — then being able to <strong>justify each choice in writing</strong> to the integrator.</p>
+
+      <h3>Stack</h3>
+      <p>Python (Odoo ORM), XML (data records, email templates), Git (isolated worktree, cherry-pick). Module <code>cobra_vendor_payment_confirm</code> at version 18.0.1.12.0.</p>
+
+      <h3>What this illustrates</h3>
+      <p>A balanced technical dialogue with an external provider: Irokoo's feedback is taken seriously, but each point is replayed with the <strong>full business context</strong> rather than applied mechanically — and disagreement, when there is any, is documented rather than hidden.</p>
+    </div>
+
+    <aside class="callout" style="margin-top:var(--space-12);">
+      <h3>See also</h3>
+      <ul style="margin-top:var(--space-3);">
+        <li><a href="refonte-systeme-prix-cobra-price.html">Odoo pricing-system overhaul (cobra_price)</a></li>
+        <li><a href="retard-fournisseur-gdd-solde.html">A €200,000 supplier backlog cleared in a week</a></li>
+      </ul>
+    </aside>
+    <div class="btn-row">
+      <a class="btn btn--ghost" href="./">← All entries</a>
+    </div>
+  </div>
+</article>
+</main>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "How-to", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependency</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private space">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>
