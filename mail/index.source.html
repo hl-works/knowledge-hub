@@ -328,6 +328,7 @@
       </table>
     </div>
     <p class="muted" style="margin-top:16px;">Les 5 Ionos + cobra (Graph, déjà fait) marchent avec une auth simple → 6 boîtes couvertes vite, dont <b>hautefidelite-magazine.com</b> (la priorité de tri). Gmail/Hotmail en phase B car Microsoft &amp; Google ont coupé le basic-auth IMAP. L'adaptateur IMAP est <b>générique</b> : activer Gmail = poser un mot de passe d'app en config (<code>imap.gmail.com</code>), <b>zéro ligne de code</b>. Le stack livré en phase A couvre structurellement 7 boîtes sur 8 ; Hotmail (OAuth2) est le seul vrai reliquat de dev.</p>
+    <p class="muted" style="margin-top:12px;"><b>Cobra — déjà résolu (vérifié en prod, 24/07/2026).</b> On réutilise l'<b>app Azure applicative de l'agent factures</b> (Graph <em>app-only</em> / client credentials, <code>Mail.Read</code> + <code>Mail.ReadWrite</code>, admin consent accordé). Pas d'Application Access Policy côté Exchange → lecture <b>tenant-wide sur <code>cobra.fr</code></b> : <b>aucune nouvelle app Azure</b>, il suffit d'ajouter l'adresse à la liste des boîtes lues. Le secret reste sur le serveur (<code>odoo.env</code>), jamais dans Git. Portée limitée à ce tenant — les boîtes Ionos sont hors Graph (IMAP/SMTP, creds séparés). <em>(tenant_id / client_id non écrits ici : page publique.)</em></p>
   </section>
 
   <!-- PANIERS -->
@@ -454,7 +455,7 @@
       </div>
       <div class="cfg-row">
         <span class="bdot" style="background:var(--fam-cobra)"></span>
-        <div class="cfg-id"><div class="addr">hlahutte@cobra.fr</div><div class="proto">Microsoft Graph</div></div>
+        <div class="cfg-id"><div class="addr">hlahutte@cobra.fr</div><div class="proto">Graph app-only · app factures réutilisée (tenant-wide)</div></div>
         <div class="cfg-act"><span class="st ok">Connectée</span><span class="cfg-btn ghost">Tester</span></div>
       </div>
       <div class="cfg-row">
