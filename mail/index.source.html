@@ -28,6 +28,15 @@
     --soft: #EDEDED;
     --bw: 3px;
     --off: 6px;
+    /* couleur fonctionnelle — familles de boîtes (identité, validées clair+dark) */
+    --fam-cobra: #2a78d6;   /* pro / dev */
+    --fam-hf:    #eb6834;   /* Haute Fidélité / HiFi Lovers */
+    --fam-hl:    #4a3aa7;   /* HL Group : holding / media / consulting */
+    --fam-perso: #0f8f63;   /* perso : gmail / hotmail */
+    /* statut — sévérité & danger (jamais couleur seule : toujours + libellé) */
+    --st-warn: #fab219;     /* boucle qui vieillit (7-14 j) */
+    --st-crit: #d03b3b;     /* vieille (>14 j) / danger / destructif */
+    --st-crit-ink: #9a1c1c; /* texte rouge lisible sur fond clair */
   }
   html[data-theme="dark"] {
     --ink: #F4F4F4;
@@ -36,6 +45,13 @@
     --muted: #9A9A9A;
     --line: #F4F4F4;
     --soft: #1E1E1E;
+    --fam-cobra: #3987e5;
+    --fam-hf:    #d95926;
+    --fam-hl:    #9085e9;
+    --fam-perso: #199e70;
+    --st-warn: #fab219;
+    --st-crit: #e66767;
+    --st-crit-ink: #f0a1a1;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -150,21 +166,55 @@
   .crit b { text-transform: uppercase; }
 
   /* maquette dashboard */
-  .mock { border: var(--bw) solid var(--line); max-width: 380px; margin: 6px 0 0; background: var(--panel); box-shadow: var(--off) var(--off) 0 var(--soft); }
-  .mock-top { border-bottom: var(--bw) solid var(--line); padding: 12px 14px; }
+  .mock { border: var(--bw) solid var(--line); max-width: 400px; margin: 6px 0 0; background: var(--panel); box-shadow: var(--off) var(--off) 0 var(--soft); }
+  .mock-top { border-bottom: var(--bw) solid var(--line); padding: 14px 16px; }
   .mock-top .mono { font-size: 11px; text-transform: uppercase; color: var(--muted); }
-  .mock-top .big { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  .mock-top .big { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0; }
+
+  /* barre filtre / tri (actionnable) */
+  .mock-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 10px 12px; border-bottom: var(--bw) solid var(--line); }
+  .mock-bar .lbl { font-family: "Space Mono", monospace; font-size: 10px; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+  .fchip { display: inline-flex; align-items: center; gap: 6px; font-family: "Space Mono", monospace; font-size: 11px; font-weight: 700; border: 2px solid var(--line); padding: 6px 9px; min-height: 32px; box-sizing: border-box; background: var(--panel); }
+  .fchip .dot { width: 10px; height: 10px; flex: 0 0 auto; }
+  .fchip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .sortchip { margin-left: auto; font-family: "Space Mono", monospace; font-size: 11px; font-weight: 700; border: 2px solid var(--line); padding: 6px 9px; min-height: 32px; box-sizing: border-box; }
+
   .mock-sec { border-bottom: 2px solid var(--soft); }
   .mock-sec:last-child { border-bottom: none; }
-  .mock-sec-hd { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; font-family: "Space Mono", monospace; font-size: 12px; text-transform: uppercase; font-weight: 700; }
+  .mock-sec-hd { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 13px 16px; min-height: 46px; box-sizing: border-box; font-family: "Space Mono", monospace; font-size: 12px; text-transform: uppercase; font-weight: 700; cursor: pointer; }
+  .mock-sec-hd .count { margin-left: auto; color: var(--muted); font-size: 11px; }
+  .mock-sec-hd .chev { color: var(--muted); }
   .mock-sec-hd.closed { color: var(--muted); }
-  .mock-item { padding: 10px 14px; border-top: 2px solid var(--soft); font-size: 13px; }
+  .mock-sec-hd.closed .count { margin-left: auto; }
+
+  .mock-item { padding: 13px 16px; border-top: 2px solid var(--soft); font-size: 13px; }
+  /* fix #2 : suspect = signal de forme (bordure gauche épaisse hachurée) + accent danger */
+  .mock-item.suspect { border-left: 6px solid var(--st-crit); }
+  .mock-item .row1 { display: flex; align-items: center; gap: 6px; }
   .mock-item .from { font-weight: 700; }
-  .mock-item .box { font-family: "Space Mono", monospace; font-size: 10px; border: 2px solid var(--muted); color: var(--muted); padding: 0 5px; margin-left: 6px; }
-  .mock-item .age { float: right; font-family: "Space Mono", monospace; font-size: 11px; color: var(--muted); }
-  .mock-item .sub { color: var(--muted); font-size: 12px; margin-top: 3px; }
-  .mock-item .acts { margin-top: 8px; display: flex; gap: 6px; }
-  .mock-item .acts span { font-family: "Space Mono", monospace; font-size: 10px; text-transform: uppercase; border: 2px solid var(--line); padding: 2px 7px; }
+  /* badge boîte : pastille couleur famille + libellé (encodage double) */
+  .mock-item .box { display: inline-flex; align-items: center; gap: 5px; font-family: "Space Mono", monospace; font-size: 10px; text-transform: uppercase; border: 2px solid currentColor; padding: 1px 6px; white-space: nowrap; }
+  .box .bdot { width: 8px; height: 8px; flex: 0 0 auto; }
+  .box.b-cobra { color: var(--fam-cobra); } .box.b-cobra .bdot { background: var(--fam-cobra); }
+  .box.b-hf    { color: var(--fam-hf); }    .box.b-hf .bdot    { background: var(--fam-hf); }
+  .box.b-hl    { color: var(--fam-hl); }    .box.b-hl .bdot    { background: var(--fam-hl); }
+  .box.b-perso { color: var(--fam-perso); } .box.b-perso .bdot { background: var(--fam-perso); }
+  /* fix #1 : le badge d'âge crie quand ça vieillit (poids + couleur sévérité) */
+  .mock-item .age { margin-left: auto; font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700; border: 2px solid var(--muted); color: var(--muted); padding: 1px 7px; white-space: nowrap; }
+  .age.aging { border-color: var(--st-warn); background: var(--st-warn); color: #0A0A0A; }
+  .age.old   { border-color: var(--st-crit); background: var(--st-crit); color: #FFFFFF; }
+  .mock-item .sub { color: var(--muted); font-size: 12px; margin-top: 5px; }
+  .mock-item .sub .danger { color: var(--st-crit-ink); font-weight: 700; }
+  .mock-item .acts { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .mock-item .acts span { font-family: "Space Mono", monospace; font-size: 11px; text-transform: uppercase; border: 2px solid var(--line); padding: 8px 12px; line-height: 1; }
+  /* fix #3 : action primaire pleine, secondaire en contour, destructif en rouge */
+  .mock-item .acts .primary { background: var(--ink); color: var(--paper); }
+  .mock-item .acts .danger  { border-color: var(--st-crit); color: var(--st-crit-ink); font-weight: 700; }
+
+  /* légende du système couleur */
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 0 0; font-family: "Space Mono", monospace; font-size: 11px; color: var(--muted); }
+  .legend .li { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .sw { width: 11px; height: 11px; flex: 0 0 auto; }
 
   ul.plain { margin: 6px 0 0; padding-left: 20px; }
   ul.plain li { margin-bottom: 8px; }
@@ -306,38 +356,53 @@
         <div class="big">14 boucles ouvertes</div>
         <div class="mono">3 nouvelles · 5 qui vieillissent</div>
       </div>
+      <div class="mock-bar">
+        <span class="lbl">Boîte</span>
+        <span class="fchip" aria-pressed="true"><span class="dot" style="background:var(--fam-cobra)"></span>Cobra</span>
+        <span class="fchip"><span class="dot" style="background:var(--fam-hf)"></span>HF</span>
+        <span class="fchip"><span class="dot" style="background:var(--fam-hl)"></span>HL</span>
+        <span class="fchip"><span class="dot" style="background:var(--fam-perso)"></span>Perso</span>
+        <span class="sortchip">Tri ▾ âge</span>
+      </div>
       <div class="mock-sec">
-        <div class="mock-sec-hd">À répondre <span>▾</span></div>
+        <div class="mock-sec-hd">À répondre <span class="count">4</span><span class="chev">▾</span></div>
         <div class="mock-item">
-          <span class="age">12 j</span>
-          <span class="from">Distributeur JBL</span><span class="box">cobra.fr</span>
-          <div class="sub">Devis enceintes — relance, attend ta validation.</div>
-          <div class="acts"><span>Fait</span><span>Voir le mail</span></div>
+          <div class="row1"><span class="from">« Service Compta »</span><span class="box b-hl"><span class="bdot"></span>hl-holding</span><span class="age old">21 j</span></div>
+          <div class="sub">Facture à régulariser — 3e relance, attend ta validation.</div>
+          <div class="acts"><span class="primary">Fait</span><span>Voir le mail</span></div>
         </div>
         <div class="mock-item">
-          <span class="age">4 j</span>
-          <span class="from">Imprimeur HF</span><span class="box">hautefidelite</span>
+          <div class="row1"><span class="from">Distributeur JBL</span><span class="box b-cobra"><span class="bdot"></span>cobra.fr</span><span class="age aging">12 j</span></div>
+          <div class="sub">Devis enceintes — attend ton go pour commander.</div>
+          <div class="acts"><span class="primary">Fait</span><span>Voir le mail</span></div>
+        </div>
+        <div class="mock-item">
+          <div class="row1"><span class="from">Imprimeur HF</span><span class="box b-hf"><span class="bdot"></span>hautefidelite</span><span class="age">4 j</span></div>
           <div class="sub">BAT numéro d'été à valider avant vendredi.</div>
-          <div class="acts"><span>Fait</span><span>Voir le mail</span></div>
+          <div class="acts"><span class="primary">Fait</span><span>Voir le mail</span></div>
         </div>
       </div>
       <div class="mock-sec">
-        <div class="mock-sec-hd">Suspect <span>▾</span></div>
-        <div class="mock-item">
-          <span class="age">1 j</span>
-          <span class="from">« Service Sécurité »</span><span class="box">hl-holding</span>
-          <div class="sub">DMARC-fail · se prétend banque · IBAN à changer.</div>
-          <div class="acts"><span>Supprimer + blocker</span><span>Voir</span></div>
+        <div class="mock-sec-hd">Suspect <span class="count">1</span><span class="chev">▾</span></div>
+        <div class="mock-item suspect">
+          <div class="row1"><span class="from">« Service Sécurité »</span><span class="box b-hl"><span class="bdot"></span>hl-holding</span><span class="age">1 j</span></div>
+          <div class="sub"><span class="danger">DMARC-fail</span> · se prétend banque · « changez l'IBAN ».</div>
+          <div class="acts"><span class="danger">Supprimer + blocker</span><span>Voir</span></div>
         </div>
       </div>
       <div class="mock-sec">
-        <div class="mock-sec-hd closed">Pour info <span>▸</span></div>
+        <div class="mock-sec-hd closed">Pour info <span class="count">6</span><span class="chev">▸</span></div>
       </div>
       <div class="mock-sec">
-        <div class="mock-sec-hd closed">Bruit (replié) <span>▸</span></div>
+        <div class="mock-sec-hd closed">Bruit (replié) <span class="count">38</span><span class="chev">▸</span></div>
       </div>
     </div>
-    <p class="muted" style="margin-top:14px;">Tri par ancienneté (les plus vieilles remontent). Chaque item : expéditeur + tag de la boîte + objet + résumé une ligne + badge d'âge, <b>2 actions max</b>. Une section <em>Blocklist</em> éditable. Rien d'autre : pas de réglages, pas de configurateur.</p>
+    <div class="legend" aria-hidden="true">
+      <span class="li"><span class="sw" style="background:var(--st-warn)"></span>vieillit (7–14 j)</span>
+      <span class="li"><span class="sw" style="background:var(--st-crit)"></span>vieux (&gt;14 j) / danger</span>
+      <span class="li"><span class="sw" style="border:2px solid var(--st-crit);width:7px;height:7px"></span>bordure = suspect</span>
+    </div>
+    <p class="muted" style="margin-top:14px;">Couleur <b>fonctionnelle</b>, pas décorative : la <b>pastille de boîte</b> laisse filtrer/scanner par source d'un coup d'œil (barre de filtres en haut), le <b>badge d'âge</b> vire à l'ambre puis au rouge quand la boucle vieillit (ton critère de tri devient visible), la <b>bordure rouge</b> isole le suspect. « Fait » est plein (action primaire), « Voir » en contour, « Supprimer + blocker » en rouge (destructif). Tri par ancienneté, <b>2 actions max</b> par item, cibles tactiles ~40px. Rien d'autre : pas de réglages, pas de configurateur.</p>
   </section>
 
   <!-- PLAN DE DEV -->
@@ -416,7 +481,8 @@
 
 <footer class="wrap">
   <p>HL Group — projet interne · document vivant · dernière révision 2026-07-24.<br>
-  Hors périmètre v1 : re-routage MX / filtrage MTA amont · labels écrits dans les boîtes · envoi auto · panier « En attente » (v2).</p>
+  Hors périmètre v1 : re-routage MX / filtrage MTA amont · labels écrits dans les boîtes · envoi auto · panier « En attente » (v2).<br>
+  À terme : board unifié <b>boucles + tâches manuelles</b> (ajout de tâches &amp; suivis à la main, relancés depuis l'accueil) — via un outil de suivi de tâches dédié, à choisir parmi l'existant plutôt qu'à recoder.</p>
 </footer>
 
 <script>
