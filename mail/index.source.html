@@ -227,6 +227,25 @@
   .legend .li { display: inline-flex; align-items: center; gap: 6px; }
   .legend .sw { width: 11px; height: 11px; flex: 0 0 auto; }
 
+  /* maquette écran de config — connecter les boîtes */
+  .cfg { border: var(--bw) solid var(--line); max-width: 460px; margin: 6px 0 0; background: var(--panel); box-shadow: var(--off) var(--off) 0 var(--soft); }
+  .cfg-top { border-bottom: var(--bw) solid var(--line); padding: 14px 16px; }
+  .cfg-top .big { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+  .cfg-top .note { font-family: "Space Mono", monospace; font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .cfg-row { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-top: 2px solid var(--soft); flex-wrap: wrap; }
+  .cfg-row .bdot { width: 11px; height: 11px; flex: 0 0 auto; }
+  .cfg-id { min-width: 0; }
+  .cfg-id .addr { font-weight: 700; font-size: 13px; word-break: break-all; }
+  .cfg-id .proto { font-family: "Space Mono", monospace; font-size: 10px; text-transform: uppercase; color: var(--muted); }
+  .cfg-act { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+  .st { font-family: "Space Mono", monospace; font-size: 10px; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border: 2px solid var(--muted); color: var(--muted); white-space: nowrap; }
+  .st.ok { border-color: var(--fam-hl); color: var(--fam-hl); }
+  .st.wait { border-color: var(--st-warn); color: #8a6400; }
+  html[data-theme="dark"] .st.wait { color: var(--st-warn); }
+  .st.later { border-style: dashed; }
+  .cfg-btn { font-family: "Space Mono", monospace; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 2px solid var(--line); background: var(--ink); color: var(--paper); padding: 7px 11px; white-space: nowrap; }
+  .cfg-btn.ghost { background: var(--panel); color: var(--ink); }
+
   ul.plain { margin: 6px 0 0; padding-left: 20px; }
   ul.plain li { margin-bottom: 8px; }
 
@@ -424,7 +443,57 @@
       <span class="li"><span class="sw" style="background:var(--st-crit)"></span>vieux (&gt;14 j) / danger</span>
       <span class="li"><span class="sw" style="border:2px solid var(--st-crit);width:7px;height:7px"></span>bordure = suspect</span>
     </div>
-    <p class="muted" style="margin-top:14px;">Couleur <b>fonctionnelle</b>, pas décorative : la <b>pastille de boîte</b> reprend la couleur de marque (Cobra, HiFi Lovers, Haute Fidélité, Perso…) et aide à scanner par source — mais c'est le <b>libellé qui identifie</b> (Cobra, HiFi et Haute Fidélité sont trois rouges proches — la couleur groupe par univers, le libellé tranche). Barre de filtres en haut, le <b>badge d'âge</b> vire à l'ambre puis au rouge quand la boucle vieillit (ton critère de tri devient visible), la <b>bordure rouge</b> isole le suspect. « Fait » est plein (action primaire) : il ferme la boucle <b>et file le mail hors de l'inbox</b> vers ton dossier existant. « Voir » en contour, « Supprimer + blocker » en rouge (destructif). Tri par ancienneté, <b>2 actions max</b> par item, cibles tactiles ~40px. Rien d'autre : pas de réglages, pas de configurateur.</p>
+    <p class="muted" style="margin-top:14px;">Couleur <b>fonctionnelle</b>, pas décorative : la <b>pastille de boîte</b> reprend la couleur de marque (Cobra, HiFi Lovers, Haute Fidélité, Perso…) et aide à scanner par source — mais c'est le <b>libellé qui identifie</b> (Cobra, HiFi et Haute Fidélité sont trois rouges proches — la couleur groupe par univers, le libellé tranche). Barre de filtres en haut, le <b>badge d'âge</b> vire à l'ambre puis au rouge quand la boucle vieillit (ton critère de tri devient visible), la <b>bordure rouge</b> isole le suspect. « Fait » est plein (action primaire) : il ferme la boucle <b>et file le mail hors de l'inbox</b> vers ton dossier existant. « Voir » en contour, « Supprimer + blocker » en rouge (destructif). Tri par ancienneté, <b>2 actions max</b> par item, cibles tactiles ~40px. Le board du jour reste nu : <b>pas de réglages, pas de configurateur</b> — la connexion des boîtes est un écran <em>à part</em>, réglé une fois (ci-dessous).</p>
+
+    <h3>Écran de config — connecter les boîtes</h3>
+    <p class="muted" style="margin:0 0 4px;"><b>Écran serveur, derrière auth</b> (pas la page publique). Les identifiants saisis partent <b>chiffrés vers le serveur agent</b> (<code>chmod 600</code>), <b>jamais</b> stockés dans la page. Réglé une fois, puis l'agent tourne seul.</p>
+    <div class="cfg" aria-label="Maquette écran de config">
+      <div class="cfg-top">
+        <div class="big">Connecter mes boîtes</div>
+        <div class="note">6 connectées · 2 en attente · Inbox Zero visé partout sauf Hotmail.</div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-cobra)"></span>
+        <div class="cfg-id"><div class="addr">hlahutte@cobra.fr</div><div class="proto">Microsoft Graph</div></div>
+        <div class="cfg-act"><span class="st ok">Connectée</span><span class="cfg-btn ghost">Tester</span></div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-hlcons)"></span>
+        <div class="cfg-id"><div class="addr">hugo@hl-consulting.tech</div><div class="proto">IMAP Ionos · mot de passe d'app</div></div>
+        <div class="cfg-act"><span class="st ok">Connectée</span><span class="cfg-btn ghost">Tester</span></div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-hlmedia)"></span>
+        <div class="cfg-id"><div class="addr">hugo@hl-media</div><div class="proto">IMAP Ionos · host + mot de passe d'app</div></div>
+        <div class="cfg-act"><span class="st wait">À connecter</span><span class="cfg-btn">Connecter</span></div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-hl)"></span>
+        <div class="cfg-id"><div class="addr">hugo@hl-holding</div><div class="proto">IMAP Ionos · host + mot de passe d'app</div></div>
+        <div class="cfg-act"><span class="st wait">À connecter</span><span class="cfg-btn">Connecter</span></div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-hifi)"></span>
+        <div class="cfg-id"><div class="addr">hugo@hifi-lovers.com</div><div class="proto">IMAP Ionos · mot de passe d'app</div></div>
+        <div class="cfg-act"><span class="st ok">Connectée</span><span class="cfg-btn ghost">Tester</span></div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-hf)"></span>
+        <div class="cfg-id"><div class="addr">hugo@hautefidelite-magazine.com</div><div class="proto">IMAP Ionos · mot de passe d'app</div></div>
+        <div class="cfg-act"><span class="st ok">Connectée</span><span class="cfg-btn ghost">Tester</span></div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-perso)"></span>
+        <div class="cfg-id"><div class="addr">hugo.lahutte@gmail.com</div><div class="proto">IMAP · app password (2FA) — phase B</div></div>
+        <div class="cfg-act"><span class="st later">Phase B</span><span class="cfg-btn">Connecter</span></div>
+      </div>
+      <div class="cfg-row">
+        <span class="bdot" style="background:var(--fam-perso)"></span>
+        <div class="cfg-id"><div class="addr">hlh31@hotmail.com</div><div class="proto">OAuth2 · Inbox laissée telle quelle — phase B</div></div>
+        <div class="cfg-act"><span class="st later">Phase B</span><span class="cfg-btn">Connecter</span></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;">Chaque ligne = une boîte, sa pastille de marque, son protocole, son état (<b>Connectée</b> / <b>À connecter</b> / <b>Phase B</b>). « Connecter » ouvre le champ creds (côté serveur) ; « Tester » vérifie la connexion en lecture seule. Hotmail : connectée pour lecture, mais son inbox n'est jamais vidée (ta règle).</p>
   </section>
 
   <!-- PLAN DE DEV -->
