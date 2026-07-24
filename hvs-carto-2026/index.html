@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html class="staticrypt-html">
+<html class="staticrypt-html" lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="robots" content="noindex, nofollow" />
         <title>HOME VIDEO SAGA — Accès protégé</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Ccircle%20cx='32'%20cy='32'%20r='30'%20fill='%230a0908'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='19'%20fill='none'%20stroke='%23eeb267'%20stroke-width='4'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='6'%20fill='%23eeb267'/%3E%3C/svg%3E" type="image/svg+xml" />
+        <meta name="theme-color" content="#0a0908" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
         <!-- do not cache this page -->
         <meta http-equiv="cache-control" content="max-age=0" />
@@ -14,163 +19,234 @@
         <meta http-equiv="pragma" content="no-cache" />
 
         <style>
-            .staticrypt-hr {
-                margin-top: 20px;
-                margin-bottom: 20px;
-                border: 0;
-                border-top: 1px solid #eee;
+            /* ---- Porte HVS : codes graphiques du site du projet (hvs-corp.com) ---- */
+            :root {
+                --hvs-bg: #0a0908;
+                --hvs-bg2: #15110d;
+                --hvs-panel-a: #171310;
+                --hvs-panel-b: #0e0d0b;
+                --hvs-accent: #d99a4e;
+                --hvs-gold: #eeb267;
+                --hvs-ink: #ece7dd;
+                --hvs-muted: #8b8478;
+                --hvs-muted-2: #c7c1b5;
+                --hvs-line: rgba(236, 231, 221, 0.10);
+                --hvs-cream: #eee7db;
             }
 
-            .staticrypt-page {
-                width: 360px;
-                padding: 8% 0 0;
-                margin: auto;
-                box-sizing: border-box;
-            }
+            * { box-sizing: border-box; }
 
-            .staticrypt-form {
-                position: relative;
-                z-index: 1;
-                background: #ffffff;
-                max-width: 360px;
-                margin: 0 auto 100px;
-                padding: 45px;
-                text-align: center;
-                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-            }
-
-            .staticrypt-form input[type="password"],
-            input[type="text"] {
-                background: inherit;
-                border: 0;
-                box-sizing: border-box; /* This ensures padding is included in the total width */
-                font-size: 14px;
-                outline: 0;
-                padding: 15px 30px 15px 15px; /* Adjust the padding to ensure there is space for the icon */
-                width: 100%;
-            }
-
-            .staticrypt-password-container {
-                position: relative;
-                outline: 0;
-                background: #f2f2f2;
-                width: 100%;
-                border: 0;
-                margin: 0 0 15px;
-                box-sizing: border-box;
-            }
-
-            .staticrypt-toggle-password-visibility {
-                cursor: pointer;
-                height: 20px;
-                opacity: 60%;
-                padding: 13px;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 20px;
-            }
-
-            .staticrypt-form .staticrypt-decrypt-button {
-                text-transform: uppercase;
-                outline: 0;
-                background: #502008;
-                width: 100%;
-                border: 0;
-                padding: 15px;
-                color: #ffffff;
-                font-size: 14px;
-                cursor: pointer;
-            }
-
-            .staticrypt-form .staticrypt-decrypt-button:hover,
-            .staticrypt-form .staticrypt-decrypt-button:active,
-            .staticrypt-form .staticrypt-decrypt-button:focus {
-                background: #502008;
-                filter: brightness(92%);
-            }
-
-            .staticrypt-html {
-                height: 100%;
-            }
-
-            .staticrypt-body {
-                height: 100%;
-                margin: 0;
-            }
+            .staticrypt-html { height: 100%; }
+            .staticrypt-body { height: 100%; margin: 0; }
 
             .staticrypt-content {
-                height: 100%;
-                margin-bottom: 1em;
-                background: #F8F0C4;
-                font-family: "Arial", sans-serif;
+                min-height: 100vh;
+                margin: 0;
+                background:
+                    radial-gradient(closest-side, rgba(217, 154, 78, 0.16), rgba(217, 154, 78, 0)) 50% 34% / 760px 760px no-repeat,
+                    radial-gradient(130% 120% at 50% 0%, var(--hvs-bg2) 0%, var(--hvs-bg) 58%);
+                color: var(--hvs-ink);
+                font-family: "Inter", system-ui, -apple-system, sans-serif;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
 
-            .staticrypt-instructions {
-                margin-top: -1em;
-                margin-bottom: 1em;
-            }
-
-            .staticrypt-title {
-                font-size: 1.5em;
-            }
-
-            label.staticrypt-remember {
-                display: flex;
-                align-items: center;
-                margin-bottom: 1em;
-            }
-
-            .staticrypt-remember input[type="checkbox"] {
-                transform: scale(1.5);
-                margin-right: 1em;
-            }
-
-            .hidden {
-                display: none !important;
-            }
-
+            /* loader */
             .staticrypt-spinner-container {
-                height: 100%;
+                min-height: 100vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                background: var(--hvs-bg);
             }
 
             .staticrypt-spinner {
                 display: inline-block;
                 width: 2rem;
                 height: 2rem;
-                vertical-align: text-bottom;
-                border: 0.25em solid gray;
-                border-right-color: transparent;
+                border: 0.22em solid rgba(238, 178, 103, 0.22);
+                border-right-color: var(--hvs-gold);
                 border-radius: 50%;
-                -webkit-animation: spinner-border 0.75s linear infinite;
-                animation: spinner-border 0.75s linear infinite;
-                animation-duration: 0.75s;
-                animation-timing-function: linear;
-                animation-delay: 0s;
-                animation-iteration-count: infinite;
-                animation-direction: normal;
-                animation-fill-mode: none;
-                animation-play-state: running;
-                animation-name: spinner-border;
+                animation: spinner-border 0.8s linear infinite;
             }
 
             @keyframes spinner-border {
-                100% {
-                    transform: rotate(360deg);
-                }
+                100% { transform: rotate(360deg); }
+            }
+
+            /* layout */
+            .staticrypt-page {
+                width: 100%;
+                max-width: 440px;
+                padding: clamp(24px, 8vh, 84px) 20px 40px;
+                margin: 0 auto;
+            }
+
+            /* carte sombre arrondie — comme les panneaux du site projet */
+            .staticrypt-form {
+                position: relative;
+                background: linear-gradient(180deg, var(--hvs-panel-a), var(--hvs-panel-b));
+                border: 1px solid var(--hvs-line);
+                border-radius: 22px;
+                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+                padding: 42px 34px 34px;
+                text-align: center;
+            }
+
+            .hvs-emblem {
+                width: 56px;
+                height: 56px;
+                display: block;
+                margin: 0 auto 20px;
+            }
+
+            .staticrypt-instructions { margin: 0; }
+
+            .hvs-kicker {
+                font-family: "Inter", sans-serif;
+                font-weight: 600;
+                font-size: 11px;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--hvs-gold);
+                margin: 0 0 14px;
+            }
+
+            .staticrypt-title {
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: clamp(1.4rem, 4.8vw, 1.75rem);
+                line-height: 1.05;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: var(--hvs-ink);
+                margin: 0 0 12px;
+            }
+
+            .hvs-sub {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                font-weight: 400;
+                color: var(--hvs-muted-2);
+                margin: 0 auto;
+                max-width: 30ch;
+            }
+
+            .staticrypt-hr {
+                border: 0;
+                height: 1px;
+                width: 100%;
+                background: linear-gradient(90deg, transparent, var(--hvs-line), transparent);
+                margin: 24px 0;
+            }
+
+            /* champ mot de passe — pill sombre */
+            .staticrypt-password-container {
+                position: relative;
+                background: rgba(236, 231, 221, 0.04);
+                border: 1px solid var(--hvs-line);
+                border-radius: 999px;
+                margin: 0 0 16px;
+                transition: border-color 0.15s ease, box-shadow 0.15s ease;
+            }
+
+            .staticrypt-password-container:focus-within {
+                border-color: rgba(217, 154, 78, 0.6);
+                box-shadow: 0 0 0 3px rgba(217, 154, 78, 0.14);
+            }
+
+            .staticrypt-form input[type="password"],
+            .staticrypt-form input[type="text"] {
+                background: transparent;
+                border: 0;
+                outline: 0;
+                width: 100%;
+                font-family: "Inter", sans-serif;
+                font-size: 15px;
+                color: var(--hvs-ink);
+                padding: 15px 48px 15px 22px;
+                border-radius: 999px;
+            }
+
+            .staticrypt-form input::placeholder { color: var(--hvs-muted); }
+
+            .staticrypt-toggle-password-visibility {
+                cursor: pointer;
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                opacity: 0.5;
+                filter: invert(1);
+            }
+
+            /* se souvenir */
+            label.staticrypt-remember {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.55em;
+                font-family: "Inter", sans-serif;
+                font-size: 12.5px;
+                color: var(--hvs-muted);
+                margin: 0 0 20px;
+            }
+
+            .staticrypt-remember input[type="checkbox"] {
+                accent-color: var(--hvs-accent);
+                transform: scale(1.15);
+            }
+
+            /* bouton — pill crème, comme le CTA du site */
+            .staticrypt-form .staticrypt-decrypt-button {
+                display: block;
+                width: 100%;
+                border: 0;
+                cursor: pointer;
+                border-radius: 999px;
+                background: var(--hvs-cream);
+                color: #17130d;
+                font-family: "Inter", sans-serif;
+                font-weight: 600;
+                font-size: 14px;
+                letter-spacing: 0.01em;
+                padding: 15px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+                transition: transform 0.08s ease, filter 0.15s ease, box-shadow 0.15s ease;
+            }
+
+            .staticrypt-form .staticrypt-decrypt-button:hover {
+                filter: brightness(1.05);
+                box-shadow: 0 10px 30px rgba(217, 154, 78, 0.18);
+            }
+            .staticrypt-form .staticrypt-decrypt-button:active { transform: translateY(1px); }
+            .staticrypt-form .staticrypt-decrypt-button:focus-visible {
+                outline: 2px solid var(--hvs-gold);
+                outline-offset: 3px;
+            }
+
+            .hvs-foot {
+                font-family: "Inter", sans-serif;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--hvs-muted);
+                text-align: center;
+                margin: 22px 0 0;
+                opacity: 0.8;
+            }
+
+            .hidden { display: none !important; }
+
+            @media (max-width: 480px) {
+                .staticrypt-form { padding: 34px 22px 26px; border-radius: 18px; }
             }
 
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
                 .staticrypt-form input[type="password"],
-                input[type="text"] {
-                    font-size: 16px;
-                }
+                .staticrypt-form input[type="text"] { font-size: 16px; }
             }
         </style>
     </head>
@@ -183,9 +259,22 @@
         <div id="staticrypt_content" class="staticrypt-content hidden">
             <div class="staticrypt-page">
                 <div class="staticrypt-form">
+                    <svg class="hvs-emblem" viewBox="0 0 64 64" role="img" aria-label="Home Video Saga">
+                        <defs>
+                            <linearGradient id="hvsAmber" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#eeb267"/>
+                                <stop offset="1" stop-color="#d99a4e"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="32" cy="32" r="27" fill="none" stroke="url(#hvsAmber)" stroke-width="2.5" opacity="0.9"/>
+                        <circle cx="32" cy="32" r="17" fill="none" stroke="url(#hvsAmber)" stroke-width="1" opacity="0.45"/>
+                        <circle cx="32" cy="32" r="5.5" fill="#0a0908" stroke="url(#hvsAmber)" stroke-width="2"/>
+                    </svg>
+
                     <div class="staticrypt-instructions">
-                        <p class="staticrypt-title">HOME VIDEO SAGA — Accès protégé</p>
-                        <p>Cartographie communication — entrez le mot de passe</p>
+                        <p class="hvs-kicker">Accès protégé · AES-256</p>
+                        <p class="staticrypt-title">Home Video Saga</p>
+                        <p class="hvs-sub">Cartographie communication — entrez le mot de passe pour ouvrir le document.</p>
                     </div>
 
                     <hr class="staticrypt-hr" />
@@ -196,26 +285,28 @@
                                 id="staticrypt-password"
                                 type="password"
                                 name="password"
-                                placeholder="Password"
+                                placeholder="Mot de passe"
                                 autofocus
                             />
 
                             <img
                                 class="staticrypt-toggle-password-visibility"
-                                alt="Show password"
-                                title="Show password"
+                                alt="Afficher le mot de passe"
+                                title="Afficher le mot de passe"
                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg=="
                             />
                         </div>
 
                         <label id="staticrypt-remember-label" class="staticrypt-remember hidden">
                             <input id="staticrypt-remember" type="checkbox" name="remember" />
-                            Remember me
+                            Se souvenir de moi
                         </label>
 
                         <input type="submit" class="staticrypt-decrypt-button" value="Entrer" />
                     </form>
                 </div>
+
+                <p class="hvs-foot">HL Consulting — Confidentiel</p>
             </div>
         </div>
 
