@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#FFFFFF" />
+<title>Agent Email — Boucles ouvertes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("hl-theme") || "light";
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+<style>
+  /* ===== TOKENS : noir/blanc uniquement (corail réservé à l'accueil) ===== */
+  :root {
+    --ink: #0A0A0A;
+    --paper: #FFFFFF;
+    --panel: #FFFFFF;
+    --muted: #5B5B5B;
+    --line: #0A0A0A;
+    --soft: #EDEDED;
+    --bw: 3px;
+    --off: 6px;
+  }
+  html[data-theme="dark"] {
+    --ink: #F4F4F4;
+    --paper: #0C0C0C;
+    --panel: #141414;
+    --muted: #9A9A9A;
+    --line: #F4F4F4;
+    --soft: #1E1E1E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .mono { font-family: "Space Mono", ui-monospace, monospace; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== HEADER ===== */
+  .hd {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--paper);
+    border-bottom: var(--bw) solid var(--line);
+  }
+  .hd-row { display: flex; align-items: center; gap: 14px; max-width: 900px; margin: 0 auto; padding: 12px 20px; }
+  .hd-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .hd-sq {
+    width: 34px; height: 34px; display: grid; place-items: center;
+    background: var(--ink); color: var(--paper);
+    border: var(--bw) solid var(--line);
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 15px;
+  }
+  .hd-name { font-weight: 700; font-size: 14px; letter-spacing: -0.01em; }
+  .hd-name small { display: block; font-weight: 400; font-size: 10px; color: var(--muted); }
+  .hd-tools { margin-left: auto; display: flex; gap: 6px; }
+  .btn-mini {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    background: var(--panel); color: var(--ink);
+    border: var(--bw) solid var(--line); padding: 7px 10px;
+    cursor: pointer; line-height: 1; text-transform: uppercase; text-decoration: none;
+  }
+  .btn-mini:hover { background: var(--ink); color: var(--paper); }
+
+  /* ===== HERO ===== */
+  .hero { padding: 48px 0 8px; }
+  .eyebrow {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 16px;
+    display: inline-block; border: var(--bw) solid var(--line);
+    background: var(--panel); padding: 6px 11px;
+  }
+  h1 {
+    font-weight: 700; line-height: 0.92; letter-spacing: -0.03em;
+    font-size: clamp(38px, 8vw, 78px); margin: 0; text-transform: uppercase;
+  }
+  .lede {
+    font-family: "Space Mono", monospace; font-size: clamp(14px, 2.4vw, 18px);
+    line-height: 1.5; margin: 20px 0 0; max-width: 60ch; color: var(--muted);
+  }
+  .lede b { color: var(--ink); font-weight: 700; }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 40px 0; border-top: var(--bw) solid var(--line); }
+  section:first-of-type { border-top: none; }
+  .kicker {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 6px;
+  }
+  h2 { font-weight: 700; font-size: clamp(24px, 4.4vw, 34px); letter-spacing: -0.02em; margin: 0 0 18px; line-height: 1.05; }
+  h3 { font-weight: 700; font-size: 18px; margin: 26px 0 8px; letter-spacing: -0.01em; }
+  p { margin: 0 0 14px; }
+  .muted { color: var(--muted); }
+
+  /* callout : les 3 règles dures */
+  .rules { display: grid; gap: 12px; margin: 18px 0 0; }
+  .rule {
+    border: var(--bw) solid var(--line); background: var(--panel);
+    padding: 16px 18px; box-shadow: var(--off) var(--off) 0 var(--soft);
+  }
+  .rule b { display: block; font-family: "Space Mono", monospace; text-transform: uppercase; font-size: 13px; margin-bottom: 6px; }
+
+  /* tableaux */
+  .tbl-wrap { overflow-x: auto; border: var(--bw) solid var(--line); }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--soft); vertical-align: top; }
+  th { font-family: "Space Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; background: var(--soft); border-bottom: var(--bw) solid var(--line); }
+  tr:last-child td { border-bottom: none; }
+  .pA { font-family: "Space Mono", monospace; font-weight: 700; font-size: 11px; padding: 2px 6px; border: 2px solid var(--line); }
+  .pB { font-family: "Space Mono", monospace; font-weight: 700; font-size: 11px; padding: 2px 6px; border: 2px solid var(--muted); color: var(--muted); }
+
+  /* paniers */
+  .baskets { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 6px; }
+  .basket { border: var(--bw) solid var(--line); padding: 14px 16px; background: var(--panel); }
+  .basket b { font-family: "Space Mono", monospace; text-transform: uppercase; font-size: 13px; }
+  .basket .tag-v2 { font-size: 10px; border: 2px solid var(--muted); color: var(--muted); padding: 1px 5px; margin-left: 6px; }
+  .basket p { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+
+  /* couches spam */
+  ol.layers { margin: 8px 0 0; padding-left: 20px; }
+  ol.layers li { margin-bottom: 10px; }
+
+  /* plan de dev */
+  .step { border: var(--bw) solid var(--line); background: var(--panel); padding: 16px 18px; margin-bottom: 12px; }
+  .step-hd { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .step-no { font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px; border: 2px solid var(--line); padding: 2px 8px; white-space: nowrap; }
+  .step-hd b { font-size: 16px; letter-spacing: -0.01em; }
+  .step p { font-size: 14px; margin: 10px 0 0; }
+  .crit { font-family: "Space Mono", monospace; font-size: 12.5px; margin-top: 10px; padding: 8px 10px; background: var(--soft); border-left: var(--bw) solid var(--line); }
+  .crit b { text-transform: uppercase; }
+
+  /* maquette dashboard */
+  .mock { border: var(--bw) solid var(--line); max-width: 380px; margin: 6px 0 0; background: var(--panel); box-shadow: var(--off) var(--off) 0 var(--soft); }
+  .mock-top { border-bottom: var(--bw) solid var(--line); padding: 12px 14px; }
+  .mock-top .mono { font-size: 11px; text-transform: uppercase; color: var(--muted); }
+  .mock-top .big { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  .mock-sec { border-bottom: 2px solid var(--soft); }
+  .mock-sec:last-child { border-bottom: none; }
+  .mock-sec-hd { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; font-family: "Space Mono", monospace; font-size: 12px; text-transform: uppercase; font-weight: 700; }
+  .mock-sec-hd.closed { color: var(--muted); }
+  .mock-item { padding: 10px 14px; border-top: 2px solid var(--soft); font-size: 13px; }
+  .mock-item .from { font-weight: 700; }
+  .mock-item .box { font-family: "Space Mono", monospace; font-size: 10px; border: 2px solid var(--muted); color: var(--muted); padding: 0 5px; margin-left: 6px; }
+  .mock-item .age { float: right; font-family: "Space Mono", monospace; font-size: 11px; color: var(--muted); }
+  .mock-item .sub { color: var(--muted); font-size: 12px; margin-top: 3px; }
+  .mock-item .acts { margin-top: 8px; display: flex; gap: 6px; }
+  .mock-item .acts span { font-family: "Space Mono", monospace; font-size: 10px; text-transform: uppercase; border: 2px solid var(--line); padding: 2px 7px; }
+
+  ul.plain { margin: 6px 0 0; padding-left: 20px; }
+  ul.plain li { margin-bottom: 8px; }
+
+  code { font-family: "Space Mono", monospace; background: var(--soft); padding: 1px 5px; font-size: 0.9em; }
+
+  footer { border-top: var(--bw) solid var(--line); padding: 28px 0 48px; font-family: "Space Mono", monospace; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-row">
+    <a class="hd-brand" href="/">
+      <span class="hd-sq">HL</span>
+      <span class="hd-name">HL Group<small>projet interne</small></span>
+    </a>
+    <div class="hd-tools">
+      <button class="btn-mini" id="theme-toggle" type="button" aria-label="Basculer le thème">◐ thème</button>
+      <a class="btn-mini" href="/">← accueil</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <span class="eyebrow">Projet interne · HL Group · remplace Fyxer</span>
+    <h1>Agent Email<br>Boucles ouvertes</h1>
+    <p class="lede">L'objet utile n'est <b>pas le mail</b>, c'est la <b>boucle ouverte</b> : un truc qui attend une action et qui n'est pas fait. Le mail est la matière première. Le produit central = un <b>tableau de bord des boucles ouvertes</b> + un <b>digest quotidien</b> qui en est l'instantané. Pattern de référence : l'agent factures fournisseurs — agent serveur autonome, pas une app qu'on ouvre à la main.</p>
+  </div>
+
+  <!-- PRINCIPE -->
+  <section id="principe">
+    <p class="kicker">01 — Principe directeur</p>
+    <h2>Trois règles dures, non négociables</h2>
+    <div class="rules">
+      <div class="rule">
+        <b>Zéro dossier créé dans les boîtes</b>
+        Le rangement se fait dans des paniers <em>du dashboard</em>, pas en 100 sous-dossiers façon Fyxer.
+      </div>
+      <div class="rule">
+        <b>Confiance binaire</b>
+        Rien de destructif ou de définitif (suppression dure, blocage) sans validation humaine. Mieux vaut afficher un item déjà réglé que d'en cacher un vrai.
+      </div>
+      <div class="rule">
+        <b>Lecture seule d'abord, écriture réversible ensuite, destructif jamais en auto</b>
+        Même logique que l'agent factures : l'humain valide l'action finale.
+      </div>
+    </div>
+  </section>
+
+  <!-- PÉRIMÈTRE -->
+  <section id="perimetre">
+    <p class="kicker">02 — Périmètre</p>
+    <h2>8 boîtes, découpage A / B</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Boîte</th><th>Protocole</th><th>Auth</th><th>Phase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>hlahutte@cobra.fr</td><td>Microsoft Graph</td><td>déjà branché &amp; testé</td><td><span class="pA">A</span></td></tr>
+          <tr><td>hugo@hl-consulting.tech</td><td>IMAP (Ionos)</td><td>mot de passe d'app</td><td><span class="pA">A</span></td></tr>
+          <tr><td>hugo@hl-media</td><td>IMAP (Ionos)</td><td>mot de passe d'app</td><td><span class="pA">A</span></td></tr>
+          <tr><td>hugo@hl-holding</td><td>IMAP (Ionos)</td><td>mot de passe d'app</td><td><span class="pA">A</span></td></tr>
+          <tr><td>hugo@hifi-lovers.com</td><td>IMAP (Ionos)</td><td>mot de passe d'app</td><td><span class="pA">A</span></td></tr>
+          <tr><td>hugo@hautefidelite-magazine.com</td><td>IMAP (Ionos)</td><td>mot de passe d'app</td><td><span class="pA">A</span></td></tr>
+          <tr><td>hugo.lahutte@gmail.com</td><td>IMAP / Gmail API</td><td>app password (2FA)</td><td><span class="pB">B</span></td></tr>
+          <tr><td>hlh31@hotmail.com</td><td>Graph perso / IMAP-OAuth2</td><td>OAuth2</td><td><span class="pB">B</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:16px;">Les 5 Ionos + cobra (Graph, déjà fait) marchent avec une auth simple → 6 boîtes couvertes vite, dont <b>hautefidelite-magazine.com</b> (la priorité de tri). Gmail/Hotmail en phase B car Microsoft &amp; Google ont coupé le basic-auth IMAP. L'adaptateur IMAP est <b>générique</b> : activer Gmail = poser un mot de passe d'app en config (<code>imap.gmail.com</code>), <b>zéro ligne de code</b>. Le stack livré en phase A couvre structurellement 7 boîtes sur 8 ; Hotmail (OAuth2) est le seul vrai reliquat de dev.</p>
+  </section>
+
+  <!-- PANIERS -->
+  <section id="paniers">
+    <p class="kicker">03 — Rangement</p>
+    <h2>Les 5 paniers <span class="muted" style="font-size:16px;">(vues du dashboard, pas des dossiers)</span></h2>
+    <div class="baskets">
+      <div class="basket"><b>À répondre / à traiter</b><p>Une action de ta part est attendue.</p></div>
+      <div class="basket"><b>En attente <span class="tag-v2">v2</span></b><p>Tu as répondu, tu attends l'autre — suivi des relances qui slippent. Une fois la fermeture de boucle fiable.</p></div>
+      <div class="basket"><b>Pour info</b><p>Rien à faire, juste savoir.</p></div>
+      <div class="basket"><b>Bruit</b><p>Marketing / newsletters / com. Replié par défaut.</p></div>
+      <div class="basket"><b>Suspect</b><p>Spam / phishing à vérifier.</p></div>
+    </div>
+  </section>
+
+  <!-- DÉTECTION -->
+  <section id="detection">
+    <p class="kicker">04 — Détection</p>
+    <h2>Bruit gratuit, spam/phishing en couches</h2>
+    <h3>Bruit — sans LLM, 0 token</h3>
+    <p class="muted">Headers <code>List-Unsubscribe</code>, <code>Precedence: bulk</code>, signatures ESP (Mailchimp, Brevo, Sendinblue…). Attrape l'essentiel avant l'étage LLM et ne pollue pas le board.</p>
+    <h3>Spam / phishing — en couches</h3>
+    <ol class="layers">
+      <li><b>Auth (déterministe, gratuit, le meilleur signal)</b> — lecture de <code>Authentication-Results</code> : SPF / DKIM / DMARC. Un mail qui se prétend « banque / fournisseur » et rate DMARC = phishing fort. C'est ce qu'Ionos ne te montre pas.</li>
+      <li><b>Heuristiques</b> — nom affiché ≠ domaine réel, domaines sosies (<code>cobra.fr</code> vs <code>cobra-fr.com</code>, homoglyphes), Reply-To divergent, texte de lien ≠ cible, langage « urgent, changez l'IBAN ».</li>
+      <li><b>LLM en dernier juge, zone grise seulement</b> — cher et faillible (injection possible via le contenu du mail), donc jamais sur tout.</li>
+    </ol>
+    <p class="muted" style="margin-top:16px;"><b>Limite assumée :</b> Ionos est le MTA de réception ; on ne touche la boîte qu'en IMAP, <em>après</em> livraison. On construit un <b>deuxième avis</b> qui re-juge et déplace, <b>pas un portail</b> qui bloque à l'entrée. Un vrai filtrage amont = re-router le MX → autre projet, hors périmètre.</p>
+  </section>
+
+  <!-- GOUVERNANCE -->
+  <section id="gouvernance">
+    <p class="kicker">05 — Gouvernance des écritures</p>
+    <h2>Confiance × réversibilité</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Action</th><th>Réversible ?</th><th>Déclenchement</th></tr></thead>
+        <tbody>
+          <tr><td>Classer en panier (base interne)</td><td>oui</td><td><b>auto</b></td></tr>
+          <tr><td>Quarantaine (dossier « Suspect »)</td><td>oui (récupérable)</td><td><b>auto</b> sur haute confiance</td></tr>
+          <tr><td>Sender blocké → Corbeille</td><td>oui</td><td><b>auto</b> (une fois blocké)</td></tr>
+          <tr><td>Supprimer + blocker un expéditeur</td><td>ajout blocklist</td><td><b>manuel, 1 tap</b> dans le digest</td></tr>
+          <tr><td>Suppression dure (expunge)</td><td>non</td><td><b>manuel</b> uniquement</td></tr>
+          <tr><td>Envoi de mail</td><td>non</td><td><b>jamais auto</b>, brouillon seulement</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:16px;">Le « blocage » = une <b>blocklist maintenue par l'agent</b> (adresses + domaines), pas un blocage Ionos (inexistant en IMAP). Centralisée sur les 8 boîtes, réversible, indépendante du provider. Décision manuelle une fois par expéditeur, puis auto. <b>Spam ≠ phishing dans l'auto</b> : le spam se quarantine agressivement (au pire une newsletter perdue) ; le phishing se quarantine <b>+ te notifie</b> — jamais en silence, il peut usurper un contact réel. La blocklist est <b>visible et éditable</b> dans le dashboard.</p>
+  </section>
+
+  <!-- SORTIES + MAQUETTE -->
+  <section id="sorties">
+    <p class="kicker">06 — Sorties</p>
+    <h2>Digest, dashboard, brouillons</h2>
+    <ul class="plain">
+      <li><b>Digest quotidien Telegram</b> (matin) : nouvelles boucles + boucles qui vieillissent (« pas traité depuis X jours ») + suspects à valider avec boutons inline <em>supprimer + blocker</em>.</li>
+      <li><b>Dashboard web</b> sous <code>hl-consulting.tech/mail</code>, <b>protégé par mot de passe</b> (StatiCrypt, comme la carto HVS) — pas public, il expose tes boucles ouvertes. Mobile-first, stack légère, cohérent avec le knowledge-hub.</li>
+      <li><b>Brouillons de réponse</b> générés à la demande sur « À répondre », déposés dans les Drafts (Graph draft / IMAP APPEND). <b>Jamais d'envoi automatique.</b></li>
+    </ul>
+
+    <h3>Maquette du dashboard — mobile-first, un seul écran</h3>
+    <div class="mock" aria-label="Maquette du dashboard mail">
+      <div class="mock-top">
+        <div class="mono">Jeudi 24 juillet · résumé du jour</div>
+        <div class="big">14 boucles ouvertes</div>
+        <div class="mono">3 nouvelles · 5 qui vieillissent</div>
+      </div>
+      <div class="mock-sec">
+        <div class="mock-sec-hd">À répondre <span>▾</span></div>
+        <div class="mock-item">
+          <span class="age">12 j</span>
+          <span class="from">Distributeur JBL</span><span class="box">cobra.fr</span>
+          <div class="sub">Devis enceintes — relance, attend ta validation.</div>
+          <div class="acts"><span>Fait</span><span>Voir le mail</span></div>
+        </div>
+        <div class="mock-item">
+          <span class="age">4 j</span>
+          <span class="from">Imprimeur HF</span><span class="box">hautefidelite</span>
+          <div class="sub">BAT numéro d'été à valider avant vendredi.</div>
+          <div class="acts"><span>Fait</span><span>Voir le mail</span></div>
+        </div>
+      </div>
+      <div class="mock-sec">
+        <div class="mock-sec-hd">Suspect <span>▾</span></div>
+        <div class="mock-item">
+          <span class="age">1 j</span>
+          <span class="from">« Service Sécurité »</span><span class="box">hl-holding</span>
+          <div class="sub">DMARC-fail · se prétend banque · IBAN à changer.</div>
+          <div class="acts"><span>Supprimer + blocker</span><span>Voir</span></div>
+        </div>
+      </div>
+      <div class="mock-sec">
+        <div class="mock-sec-hd closed">Pour info <span>▸</span></div>
+      </div>
+      <div class="mock-sec">
+        <div class="mock-sec-hd closed">Bruit (replié) <span>▸</span></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;">Tri par ancienneté (les plus vieilles remontent). Chaque item : expéditeur + tag de la boîte + objet + résumé une ligne + badge d'âge, <b>2 actions max</b>. Une section <em>Blocklist</em> éditable. Rien d'autre : pas de réglages, pas de configurateur.</p>
+  </section>
+
+  <!-- PLAN DE DEV -->
+  <section id="plan">
+    <p class="kicker">07 — Plan de dev</p>
+    <h2>10 étapes, chacune avec un critère de succès exécutable</h2>
+
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 0</span><b>Socle</b></div>
+      <p>Repo <code>/opt/agents/email</code>, chargeur de config (creds hors repo, <code>chmod 600</code>), schéma SQLite, logger à compteurs (lus / nouveaux / dédupliqués / classés / rejetés). Interface normalisée <code>MailSource</code> : <code>list_since()</code>, <code>get_message()</code>, <code>move()</code>, <code>append_draft()</code>.</p>
+      <p class="crit"><b>✅ Critère —</b> <code>selftest</code> liste les 5 derniers mails d'UNE boîte Ionos, les écrit en base, 0 écriture dans la boîte.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 1</span><b>Ingestion multi-boîtes, lecture seule (6 boîtes)</b></div>
+      <p>Adaptateur IMAP (5 Ionos) + réutilisation du Graph cobra. Fetch incrémental (UIDVALIDITY/UIDNEXT), normalisation, dédup par fil (Message-ID / References / In-Reply-To).</p>
+      <p class="crit"><b>✅ Critère —</b> un run traite les 6 boîtes sans doublon, compteurs en log, 0 écriture.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 2</span><b>Pré-filtre déterministe (bruit + suspect), gratuit</b></div>
+      <p>Règles headers → panier Bruit. Checks <code>Authentication-Results</code> + heuristiques → score Suspect. Aucun LLM.</p>
+      <p class="crit"><b>✅ Critère —</b> sur hautefidelite-magazine.com, l'essentiel du bruit classé sans LLM, les DMARC-fail remontent en Suspect.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 3</span><b>Étage LLM : extraction de boucles + résumé</b></div>
+      <p>Sur le mail humain restant : classer le panier, extraire la boucle (action + owner moi/autre), résumer. Haiku pour le triage de masse, Sonnet/Opus pour la synthèse du digest.</p>
+      <p class="crit"><b>✅ Critère —</b> le « méga résumé » quotidien de cobra.fr seul est lisible et juste sur un échantillon relu à la main.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 4</span><b>Digest Telegram</b></div>
+      <p>Bot, digest matinal poussé : nouvelles boucles + vieillissantes + suspects.</p>
+      <p class="crit"><b>✅ Critère —</b> digest reçu chaque matin, contenu = état réel de la base.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 5</span><b>Dashboard web (hl-consulting.tech/mail)</b></div>
+      <p>Sous-chemin + auth, servi depuis le serveur. Mobile-first, board trié par âge (« À répondre » ouvert, « Bruit » replié), cases « fait », blocklist éditable.</p>
+      <p class="crit"><b>✅ Critère —</b> tu ouvres la page (après login) depuis ton tel, tu vois les boucles par ancienneté, tu coches « fait ».</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 6</span><b>Actions d'écriture réversibles (quarantaine)</b></div>
+      <p>Déplacement auto vers « Suspect » (haute confiance) ; sender blocké → Corbeille. Rien de dur.</p>
+      <p class="crit"><b>✅ Critère —</b> un sender blocké voit ses mails déplacés au run suivant, récupérables.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 7</span><b>Actions validées + brouillons</b></div>
+      <p>Boutons inline <em>supprimer + blocker</em> dans le digest → maj blocklist. Brouillons de réponse à la demande sur « À répondre ».</p>
+      <p class="crit"><b>✅ Critère —</b> 1 tap ajoute à la blocklist et corbeille le fil ; un brouillon apparaît dans Drafts, jamais envoyé.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 8</span><b>Activation Gmail + adaptateur Hotmail</b></div>
+      <p>Gmail = activation config sur l'adaptateur IMAP générique (host + app password), pas de nouveau code. Hotmail = seul vrai dev restant (Graph perso / IMAP-OAuth2).</p>
+      <p class="crit"><b>✅ Critère —</b> les 8 boîtes tournent dans le même run ; activer Gmail n'a demandé que de la config.</p>
+    </div>
+    <div class="step">
+      <div class="step-hd"><span class="step-no">Étape 9</span><b>Autonomie (cron) + garde-fous</b></div>
+      <p>Timer systemd (comme factures), kill switch, alerte si un adaptateur tombe.</p>
+      <p class="crit"><b>✅ Critère —</b> tourne seul chaque matin, tu ne l'ouvres que pour valider.</p>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack">
+    <p class="kicker">08 — Stack &amp; build</p>
+    <h2>Ce sur quoi ça tourne</h2>
+    <p>Python · <code>imapclient</code>/<code>imaplib</code> (IMAP) + SDK Graph existant · SQLite (état, comme le processed-tracker factures) · <code>python-telegram-bot</code> · API Claude (Haiku triage / Sonnet-Opus synthèse &amp; brouillons) · dashboard Flask/FastAPI minimal + HTML statique, zéro framework lourd · <code>systemd timer</code> pour l'autonomie.</p>
+    <h3>À brancher au build (jamais dans le repo)</h3>
+    <ul class="plain">
+      <li>Mots de passe d'app IMAP par boîte Ionos</li>
+      <li>App password Gmail (2FA)</li>
+      <li>OAuth Hotmail</li>
+      <li>Token bot Telegram</li>
+      <li>Domaines / hosts IMAP exacts de <code>hl-media</code> et <code>hl-holding</code></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>HL Group — projet interne · document vivant · dernière révision 2026-07-24.<br>
+  Hors périmètre v1 : re-routage MX / filtrage MTA amont · labels écrits dans les boîtes · envoi auto · panier « En attente » (v2).</p>
+</footer>
+
+<script>
+  (function () {
+    var order = ["light", "dark"];
+    var btn = document.getElementById("theme-toggle");
+    btn.addEventListener("click", function () {
+      var cur = document.documentElement.getAttribute("data-theme") || "light";
+      var next = order[(order.indexOf(cur) + 1) % order.length];
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("hl-theme", next); } catch (e) {}
+    });
+  })();
+</script>
+
+</body>
+</html>
