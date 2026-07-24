@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html class="staticrypt-html">
+<html class="staticrypt-html" lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="robots" content="noindex, nofollow" />
         <title>HOME VIDEO SAGA — Accès protégé</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <meta name="theme-color" content="#F8F0C4" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
         <!-- do not cache this page -->
         <meta http-equiv="cache-control" content="max-age=0" />
@@ -14,163 +19,220 @@
         <meta http-equiv="pragma" content="no-cache" />
 
         <style>
-            .staticrypt-hr {
-                margin-top: 20px;
-                margin-bottom: 20px;
-                border: 0;
-                border-top: 1px solid #eee;
+            /* ---- Porte HVS : typo du site (Space Grotesk / Space Mono) + couleurs du projet ---- */
+            :root {
+                --hvs-cream: #F8F0C4;
+                --hvs-cream-hi: #FCF6D8;
+                --hvs-paper: #FFFDF3;
+                --hvs-brown: #502008;
+                --hvs-brown-deep: #341402;
+                --hvs-brown-soft: #8A5A2E;
+                --hvs-field: #FBF5DA;
             }
 
-            .staticrypt-page {
-                width: 360px;
-                padding: 8% 0 0;
-                margin: auto;
-                box-sizing: border-box;
-            }
+            * { box-sizing: border-box; }
 
-            .staticrypt-form {
-                position: relative;
-                z-index: 1;
-                background: #ffffff;
-                max-width: 360px;
-                margin: 0 auto 100px;
-                padding: 45px;
-                text-align: center;
-                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-            }
-
-            .staticrypt-form input[type="password"],
-            input[type="text"] {
-                background: inherit;
-                border: 0;
-                box-sizing: border-box; /* This ensures padding is included in the total width */
-                font-size: 14px;
-                outline: 0;
-                padding: 15px 30px 15px 15px; /* Adjust the padding to ensure there is space for the icon */
-                width: 100%;
-            }
-
-            .staticrypt-password-container {
-                position: relative;
-                outline: 0;
-                background: #f2f2f2;
-                width: 100%;
-                border: 0;
-                margin: 0 0 15px;
-                box-sizing: border-box;
-            }
-
-            .staticrypt-toggle-password-visibility {
-                cursor: pointer;
-                height: 20px;
-                opacity: 60%;
-                padding: 13px;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 20px;
-            }
-
-            .staticrypt-form .staticrypt-decrypt-button {
-                text-transform: uppercase;
-                outline: 0;
-                background: #502008;
-                width: 100%;
-                border: 0;
-                padding: 15px;
-                color: #ffffff;
-                font-size: 14px;
-                cursor: pointer;
-            }
-
-            .staticrypt-form .staticrypt-decrypt-button:hover,
-            .staticrypt-form .staticrypt-decrypt-button:active,
-            .staticrypt-form .staticrypt-decrypt-button:focus {
-                background: #502008;
-                filter: brightness(92%);
-            }
-
-            .staticrypt-html {
-                height: 100%;
-            }
-
-            .staticrypt-body {
-                height: 100%;
-                margin: 0;
-            }
+            .staticrypt-html { height: 100%; }
+            .staticrypt-body { height: 100%; margin: 0; }
 
             .staticrypt-content {
-                height: 100%;
-                margin-bottom: 1em;
-                background: #F8F0C4;
-                font-family: "Arial", sans-serif;
+                min-height: 100vh;
+                margin: 0;
+                background: radial-gradient(125% 90% at 50% -10%, var(--hvs-cream-hi) 0%, var(--hvs-cream) 62%);
+                color: var(--hvs-brown-deep);
+                font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
 
-            .staticrypt-instructions {
-                margin-top: -1em;
-                margin-bottom: 1em;
-            }
-
-            .staticrypt-title {
-                font-size: 1.5em;
-            }
-
-            label.staticrypt-remember {
-                display: flex;
-                align-items: center;
-                margin-bottom: 1em;
-            }
-
-            .staticrypt-remember input[type="checkbox"] {
-                transform: scale(1.5);
-                margin-right: 1em;
-            }
-
-            .hidden {
-                display: none !important;
-            }
-
+            /* loader */
             .staticrypt-spinner-container {
-                height: 100%;
+                min-height: 100vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                background: var(--hvs-cream);
             }
 
             .staticrypt-spinner {
                 display: inline-block;
                 width: 2rem;
                 height: 2rem;
-                vertical-align: text-bottom;
-                border: 0.25em solid gray;
-                border-right-color: transparent;
+                border: 0.22em solid rgba(80, 32, 8, 0.22);
+                border-right-color: var(--hvs-brown);
                 border-radius: 50%;
-                -webkit-animation: spinner-border 0.75s linear infinite;
-                animation: spinner-border 0.75s linear infinite;
-                animation-duration: 0.75s;
-                animation-timing-function: linear;
-                animation-delay: 0s;
-                animation-iteration-count: infinite;
-                animation-direction: normal;
-                animation-fill-mode: none;
-                animation-play-state: running;
-                animation-name: spinner-border;
+                animation: spinner-border 0.8s linear infinite;
             }
 
             @keyframes spinner-border {
-                100% {
-                    transform: rotate(360deg);
+                100% { transform: rotate(360deg); }
+            }
+
+            /* layout */
+            .staticrypt-page {
+                width: 100%;
+                max-width: 440px;
+                padding: clamp(24px, 8vh, 84px) 20px 40px;
+                margin: 0 auto;
+            }
+
+            /* carte — brutalist : bord 3px + ombre dure décalée (repris de la landing) */
+            .staticrypt-form {
+                position: relative;
+                background: var(--hvs-paper);
+                border: 3px solid var(--hvs-brown);
+                box-shadow: 10px 10px 0 var(--hvs-brown);
+                padding: 40px 34px 32px;
+                text-align: center;
+            }
+
+            .hvs-emblem {
+                width: 52px;
+                height: 52px;
+                display: block;
+                margin: 0 auto 18px;
+            }
+
+            .staticrypt-instructions { margin: 0; }
+
+            .hvs-kicker {
+                font-family: "Space Mono", ui-monospace, monospace;
+                font-weight: 700;
+                font-size: 11px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--hvs-brown-soft);
+                margin: 0 0 14px;
+            }
+
+            .staticrypt-title {
+                font-family: "Space Grotesk", system-ui, sans-serif;
+                font-weight: 700;
+                font-size: clamp(1.4rem, 4.6vw, 1.75rem);
+                line-height: 1.08;
+                letter-spacing: -0.01em;
+                text-transform: uppercase;
+                color: var(--hvs-brown-deep);
+                margin: 0 0 10px;
+            }
+
+            .hvs-sub {
+                font-size: 0.95rem;
+                line-height: 1.45;
+                color: var(--hvs-brown-soft);
+                margin: 0 auto;
+                max-width: 28ch;
+            }
+
+            .staticrypt-hr {
+                border: 0;
+                border-top: 2px solid var(--hvs-brown);
+                width: 44px;
+                margin: 22px auto 24px;
+            }
+
+            /* champ mot de passe */
+            .staticrypt-password-container {
+                position: relative;
+                background: var(--hvs-field);
+                border: 2px solid var(--hvs-brown);
+                margin: 0 0 16px;
+                transition: box-shadow 0.12s ease;
+            }
+
+            .staticrypt-password-container:focus-within {
+                box-shadow: 4px 4px 0 var(--hvs-brown);
+            }
+
+            .staticrypt-form input[type="password"],
+            .staticrypt-form input[type="text"] {
+                background: transparent;
+                border: 0;
+                outline: 0;
+                width: 100%;
+                font-family: "Space Mono", ui-monospace, monospace;
+                font-size: 15px;
+                letter-spacing: 0.06em;
+                color: var(--hvs-brown-deep);
+                padding: 15px 46px 15px 16px;
+            }
+
+            .staticrypt-form input::placeholder { color: rgba(80, 32, 8, 0.45); }
+
+            .staticrypt-toggle-password-visibility {
+                cursor: pointer;
+                position: absolute;
+                right: 13px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                opacity: 0.55;
+            }
+
+            /* se souvenir */
+            label.staticrypt-remember {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.6em;
+                font-family: "Space Mono", monospace;
+                font-size: 12px;
+                color: var(--hvs-brown-soft);
+                margin: 0 0 18px;
+            }
+
+            .staticrypt-remember input[type="checkbox"] {
+                accent-color: var(--hvs-brown);
+                transform: scale(1.25);
+            }
+
+            /* bouton */
+            .staticrypt-form .staticrypt-decrypt-button {
+                display: block;
+                width: 100%;
+                border: 0;
+                cursor: pointer;
+                background: var(--hvs-brown);
+                color: var(--hvs-cream);
+                font-family: "Space Mono", monospace;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                font-size: 13px;
+                padding: 16px;
+                transition: transform 0.08s ease, filter 0.15s ease;
+            }
+
+            .staticrypt-form .staticrypt-decrypt-button:hover { filter: brightness(1.12); }
+            .staticrypt-form .staticrypt-decrypt-button:active { transform: translateY(2px); }
+            .staticrypt-form .staticrypt-decrypt-button:focus-visible {
+                outline: 3px solid var(--hvs-brown-soft);
+                outline-offset: 3px;
+            }
+
+            .hvs-foot {
+                font-family: "Space Mono", monospace;
+                font-size: 10px;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: rgba(80, 32, 8, 0.5);
+                text-align: center;
+                margin: 20px 0 0;
+            }
+
+            .hidden { display: none !important; }
+
+            @media (max-width: 480px) {
+                .staticrypt-form {
+                    padding: 32px 22px 26px;
+                    box-shadow: 7px 7px 0 var(--hvs-brown);
                 }
             }
 
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
                 .staticrypt-form input[type="password"],
-                input[type="text"] {
-                    font-size: 16px;
-                }
+                .staticrypt-form input[type="text"] { font-size: 16px; }
             }
         </style>
     </head>
@@ -183,9 +245,28 @@
         <div id="staticrypt_content" class="staticrypt-content hidden">
             <div class="staticrypt-page">
                 <div class="staticrypt-form">
+                    <svg class="hvs-emblem" viewBox="0 0 100 100" role="img" aria-label="HL Consulting">
+                        <g transform="translate(50,50) scale(0.72)" fill="#502008">
+                            <circle r="6"/>
+                            <path transform="rotate(0)"   d="M0 0 Q5.5 -30 0 -60 Q-5.5 -30 0 0Z"/>
+                            <path transform="rotate(30)"  d="M0 0 Q5.5 -23 0 -46 Q-5.5 -23 0 0Z"/>
+                            <path transform="rotate(60)"  d="M0 0 Q5.5 -29 0 -58 Q-5.5 -29 0 0Z"/>
+                            <path transform="rotate(90)"  d="M0 0 Q5.5 -25 0 -50 Q-5.5 -25 0 0Z"/>
+                            <path transform="rotate(120)" d="M0 0 Q5.5 -31 0 -62 Q-5.5 -31 0 0Z"/>
+                            <path transform="rotate(150)" d="M0 0 Q5.5 -22.5 0 -45 Q-5.5 -22.5 0 0Z"/>
+                            <path transform="rotate(180)" d="M0 0 Q5.5 -28.5 0 -57 Q-5.5 -28.5 0 0Z"/>
+                            <path transform="rotate(210)" d="M0 0 Q5.5 -24.5 0 -49 Q-5.5 -24.5 0 0Z"/>
+                            <path transform="rotate(240)" d="M0 0 Q5.5 -30 0 -60 Q-5.5 -30 0 0Z"/>
+                            <path transform="rotate(270)" d="M0 0 Q5.5 -23.5 0 -47 Q-5.5 -23.5 0 0Z"/>
+                            <path transform="rotate(300)" d="M0 0 Q5.5 -29 0 -58 Q-5.5 -29 0 0Z"/>
+                            <path transform="rotate(330)" d="M0 0 Q5.5 -25 0 -50 Q-5.5 -25 0 0Z"/>
+                        </g>
+                    </svg>
+
                     <div class="staticrypt-instructions">
-                        <p class="staticrypt-title">HOME VIDEO SAGA — Accès protégé</p>
-                        <p>Cartographie communication — entrez le mot de passe</p>
+                        <p class="hvs-kicker">Accès protégé · AES-256</p>
+                        <p class="staticrypt-title">Home Video Saga</p>
+                        <p class="hvs-sub">Cartographie communication — entrez le mot de passe pour ouvrir le document.</p>
                     </div>
 
                     <hr class="staticrypt-hr" />
@@ -196,26 +277,28 @@
                                 id="staticrypt-password"
                                 type="password"
                                 name="password"
-                                placeholder="Password"
+                                placeholder="Mot de passe"
                                 autofocus
                             />
 
                             <img
                                 class="staticrypt-toggle-password-visibility"
-                                alt="Show password"
-                                title="Show password"
+                                alt="Afficher le mot de passe"
+                                title="Afficher le mot de passe"
                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg=="
                             />
                         </div>
 
                         <label id="staticrypt-remember-label" class="staticrypt-remember hidden">
                             <input id="staticrypt-remember" type="checkbox" name="remember" />
-                            Remember me
+                            Se souvenir de moi
                         </label>
 
                         <input type="submit" class="staticrypt-decrypt-button" value="Entrer" />
                     </form>
                 </div>
+
+                <p class="hvs-foot">HL Consulting — Confidentiel</p>
             </div>
         </div>
 
