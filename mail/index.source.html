@@ -243,18 +243,27 @@
 
   <div class="hero">
     <span class="eyebrow">Projet interne · HL Group · remplace Fyxer</span>
-    <h1>Agent Email<br>Boucles ouvertes</h1>
-    <p class="lede">L'objet utile n'est <b>pas le mail</b>, c'est la <b>boucle ouverte</b> : un truc qui attend une action et qui n'est pas fait. Le mail est la matière première. Le produit central = un <b>tableau de bord des boucles ouvertes</b> + un <b>digest quotidien</b> qui en est l'instantané. Pattern de référence : l'agent factures fournisseurs — agent serveur autonome, pas une app qu'on ouvre à la main.</p>
+    <h1>Agent Email<br>Inbox&nbsp;Zero</h1>
+    <p class="lede"><b>L'inbox est ta todo list.</b> Un mail dedans = une <b>boucle ouverte</b>, un truc pas encore géré. Le tri n'arrive qu'<b>à la fin</b> : quand l'info est prise, la tâche faite ou déléguée, le mail <b>quitte l'inbox</b> vers ton dossier existant. But = <b>zéro mail dans l'inbox</b> (sauf Hotmail). Le dashboard + le digest quotidien sont le cockpit pour y arriver vite. Pattern de référence : l'agent factures fournisseurs — agent serveur autonome, pas une app qu'on ouvre à la main.</p>
   </div>
 
   <!-- PRINCIPE -->
   <section id="principe">
     <p class="kicker">01 — Principe directeur</p>
-    <h2>Trois règles dures, non négociables</h2>
+    <h2>L'inbox est la todo list</h2>
+    <p>Tant qu'un mail est dans l'inbox, c'est qu'il <b>n'est pas géré</b>. Le tri ne se fait <b>qu'à la fin</b>, déclenché par <em>toi</em> quand tu marques « traité » — ce qui veut dire l'une de ces trois choses :</p>
+    <div class="baskets" style="margin-top:14px;">
+      <div class="basket"><b>Info prise</b><p>Rien à faire, tu as lu → classé.</p></div>
+      <div class="basket"><b>Tâche faite</b><p>Répondu / réglé → classé.</p></div>
+      <div class="basket"><b>Déléguée</b><p>Passée à quelqu'un → classé (le suivi du retour = v2).</p></div>
+    </div>
+    <p style="margin-top:16px;">Dans les 3 cas, le mail <b>quitte l'inbox</b> vers le <b>bon dossier existant</b> — l'agent choisit la destination d'après <em>ta</em> façon de ranger ; c'est <b>ton geste « traité » qui déclenche</b>, jamais un classement autonome au pif. Cible : <b>Inbox Zero</b> sur toutes les boîtes, <b>sauf Hotmail</b> (là tu laisses tout).</p>
+
+    <h3>Trois règles dures, non négociables</h3>
     <div class="rules">
       <div class="rule">
-        <b>Zéro dossier créé dans les boîtes</b>
-        Le rangement se fait dans des paniers <em>du dashboard</em>, pas en 100 sous-dossiers façon Fyxer.
+        <b>Ne pas créer de dossiers</b>
+        On file dans <em>tes</em> sous-dossiers existants, jamais 100 nouveaux dossiers façon Fyxer. L'agent copie ta logique de rangement, il n'en invente pas.
       </div>
       <div class="rule">
         <b>Confiance binaire</b>
@@ -262,7 +271,7 @@
       </div>
       <div class="rule">
         <b>Lecture seule d'abord, écriture réversible ensuite, destructif jamais en auto</b>
-        Même logique que l'agent factures : l'humain valide l'action finale.
+        Déplacer un mail entre dossiers = réversible. La suppression dure et l'envoi restent validés par l'humain. Même logique que l'agent factures.
       </div>
     </div>
   </section>
@@ -293,8 +302,9 @@
 
   <!-- PANIERS -->
   <section id="paniers">
-    <p class="kicker">03 — Rangement</p>
-    <h2>Les 5 paniers <span class="muted" style="font-size:16px;">(vues du dashboard, pas des dossiers)</span></h2>
+    <p class="kicker">03 — Triage</p>
+    <h2>Les 5 paniers <span class="muted" style="font-size:16px;">(vues du dashboard sur l'inbox, pas des dossiers)</span></h2>
+    <p class="muted" style="margin:-6px 0 18px;">Le panier = comment l'agent <em>voit</em> un mail encore dans l'inbox. Tu agis dessus, tu marques « traité » → il file vers ton dossier existant et disparaît de l'inbox. Le panier trie ; le dossier archive.</p>
     <div class="baskets">
       <div class="basket"><b>À répondre / à traiter</b><p>Une action de ta part est attendue.</p></div>
       <div class="basket"><b>En attente <span class="tag-v2">v2</span></b><p>Tu as répondu, tu attends l'autre — suivi des relances qui slippent. Une fois la fermeture de boucle fiable.</p></div>
@@ -328,6 +338,7 @@
         <thead><tr><th>Action</th><th>Réversible ?</th><th>Déclenchement</th></tr></thead>
         <tbody>
           <tr><td>Classer en panier (base interne)</td><td>oui</td><td><b>auto</b></td></tr>
+          <tr><td><b>Filer un mail « traité » → dossier existant</b> (hors inbox)</td><td>oui</td><td><b>1 tap « Fait »</b> · dossier choisi auto en confiance haute, proposé sinon</td></tr>
           <tr><td>Quarantaine (dossier « Suspect »)</td><td>oui (récupérable)</td><td><b>auto</b> sur haute confiance</td></tr>
           <tr><td>Sender blocké → Corbeille</td><td>oui</td><td><b>auto</b> (une fois blocké)</td></tr>
           <tr><td>Supprimer + blocker un expéditeur</td><td>ajout blocklist</td><td><b>manuel, 1 tap</b> dans le digest</td></tr>
@@ -352,9 +363,9 @@
     <h3>Maquette du dashboard — mobile-first, un seul écran</h3>
     <div class="mock" aria-label="Maquette du dashboard mail">
       <div class="mock-top">
-        <div class="mono">Jeudi 24 juillet · résumé du jour</div>
-        <div class="big">14 boucles ouvertes</div>
-        <div class="mono">3 nouvelles · 5 qui vieillissent</div>
+        <div class="mono">Jeudi 24 juillet · inbox → 0</div>
+        <div class="big">14 dans l'inbox</div>
+        <div class="mono">3 nouvelles · 5 qui vieillissent · objectif 0</div>
       </div>
       <div class="mock-bar">
         <span class="lbl">Boîte</span>
@@ -402,7 +413,7 @@
       <span class="li"><span class="sw" style="background:var(--st-crit)"></span>vieux (&gt;14 j) / danger</span>
       <span class="li"><span class="sw" style="border:2px solid var(--st-crit);width:7px;height:7px"></span>bordure = suspect</span>
     </div>
-    <p class="muted" style="margin-top:14px;">Couleur <b>fonctionnelle</b>, pas décorative : la <b>pastille de boîte</b> laisse filtrer/scanner par source d'un coup d'œil (barre de filtres en haut), le <b>badge d'âge</b> vire à l'ambre puis au rouge quand la boucle vieillit (ton critère de tri devient visible), la <b>bordure rouge</b> isole le suspect. « Fait » est plein (action primaire), « Voir » en contour, « Supprimer + blocker » en rouge (destructif). Tri par ancienneté, <b>2 actions max</b> par item, cibles tactiles ~40px. Rien d'autre : pas de réglages, pas de configurateur.</p>
+    <p class="muted" style="margin-top:14px;">Couleur <b>fonctionnelle</b>, pas décorative : la <b>pastille de boîte</b> laisse filtrer/scanner par source d'un coup d'œil (barre de filtres en haut), le <b>badge d'âge</b> vire à l'ambre puis au rouge quand la boucle vieillit (ton critère de tri devient visible), la <b>bordure rouge</b> isole le suspect. « Fait » est plein (action primaire) : il ferme la boucle <b>et file le mail hors de l'inbox</b> vers ton dossier existant. « Voir » en contour, « Supprimer + blocker » en rouge (destructif). Tri par ancienneté, <b>2 actions max</b> par item, cibles tactiles ~40px. Rien d'autre : pas de réglages, pas de configurateur.</p>
   </section>
 
   <!-- PLAN DE DEV -->
@@ -481,7 +492,7 @@
 
 <footer class="wrap">
   <p>HL Group — projet interne · document vivant · dernière révision 2026-07-24.<br>
-  Hors périmètre v1 : re-routage MX / filtrage MTA amont · labels écrits dans les boîtes · envoi auto · panier « En attente » (v2).<br>
+  Hors périmètre v1 : re-routage MX / filtrage MTA amont · création de nouveaux dossiers · envoi auto (brouillon seulement) · panier « En attente » &amp; suivi des délégations (v2).<br>
   À terme : board unifié <b>boucles + tâches manuelles</b> (ajout de tâches &amp; suivis à la main, relancés depuis l'accueil) — via un outil de suivi de tâches dédié, à choisir parmi l'existant plutôt qu'à recoder.</p>
 </footer>
 
