@@ -28,11 +28,16 @@
     --soft: #EDEDED;
     --bw: 3px;
     --off: 6px;
-    /* couleur fonctionnelle — familles de boîtes (identité, validées clair+dark) */
-    --fam-cobra: #2a78d6;   /* pro / dev */
-    --fam-hf:    #eb6834;   /* Haute Fidélité / HiFi Lovers */
-    --fam-hl:    #4a3aa7;   /* HL Group : holding / media / consulting */
-    --fam-perso: #0f8f63;   /* perso : gmail / hotmail */
+    /* couleur = aide au scan ; l'IDENTITÉ est portée par le libellé texte.
+       Vraies couleurs de marque (knowledge-hub/style.css). Cobra crimson foncé
+       pour se séparer du rouge danger. HL trio = placeholders (hex à confirmer). */
+    --fam-cobra: #A50E22;   /* Cobra — crimson foncé (marque #C6121F assombri) */
+    --fam-hf:    #D17A1F;   /* Haute Fidélité — orange */
+    --fam-hifi:  #EA5045;   /* HiFi Lovers — sunset */
+    --fam-perso: #39359E;   /* Perso (gmail/hotmail) — indigo */
+    --fam-hl:    #256AAB;   /* HL holding — PLACEHOLDER (bleu acier) */
+    --fam-hlmedia: #7A4DA8; /* HL media — PLACEHOLDER (violet) */
+    --fam-hlcons:  #0E8A6E; /* HL consulting — PLACEHOLDER (teal) */
     /* statut — sévérité & danger (jamais couleur seule : toujours + libellé) */
     --st-warn: #fab219;     /* boucle qui vieillit (7-14 j) */
     --st-crit: #d03b3b;     /* vieille (>14 j) / danger / destructif */
@@ -45,10 +50,13 @@
     --muted: #9A9A9A;
     --line: #F4F4F4;
     --soft: #1E1E1E;
-    --fam-cobra: #3987e5;
-    --fam-hf:    #d95926;
-    --fam-hl:    #9085e9;
-    --fam-perso: #199e70;
+    --fam-cobra: #E8556A;   /* Cobra — crimson éclairci pour le fond sombre */
+    --fam-hf:    #E39A4A;
+    --fam-hifi:  #F26F63;
+    --fam-perso: #8A85E6;
+    --fam-hl:    #5FA3E0;
+    --fam-hlmedia: #A98FD6;
+    --fam-hlcons:  #2FB48F;
     --st-warn: #fab219;
     --st-crit: #e66767;
     --st-crit-ink: #f0a1a1;
@@ -197,8 +205,11 @@
   .box .bdot { width: 8px; height: 8px; flex: 0 0 auto; }
   .box.b-cobra { color: var(--fam-cobra); } .box.b-cobra .bdot { background: var(--fam-cobra); }
   .box.b-hf    { color: var(--fam-hf); }    .box.b-hf .bdot    { background: var(--fam-hf); }
-  .box.b-hl    { color: var(--fam-hl); }    .box.b-hl .bdot    { background: var(--fam-hl); }
+  .box.b-hifi  { color: var(--fam-hifi); }  .box.b-hifi .bdot  { background: var(--fam-hifi); }
   .box.b-perso { color: var(--fam-perso); } .box.b-perso .bdot { background: var(--fam-perso); }
+  .box.b-hl    { color: var(--fam-hl); }    .box.b-hl .bdot    { background: var(--fam-hl); }
+  .box.b-hlmedia { color: var(--fam-hlmedia); } .box.b-hlmedia .bdot { background: var(--fam-hlmedia); }
+  .box.b-hlcons  { color: var(--fam-hlcons); }  .box.b-hlcons .bdot  { background: var(--fam-hlcons); }
   /* fix #1 : le badge d'âge crie quand ça vieillit (poids + couleur sévérité) */
   .mock-item .age { margin-left: auto; font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700; border: 2px solid var(--muted); color: var(--muted); padding: 1px 7px; white-space: nowrap; }
   .age.aging { border-color: var(--st-warn); background: var(--st-warn); color: #0A0A0A; }
@@ -413,7 +424,7 @@
       <span class="li"><span class="sw" style="background:var(--st-crit)"></span>vieux (&gt;14 j) / danger</span>
       <span class="li"><span class="sw" style="border:2px solid var(--st-crit);width:7px;height:7px"></span>bordure = suspect</span>
     </div>
-    <p class="muted" style="margin-top:14px;">Couleur <b>fonctionnelle</b>, pas décorative : la <b>pastille de boîte</b> laisse filtrer/scanner par source d'un coup d'œil (barre de filtres en haut), le <b>badge d'âge</b> vire à l'ambre puis au rouge quand la boucle vieillit (ton critère de tri devient visible), la <b>bordure rouge</b> isole le suspect. « Fait » est plein (action primaire) : il ferme la boucle <b>et file le mail hors de l'inbox</b> vers ton dossier existant. « Voir » en contour, « Supprimer + blocker » en rouge (destructif). Tri par ancienneté, <b>2 actions max</b> par item, cibles tactiles ~40px. Rien d'autre : pas de réglages, pas de configurateur.</p>
+    <p class="muted" style="margin-top:14px;">Couleur <b>fonctionnelle</b>, pas décorative : la <b>pastille de boîte</b> reprend la couleur de marque (Cobra, HiFi Lovers, Haute Fidélité, Perso…) et aide à scanner par source — mais c'est le <b>libellé qui identifie</b> (3 marques sont des rouges-oranges proches, la couleur seule ne suffit pas ; HL media/holding/consulting sont des placeholders à caler). Barre de filtres en haut, le <b>badge d'âge</b> vire à l'ambre puis au rouge quand la boucle vieillit (ton critère de tri devient visible), la <b>bordure rouge</b> isole le suspect. « Fait » est plein (action primaire) : il ferme la boucle <b>et file le mail hors de l'inbox</b> vers ton dossier existant. « Voir » en contour, « Supprimer + blocker » en rouge (destructif). Tri par ancienneté, <b>2 actions max</b> par item, cibles tactiles ~40px. Rien d'autre : pas de réglages, pas de configurateur.</p>
   </section>
 
   <!-- PLAN DE DEV -->
