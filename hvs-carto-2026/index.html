@@ -5,11 +5,11 @@
         <meta name="robots" content="noindex, nofollow" />
         <title>HOME VIDEO SAGA — Accès protégé</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <meta name="theme-color" content="#F8F0C4" />
+        <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Ccircle%20cx='32'%20cy='32'%20r='30'%20fill='%230a0908'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='19'%20fill='none'%20stroke='%23eeb267'%20stroke-width='4'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='6'%20fill='%23eeb267'/%3E%3C/svg%3E" type="image/svg+xml" />
+        <meta name="theme-color" content="#0a0908" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
         <!-- do not cache this page -->
         <meta http-equiv="cache-control" content="max-age=0" />
@@ -19,15 +19,19 @@
         <meta http-equiv="pragma" content="no-cache" />
 
         <style>
-            /* ---- Porte HVS : typo du site (Space Grotesk / Space Mono) + couleurs du projet ---- */
+            /* ---- Porte HVS : codes graphiques du site du projet (hvs-corp.com) ---- */
             :root {
-                --hvs-cream: #F8F0C4;
-                --hvs-cream-hi: #FCF6D8;
-                --hvs-paper: #FFFDF3;
-                --hvs-brown: #502008;
-                --hvs-brown-deep: #341402;
-                --hvs-brown-soft: #8A5A2E;
-                --hvs-field: #FBF5DA;
+                --hvs-bg: #0a0908;
+                --hvs-bg2: #15110d;
+                --hvs-panel-a: #171310;
+                --hvs-panel-b: #0e0d0b;
+                --hvs-accent: #d99a4e;
+                --hvs-gold: #eeb267;
+                --hvs-ink: #ece7dd;
+                --hvs-muted: #8b8478;
+                --hvs-muted-2: #c7c1b5;
+                --hvs-line: rgba(236, 231, 221, 0.10);
+                --hvs-cream: #eee7db;
             }
 
             * { box-sizing: border-box; }
@@ -38,9 +42,11 @@
             .staticrypt-content {
                 min-height: 100vh;
                 margin: 0;
-                background: radial-gradient(125% 90% at 50% -10%, var(--hvs-cream-hi) 0%, var(--hvs-cream) 62%);
-                color: var(--hvs-brown-deep);
-                font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+                background:
+                    radial-gradient(closest-side, rgba(217, 154, 78, 0.16), rgba(217, 154, 78, 0)) 50% 34% / 760px 760px no-repeat,
+                    radial-gradient(130% 120% at 50% 0%, var(--hvs-bg2) 0%, var(--hvs-bg) 58%);
+                color: var(--hvs-ink);
+                font-family: "Inter", system-ui, -apple-system, sans-serif;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
@@ -51,15 +57,15 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: var(--hvs-cream);
+                background: var(--hvs-bg);
             }
 
             .staticrypt-spinner {
                 display: inline-block;
                 width: 2rem;
                 height: 2rem;
-                border: 0.22em solid rgba(80, 32, 8, 0.22);
-                border-right-color: var(--hvs-brown);
+                border: 0.22em solid rgba(238, 178, 103, 0.22);
+                border-right-color: var(--hvs-gold);
                 border-radius: 50%;
                 animation: spinner-border 0.8s linear infinite;
             }
@@ -76,72 +82,77 @@
                 margin: 0 auto;
             }
 
-            /* carte — brutalist : bord 3px + ombre dure décalée (repris de la landing) */
+            /* carte sombre arrondie — comme les panneaux du site projet */
             .staticrypt-form {
                 position: relative;
-                background: var(--hvs-paper);
-                border: 3px solid var(--hvs-brown);
-                box-shadow: 10px 10px 0 var(--hvs-brown);
-                padding: 40px 34px 32px;
+                background: linear-gradient(180deg, var(--hvs-panel-a), var(--hvs-panel-b));
+                border: 1px solid var(--hvs-line);
+                border-radius: 22px;
+                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+                padding: 42px 34px 34px;
                 text-align: center;
             }
 
             .hvs-emblem {
-                width: 52px;
-                height: 52px;
+                width: 56px;
+                height: 56px;
                 display: block;
-                margin: 0 auto 18px;
+                margin: 0 auto 20px;
             }
 
             .staticrypt-instructions { margin: 0; }
 
             .hvs-kicker {
-                font-family: "Space Mono", ui-monospace, monospace;
-                font-weight: 700;
+                font-family: "Inter", sans-serif;
+                font-weight: 600;
                 font-size: 11px;
-                letter-spacing: 0.16em;
+                letter-spacing: 0.22em;
                 text-transform: uppercase;
-                color: var(--hvs-brown-soft);
+                color: var(--hvs-gold);
                 margin: 0 0 14px;
             }
 
             .staticrypt-title {
-                font-family: "Space Grotesk", system-ui, sans-serif;
-                font-weight: 700;
-                font-size: clamp(1.4rem, 4.6vw, 1.75rem);
-                line-height: 1.08;
-                letter-spacing: -0.01em;
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: clamp(1.4rem, 4.8vw, 1.75rem);
+                line-height: 1.05;
+                letter-spacing: 0.04em;
                 text-transform: uppercase;
-                color: var(--hvs-brown-deep);
-                margin: 0 0 10px;
+                color: var(--hvs-ink);
+                margin: 0 0 12px;
             }
 
             .hvs-sub {
                 font-size: 0.95rem;
-                line-height: 1.45;
-                color: var(--hvs-brown-soft);
+                line-height: 1.5;
+                font-weight: 400;
+                color: var(--hvs-muted-2);
                 margin: 0 auto;
-                max-width: 28ch;
+                max-width: 30ch;
             }
 
             .staticrypt-hr {
                 border: 0;
-                border-top: 2px solid var(--hvs-brown);
-                width: 44px;
-                margin: 22px auto 24px;
+                height: 1px;
+                width: 100%;
+                background: linear-gradient(90deg, transparent, var(--hvs-line), transparent);
+                margin: 24px 0;
             }
 
-            /* champ mot de passe */
+            /* champ mot de passe — pill sombre */
             .staticrypt-password-container {
                 position: relative;
-                background: var(--hvs-field);
-                border: 2px solid var(--hvs-brown);
+                background: rgba(236, 231, 221, 0.04);
+                border: 1px solid var(--hvs-line);
+                border-radius: 999px;
                 margin: 0 0 16px;
-                transition: box-shadow 0.12s ease;
+                transition: border-color 0.15s ease, box-shadow 0.15s ease;
             }
 
             .staticrypt-password-container:focus-within {
-                box-shadow: 4px 4px 0 var(--hvs-brown);
+                border-color: rgba(217, 154, 78, 0.6);
+                box-shadow: 0 0 0 3px rgba(217, 154, 78, 0.14);
             }
 
             .staticrypt-form input[type="password"],
@@ -150,24 +161,25 @@
                 border: 0;
                 outline: 0;
                 width: 100%;
-                font-family: "Space Mono", ui-monospace, monospace;
+                font-family: "Inter", sans-serif;
                 font-size: 15px;
-                letter-spacing: 0.06em;
-                color: var(--hvs-brown-deep);
-                padding: 15px 46px 15px 16px;
+                color: var(--hvs-ink);
+                padding: 15px 48px 15px 22px;
+                border-radius: 999px;
             }
 
-            .staticrypt-form input::placeholder { color: rgba(80, 32, 8, 0.45); }
+            .staticrypt-form input::placeholder { color: var(--hvs-muted); }
 
             .staticrypt-toggle-password-visibility {
                 cursor: pointer;
                 position: absolute;
-                right: 13px;
+                right: 16px;
                 top: 50%;
                 transform: translateY(-50%);
                 width: 18px;
                 height: 18px;
-                opacity: 0.55;
+                opacity: 0.5;
+                filter: invert(1);
             }
 
             /* se souvenir */
@@ -175,59 +187,61 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 0.6em;
-                font-family: "Space Mono", monospace;
-                font-size: 12px;
-                color: var(--hvs-brown-soft);
-                margin: 0 0 18px;
+                gap: 0.55em;
+                font-family: "Inter", sans-serif;
+                font-size: 12.5px;
+                color: var(--hvs-muted);
+                margin: 0 0 20px;
             }
 
             .staticrypt-remember input[type="checkbox"] {
-                accent-color: var(--hvs-brown);
-                transform: scale(1.25);
+                accent-color: var(--hvs-accent);
+                transform: scale(1.15);
             }
 
-            /* bouton */
+            /* bouton — pill crème, comme le CTA du site */
             .staticrypt-form .staticrypt-decrypt-button {
                 display: block;
                 width: 100%;
                 border: 0;
                 cursor: pointer;
-                background: var(--hvs-brown);
-                color: var(--hvs-cream);
-                font-family: "Space Mono", monospace;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.12em;
-                font-size: 13px;
-                padding: 16px;
-                transition: transform 0.08s ease, filter 0.15s ease;
+                border-radius: 999px;
+                background: var(--hvs-cream);
+                color: #17130d;
+                font-family: "Inter", sans-serif;
+                font-weight: 600;
+                font-size: 14px;
+                letter-spacing: 0.01em;
+                padding: 15px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+                transition: transform 0.08s ease, filter 0.15s ease, box-shadow 0.15s ease;
             }
 
-            .staticrypt-form .staticrypt-decrypt-button:hover { filter: brightness(1.12); }
-            .staticrypt-form .staticrypt-decrypt-button:active { transform: translateY(2px); }
+            .staticrypt-form .staticrypt-decrypt-button:hover {
+                filter: brightness(1.05);
+                box-shadow: 0 10px 30px rgba(217, 154, 78, 0.18);
+            }
+            .staticrypt-form .staticrypt-decrypt-button:active { transform: translateY(1px); }
             .staticrypt-form .staticrypt-decrypt-button:focus-visible {
-                outline: 3px solid var(--hvs-brown-soft);
+                outline: 2px solid var(--hvs-gold);
                 outline-offset: 3px;
             }
 
             .hvs-foot {
-                font-family: "Space Mono", monospace;
-                font-size: 10px;
-                letter-spacing: 0.14em;
+                font-family: "Inter", sans-serif;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
                 text-transform: uppercase;
-                color: rgba(80, 32, 8, 0.5);
+                color: var(--hvs-muted);
                 text-align: center;
-                margin: 20px 0 0;
+                margin: 22px 0 0;
+                opacity: 0.8;
             }
 
             .hidden { display: none !important; }
 
             @media (max-width: 480px) {
-                .staticrypt-form {
-                    padding: 32px 22px 26px;
-                    box-shadow: 7px 7px 0 var(--hvs-brown);
-                }
+                .staticrypt-form { padding: 34px 22px 26px; border-radius: 18px; }
             }
 
             @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -245,22 +259,16 @@
         <div id="staticrypt_content" class="staticrypt-content hidden">
             <div class="staticrypt-page">
                 <div class="staticrypt-form">
-                    <svg class="hvs-emblem" viewBox="0 0 100 100" role="img" aria-label="HL Consulting">
-                        <g transform="translate(50,50) scale(0.72)" fill="#502008">
-                            <circle r="6"/>
-                            <path transform="rotate(0)"   d="M0 0 Q5.5 -30 0 -60 Q-5.5 -30 0 0Z"/>
-                            <path transform="rotate(30)"  d="M0 0 Q5.5 -23 0 -46 Q-5.5 -23 0 0Z"/>
-                            <path transform="rotate(60)"  d="M0 0 Q5.5 -29 0 -58 Q-5.5 -29 0 0Z"/>
-                            <path transform="rotate(90)"  d="M0 0 Q5.5 -25 0 -50 Q-5.5 -25 0 0Z"/>
-                            <path transform="rotate(120)" d="M0 0 Q5.5 -31 0 -62 Q-5.5 -31 0 0Z"/>
-                            <path transform="rotate(150)" d="M0 0 Q5.5 -22.5 0 -45 Q-5.5 -22.5 0 0Z"/>
-                            <path transform="rotate(180)" d="M0 0 Q5.5 -28.5 0 -57 Q-5.5 -28.5 0 0Z"/>
-                            <path transform="rotate(210)" d="M0 0 Q5.5 -24.5 0 -49 Q-5.5 -24.5 0 0Z"/>
-                            <path transform="rotate(240)" d="M0 0 Q5.5 -30 0 -60 Q-5.5 -30 0 0Z"/>
-                            <path transform="rotate(270)" d="M0 0 Q5.5 -23.5 0 -47 Q-5.5 -23.5 0 0Z"/>
-                            <path transform="rotate(300)" d="M0 0 Q5.5 -29 0 -58 Q-5.5 -29 0 0Z"/>
-                            <path transform="rotate(330)" d="M0 0 Q5.5 -25 0 -50 Q-5.5 -25 0 0Z"/>
-                        </g>
+                    <svg class="hvs-emblem" viewBox="0 0 64 64" role="img" aria-label="Home Video Saga">
+                        <defs>
+                            <linearGradient id="hvsAmber" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#eeb267"/>
+                                <stop offset="1" stop-color="#d99a4e"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="32" cy="32" r="27" fill="none" stroke="url(#hvsAmber)" stroke-width="2.5" opacity="0.9"/>
+                        <circle cx="32" cy="32" r="17" fill="none" stroke="url(#hvsAmber)" stroke-width="1" opacity="0.45"/>
+                        <circle cx="32" cy="32" r="5.5" fill="#0a0908" stroke="url(#hvsAmber)" stroke-width="2"/>
                     </svg>
 
                     <div class="staticrypt-instructions">
