@@ -28,6 +28,8 @@ import Footer from '../components/Footer.astro';
   <Footer />
 </Base>
 
+<div id="lightbox" class="lb" aria-hidden="true"><img id="lb-img" alt="" /><video id="lb-vid" controls playsinline preload="metadata" hidden></video><button id="lb-close" aria-label="Fermer">✕</button></div>
+
 <style is:global>
   .intro{padding:clamp(30px,6vw,64px) 0 clamp(10px,3vw,24px);}
   .eyebrow{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-deep);margin:0 0 .4rem;}
@@ -90,9 +92,22 @@ import Footer from '../components/Footer.astro';
   .hotel .hadr{font-size:.84rem;color:var(--ink-soft);}
   .hotel a.hlink{font-size:.8rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
   .hotel img{width:110px;height:80px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}
-  .media{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
-  .media img{width:120px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}.media video{width:120px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line);}
-  .media a.vid{align-self:center;font-size:.82rem;font-weight:700;color:var(--orange-deep);}
+  /* En images — galerie légendée de l'escale (clic → plein écran) */
+  .shots{margin-top:16px;}
+  .shots > h3{font-family:var(--disp);text-transform:uppercase;font-size:1rem;margin:0 0 .7rem;color:var(--orange-deep);display:flex;align-items:center;gap:.5rem;}
+  .shots > h3::before{content:"";width:22px;height:3px;background:var(--yellow);}
+  .shotgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;}
+  .shot{position:relative;margin:0;border:2px solid var(--ink);border-radius:12px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;box-shadow:4px 4px 0 var(--ink);}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+  .shot:hover img{transform:scale(1.05);}
+  .shot .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(20,12,8,.55);border:2px solid #fff;display:grid;place-items:center;pointer-events:none;}
+  .shot .play::after{content:"";margin-left:3px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;}
+  .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:.76rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(20,12,8,.82));}
+  .shots a.vid{display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700;color:var(--orange-deep);}
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(12,8,6,.92);display:none;place-items:center;padding:20px;}
+  .lb.open{display:grid;}
+  .lb img,.lb video{max-width:94vw;max-height:88vh;border-radius:8px;border:2px solid #fff;}
+  .lb button{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer;}
 
   @media (max-width:560px){.leg{grid-template-columns:40px 1fr;gap:12px;}.timeline::before{left:18px;}.hotel img{display:none;}.grande-histoire{padding-left:40px;}}
 </style>
@@ -155,20 +170,24 @@ import Footer from '../components/Footer.astro';
     return `<div class="grande-histoire"><h3>La grande histoire</h3>${body}</div>`;
   }
 
+  // « En images » : galerie légendée de l'escale (photos Sheet + repo + vidéos),
+  // dans l'ordre où on les a vécues. Clic → plein écran (image ou vidéo).
   function mediaBlock(s: Stop): string {
-    // Fusion : photos de la Sheet (colonne `photos`) + photos du repo (manifest).
     const all = [
       ...s.photos.map((u) => ({ url: u, legende: undefined as string | undefined, type: undefined as 'video' | undefined, poster: undefined as string | undefined })),
       ...tripPhotos(s.ordre),
     ];
-    const imgs = all
-      .map((p) =>
-        p.type === 'video'
-          ? `<video controls playsinline preload="metadata"${p.poster ? ` poster="${esc(p.poster)}"` : ''} src="${esc(p.url)}"${p.legende ? ` title="${esc(p.legende)}"` : ''}></video>`
-          : `<img src="${esc(p.url)}" alt="${esc(p.legende || 'Photo ' + s.ville)}"${p.legende ? ` title="${esc(p.legende)}"` : ''} loading="lazy" />`)
+    const sheetVid = s.video ? `<a class="vid" href="${esc(s.video)}" target="_blank" rel="noopener">▶ Vidéo</a>` : '';
+    if (!all.length) return sheetVid ? `<div class="shots">${sheetVid}</div>` : '';
+    const figs = all
+      .map((p) => {
+        const video = p.type === 'video';
+        const thumb = video ? p.poster || p.url : p.url;
+        const cap = p.legende || '';
+        return `<figure class="shot" data-full="${esc(p.url)}" data-video="${video ? '1' : ''}"><img src="${esc(thumb)}" alt="${esc(cap || 'Photo ' + s.ville)}" loading="lazy" />${video ? '<span class="play"></span>' : ''}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
+      })
       .join('');
-    const vid = s.video ? `<a class="vid" href="${esc(s.video)}" target="_blank" rel="noopener">▶ Vidéo</a>` : '';
-    return imgs || vid ? `<div class="media">${imgs}${vid}</div>` : '';
+    return `<div class="shots"><h3>En images</h3><div class="shotgrid">${figs}</div>${sheetVid}</div>`;
   }
 
   (async () => {
@@ -210,6 +229,21 @@ import Footer from '../components/Footer.astro';
         </article>`;
         })
         .join('');
+
+      // Plein écran des photos/vidéos de l'escale (cohérent avec la Galerie).
+      const lb = document.getElementById('lightbox')!;
+      const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+      const lbVid = document.getElementById('lb-vid') as HTMLVideoElement;
+      const openLb = (url: string, video: boolean) => {
+        if (video) { lbImg.hidden = true; lbImg.src = ''; lbVid.hidden = false; lbVid.src = url; lbVid.play().catch(() => {}); }
+        else { lbVid.hidden = true; lbVid.removeAttribute('src'); lbVid.load(); lbImg.hidden = false; lbImg.src = url; }
+        lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
+      };
+      const closeLb = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); lbImg.src = ''; lbVid.pause(); lbVid.removeAttribute('src'); lbVid.load(); };
+      host.querySelectorAll<HTMLElement>('figure.shot').forEach((f) => f.addEventListener('click', () => openLb(f.dataset.full!, f.dataset.video === '1')));
+      document.getElementById('lb-close')!.addEventListener('click', closeLb);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+      addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
 
       // Météo paresseuse : on ne sollicite Open-Meteo qu'à l'apparition de la carte.
       const wio = new IntersectionObserver((es) => {

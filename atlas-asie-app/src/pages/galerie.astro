@@ -9,7 +9,7 @@ import Footer from '../components/Footer.astro';
     <section class="intro"><div class="wrap">
       <p class="eyebrow">En images</p>
       <h1 class="disp">Galerie</h1>
-      <p class="lead">Toutes les photos et vidéos des escales, réunies au même endroit — alimentées directement depuis le carnet de route.</p>
+      <p class="lead">Toutes les photos et vidéos du voyage, rangées escale par escale — de la plus récente à la première. Alimentées directement depuis le carnet de route.</p>
     </div></section>
     <section class="gal"><div class="wrap">
       <div id="grid"><div class="sk-grid"><div class="sk" style="aspect-ratio:4/3"></div><div class="sk" style="aspect-ratio:4/3"></div><div class="sk" style="aspect-ratio:4/3"></div><div class="sk" style="aspect-ratio:4/3"></div></div></div>
@@ -43,35 +43,49 @@ import Footer from '../components/Footer.astro';
 <script>
   import { fetchTab } from '../lib/data';
   import { toStops } from '../lib/model';
-  import { paysHead, groupByPays } from '../lib/paysMeta';
+  import type { Stop } from '../lib/model';
+  import { escaleHead } from '../lib/paysMeta';
   import { loadTripPhotos, tripPhotos } from '../lib/tripPhotos';
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+  const MON = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+  const dm = (d: Date | null) => (d ? `${d.getDate()} ${MON[d.getMonth()]}` : '');
+  const datesOf = (s: Stop) => (s.arrivee && s.depart ? `${dm(s.arrivee)} → ${dm(s.depart)}` : s.arrivee ? `dès le ${dm(s.arrivee)}` : '');
 
   (async () => {
     const host = document.getElementById('grid')!;
     try {
       const [pRows] = await Promise.all([fetchTab('parcours'), loadTripPhotos()]);
       const stops = toStops(pRows);
-      type Media = { url: string; ville: string; pays: string; legende?: string; video: boolean; poster?: string };
-      const items: Media[] = stops.flatMap((s) => [
-        ...s.photos.map((url) => ({ url, ville: s.ville, pays: s.pays, legende: undefined, video: false, poster: undefined })),
-        ...tripPhotos(s.ordre).map((p) => ({ url: p.url, ville: s.ville, pays: s.pays, legende: p.legende, video: p.type === 'video', poster: p.poster })),
-      ]);
-      if (!items.length) {
+      type Media = { url: string; legende?: string; video: boolean; poster?: string };
+      // Rangé par escale, la plus récente d'abord ; dans l'escale, dernier média ajouté en tête.
+      const groups = stops
+        .map((s) => {
+          const media: Media[] = [
+            ...s.photos.map((url) => ({ url, legende: undefined, video: false, poster: undefined })),
+            ...tripPhotos(s.ordre).map((p) => ({ url: p.url, legende: p.legende, video: p.type === 'video', poster: p.poster })),
+          ];
+          media.reverse();
+          return { s, media };
+        })
+        .filter((g) => g.media.length)
+        .sort((a, b) => b.s.ordre - a.s.ordre);
+      if (!groups.length) {
         host.innerHTML = `<div class="empty"><h2>Bientôt en images</h2><p>Les photos et vidéos apparaîtront ici automatiquement dès qu'elles seront ajoutées aux escales. Aucune double saisie.</p></div>`;
         return;
       }
-      const fig = (it: Media) => {
-        const thumb = it.video ? (it.poster || it.url) : it.url;
-        const cap = it.legende ? `${it.ville} — ${it.legende}` : it.ville;
-        return `<figure data-full="${esc(it.url)}" data-video="${it.video ? '1' : ''}"><img src="${esc(thumb)}" alt="${esc(it.legende || (it.video ? 'Vidéo ' : 'Photo ') + it.ville)}" loading="lazy" />${it.video ? '<span class="play"></span>' : ''}<figcaption>${esc(cap)}</figcaption></figure>`;
+      const fig = (it: Media, ville: string) => {
+        const thumb = it.video ? it.poster || it.url : it.url;
+        return `<figure data-full="${esc(it.url)}" data-video="${it.video ? '1' : ''}"><img src="${esc(thumb)}" alt="${esc(it.legende || (it.video ? 'Vidéo ' : 'Photo ') + ville)}" loading="lazy" />${it.video ? '<span class="play"></span>' : ''}<figcaption>${esc(it.legende || ville)}</figcaption></figure>`;
       };
       const tally = (g: Media[]) => {
         const v = g.filter((it) => it.video).length, p = g.length - v;
         return [p && `${p} photo${p > 1 ? 's' : ''}`, v && `${v} vidéo${v > 1 ? 's' : ''}`].filter(Boolean).join(' · ');
       };
-      host.innerHTML = groupByPays(items, (it) => it.pays)
-        .map((g) => paysHead(g.pays, tally(g.items)) + `<div class="grid">${g.items.map(fig).join('')}</div>`)
+      host.innerHTML = groups
+        .map((g) => {
+          const sub = [g.s.pays, datesOf(g.s), tally(g.media)].filter(Boolean).join(' · ');
+          return escaleHead(g.s.pays, g.s.ville, sub) + `<div class="grid">${g.media.map((it) => fig(it, g.s.ville)).join('')}</div>`;
+        })
         .join('');
 
       const lb = document.getElementById('lightbox')!;
