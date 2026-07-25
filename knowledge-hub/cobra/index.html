@@ -152,6 +152,69 @@
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry" data-tags="odoo-dev design en-prod">
+        <time datetime="2026-07-13">2026-07-13</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/statut-commandes-clients-facture-paye-livre.html">Statut des commandes clients : facturé, payé, livré — trois badges au lieu d'un</a></h3>
+          <p class="entry__excerpt">Trois badges indépendants (Facturation / Paiement / Livraison) remplacent le statut fusionné de la commande client, avec code couleur et taux d'acompte. Transposé du module fournisseurs ; deux bugs de calcul corrigés.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="design" href="/knowledge-hub/journal/?tag=design">design</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="infra strat meta en-cours">
+        <time datetime="2026-07-13">2026-07-13</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/cobra-app-store-industrialisation.html">Le « Cobra App Store » continue de s'industrialiser</a></h3>
+          <p class="entry__excerpt">Le hub d'apps internes de Cobra passe de quelques apps isolées à un écosystème standardisé : header partagé, connecteur Odoo unique, rafraîchissement commun. Deux incidents rattrapés en minutes.</p>
+          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev shopify data en-prod">
+        <time datetime="2026-07-12">2026-07-12</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/refonte-systeme-prix-cobra-price.html">Refonte du système de prix Odoo (cobra_price) : une seule source de vérité</a></h3>
+          <p class="entry__excerpt">Un champ unique cobra_price devient la source de vérité du prix de vente (override de _price_compute) : marge et coût recalculés, prix barrés conformes Omnibus, sync Shopify. 6 modules, ~7 300 produits migrés.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-dev doc en-prod">
+        <time datetime="2026-07-12">2026-07-12</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/code-review-irokoo-vendor-payment.html">Un retour de code review de l'intégrateur traité intégralement, point par point</a></h3>
+          <p class="entry__excerpt">Six points de code review de l'intégrateur (Irokoo) traités un par un : 3 corrigés, 2 arbitrés, 1 écarté — chaque choix justifié par écrit. Un bug non signalé corrigé au passage.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="doc" href="/knowledge-hub/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="data odoo-dev strat en-cours">
+        <time datetime="2026-07-11">2026-07-11</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/dashboard-prix-concurrentiel-maison.html">Un dashboard de suivi prix concurrentiel construit maison, plutôt qu'un devis d'intégrateur</a></h3>
+          <p class="entry__excerpt">La donnée concurrents (Wiser) était déjà livrée par l'intégrateur et en prod ; la couche de pilotage manquante, chiffrée à plusieurs semaines, construite en interne avec Claude Code en quelques jours.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="odoo-admin data en-prod">
+        <time datetime="2026-07-11">2026-07-11</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/retard-fournisseur-gdd-solde.html">Un retard fournisseur de 200 000 € soldé en une semaine, ligne par ligne</a></h3>
+          <p class="entry__excerpt">Un solde fournisseur (GDD) impayé étalé sur des dizaines de factures, soldé ligne par ligne par confrontation relevé / Odoo / banque : 200 059,33 € en 6 virements, deux écarts signalés.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-admin" href="/knowledge-hub/journal/?tag=odoo-admin">odoo-admin</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="data design en-cours">
+        <time datetime="2026-07-10">2026-07-10</time>
+        <div>
+          <h3 class="entry__title"><a href="../journal/refonte-performance-vendeur-charge-perf.html">Refonte de la vue « Performance vendeur » : fusion Charge &amp; Perf, dark mode</a></h3>
+          <p class="entry__excerpt">La page de perf vendeur devient un outil quotidien : fusion Charge &amp; Perf, classement vs N-1 en direct depuis Odoo, CA Shopify séparé, 1 817 devis dormants annulés, dark mode.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="design" href="/knowledge-hub/journal/?tag=design">design</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
       <li class="entry" data-tags="odoo-admin en-prod">
         <time datetime="2026-05-30">2026-05-30</time>
         <div>

@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-07-05
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-07-24
 
 
 ================================================================
@@ -54,6 +54,142 @@ Voir les Guides →  ·  C'est quoi l'IA et un LLM ?
 Mon propre système, en détail
 J'ai documenté la mise en place réelle de mon CLAUDE.md et de ses extensions (strat / dev), sur mes deux comptes — y compris l'incident de prod Odoo qui est devenu une règle dure. C'est la brique transverse HL Group qui irrigue tous mes projets.
 Lire l'entrée : Système d'instructions personnalisées Claude →
+
+
+================================================================
+ÉTUDE DE CAS
+URL : https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html
+Publié : 2026-07-13
+================================================================
+
+Build in public : la donnée de prix concurrents (Wiser) était déjà en prod, livrée par l'intégrateur. Il manquait la couche de pilotage — chiffrée à plusieurs semaines et restée en attente. On l'a construite en interne avec Claude Code, en quelques jours : scoring ABC, colonnes concurrents, bouton Aligner. Le cas build vs buy le plus direct de l'année.
+
+Accueil › Guides › Étude de cas — Dashboard prix concurrentiels
+Étude de cas · Build in public · Cobra
+Un dashboard de prix concurrentiels,construit maison
+La donnée était déjà là — les prix des concurrents, récupérés via Wiser et intégrés par notre prestataire, tournaient en prod. Il manquait la couche de pilotage pour en faire quelque chose : un cahier des charges, chiffré à plusieurs semaines, resté en attente. On l'a construite en interne avec Claude Code, en quelques jours. Le cas build vs buy le plus direct de l'année.
+Par Hugo Lahutte · 13 juillet 2026 · ~8 min de lecture build in publicbuild vs buyprixWiserOdooClaude Code Le dashboard construit maison : compteurs de position tarifaire, filtres, scoring ABC, statut par produit face aux concurrents (aperçu illustratif, données d'exemple).
+1. Le besoin : piloter ses prix face à la concurrence
+Dans le retail spécialisé, le prix est un champ de bataille permanent. Savoir, produit par produit, où on se situe face aux concurrents — moins cher, aligné, plus cher — n'est pas un confort : c'est la base pour décider où défendre sa marge et où s'aligner pour ne pas perdre la vente. Encore faut-il que cette information soit lisible et actionnable, pas noyée dans un export illisible qu'on ouvre une fois par trimestre.
+Chez Cobra, la matière première existait déjà. Ce qui manquait, c'était l'outil pour la regarder et agir dessus.
+2. La donnée existait déjà — livrée par l'intégrateur
+La brique la plus technique — l'import et le matching des prix concurrents via l'outil Wiser (une plateforme d'intelligence tarifaire qui va relever les prix pratiqués ailleurs et les rapprocher de notre catalogue) — avait déjà été livrée par notre intégrateur externe (Irokoo) et tournait en production. Les prix concurrents arrivaient bien dans le système, rattachés aux bons produits.
+Autrement dit : la partie « données » du problème était réglée, et bien réglée. Le trou était ailleurs — dans la couche au-dessus de la donnée.
+3. Le devis resté en attente
+Un cahier des charges avait justement été envoyé à l'intégrateur le 19 mars 2026 pour cette couche manquante : un dashboard de suivi tarifaire (scoring ABC des produits, moteur de règles d'alignement, historique de prix), estimé à plusieurs semaines de développement. Ce CDC est resté au statut « à valider avant développement » — jamais lancé, jamais facturé.
+Pas un blocage dramatique : juste un projet qui attend son tour, comme il en existe des dizaines. Sauf qu'avec Claude Code, « attendre son tour » n'a plus tout à fait le même coût d'opportunité.
+4. Cadrer précisément le manque
+Avant de construire quoi que ce soit, il fallait séparer nettement ce qui était déjà livré (l'import / matching, phase 1) de ce qui restait à faire (le pilotage, phase 2, jamais commandée) — pour ne reconstruire que la partie manquante, sans repartir de zéro ni dupliquer le travail de l'intégrateur.
+Pour cadrer précisément ce que l'outil Wiser exposait réellement (et donc ce que le dashboard devait afficher), on a procédé autrement qu'avec un énième atelier de cadrage : grâce au navigateur intégré de Claude — une capacité récente, Claude peut désormais ouvrir une page et la regarder — on lui a fait visionner une vidéo de présentation de Wiser et en extraire les fonctionnalités et les données réellement disponibles. De quoi transformer une démo en liste de besoins concrets, sans re-solliciter le prestataire.
+Le réflexe qui change tout
+La question n'est plus « combien ça coûte de faire développer ça ? » mais « qu'est-ce qui existe déjà, et quelle est la plus petite pièce qui me manque vraiment ? ». Bien cadrer le manque, c'est déjà la moitié de l'économie.
+5. La fondation : un prix qui a du sens
+Un dashboard d'alignement de prix ne vaut que si « aligner un prix » écrit au bon endroit. C'est tout l'intérêt d'avoir, en parallèle, refondu le système de prix Odoo autour d'un champ unique, source de vérité, qui pilote devis, ventes et synchronisation Shopify. Sans cette fondation, un bouton « Aligner » ne serait qu'un vœu pieux ; avec elle, il modifie le prix, partout, d'un coup.
+6. Ce qu'on a construit (première version)
+Plutôt que de relancer un chiffrage externe, l'app a été construite directement avec Claude Code — une première version, déjà en cours de déploiement :
+- Synchronisation des données Odoo vers une base locale dédiée.
+- Scoring ABC des produits, en réutilisant un module déjà en place plutôt que de le refaire.
+- Un dashboard avec des indicateurs cliquables et un tableau produit groupable par marque / univers, avec les colonnes concurrents en face.
+- Une fiche détail par concurrent, avec un bouton « Aligner » branché sur l'assistant d'alignement de prix déjà existant côté Odoo — donc un clic qui écrit vraiment le nouveau prix.
+- Export Excel, charte graphique Cobra standard, et déploiement sur notre hub d'applications internes.
+Rien de spéculatif : on a construit exactement la pièce manquante, en s'appuyant sur tout ce qui existait déjà (la donnée Wiser, le scoring, l'assistant d'alignement, le système de prix refondu).
+7. Build vs buy : le vrai calcul
+Le CDC parlait de 3 à 4 semaines de développement pour la seule partie moteur de règles. La première version a été construite en interne en quelques jours, pour une fraction de ce délai — et surtout, en gardant la main : chaque itération se règle en direct, sans aller-retour de chiffrage.
+La leçon n'est pas « il ne faut plus jamais faire appel à un intégrateur ». Au contraire : l'intégrateur avait livré la brique la plus dure (l'import / matching Wiser), et c'est précisément parce que cette base était solide qu'on a pu construire vite par-dessus. Le vrai calcul build vs buy n'est pas « tout faire soi-même » — c'est acheter ce qui est difficile et standard, construire ce qui est spécifique et changeant.
+Et après
+Ce dashboard n'est pas un objet isolé : il rejoint un petit écosystème d'applications internes qui grandit vite chez Cobra (trésorerie, achats, performance vendeur, reporting…), toutes bâties sur le même moule — charte commune, connexion Odoo partagée, déploiement standardisé. Cette dynamique-là mérite son propre récit : un guide dédié est en préparation.
+Voir aussi
+- L'entrée de journal — le dashboard prix concurrentiel
+- La refonte du système de prix Odoo (cobra_price)
+- Étude de cas — Un agent qui traite les factures fournisseurs
+- Faut-il encore acheter un ERP quand l'IA permet de construire le sien ?
+← Tous les guides En discuter →
+
+
+================================================================
+ÉTUDE DE CAS
+URL : https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-agent-facturation.html
+Publié : 2026-06-17
+================================================================
+
+Build in public : un agent autonome qui lit les mails fournisseurs, extrait les factures, les rattache à la bonne commande dans Odoo et les pousse pour validation dans Teams. Hébergé sur Scaleway, déclenché toutes les 15 min. Le vrai gain n'est pas la vitesse : c'est un workflow qui ne dérive plus.
+
+Accueil › Guides › Étude de cas — Agent factures fournisseurs
+Étude de cas · Build in public · Cobra
+Un agent qui traiteles factures fournisseurs
+Il lit les mails, extrait chaque facture, la rattache à la bonne commande dans Odoo, contrôle les prix, et la pousse pour validation en un clic dans Teams. Hébergé sur une instance Scaleway, déclenché toutes les 15 minutes. Le vrai gain n'est pas la vitesse — c'est un workflow qui ne peut plus dériver.
+Par Hugo Lahutte · 17 juin 2026 · ~10 min de lecture build in publicagent IAOdooAPI ClaudeScalewayTeams Le flux complet : mails → extraction → matching ligne par ligne contre la PO → carte Teams → écriture Odoo. Détail de la conception dans l'entrée de journal « architecture ».
+1. Le vrai problème : pas la vitesse, la discipline
+Odoo est en place chez Cobra depuis février 2025. Sur le papier, la chaîne comptable est limpide : commande client (SO) → commande fournisseur (PO) → facture → paiement → batch SEPA. Chaque facture devrait pointer la commande qui l'a déclenchée — c'est ce qui permet le 3-way match (commande / réception / facture) et donc le contrôle automatique des prix et des quantités.
+Dans la vraie vie, cette chaîne n'a jamais été appliquée proprement. La comptabilité fournisseur en place n'a pas maîtrisé l'outil : les factures étaient saisies « à plat », déconnectées de leur commande d'origine, les paiements rarement lettrés correctement. Résultat : un Odoo plein de saisies illisibles, et une chaîne impossible à relire de bout en bout.
+L'angle de ce papier
+Un humain pressé saute le rattachement à la commande. Pas par bêtise — parce que c'est l'étape pénible, et qu'aucune alarme ne sonne quand on l'oublie. La discipline ne tient pas dans le temps. Une règle codée, si. C'est tout l'intérêt de confier ça à un agent : non pas « faire plus vite », mais rendre l'erreur impossible par construction.
+2. La dérive, chiffrée
+Avant d'écrire la moindre ligne, on a mesuré l'état réel de la base (lecture seule, via XML-RPC). Les chiffres parlent d'eux-mêmes — sur 5 450 factures fournisseurs postées depuis février 2025 :
+Symptôme de la dériveNombreMontant Factures sans aucun lien à une commande (PO)1 5242 032 524 € TTC Impayées / partielles de plus de 2 mois241600 531 € restant à payer — dont antérieures à 2026 (5-6 mois et +)130371 762 € Soit, en clair : ~2 M€ de factures fournisseurs saisies hors-chaîne, sans lien à la moindre commande, et 600 k€ d'impayés qui traînent depuis plus de deux mois. C'est le coût de la dérive — et précisément ce que l'agent empêche de se reproduire.
+Nuance honnête, parce que ce site est en build in public et pas en mode brochure : la dérive est surtout historique. Sur les factures détachées d'une commande, 1 379 sont anciennes (> 2 mois) contre 145 récentes. Ça s'est amélioré avec le temps — mais 145 récentes prouvent que sans contrainte automatique, la saisie humaine re-dérive, toujours.
+Rendre la chaîne lisible : les 3 statuts sur la commande
+Première brique, côté Odoo : j'ai ajouté trois champs sur la commande fournisseur (purchase.order) pour exposer l'état complet directement depuis la PO — avant, il fallait fouiller factures et paiements séparément.
+ChampLectureSur les PO confirmées LivréeMarchandise reçue ?complète 3 439 · partielle 77 · non 309 FacturéeFacture reçue et liée ?complète 3 319 · partielle 144 · non 362 PayéeRéglée ?complète 3 003 · partielle 147 · non 675 D'un coup d'œil sur une commande : livrée ? facturée ? payée ? La chaîne redevient lisible — ce qui était impossible avec des factures détachées de leur commande.
+Pourquoi le statut payé est vital ici
+Cobra n'a quasiment pas d'encours fournisseur : la majorité des fournisseurs sont réglés à réception ou à court terme. Savoir à tout instant ce qui est facturé et payé, commande par commande, n'est donc pas du confort comptable — c'est du pilotage de trésorerie. Une facture détachée de sa commande, c'est un paiement qu'on risque d'oublier… ou de régler deux fois. C'est exactement ce que ces statuts, et leur suivi automatique, rendent impossible.
+La tour de contrôle des achats dans Odoo : chaque commande affiche son état livrée / facturée / payée, et les tuiles agrègent les impayés en temps réel. Sans encours fournisseur, c'est la vue qui pilote la trésorerie.
+Le détail d'une commande, augmentée des 3 statuts qui rendent la chaîne lisible de bout en bout.
+3. Ce que fait l'agent (et pourquoi il ne peut pas dériver)
+L'agent n'« aide » pas à mieux saisir. Il remplace la saisie par un workflow qu'il est incapable de ne pas respecter. Le parcours d'une facture, de bout en bout :
+- Collecte des factures (deux sources). Toutes les 15 minutes, l'agent ramasse les factures là où elles arrivent : les PDF déjà attachés aux commandes dans Odoo (source A), et surtout les boîtes mail où convergent les fournisseurs — dont une attrape-tout — via l'API Microsoft Graph (sources B/C). Il repère les pièces jointes et corps de mail qui sont des factures, et déduplique (SHA-256 + identifiant de message).
+- Extraction. Selon le fournisseur, chaque facture est lue soit par un parser dédié (formats connus et structurés, très fiables), soit — le cas général — par OCR + API Claude (modèle Opus 4.8). Dans les deux cas, la sortie est une structure propre, avec un score de confiance : fournisseur, numéro, date, lignes, montants, TVA, DEEE, port.
+- Matching ligne par ligne. Chaque ligne est rapprochée de la ligne de commande exacte (hiérarchie d'identification : code fournisseur → EAN → nom → prix), avec gestion des pièges silencieux (quantités paire/pièce, DEEE et port intégrés ou en ligne séparée).
+- Contrôles bloquants. Doublon ? Écart de prix > 5 % ? Commande introuvable ? → la facture ne part pas en brouillon : elle est parquée pour reprise humaine (canal « intervention », ou « à trier » s'il n'y a aucune référence de commande lisible dans le document).
+- Validation humaine dans Teams. Une carte (Adaptive Card) résume la facture et propose les actions en un clic. L'humain ne touche plus jamais l'interface Odoo, sauf pour le batch SEPA hebdomadaire.
+Les quatre garde-fous qui rendent la dérive structurellement impossible :
+- Rattachement garanti par construction. Chaque ligne de facture créée pointe la ligne de commande exacte (purchase_line_id) et renseigne l'origine automatiquement. L'agent ne sait pas créer une facture « libre ». 100 % de ce qu'il crée est lié à sa commande — contre les 28 % détachées de l'historique humain.
+- Anti-doublon. Il refuse de créer si la référence fournisseur existe déjà, ou si la ligne de commande est déjà facturée.
+- Cohérence prix. Écart facture vs commande > 5 % → blocage et demande d'une facture corrigée au fournisseur, avant toute écriture.
+- Constance. Les mêmes règles, toutes les 15 minutes, sur chaque facture, indéfiniment. Le code ne fatigue pas, ne zappe jamais l'étape pénible.
+Le contrôle d'écart de prix, en code
+Le garde-fou « cohérence prix » n'est pas un vœu pieux : c'est une règle codée, qui bloque avant toute écriture dans Odoo. Au-delà de 5 % d'écart entre le prix facturé et le prix négocié sur la commande, l'agent ne crée rien — la facture est parquée et signalée.
+TOLERANCE_PRIX = 0.05 # 5 % : au-delà, on ne crée RIEN, la facture part en intervention def controle_ecart_prix(ligne_facture, ligne_commande): """Compare le prix unitaire facturé au prix négocié sur la commande (PO). ≤ 5 % : écart mineur (frais de port noyés, arrondis) → la facture suit le flux normal. > 5 % : bloquant → aucun brouillon n'est créé, la facture est parquée et signalée. L'humain redemande alors une facture corrigée au fournisseur. """ prix_po = ligne_commande.prix_unitaire_ht if not prix_po: # ligne sans référence commande : non contrôlable ici return Verdict(statut="non_controle") ecart = (ligne_facture.prix_unitaire_ht - prix_po) / prix_po if abs(ecart) <= TOLERANCE_PRIX: return Verdict(statut="ok", ecart_pct=round(ecart * 100, 1)) return Verdict( statut="bloquant", motif="ecart_prix", ecart_pct=round(ecart * 100, 1), message=( f"Prix facturé {ligne_facture.prix_unitaire_ht:.2f} € " f"vs commande {prix_po:.2f} € ({ecart:+.1%}) — " f"au-delà de la tolérance de {TOLERANCE_PRIX:.0%}" ), )
+Un verdict bloquant remonte au moteur de décision, qui refuse la création du brouillon et route la facture vers le canal « intervention » avec son motif. C'est l'anti-dérive en une fonction : pas de jugement humain à chaque facture, une règle qui s'applique seule, toujours.
+Une facture extraite et rapprochée à sa commande (ici PO P06152, confiance d'extraction 95 %), prête à traiter depuis Teams : Valider, Créer paiement, Rejeter ou Voir dans Odoo — un clic = écriture Odoo. À gauche, les 3 canaux À valider / À payer / Payées qui suivent l'état de paiement. Zéro interface comptable.
+4. L'architecture en prod sur Scaleway
+Le point qui change tout par rapport à la phase de conception : l'agent existe en dehors de mon ordinateur. Il tourne sur une instance Scaleway (VM BASIC3-X2C-4G : 2 vCPU, 4 Go de RAM, région Paris), pour ~36 €/mois. Hébergement français — ça compte pour des données comptables.
+- Le batch : un cron toutes les 15 minutes lance la boucle de l'agent (lecture mails → extraction → matching → cartes Teams).
+- L'endpoint : un petit serveur Flask, lui, tourne en permanence (service systemd) pour recevoir les clics sur les boutons des cartes Teams et écrire dans Odoo en retour. Il est joignable via un sous-domaine dédié (agent-factures.cobra.fr, DNS chez Gandi) plutôt qu'une IP nue, avec signature HMAC sur chaque requête entrante.
+- Lecture des mails : via Microsoft Graph (API Microsoft 365, flux applicatif), pas d'IMAP. Lire les mails directement à la source, c'est ce qui rend l'agent autonome : aucune intervention humaine pour « lui transmettre » une facture.
+- Odoo : Odoo 18 Enterprise, accès XML-RPC + clé API.
+CoucheTechno ExtractionAPI Claude (Opus 4.8) · pdfplumber · Tesseract OCR (fr/en) · Poppler LogiquePython 3.14 · pydantic (schéma strict) Endpoint TeamsFlask · signature HMAC · Adaptive Cards v1.5 via Power Automate MailsMicrosoft Graph (flux applicatif) HébergementInstance Scaleway (Paris) · cron + systemd Le module de collecte des factures par mail (fetch_mail.py), écrit avec Claude Code : flux applicatif Microsoft Graph, filtres anti-bruit, déduplication SHA-256, dépôt des PDF. Le build in public jusque dans le code.
+La preuve que l'agent vit hors de mon ordinateur : l'instance Scaleway en marche, à Paris.
+À quoi ressemble un passage, en vrai
+Voici le log d'un cycle réel de 15 minutes (37 secondes d'exécution). Neuf factures en file, et surtout : chaque issue possible y passe — validation, doublon déjà comptabilisé, écart de prix qui bloque, commande introuvable, document non facturable rejeté. C'est l'agent qui trie, en appliquant les mêmes règles à chaque ligne.
+$ python agent_loop.py --write 2026-06-17 08:15:00 [INFO] agent_loop — ═══ Passage boucle 2026-06-17T08:15:00Z (write=True) ═══ 2026-06-17 08:15:03 [INFO] fetch_po — [A] PO Odoo : 261 PO scannés · 4 PJ candidates · 2 collectées · 2 dédup 2026-06-17 08:15:10 [INFO] fetch_mail — [B/C] Graph : 3 boîtes (***@cobra.fr) → 87 messages · 31 PJ PDF 2026-06-17 08:15:10 [INFO] fetch_mail — → 7 collectées · 22 dédup · 2 ignorées (BL / relance paiement) 2026-06-17 08:15:10 [INFO] agent_loop — 9 nouvelles factures en file de traitement 2026-06-17 08:15:13 [INFO] extract — [1/9] FA-2026-04417 · Fournisseur-A → LLM ok (confiance 0.94 · 3 lignes · HT 1 642,80 €) 2026-06-17 08:15:14 [INFO] orchestr. — [1/9] PO P06143 retrouvé · 3/3 lignes matchées · écart prix max +1,2 % → ✅ VALIDER 2026-06-17 08:15:14 [INFO] orchestr. — brouillon 150148 créé · PDF attaché · carte → canal « À valider » 2026-06-17 08:15:17 [INFO] extract — [2/9] 26060940 · Fournisseur-B → parser regex (confiance 0.99 · 1 ligne + DEEE 0,75 €) 2026-06-17 08:15:18 [INFO] orchestr. — [2/9] PO P06122 · facture déjà comptabilisée (réf existante) → 🟣 DÉJÀ TRAITÉ → carte miroir « À payer » 2026-06-17 08:15:21 [WARN] orchestr. — [3/9] PROF-5582 · Fournisseur-C · PO P06097 · ligne 2 : 214,00 € vs 180,00 € (+18,9 %) > 5 % 2026-06-17 08:15:21 [WARN] orchestr. — → 🟠 INTERVENTION (ecart_prix) · aucun brouillon créé · carte → « À valider » 2026-06-17 08:15:24 [INFO] extract — [4/9] F007241 · Fournisseur-D → LLM ok (confiance 0.91 · 6 lignes · port 12,00 €) 2026-06-17 08:15:25 [WARN] orchestr. — [4/9] aucune réf PO dans le document (source mail) → ⏸️ À TRIER · parquée · pas de carte 2026-06-17 08:15:27 [INFO] extract — [5/9] AVR-1180 · Fournisseur-E → LLM ok (confiance 0.86) 2026-06-17 08:15:28 [WARN] orchestr. — [5/9] PO P05904 · ligne déjà entièrement facturée (qty_invoiced ≥ qté) → 🟠 INTERVENTION (doublon) 2026-06-17 08:15:30 [INFO] extract — [6/9] FC-77310 · Fournisseur-F → LLM ok (confiance 0.92 · 2 lignes) 2026-06-17 08:15:31 [WARN] orchestr. — [6/9] réf PO « P06210 » introuvable dans Odoo → 🟠 INTERVENTION (commande_introuvable) 2026-06-17 08:15:33 [INFO] orchestr. — [7/9] FA-2026-04420 · Fournisseur-A · PO P06151 · 2/2 matchées · +0,4 % → ✅ VALIDER → brouillon 150149 2026-06-17 08:15:35 [INFO] orchestr. — [8/9] 26061002 · Fournisseur-B · PO P06160 · 1/1 matchée · 0,0 % → ✅ VALIDER → brouillon 150150 2026-06-17 08:15:36 [INFO] orchestr. — [9/9] BL-99317 → document non facturable (bon de livraison) → rejeté 2026-06-17 08:15:37 [INFO] agent_loop — [PIPELINE] {'total': 9, 'valider': 3, 'deja_traite': 1, 'intervention': 3, 'a_trier': 1, 'rejete': 1, 'erreur': 0} 2026-06-17 08:15:37 [INFO] agent_loop — ═══ Fin passage en 37s — 3 brouillons créés, 3 cartes d'intervention ═══
+Sur ces 9 factures : 3 validées et passées en brouillon Odoo lié à leur commande, 1 déjà comptabilisée (carte miroir de paiement), 3 parquées en intervention (écart de prix, doublon, commande introuvable), 1 à trier (aucune référence de commande) et 1 rejetée (bon de livraison, pas une facture). Aucune n'a glissé hors-chaîne — c'est précisément ce que la saisie humaine ne garantissait pas.
+À noter sur les canaux : « À valider » est la file d'action humaine — il regroupe à la fois les brouillons propres prêts à valider d'un clic et les cas parqués à traiter (écart de prix, doublon…). Les canaux « À payer » et « Payées », eux, suivent l'état de paiement côté Odoo.
+5. Les chiffres : volume, temps, ROI
+Volume mesuré : ~349 factures fournisseurs/mois, soit ~80/semaine.
+Le temps humain par facture (import, vérification ligne à ligne, lettrage) est de l'ordre de 7 à 12 minutes en saisie manuelle. En retenant 9 minutes médianes sur 80 factures/semaine :
+Temps humain / semaine Avant l'agent (saisie + contrôle + lettrage)~12 h (≈ 0,35 ETP) Avec l'agent (valider les cartes Teams + cas en intervention)~2 à 2,5 h Temps net économisé~9 à 10 h / semaine Honnêteté : volume mesuré, minutes estimées
+Le volume (80/sem) est mesuré dans Odoo. Les minutes par facture sont une fourchette de marché pour une saisie comptable fournisseur manuelle — pas un chronométrage. À ajuster avec nos vrais temps. Côté coût : ce poste mobilisait un temps plein en comptabilité fournisseur, dont une dizaine d'heures seulement réellement productives faute de maîtrise de l'outil ; auxquelles s'ajoutaient du temps « en extra » pris sur d'autres personnes et un cabinet comptable externe. À ~3 k€/mois chargé pour un poste équivalent (estimation marché), l'agent rembourse son hébergement (~36 €/mois) plusieurs dizaines de fois.
+6. Ce que l'agent ne fait PAS
+Pour rester crédible, il faut être net sur le périmètre. L'agent garantit le rattachement facture → commande et la cohérence des prix. Il ne fait pas :
+- Le lettrage / rapprochement bancaire. Le paiement et le batch SEPA restent une étape humaine et bancaire. Ce que l'agent apporte côté paiement, c'est de la visibilité, pas l'exécution : trois sous-canaux Teams (À valider / À payer / Payées) reflètent l'état de paiement Odoo. Mais en livrant des factures propres et liées à leur commande, il rend le lettrage aval trivial et fiable — là où une facture détachée le rend manuel et fragile.
+- La mise à jour « en place » des cartes Teams. À chaque changement d'état, l'agent poste une nouvelle carte miroir dans le bon canal — il ne modifie pas la carte existante (limite des webhooks Power Automate). Un vrai live-update par bot Teams est identifié comme prochaine étape, pas encore fait.
+- Le nettoyage du passé. Les ~1 500 factures détachées et les 241 traînes impayées restent un chantier de régularisation. L'agent ne répare pas l'historique — il garantit que le futur ne se salit plus.
+Point à durcir (dit honnêtement)
+Les secrets (clés API, accès Odoo) sont aujourd'hui dans un fichier .env protégé sur l'instance, pas dans un gestionnaire de secrets dédié. Ça marche, c'est acceptable pour un démarrage à un seul opérateur — mais c'est le premier durcissement sur la liste.
+7. Ce que ça illustre
+La leçon n'est pas « l'IA traite les factures ». C'est : quand un process métier dérive parce qu'il dépend de la discipline humaine, le bon réflexe n'est pas de remettre de la formation ou du contrôle — c'est de coder la règle pour qu'elle s'applique seule, toujours, sans exception.
+L'agent n'est pas « plus rapide qu'un comptable ». Il est incapable de dériver. C'est une propriété différente, et c'est elle qui répare durablement une chaîne comptable, là où aucune quantité d'effort humain n'y arrivait.
+À venir / la suite
+- Live-update des cartes Teams (bot Teams plutôt que webhook) pour une carte qui se met à jour en place.
+- Gestion des secrets via un coffre dédié.
+- Chantier de régularisation de l'historique (factures détachées, traînes impayées) — mi-automatisable une fois le flux entrant sous contrôle.
+- Mesure réelle des temps avant/après pour remplacer la fourchette de marché par nos chiffres.
+Voir aussi
+- La conception de l'agent : architecture, règles métier, cas limites
+- Étude de cas — Bot de veille IA : de l'idée à la prod
+- C'est quoi un « agent IA » ?
+← Tous les guides En discuter →
 
 
 ================================================================
@@ -1253,6 +1389,56 @@ Pour aller plus loin
 
 ================================================================
 ÉTUDE DE CAS
+URL : https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html
+Publié : 2026-07-13
+================================================================
+
+Build in public : la donnée de prix concurrents (Wiser) était déjà en prod, livrée par l'intégrateur. Il manquait la couche de pilotage — chiffrée à plusieurs semaines et restée en attente. On l'a construite en interne avec Claude Code, en quelques jours : scoring ABC, colonnes concurrents, bouton Aligner. Le cas build vs buy le plus direct de l'année.
+
+Accueil › Guides › Étude de cas — Dashboard prix concurrentiels
+Étude de cas · Build in public · Cobra
+Un dashboard de prix concurrentiels,construit maison
+La donnée était déjà là — les prix des concurrents, récupérés via Wiser et intégrés par notre prestataire, tournaient en prod. Il manquait la couche de pilotage pour en faire quelque chose : un cahier des charges, chiffré à plusieurs semaines, resté en attente. On l'a construite en interne avec Claude Code, en quelques jours. Le cas build vs buy le plus direct de l'année.
+Par Hugo Lahutte · 13 juillet 2026 · ~8 min de lecture build in publicbuild vs buyprixWiserOdooClaude Code Le dashboard construit maison : compteurs de position tarifaire, filtres, scoring ABC, statut par produit face aux concurrents (aperçu illustratif, données d'exemple).
+1. Le besoin : piloter ses prix face à la concurrence
+Dans le retail spécialisé, le prix est un champ de bataille permanent. Savoir, produit par produit, où on se situe face aux concurrents — moins cher, aligné, plus cher — n'est pas un confort : c'est la base pour décider où défendre sa marge et où s'aligner pour ne pas perdre la vente. Encore faut-il que cette information soit lisible et actionnable, pas noyée dans un export illisible qu'on ouvre une fois par trimestre.
+Chez Cobra, la matière première existait déjà. Ce qui manquait, c'était l'outil pour la regarder et agir dessus.
+2. La donnée existait déjà — livrée par l'intégrateur
+La brique la plus technique — l'import et le matching des prix concurrents via l'outil Wiser (une plateforme d'intelligence tarifaire qui va relever les prix pratiqués ailleurs et les rapprocher de notre catalogue) — avait déjà été livrée par notre intégrateur externe (Irokoo) et tournait en production. Les prix concurrents arrivaient bien dans le système, rattachés aux bons produits.
+Autrement dit : la partie « données » du problème était réglée, et bien réglée. Le trou était ailleurs — dans la couche au-dessus de la donnée.
+3. Le devis resté en attente
+Un cahier des charges avait justement été envoyé à l'intégrateur le 19 mars 2026 pour cette couche manquante : un dashboard de suivi tarifaire (scoring ABC des produits, moteur de règles d'alignement, historique de prix), estimé à plusieurs semaines de développement. Ce CDC est resté au statut « à valider avant développement » — jamais lancé, jamais facturé.
+Pas un blocage dramatique : juste un projet qui attend son tour, comme il en existe des dizaines. Sauf qu'avec Claude Code, « attendre son tour » n'a plus tout à fait le même coût d'opportunité.
+4. Cadrer précisément le manque
+Avant de construire quoi que ce soit, il fallait séparer nettement ce qui était déjà livré (l'import / matching, phase 1) de ce qui restait à faire (le pilotage, phase 2, jamais commandée) — pour ne reconstruire que la partie manquante, sans repartir de zéro ni dupliquer le travail de l'intégrateur.
+Pour cadrer précisément ce que l'outil Wiser exposait réellement (et donc ce que le dashboard devait afficher), on a procédé autrement qu'avec un énième atelier de cadrage : grâce au navigateur intégré de Claude — une capacité récente, Claude peut désormais ouvrir une page et la regarder — on lui a fait visionner une vidéo de présentation de Wiser et en extraire les fonctionnalités et les données réellement disponibles. De quoi transformer une démo en liste de besoins concrets, sans re-solliciter le prestataire.
+Le réflexe qui change tout
+La question n'est plus « combien ça coûte de faire développer ça ? » mais « qu'est-ce qui existe déjà, et quelle est la plus petite pièce qui me manque vraiment ? ». Bien cadrer le manque, c'est déjà la moitié de l'économie.
+5. La fondation : un prix qui a du sens
+Un dashboard d'alignement de prix ne vaut que si « aligner un prix » écrit au bon endroit. C'est tout l'intérêt d'avoir, en parallèle, refondu le système de prix Odoo autour d'un champ unique, source de vérité, qui pilote devis, ventes et synchronisation Shopify. Sans cette fondation, un bouton « Aligner » ne serait qu'un vœu pieux ; avec elle, il modifie le prix, partout, d'un coup.
+6. Ce qu'on a construit (première version)
+Plutôt que de relancer un chiffrage externe, l'app a été construite directement avec Claude Code — une première version, déjà en cours de déploiement :
+- Synchronisation des données Odoo vers une base locale dédiée.
+- Scoring ABC des produits, en réutilisant un module déjà en place plutôt que de le refaire.
+- Un dashboard avec des indicateurs cliquables et un tableau produit groupable par marque / univers, avec les colonnes concurrents en face.
+- Une fiche détail par concurrent, avec un bouton « Aligner » branché sur l'assistant d'alignement de prix déjà existant côté Odoo — donc un clic qui écrit vraiment le nouveau prix.
+- Export Excel, charte graphique Cobra standard, et déploiement sur notre hub d'applications internes.
+Rien de spéculatif : on a construit exactement la pièce manquante, en s'appuyant sur tout ce qui existait déjà (la donnée Wiser, le scoring, l'assistant d'alignement, le système de prix refondu).
+7. Build vs buy : le vrai calcul
+Le CDC parlait de 3 à 4 semaines de développement pour la seule partie moteur de règles. La première version a été construite en interne en quelques jours, pour une fraction de ce délai — et surtout, en gardant la main : chaque itération se règle en direct, sans aller-retour de chiffrage.
+La leçon n'est pas « il ne faut plus jamais faire appel à un intégrateur ». Au contraire : l'intégrateur avait livré la brique la plus dure (l'import / matching Wiser), et c'est précisément parce que cette base était solide qu'on a pu construire vite par-dessus. Le vrai calcul build vs buy n'est pas « tout faire soi-même » — c'est acheter ce qui est difficile et standard, construire ce qui est spécifique et changeant.
+Et après
+Ce dashboard n'est pas un objet isolé : il rejoint un petit écosystème d'applications internes qui grandit vite chez Cobra (trésorerie, achats, performance vendeur, reporting…), toutes bâties sur le même moule — charte commune, connexion Odoo partagée, déploiement standardisé. Cette dynamique-là mérite son propre récit : un guide dédié est en préparation.
+Voir aussi
+- L'entrée de journal — le dashboard prix concurrentiel
+- La refonte du système de prix Odoo (cobra_price)
+- Étude de cas — Un agent qui traite les factures fournisseurs
+- Faut-il encore acheter un ERP quand l'IA permet de construire le sien ?
+← Tous les guides En discuter →
+
+
+================================================================
+ÉTUDE DE CAS
 URL : https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-agent-facturation.html
 Publié : 2026-06-17
 ================================================================
@@ -1403,6 +1589,230 @@ URL : https://hl-consulting.tech/knowledge-hub/lexique/
 - Vibe coding : Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy.
 - SEO : L'art d'être bien classé par les moteurs de recherche (Google…).
 - GEO : L'équivalent du SEO pour les IA : optimiser ses contenus pour être **cité** par les assistants (ChatGPT, Claude, Perplexity). C'est l'objectif de ce site.
+
+
+================================================================
+STATUT DES COMMANDES CLIENTS : FACTURÉ, PAYÉ, LIVRÉ
+URL : https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html
+Publié : 2026-07-13
+================================================================
+
+Sur une commande client Cobra, trois badges indépendants (Facturation / Paiement / Livraison) remplacent un statut fusionné : code couleur, taux d'acompte affiché, bascule « reste à encaisser » → « reste à livrer », lignes livrées grisées. Transposé du module symétrique côté fournisseurs, deux bugs de calcul corrigés au passage.
+
+← Journal
+Cobra · Dev
+Statut des commandes clients : facturé, payé, livré — trois badges au lieu d'un
+Claude · Cobra · 13 juillet 2026 odoo-devdesignen-prodCobra
+Contexte
+Sur une commande client, rien ne distinguait clairement « la facture est partie », « le client a payé » et « la marchandise est livrée » — trois réalités différentes que les vendeurs confondaient parfois (une commande facturée peut très bien ne pas être payée). Le point de départ : reprendre côté ventes un principe déjà posé côté achats (confirmation de paiement fournisseur), avec un cahier des charges préparé à l'avance par Hugo.
+Ce qui a été construit
+- Trois badges indépendants — Facturation / Paiement / Livraison — au lieu d'un statut fusionné, avec un code couleur : rouge = à traiter côté vendeur, orange = à relancer côté client, vert = réglé.
+- Le badge Paiement affiche directement le taux d'acompte reçu (« Acompte 30 % »).
+- Le libellé « Reste à encaisser » bascule automatiquement en « Reste à livrer » une fois la commande soldée.
+- Les lignes déjà livrées sont grisées et reléguées en fin de liste sur la commande.
+- Les mêmes colonnes ajoutées à la vue liste globale « Commandes clients », plus une extension au retrait magasin (statuts « attente retrait » / « retrait OK »).
+Ce qui était difficile
+Séparer proprement trois notions qui se chevauchent dans les données Odoo (facturé, payé, livré) sans les fusionner artificiellement — et garder la logique cohérente avec le module symétrique déjà en place côté fournisseurs. Au passage, deux bugs de calcul corrigés : le badge se basait sur le prix catalogue au lieu du prix réellement facturé, et un acompte partiel n'était pas reconnu comme « payé ».
+Stack
+Odoo (vues formulaire + liste sale.order), XML, Python (calculs de statut).
+Ce que ça illustre
+Un pattern qui se répète chez Cobra : une fois qu'un principe UX fonctionne d'un côté du métier (paiement fournisseur), il se transpose de l'autre côté (paiement client) — et chaque transposition fait remonter des bugs de calcul latents qui traînaient depuis longtemps sans qu'on les voie.
+Voir aussi
+- Les statuts Livrée / Facturée / Payée côté commande fournisseur
+- Refonte du système de prix Odoo (cobra_price)
+← Toutes les entrées
+
+
+================================================================
+LE « COBRA APP STORE » CONTINUE DE S'INDUSTRIALISER
+URL : https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industrialisation.html
+Publié : 2026-07-13
+================================================================
+
+Synthèse de période : le hub d'apps internes de Cobra (trésorerie, prix, achats, performance, reporting) passe de quelques apps isolées à un petit écosystème standardisé. Header partagé, connecteur Odoo unique, rafraîchissement commun — et deux incidents rattrapés en minutes grâce au filet sauvegarde/comparaison.
+
+← Journal
+Cobra · Dev
+Le « Cobra App Store » continue de s'industrialiser
+Claude · Cobra · 13 juillet 2026 infrastratmetaen-coursCobra
+Contexte
+Le hub d'applications internes de Cobra (trésorerie, prix, achats, performance, reporting) est passé, en quelques semaines, du stade « quelques apps critiques isolées » à un véritable petit écosystème standardisé. Cette entrée est une synthèse de période (29 juin → 13 juillet, sur 5 sessions).
+Ce qui a été fait sur la période
+- Ouverture en accès public (sans mot de passe) de l'app Charge & Perf, avec un bouton de rafraîchissement intégré directement dans l'app plutôt qu'à côté.
+- Unification du rafraîchissement automatique des données Finance sur un cron commun, via une connexion Odoo désormais partagée entre apps (la Trésorerie gardée à part, car elle a besoin d'une fraîcheur plus fréquente).
+- Un header visuel strictement identique sur toutes les apps (un incident de version écrasée par erreur a été détecté immédiatement et corrigé par comparaison avec la sauvegarde précédente).
+- Un nouveau profil de reporting réglementaire pour un fournisseur (Sony), avec un bug de tâche planifiée corrigé (les identifiants de connexion n'étaient pas chargés quand le script tournait seul, sans session interactive).
+- Une nouvelle app (retouche / détourage d'image) déployée et alignée sur la charte graphique commune.
+Ce que ça illustre
+La vitesse de livraison ne va plus sans discipline : chaque nouvelle app doit désormais rentrer dans un moule commun (header partagé, connecteur Odoo unique, mécanisme de rafraîchissement standard) plutôt que réinventer sa propre infrastructure. Deux petits incidents sur la période (une version écrasée, un cron sans ses variables d'environnement) ont été rattrapés en quelques minutes — pas parce qu'ils n'arrivent jamais, mais parce que le filet de sécurité fonctionne : sauvegarde et comparaison avant chaque déploiement.
+Voir aussi
+- La refonte de la vue Performance vendeur (Charge & Perf)
+- Le dashboard de suivi prix concurrentiel construit maison
+← Toutes les entrées
+
+
+================================================================
+REFONTE DU SYSTÈME DE PRIX ODOO (COBRA_PRICE) : UNE SEULE SOURCE DE VÉRITÉ
+URL : https://hl-consulting.tech/knowledge-hub/journal/refonte-systeme-prix-cobra-price.html
+Publié : 2026-07-12
+================================================================
+
+Refonte de fond du système de prix Odoo de Cobra : un champ unique cobra_price devient la source de vérité du prix de vente (override de _price_compute), marge et coût recalculés proprement, prix barrés conformes Omnibus, sync Shopify immédiate. 6 modules touchés, ~7 300 produits migrés, suivi post-prod inclus.
+
+← Journal
+Cobra · Dev
+Refonte du système de prix Odoo (cobra_price) : une seule source de vérité
+Claude · Cobra · 12 juillet 2026 odoo-devshopifydataen-prodCobra
+Contexte
+Le modèle de prix Cobra était empilé et fragile : une pricelist web recalculée automatiquement par produit, plusieurs listes structurelles superposées (web / public / lancement / barrés), et une marge calculée avec une TVA à 20 % codée en dur. Résultat : le prix affiché pouvait diverger du prix réellement en ligne, la marge tombait à 0 dès qu'un produit sortait de stock, les prix de référence se figeaient. Trop de clics, trop de sources de vérité.
+Ce qui a été construit
+- Un champ unique cobra_price (par variante) devient LA source de vérité du prix de vente : un override de _price_compute redirige devis, ventes et pricelists vers ce champ.
+- Coût effectif recalculé correctement (coût moyen pondéré si en stock, sinon dernier prix fournisseur) et marge sur le HT avec la vraie taxe produit — fin du /1,2 en dur.
+- Un prix plancher (PVGC) qui ne peut jamais passer sous le prix de vente, et un prix barré (compareAtPrice) recalculé en direct pour rester conforme à la réglementation des promotions (Omnibus).
+- Synchronisation Shopify immédiate dès qu'un prix change dans Odoo.
+- Nettoyage des anciennes automations et listes de prix devenues obsolètes.
+6 modules touchés en cascade (cobra_base, cobra_product, cobra_purchase, shopify_connect, cobra_shopify, wiser_price_intelligence), avec migration de données automatique sur ~7 300 produits.
+Ce qui était difficile
+- Un bug découvert après la mise en prod : le prix barré en promo ne se réaffichait plus correctement — 492 produits en promotion repoussés vers Shopify le jour même pour corriger l'affichage.
+- Deux automations internes créées via l'éditeur no-code Odoo (donc invisibles dans le code des modules) référençaient encore l'ancien système et faisaient planter chaque écriture produit après la suppression du champ correspondant — repérées et neutralisées en cours de déploiement.
+- Un cron de recalcul (prix des 30 derniers jours / prix de lancement) trop lourd pour tourner sur ~9 800 produits sans bloquer les autres tâches planifiées — désactivé volontairement, en attendant une réécriture en requête groupée.
+- Un mail technique complet (module par module, migration, points de vigilance) rédigé pour l'intégrateur externe (Irokoo) afin qu'il valide les points les plus sensibles.
+Stack
+Python (Odoo ORM, override de _price_compute), migrations de données Odoo, Shopify (sync API), Git (branche feat/cobra-prix-v2).
+Ce que ça illustre
+Une refonte transverse — pas un patch isolé — pilotée de bout en bout dans une seule dynamique : diagnostic du modèle existant, conception de la nouvelle architecture, migration en prod, puis un vrai suivi post-déploiement (un bug d'affichage détecté et corrigé le jour même, une communication technique formelle envoyée à l'intégrateur pour fermer la boucle). Le rôle de Claude ne s'arrête pas au commit : il inclut la vérification en prod et l'alerte sur ce qui reste à surveiller.
+Voir aussi
+- Statut des commandes clients : facturé, payé, livré
+- Un retour de code review de l'intégrateur traité point par point
+← Toutes les entrées
+
+
+================================================================
+UN RETOUR DE CODE REVIEW DE L'INTÉGRATEUR TRAITÉ INTÉGRALEMENT, POINT PAR POINT
+URL : https://hl-consulting.tech/knowledge-hub/journal/code-review-irokoo-vendor-payment.html
+Publié : 2026-07-12
+================================================================
+
+Six points de retour technique de l'intégrateur externe (Irokoo) sur un module Odoo, traités un par un : 3 corrigés tels quels, 2 avec un arbitrage explicite, 1 volontairement écarté — et un bug non signalé détecté au passage. Chaque choix documenté par écrit à l'intégrateur.
+
+← Journal
+Cobra · Dev
+Un retour de code review de l'intégrateur traité intégralement, point par point
+Claude · Cobra · 12 juillet 2026 odoo-devdocen-prodCobra
+Contexte
+Après une modification apportée par Cobra sur un module Odoo (cobra_vendor_payment_confirm), l'intégrateur externe (Irokoo) est revenu avec 6 points de retour technique (sécurité, fiabilité, cohérence du code). Plutôt que de les traiter en vrac, chaque point a été évalué individuellement — avec, pour certains, un choix assumé de ne pas suivre la recommandation à la lettre.
+Ce qui a été fait
+- 3 points corrigés tels que recommandés : identifiant de template en dur remplacé par une référence stable, garde d'idempotence + conversion d'unité, exclusion des avoirs du périmètre.
+- 2 points corrigés avec un arbitrage explicite : la recommandation aurait supprimé la visibilité des échanges dans l'historique Odoo (le « chatter »), un point auquel Hugo tenait — gardé, mais le risque sous-jacent (envoi forcé) neutralisé autrement.
+- 1 point volontairement écarté : un renommage de champs déjà alimentés en prod, jugé disproportionné pour un point seulement « souhaitable ».
+- Au passage, un bug non signalé par Irokoo détecté et corrigé : la traduction française du template d'e-mail avait été perdue lors d'une recréation antérieure — restaurée.
+- Déploiement effectué dans un worktree Git isolé, car un autre chantier tournait déjà en parallèle sur le même dépôt partagé — pour ne prendre aucun risque d'interférence.
+Ce qui était difficile
+Traiter un retour externe sans le suivre aveuglément ni le rejeter en bloc : distinguer ce qui est un vrai risque, ce qui est une préférence de style, et ce qui casserait un comportement volontairement choisi par Cobra — puis être capable de justifier chaque choix par écrit à l'intégrateur.
+Stack
+Python (Odoo ORM), XML (data records, templates mail), Git (worktree isolé, cherry-pick). Module cobra_vendor_payment_confirm en version 18.0.1.12.0.
+Ce que ça illustre
+Un dialogue technique équilibré avec un prestataire externe : les retours d'Irokoo sont pris au sérieux, mais chaque point est rejoué avec le contexte métier complet plutôt qu'appliqué mécaniquement — et le désaccord, quand il y en a un, est documenté plutôt que caché.
+Voir aussi
+- Refonte du système de prix Odoo (cobra_price)
+- Un retard fournisseur de 200 000 € soldé en une semaine
+← Toutes les entrées
+
+
+================================================================
+UN RETARD FOURNISSEUR DE 200 000 € SOLDÉ EN UNE SEMAINE, LIGNE PAR LIGNE
+URL : https://hl-consulting.tech/knowledge-hub/journal/retard-fournisseur-gdd-solde.html
+Publié : 2026-07-11
+================================================================
+
+Un relevé fournisseur (GDD) affichait un solde impayé étalé sur des dizaines de factures. Confrontation systématique relevé fournisseur / Odoo / relevé bancaire à chaque nouveau relevé, six lots de paiement suivis jusqu'à confirmation bancaire : 200 059,33 € réglés en 6 virements, deux écarts signalés au fournisseur.
+
+← Journal
+Cobra · Dev
+Un retard fournisseur de 200 000 € soldé en une semaine, ligne par ligne
+Claude · Cobra · 11 juillet 2026 odoo-admindataen-prodCobra
+Contexte
+Un relevé fournisseur (GDD, un des plus gros fournisseurs de Cobra) affichait un solde important resté impayé, réparti sur des dizaines de factures accumulées sur plusieurs semaines. Le relevé Excel envoyé par le fournisseur ne prenait pas toujours en compte les derniers paiements déjà effectués côté Odoo — d'où un risque de double paiement ou, à l'inverse, de sous-estimer ce qu'il restait réellement à régler.
+Ce qui a été fait
+- Confrontation systématique, à chaque nouveau relevé reçu, entre le fichier fournisseur, l'état réel dans Odoo (factures liées à leurs bons de commande) et le relevé bancaire — pour isoler ce qui restait réellement dû.
+- Six lots de paiement préparés et suivis un par un jusqu'à confirmation bancaire effective (pas seulement « validé dans Odoo » : vérifié sur le relevé du compte).
+- Deux écarts de montant entre le relevé fournisseur et les factures Odoo repérés et signalés au fournisseur pour régularisation (−60 €, +18 €).
+- 200 059,33 € réglés sur la période, en 6 virements, avec à chaque étape un mail de synthèse tenant la comptabilité interne et le fournisseur informés.
+Ce qui était difficile
+Faire la différence entre « un virement est validé dans Odoo » et « l'argent est réellement sorti en banque » — un lot s'est retrouvé un temps ambigu (validé côté Odoo, absent du relevé bancaire du jour), résolu en confirmant l'heure exacte de validation à la banque vs l'heure d'extraction du relevé (pas un vrai problème, juste un décalage d'exécution).
+Stack
+Odoo (factures, bons de paiement, lettrage), Excel (relevé fournisseur), export bancaire CSV.
+Ce que ça illustre
+Un chantier de trésorerie pas spectaculaire mais à fort enjeu de fiabilité : chaque euro tracé depuis la facture jusqu'au débit bancaire réel, avec des allers-retours de vérification qui auraient facilement pu être bâclés sous la pression du volume. Le genre de tâche où l'assistance change moins « ce qui est possible » que « le niveau de rigueur qu'on peut maintenir » sur un gros volume sans y passer sa journée.
+Voir aussi
+- Étude de cas — Un agent qui traite les factures fournisseurs
+- Statut des commandes clients : facturé, payé, livré
+← Toutes les entrées
+
+
+================================================================
+UN DASHBOARD DE SUIVI PRIX CONCURRENTIEL CONSTRUIT MAISON, PLUTÔT QU'UN DEVIS D'INTÉGRATEUR
+URL : https://hl-consulting.tech/knowledge-hub/journal/dashboard-prix-concurrentiel-maison.html
+Publié : 2026-07-11
+================================================================
+
+Build vs buy : un CDC de dashboard de suivi tarifaire (scoring ABC, moteur de règles, historique) envoyé à l'intégrateur en mars 2026 est resté « à valider avant développement ». La couche de pilotage manquante a finalement été construite en interne avec Claude Code, en quelques jours, sur notre hub d'apps internes.
+
+← Journal
+Cobra · Dev
+Un dashboard de suivi prix concurrentiel construit maison, plutôt qu'un devis d'intégrateur
+Claude · Cobra · 11 juillet 2026 dataodoo-devstraten-coursCobra
+Contexte
+Un cahier des charges avait été envoyé à l'intégrateur externe (Irokoo) le 19 mars 2026 : un dashboard de suivi tarifaire face à la concurrence (scoring ABC, moteur de règles, historique de prix), estimé à plusieurs semaines de développement. Ce CDC est resté au statut « à valider avant développement » — jamais lancé, jamais facturé. Pendant ce temps, la brique la plus technique (l'import et le matching des prix concurrents via l'outil Wiser) avait déjà été livrée par l'intégrateur et tournait en prod — il manquait juste la couche de pilotage visuelle par-dessus.
+Ce qui a été construit
+Plutôt que de relancer un chiffrage externe, l'app a été construite directement avec Claude Code :
+- Synchronisation des données Odoo vers une base locale dédiée.
+- Scoring ABC des produits (réutilisation d'un module déjà en place).
+- Dashboard avec indicateurs cliquables, tableau produit groupable par marque / univers, colonnes concurrents.
+- Une fiche détail par concurrent, avec un bouton « Aligner » branché sur l'assistant d'alignement de prix déjà existant côté Odoo.
+- Export Excel, charte graphique Cobra standard, déploiement sur notre hub d'apps internes.
+Ce qui était difficile
+Distinguer précisément ce qui avait déjà été livré (l'import / matching, phase 1 du CDC) de ce qui restait à construire (le pilotage, phase 2, jamais commandée) — pour ne reconstruire que la partie manquante, sans repartir de zéro ni dupliquer le travail de l'intégrateur.
+Stack
+App web standalone (sync Odoo → base locale), Python, réutilisation d'un wizard Odoo existant, Caddy (déploiement sur notre hub d'apps internes).
+Ce que ça illustre
+Le cas d'usage « build vs buy » le plus direct de la période : un besoin métier clairement identifié et chiffré par un prestataire externe, resté en attente plusieurs mois — et finalement construit en interne, en quelques jours, avec Claude, pour une fraction du délai initialement estimé (le CDC parlait de 3 à 4 semaines de développement pour la seule partie moteur de règles).
+Voir aussi
+- Le « Cobra App Store » continue de s'industrialiser
+- La refonte de la vue Performance vendeur
+← Toutes les entrées
+
+
+================================================================
+REFONTE DE LA VUE « PERFORMANCE VENDEUR » : FUSION CHARGE & PERF, DARK MODE
+URL : https://hl-consulting.tech/knowledge-hub/journal/refonte-performance-vendeur-charge-perf.html
+Publié : 2026-07-10
+================================================================
+
+La page de performance mensuelle des vendeurs devient un outil de travail quotidien : fusion de trois sources (perf mensuelle, suivi actionnable, charge opérationnelle), classement vs objectif N-1 en direct depuis Odoo, CA Shopify séparé, 1 817 devis dormants annulés, dark/clair vérifié. En cours de test avant bascule en prod.
+
+← Journal
+Cobra · Dev
+Refonte de la vue « Performance vendeur » : fusion Charge & Perf, dark mode
+Claude · Cobra · 10 juillet 2026 datadesignen-coursCobra
+Contexte
+La page de performance mensuelle des vendeurs existait déjà (classement, CA vs N-1) mais restait passive — un tableau à consulter, sans action possible. L'idée : que chaque vendeur ait une vraie raison d'aller la voir chaque jour, pas juste en fin de mois.
+Ce qui a été construit
+- Fusion de trois sources dans une seule app (« Charge ») : performance mensuelle, suivi vendeur actionnable (devis à relancer, paiements partiels, retraits en attente, attente fournisseur) et la charge opérationnelle déjà existante.
+- Classement des vendeurs vs objectif N-1 calculé en direct depuis Odoo (fin de la saisie manuelle).
+- Séparation stricte du CA Shopify du CA individuel des vendeurs (traité à part, « dont Shopify »), pour ne pas fausser un classement individuel avec du CA e-commerce non attribuable.
+- Nettoyage de fond : 1 817 devis dormants (plus de 2 mois sans mouvement) annulés en masse.
+- Mode sombre / clair vérifié sur l'ensemble des nouvelles sections, style aligné sur l'ancienne page pour ne pas perdre les repères visuels des vendeurs.
+Ce qui était difficile
+Garder une app qui reste agréable à consulter au quotidien sans la surcharger — plusieurs allers-retours sur l'ordre des onglets, la séparation Magasin / Shopify et l'alignement des tableaux, validés à chaque itération sur un aperçu avant bascule en prod.
+Stack
+App web interne, Python (agrégation Odoo), HTML/CSS (dark mode).
+Ce que ça illustre
+Un dashboard qui n'est pas resté un dashboard : au fil des itérations, il est devenu un outil de travail quotidien (des actions à faire, pas seulement des chiffres à lire) — un glissement progressif de « reporting » vers « outil d'exploitation », assez typique de ce qui se passe quand une app interne est reprise itération par itération avec Claude plutôt que livrée en une fois.
+Voir aussi
+- Le « Cobra App Store » continue de s'industrialiser
+- Un dashboard de suivi prix concurrentiel construit maison
+← Toutes les entrées
 
 
 ================================================================

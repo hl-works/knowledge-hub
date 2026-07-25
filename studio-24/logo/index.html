@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>STUDIO 24 — Pistes logo (itération)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bodoni+Moda:opsz,wght@6..96,400..900&family=DM+Serif+Display&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0D1B2E; --nuit2:#142943; --laiton:#C49A55; --laiton-clair:#E0C28A;
+  --creme:#F1EBDF; --papier:#F7F3EA; --encre:#17181A; --gris:#6B6A66;
+  --bois:#7A5C3E; --rouge:#8C3A2E; --vert:#2E4438; --maxw:1000px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--papier);color:var(--encre);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.mono{font-family:'IBM Plex Mono',monospace}
+.display{font-family:'Archivo',sans-serif}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- PORTE À MOT DE PASSE (identique au dossier) ---------- */
+body.locked header,body.locked main,body.locked footer{display:none}
+#gate{position:fixed;inset:0;z-index:1000;background:var(--nuit);display:none;align-items:center;justify-content:center;padding:24px}
+body.locked #gate{display:flex}
+.gatebox{max-width:400px;width:100%;text-align:center}
+.gatebox .glogo{font-family:'Archivo',sans-serif;color:var(--creme)}
+.gatebox .glogo .s{display:block;font-weight:600;letter-spacing:.36em;font-size:17px}
+.gatebox .glogo .n{display:block;font-weight:900;font-size:88px;line-height:.95;color:var(--laiton)}
+.gatebox p{color:rgba(241,235,223,.6);font-size:13.5px;margin:18px 0 22px}
+.gatebox input{width:100%;padding:13px 16px;font-family:'IBM Plex Mono',monospace;font-size:15px;background:#0A1524;color:var(--creme);border:1.5px solid rgba(196,154,85,.5);text-align:center;letter-spacing:.08em}
+.gatebox input:focus{outline:none;border-color:var(--laiton)}
+.gatebox button{width:100%;margin-top:12px;padding:13px;font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase;background:var(--laiton);color:var(--nuit);border:none;cursor:pointer}
+.gatebox button:hover{background:var(--laiton-clair)}
+.gatebox .gerr{color:#E08A7A;font-size:13px;margin-top:12px;min-height:18px;font-family:'IBM Plex Mono',monospace}
+
+/* ---------- HEADER ---------- */
+header{background:var(--nuit);color:var(--creme);padding:46px 0 40px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--laiton);margin-bottom:16px}
+header h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,6vw,52px);line-height:1.02;letter-spacing:-.5px}
+header h1 span{color:var(--laiton)}
+header .sub{color:rgba(241,235,223,.72);font-size:15px;margin-top:14px;max-width:640px}
+.back{display:inline-block;margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;color:var(--laiton-clair);text-decoration:none;border-bottom:1px solid rgba(196,154,85,.4);padding-bottom:2px}
+.back:hover{color:#fff}
+
+main{padding:44px 0 70px}
+h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin:6px 0 18px;letter-spacing:-.3px}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bois);margin-bottom:6px}
+.lead{max-width:640px;color:#4A4842;font-size:14.5px;margin:-4px 0 30px}
+
+/* brief */
+.brief{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 40px}
+.brief .b{background:#fff;border:1px solid #E7DECD;padding:18px 18px 20px}
+.brief .b h3{font-family:'Archivo',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--nuit);margin-bottom:8px}
+.brief .b.keep h3{color:var(--vert)}
+.brief .b p{font-size:13.5px;color:#4A4842}
+.brief .b ul{list-style:none;font-size:13.5px;color:#4A4842}
+.brief .b li{padding-left:16px;position:relative;margin-top:5px}
+.brief .b li::before{content:"—";position:absolute;left:0;color:var(--laiton)}
+
+/* section header */
+.sec{border-top:1px solid #E4DBC9;padding-top:22px;margin-top:6px}
+.sec .kicker{color:var(--nuit);margin-bottom:2px}
+.sec p{font-size:13.5px;color:var(--gris);margin-bottom:18px}
+
+/* cards */
+.card{margin-bottom:34px}
+.lab{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.lab b{font-family:'Archivo',sans-serif;font-size:19px;font-weight:800;color:var(--nuit)}
+.lab span{font-size:13.5px;color:var(--gris)}
+.stages{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stage{display:flex;align-items:center;justify-content:center;padding:26px;min-height:220px;border:1px solid #E7DECD}
+.stage svg{width:100%;max-width:420px;height:auto;display:block}
+.cream{background:var(--creme);color:var(--nuit)}
+.dark{background:var(--nuit);color:var(--creme);border-color:var(--nuit)}
+.use{font-size:13.5px;color:#4A4842;margin-top:12px;padding-left:14px;border-left:2px solid var(--laiton)}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.opts .stage{min-height:170px;padding:18px}
+.opts svg{width:100%;max-width:260px}
+
+.reco{background:var(--nuit);color:var(--creme);padding:24px 26px;margin-top:20px}
+.reco b{color:var(--laiton)}
+.reco p{font-size:14.5px;margin:0}
+.note{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gris);margin-top:26px}
+
+footer{background:var(--nuit);color:rgba(241,235,223,.7);text-align:center;padding:26px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em}
+footer b{color:var(--laiton)}
+
+@media (max-width:720px){
+  .brief{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="locked">
+<script>/* SSO : déjà déverrouillé sur ce site ? on ouvre sans redemander */try{if(localStorage.getItem('s24_ok')==='1')document.body.classList.remove('locked');}catch(e){}</script>
+
+<div id="gate" role="dialog" aria-label="Accès protégé">
+  <div class="gatebox">
+    <div class="glogo"><span class="s">STUDIO</span><span class="n">24</span></div>
+    <p>Espace confidentiel — entrez le mot de passe pour accéder aux pistes.</p>
+    <input type="password" id="gpass" placeholder="Mot de passe" autocomplete="off">
+    <button id="gbtn" type="button">Entrer</button>
+    <div class="gerr" id="gerr"></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Studio 24 · Atelier logo · Itération</div>
+    <h1>Pistes <span>logo</span> — base de travail</h1>
+    <p class="sub">Espace pour converger sur une direction, avant de la confier à un graphiste pour finalisation. Rien ici n’est définitif : on garde, on écarte, on affine ensemble.</p>
+    <a class="back" href="/studio-24/">← Retour au dossier de marque</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="kicker">Le cadre</div>
+  <h2>Ce qu’on garde, ce qu’on évite</h2>
+  <div class="brief">
+    <div class="b keep">
+      <h3>On garde</h3>
+      <ul>
+        <li>Bleu nuit + laiton</li>
+        <li>Le « 24 » comme héros (24 fps + 24 bit)</li>
+        <li>Néo-vintage, matière, chaleur</li>
+        <li>Peu de couleur — le soin est dans la lettre</li>
+      </ul>
+    </div>
+    <div class="b">
+      <h3>On vise</h3>
+      <ul>
+        <li>Un signe simple, gravable et brodable</li>
+        <li>Lisible en tout petit (avatar, plaque)</li>
+        <li>Le « 24 » mémorable au premier coup d’œil</li>
+        <li>L’esprit A24 : sobre, culte, jamais tape-à-l’œil</li>
+        <li>Autant à l’aise en clair qu’en sombre</li>
+      </ul>
+    </div>
+    <div class="b">
+      <h3>On évite</h3>
+      <ul>
+        <li>Le rétro-kitsch et l’effet « vintage » facile</li>
+        <li>Les dégradés, les ombres, le 3D</li>
+        <li>Un dessin trop chargé qui ne tient pas en 16 px</li>
+        <li>Le déjà-vu du club anglais / cuivre partout</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kicker">Six directions — presque tout se joue dans la lettre</div>
+  <h2>Peu de couleur, beaucoup de typographie</h2>
+  <p class="lead">Deux familles : trois pistes <b>inspirées d’A24</b> (serif Didone, monochrome, retenue) et trois <b>nouvelles propositions</b>. À comparer en clair et en sombre.</p>
+
+  <!-- ==================== DIRECTION RETENUE ==================== -->
+  <div class="sec" style="border-top:2px solid var(--laiton)">
+    <div class="kicker" style="color:var(--laiton)">★ Direction retenue — Le Bloc, décliné</div>
+    <p>Le wordmark Bodoni, « STUDIO » gardé bien lisible. Trois usages : la marque seule, avec la baseline, et déclinée par ville.</p>
+  </div>
+
+  <!-- Retenue 1 — logo seul -->
+  <div class="card">
+    <div class="lab"><b>Logo seul</b><span>La marque nue — quand le contexte est déjà posé.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 460 220" role="img" aria-label="Logo seul sur fond crème">
+          <text x="230" y="76" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="34" letter-spacing="11">STUDIO</text>
+          <text x="230" y="196" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="120">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 460 220" role="img" aria-label="Logo seul sur fond nuit">
+          <text x="230" y="76" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="34" letter-spacing="11">STUDIO</text>
+          <text x="230" y="196" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="120">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Façade établie, avatar, générique. Le socle absolu.</p>
+  </div>
+
+  <!-- Retenue 2 — logo + baseline -->
+  <div class="card">
+    <div class="lab"><b>Logo + baseline</b><span>Le descripteur qui accompagne la marque tant qu’elle s’installe.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 460 250" role="img" aria-label="Logo avec baseline sur fond crème">
+          <text x="230" y="66" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="30" letter-spacing="11">STUDIO</text>
+          <text x="230" y="176" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="106">24</text>
+          <line x1="158" y1="202" x2="302" y2="202" stroke="#C49A55" stroke-width="1"/>
+          <text x="230" y="228" text-anchor="middle" fill="currentColor" class="mono" font-size="12" letter-spacing="5">HI-FI · HOME CINÉMA</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 460 250" role="img" aria-label="Logo avec baseline sur fond nuit">
+          <text x="230" y="66" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="30" letter-spacing="11">STUDIO</text>
+          <text x="230" y="176" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="106">24</text>
+          <line x1="158" y1="202" x2="302" y2="202" stroke="#C49A55" stroke-width="1"/>
+          <text x="230" y="228" text-anchor="middle" fill="currentColor" class="mono" font-size="12" letter-spacing="5">HI-FI · HOME CINÉMA</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">La version par défaut tant que la marque n’est pas installée — web, façade, print.</p>
+  </div>
+
+  <!-- Retenue 3 — logo + ville -->
+  <div class="card">
+    <div class="lab"><b>Logo + ville</b><span>La déclinaison par magasin — même bloc, la ville en dessous.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 460 250" role="img" aria-label="Logo avec ville Nantes sur fond crème">
+          <text x="230" y="66" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="30" letter-spacing="11">STUDIO</text>
+          <text x="230" y="176" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="106">24</text>
+          <line x1="176" y1="202" x2="284" y2="202" stroke="#C49A55" stroke-width="1"/>
+          <text x="230" y="229" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="9">NANTES</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 460 250" role="img" aria-label="Logo avec ville Nantes sur fond nuit">
+          <text x="230" y="66" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="30" letter-spacing="11">STUDIO</text>
+          <text x="230" y="176" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="106">24</text>
+          <line x1="176" y1="202" x2="284" y2="202" stroke="#C49A55" stroke-width="1"/>
+          <text x="230" y="229" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="9">NANTES</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Chaque futur magasin reprend le bloc et pose sa ville — Nantes, puis la suivante.</p>
+  </div>
+
+  <!-- ==================== ① INSPIRÉES D'A24 ==================== -->
+  <div class="sec">
+    <div class="kicker">① Inspirées d’A24</div>
+    <p>Serif Didone (Bodoni), noir/blanc strict. La force est dans la coupe de la lettre.</p>
+  </div>
+
+  <!-- 1 — Le Bloc -->
+  <div class="card">
+    <div class="lab"><b>1 · Le Bloc</b><span>STUDIO posé sur un 24 massif. Le classique, plein de retenue.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 1 Le Bloc sur fond crème">
+          <text x="260" y="80" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="25" letter-spacing="15">STUDIO</text>
+          <text x="260" y="206" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="134" letter-spacing="2">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 1 Le Bloc sur fond nuit">
+          <text x="260" y="80" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="25" letter-spacing="15">STUDIO</text>
+          <text x="260" y="206" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="134" letter-spacing="2">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : le socle. Web, façade, papeterie. La version par défaut, celle qu’on ne se lasse pas de voir.</p>
+  </div>
+
+  <!-- 2 — Le Chiffre -->
+  <div class="card">
+    <div class="lab"><b>2 · Le Chiffre</b><span>Le « 24 » seul, en héros — comme A24 fait de « A24 » sa signature.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo 2 Le Chiffre sur fond crème">
+          <text x="260" y="56" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="16" letter-spacing="19">STUDIO</text>
+          <text x="260" y="214" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="172">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Logo 2 Le Chiffre sur fond nuit">
+          <text x="260" y="56" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="16" letter-spacing="19">STUDIO</text>
+          <text x="260" y="214" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="172">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : avatar, façade, générique. Le chiffre devient la marque ; « STUDIO » se réduit à une mention.</p>
+  </div>
+
+  <!-- 3 — La Ligne -->
+  <div class="card">
+    <div class="lab"><b>3 · La Ligne</b><span>Lockup horizontal encadré — un clin d’œil à l’amorce de pellicule.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 3 La Ligne sur fond crème">
+          <rect x="86" y="86" width="348" height="70" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="260" y="132" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="40" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 3 La Ligne sur fond nuit">
+          <rect x="86" y="86" width="348" height="70" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="260" y="132" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="500" font-size="40" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : bandeau façade, en-tête de site, tampon rectangulaire. Compact, filmique, « institutionnel » sans être froid.</p>
+  </div>
+
+  <!-- ==================== ② TROIS NOUVELLES PISTES ==================== -->
+  <div class="sec">
+    <div class="kicker">② Trois nouvelles pistes</div>
+    <p>On sort du serif classique : condensé moderne, tension de deux polices, monogramme serré.</p>
+  </div>
+
+  <!-- 4 — La Condensée -->
+  <div class="card">
+    <div class="lab"><b>4 · La Condensée</b><span>Grotesque ultra-condensée, calée à gauche. Moderne, franc, un brin brutaliste.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 4 La Condensée sur fond crème">
+          <g fill="currentColor" font-family="Archivo,system-ui,sans-serif" font-weight="900" transform="translate(48 0) scale(0.64 1)">
+            <text x="0" y="114" font-size="98" letter-spacing="-1">STUDIO</text>
+            <text x="0" y="212" font-size="98" letter-spacing="-1">24</text>
+          </g>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 4 La Condensée sur fond nuit">
+          <g fill="currentColor" font-family="Archivo,system-ui,sans-serif" font-weight="900" transform="translate(48 0) scale(0.64 1)">
+            <text x="0" y="114" font-size="98" letter-spacing="-1">STUDIO</text>
+            <text x="0" y="212" font-size="98" letter-spacing="-1">24</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : l’inverse d’A24 — contemporain, magazine, très « concept-store ». Fonctionne énorme sur une vitrine ou une affiche.</p>
+  </div>
+
+  <!-- 5 — Technique × Cinéma -->
+  <div class="card">
+    <div class="lab"><b>5 · Technique × Cinéma</b><span>Le mono de la fiche technique + le serif du cinéma. Le nom raconte les deux métiers.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 5 Technique et Cinéma sur fond crème">
+          <text x="260" y="78" text-anchor="middle" fill="currentColor" class="mono" font-size="21" letter-spacing="9">STUDIO</text>
+          <text x="260" y="208" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="140" letter-spacing="1">24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 5 Technique et Cinéma sur fond nuit">
+          <text x="260" y="78" text-anchor="middle" fill="currentColor" class="mono" font-size="21" letter-spacing="9">STUDIO</text>
+          <text x="260" y="208" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="140" letter-spacing="1">24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : la piste la plus « signature » — le 24 bit (mono, technique) rencontre le 24 fps (serif, cinéma). Ownable et racontable.</p>
+  </div>
+
+  <!-- 5 bis — Le 24 plus stylé -->
+  <div class="card">
+    <div class="lab"><b>5 · Le 24, plus stylé</b><span>Trois façons de rendre le chiffre plus caractériel — « STUDIO » reste en mono technique.</span></div>
+    <div class="opts">
+      <div class="stage cream">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en DM Serif Display, fond crème">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="150" text-anchor="middle" fill="currentColor" font-family="'DM Serif Display',serif" font-size="106">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">a · DRAMATIQUE</text>
+        </svg>
+      </div>
+      <div class="stage cream">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en ligature Bodoni, fond crème">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="112" letter-spacing="-20">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">b · LIGATURE</text>
+        </svg>
+      </div>
+      <div class="stage cream">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 Bodoni ajouré, fond crème">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="none" stroke="currentColor" stroke-width="1.1" font-family="'Bodoni Moda',serif" font-weight="600" font-size="108" letter-spacing="2">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">c · AJOURÉ</text>
+        </svg>
+      </div>
+    </div>
+    <div class="opts" style="margin-top:14px">
+      <div class="stage dark">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en DM Serif Display, fond nuit">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="150" text-anchor="middle" fill="currentColor" font-family="'DM Serif Display',serif" font-size="106">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">a · DRAMATIQUE</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 en ligature Bodoni, fond nuit">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="currentColor" font-family="'Bodoni Moda',serif" font-weight="600" font-size="112" letter-spacing="-20">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">b · LIGATURE</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 300 200" role="img" aria-label="24 Bodoni ajouré, fond nuit">
+          <text x="150" y="44" text-anchor="middle" fill="currentColor" class="mono" font-size="13" letter-spacing="6">STUDIO</text>
+          <text x="150" y="148" text-anchor="middle" fill="none" stroke="currentColor" stroke-width="1.1" font-family="'Bodoni Moda',serif" font-weight="600" font-size="108" letter-spacing="2">24</text>
+          <text x="150" y="184" text-anchor="middle" fill="currentColor" class="mono" font-size="9" letter-spacing="3" opacity=".45">c · AJOURÉ</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use"><b>a</b> — DM Serif, plus théâtral. <b>b</b> — le 2 et le 4 imbriqués, un vrai monogramme. <b>c</b> — le 24 ajouré (contour seul), très éditorial/luxe. À trancher : la déclinaison retenue deviendra le 24 de la piste 5.</p>
+  </div>
+
+  <!-- 6 — Le Monogramme -->
+  <div class="card">
+    <div class="lab"><b>6 · Le Monogramme</b><span>« 24 » serré à l’extrême — une marque compacte pour le tout petit.</span></div>
+    <div class="stages">
+      <div class="stage cream">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 6 Le Monogramme sur fond crème">
+          <text x="260" y="176" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150" letter-spacing="-13">24</text>
+          <text x="260" y="212" text-anchor="middle" fill="#C49A55" class="mono" font-size="11" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+      <div class="stage dark">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Logo 6 Le Monogramme sur fond nuit">
+          <text x="260" y="176" text-anchor="middle" fill="currentColor" class="display" font-weight="900" font-size="150" letter-spacing="-13">24</text>
+          <text x="260" y="212" text-anchor="middle" fill="#C49A55" class="mono" font-size="11" letter-spacing="7">STUDIO 24</text>
+        </svg>
+      </div>
+    </div>
+    <p class="use">Usage : avatar, favicon, plaque, broderie, tampon. Le 2 et le 4 se rapprochent jusqu’à former un seul bloc — le raccourci de la marque. Le laiton reste le seul accent.</p>
+  </div>
+
+  <div class="reco">
+    <p><b>La leçon A24 :</b> un wordmark serif ultra-sobre, jamais changé depuis 2012 — grande curation mais grand public, obsédé du détail, culte sans esbroufe. Avec si peu de couleur, tout se joue dans le dessin de la lettre : c’est là qu’il faut mettre le soin.</p>
+    <p style="margin-top:12px"><b>Recommandation :</b> mener avec <b>1 (Le Bloc)</b> ou <b>2 (Le Chiffre)</b> comme socle intemporel, garder <b>5 (Technique × Cinéma)</b> comme piste « signature » qui raconte les deux métiers, et <b>6 (Le Monogramme)</b> comme réduction pour l’avatar et le tampon. <b>4 (La Condensée)</b> pour une direction plus contemporaine que classique. Un seul geste, tenu longtemps.</p>
+  </div>
+
+  <p class="note">Maquettes rendues en SVG (Bodoni Moda &amp; Archivo via Google Fonts). Le graphiste redessine les tracés définitifs — ici on valide l’intention, pas la courbe finale.</p>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap"><b>STUDIO 24</b> · ATELIER LOGO · CONFIDENTIEL · JUILLET 2026</div>
+</footer>
+
+<script>
+/* ---- porte à mot de passe (identique au dossier) ---- */
+const GATE_HASH="6b3bec820528c2e5ebfac9cde682682d2adb72fd902787522eb59fa28abdd0b4";
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function tryUnlock(){
+  const v=document.getElementById('gpass').value.trim();
+  let ok=false;
+  try{
+    if(window.crypto&&crypto.subtle){ ok=(await sha256(v))===GATE_HASH; }
+    else{ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
+  }catch(e){ ok=(btoa(unescape(encodeURIComponent(v)))==="cHJvamV0c3R1ZGlvMjQ="); }
+  if(ok){ try{localStorage.setItem('s24_ok','1');}catch(e){} document.body.classList.remove('locked'); }
+  else{
+    document.getElementById('gerr').textContent="Mot de passe incorrect.";
+    document.getElementById('gpass').value="";
+    document.getElementById('gpass').focus();
+  }
+}
+document.getElementById('gbtn').addEventListener('click',tryUnlock);
+document.getElementById('gpass').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+</script>
+</body>
+</html>

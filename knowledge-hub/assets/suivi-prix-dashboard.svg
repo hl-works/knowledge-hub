@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 726" role="img" aria-label="Maquette du dashboard interne de suivi des prix concurrentiels (données d’exemple)" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+<rect width="1200" height="726" fill="#FFFFFF"/>
+<text x="28" y="44" font-size="26" font-weight="800" letter-spacing="1.5" fill="#1B1B1A">COBRA</text>
+<line x1="150" y1="22" x2="150" y2="52" stroke="#E7E3DC" stroke-width="1.5"/>
+<text x="168" y="34" font-size="13" font-weight="700" letter-spacing="1.5" fill="#1B1B1A">SUIVI DES PRIX</text>
+<text x="168" y="52" font-size="12" fill="#8A857D">Wiser · alignement concurrentiel</text>
+<rect x="1050" y="24" width="86" height="28" rx="14" fill="none" stroke="#E7E3DC"/>
+<text x="1093" y="42" font-size="12.5" fill="#1B1B1A" text-anchor="middle">← Apps</text>
+<circle cx="1160" cy="38" r="13" fill="none" stroke="#E7E3DC"/><circle cx="1160" cy="38" r="4.5" fill="#8A857D"/>
+<text x="28" y="86" font-size="13.5" fill="#8A857D">Catalogue suivi par Wiser (8 concurrents) — position tarifaire, marge et stock, groupables par marque / catégorie / classe ABC.</text>
+<rect x="28" y="104" width="272" height="86" rx="10" fill="#FBFAF8" stroke="#E7E3DC"/>
+<text x="50" y="148" font-size="30" font-weight="800" fill="#B4231F">752</text>
+<text x="50" y="172" font-size="11" font-weight="600" letter-spacing="1" fill="#8A857D">COBRA TROP CHER</text>
+<rect x="318" y="104" width="272" height="86" rx="10" fill="#FBFAF8" stroke="#E7E3DC"/>
+<text x="340" y="148" font-size="30" font-weight="800" fill="#2F8F4E">978</text>
+<text x="340" y="172" font-size="11" font-weight="600" letter-spacing="1" fill="#8A857D">ALIGNÉ</text>
+<rect x="608" y="104" width="272" height="86" rx="10" fill="#FBFAF8" stroke="#E7E3DC"/>
+<text x="630" y="148" font-size="30" font-weight="800" fill="#2B6CB0">90</text>
+<text x="630" y="172" font-size="11" font-weight="600" letter-spacing="1" fill="#8A857D">COBRA MOINS CHER</text>
+<rect x="898" y="104" width="272" height="86" rx="10" fill="#FBFAF8" stroke="#E7E3DC"/>
+<text x="920" y="148" font-size="30" font-weight="800" fill="#9A948B">707</text>
+<text x="920" y="172" font-size="11" font-weight="600" letter-spacing="1" fill="#8A857D">SANS DONNÉES MARCHÉ</text>
+<rect x="28" y="208" width="1144" height="104" rx="10" fill="#FBFAF8" stroke="#E7E3DC"/>
+<text x="48" y="232" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">RECHERCHE</text>
+<rect x="48" y="238" width="250" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="58" y="255" font-size="12" fill="#8A857D">SKU, EAN, désignation…</text>
+<text x="312" y="232" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">MARQUE</text>
+<rect x="312" y="238" width="150" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="322" y="255" font-size="12" fill="#1B1B1A">Toutes ▾</text>
+<text x="476" y="232" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">CATÉGORIE</text>
+<rect x="476" y="238" width="150" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="486" y="255" font-size="12" fill="#1B1B1A">Toutes ▾</text>
+<text x="640" y="232" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">CLASSE ABC</text>
+<rect x="640" y="238" width="120" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="650" y="255" font-size="12" fill="#1B1B1A">Toutes ▾</text>
+<text x="772" y="232" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">STOCK</text>
+<rect x="772" y="238" width="110" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="782" y="255" font-size="12" fill="#1B1B1A">Tous ▾</text>
+<text x="896" y="232" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">CONCURRENT</text>
+<rect x="896" y="238" width="150" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="906" y="255" font-size="12" fill="#1B1B1A">Tous ▾</text>
+<text x="48" y="274" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">MARGE % (MIN–MAX)</text>
+<rect x="48" y="280" width="180" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="58" y="297" font-size="12" fill="#1B1B1A">min          max</text>
+<text x="240" y="274" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">PRIX € (MIN–MAX)</text>
+<rect x="240" y="280" width="180" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="250" y="297" font-size="12" fill="#1B1B1A">min          max</text>
+<rect x="432" y="280" width="16" height="16" rx="3" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="456" y="294" font-size="12" fill="#1B1B1A">En promo uniquement</text>
+<text x="636" y="274" font-size="10.5" font-weight="600" letter-spacing=".6" fill="#8A857D">GROUPER PAR</text>
+<rect x="636" y="280" width="124" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/>
+<text x="646" y="297" font-size="12" fill="#1B1B1A">Aucun ▾</text>
+<rect x="772" y="280" width="104" height="26" rx="6" fill="#FFFFFF" stroke="#E7E3DC"/><text x="824" y="297" font-size="12" fill="#1B1B1A" text-anchor="middle">Réinitialiser</text>
+<rect x="888" y="280" width="158" height="26" rx="6" fill="#7A1B16"/><text x="967" y="297" font-size="12" font-weight="600" fill="#fff" text-anchor="middle">⤓ Export Excel</text>
+<rect x="28" y="332" width="1144" height="34" rx="6" fill="#141210"/>
+<text x="28" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="start">ABC</text>
+<text x="80" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="start">MARQUE</text>
+<text x="248" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="start">CATÉGORIE</text>
+<text x="420" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="start">DÉSIGNATION</text>
+<text x="636" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="middle">STOCK</text>
+<text x="700" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="start">PRIX COBRA (MARGE)</text>
+<text x="878" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="start">PRIX MIN MARCHÉ (MARGE)</text>
+<text x="1176" y="354" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#EDE9E2" text-anchor="end">STATUT</text>
+<line x1="28" y1="418" x2="1172" y2="418" stroke="#E7E3DC" stroke-width="1"/>
+<rect x="28" y="380" width="40" height="22" rx="4" fill="#F3F1EC"/><text x="48" y="395" font-size="11" font-weight="600" fill="#8A857D" text-anchor="middle">AAB</text>
+<text x="80" y="388" font-size="12.5" font-weight="600" fill="#1B1B1A">Advance Paris</text>
+<text x="248" y="388" font-size="12.5" fill="#8A857D">Amplis Stéréo</text>
+<text x="420" y="388" font-size="12.5" font-weight="600" fill="#1B1B1A">A12 Classic</text>
+<text x="636" y="388" font-size="12.5" fill="#1B1B1A" text-anchor="middle">3</text>
+<text x="700" y="388" font-size="12.5" fill="#1B1B1A">1 290 € (30 %)</text>
+<text x="878" y="388" font-size="12.5" fill="#1B1B1A">1 290 € (30 %)</text>
+<text x="1176" y="388" font-size="12" font-weight="700" fill="#2F8F4E" text-anchor="end">Aligné</text>
+<rect x="28" y="418" width="1144" height="52" fill="#FBFAF8"/>
+<line x1="28" y1="470" x2="1172" y2="470" stroke="#E7E3DC" stroke-width="1"/>
+<rect x="28" y="432" width="40" height="22" rx="4" fill="#F3F1EC"/><text x="48" y="447" font-size="11" font-weight="600" fill="#8A857D" text-anchor="middle">AAA</text>
+<text x="80" y="440" font-size="12.5" font-weight="600" fill="#1B1B1A">Cambridge Audio</text>
+<text x="248" y="440" font-size="12.5" fill="#8A857D">Lecteurs Réseau</text>
+<text x="420" y="440" font-size="12.5" font-weight="600" fill="#1B1B1A">MXN10</text>
+<text x="636" y="440" font-size="12.5" fill="#1B1B1A" text-anchor="middle">5</text>
+<text x="700" y="440" font-size="12.5" fill="#1B1B1A">390 € (31 %)</text>
+<text x="700" y="458" font-size="10.5" fill="#B5761A">✉ promo jusqu’au 31/08</text>
+<text x="878" y="440" font-size="12.5" fill="#1B1B1A">390 € (31 %)</text>
+<text x="1176" y="440" font-size="12" font-weight="700" fill="#2F8F4E" text-anchor="end">Aligné</text>
+<line x1="28" y1="522" x2="1172" y2="522" stroke="#E7E3DC" stroke-width="1"/>
+<rect x="28" y="484" width="40" height="22" rx="4" fill="#F3F1EC"/><text x="48" y="499" font-size="11" font-weight="600" fill="#8A857D" text-anchor="middle">AAB</text>
+<text x="80" y="492" font-size="12.5" font-weight="600" fill="#1B1B1A">Bowers &amp; Wilkins</text>
+<text x="248" y="492" font-size="12.5" fill="#8A857D">Caissons de Basses</text>
+<text x="420" y="492" font-size="12.5" font-weight="600" fill="#1B1B1A">ASW610</text>
+<text x="636" y="492" font-size="12.5" fill="#1B1B1A" text-anchor="middle">2</text>
+<text x="700" y="492" font-size="12.5" fill="#1B1B1A">849 € (—)</text>
+<text x="878" y="492" font-size="12.5" fill="#1B1B1A">—</text>
+<text x="1176" y="492" font-size="12" font-weight="700" fill="#9A948B" text-anchor="end">Sans marché</text>
+<rect x="28" y="522" width="1144" height="52" fill="#FBFAF8"/>
+<line x1="28" y1="574" x2="1172" y2="574" stroke="#E7E3DC" stroke-width="1"/>
+<rect x="28" y="536" width="40" height="22" rx="4" fill="#F3F1EC"/><text x="48" y="551" font-size="11" font-weight="600" fill="#8A857D" text-anchor="middle">AAB</text>
+<text x="80" y="544" font-size="12.5" font-weight="600" fill="#1B1B1A">Cabasse</text>
+<text x="248" y="544" font-size="12.5" fill="#8A857D">Enceintes Bluetooth</text>
+<text x="420" y="544" font-size="12.5" font-weight="600" fill="#1B1B1A">The Pearl</text>
+<text x="636" y="544" font-size="12.5" fill="#1B1B1A" text-anchor="middle">4</text>
+<text x="700" y="544" font-size="12.5" fill="#1B1B1A">990 € (29 %)</text>
+<text x="700" y="562" font-size="10.5" fill="#B5761A">✉ promo jusqu’au 31/08</text>
+<text x="878" y="544" font-size="12.5" fill="#1B1B1A">930 € (—)</text>
+<text x="1176" y="544" font-size="12" font-weight="700" fill="#B4231F" text-anchor="end">Cher</text>
+<line x1="28" y1="626" x2="1172" y2="626" stroke="#E7E3DC" stroke-width="1"/>
+<rect x="28" y="588" width="40" height="22" rx="4" fill="#F3F1EC"/><text x="48" y="603" font-size="11" font-weight="600" fill="#8A857D" text-anchor="middle">ABA</text>
+<text x="80" y="596" font-size="12.5" font-weight="600" fill="#1B1B1A">Focal</text>
+<text x="248" y="596" font-size="12.5" fill="#8A857D">Enceintes Colonnes</text>
+<text x="420" y="596" font-size="12.5" font-weight="600" fill="#1B1B1A">Chora 826</text>
+<text x="636" y="596" font-size="12.5" fill="#1B1B1A" text-anchor="middle">6</text>
+<text x="700" y="596" font-size="12.5" fill="#1B1B1A">1 190 € (27 %)</text>
+<text x="878" y="596" font-size="12.5" fill="#1B1B1A">1 190 € (27 %)</text>
+<text x="1176" y="596" font-size="12" font-weight="700" fill="#2F8F4E" text-anchor="end">Aligné</text>
+<rect x="28" y="626" width="1144" height="52" fill="#FBFAF8"/>
+<line x1="28" y1="678" x2="1172" y2="678" stroke="#E7E3DC" stroke-width="1"/>
+<rect x="28" y="640" width="40" height="22" rx="4" fill="#F3F1EC"/><text x="48" y="655" font-size="11" font-weight="600" fill="#8A857D" text-anchor="middle">AAB</text>
+<text x="80" y="648" font-size="12.5" font-weight="600" fill="#1B1B1A">Marantz</text>
+<text x="248" y="648" font-size="12.5" fill="#8A857D">Amplis Intégrés</text>
+<text x="420" y="648" font-size="12.5" font-weight="600" fill="#1B1B1A">Model 40n</text>
+<text x="636" y="648" font-size="12.5" fill="#1B1B1A" text-anchor="middle">1</text>
+<text x="700" y="648" font-size="12.5" fill="#1B1B1A">2 490 € (26 %)</text>
+<text x="700" y="666" font-size="10.5" fill="#B5761A">✉ promo jusqu’au 31/08</text>
+<text x="878" y="648" font-size="12.5" fill="#1B1B1A">2 350 € (—)</text>
+<text x="1176" y="648" font-size="12" font-weight="700" fill="#B4231F" text-anchor="end">Cher</text>
+<text x="28" y="712" font-size="11" fill="#8A857D">Aperçu illustratif · données d’exemple — l’outil réel suit ~2 600 références face à 8 concurrents.</text>
+</svg>
