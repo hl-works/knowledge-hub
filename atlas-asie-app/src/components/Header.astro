@@ -12,6 +12,7 @@ const links = [
   { href: base + 'trajets/', label: 'Trajets', key: 'trajets' },
   { href: base + 'carnet/', label: 'Carnet', key: 'carnet' },
   { href: base + 'galerie/', label: 'Galerie', key: 'galerie' },
+  { href: base + 'histoires/', label: 'Histoires', key: 'histoires' },
 ];
 const I = {
   home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>',
@@ -22,8 +23,9 @@ const I = {
   plane: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2 2 0 0 0-2.8-2.8L13 8.2 4.8 6.4a1 1 0 0 0-.9 1.7l6 3.3-2.3 2.3-2-.3-1 1 3 1.5L12 20l1-1-.3-2 2.3-2.3 3.3 6a1 1 0 0 0 1.7-.9Z"/></svg>',
   cam: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="3"/><circle cx="12" cy="12" r="3.4"/><path d="M8 5l1.5-2h5L16 5"/></svg>',
   grid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+  book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM19 19v2M9 3v14"/></svg>',
 };
-const isMore = ['trajets', 'carnet', 'galerie'].includes(active);
+const isMore = ['trajets', 'carnet', 'galerie', 'histoires'].includes(active);
 ---
 <header class:list={['hdr', variant]}>
   <div class="wrap">
@@ -53,6 +55,7 @@ const isMore = ['trajets', 'carnet', 'galerie'].includes(active);
   <a href={base + 'trajets/'} aria-current={active === 'trajets' ? 'page' : undefined}><Fragment set:html={I.plane} />Les trajets</a>
   <a href={base + 'carnet/'} aria-current={active === 'carnet' ? 'page' : undefined}><Fragment set:html={I.cam} />Le carnet</a>
   <a href={base + 'galerie/'} aria-current={active === 'galerie' ? 'page' : undefined}><Fragment set:html={I.grid} />Galerie</a>
+  <a href={base + 'histoires/'} aria-current={active === 'histoires' ? 'page' : undefined}><Fragment set:html={I.book} />Les histoires</a>
 </div>
 
 <style>

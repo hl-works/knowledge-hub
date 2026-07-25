@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Les histoires — Atlas d'Asie" description="Les grands récits du voyage : Gengis Khan, la Route de la Soie, la yourte, les aigliers, le Gobi et ses dinosaures… Toutes les histoires d'Asie, pays par pays.">
+  <Header variant="solid" active="histoires" />
+  <main id="main">
+    <section class="intro"><div class="wrap">
+      <p class="eyebrow">À lire</p>
+      <h1 class="disp">Les histoires</h1>
+      <p class="lead">Les grands récits du voyage, pays par pays — mythes, légendes et repères pour comprendre ce qu'on traverse. De quoi lire dans le bus ou sous la yourte.</p>
+    </div></section>
+    <section class="hist"><div class="wrap">
+      <div id="stories"><div class="sk sk-card"></div><div class="sk sk-card"></div><div class="sk sk-card"></div></div>
+    </div></section>
+  </main>
+  <Footer />
+</Base>
+
+<style is:global>
+  .intro{padding:clamp(30px,6vw,64px) 0 clamp(10px,3vw,24px);}
+  .eyebrow{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-deep);margin:0 0 .4rem;}
+  .eyebrow::before{content:"";width:26px;height:3px;background:var(--orange);}
+  .intro h1{font-size:clamp(2.6rem,8vw,5rem);margin:0 0 .6rem;}
+  .lead{color:var(--ink-soft);max-width:62ch;margin:0;font-size:1.05rem;}
+  .hist{padding:clamp(16px,3vw,32px) 0 clamp(40px,6vw,80px);}
+  .loading{color:var(--muted);}
+  .pays-block{scroll-margin-top:84px;margin:0 0 clamp(20px,4vw,40px);}
+  .see-pays{display:inline-block;margin:2px 0 14px;font-size:.82rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
+  /* Récits — mêmes cartes « mode lecture » que le Parcours */
+  .recits{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;}
+  .recit{border:2px solid var(--ink);border-radius:14px;background:var(--card);margin:0;overflow:hidden;box-shadow:4px 4px 0 var(--ink);}
+  .recit[open]{grid-column:1/-1;}
+  .recit summary{cursor:pointer;list-style:none;padding:12px 14px;display:grid;gap:2px;}
+  .recit summary::-webkit-details-marker{display:none;}
+  .recit .rtit{font-family:var(--disp);text-transform:uppercase;font-size:1rem;color:var(--ink);}
+  .recit .racc{color:var(--ink-soft);font-size:.88rem;}
+  .recit:not([open]) .racc{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .recit .rplus{margin-top:2px;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep);}
+  .recit .rplus::after{content:" ▾";}
+  .recit[open] .rplus::after{content:" ▴";}
+  .recit .rbody{padding:4px 18px 20px;}
+  .recit .rbody p{font-family:'Fraunces',Georgia,serif;font-size:1.06rem;line-height:1.75;max-width:64ch;color:var(--ink);margin:0 0 1em;}
+  .recit .rimg{width:100%;max-height:260px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin:0 0 14px;}
+</style>
+
+<script>
+  import { fetchTab } from '../lib/data';
+  import { toRecits } from '../lib/model';
+  import { paysHead, PAL, slugPays } from '../lib/paysMeta';
+  import { loadPhotos, ccImg } from '../lib/photos';
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+
+  (async () => {
+    const host = document.getElementById('stories')!;
+    try {
+      const [rows] = await Promise.all([fetchTab('recits'), loadPhotos()]);
+      const recits = toRecits(rows);
+      const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+      // Ordre des pays = ordre du voyage (clés de la palette), filtré à ceux qui ont un récit.
+      const seen = Object.keys(PAL).filter((p) => recits.some((r) => r.pays.includes(p)));
+      if (!seen.length) {
+        host.innerHTML = `<p class="loading">Les histoires arriveront bientôt.</p>`;
+        return;
+      }
+      host.innerHTML = seen
+        .map((pays) => {
+          const mine = recits.filter((r) => r.pays.includes(pays));
+          const cards = mine
+            .map((r) => {
+              const img = ccImg(r.photoQuery, r.titre, 'rimg');
+              const paras = r.texte.split(/\n{2,}/).map((t) => `<p>${esc(t.trim())}</p>`).join('');
+              return `<details class="recit"><summary><span class="rtit">${esc(r.titre)}</span><span class="racc">${esc(r.accroche)}</span><span class="rplus">Lire la suite</span></summary><div class="rbody">${img}${paras}</div></details>`;
+            })
+            .join('');
+          const n = mine.length;
+          const link = `<a class="see-pays" href="${base}pays/#${slugPays(pays)}">Voir la fiche ${esc(pays)} →</a>`;
+          return `<section class="pays-block" id="${slugPays(pays)}">${paysHead(pays, n + ' histoire' + (n > 1 ? 's' : ''))}${link}<div class="recits">${cards}</div></section>`;
+        })
+        .join('');
+
+      // Si on arrive avec un hash (#kirghizistan) depuis la Galerie, on y va en douceur.
+      if (location.hash) {
+        const t = document.getElementById(location.hash.slice(1));
+        if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    } catch (err) {
+      host.innerHTML = `<p class="loading">${String(err)}</p>`;
+    }
+  })();
+</script>
