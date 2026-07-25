@@ -86,6 +86,7 @@ import Footer from '../components/Footer.astro';
   /* La grande histoire (récits longs, typo mode lecture) */
   /* Tuiles fermées côte à côte ; un récit ouvert prend toute la largeur (mode lecture). */
   .recits{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;}
+  .all-stories{display:inline-block;margin-top:14px;font-size:.82rem;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
   .recit{border:2px solid var(--ink);border-radius:14px;background:var(--card);margin:0;overflow:hidden;}
   .recit[open]{grid-column:1/-1;}
   .recit summary{cursor:pointer;list-style:none;padding:12px 14px;display:grid;gap:2px;}
@@ -292,7 +293,7 @@ import Footer from '../components/Footer.astro';
   }
 
   // « La grande histoire » : les textes longs à lire (accroche + dépliage).
-  function recitsPane(recits: Recit[]): string {
+  function recitsPane(recits: Recit[], pays: string): string {
     if (!recits.length) return '';
     const body = recits
       .map((r) => {
@@ -304,7 +305,9 @@ import Footer from '../components/Footer.astro';
         </details>`;
       })
       .join('');
-    return `<div class="recits">${body}</div>`;
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+    const all = `<a class="all-stories" href="${base}histoires/#${slug(pays)}">Toutes les histoires du voyage →</a>`;
+    return `<div class="recits">${body}</div>${all}`;
   }
 
   // « Miam » : la gastronomie du pays en cartes photo.
@@ -332,7 +335,7 @@ import Footer from '../components/Footer.astro';
     const [c1, c2] = PAL[c.pays] ?? ['#FA4616', '#C9330B'];
     const tabs = [
       { key: 'apercu', label: 'Aperçu', html: apercuPane(c) },
-      { key: 'histoires', label: 'Histoires', html: recitsPane(ctx.recits) },
+      { key: 'histoires', label: 'Histoires', html: recitsPane(ctx.recits, c.pays) },
       { key: 'miam', label: 'Miam', html: miamPane(ctx.plats) },
       { key: 'arrivee', label: "À l'arrivée", html: pratPane(ctx.prat) },
       { key: 'animaux', label: 'Animaux', html: animPane(ctx.animals) },
