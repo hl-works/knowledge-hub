@@ -1,0 +1,17 @@
+# Postgres + pgvector local pour développer contre le backend "pg".
+# Prod : réutiliser le Postgres HF-OS (ne pas dupliquer la base).
+#   docker compose up -d
+#   STORE_BACKEND=pg DATABASE_URL=postgres://kb:kb@localhost:5433/knowledge npm run ingest
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: kb
+      POSTGRES_PASSWORD: kb
+      POSTGRES_DB: knowledge
+    ports:
+      - "5433:5432"
+    volumes:
+      - kb_pg:/var/lib/postgresql/data
+volumes:
+  kb_pg:
