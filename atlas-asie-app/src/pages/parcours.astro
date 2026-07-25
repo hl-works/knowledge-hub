@@ -109,6 +109,11 @@ import Footer from '../components/Footer.astro';
   .shot .play::after{content:"";margin-left:3px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;}
   .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:.76rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(20,12,8,.82));}
   .shots a.vid{display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700;color:var(--orange-deep);}
+  /* Aperçu compact : 3 vignettes, le reste caché derrière « Voir tout » */
+  .shots--collapsible:not(.open) .shot.xtra{display:none;}
+  .more-shots{display:inline-block;margin-top:12px;font:inherit;font-weight:700;font-size:.82rem;letter-spacing:.02em;color:var(--orange-deep);background:none;border:2px solid var(--orange);border-radius:999px;padding:7px 16px;cursor:pointer;transition:background .15s,color .15s;}
+  .more-shots:hover{background:var(--orange);color:#fff;}
+  .more-shots:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;}
   .lb{position:fixed;inset:0;z-index:120;background:rgba(12,8,6,.92);display:none;place-items:center;padding:20px;}
   .lb.open{display:grid;}
   .lb img,.lb video{max-width:94vw;max-height:88vh;border-radius:8px;border:2px solid #fff;}
@@ -184,15 +189,19 @@ import Footer from '../components/Footer.astro';
     ];
     const sheetVid = s.video ? `<a class="vid" href="${esc(s.video)}" target="_blank" rel="noopener">▶ Vidéo</a>` : '';
     if (!all.length) return sheetVid ? `<div class="shots">${sheetVid}</div>` : '';
+    const LIMIT = 3; // aperçu compact : on montre 3 vignettes, le reste se déplie
     const figs = all
-      .map((p) => {
+      .map((p, i) => {
         const video = p.type === 'video';
         const thumb = video ? p.poster || p.url : p.url;
         const cap = p.legende || '';
-        return `<figure class="shot" data-full="${esc(p.url)}" data-video="${video ? '1' : ''}"><img src="${esc(thumb)}" alt="${esc(cap || 'Photo ' + s.ville)}" loading="lazy" />${video ? '<span class="play"></span>' : ''}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
+        const xtra = i >= LIMIT ? ' xtra' : '';
+        return `<figure class="shot${xtra}" data-full="${esc(p.url)}" data-video="${video ? '1' : ''}"><img src="${esc(thumb)}" alt="${esc(cap || 'Photo ' + s.ville)}" loading="lazy" />${video ? '<span class="play"></span>' : ''}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
       })
       .join('');
-    return `<div class="shots"><h3>En images</h3><div class="shotgrid">${figs}</div>${sheetVid}</div>`;
+    const collapsible = all.length > LIMIT;
+    const toggle = collapsible ? `<button type="button" class="more-shots" aria-expanded="false">Voir les ${all.length} photos ▾</button>` : '';
+    return `<div class="shots${collapsible ? ' shots--collapsible' : ''}"><h3>En images</h3><div class="shotgrid">${figs}</div>${toggle}${sheetVid}</div>`;
   }
 
   (async () => {
@@ -246,6 +255,16 @@ import Footer from '../components/Footer.astro';
       };
       const closeLb = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); lbImg.src = ''; lbVid.pause(); lbVid.removeAttribute('src'); lbVid.load(); };
       host.querySelectorAll<HTMLElement>('figure.shot').forEach((f) => f.addEventListener('click', () => openLb(f.dataset.full!, f.dataset.video === '1')));
+
+      // « Voir tout / Réduire » : déplie la galerie compacte de l'escale.
+      host.querySelectorAll<HTMLButtonElement>('.more-shots').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const box = btn.closest('.shots') as HTMLElement;
+          const open = box.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+          btn.textContent = open ? 'Réduire ▴' : `Voir les ${box.querySelectorAll('.shot').length} photos ▾`;
+        });
+      });
       document.getElementById('lb-close')!.addEventListener('click', closeLb);
       lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
       addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
