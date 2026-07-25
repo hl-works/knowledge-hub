@@ -38,6 +38,19 @@ export function paysHead(pays: string, sub = ''): string {
   </div>`;
 }
 
+/**
+ * En-tête d'escale (Galerie rangée par escale) : même gabarit visuel que
+ * `paysHead`, mais le titre est la ville et le sous-titre porte pays + dates.
+ */
+export function escaleHead(pays: string, ville: string, sub = ''): string {
+  const [c1, c2] = PAL[pays] ?? ['#FA4616', '#C9330B'];
+  return `<div class="pays-head" style="--pc1:${c1};--pc2:${c2}">
+    <span class="stamp-slot" data-pays="${slugPays(pays)}" aria-hidden="true">${stampEki(pays, { size: 58 })}</span>
+    <h2 class="disp">${esc(ville)}</h2>
+    ${sub ? `<span class="pays-sub">${esc(sub)}</span>` : ''}
+  </div>`;
+}
+
 /** Groupe des éléments par pays en respectant l'ordre d'apparition. */
 export function groupByPays<T>(items: T[], pays: (t: T) => string): Array<{ pays: string; items: T[] }> {
   const out: Array<{ pays: string; items: T[] }> = [];
