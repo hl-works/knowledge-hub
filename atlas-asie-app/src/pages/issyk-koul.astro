@@ -8,7 +8,7 @@ const P = (n: string) => `${base}photos/3/${n}`;
 ---
 <Base
   title="Issyk-Koul raconté — Atlas d'Asie"
-  description="Une visite guidée du lac Issyk-Koul et de ses environs (Kirghizistan) en 11 épisodes à lire avec les enfants : le lac qui ne gèle jamais, la ville engloutie, la source dorée d'Altyn Arashan, l'aiglier et son aigle, le drapeau aux 40 tribus, l'épopée de Manas, les sept taureaux, le canyon des contes de fées et Gagarine au bord de l'eau."
+  description="Une visite guidée du lac Issyk-Koul et de ses environs (Kirghizistan) à lire avec les enfants : le lac qui ne gèle jamais, la ville engloutie, la source dorée d'Altyn Arashan, l'aiglier et son aigle, le drapeau aux 40 tribus, l'épopée de Manas, les sept taureaux, le canyon des contes de fées et Gagarine au bord de l'eau. Histoire, légende, ce qu'on a vécu et pop culture."
 >
   <Header variant="solid" active="histoires" />
 
@@ -20,7 +20,7 @@ const P = (n: string) => `${base}photos/3/${n}`;
       <div class="wrap mhero-in">
         <p class="eyebrow">À lire au bord du lac · escale 3</p>
         <h1 class="disp">Issyk-Koul raconté</h1>
-        <p class="lead">Devant vous, un lac grand comme un petit pays, à <strong>1 600 mètres d'altitude</strong>, cerné de sommets à 5 000. On l'appelle <em>« le lac chaud »</em> parce qu'il ne gèle jamais. Autour, des cavaliers, des aigles, des canyons rouges et des légendes. <em>Onze épisodes à lire au fil des jours, avec les enfants.</em></p>
+        <p class="lead">Devant vous, un lac grand comme un petit pays, à <strong>1 600 mètres d'altitude</strong>, cerné de sommets à 5 000. On l'appelle <em>« le lac chaud »</em> parce qu'il ne gèle jamais. Autour de lui : des cavaliers, des aigles chasseurs, des villes englouties, des canyons de contes de fées, et même un cosmonaute. <em>Onze épisodes à lire au fil des jours, comme un guide qui vous glisse un secret à chaque étape.</em></p>
       </div>
     </section>
 
@@ -29,7 +29,7 @@ const P = (n: string) => `${base}photos/3/${n}`;
       <!-- Photo d'ouverture -->
       <figure class="shot">
         <img src={P('31.webp')} alt="Alexis se baigne dans l'Issyk-Koul, sommets enneigés au fond" loading="lazy" />
-        <figcaption>Baignade dans « le lac chaud » — l'eau est fraîche, mais elle ne gèle jamais, même à −20°C dehors.</figcaption>
+        <figcaption>Baignade dans « le lac chaud » — l'eau est fraîche, mais elle ne gèle jamais, même quand il fait −20°C dehors.</figcaption>
       </figure>
 
       <!-- ÉPISODE 1 -->
@@ -37,10 +37,12 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">1</span><h2>🏔️ Le lac qui ne gèle jamais</h2></div>
         <figure class="ep-img"><img src={P('34.webp')} alt="Marion en paddle sur l'Issyk-Koul, Emma à l'avant, cimes enneigées au fond" loading="lazy" /><figcaption>En paddle sur le deuxième plus grand lac de montagne du monde.</figcaption></figure>
         <div class="prose">
-          <p>Posez la main dans l'eau. Un lac de montagne, à 1 600 m, entouré de neige toute l'année… et pourtant il ne gèle <strong>jamais</strong>. Son nom kirghize, <strong>Ysyk-Köl</strong>, veut dire exactement ça : « le lac chaud ».</p>
-          <p>Pourquoi ? Deux raisons. D'abord, il est légèrement <strong>salé</strong> — et l'eau salée gèle beaucoup moins facilement. Ensuite, il est énorme et très profond (près de 700 m par endroits) : il garde la chaleur de l'été comme une bouillotte géante. C'est le <strong>deuxième plus grand lac de montagne du monde</strong>, juste derrière le Titicaca.</p>
-          <p class="aside">😲 Il est si grand qu'on ne voit pas toujours l'autre rive : 180 km de long, comme si on posait un morceau de mer entre les montagnes.</p>
+          <p>Trempez la main dans l'eau. Un lac de montagne, à 1 600 m d'altitude, entouré de neige toute l'année… et pourtant il ne gèle <strong>jamais</strong>. Son nom kirghize, <strong>Ysyk-Köl</strong>, veut dire exactement ça : « le lac chaud ». Les habitants en sont si fiers qu'ils disent qu'il a un cœur qui bat sous la glace du reste du monde.</p>
+          <p>Deux raisons à ce mystère. D'abord, il est légèrement <strong>salé</strong> — et l'eau salée gèle beaucoup moins facilement que l'eau douce. Ensuite, il est gigantesque et très profond (près de <strong>700 mètres</strong> par endroits, l'un des lacs les plus profonds de la planète) : tout cet été emmagasiné, il le relâche doucement l'hiver, comme une bouillotte de la taille d'une mer. C'est le <strong>deuxième plus grand lac de montagne du monde</strong>, juste derrière le Titicaca.</p>
+          <p class="aside">🤫 Un secret bien gardé : pendant toute l'époque soviétique, ce lac paisible servait de <strong>base secrète pour tester des torpilles</strong> de la marine. L'endroit était interdit aux étrangers. Aujourd'hui on y fait du paddle — le monde change vite.</p>
         </div>
+        <details class="q"><summary>❓ Pourquoi l'eau salée gèle-t-elle moins facilement ?</summary>
+          <p>Le sel « gêne » les molécules d'eau qui veulent s'accrocher pour former de la glace : il faut descendre bien plus bas que 0°C pour y arriver. C'est pour ça qu'on jette du sel sur les routes en hiver — pour empêcher le verglas.</p></details>
       </article>
 
       <!-- ÉPISODE 2 -->
@@ -48,11 +50,12 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">2</span><h2>🌊 La ville engloutie</h2></div>
         <figure class="ep-img"><img src={P('32.webp')} alt="Fin d'après-midi sur une plage déserte de l'Issyk-Koul" loading="lazy" /><figcaption>Sous cette eau calme dorment les ruines d'une cité vieille de 2 000 ans.</figcaption></figure>
         <div class="prose">
-          <p>Ce lac tranquille garde un secret. Sous sa surface, des plongeurs ont retrouvé des <strong>murs, des poteries, des pièces de monnaie</strong> — les restes de villes entières, englouties il y a des siècles quand le niveau de l'eau est monté.</p>
-          <p>La plus célèbre serait <strong>Tchigou</strong>, l'ancienne capitale du peuple Wusun, il y a plus de 2 000 ans. Les archéologues continuent d'explorer les fonds. Alors quand vous regardez le lac, imaginez : quelque part là-dessous, il y a des rues où des gens marchaient bien avant nous.</p>
+          <p>Ce lac tranquille garde un secret sous sa surface. Des plongeurs y ont remonté des <strong>murs, des poteries, des pièces de monnaie, des outils</strong> — les restes de villes entières, englouties il y a des siècles quand le niveau de l'eau est monté.</p>
+          <p>La plus célèbre s'appelait <strong>Tchigou</strong>, la capitale du peuple Wusun, il y a plus de <strong>2 000 ans</strong>. Mais il y a plus étonnant encore : de vieilles cartes du Moyen Âge signalent, au bord de l'Issyk-Koul, un <strong>monastère chrétien</strong> qui aurait abrité des reliques de l'apôtre saint Matthieu. Une étape de la Route de la Soie où se croisaient des croyances venues de très loin.</p>
+          <p>Alors, quand vous regardez le lac lisse comme un miroir, imaginez : quelque part là-dessous, il y a des rues où des marchands, des moines et des cavaliers marchaient bien avant nous.</p>
         </div>
         <details class="q"><summary>❓ Une ville peut-elle vraiment disparaître sous l'eau ?</summary>
-          <p>Oui : un tremblement de terre, un glacier qui fond ou une rivière qui change de lit peuvent faire monter un lac de plusieurs mètres. Les maisons du bord se retrouvent alors sous l'eau — et s'y conservent parfois très bien, à l'abri de l'air.</p></details>
+          <p>Oui : un tremblement de terre, un glacier qui fond ou une rivière qui change de lit peuvent faire monter un lac de plusieurs mètres. Les maisons du bord se retrouvent sous l'eau — et s'y conservent parfois très bien, à l'abri de l'air, comme dans un coffre.</p></details>
       </article>
 
       <!-- ÉPISODE 3 -->
@@ -60,8 +63,9 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">3</span><h2>🗼 La tour de Burana & la Route de la Soie</h2></div>
         <figure class="ep-img"><img src={P('09.webp')} alt="La tour de Burana, minaret du XIe siècle" loading="lazy" /><figcaption>Burana : tout ce qui reste de Balasagoun, une cité disparue de la Route de la Soie.</figcaption></figure>
         <div class="prose">
-          <p>Cette tour un peu penchée est un <strong>minaret du XIe siècle</strong> — presque mille ans. Mais le plus étonnant, c'est ce qu'il y avait autour : une grande ville, <strong>Balasagoun</strong>, étape des caravanes sur la <strong>Route de la Soie</strong>, la route par laquelle voyageaient la soie, le thé, les épices… et les idées.</p>
-          <p>La ville a disparu, avalée par le temps et les invasions. Il ne reste que la tour et quelques pierres gravées de visages, les <em>balbals</em>. Un empire entier réduit à un doigt de brique pointé vers le ciel.</p>
+          <p>Cette grosse tour de brique un peu penchée est un <strong>minaret du XIᵉ siècle</strong> — presque mille ans. Et pourtant, ce n'est qu'un <strong>tiers</strong> de sa hauteur d'origine : un tremblement de terre a fait tomber le reste. Autrefois, elle guidait les caravanes de loin, comme un phare au milieu des steppes.</p>
+          <p>Car autour d'elle s'étendait une grande ville, <strong>Balasagoun</strong>, étape des caravanes sur la <strong>Route de la Soie</strong> — cette route par laquelle voyageaient la soie, le thé, les épices, l'or… et surtout les idées, les langues et les religions. C'est ici qu'a vécu l'un des plus grands savants de la région, qui a écrit le tout premier grand livre sur les peuples turcs.</p>
+          <p>La ville a disparu, avalée par le temps et les invasions. Il ne reste que la tour et un petit champ de pierres gravées de visages : les <strong>balbals</strong>, de vieilles statues dressées sur les tombes des guerriers. Un empire entier réduit à un doigt de brique pointé vers le ciel.</p>
         </div>
       </article>
 
@@ -70,8 +74,9 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">4</span><h2>⛲ Altyn Arashan, la source dorée</h2></div>
         <figure class="ep-img"><img src={P('18.webp')} alt="Alexis face à la vallée d'Altyn Arashan, 2600 m" loading="lazy" /><figcaption>Altyn Arashan, 2 600 m : on n'y arrive qu'à pied, à cheval ou en vieux 4×4 soviétique.</figcaption></figure>
         <div class="prose">
-          <p><strong>Altyn Arashan</strong> veut dire « la source dorée ». À 2 600 m d'altitude, cette vallée cache des <strong>sources d'eau chaude</strong> qui sortent brûlantes de la terre, au milieu des sapins et des sommets enneigés du Terskeï Ala-Too.</p>
-          <p>Il n'y a pas de route goudronnée : on y monte à pied, à cheval, ou tassés dans un <strong>4×4 soviétique</strong> qui a plus de 40 ans et grimpe des pistes impossibles. Là-haut, quelques yourtes, des chevaux en liberté, et le silence. Le bout du monde — version douche chaude.</p>
+          <p><strong>Altyn Arashan</strong> veut dire « la source dorée ». À 2 600 mètres d'altitude, cette vallée cache des <strong>sources d'eau chaude</strong> qui jaillissent brûlantes de la terre — jusqu'à 40 ou 50°C ! — au milieu des sapins et des sommets enneigés du Terskeï Ala-Too. On se baigne dans une eau fumante avec de la neige tout autour : sensation inoubliable.</p>
+          <p>Il n'y a pas de route goudronnée pour monter là-haut. On y grimpe à pied, à cheval, ou tassés dans un <strong>4×4 soviétique</strong> (un vieil UAZ increvable) qui a plus de 40 ans et avale des pistes défoncées, des gués et des pentes impossibles, dans un vacarme de ferraille. Le trajet fait déjà partie de l'aventure.</p>
+          <p class="aside">🐆 Quelque part sur ces crêtes rôde peut-être le plus discret des habitants : la <strong>panthère des neiges</strong>. On ne la voit presque jamais — mais c'est elle, l'emblème du parc, qui vous accueille en origami géant à l'entrée.</p>
         </div>
       </article>
 
@@ -80,8 +85,9 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">5</span><h2>🐎 À cheval sur les alpages</h2></div>
         <figure class="ep-img"><img src={P('16.webp')} alt="Alexis en selle pour la balade dans les alpages kirghiz" loading="lazy" /><figcaption>En selle sur les jailoos — les chevaux kirghiz connaissent le chemin par cœur.</figcaption></figure>
         <div class="prose">
-          <p>Ici, le cheval n'est pas un loisir : c'est un membre de la famille. Les Kirghizes sont un <strong>peuple de cavaliers</strong> depuis des milliers d'années. Les enfants montent avant de savoir bien marcher.</p>
-          <p>L'été, les familles montent leurs troupeaux sur les <strong>jailoos</strong>, les alpages d'altitude où l'herbe est grasse. Les chevaux y vivent en liberté, sans clôture. On dit ici : <em>« un Kirghize sans cheval, c'est comme un aigle sans ailes ».</em></p>
+          <p>Ici, le cheval n'est pas un loisir du dimanche : c'est un membre de la famille. Les Kirghizes sont un <strong>peuple de cavaliers</strong> depuis des milliers d'années. Beaucoup d'enfants savent tenir sur un cheval avant même de bien courir.</p>
+          <p>L'été, les familles montent leurs troupeaux sur les <strong>jailoos</strong>, les grands alpages d'altitude où l'herbe est grasse. On y plante sa yourte pour quelques semaines, et les chevaux y vivent en liberté, sans clôture, jusqu'à l'horizon. On dit ici : <em>« un Kirghize sans cheval, c'est comme un aigle sans ailes ».</em></p>
+          <p class="aside">🥅 Leur sport national se joue à cheval : le <strong>kok-boru</strong>, une sorte de rugby où deux équipes s'arrachent… non pas un ballon, mais une carcasse de chèvre, pour la déposer dans le but adverse. Rude, spectaculaire — et à voir absolument aux Jeux Mondiaux Nomades qui se tiennent ici même.</p>
         </div>
       </article>
 
@@ -90,9 +96,9 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">6</span><h2>🦅 L'aiglier et son aigle</h2></div>
         <figure class="ep-img"><img src={P('45.webp')} alt="Un aiglier kirghiz et son aigle royal" loading="lazy" /><figcaption>Un aiglier (berkutchi) et son aigle royal — un compagnonnage de plusieurs années.</figcaption></figure>
         <div class="prose">
-          <p>Regardez la taille de cet oiseau. Un <strong>aigle royal</strong> : deux mètres d'envergure, des serres qui peuvent broyer un os. Depuis des siècles, les <strong>berkutchi</strong> apprennent à chasser avec lui — le renard, le lièvre, parfois le loup.</p>
-          <p>Mais ce n'est pas une cage. C'est un <strong>pacte</strong>. L'aiglier passe des années à gagner la confiance de l'oiseau, le nourrit à la main, dort près de lui. Et souvent, après sept ou huit ans, il le <strong>relâche</strong> dans la montagne pour qu'il vive libre et fasse des petits. On ne possède pas un aigle : on l'accompagne un temps.</p>
-          <p class="aside">🪶 Alexis, Marion et Emma l'ont tenu sur le poing : plus lourd qu'il n'en a l'air, un regard d'or, et une douceur inattendue quand on caresse ses plumes.</p>
+          <p>Regardez la taille de cet oiseau. Un <strong>aigle royal</strong> : jusqu'à deux mètres d'envergure, des serres capables de broyer un os. Chez les femelles, les plus grandes, il peut peser 6 ou 7 kilos. Depuis des siècles, les <strong>berkutchi</strong> apprennent à chasser avec lui, l'hiver, sur la neige — le renard, le lièvre, parfois même le loup.</p>
+          <p>Mais attention : ce n'est pas une cage, c'est un <strong>pacte</strong>. L'aiglier passe des années à gagner la confiance de l'oiseau. Il le nourrit à la main, dort près de lui, lui parle. Quand l'aigle chasse et pourrait s'envoler pour toujours, il revient — parce qu'un lien s'est tissé. Et le plus beau : après sept ou huit ans, beaucoup d'aigliers <strong>relâchent</strong> leur aigle dans la montagne, pour qu'il vive libre et fasse des petits. On ne possède pas un aigle : on l'accompagne un bout de chemin.</p>
+          <p class="aside">🪶 Alexis, Marion et Emma l'ont tenu sur le poing (Alexis a trouvé qu'il pesait bien plus lourd qu'il n'en a l'air !), et Emma a caressé ses plumes. Un regard d'or, un bec crochu impressionnant… et une douceur inattendue.</p>
         </div>
       </article>
 
@@ -101,18 +107,20 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">7</span><h2>🏵️ Le drapeau : un toit de yourte, quarante tribus</h2></div>
         <figure class="ep-img"><img src={P('41.webp')} alt="Le drapeau kirghiz dans la yourte, son soleil est le tunduk" loading="lazy" /><figcaption>Le soleil du drapeau, c'est le <em>tunduk</em> : la couronne du toit de la yourte, vue de dessous.</figcaption></figure>
         <div class="prose">
-          <p>Le drapeau kirghize est rouge avec un soleil jaune. Comptez ses rayons : il y en a <strong>quarante</strong>. Et au centre du soleil, un dessin en croix — ce n'est pas décoratif. C'est le <strong>tunduk</strong> : la couronne de bois au sommet de la yourte, vue d'en dessous, là où passe la lumière et la fumée.</p>
-          <p>Pourquoi quarante rayons ? Pour les <strong>quarante tribus</strong> que le héros Manas a réunies pour former le peuple kirghize. D'ailleurs, « Kirghize » vient de <em>kyrk</em>, qui veut dire… quarante. Tout un pays résumé dans le toit d'une maison.</p>
+          <p>Le drapeau kirghize est rouge, avec un soleil jaune au centre. Comptez ses rayons : il y en a exactement <strong>quarante</strong>. Et au milieu du soleil, un dessin en croix quadrillée — ce n'est pas une décoration au hasard. C'est le <strong>tunduk</strong> : la couronne de bois tout en haut de la yourte, vue d'en dessous, là où passent la lumière du jour et la fumée du foyer.</p>
+          <p>Pourquoi mettre un toit de maison sur un drapeau ? Parce que pour un nomade, la yourte, c'est le foyer, la famille, l'abri partout où l'on va. Et pourquoi quarante rayons ? Pour les <strong>quarante tribus</strong> que le héros <strong>Manas</strong> a réunies pour former le peuple kirghize. D'ailleurs, le mot « Kirghize » viendrait de <em>kyrk</em>, qui veut dire… quarante.</p>
+          <p>Tout un pays résumé dans le toit d'une maison : d'où l'on vient (les tribus), et ce qui compte (le foyer). Difficile de faire plus beau symbole.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 8 -->
       <article class="ep" id="ep8">
         <div class="ep-h"><span class="ep-n">8</span><h2>📖 Manas, l'épopée plus longue que l'Odyssée</h2></div>
-        <figure class="ep-img"><img src={P('40.webp')} alt="Chambre aux motifs kirghiz peints à la main, la yourte version dur" loading="lazy" /><figcaption>Motifs kirghiz peints à la main — les mêmes que ceux qui accompagnent le récit de Manas.</figcaption></figure>
+        <figure class="ep-img"><img src={P('40.webp')} alt="Chambre aux motifs kirghiz peints à la main, la yourte version dur" loading="lazy" /><figcaption>Motifs kirghiz peints à la main — les mêmes qui accompagnent, depuis mille ans, le récit de Manas.</figcaption></figure>
         <div class="prose">
-          <p>Les Kirghizes n'ont pas écrit leur plus grande histoire dans un livre : ils l'ont <strong>récitée</strong>, de bouche à oreille, pendant mille ans. C'est l'<strong>épopée de Manas</strong>, le héros qui a uni les quarante tribus.</p>
-          <p>Et elle est gigantesque : environ <strong>un demi-million de vers</strong> — vingt fois <em>l'Odyssée</em> d'Homère, la plus longue épopée du monde. Des conteurs spéciaux, les <strong>manaschi</strong>, la connaissent par cœur et peuvent la chanter pendant des jours. Imaginez réciter un livre de mémoire… puis vingt, sans jamais vous arrêter.</p>
+          <p>Les Kirghizes n'ont pas écrit leur plus grande histoire dans un livre : ils l'ont <strong>récitée</strong>, de bouche à oreille, de génération en génération, pendant près de mille ans. C'est l'<strong>épopée de Manas</strong>, le héros qui a rassemblé les quarante tribus et défendu son peuple.</p>
+          <p>Et elle est gigantesque : environ <strong>un demi-million de vers</strong> — c'est <strong>vingt fois</strong> l'<em>Odyssée</em> d'Homère. La plus longue épopée du monde entier. Elle raconte trois générations : Manas, puis son fils, puis son petit-fils.</p>
+          <p class="aside">🎤 Ceux qui la récitent, les <strong>manaschi</strong>, la connaissent par cœur et peuvent la chanter des jours entiers, sans texte, en se balançant, comme en transe. Le plus troublant : beaucoup racontent qu'ils n'ont jamais appris l'épopée exprès — elle leur serait « venue » un jour, en <strong>rêve</strong>, comme un cadeau. Imaginez réciter un livre de mémoire… puis vingt, sans jamais vous tromper.</p>
         </div>
       </article>
 
@@ -121,8 +129,9 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">9</span><h2>🔴 Jeti-Ögüz, les sept taureaux</h2></div>
         <figure class="ep-img"><img src={P('27.webp')} alt="Les falaises rouges de Jeti-Ögüz vues du ciel, la crête de grès rouge" loading="lazy" /><figcaption>Jeti-Ögüz : sept crêtes de grès rouge sang alignées comme un troupeau.</figcaption></figure>
         <div class="prose">
-          <p><strong>Jeti-Ögüz</strong> veut dire « les sept taureaux ». Sept falaises de grès rouge sang, dressées côte à côte au-dessus des sapins, comme un troupeau pétrifié.</p>
-          <p>La légende raconte l'histoire de deux khans rivaux et d'une reine ; à la fin, sept taureaux furent lâchés et changés en pierre — d'où la couleur rouge, celle du sang du drame. La géologie, elle, parle de fer dans la roche. Les deux histoires sont belles : à vous de choisir celle que vous préférez.</p>
+          <p><strong>Jeti-Ögüz</strong> veut dire « les sept taureaux ». Sept falaises de grès rouge sang, dressées côte à côte au-dessus des sapins verts, exactement comme un troupeau pétrifié en train d'avancer. Juste à côté, un autre rocher fendu en deux : on l'appelle « le Cœur brisé ».</p>
+          <p>La légende raconte l'histoire de deux rois rivaux et d'une reine d'une grande beauté. Fou de jalousie, l'un d'eux organise un festin et lâche sept taureaux furieux ; dans le drame, le sang coule, et les taureaux sont changés en pierre — d'où la couleur rouge des falaises.</p>
+          <p>La science, elle, a une autre explication tout aussi vraie : c'est le <strong>fer</strong> contenu dans la roche qui, en rouillant au fil des millions d'années, l'a teintée de rouge. Deux histoires, une même falaise. À vous de choisir celle que vous préférez raconter au coucher du soleil.</p>
         </div>
       </article>
 
@@ -131,29 +140,32 @@ const P = (n: string) => `${base}photos/3/${n}`;
         <div class="ep-h"><span class="ep-n">10</span><h2>🧚 Skazka, le canyon des contes de fées</h2></div>
         <figure class="ep-img"><img src={P('37.webp')} alt="Le Canyon Skazka en entier, labyrinthe de grès rouge face au lac" loading="lazy" /><figcaption>Skazka — « conte de fées » en russe : un labyrinthe de grès sculpté par le vent.</figcaption></figure>
         <div class="prose">
-          <p><strong>Skazka</strong> veut dire « conte de fées » en russe. Et on comprend vite pourquoi : le vent et la pluie ont sculpté le grès rouge en formes bizarres. Selon l'angle, on jurerait voir une <strong>Grande Muraille</strong>, un <strong>dragon</strong>, un château, des cheminées de fée…</p>
-          <p>Personne n'a taillé ça : c'est l'<strong>érosion</strong>, l'artiste le plus patient du monde, qui travaille cette roche depuis des millions d'années. Un jeu parfait pour les enfants : trouver une forme, lui donner un nom, et revenir demain la voir un tout petit peu différente.</p>
+          <p><strong>Skazka</strong> veut dire « conte de fées » en russe. On comprend vite pourquoi : ici, pas d'eau, pas d'arbres, seulement du grès rouge et orange que le vent et les rares pluies ont sculpté en formes incroyables. Selon l'angle et l'heure, on jurerait voir une <strong>petite Grande Muraille</strong>, un <strong>dragon</strong> endormi, un château fort, des cheminées de fée, des animaux…</p>
+          <p>Le plus fou, c'est que <strong>personne n'a rien taillé</strong>. Ces sculptures, c'est l'œuvre de l'<strong>érosion</strong> — l'artiste le plus patient du monde, qui travaille la roche tendre depuis des millions d'années, un grain de sable à la fois.</p>
+          <p class="aside">🎨 Le jeu parfait pour les enfants : repérer une forme, lui inventer un nom, la photographier… et revenir des années plus tard la retrouver un tout petit peu différente. Car le vent, lui, ne s'arrête jamais de sculpter.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 11 -->
       <article class="ep" id="ep11">
         <div class="ep-h"><span class="ep-n">11</span><h2>🚀 Gagarine au bord du lac</h2></div>
-        <figure class="ep-img"><img src={P('30.webp')} alt="Le mémorial Youri Gagarine gravé dans la roche de Barskoun" loading="lazy" /><figcaption>Barskoun : le mémorial de Youri Gagarine, le premier homme dans l'espace.</figcaption></figure>
+        <figure class="ep-img"><img src={P('30.webp')} alt="Le mémorial Youri Gagarine gravé dans la roche de Barskoun" loading="lazy" /><figcaption>Barskoun : le mémorial de Youri Gagarine, le tout premier homme dans l'espace.</figcaption></figure>
         <div class="prose">
-          <p>Terminons par une surprise. En 1961, <strong>Youri Gagarine</strong> devient le <strong>premier homme à voler dans l'espace</strong>. À son retour de mission, où va-t-il se reposer ? Ici, au bord de l'Issyk-Koul, dans la <strong>gorge de Barskoun</strong>.</p>
-          <p>Il aimait tellement l'endroit qu'un mémorial y a été gravé dans la roche. Alors le même paysage a été admiré par des cavaliers d'il y a mille ans… et par le premier humain qui a vu la Terre depuis le ciel. Pas mal, pour un lac de montagne.</p>
+          <p>Terminons par une surprise que personne ne devine. Le <strong>12 avril 1961</strong>, un jeune Soviétique, <strong>Youri Gagarine</strong>, devient le <strong>tout premier homme à voler dans l'espace</strong> : un seul tour de la Terre, 108 minutes, et l'humanité change d'ère. À son retour, il est la personne la plus célèbre de la planète.</p>
+          <p>Où va-t-il se reposer, loin de la foule ? Ici, au bord de l'Issyk-Koul, dans la <strong>gorge de Barskoun</strong>. Le lac était le lieu de villégiature secret de l'élite soviétique, et Gagarine y revint plusieurs fois. Il aimait tant l'endroit qu'un <strong>mémorial a été gravé dans la roche</strong> en son honneur.</p>
+          <p>Prenez un instant pour y penser : le même paysage a été admiré par des cavaliers d'il y a mille ans, par des caravanes de la Route de la Soie… et par le premier être humain qui a vu la Terre entière depuis le ciel. Pas mal, pour un lac de montagne perdu.</p>
         </div>
       </article>
 
       <!-- LE JEU -->
       <article class="ep game" id="jeu">
         <div class="ep-h"><span class="ep-n">🎯</span><h2>Le jeu, autour du lac</h2></div>
-        <div class="prose"><p>Quatre questions à se poser en chemin — devinez, puis vérifiez :</p></div>
-        <details class="q"><summary>Pourquoi l'eau du lac ne gèle-t-elle pas ?</summary><p>Parce qu'elle est un peu salée (l'eau salée gèle moins facilement) et que le lac est immense et profond : il garde la chaleur de l'été très longtemps.</p></details>
-        <details class="q"><summary>Combien de rayons a le soleil du drapeau, et pourquoi ?</summary><p>Quarante — un pour chacune des quarante tribus réunies par le héros Manas. « Kirghize » vient d'ailleurs de <em>kyrk</em> : quarante.</p></details>
-        <details class="q"><summary>La mosquée doungane de Karakol a une particularité de construction. Laquelle ?</summary><p>Elle a été bâtie <strong>sans un seul clou</strong> : tout en bois emboîté, à la manière chinoise, avec un toit en pagode et des dragons sculptés.</p></details>
-        <details class="q"><summary>Qui a rendu le canyon de Skazka aussi bizarre ?</summary><p>Personne ! C'est l'érosion — le vent et la pluie qui sculptent le grès tendre depuis des millions d'années.</p></details>
+        <div class="prose"><p>Cinq questions à se poser en chemin — devinez d'abord, puis vérifiez :</p></div>
+        <details class="q"><summary>Pourquoi l'eau du lac ne gèle-t-elle pas, même à −20°C ?</summary><p>Parce qu'elle est un peu salée (l'eau salée gèle bien plus difficilement) et que le lac est immense et très profond : il garde la chaleur de l'été très longtemps, comme une bouillotte géante.</p></details>
+        <details class="q"><summary>Combien de rayons a le soleil du drapeau, et pourquoi ?</summary><p>Quarante — un pour chacune des quarante tribus réunies par le héros Manas. « Kirghize » viendrait d'ailleurs de <em>kyrk</em> : quarante.</p></details>
+        <details class="q"><summary>Que fait un aiglier de son aigle après sept ou huit ans ?</summary><p>Souvent, il le <strong>relâche</strong> dans la montagne pour qu'il vive libre et ait des petits. C'est un pacte, pas une cage.</p></details>
+        <details class="q"><summary>La mosquée doungane de Karakol a une particularité de construction. Laquelle ?</summary><p>Elle a été bâtie <strong>sans un seul clou</strong> : tout en bois emboîté, à la manière chinoise, avec un toit en pagode et des dragons sculptés pour éloigner les mauvais esprits.</p></details>
+        <details class="q"><summary>Qui a sculpté le canyon de Skazka ?</summary><p>Personne ! C'est l'érosion — le vent et la pluie qui façonnent le grès tendre depuis des millions d'années.</p></details>
       </article>
 
       <p class="mcredit">Toutes les photos de cette page sont celles du voyage — famille Lahutte.</p>

@@ -16,7 +16,7 @@ const CC = {
 ---
 <Base
   title="La Grande Muraille racontée — Atlas d'Asie"
-  description="Une visite guidée de la Grande Muraille de Chine à Jinshanling, en 10 épisodes à lire en marchant avec les enfants : le dragon de pierre, le premier empereur, le feu qui parle, la légende des larmes… Histoire, stratégie et légendes."
+  description="Une visite guidée de la Grande Muraille de Chine à Jinshanling, à lire en marchant avec les enfants : la machine de guerre, l'empereur capturé par les Mongols, le feu qui parle, le dragon de pierre, la légende des larmes… Histoire, stratégie, légendes et pop culture."
 >
   <Header variant="solid" active="histoires" />
 
@@ -28,7 +28,7 @@ const CC = {
       <div class="wrap mhero-in">
         <p class="eyebrow">À lire en marchant · escale 10</p>
         <h1 class="disp">La Grande Muraille racontée</h1>
-        <p class="lead">Vous êtes au départ de la <strong>West Gate de Jinshanling</strong>. Oubliez le guide touristique : pendant les quatre heures qui viennent, voici une histoire — celle d'une frontière, d'un empire, de soldats, de légendes… et d'un monument qui fascine encore. <em>Dix épisodes à lire au fil de la marche, avec les enfants.</em></p>
+        <p class="lead">Vous êtes au départ de la <strong>West Gate de Jinshanling</strong>. Oubliez le guide touristique : pendant les quatre heures qui viennent, imaginez un guide passionné qui vous glisse un secret à chaque tour. L'histoire d'une frontière, d'un empire, d'un empereur capturé, de soldats qui parlaient avec du feu… et d'un dragon de pierre. <em>Douze épisodes à lire au fil de la marche, avec les enfants.</em></p>
       </div>
     </section>
 
@@ -37,101 +37,128 @@ const CC = {
       <!-- Photo d'ouverture : la tribu prête -->
       <figure class="shot">
         <img src={P('03.webp')} alt="La famille prête à partir à la porte de Jinshanling" loading="lazy" />
-        <figcaption>Prêts, billets en main, à la porte de Jinshanling.</figcaption>
+        <figcaption>Prêts, billets en main, à la porte de Jinshanling. La marche peut commencer.</figcaption>
       </figure>
 
       <!-- ÉPISODE 1 -->
       <article class="ep" id="ep1">
-        <div class="ep-h"><span class="ep-n">1</span><h2>🐉 Le dragon qui protège la Chine</h2></div>
-        <figure class="ep-img"><img src={P('01.webp')} alt="La porte d'entrée de Jinshanling" loading="lazy" /><figcaption>La porte de Jinshanling — juste avant de poser le pied sur la Muraille.</figcaption></figure>
+        <div class="ep-h"><span class="ep-n">1</span><h2>🐉 Un dragon, pas un mur</h2></div>
+        <figure class="ep-img"><img src={CC.wild} alt="La Grande Muraille sauvage suivant les crêtes des montagnes" loading="lazy" title="Wild Great Wall, Gubeikou — Wikimedia Commons" /><figcaption>Elle monte, redescend, disparaît, réapparaît : on dirait un animal vivant.</figcaption></figure>
         <div class="prose">
-          <p>Quand on dit « Grande Muraille », qu'est-ce qui vous vient en tête ? Un mur ? En réalité… ce n'est pas un mur. C'est un <strong>dragon</strong>.</p>
-          <p>Les Chinois aiment dire que la Grande Muraille est un immense dragon de pierre qui dort sur les montagnes. Regardez les crêtes : elle monte, redescend, tourne, disparaît… puis réapparaît. On dirait vraiment un animal vivant. Et ce dragon protège la Chine depuis des siècles.</p>
-          <p class="aside">😲 Et non, on ne la voit <em>pas</em> à l'œil nu depuis l'espace — c'est la légende la plus tenace du monde, et elle est fausse : la Muraille est très longue, mais bien trop étroite. Mais pourquoi construire une chose aussi gigantesque ? Il faut remonter plus de 2 200 ans en arrière…</p>
+          <p>Première surprise, avant même de poser le pied dessus : quand on dit « Grande Muraille », on imagine un mur bien droit. En vrai… ce n'en est pas un. C'est un <strong>dragon</strong>.</p>
+          <p>Regardez les crêtes autour de vous. La Muraille monte à l'assaut d'un sommet, plonge dans une vallée, tourne, se cache derrière une colline, puis resurgit au loin. Elle ne prend <em>jamais</em> le chemin le plus facile. Les Chinois l'appellent d'ailleurs souvent <strong>le dragon de pierre</strong> — un gardien endormi sur les montagnes, qui protège l'empire depuis des siècles.</p>
+          <p class="aside">🤔 Petit défi pour toute la marche : à chaque nouveau panorama, cherchez la Muraille au loin. Souvent, elle est là où on ne l'attend pas — accrochée à une arête impossible. Et non, on ne la voit <em>pas</em> à l'œil nu depuis l'espace : on vous expliquera pourquoi à l'épisode 8. Mais d'abord… pourquoi diable construire une chose pareille ici ?</p>
         </div>
       </article>
 
       <!-- ÉPISODE 2 -->
       <article class="ep" id="ep2">
         <div class="ep-h"><span class="ep-n">2</span><h2>🏹 Le premier empereur</h2></div>
-        <figure class="ep-img"><img src={CC.qin} alt="Statue de Qin Shi Huang, premier empereur de Chine" loading="lazy" title="Statue de Qin Shi Huang — Wikimedia Commons" /><figcaption>Qin Shi Huang, le premier à unir la Chine — et à lancer la Muraille.</figcaption></figure>
+        <figure class="ep-img"><img src={CC.qin} alt="Statue de Qin Shi Huang, premier empereur de Chine" loading="lazy" title="Statue de Qin Shi Huang — Wikimedia Commons" /><figcaption>Qin Shi Huang, le premier à unir la Chine — et à lancer l'idée de la Muraille.</figcaption></figure>
         <div class="prose">
-          <p>Imaginez la France. Maintenant imaginez qu'à sa place il y ait une dizaine de pays, tous en guerre. C'était la Chine, pendant des siècles.</p>
-          <p>Puis arrive un homme : <strong>Qin Shi Huang</strong>. Il conquiert tous les royaumes et devient, vers 221 avant J.-C., le <strong>premier empereur de Chine</strong>. (C'est lui aussi qui s'est fait enterrer avec sa fameuse <em>armée de terre cuite</em>, des milliers de soldats d'argile.)</p>
-          <p>Mais il a un problème : au nord vivent des peuples nomades incroyablement rapides. Presque pas de villes, une vie à cheval. Ils apparaissent, attaquent un village… puis disparaissent. Impossible de les rattraper. Alors Qin Shi Huang fait une chose folle : il relie entre elles les vieilles murailles de terre des anciens royaumes. C'est le début de la Grande Muraille — pas encore celle de pierre qu'on voit aujourd'hui, mais l'idée est née là.</p>
+          <p>Remontons le temps de plus de 2 200 ans. Imaginez la France… mais coupée en une dizaine de royaumes, tous en guerre les uns contre les autres. C'était la Chine.</p>
+          <p>Puis surgit un homme prêt à tout : <strong>Qin Shi Huang</strong>. Il écrase les royaumes un à un et devient, vers <strong>221 avant J.-C.</strong>, le <strong>tout premier empereur de Chine</strong>. C'est un personnage démesuré : il unifie l'écriture, la monnaie, les routes… et se fait enterrer avec une <strong>armée entière de soldats en terre cuite</strong>, grandeur nature, pour le protéger dans l'au-delà — près de 8 000 statues, toutes au visage différent, retrouvées près de Xi'an.</p>
+          <p>Mais l'empereur a une obsession : le <strong>nord</strong>. Là-haut vivent des peuples nomades, les <strong>Xiongnu</strong>, incroyablement rapides à cheval. Ils surgissent, pillent un village, et disparaissent avant qu'on ait pu réagir. Impossible de les rattraper. Alors Qin Shi Huang ordonne une chose folle : relier entre elles les vieilles murailles de terre des anciens royaumes, pour fermer le nord. La Grande Muraille vient de naître — pas encore celle de pierre sous vos pieds, mais l'idée est lancée.</p>
         </div>
-        <details class="q"><summary>❓ Pourquoi les ennemis attaquaient-ils toujours par le nord ?</summary>
-          <p>Parce que le nord de la Chine est une immense steppe : un terrain parfait pour les cavaliers. Les montagnes où vous marchez forment justement une barrière naturelle entre cette steppe et les riches plaines chinoises.</p></details>
       </article>
 
       <!-- ÉPISODE 3 -->
       <article class="ep" id="ep3">
-        <div class="ep-h"><span class="ep-n">3</span><h2>⚔️ La plus grande forteresse du monde</h2></div>
-        <figure class="ep-img"><img src={CC.aerial} alt="La Grande Muraille suivant les crêtes des montagnes" loading="lazy" title="Great Wall, Badaling — Wikimedia Commons" /><figcaption>Un seul mur ? Non : une forteresse continue de plus de 21 000 km.</figcaption></figure>
+        <div class="ep-h"><span class="ep-n">3</span><h2>⚙️ Pas un mur : une machine de guerre</h2></div>
+        <figure class="ep-img"><img src={CC.aerial} alt="La Grande Muraille suivant les crêtes des montagnes" loading="lazy" title="Great Wall, Badaling — Wikimedia Commons" /><figcaption>Pourquoi construire tout en haut, et pas dans la vallée, plus facile ?</figcaption></figure>
         <div class="prose">
-          <p>Regardez autour de vous. Combien de murs voyez-vous ? Un. Pourtant, chaque tour est une caserne, chaque escalier un poste de défense, chaque porte peut se fermer, chaque sommet est un point de guet.</p>
-          <p>La Grande Muraille est en réalité une immense forteresse de <strong>plus de 21 000 kilomètres</strong> (toutes les sections de toutes les époques mises bout à bout). Pour comparer : c'est comme relier Paris à Sydney… ou plus de 500 marathons à la suite.</p>
-          <p>Et contrairement aux idées reçues, elle n'a jamais été bâtie d'un coup : pendant près de <strong>2 000 ans</strong>, chaque dynastie a ajouté sa part.</p>
+          <p>Posez-vous la question du bâtisseur : où placeriez-vous un mur ? La plupart des gens répondent « dans la vallée » — c'est plus plat, plus simple. Les Chinois ont fait <strong>exactement l'inverse</strong> : ils l'ont hissé sur les crêtes. Pourquoi se compliquer autant la vie ?</p>
+          <p>Parce qu'un <strong>cheval déteste grimper</strong>. Les envahisseurs venaient du nord, et leur force, c'était la cavalerie. En perchant la Muraille sur les sommets, on transforme chaque attaque en épreuve d'alpinisme.</p>
+          <p>Et voici le vrai secret : la Muraille n'a <strong>jamais eu pour but d'arrêter complètement une armée</strong> — aucun mur ne le peut. Son but était plus malin : <strong>ralentir</strong> l'ennemi, l'<strong>obliger</strong> à passer par quelques cols surveillés, le <strong>fatiguer</strong>, et donner aux soldats chinois le temps de se rassembler. Ce n'est pas un mur : c'est une immense <strong>machine militaire</strong> étalée sur les montagnes.</p>
         </div>
+        <details class="q"><summary>❓ À votre avis, combien de soldats pouvaient vivre ici en même temps ? 100 ? 500 ? 5 000 ?</summary>
+          <p>Sur les portions importantes, <strong>plusieurs milliers</strong> de soldats occupaient les fortins — et ils y restaient des mois, parfois des années. Ils cultivaient même des légumes, élevaient quelques bêtes et entretenaient le mur. Une vraie petite ville en ligne, posée sur les crêtes.</p></details>
       </article>
 
       <!-- ÉPISODE 4 -->
       <article class="ep" id="ep4">
-        <div class="ep-h"><span class="ep-n">4</span><h2>🏯 Pourquoi Jinshanling est spéciale</h2></div>
-        <figure class="ep-img"><img src={P('02.webp')} alt="Le plan de la Grande Muraille de Jinshanling" loading="lazy" /><figcaption>Le plan de Jinshanling : des tours par dizaines, toutes différentes.</figcaption></figure>
+        <div class="ep-h"><span class="ep-n">4</span><h2>👑 L'empereur capturé par les Mongols</h2></div>
+        <figure class="ep-img"><img src={P('01.webp')} alt="La porte d'entrée de Jinshanling" loading="lazy" /><figcaption>La porte de Jinshanling — bâtie par les Ming, après un désastre qui a changé l'Histoire.</figcaption></figure>
         <div class="prose">
-          <p>La plupart des touristes vont à <strong>Badaling</strong> : facile, restaurée, bondée. Nous, nous sommes à <strong>Jinshanling</strong>.</p>
-          <p>Cette section a été bâtie vers <strong>1567</strong>, sous le général <strong>Qi Jiguang</strong> — un génie militaire qui avait aussi chassé les pirates des côtes chinoises. Il ne voulait pas juste un mur : il voulait la meilleure ligne de défense possible.</p>
-          <p>Regardez les tours : elles ne sont pas identiques. Certaines rondes, d'autres carrées, certaines à deux étages. Chaque détail avait une raison. Aujourd'hui encore, les historiens tiennent Jinshanling pour l'une des sections les plus intelligemment conçues de toute la Muraille.</p>
+          <p>Voici LA surprise qui étonne tout le monde. Beaucoup croient que la Muraille sous nos pieds a 2 000 ans. <strong>Faux.</strong> Celle qu'on visite aujourd'hui a été bâtie surtout par les <strong>Ming</strong>, entre le XIVᵉ et le XVIIᵉ siècle. Elle a donc environ <strong>500 ans</strong>. Et si les Ming l'ont reconstruite en pierre et en brique, c'est à cause d'une catastrophe.</p>
+          <p>En <strong>1449</strong>, le jeune empereur de Chine part en personne, à la tête d'une immense armée, corriger les Mongols au nord. Le désastre est total : l'armée est écrasée… et l'<strong>empereur lui-même est capturé</strong>. Imaginez, aujourd'hui, le président d'un pays fait prisonnier par le pays voisin. C'est un séisme.</p>
+          <p>Sous le choc, les Ming changent complètement de stratégie. Fini les vieux murs de terre : ils bâtissent une forteresse <strong>bien plus solide</strong> — briques cuites, blocs de pierre, tours de guet rapprochées, casernes. C'est précisément ce chantier-là que vous foulez à Jinshanling.</p>
         </div>
+        <details class="q"><summary>❓ Et l'empereur prisonnier, que lui est-il arrivé ?</summary>
+          <p>Fait incroyable : les Mongols n'ont pas su quoi en faire. Pendant ce temps, la Chine a couronné un <strong>nouvel</strong> empereur. Libéré au bout d'un an, l'ancien captif est rentré… assigné à résidence dans son propre palais — avant de reprendre le trône des années plus tard. Une vie de roman.</p></details>
       </article>
 
       <!-- ÉPISODE 5 -->
       <article class="ep" id="ep5">
-        <div class="ep-h"><span class="ep-n">5</span><h2>🔥 Le téléphone avant le téléphone</h2></div>
-        <figure class="ep-img"><img src={CC.beacon} alt="Une tour à feu (tour de guet) de la Grande Muraille" loading="lazy" title="Great Wall beacon tower — Wikimedia Commons" /><figcaption>Une tour à signaux : d'ici, on prévenait Pékin en quelques heures.</figcaption></figure>
+        <div class="ep-h"><span class="ep-n">5</span><h2>🏯 Pourquoi Jinshanling, la plus belle</h2></div>
+        <figure class="ep-img"><img src={P('02.webp')} alt="Le plan de la Grande Muraille de Jinshanling" loading="lazy" /><figcaption>Le plan de Jinshanling : des tours par dizaines, toutes différentes.</figcaption></figure>
         <div class="prose">
-          <p>Vous êtes soldat, ici. Vous voyez une armée au loin. Que faites-vous ? Pas de téléphone, pas de radio, pas de satellite. Les soldats parlaient une langue universelle : le <strong>feu</strong>. Le jour, de la fumée ; la nuit, des flammes.</p>
-          <p>Mais ce n'était pas juste « au secours ! ». Ils avaient un code : <strong>une</strong> colonne de fumée = « quelques ennemis » ; <strong>deux</strong> = « une troupe » ; <strong>cinq</strong> = « très grosse armée ». (Les Ming ont même ajouté des coups de canon pour compter plus vite.) Chaque tour voyait la suivante et répétait le signal. En quelques heures, Pékin était prévenue — l'un des meilleurs systèmes de communication militaire de l'époque.</p>
+          <p>La plupart des touristes filent à <strong>Badaling</strong> : facile d'accès, tout restauré, et bondé. Nous, nous sommes ailleurs. Quand on demande aux photographes du monde entier où aller sur la Muraille, trois noms reviennent toujours : <strong>Jiankou</strong> la plus sauvage, <strong>Simatai</strong> la plus spectaculaire… et <strong>Jinshanling</strong>, la plus belle. Nous y sommes.</p>
+          <p>Pourquoi la plus belle ? Parce qu'ici tout est réuni : des crêtes très fines, des tours rapprochées, des passages restaurés qui côtoient des sections restées <strong>totalement d'origine</strong>, envahies de verdure. Et surtout, la Muraille épouse le relief à la perfection — c'est là qu'on comprend vraiment l'image du dragon.</p>
+          <p>Cette section a été renforcée vers <strong>1567</strong> sous le général <strong>Qi Jiguang</strong>, un stratège de génie qui avait aussi chassé les pirates des côtes chinoises. Regardez les tours : rondes, carrées, à un ou deux étages… aucune identique. Chaque forme répondait à un besoin précis. Encore aujourd'hui, les historiens tiennent Jinshanling pour l'une des sections les plus intelligemment conçues de toute la Muraille.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 6 -->
       <article class="ep" id="ep6">
-        <div class="ep-h"><span class="ep-n">6</span><h2>🧱 Construire ça sans grue ?</h2></div>
-        <figure class="ep-img"><img src={P('04.webp')} alt="Les marches usées de la Muraille sauvage de Jinshanling" loading="lazy" /><figcaption>Les marches d'origine, usées et envahies de verdure — montées brique par brique.</figcaption></figure>
+        <div class="ep-h"><span class="ep-n">6</span><h2>🔥 Le plus vieux « WhatsApp » du monde</h2></div>
+        <figure class="ep-img"><img src={CC.beacon} alt="Une tour à feu (tour de guet) de la Grande Muraille" loading="lazy" title="Great Wall beacon tower — Wikimedia Commons" /><figcaption>Une tour à signaux : d'ici, un message atteignait Pékin dans la journée.</figcaption></figure>
         <div class="prose">
-          <p>Regardez ces briques : souvent <strong>15 à 25 kilos</strong> chacune. Comment les monter jusqu'ici ? À dos d'homme, d'âne, de mule, sur des traîneaux — et l'hiver, on faisait glisser les pierres sur la neige. Des millions de tonnes hissées sans camion, sans hélico, sans moteur.</p>
-          <p class="aside">🍚 Le secret des maçons ming ? Un mortier à la <strong>bouillie de riz gluant</strong> mélangée à la chaux. Ça paraît fou, mais ce riz collant a rendu le mortier si solide que, cinq siècles plus tard, la Muraille tient toujours. C'est encore aujourd'hui ce qui impressionne le plus les ingénieurs.</p>
+          <p>Ces tours servaient à tout : observer, dormir, stocker les armes et les vivres. Mais leur super-pouvoir, c'était de <strong>communiquer</strong>. Vous êtes soldat, ici, en l'an 1570. Vous repérez une armée au loin. Pas de téléphone, pas de radio, pas de satellite. Comment prévenir Pékin, à des centaines de kilomètres ?</p>
+          <p>Avec du <strong>feu</strong>. Le jour, de la fumée ; la nuit, des flammes. Et ce n'était pas un simple « au secours » : ils avaient un véritable <strong>code</strong>. <strong>Une</strong> colonne de fumée = « on aperçoit quelques cavaliers ». <strong>Deux</strong> = « l'ennemi est nombreux ». <strong>Trois</strong> = « préparez-vous à combattre ». (Les Ming ont même ajouté des coups de canon pour compter plus vite.)</p>
+          <p>Chaque tour voyait la suivante et répétait le signal, de proche en proche. Résultat : un message pouvait parcourir près de <strong>500 kilomètres en une seule journée</strong>. Un exploit de communication pour l'époque — le tout premier réseau à haut débit, version fumée.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 7 -->
       <article class="ep" id="ep7">
-        <div class="ep-h"><span class="ep-n">7</span><h2>😢 La légende des larmes</h2></div>
+        <div class="ep-h"><span class="ep-n">7</span><h2>🧱 Construire ça sans grue ?</h2></div>
+        <figure class="ep-img"><img src={P('04.webp')} alt="Les marches usées de la Muraille sauvage de Jinshanling" loading="lazy" /><figcaption>Les marches d'origine, usées et envahies de verdure — montées brique par brique.</figcaption></figure>
         <div class="prose">
-          <p><em>À raconter comme un conte.</em></p>
-          <p>Une jeune femme s'appelait <strong>Meng Jiangnü</strong>. Son mari fut envoyé construire la Muraille. Les mois passent, aucune nouvelle. Elle décide d'aller le chercher et marche des semaines. Quand elle arrive, on lui annonce qu'il est mort — et enseveli quelque part dans le mur. Elle s'effondre et pleure tellement que, dit la légende, une partie de la Muraille s'écroule pour lui rendre le corps.</p>
-          <p>Les Chinois savent que l'histoire n'est pas vraie. Mais elle rappelle une chose essentielle : derrière les grandes œuvres humaines, il y a toujours des vies humaines.</p>
+          <p>Prenez une brique du regard : souvent <strong>15 à 25 kilos</strong> pièce. Maintenant, levez les yeux vers le sommet où grimpe le mur. Comment monter des millions de blocs jusque là-haut, sur des pentes où l'on peine déjà à marcher les mains vides ?</p>
+          <p>À la force des bras : à dos d'homme, d'âne, de mule ; sur des traîneaux ; et l'hiver, on faisait carrément <strong>glisser les pierres sur la neige et la glace</strong>. Des millions de tonnes hissées sans camion, sans hélicoptère, sans moteur.</p>
+          <p class="aside">🍚 Le secret des maçons ming ? Un mortier à la <strong>bouillie de riz gluant</strong> mélangée à la chaux. Ça paraît fou — du riz collant ! — mais ça a rendu le mortier si résistant que, cinq siècles plus tard, la Muraille tient toujours. C'est encore aujourd'hui l'un des détails qui impressionnent le plus les ingénieurs.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 8 -->
       <article class="ep" id="ep8">
-        <div class="ep-h"><span class="ep-n">8</span><h2>🎬 La Muraille est partout</h2></div>
+        <div class="ep-h"><span class="ep-n">8</span><h2>🛰️ Les idées reçues</h2></div>
         <div class="prose">
-          <p>Vous l'avez sûrement déjà vue sans le savoir. Dans <em>The Great Wall</em> (avec Matt Damon), elle protège la Chine de créatures fantastiques. Dans <em>Karaté Kid</em> (2010), Jackie Chan y emmène son élève pour lui montrer que les grandes réussites demandent du temps. Dans des jeux comme <em>Civilization</em>, la bâtir protège votre civilisation.</p>
-          <p>Dessins animés, pubs, logos : elle est devenue un symbole mondial de la Chine, comme la tour Eiffel pour Paris.</p>
+          <p><strong>« On la voit depuis l'espace ! »</strong> C'est sans doute le mythe le plus célèbre du monde… et il est <strong>faux</strong>. La Muraille est immense en longueur, mais elle ne fait souvent que <strong>5 à 8 mètres de large</strong> — de la couleur de la montagne, en plus. Depuis l'orbite, elle est quasiment impossible à distinguer à l'œil nu. Plusieurs astronautes l'ont confirmé : ils l'ont cherchée… sans la trouver.</p>
+          <p><strong>« Mais alors, elle mesure combien ? »</strong> Là, tenez-vous bien. En additionnant toutes les murailles construites par toutes les dynasties, on arrive à <strong>21 196 kilomètres</strong>. C'est comme relier <strong>Paris à Sydney</strong>… ou faire la <strong>moitié du tour de la Terre</strong>. Et pourtant, elle n'a jamais été bâtie d'un coup : pendant près de 2 000 ans, chaque dynastie a ajouté sa part.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 9 -->
       <article class="ep" id="ep9">
-        <div class="ep-h"><span class="ep-n">9</span><h2>🌍 Les 7 nouvelles merveilles</h2></div>
+        <div class="ep-h"><span class="ep-n">9</span><h2>😢 La légende qui fait pleurer les enfants chinois</h2></div>
         <div class="prose">
-          <p>En 2007, plus de 100 millions de personnes ont voté pour élire les <strong>Sept Nouvelles Merveilles du Monde</strong> :</p>
+          <p><em>À raconter comme un conte, en marchant.</em></p>
+          <p>Presque tous les écoliers de Chine la connaissent. Une jeune femme, <strong>Meng Jiangnü</strong>, vient d'épouser l'homme qu'elle aime. Mais l'empereur envoie aussitôt son mari construire la Muraille, tout là-haut, dans le froid. Les mois passent. Aucune nouvelle.</p>
+          <p>Rongée d'inquiétude, elle décide d'aller le rejoindre et marche pendant des semaines, à travers les montagnes. Quand elle arrive enfin… on lui apprend qu'il est mort d'épuisement — et enseveli quelque part <strong>dans le mur lui-même</strong>. Elle s'effondre et pleure avec tant de force que, dit la légende, une partie entière de la Muraille <strong>s'écroule</strong> pour lui rendre le corps de son mari.</p>
+          <p>Les Chinois savent bien que l'histoire n'est pas vraie. Mais elle rappelle une chose que la pierre fait oublier : derrière ce monument gigantesque, il y a eu d'innombrables vies humaines, et beaucoup de souffrance.</p>
+        </div>
+      </article>
+
+      <!-- ÉPISODE 10 -->
+      <article class="ep" id="ep10">
+        <div class="ep-h"><span class="ep-n">10</span><h2>🎬 Vous l'avez déjà vue (sans le savoir)</h2></div>
+        <div class="prose">
+          <p>Même si c'est votre première fois ici, vous avez sûrement déjà croisé la Muraille des dizaines de fois — au cinéma, en jeu vidéo, en dessin animé.</p>
+          <p><strong>🎬 The Great Wall</strong> (2016, avec Matt Damon) imagine que la Muraille protège la Chine… contre des monstres géants, les <em>Taotie</em>. C'est de la pure fiction, mais les décors s'inspirent de sections comme Jinshanling.</p>
+          <p><strong>🥋 Karaté Kid</strong> (2010) : Jackie Chan emmène son jeune élève ici même pour lui faire comprendre que les grandes réussites, comme la Muraille, demandent du temps et de la patience.</p>
+          <p><strong>🎮 Jeux vidéo</strong> : elle apparaît dans <em>Civilization</em>, <em>Age of Empires</em>, la saga <em>Assassin's Creed</em>, jusqu'à <em>Microsoft Flight Simulator</em> où l'on peut la survoler. Elle est devenue un symbole mondial de la Chine — comme la tour Eiffel pour Paris, ou les pyramides pour l'Égypte.</p>
+        </div>
+      </article>
+
+      <!-- ÉPISODE 11 -->
+      <article class="ep" id="ep11">
+        <div class="ep-h"><span class="ep-n">11</span><h2>🌍 Les 7 nouvelles merveilles</h2></div>
+        <div class="prose">
+          <p>En 2007, plus de 100 millions de personnes ont voté à travers le monde pour élire les <strong>Sept Nouvelles Merveilles du Monde</strong>. Voici les gagnantes :</p>
           <ul class="wonders">
-            <li>🇨🇳 La Grande Muraille de Chine</li>
+            <li>🇨🇳 La Grande Muraille de Chine <em>— celle sous vos pieds !</em></li>
             <li>🇮🇹 Le Colisée de Rome</li>
             <li>🇵🇪 Le Machu Picchu</li>
             <li>🇯🇴 Pétra</li>
@@ -139,28 +166,33 @@ const CC = {
             <li>🇲🇽 Chichén Itzá</li>
             <li>🇧🇷 Le Christ Rédempteur de Rio</li>
           </ul>
-          <p>Une « huitième » est souvent citée hors concours : les <strong>pyramides de Gizeh</strong> — seule merveille de la liste antique encore debout, elles ont reçu un statut d'honneur sans participer au vote. Combien en avez-vous déjà vues ?</p>
+          <p>Une « huitième » est souvent citée hors concours : les <strong>pyramides de Gizeh</strong> — seule merveille de la liste antique encore debout, elles ont reçu un statut d'honneur sans participer au vote.</p>
+          <p class="aside">🎒 La question qui rend fier : <strong>combien en avez-vous déjà vues, en famille ?</strong> Comptez bien — avec la Muraille d'aujourd'hui, le compteur vient de monter d'un cran.</p>
         </div>
       </article>
 
-      <!-- ÉPISODE 10 -->
-      <article class="ep" id="ep10">
-        <div class="ep-h"><span class="ep-n">10</span><h2>🐉 Le secret du dragon</h2></div>
-        <figure class="ep-img"><img src={CC.wild} alt="La Grande Muraille sauvage suivant les sommets" loading="lazy" title="Wild Great Wall, Gubeikou — Wikimedia Commons" /><figcaption>Elle ne prend jamais le chemin le plus facile : elle suit les sommets.</figcaption></figure>
+      <!-- ÉPISODE 12 -->
+      <article class="ep" id="ep12">
+        <div class="ep-h"><span class="ep-n">12</span><h2>🐉 Le secret du dragon</h2></div>
+        <figure class="ep-img"><img src={P('03.webp')} alt="La famille sur la Grande Muraille de Jinshanling" loading="lazy" /><figcaption>Le plus impressionnant n'est ni sa longueur, ni son âge. C'est autre chose.</figcaption></figure>
         <div class="prose">
-          <p>Regardez une dernière fois. La Muraille ne prend jamais le chemin le plus facile : elle suit <strong>toujours les crêtes</strong>. Pourquoi ? Parce qu'elle n'a pas été construite pour être belle, mais pour être presque impossible à attaquer.</p>
-          <p>Et pourtant, des siècles plus tard, ce n'est plus une frontière, plus une forteresse : c'est un <strong>symbole</strong>. Des millions de personnes viennent ici chaque année — non pour défendre un empire, mais pour admirer ce que des êtres humains ont accompli ensemble. C'est peut-être ça, la plus belle victoire de la Grande Muraille.</p>
+          <p>Arrêtez-vous une dernière fois sur un grand panorama. Regardez le dragon dérouler ses anneaux jusqu'à l'horizon. Et voici ce qui est vraiment le plus impressionnant.</p>
+          <p>Ce n'est pas qu'elle soit <strong>longue</strong>. Ce n'est pas qu'elle soit <strong>vieille</strong>. C'est qu'il y a plus de cinq siècles, des <strong>milliers de personnes</strong> ont réussi à bâtir tout ceci sur des montagnes où, aujourd'hui encore, on se demande comment on a bien pu monter les matériaux. Sans hélicoptère. Sans camion. Sans béton moderne. Juste avec des hommes, des animaux, des cordes, des traîneaux — et une volonté incroyable.</p>
+          <p>Alors quand on parle de la Grande Muraille, on ne parle pas seulement d'un monument. On parle de l'une des <strong>plus grandes réalisations humaines de toute l'Histoire</strong>. Et vous venez de marcher dessus, tous ensemble.</p>
         </div>
       </article>
 
       <!-- LE JEU -->
       <article class="ep game" id="jeu">
-        <div class="ep-h"><span class="ep-n">🎯</span><h2>Le jeu, tour après tour</h2></div>
-        <div class="prose"><p>À chaque tour, une mission — devinez, puis vérifiez :</p></div>
-        <details class="q"><summary>Pourquoi cette tour ici, et pas 100 m plus loin ?</summary><p>Parce qu'elle domine un col, une vallée ou un angle mort — l'endroit exact d'où l'ennemi pouvait venir.</p></details>
-        <details class="q"><summary>Pourquoi certaines meurtrières regardent vers l'intérieur ?</summary><p>Pour pouvoir défendre la Muraille même si des ennemis réussissaient à monter dessus sur une section.</p></details>
-        <details class="q"><summary>Pourquoi les créneaux sont-ils de tailles différentes ?</summary><p>Les grands servaient à observer et à tirer à l'arc ; les petits étaient adaptés aux armes à feu, apparues sous les Ming.</p></details>
-        <details class="q"><summary>Pourquoi les marches sont-elles toutes différentes ?</summary><p>Elles n'ont pas été faites pour des touristes, mais pour <strong>ralentir un assaillant</strong> et coller au relief. D'où les hauteurs irrégulières.</p></details>
+        <div class="ep-h"><span class="ep-n">🎯</span><h2>Le jeu des tours</h2></div>
+        <div class="prose">
+          <p>À chaque tour, une question à poser aux enfants avant de dévoiler la réponse : <strong>« Si tu étais le général, à quoi servirait cette tour ? »</strong> Il n'y a pas une seule bonne réponse — une même tour pouvait tout faire.</p>
+        </div>
+        <details class="q"><summary>Les huit vies d'une tour</summary><p>Une tour pouvait servir de : <strong>dortoir</strong>, <strong>cuisine</strong>, <strong>réserve de céréales</strong>, <strong>dépôt de poudre</strong>, <strong>poste d'observation</strong>, <strong>relais de messagers</strong> (le feu !), <strong>plateforme pour les archers</strong> et même <strong>infirmerie</strong> de campagne. Une vraie maison forte.</p></details>
+        <details class="q"><summary>Pourquoi les meurtrières ne regardent pas toutes du même côté ?</summary><p>Certaines visent la vallée (l'ennemi qui arrive). D'autres visent <strong>le long de la Muraille</strong> — pour protéger les soldats voisins si l'ennemi réussissait à monter sur une section. On se couvre les uns les autres.</p></details>
+        <details class="q"><summary>À quoi servent les créneaux (les « dents » en haut du mur) ?</summary><p>À se <strong>cacher</strong> derrière, puis à se relever pour tirer — un peu comme un bouclier de pierre qui protège pendant qu'on recharge.</p></details>
+        <details class="q"><summary>Pourquoi cette tour ici, et pas 100 m plus loin ?</summary><p>Parce qu'elle domine un col, un virage ou un angle mort — l'endroit exact d'où l'ennemi pouvait surgir. Rien n'a été placé au hasard.</p></details>
+        <details class="q"><summary>Pourquoi les marches sont-elles toutes de hauteurs différentes ?</summary><p>Elles n'ont pas été taillées pour des touristes, mais pour <strong>ralentir un assaillant</strong> et coller au relief. D'où les hauteurs irrégulières — casse-pattes pour l'ennemi… et pour nous.</p></details>
       </article>
 
       <p class="mcredit">Illustrations historiques : Wikimedia Commons (licences libres CC / domaine public). Photos du voyage : famille Lahutte.</p>

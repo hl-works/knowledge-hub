@@ -8,7 +8,7 @@ const P = (n: string) => `${base}photos/7/${n}`;
 ---
 <Base
   title="Le Gobi raconté — Atlas d'Asie"
-  description="Une visite guidée du désert de Gobi (Mongolie) en 11 épisodes à lire avec les enfants : le désert qui gèle, l'ancien fond marin, les falaises de feu et leurs œufs de dinosaures, la gorge qui garde sa glace, les dunes qui chantent, le chameau à deux bosses, la vie sous la ger, l'airag et les cinq museaux."
+  description="Une visite guidée du désert de Gobi (Mongolie) à lire avec les enfants : le désert qui gèle, l'ancien fond marin, les falaises de feu et leurs œufs de dinosaures, la gorge qui garde sa glace, les dunes qui chantent, le chameau à deux bosses, la vie sous la ger, l'airag et les cinq museaux. Histoire, science, légende et pop culture."
 >
   <Header variant="solid" active="histoires" />
 
@@ -20,7 +20,7 @@ const P = (n: string) => `${base}photos/7/${n}`;
       <div class="wrap mhero-in">
         <p class="eyebrow">À lire dans le désert · escale 7</p>
         <h1 class="disp">Le Gobi raconté</h1>
-        <p class="lead">Bienvenue dans le <strong>plus grand désert d'Asie</strong>. Mais oubliez le Sahara : ici, presque pas de sable — de la pierre, de la steppe, et un froid qui descend à <strong>−40°C</strong> l'hiver. Un désert qui gèle, plein de dinosaures, de chameaux et de nomades. <em>Onze épisodes à lire au fil des jours, avec les enfants.</em></p>
+        <p class="lead">Bienvenue dans le <strong>plus grand désert d'Asie</strong>. Mais oubliez le Sahara : ici, presque pas de sable — de la pierre, de la steppe, et un froid qui descend à <strong>−40°C</strong> l'hiver. Un désert qui gèle, rempli d'œufs de dinosaures, de chameaux à deux bosses et de familles nomades. <em>Onze épisodes à lire au fil des jours, comme un guide qui vous confie les secrets du désert.</em></p>
       </div>
     </section>
 
@@ -29,7 +29,7 @@ const P = (n: string) => `${base}photos/7/${n}`;
       <!-- Photo d'ouverture -->
       <figure class="shot">
         <img src={P('07.webp')} alt="Selfie de famille hilare face aux badlands du Gobi" loading="lazy" />
-        <figcaption>Toute la tribu face au Gobi — il y a de quoi sourire : peu de gens verront jamais ça.</figcaption>
+        <figcaption>Toute la tribu face au Gobi — il y a de quoi sourire : très peu de gens verront jamais ça de leurs yeux.</figcaption>
       </figure>
 
       <!-- ÉPISODE 1 -->
@@ -37,20 +37,22 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">1</span><h2>❄️ Le désert qui gèle</h2></div>
         <figure class="ep-img"><img src={P('04.webp')} alt="Au bord de l'escarpement de Tsagaan Suvarga, le Gobi s'étire à l'infini" loading="lazy" /><figcaption>Le Gobi à perte de vue : surtout de la pierre et de la steppe, très peu de sable.</figcaption></figure>
         <div class="prose">
-          <p>Quand on dit « désert », on pense sable brûlant et chameaux. Le Gobi, c'est presque l'inverse. C'est le <strong>plus grand désert d'Asie</strong>, et il est surtout fait de <strong>cailloux, de roche et de steppe sèche</strong>. Le sable ne couvre qu'une toute petite partie.</p>
-          <p>Et surtout : il <strong>gèle</strong>. L'hiver, la température tombe jusqu'à <strong>−40°C</strong>, avec de la neige. L'été, elle grimpe à +40. Presque 80 degrés d'écart dans l'année ! « Gobi » veut d'ailleurs dire en mongol « lieu sans eau ». Vivre ici, c'est apprendre à supporter les extrêmes.</p>
+          <p>Quand on dit « désert », on imagine du sable brûlant à l'infini et des chameaux qui avancent au soleil. Le Gobi, c'est presque l'inverse. C'est le <strong>plus grand désert d'Asie</strong> (grand comme plus de deux fois la France), et il est surtout fait de <strong>cailloux, de rocaille et de steppe sèche</strong>. Le sable ne couvre qu'une toute petite partie.</p>
+          <p>Et surtout : il <strong>gèle</strong>. C'est ce qui le rend unique. L'hiver, la température plonge jusqu'à <strong>−40°C</strong>, avec du vent et de la neige. L'été, elle grimpe à +40. Presque <strong>80 degrés d'écart</strong> dans la même année ! « Gobi » veut d'ailleurs simplement dire, en mongol, « lieu sans eau » ou « steppe rude ». Vivre ici, c'est apprendre à supporter tous les extrêmes.</p>
+          <p class="aside">🌱 Autre chose : le Gobi <strong>grandit</strong> chaque année, à cause de la sécheresse. Pour freiner le sable, la Chine plante à ses portes une gigantesque barrière d'arbres, une « grande muraille verte » de milliers de kilomètres. Un mur contre le désert, cette fois.</p>
         </div>
         <details class="q"><summary>❓ Un désert, ce n'est donc pas forcément chaud ?</summary>
-          <p>Non ! Un désert, c'est un endroit où il tombe très peu de pluie — pas forcément un endroit chaud. Il existe même des déserts froids, comme le Gobi… ou l'Antarctique, le plus grand désert du monde.</p></details>
+          <p>Non ! Un désert, c'est un endroit où il tombe très peu de pluie — pas forcément un endroit chaud. Il existe des déserts <strong>froids</strong>, comme le Gobi… et le plus grand désert du monde est même glacé : c'est l'Antarctique !</p></details>
       </article>
 
       <!-- ÉPISODE 2 -->
       <article class="ep" id="ep2">
         <div class="ep-h"><span class="ep-n">2</span><h2>🐚 Tsagaan Suvarga, l'ancien fond marin</h2></div>
-        <figure class="ep-img"><img src={P('05.webp')} alt="Minuscules sur les crêtes sculptées de Tsagaan Suvarga" loading="lazy" /><figcaption>Tsagaan Suvarga, « la stupa blanche » : un escarpement qui dormait sous la mer.</figcaption></figure>
+        <figure class="ep-img"><img src={P('05.webp')} alt="Minuscules sur les crêtes sculptées de Tsagaan Suvarga" loading="lazy" /><figcaption>Tsagaan Suvarga, « la stupa blanche » : un escarpement qui dormait au fond de la mer.</figcaption></figure>
         <div class="prose">
-          <p>Ces grandes falaises striées, hautes comme un immeuble de vingt étages, ont un secret : il y a très longtemps, elles étaient <strong>au fond d'une mer</strong>. Les couches de couleur, ce sont des millions d'années de <strong>sédiments</strong> déposés sous l'eau, puis soulevés par la Terre.</p>
-          <p>On appelle l'endroit <strong>Tsagaan Suvarga</strong>, « la stupa blanche », à cause de sa forme de temple. En cherchant bien au sol, on trouve encore des <strong>coquillages fossiles</strong> — les preuves qu'ici, là où tout est sec, nageaient un jour des poissons.</p>
+          <p>Ces grandes falaises striées de couleurs, hautes comme un immeuble, cachent un secret vertigineux : il y a très, très longtemps, elles étaient <strong>au fond d'une mer</strong>. Là où tout est sec et poussiéreux aujourd'hui nageaient des poissons.</p>
+          <p>Les bandes de couleur que vous voyez, ce sont des <strong>millions d'années de sédiments</strong> — des couches de boue, de sable et de coquillages déposées lentement sous l'eau, puis soulevées et mises à nu par les mouvements de la Terre. On appelle l'endroit <strong>Tsagaan Suvarga</strong>, « la stupa blanche », à cause de sa forme qui évoque un temple bouddhiste.</p>
+          <p class="aside">🔎 Baissez les yeux et cherchez au sol : on y trouve encore de petits <strong>coquillages fossiles</strong>, preuves que cette mer a bien existé. On regarde, on s'émerveille… mais on repose : dans le Gobi, les fossiles restent là où ils sont.</p>
         </div>
       </article>
 
@@ -59,9 +61,9 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">3</span><h2>🦕 Bayanzag & les œufs de dinosaures</h2></div>
         <figure class="ep-img"><img src={P('23.webp')} alt="Les falaises rouges de Bayanzag, les Flaming Cliffs" loading="lazy" /><figcaption>Bayanzag, les « falaises de feu » : ici ont été trouvés les premiers œufs de dinosaures du monde.</figcaption></figure>
         <div class="prose">
-          <p>Voici peut-être l'endroit le plus incroyable du Gobi. Ces falaises rouges s'appellent <strong>Bayanzag</strong> — les explorateurs les ont surnommées les <strong>« Flaming Cliffs »</strong>, les falaises de feu. Et c'est un immense <strong>coffre à dinosaures</strong>.</p>
-          <p>En 1923, l'Américain <strong>Roy Chapman Andrews</strong> y découvre les <strong>premiers nids d'œufs de dinosaures</strong> jamais identifiés — ceux du Protocératops. On y a aussi trouvé le fameux <strong>Vélociraptor</strong>, et même deux dinosaures fossilisés en plein <strong>combat</strong>, figés pour l'éternité par une tempête de sable.</p>
-          <p class="aside">🎬 Roy Chapman Andrews — chapeau, aventures, tempêtes de sable — est l'un des personnages qui ont inspiré <strong>Indiana Jones</strong>. Et le Vélociraptor que vous connaissez de <em>Jurassic Park</em>, c'est ici, sous vos pieds, qu'on l'a trouvé.</p>
+          <p>Voici peut-être l'endroit le plus incroyable de tout le Gobi. Ces falaises rouges s'appellent <strong>Bayanzag</strong> — les explorateurs les ont surnommées les <strong>« Flaming Cliffs »</strong>, les falaises de feu, à cause de leur couleur au coucher du soleil. Et c'est un immense <strong>coffre à dinosaures</strong>, l'un des plus riches de la planète.</p>
+          <p>En <strong>1923</strong>, l'Américain <strong>Roy Chapman Andrews</strong> y découvre les <strong>premiers nids d'œufs de dinosaures</strong> jamais identifiés — ceux du Protocératops. Jusque-là, personne ne savait vraiment comment naissaient les dinosaures ! On y a aussi trouvé le fameux <strong>Vélociraptor</strong>, l'Oviraptor, et même deux dinosaures fossilisés <strong>en plein combat</strong>, un Vélociraptor et un Protocératops figés griffes contre cornes, ensevelis d'un coup par une tempête de sable il y a 75 millions d'années.</p>
+          <p class="aside">🎬 Roy Chapman Andrews — chapeau de feutre, revolver, caravanes de chameaux et tempêtes de sable — est l'un des aventuriers qui ont inspiré le personnage d'<strong>Indiana Jones</strong>. Et le Vélociraptor que vous connaissez de <em>Jurassic Park</em> ? C'est <strong>ici</strong>, sous vos pieds, dans ce désert, qu'on l'a trouvé pour la première fois.</p>
         </div>
       </article>
 
@@ -70,18 +72,20 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">4</span><h2>🧊 Yolyn Am, la gorge qui garde sa glace</h2></div>
         <figure class="ep-img"><img src={P('12.webp')} alt="Hugo et Alexis au-dessus de la gorge verte de Yolyn Am" loading="lazy" /><figcaption>Yolyn Am : une gorge si étroite et si ombragée qu'elle garde sa glace en plein été.</figcaption></figure>
         <div class="prose">
-          <p>En plein désert, une surprise : une <strong>gorge verte</strong>, avec un ruisseau, de la mousse… et parfois de la <strong>glace</strong>, même au cœur de l'été. Elle est si étroite et si haute que le soleil n'atteint presque jamais le fond : le froid y reste prisonnier.</p>
-          <p>Son nom, <strong>Yolyn Am</strong>, veut dire « la gorge du gypaète » — un immense vautour barbu de près de 3 mètres d'envergure qui plane au-dessus des parois. De la glace et des vautours géants au milieu d'un désert : le Gobi adore les contradictions.</p>
+          <p>En plein désert brûlant, une surprise totale : une <strong>gorge verte</strong>, avec un ruisseau qui chante, de la mousse, des fleurs… et parfois de la <strong>glace</strong>, même au cœur de l'été. Comment est-ce possible ? La gorge est si étroite et ses parois si hautes que le soleil n'atteint presque jamais le fond : le froid de l'hiver y reste prisonnier, à l'ombre, sous forme d'un long ruban de glace qui met des mois à fondre.</p>
+          <p>Son nom, <strong>Yolyn Am</strong>, veut dire « la gorge du gypaète » — un immense <strong>vautour barbu</strong> de près de 3 mètres d'envergure qui plane au-dessus des parois, à la recherche d'os à faire tomber sur les rochers pour les briser. En bas, de petits rongeurs des montagnes, les pikas, sifflent pour se prévenir.</p>
+          <p>De la glace, des vautours géants et des fleurs au milieu d'un des déserts les plus secs du monde : le Gobi adore prendre le contre-pied de ce qu'on attend de lui.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 5 -->
       <article class="ep" id="ep5">
         <div class="ep-h"><span class="ep-n">5</span><h2>🏜️ Khongoryn Els, les dunes qui chantent</h2></div>
-        <figure class="ep-img"><img src={P('14.webp')} alt="Marion sur la crête des dunes chantantes de Khongoryn Els, luges au pied" loading="lazy" /><figcaption>Khongoryn Els : 300 m de sable — et un grondement quand il glisse.</figcaption></figure>
+        <figure class="ep-img"><img src={P('14.webp')} alt="Marion sur la crête des dunes chantantes de Khongoryn Els, luges au pied" loading="lazy" /><figcaption>Khongoryn Els : jusqu'à 300 m de sable — et un grondement quand il glisse.</figcaption></figure>
         <div class="prose">
-          <p>Enfin du sable ! Et pas n'importe lequel : les dunes de <strong>Khongoryn Els</strong> montent jusqu'à <strong>300 mètres</strong> — un gratte-ciel de sable — et s'étirent sur plus de 100 km. Les grimper, c'est trois pas en avant, deux qui glissent en arrière.</p>
-          <p>Mais leur vrai secret, c'est le <strong>bruit</strong>. Quand le sable dévale la pente, il produit un grondement grave, profond, comme un avion au loin ou un orgue d'église. On les appelle les <strong>« dunes chantantes »</strong>. Personne ne joue de musique : c'est le sable lui-même qui vibre.</p>
+          <p>Enfin du vrai sable ! Et pas n'importe lequel : les dunes de <strong>Khongoryn Els</strong> montent jusqu'à <strong>300 mètres</strong> de haut — un gratte-ciel de sable — et s'étirent sur plus de 100 kilomètres le long des montagnes. Les grimper, c'est un effort d'enfer : trois pas en avant, deux qui glissent en arrière, le cœur qui tape. Mais la vue, là-haut, coupe le souffle.</p>
+          <p>Leur vrai secret, c'est le <strong>bruit</strong>. Quand une masse de sable dévale la pente, elle produit un grondement grave, profond, qui monte de sous vos pieds — un peu comme un avion au loin, ou un orgue d'église. On les appelle les <strong>« dunes chantantes »</strong>.</p>
+          <p class="aside">🎻 Pourquoi ce chant ? Personne ne joue de musique : ce sont les <strong>millions de grains de sable</strong> qui frottent les uns contre les autres en glissant, tous en même temps, et font vibrer la dune entière comme la corde d'un violon géant. Il faut du sable très sec et très fin — le Gobi en est le maître.</p>
         </div>
       </article>
 
@@ -90,8 +94,9 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">6</span><h2>🐫 Le chameau à deux bosses</h2></div>
         <figure class="ep-img"><img src={P('18.webp')} alt="Toute la famille et le troupeau de chameaux de Bactriane au pied des dunes, à l'heure dorée" loading="lazy" /><figcaption>Les chameaux de Bactriane et leurs deux bosses — la marque du Gobi.</figcaption></figure>
         <div class="prose">
-          <p>Comptez les bosses. <strong>Deux !</strong> Ce n'est pas un dromadaire (une bosse), mais un <strong>chameau de Bactriane</strong>, celui des déserts froids d'Asie. Les bosses ne contiennent pas d'eau, mais de la <strong>graisse</strong> : une réserve d'énergie pour tenir des jours sans manger.</p>
-          <p>Il supporte le −40 grâce à une épaisse fourrure qu'il perd en été, ferme ses narines contre le sable, et peut boire des dizaines de litres d'un coup. Dans le Gobi vivent même les derniers <strong>chameaux sauvages</strong> de la planète — il n'en reste que quelques centaines.</p>
+          <p>Comptez les bosses. <strong>Deux !</strong> Ce n'est pas un dromadaire (une seule bosse, celui des déserts chauds), mais un <strong>chameau de Bactriane</strong>, le champion des déserts froids d'Asie. Et non, les bosses ne contiennent pas d'eau : elles sont remplies de <strong>graisse</strong>, une réserve d'énergie qui lui permet de tenir des jours sans manger. Quand il a faim depuis longtemps, ses bosses ramollissent et penchent sur le côté.</p>
+          <p>C'est un survivant hors norme : une épaisse fourrure qu'il perd d'un coup en été (il ressemble alors à un vieux tapis !), des narines qu'il ferme contre le sable, de longs cils pour se protéger, et il peut boire des dizaines de litres d'un seul coup — même de l'eau un peu salée.</p>
+          <p class="aside">⭐ Rareté mondiale : dans le Gobi vivent les <strong>derniers chameaux vraiment sauvages</strong> de la planète. Il n'en resterait que quelques centaines, plus rares que les pandas. Ceux que la famille a approchés, eux, sont élevés par les nomades — mais leurs cousins libres galopent quelque part dans ces immensités.</p>
         </div>
       </article>
 
@@ -100,18 +105,20 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">7</span><h2>🏠 La ger & les cinq museaux</h2></div>
         <figure class="ep-img"><img src={P('25.webp')} alt="Une ger seule dans l'immensité du Gobi, au crépuscule" loading="lazy" /><figcaption>La ger (la yourte mongole) : une maison entière qu'on plie et qu'on emporte.</figcaption></figure>
         <div class="prose">
-          <p>La maison ronde et blanche, c'est la <strong>ger</strong> — la yourte mongole. Une vraie maison : un poêle au centre, des lits, des coffres peints. Mais on peut la <strong>démonter en une heure</strong>, la charger sur des chameaux, et repartir. Les nomades déménagent ainsi plusieurs fois par an, en suivant l'herbe.</p>
-          <p>Leur richesse ne se compte pas en argent, mais en bêtes : les <strong>« cinq museaux »</strong>. Le mouton, la chèvre, le cheval, la vache (ou le yak) et le chameau. Chacun donne quelque chose — lait, viande, laine, cuir, transport. Un troupeau, c'est le compte en banque de la famille.</p>
+          <p>La maison ronde et blanche, c'est la <strong>ger</strong> — le mot mongol pour la yourte. Ne vous fiez pas à sa taille : c'est une vraie maison, avec un poêle au centre, des lits, des coffres peints de couleurs vives, et une place précise pour chaque chose. La porte est <strong>toujours orientée au sud</strong>, vers le soleil et à l'abri des vents froids du nord.</p>
+          <p>Le génie de la ger, c'est qu'on peut la <strong>démonter en une heure</strong>, la charger sur des chameaux ou un petit camion, et repartir. Les familles nomades déménagent ainsi plusieurs fois par an, en suivant l'herbe et les saisons. Détail étonnant : ici, presque tout le feu — pour cuisiner, pour se chauffer — vient des <strong>bouses séchées</strong> ramassées dans la steppe, car il n'y a pas d'arbres. Rien ne se perd.</p>
+          <p>Et la richesse d'une famille ne se compte pas en argent, mais en bêtes : les <strong>« cinq museaux »</strong>. Le <strong>mouton</strong>, la <strong>chèvre</strong>, le <strong>cheval</strong>, la <strong>vache</strong> (ou le yak) et le <strong>chameau</strong>. Chacun donne quelque chose — lait, viande, laine, cuir, transport, bouse pour le feu. Un troupeau, c'est le compte en banque, le supermarché et la station-service de la famille, réunis.</p>
         </div>
       </article>
 
       <!-- ÉPISODE 8 -->
       <article class="ep" id="ep8">
         <div class="ep-h"><span class="ep-n">8</span><h2>🥛 L'airag, fierté au fond du bol</h2></div>
-        <figure class="ep-img"><img src={P('01.webp')} alt="Un bol d'airag, le lait de jument fermenté, offert à l'invité sous la ger" loading="lazy" /><figcaption>Le bol d'airag qu'on offre à l'invité — refuser serait presque impoli.</figcaption></figure>
+        <figure class="ep-img"><img src={P('01.webp')} alt="Un bol d'airag, le lait de jument fermenté, offert à l'invité sous la ger" loading="lazy" /><figcaption>Le bol d'airag qu'on offre à l'invité — le refuser serait presque impoli.</figcaption></figure>
         <div class="prose">
-          <p>Sous la ger, on vous tend un grand bol de liquide blanc. C'est l'<strong>airag</strong> : du <strong>lait de jument fermenté</strong>, légèrement pétillant et un peu acide. C'est <em>la</em> fierté nationale de la Mongolie, offerte à tout invité.</p>
-          <p>Les Mongols en boivent des quantités énormes — il remplace parfois l'eau <em>et</em> les boissons des grands. Les enfants y goûtent tout petits. Un grand-père du camp pouvait en boire <strong>cinq litres</strong> dans la journée ! Nous, on a goûté par politesse… et disons que ce n'est pas encore notre boisson préférée.</p>
+          <p>À peine entré sous la ger, on vous tend un grand bol de liquide blanc, un peu mousseux. C'est l'<strong>airag</strong> : du <strong>lait de jument fermenté</strong>, légèrement pétillant, acidulé, et très légèrement alcoolisé (à peine plus qu'un jus un peu tourné). C'est <em>la</em> fierté nationale de la Mongolie, qu'on offre à tout invité — et le tradition veut qu'on y goûte, au moins par politesse.</p>
+          <p>Les Mongols en boivent des quantités impressionnantes pendant l'été, quand les juments donnent le plus de lait : il désaltère, il nourrit, il apporte des vitamines qu'on trouve mal ailleurs dans la steppe. Les enfants y goûtent tout petits, dilué, et grandissent avec ce goût-là.</p>
+          <p class="aside">🥛 Notre expérience, en toute honnêteté : un grand-père du camp pouvait en descendre <strong>cinq litres</strong> dans la journée, remplaçant à la fois l'eau et les boissons des grands ! Nous, on a goûté avec le sourire… et disons que ce n'est pas encore devenu notre boisson préférée. Mais quel souvenir.</p>
         </div>
       </article>
 
@@ -120,8 +127,8 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">9</span><h2>💧 La vie au point d'eau</h2></div>
         <figure class="ep-img"><img src={P('22.webp')} alt="Chèvres et moutons au point d'eau du désert" loading="lazy" /><figcaption>L'abreuvoir : dans un désert, c'est le cœur battant de la vie nomade.</figcaption></figure>
         <div class="prose">
-          <p>Dans un pays « sans eau », le <strong>point d'eau</strong> est ce qui compte le plus. C'est là que se retrouvent les troupeaux, qu'on remplit les bidons, que les familles se croisent. Un puits peut décider de l'endroit où l'on plante sa ger.</p>
-          <p>Les enfants du camp grandissent au milieu des bêtes : Emma et Alexis ont porté des <strong>chevreaux</strong> tout juste nés. Ici, s'occuper des animaux n'est pas un jeu : c'est le premier travail, dès le plus jeune âge. On aide, on apprend, on grandit avec le troupeau.</p>
+          <p>Dans un pays qui s'appelle « lieu sans eau », le <strong>point d'eau</strong> est ce qui compte le plus au monde. C'est là que les troupeaux viennent boire, qu'on remplit les bidons de la famille, que les voisins — parfois à des dizaines de kilomètres — se croisent et prennent des nouvelles. Un simple puits peut décider de l'endroit où l'on plante sa ger pour la saison.</p>
+          <p>Autour de cette eau précieuse grandissent les enfants nomades, au milieu des bêtes. Emma et Alexis ont porté dans leurs bras des <strong>chevreaux</strong> tout juste nés, tout tremblants. Car ici, s'occuper des animaux n'est pas un jeu du dimanche : c'est le premier travail, dès le plus jeune âge. On aide à mener le troupeau, on apprend à reconnaître chaque bête, on grandit avec elles. Une autre façon d'être enfant.</p>
         </div>
       </article>
 
@@ -130,8 +137,9 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">10</span><h2>🐎 Les petits chevaux increvables</h2></div>
         <figure class="ep-img"><img src={P('29.webp')} alt="Alexis et Emma à cheval sur la steppe mongole" loading="lazy" /><figcaption>Les petits chevaux mongols : trapus, endurants, presque impossibles à fatiguer.</figcaption></figure>
         <div class="prose">
-          <p>Le cheval mongol n'est pas grand — à peine plus qu'un gros poney. Mais c'est l'un des plus <strong>endurants du monde</strong>. C'est sur ces chevaux que <strong>Gengis Khan</strong> a conquis le plus grand empire de l'histoire : ils galopaient des jours entiers, se nourrissaient seuls dans la steppe, survivaient au gel.</p>
-          <p>En Mongolie, il y a presque autant de chevaux que d'habitants. Les enfants participent même à des courses de plusieurs dizaines de kilomètres. Petit, mais champion : la preuve qu'en voyage comme ailleurs, la taille ne fait pas tout.</p>
+          <p>Le cheval mongol n'est pas grand — à peine plus qu'un gros poney, avec une grosse tête et des pattes courtes. Il ne paie pas de mine. Mais c'est l'un des chevaux les plus <strong>endurants du monde</strong> : il vit dehors toute l'année, cherche son herbe seul sous la neige, et supporte le −40 sans écurie.</p>
+          <p>C'est sur ces chevaux-là que <strong>Gengis Khan</strong> a conquis, il y a 800 ans, le <strong>plus grand empire de tous les temps</strong>, de la Chine jusqu'aux portes de l'Europe. Ses cavaliers galopaient des jours entiers, changeaient de monture sans s'arrêter, dormaient en selle. Sans ces petits chevaux, pas d'empire mongol.</p>
+          <p class="aside">🏇 En Mongolie, il y a presque autant de chevaux que d'habitants. Et lors de la grande fête du Naadam, ce sont des <strong>enfants</strong> — parfois 6 ou 7 ans — qui montent lors de courses lancées sur des dizaines de kilomètres à travers la steppe. Petit, mais champion : la preuve qu'en voyage comme ailleurs, la taille ne fait pas tout.</p>
         </div>
       </article>
 
@@ -140,19 +148,21 @@ const P = (n: string) => `${base}photos/7/${n}`;
         <div class="ep-h"><span class="ep-n">11</span><h2>🪨 Baga Gazriin Chuluu, le retour</h2></div>
         <figure class="ep-img"><img src={P('31.webp')} alt="La famille sur les rochers de granit de Baga Gazriin Chuluu" loading="lazy" /><figcaption>Sur la route du retour : les rochers de granit de Baga Gazriin Chuluu.</figcaption></figure>
         <div class="prose">
-          <p>Avant de retrouver Oulan-Bator, une dernière étape : les rochers de <strong>Baga Gazriin Chuluu</strong>, d'énormes blocs de <strong>granit</strong> posés au milieu de la steppe. Un lieu longtemps considéré comme <strong>sacré</strong>, refuge de moines et d'ermites.</p>
-          <p>On y grimpe, on y saute, on y trouve des mâchoires d'animaux dans l'herbe. Et en repartant en van avec le guide, on emporte le plus beau souvenir du Gobi : le <strong>silence</strong>. Un silence si total qu'on entend son propre cœur. Peu d'endroits sur Terre vous font ce cadeau-là.</p>
+          <p>Avant de retrouver Oulan-Bator, une dernière étape qui tranche avec le sable : les rochers de <strong>Baga Gazriin Chuluu</strong>, d'énormes blocs de <strong>granit</strong> gris posés au milieu de la steppe rase, comme oubliés là par un géant. On y grimpe, on y saute, on y trouve des mâchoires d'animaux blanchies dans l'herbe.</p>
+          <p>L'endroit est considéré comme <strong>sacré</strong> depuis très longtemps : des moines bouddhistes et des ermites y ont vécu, cachés dans les rochers, et on raconte que certaines sources d'ici guérissent les yeux. On croise encore des cairns de pierres, les <em>ovoo</em>, autour desquels on tourne trois fois pour la chance.</p>
+          <p>Et en repartant en van avec le guide, on emporte le plus beau souvenir du Gobi — celui qu'aucune photo ne rend : le <strong>silence</strong>. Un silence si total, si vaste, qu'on finit par entendre battre son propre cœur. Peu d'endroits sur Terre vous font ce cadeau-là.</p>
         </div>
       </article>
 
       <!-- LE JEU -->
       <article class="ep game" id="jeu">
         <div class="ep-h"><span class="ep-n">🎯</span><h2>Le jeu, à travers le désert</h2></div>
-        <div class="prose"><p>Quatre questions à se poser en chemin — devinez, puis vérifiez :</p></div>
-        <details class="q"><summary>Le Gobi est-il un désert de sable ?</summary><p>Presque pas ! Il est surtout fait de pierre et de steppe. Le sable ne couvre qu'une petite partie, comme les dunes de Khongoryn Els.</p></details>
-        <details class="q"><summary>Combien de bosses a le chameau du Gobi, et qu'y a-t-il dedans ?</summary><p>Deux bosses (c'est un chameau de Bactriane). Elles contiennent de la <strong>graisse</strong>, pas de l'eau — une réserve d'énergie.</p></details>
-        <details class="q"><summary>Qu'a-t-on trouvé de célèbre dans les falaises de Bayanzag ?</summary><p>Les <strong>premiers œufs de dinosaures</strong> jamais identifiés (en 1923), et plus tard le Vélociraptor. Un vrai coffre à dinosaures.</p></details>
-        <details class="q"><summary>Pourquoi appelle-t-on Khongoryn Els les « dunes chantantes » ?</summary><p>Parce que le sable, en glissant le long de la pente, produit un grondement grave — comme un avion ou un orgue. C'est le sable qui « chante ».</p></details>
+        <div class="prose"><p>Cinq questions à se poser en chemin — devinez d'abord, puis vérifiez :</p></div>
+        <details class="q"><summary>Le Gobi est-il un désert de sable ?</summary><p>Presque pas ! Il est surtout fait de pierre et de steppe. Le sable ne couvre qu'une petite partie, comme les grandes dunes de Khongoryn Els.</p></details>
+        <details class="q"><summary>Combien de bosses a le chameau du Gobi, et qu'y a-t-il dedans ?</summary><p>Deux bosses (c'est un chameau de Bactriane). Elles contiennent de la <strong>graisse</strong>, pas de l'eau — une réserve d'énergie qui penche sur le côté quand le chameau a faim.</p></details>
+        <details class="q"><summary>Qu'a-t-on trouvé de célèbre dans les falaises de Bayanzag ?</summary><p>Les <strong>premiers œufs de dinosaures</strong> jamais identifiés (en 1923), et plus tard le Vélociraptor — celui de <em>Jurassic Park</em>. Un vrai coffre à dinosaures.</p></details>
+        <details class="q"><summary>Pourquoi appelle-t-on Khongoryn Els les « dunes chantantes » ?</summary><p>Parce que, en glissant le long de la pente, les millions de grains de sable frottent les uns contre les autres et font vibrer la dune — un grondement grave, comme un avion ou un orgue.</p></details>
+        <details class="q"><summary>Ce sont les « cinq museaux ». Peux-tu les nommer ?</summary><p>Le mouton, la chèvre, le cheval, la vache (ou le yak) et le chameau — les cinq animaux qui font toute la richesse d'une famille nomade.</p></details>
       </article>
 
       <p class="mcredit">Toutes les photos de cette page sont celles du voyage — famille Lahutte.</p>
