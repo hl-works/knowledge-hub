@@ -37,6 +37,15 @@ OK_LICENSE = re.compile(r"\b(CC|Public domain|No restrictions)", re.I)
 STRIP_TAGS = re.compile(r"<[^>]+>")
 
 
+# Illustrations de pages « feature » (hors CSV) — ex. la Grande Muraille racontée.
+EXTRA: list[str] = [
+    "Terracotta Army Xian soldiers",
+    "Great Wall of China beacon tower",
+    "Qin Shi Huang first emperor",
+    "Great Wall of China aerial mountains",
+]
+
+
 def queries() -> list[str]:
     out: list[str] = []
     for tab in TABS:
@@ -47,6 +56,9 @@ def queries() -> list[str]:
             q = (row.get("photo_query") or "").strip()
             if q and q not in out:
                 out.append(q)
+    for q in EXTRA:
+        if q not in out:
+            out.append(q)
     return out
 
 
