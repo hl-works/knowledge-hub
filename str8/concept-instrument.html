@@ -10,40 +10,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ============ CONCEPT B — TRAINING INSTRUMENT ============ */
+/* ============ CONCEPT B — TRAINING INSTRUMENT (v2 · typo + silhouettes) ============ */
 :root{
-  --bg:#0E0F11;          /* instrument charcoal */
-  --panel:#16181B;
-  --panel-2:#1D2024;
-  --edge:#2A2E33;
-  --edge-2:#3A3F46;
-  --text:#E7EAEC;
-  --dim:#8A9099;
-  --signal:#C7F23A;      /* lab lime */
-  --signal-dim:#5f6e21;
+  --bg:#0E0F11;--panel:#16181B;--panel-2:#1D2024;--edge:#2A2E33;--edge-2:#3A3F46;
+  --text:#EEF1F3;--dim:#98a0a9;--signal:#C7F23A;
+  --sil:#828A93;          /* silhouette fill */
+  --sil-2:#9AA2AB;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:var(--text);line-height:1.45;-webkit-font-smoothing:antialiased}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:var(--text);line-height:1.4;-webkit-font-smoothing:antialiased}
 .mono{font-family:'JetBrains Mono',monospace}
-.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 96px}
+.wrap{max-width:1160px;margin:0 auto;padding:40px 24px 96px}
 
 .top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #1c1f22;padding-bottom:20px;margin-bottom:34px}
 .top .id{font-weight:700;letter-spacing:-.01em;font-size:clamp(24px,4vw,34px)}
 .top .id b{color:var(--signal)}
 .top .back{font-family:'JetBrains Mono',monospace;font-size:12px;color:#9aa0a8;text-decoration:none;border:1px solid #2b2f34;padding:8px 14px;border-radius:6px}
 .top .back:hover{border-color:#565c64;color:#fff}
-.lede{max-width:640px;color:#aeb4bc;font-size:15px;margin-bottom:40px}
+.lede{max-width:660px;color:#b4bac2;font-size:15px;margin-bottom:14px}
 .lede .k{font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:var(--signal);display:block;margin-bottom:10px}
+.upd{max-width:660px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#7d838b;letter-spacing:.04em;margin-bottom:36px}
+.upd b{color:var(--signal)}
 
-.stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px 40px;align-items:start;justify-items:center}
-.mock{width:100%;max-width:360px}
+.stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px 36px;align-items:start;justify-items:center}
+.mock{width:100%;max-width:352px}
 .cap{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#7d838b;margin:16px 2px 0}
 .cap span{color:#d7dade}
 
 .device{position:relative;background:#000;border-radius:44px;padding:11px;box-shadow:0 30px 60px -20px rgba(0,0,0,.85),0 0 0 1px #24282c}
 .device::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:104px;height:26px;background:#000;border-radius:0 0 16px 16px;z-index:6}
-.screen{position:relative;background:var(--bg);color:var(--text);border-radius:34px;overflow:hidden;height:720px;display:flex;flex-direction:column;
+.screen{position:relative;background:var(--bg);color:var(--text);border-radius:34px;overflow:hidden;height:726px;display:flex;flex-direction:column;
   background-image:linear-gradient(var(--edge) 1px,transparent 1px),linear-gradient(90deg,var(--edge) 1px,transparent 1px);
   background-size:100% 44px,44px 100%;background-position:-1px -1px;}
 .screen::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0,transparent 60%,rgba(0,0,0,.5));pointer-events:none}
@@ -51,71 +48,111 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:v
 .sb{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:14px 22px 2px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);flex-shrink:0}
 .sb .live{color:var(--signal)}
 
-/* ===== HOME (instrument) ===== */
-.i-body{position:relative;z-index:2;flex:1;overflow:hidden;padding:10px 18px 0;display:flex;flex-direction:column;gap:12px}
-.i-head{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.08em}
+/* ===== HOME (dashboard) ===== */
+.i-body{position:relative;z-index:2;flex:1;overflow:hidden;padding:12px 18px 0;display:flex;flex-direction:column;gap:13px}
+.i-head{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:.06em}
 .i-head .st{display:flex;align-items:center;gap:6px;color:var(--signal)}
-.i-head .st b{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal);display:block;animation:blink 1.6s steps(1) infinite}
+.i-head .st b{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal);display:block;animation:blink 1.6s steps(1) infinite}
 @keyframes blink{50%{opacity:.3}}
 .i-load{border:1px solid var(--edge-2);border-radius:10px;background:var(--panel);overflow:hidden}
-.i-load .lh{display:flex;justify-content:space-between;padding:9px 14px;border-bottom:1px solid var(--edge);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-.i-load .lb{padding:14px}
-.i-load .prog{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--signal);letter-spacing:.1em}
-.i-load .name{font-size:26px;font-weight:700;letter-spacing:-.02em;margin:2px 0 10px}
-.i-spec{display:flex;gap:0;font-family:'JetBrains Mono',monospace;font-size:12px}
-.i-spec div{flex:1;border-left:1px solid var(--edge)}
+.i-load .lh{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--edge);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.i-load .lb{padding:15px}
+.i-load .prog{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--signal);letter-spacing:.12em}
+.i-load .name{font-size:34px;font-weight:700;letter-spacing:-.02em;margin:3px 0 13px;line-height:1}
+.i-spec{display:flex;font-family:'JetBrains Mono',monospace}
+.i-spec div{flex:1;border-left:1px solid var(--edge);padding-left:13px}
 .i-spec div:first-child{border:none;padding-left:0}
-.i-spec div{padding-left:12px}
-.i-spec .v{color:var(--text);font-size:17px;font-weight:500}
-.i-spec .l{color:var(--dim);font-size:9px;text-transform:uppercase;letter-spacing:.1em}
-/* gauge row */
-.i-gauge{display:flex;align-items:center;gap:14px;border:1px solid var(--edge);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.i-spec .v{color:var(--text);font-size:23px;font-weight:500;letter-spacing:-.01em}
+.i-spec .l{color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.i-gauge{display:flex;align-items:center;gap:14px;border:1px solid var(--edge);border-radius:10px;padding:13px 15px;background:var(--panel)}
 .i-gauge svg{flex-shrink:0}
 .i-gauge .gl{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
-.i-gauge .gv{font-size:20px;font-weight:700}
+.i-gauge .gv{font-size:23px;font-weight:700;letter-spacing:-.01em}
 .i-gauge .gv small{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);font-weight:400}
-.i-start{margin-top:auto;display:block;text-decoration:none;background:var(--signal);color:#0b0c07;text-align:center;padding:18px;border-radius:10px;font-weight:700;font-size:17px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:10px}
+.i-start{margin-top:auto;text-decoration:none;background:var(--signal);color:#0b0c07;text-align:center;padding:19px;border-radius:10px;font-weight:700;font-size:19px;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:10px}
 .i-start .mono{font-size:12px;color:#3a4210}
 .i-mini{display:flex;gap:8px;margin-bottom:4px}
-.i-mini a{flex:1;text-align:center;text-decoration:none;border:1px solid var(--edge-2);border-radius:8px;padding:11px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);letter-spacing:.04em}
+.i-mini a{flex:1;text-align:center;text-decoration:none;border:1px solid var(--edge-2);border-radius:8px;padding:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text);letter-spacing:.03em}
 
-/* ===== SESSION / TIMER (instrument) ===== */
-.t-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:8px 18px 0}
-.t-head{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.06em}
+/* ===== EXERCISE (media + counter) ===== */
+.x-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:12px 18px 0;overflow:hidden}
+.x-head{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:.05em}
+.x-head b{color:var(--text)}
+.x-name{font-size:33px;font-weight:700;letter-spacing:-.02em;line-height:.98;margin:9px 0 3px}
+.x-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase}
+/* media panel */
+.media{position:relative;border:1px solid var(--edge-2);border-radius:12px;background:linear-gradient(180deg,#191c1f,#141619);margin:12px 0 0;overflow:hidden}
+.media::before,.media::after{content:"";position:absolute;width:10px;height:10px;border:1px solid var(--signal);opacity:.5}
+.media::before{top:8px;left:8px;border-right:0;border-bottom:0}
+.media::after{bottom:8px;right:8px;border-left:0;border-top:0}
+.media .lbl{position:absolute;top:9px;right:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--dim)}
+.media svg{display:block;width:100%;height:184px}
+.media .foot{position:absolute;bottom:8px;left:12px;display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--dim)}
+.media .foot b{color:var(--sil-2);font-weight:500}
+/* silhouette */
+.sil-limb{fill:none;stroke:var(--sil);stroke-width:23;stroke-linecap:round;stroke-linejoin:round}
+.sil-torso{fill:none;stroke:var(--sil);stroke-width:30;stroke-linecap:round}
+.sil-head{fill:var(--sil)}
+.sil-band{fill:none;stroke:var(--signal);stroke-width:5.5;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(199,242,58,.55))}
+.armL{transform-origin:120px 78px;animation:armL 3.4s ease-in-out infinite}
+.armR{transform-origin:120px 78px;animation:armR 3.4s ease-in-out infinite}
+.bandG{transform-origin:120px 104px;animation:bandS 3.4s ease-in-out infinite}
+@keyframes armL{0%,100%{transform:rotate(30deg)}50%{transform:rotate(-4deg)}}
+@keyframes armR{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(4deg)}}
+@keyframes bandS{0%,100%{transform:scaleX(.5)}50%{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.armL,.armR,.bandG{animation:none}.armL{transform:rotate(-4deg)}.armR{transform:rotate(4deg)}}
+/* series + counter */
+.x-seg{display:flex;gap:5px;margin:13px 0 10px}
+.x-seg i{flex:1;height:7px;border-radius:2px;background:var(--edge);display:block}
+.x-seg i.done{background:var(--dim)}
+.x-seg i.cur{background:var(--signal);box-shadow:0 0 8px var(--signal)}
+.x-count{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--edge-2);border-radius:12px;padding:10px 12px;background:var(--panel)}
+.x-count .rl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.x-count .rl b{display:block;color:var(--sil-2);font-size:11px;margin-top:2px;font-weight:400}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:50px;height:50px;border:1px solid var(--edge-2);background:var(--panel-2);border-radius:10px;font-size:28px;line-height:1;color:var(--text);cursor:pointer;font-family:'Space Grotesk',sans-serif}
+.stepper button:active{border-color:var(--signal);color:var(--signal)}
+.stepper .val{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:46px;min-width:70px;text-align:center;letter-spacing:-.03em}
+.x-ctrl{display:flex;gap:8px;margin-top:10px}
+.x-ctrl button{flex:1;border:1px solid var(--edge-2);border-radius:10px;padding:15px;font-weight:700;font-size:14px;cursor:pointer;background:var(--panel-2);color:var(--text)}
+.x-ctrl button.go{flex:1.7;background:var(--signal);color:#0b0c07;border-color:var(--signal)}
+.x-pain{text-align:center;padding:11px 0 3px}
+.x-pain button{background:none;border:none;color:#c98;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;cursor:pointer}
+
+/* ===== TIMER ===== */
+.t-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:12px 18px 0}
+.t-head{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:.05em}
 .t-head b{color:var(--text)}
-.t-name{font-size:22px;font-weight:700;letter-spacing:-.01em;margin:8px 0 2px}
-.t-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--signal);letter-spacing:.08em;text-transform:uppercase}
-/* dial */
+.t-name{font-size:29px;font-weight:700;letter-spacing:-.02em;margin:9px 0 2px;line-height:1}
+.t-sub{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--signal);letter-spacing:.08em;text-transform:uppercase}
 .dial{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0}
-.dial svg{width:230px;height:230px}
-.dial .ring-bg{fill:none;stroke:var(--edge);stroke-width:6}
-.dial .ring-fg{fill:none;stroke:var(--signal);stroke-width:6;stroke-linecap:round;stroke-dasharray:596;stroke-dashoffset:150;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset .3s linear;filter:drop-shadow(0 0 6px rgba(199,242,58,.5))}
+.dial svg{width:236px;height:236px}
+.dial .ring-bg{fill:none;stroke:var(--edge);stroke-width:7}
+.dial .ring-fg{fill:none;stroke:var(--signal);stroke-width:7;stroke-linecap:round;stroke-dasharray:596;stroke-dashoffset:150;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset .3s linear;filter:drop-shadow(0 0 6px rgba(199,242,58,.5))}
 .dial .cd{position:absolute;text-align:center}
-.dial .cd .big{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:58px;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
-.dial .cd .lb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:6px}
-/* set segments */
-.t-seg{display:flex;gap:5px;margin:2px 0 10px}
-.t-seg i{flex:1;height:6px;border-radius:2px;background:var(--edge);display:block}
+.dial .cd .big{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:66px;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.dial .cd .lb{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+.t-seg{display:flex;gap:5px;margin:2px 0 12px}
+.t-seg i{flex:1;height:7px;border-radius:2px;background:var(--edge);display:block}
 .t-seg i.done{background:var(--dim)}
 .t-seg i.cur{background:var(--signal);box-shadow:0 0 8px var(--signal)}
-/* timer controls */
 .t-adj{display:flex;gap:8px;margin-bottom:8px}
-.t-adj button{flex:1;font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--panel-2);border:1px solid var(--edge-2);color:var(--text);border-radius:8px;padding:12px;cursor:pointer}
+.t-adj button{flex:1;font-family:'JetBrains Mono',monospace;font-size:14px;background:var(--panel-2);border:1px solid var(--edge-2);color:var(--text);border-radius:9px;padding:13px;cursor:pointer}
 .t-adj button:active{border-color:var(--signal);color:var(--signal)}
 .t-main{display:flex;gap:8px}
-.t-main button{flex:1;border:none;border-radius:8px;padding:16px;font-weight:700;font-size:15px;cursor:pointer;background:var(--panel-2);color:var(--text);border:1px solid var(--edge-2)}
+.t-main button{flex:1;border:none;border-radius:9px;padding:17px;font-weight:700;font-size:16px;cursor:pointer;background:var(--panel-2);color:var(--text);border:1px solid var(--edge-2)}
 .t-main button.go{flex:2;background:var(--signal);color:#0b0c07;border-color:var(--signal)}
 .t-main button.go.paused{background:transparent;color:var(--signal)}
 .t-pain{text-align:center;padding:12px 0 4px}
-.t-pain button{background:none;border:none;color:#c98;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;cursor:pointer}
+.t-pain button{background:none;border:none;color:#c98;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;cursor:pointer}
 
-/* rationale (shared look) */
+/* rationale */
 .notes{margin-top:72px;border-top:1px solid #1c1f22;padding-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
 .note h3{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--signal);margin-bottom:12px}
-.note p{font-size:14px;color:#aeb4bc;margin-bottom:8px}
+.note p{font-size:14px;color:#b4bac2;margin-bottom:8px}
 .note .sw{display:flex;gap:8px;margin-bottom:12px}
 .note .sw i{width:34px;height:34px;border-radius:8px;display:block;border:1px solid #2f343a}
-.pro li,.con li{font-size:13.5px;color:#aeb4bc;list-style:none;padding-left:20px;position:relative;margin-bottom:6px}
+.pro li,.con li{font-size:13.5px;color:#b4bac2;list-style:none;padding-left:20px;position:relative;margin-bottom:6px}
 .pro li::before{content:"+";position:absolute;left:0;color:var(--signal);font-weight:800}
 .con li::before{content:"–";position:absolute;left:0;color:#e08a5a;font-weight:800}
 </style>
@@ -127,7 +164,8 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:v
     <a class="back" href="/str8/concepts.html">← Comparer les 3 concepts</a>
   </div>
   <p class="lede"><span class="k">Sensation — précise · efficace · technique</span>
-  L'app comme un instrument de mesure. Grille de fond, relevés monospace, une seule couleur signal. Le timer et les compteurs sont les héros : gros chiffres, gauges, segments. Aucune décoration — tout est lisible d'un coup d'œil, manipulable au pouce.</p>
+  L'app comme un instrument de mesure. Grille de fond, relevés monospace, une seule couleur signal. Timer et compteurs sont les héros : gros chiffres, gauges, segments.</p>
+  <p class="upd"><b>v2 —</b> typo grossie &amp; hiérarchie renforcée · illustration d'exercice = <b>silhouette pleine animée</b> (SVG, remplace le « bonhomme bâton »), remplaçable par ta vidéo plus tard.</p>
 
   <div class="stage">
     <!-- HOME -->
@@ -149,22 +187,62 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:v
             </div>
           </div>
           <div class="i-gauge">
-            <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#2A2E33" stroke-width="5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#C7F23A" stroke-width="5" stroke-linecap="round" stroke-dasharray="119" stroke-dashoffset="40" transform="rotate(-90 23 23)"/></svg>
+            <svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="none" stroke="#2A2E33" stroke-width="6"/><circle cx="24" cy="24" r="19" fill="none" stroke="#C7F23A" stroke-width="6" stroke-linecap="round" stroke-dasharray="119" stroke-dashoffset="40" transform="rotate(-90 24 24)"/></svg>
             <div><div class="gl">Régularité 7 jours</div><div class="gv">66<small> % · série 3 sem.</small></div></div>
           </div>
           <div class="i-mini"><a href="#">◱ ROUTINE 05:00</a><a href="#">◐ RUN / MARCHE</a></div>
           <a class="i-start" href="#">DÉMARRER <span class="mono">▶ 08 EXOS</span></a>
         </div>
       </div></div>
-      <div class="cap">Accueil <span>— tableau de bord, programme « chargé »</span></div>
+      <div class="cap">Accueil <span>— tableau de bord, typo grossie</span></div>
     </div>
 
-    <!-- TIMER / SESSION -->
+    <!-- EXERCISE + MEDIA -->
+    <div class="mock">
+      <div class="device"><div class="screen">
+        <div class="sb"><span>9:45</span><span class="live">● EXERCICE</span><span class="mono">99%</span></div>
+        <div class="x-body">
+          <div class="x-head"><span>03 / 08</span><span>SÉANCE A · <b>Haut du dos</b></span></div>
+          <div class="x-name">Band pull-apart</div>
+          <div class="x-tag">Dos · omoplates · élastique</div>
+          <div class="media">
+            <span class="lbl">SVG · BOUCLE</span>
+            <svg viewBox="0 0 240 200" aria-label="Silhouette réalisant un band pull-apart">
+              <line class="sil-torso" x1="120" y1="72" x2="120" y2="126"/>
+              <circle class="sil-head" cx="120" cy="44" r="18"/>
+              <g class="armL"><line class="sil-limb" x1="120" y1="78" x2="58" y2="104"/></g>
+              <g class="armR"><line class="sil-limb" x1="120" y1="78" x2="182" y2="104"/></g>
+              <line class="sil-limb" x1="120" y1="124" x2="98" y2="180"/>
+              <line class="sil-limb" x1="120" y1="124" x2="142" y2="180"/>
+              <g class="bandG"><path class="sil-band" d="M58 104 Q120 88 182 104"/></g>
+            </svg>
+            <div class="foot"><span><b>1</b> DÉPART</span><span><b>2</b> ARRIVÉE</span></div>
+          </div>
+          <div class="x-seg"><i class="done"></i><i class="cur"></i><i></i></div>
+          <div class="x-count">
+            <div class="rl">RÉPÉTITIONS<b>reco 12–15</b></div>
+            <div class="stepper">
+              <button onclick="rep(-1)" aria-label="moins">−</button>
+              <span class="val" id="rep">15</span>
+              <button onclick="rep(1)" aria-label="plus">+</button>
+            </div>
+          </div>
+          <div class="x-ctrl">
+            <button>◁ PRÉC.</button>
+            <button class="go">VALIDER SÉRIE ▷</button>
+          </div>
+          <div class="x-pain"><button>⚠ Douleur · variante plus simple</button></div>
+        </div>
+      </div></div>
+      <div class="cap">Séance <span>— média silhouette + compteur ±</span></div>
+    </div>
+
+    <!-- TIMER -->
     <div class="mock">
       <div class="device"><div class="screen">
         <div class="sb"><span>9:47</span><span class="live" id="mode">● EXERCICE</span><span class="mono">98%</span></div>
         <div class="t-body">
-          <div class="t-head"><span>05 / 08</span><span>SÉANCE A · <b>Planche adaptée</b></span></div>
+          <div class="t-head"><span>05 / 08</span><span>SÉANCE A · <b>Planche</b></span></div>
           <div class="t-name">Maintien isométrique</div>
           <div class="t-sub">Série 2 / 3 · gainage</div>
           <div class="dial">
@@ -176,7 +254,6 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:v
             <button onclick="bump(-10)">−10 s</button>
             <button onclick="bump(10)">+10 s</button>
             <button onclick="toRest()">→ Repos</button>
-            <button>Suiv. ▷</button>
           </div>
           <div class="t-main">
             <button onclick="reset()">↺</button>
@@ -185,43 +262,41 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:v
           <div class="t-pain"><button>⚠ Douleur · variante plus simple</button></div>
         </div>
       </div></div>
-      <div class="cap">Timer <span>— chiffres géants, gauge, ±10 s (il tourne)</span></div>
+      <div class="cap">Timer <span>— chiffres géants, ±10 s (il tourne)</span></div>
     </div>
   </div>
 
   <div class="notes">
     <div class="note">
       <h3>Typographie</h3>
-      <p><b class="mono">JetBrains Mono</b> pour toute donnée chiffrée (chrono, %, séries) — chasse fixe = relevé d'instrument.</p>
-      <p>Space Grotesk pour les titres : géométrique, technique mais chaleureuse.</p>
+      <p><b class="mono">JetBrains Mono</b> pour toute donnée (chrono, %, reps) — chasse fixe = relevé d'instrument. Space Grotesk grossi pour les titres.</p>
     </div>
     <div class="note">
       <h3>Palette</h3>
       <div class="sw"><i style="background:#0E0F11"></i><i style="background:#16181B"></i><i style="background:#2A2E33"></i><i style="background:#C7F23A"></i></div>
-      <p>Charbon + une seule couleur signal (lime). La grille de fond ancre l'esthétique « appareil de mesure ».</p>
+      <p>Charbon + une seule couleur signal (lime). Silhouette en gris ardoise, la bande élastique en lime.</p>
     </div>
     <div class="note">
-      <h3>Navigation</h3>
-      <p>Orientée action : l'écran de séance est un poste de pilotage. ±10 s, repos, suivant, pause — tout au pouce, gros boutons, retour haptique prévu.</p>
+      <h3>Illustrations</h3>
+      <p>Silhouette pleine animée (SVG, ~2 Ko, offline). Archi média : <span class="mono" style="font-size:12px">svg → images → gif → vidéo</span>. Remplaçable exo par exo par tes vidéos filmées.</p>
     </div>
     <div class="note">
       <h3>Forces & limites</h3>
-      <ul class="pro"><li>Parfait pour timers & compteurs</li><li>Zéro ambiguïté, très « pro »</li></ul>
-      <ul class="con"><li>Sombre en continu, moins « corps »</li><li>Le côté technique peut refroidir</li></ul>
+      <ul class="pro"><li>Idéal timers & compteurs</li><li>Silhouette lisible, non « IA »</li></ul>
+      <ul class="con"><li>Sombre en continu</li><li>Silhouette = repère, pas une démo parfaite (→ vidéo)</li></ul>
     </div>
   </div>
 </div>
 <script>
-var t=32,running=true,rest=false;
-var ring=document.getElementById('ring'),C=596;
+function rep(d){var e=document.getElementById('rep');e.textContent=Math.max(0,parseInt(e.textContent,10)+d);}
+var t=32,running=true,rest=false,ring=document.getElementById('ring'),C=596;
 function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
-function draw(){document.getElementById('clock').textContent=fmt(Math.max(0,t));
-  var total=rest?45:40;ring.style.strokeDashoffset=C-(C*Math.max(0,t)/total);}
-function tick(){if(running){t--;if(t<=0){running=false;document.getElementById('go').textContent='REPRENDRE';document.getElementById('go').classList.add('paused');}draw();}}
+function draw(){document.getElementById('clock').textContent=fmt(Math.max(0,t));var total=rest?45:40;ring.style.strokeDashoffset=C-(C*Math.max(0,t)/total);}
+function tick(){if(running){t--;if(t<=0){running=false;var g=document.getElementById('go');g.textContent='REPRENDRE';g.classList.add('paused');}draw();}}
 function toggle(){running=!running;var g=document.getElementById('go');g.textContent=running?'PAUSE':'REPRENDRE';g.classList.toggle('paused',!running);}
 function bump(d){t=Math.max(0,t+d);draw();}
-function reset(){t=rest?45:40;running=true;document.getElementById('go').textContent='PAUSE';document.getElementById('go').classList.remove('paused');draw();}
-function toRest(){rest=true;t=45;running=true;document.getElementById('mode').textContent='● REPOS';document.getElementById('phase').textContent='Repos';document.getElementById('go').textContent='PAUSE';document.getElementById('go').classList.remove('paused');draw();}
+function reset(){t=rest?45:40;running=true;var g=document.getElementById('go');g.textContent='PAUSE';g.classList.remove('paused');draw();}
+function toRest(){rest=true;t=45;running=true;document.getElementById('mode').textContent='● REPOS';document.getElementById('phase').textContent='Repos';var g=document.getElementById('go');g.textContent='PAUSE';g.classList.remove('paused');draw();}
 draw();setInterval(tick,1000);
 </script>
 </body>
