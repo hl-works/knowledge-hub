@@ -91,6 +91,12 @@ import Footer from '../components/Footer.astro';
   .card h2{font-family:var(--disp);font-size:clamp(1.4rem,3vw,2rem);text-transform:uppercase;margin:.5rem 0 .2rem;}
   .cmeta{color:var(--muted);font-size:.86rem;font-variant-numeric:tabular-nums;margin-bottom:.7rem;}
   .desc{color:var(--ink-soft);margin:0 0 1rem;max-width:66ch;}
+  .feature{display:flex;align-items:center;gap:14px;margin:0 0 14px;padding:14px 16px;background:var(--ink);color:var(--cream);border-radius:14px;text-decoration:none;box-shadow:5px 5px 0 var(--orange);transition:transform .15s;}
+  .feature:hover{transform:translate(-2px,-2px);}
+  .feature-ic{font-size:1.9rem;flex:none;}
+  .feature-tx{display:flex;flex-direction:column;gap:2px;}
+  .feature-tx b{font-family:var(--disp);text-transform:uppercase;letter-spacing:.02em;font-size:1.05rem;}
+  .feature-tx small{font-size:.82rem;color:var(--yellow);font-weight:600;}
   .hotel{display:flex;gap:14px;align-items:flex-start;background:var(--peach);border:1px solid var(--line);border-radius:12px;padding:12px 14px;}
   .hotel .hicon{color:var(--orange-deep);flex:none;margin-top:2px;}
   .hotel .hnom{font-weight:700;}
@@ -180,6 +186,13 @@ import Footer from '../components/Footer.astro';
     return `<div class="grande-histoire"><h3>La grande histoire</h3><div class="recits">${body}</div></div>`;
   }
 
+  // Escale 10 (Grande Muraille) : lien vers la page immersive « racontée ».
+  function featureBlock(s: Stop): string {
+    if (s.ordre !== 10) return '';
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+    return `<a class="feature" href="${base}muraille/"><span class="feature-ic">🐉</span><span class="feature-tx"><b>La Grande Muraille racontée</b><small>10 épisodes à lire en marchant, avec les enfants →</small></span></a>`;
+  }
+
   // « En images » : galerie légendée de l'escale (photos Sheet + repo + vidéos),
   // dans l'ordre où on les a vécues. Clic → plein écran (image ou vidéo).
   function mediaBlock(s: Stop): string {
@@ -236,6 +249,7 @@ import Footer from '../components/Footer.astro';
             <h2>${esc(s.ville)}</h2>
             <div class="cmeta">${esc(s.pays)}${datesLabel(s) ? ' · ' + datesLabel(s) : ''}</div>
             ${s.description ? `<p class="desc">${esc(s.description)}</p>` : ''}
+            ${featureBlock(s)}
             ${hotelBlock(s)}
             ${lieuxBlock(lieux.filter((l) => l.ordre === s.ordre))}
             ${mediaBlock(s)}
