@@ -24,7 +24,7 @@ const CC = {
       <div class="wrap mhero-in">
         <p class="eyebrow">À lire en marchant · escale 10</p>
         <h1 class="disp">La Grande Muraille racontée</h1>
-        <p class="lead">Vous êtes au départ de la <strong>West Gate de Jinshanling</strong>. Oubliez le guide touristique : pendant les quatre heures qui viennent, imaginez un guide passionné qui vous glisse un secret à chaque tour. L'histoire d'une frontière, d'un empire, d'un empereur capturé, de soldats qui parlaient avec du feu… et d'un dragon de pierre. <em>Douze épisodes à lire au fil de la marche, avec les enfants.</em></p>
+        <p class="lead">Vous êtes à l'<strong>entrée Est de Jinshanling</strong>, il est 10h18. Oubliez le guide touristique : pendant les <strong>six heures de marche</strong> qui viennent, imaginez un guide passionné qui vous glisse un secret à chaque tour. L'histoire d'une frontière, d'un empire, d'un empereur capturé, de soldats qui parlaient avec du feu… et d'un dragon de pierre. <em>Douze épisodes à lire au fil de la marche, avec les enfants.</em></p>
       </div>
     </section>
 
@@ -35,6 +35,21 @@ const CC = {
         <img src={P('03.webp')} alt="La famille prête à partir à la porte de Jinshanling" loading="lazy" />
         <figcaption>Prêts, billets en main, à la porte de Jinshanling. La marche peut commencer.</figcaption>
       </figure>
+
+      <!-- LA BALADE (repères réels de notre randonnée) -->
+      <section class="walk" aria-label="La balade">
+        <span class="walk-k">La balade · 26 juillet 2026</span>
+        <h2 class="disp">Randonnée à Jinshanling</h2>
+        <div class="walk-stats">
+          <div><b>10h18</b><span>Départ · entrée Est</span></div>
+          <div><b>16h47</b><span>Fin de section ouverte</span></div>
+          <div><b>~6h30</b><span>de marche, pauses comprises</span></div>
+          <div><b>6 tours</b><span>de guet traversées</span></div>
+        </div>
+        <p>Une randonnée <strong>longue et physique</strong>, mais vraiment exceptionnelle : le parcours alterne escaliers raides, montées régulières, passages plus sauvages et longues portions sur les crêtes. La marche est ponctuée de nombreuses pauses — observer la carte, faire des photos, boire et manger. Prévoir une vraie demi-journée, voire davantage avec des enfants.</p>
+        <p class="walk-tours"><b>Les tours, dans l'ordre :</b> Bingdaogou → General Tower → Brick Crenel → East Taochun → Taochunkou → Six-window Tower. <em>Après la Six-window Tower, la Muraille se poursuit dans la végétation — mais la section accessible s'arrête là.</em></p>
+        <div class="walk-verdict"><span>Belle</span><span>Physique</span><span>Culturelle</span><b>un combo gagnant.</b></div>
+      </section>
 
       <!-- ÉPISODE 1 -->
       <article class="ep" id="ep1">
@@ -217,6 +232,18 @@ const CC = {
   .mbody .shot img{width:100%;border-radius:16px;border:2px solid var(--ink);box-shadow:var(--shadow);display:block;}
   .mbody figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:8px;}
 
+  .walk{background:var(--card);border:2px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--orange);padding:clamp(18px,3.5vw,28px);margin:0 0 clamp(28px,5vw,46px);}
+  .walk-k{display:block;font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep);margin:0 0 .3rem;}
+  .walk h2{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.5rem,4.5vw,2.3rem);margin:0 0 .9rem;line-height:1.02;}
+  .walk-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:0 0 16px;}
+  .walk-stats div{background:var(--peach);border-radius:10px;padding:10px 12px;text-align:center;}
+  .walk-stats b{display:block;font-family:var(--disp);font-size:1.5rem;color:var(--ink);line-height:1;}
+  .walk-stats span{font-size:.74rem;color:var(--ink-soft);}
+  .walk p{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;line-height:1.72;color:var(--ink);margin:0 0 .8em;}
+  .walk-tours{font-size:.98rem;}
+  .walk-verdict{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:4px;}
+  .walk-verdict span{background:var(--ink);color:var(--cream);font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:20px;}
+  .walk-verdict b{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;color:var(--ink-soft);}
   .ep{margin:0 0 clamp(30px,6vw,54px);scroll-margin-top:84px;}
   .ep-h{display:flex;align-items:center;gap:14px;margin:0 0 16px;}
   .ep-n{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--cream);font-family:var(--disp);font-size:1.4rem;box-shadow:4px 4px 0 var(--orange);}
