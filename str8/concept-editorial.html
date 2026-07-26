@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#111010">
+<title>Str8 — Concept A · Editorial Sport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Archivo+Narrow:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ CONCEPT A — EDITORIAL SPORT ============ */
+:root{
+  --ink:#141210;         /* near-black */
+  --paper:#F4F0E7;       /* off-white */
+  --paper-2:#EBE6DA;
+  --line:#141210;
+  --accent:#E8431F;      /* vermilion */
+  --muted:#7A756B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:#0C0B0A;
+  color:var(--paper);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 96px}
+a{color:inherit}
+
+/* ---- Showcase chrome ---- */
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #2a2724;padding-bottom:20px;margin-bottom:36px}
+.top .id{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-.02em;font-size:clamp(24px,4vw,34px)}
+.top .id b{color:var(--accent)}
+.top .back{font-size:13px;color:#a49f96;text-decoration:none;border:1px solid #33302c;padding:8px 14px;border-radius:999px}
+.top .back:hover{border-color:#635e57;color:#fff}
+.lede{max-width:640px;color:#c9c4ba;font-size:15px;margin-bottom:40px}
+.lede .k{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--accent);display:block;margin-bottom:10px}
+
+.stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px 40px;align-items:start;justify-items:center}
+.mock{width:100%;max-width:360px}
+.cap{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:#8f8a81;margin:16px 2px 0;display:flex;gap:8px;align-items:center}
+.cap span{color:#e8e3d9;font-weight:700}
+
+/* ---- Device ---- */
+.device{position:relative;background:#000;border-radius:44px;padding:11px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 1px #2b2723}
+.device::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:104px;height:26px;background:#000;border-radius:0 0 16px 16px;z-index:6}
+.screen{position:relative;background:var(--paper);color:var(--ink);border-radius:34px;overflow:hidden;height:720px;display:flex;flex-direction:column}
+
+/* status bar */
+.sb{display:flex;justify-content:space-between;align-items:center;padding:14px 24px 2px;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;flex-shrink:0}
+.sb .dots{letter-spacing:2px}
+
+/* ===== HOME (editorial) ===== */
+.e-body{flex:1;overflow:hidden;padding:8px 24px 0;display:flex;flex-direction:column}
+.e-kick{font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--accent);display:flex;justify-content:space-between}
+.e-kick .date{color:var(--muted)}
+.e-hair{height:1px;background:var(--line);margin:12px 0 14px}
+.e-title{font-family:'Archivo',sans-serif;font-weight:900;font-size:52px;line-height:.9;letter-spacing:-.02em;text-transform:uppercase}
+.e-title em{font-style:normal;display:block}
+.e-meta{font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:15px;margin-top:14px;display:flex;gap:10px;color:#2a2622}
+.e-meta i{font-style:normal;color:var(--muted)}
+.e-fig{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:6px -8px}
+.e-fig svg{width:100%;height:100%;max-height:210px}
+.e-week{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px}
+.e-week .lab{font-family:'Archivo Narrow',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted)}
+.e-ticks{display:flex;gap:6px}
+.e-ticks b{width:22px;height:8px;background:var(--paper-2);display:block;border:1px solid #cfc9bc}
+.e-ticks b.on{background:var(--accent);border-color:var(--accent)}
+.e-last{font-size:12px;color:var(--muted);padding:10px 0 12px;display:flex;justify-content:space-between}
+.e-last b{color:var(--ink);font-weight:600}
+/* start bar */
+.e-start{flex-shrink:0;margin:0 -24px}
+.e-start a{display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:var(--paper);text-decoration:none;padding:20px 24px;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:19px}
+.e-start .arw{color:var(--accent);font-size:22px}
+.e-quick{display:flex;gap:0;margin:0 -24px;border-top:1px solid var(--line)}
+.e-quick a{flex:1;text-align:center;padding:13px 8px;font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:12px;text-decoration:none;color:var(--ink)}
+.e-quick a+a{border-left:1px solid var(--line)}
+
+/* nav */
+.nav{flex-shrink:0;display:flex;background:var(--ink);color:var(--paper)}
+.nav a{flex:1;text-align:center;padding:12px 4px 20px;text-decoration:none;font-family:'Archivo Narrow',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:#9c968b}
+.nav a.on{color:var(--paper)}
+.nav a.on::before{content:"";display:block;width:20px;height:3px;background:var(--accent);margin:0 auto 7px}
+.nav a::before{content:"";display:block;width:20px;height:3px;background:transparent;margin:0 auto 7px}
+
+/* ===== SESSION (editorial) ===== */
+.s-body{flex:1;display:flex;flex-direction:column;padding:6px 24px 0;overflow:hidden}
+.s-top{display:flex;justify-content:space-between;align-items:baseline;font-family:'Archivo Narrow',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--muted)}
+.s-top b{color:var(--ink)}
+.s-idx{font-family:'Archivo',sans-serif;font-weight:900;font-size:13px;color:var(--accent)}
+.s-name{font-family:'Archivo',sans-serif;font-weight:900;font-size:40px;line-height:.92;letter-spacing:-.02em;text-transform:uppercase;margin-top:10px}
+.s-fig{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:2px 0}
+.s-fig svg{width:100%;max-height:190px}
+.s-cue{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-size:13.5px;color:#33302b;margin-bottom:8px}
+.s-cue b{font-family:'Archivo Narrow',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--muted);display:block;margin-bottom:2px}
+.s-sets{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0}
+.s-dots{display:flex;gap:10px;align-items:center}
+.s-dots i{width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);display:block}
+.s-dots i.done{background:var(--ink)}
+.s-dots i.cur{background:var(--accent);border-color:var(--accent)}
+.s-serie{font-family:'Archivo Narrow',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--muted)}
+/* rep counter */
+.s-rep{display:flex;align-items:center;justify-content:space-between;padding:14px 0 4px}
+.s-rep .lab{font-family:'Archivo Narrow',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted)}
+.s-rep .lab b{display:block;color:var(--ink);font-size:12px}
+.stepper{display:flex;align-items:center;gap:16px}
+.stepper button{width:46px;height:46px;border:1.5px solid var(--ink);background:var(--paper);border-radius:50%;font-size:26px;font-weight:400;line-height:1;cursor:pointer;color:var(--ink);font-family:'Archivo',sans-serif}
+.stepper button:active{background:var(--ink);color:var(--paper)}
+.stepper .val{font-family:'Archivo',sans-serif;font-weight:900;font-size:44px;min-width:66px;text-align:center;font-variant-numeric:tabular-nums}
+.s-ctrl{flex-shrink:0;display:flex;margin:8px -24px 0}
+.s-ctrl button{flex:1;border:none;background:var(--paper-2);padding:16px;font-family:'Archivo Narrow',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;cursor:pointer;color:var(--ink)}
+.s-ctrl button.prim{flex:2;background:var(--ink);color:var(--paper)}
+.s-ctrl button+button{border-left:1px solid #d8d2c6}
+.s-pain{flex-shrink:0;text-align:center;padding:11px;background:var(--ink)}
+.s-pain button{background:none;border:none;color:#c9b0a8;font-family:'Archivo Narrow',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;cursor:pointer}
+
+/* figure line style */
+.fig-line{fill:none;stroke:var(--ink);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+.fig-band{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round}
+.arm-l{transform-origin:150px 150px;animation:pullL 3.4s ease-in-out infinite}
+.arm-r{transform-origin:150px 150px;animation:pullR 3.4s ease-in-out infinite}
+@keyframes pullL{0%,100%{transform:rotate(18deg)}50%{transform:rotate(-14deg)}}
+@keyframes pullR{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(14deg)}}
+@media(prefers-reduced-motion:reduce){.arm-l,.arm-r{animation:none}}
+
+/* rationale */
+.notes{margin-top:72px;border-top:1px solid #2a2724;padding-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.note h3{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--accent);margin-bottom:12px}
+.note p{font-size:14px;color:#c4bfb5;margin-bottom:8px}
+.note .sw{display:flex;gap:8px;margin-bottom:12px}
+.note .sw i{width:34px;height:34px;border-radius:8px;display:block;border:1px solid #3a3630}
+.pro li,.con li{font-size:13.5px;color:#c4bfb5;list-style:none;padding-left:20px;position:relative;margin-bottom:6px}
+.pro li::before{content:"+";position:absolute;left:0;color:#5fbf7a;font-weight:800}
+.con li::before{content:"–";position:absolute;left:0;color:#e08a5a;font-weight:800}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="id">Str8 · Concept <b>A</b> — Editorial Sport</div>
+    <a class="back" href="/str8/concepts.html">← Comparer les 3 concepts</a>
+  </div>
+  <p class="lede"><span class="k">Sensation — premium · physique · direct</span>
+  Une revue sportive haut de gamme transposée en app. Grands titres, filets fins, chiffres imposants, presque aucune carte. Le papier respire, une seule couleur accent tranche. Le geste : lire vite, agir vite.</p>
+
+  <div class="stage">
+    <!-- HOME -->
+    <div class="mock">
+      <div class="device"><div class="screen">
+        <div class="sb"><span>9:41</span><span class="dots">Str8</span><span>􀛨 100%</span></div>
+        <div class="e-body">
+          <div class="e-kick"><span>Aujourd'hui</span><span class="date">Dim. 26 juil.</span></div>
+          <div class="e-hair"></div>
+          <div class="e-title">Haut<em>du dos</em></div>
+          <div class="e-meta"><span>18 min</span><i>·</i><span>Élastique</span><i>·</i><span>8 exercices</span></div>
+          <div class="e-fig">
+            <svg viewBox="0 0 300 220" aria-label="Silhouette réalisant un band pull-apart">
+              <line class="fig-line" x1="150" y1="70" x2="150" y2="150"/>
+              <circle cx="150" cy="52" r="17" class="fig-line"/>
+              <g class="arm-l"><line class="fig-line" x1="150" y1="90" x2="92" y2="120"/></g>
+              <g class="arm-r"><line class="fig-line" x1="150" y1="90" x2="208" y2="120"/></g>
+              <path class="fig-band" d="M92 120 Q150 104 208 120"/>
+              <line class="fig-line" x1="150" y1="150" x2="126" y2="200"/>
+              <line class="fig-line" x1="150" y1="150" x2="174" y2="200"/>
+            </svg>
+          </div>
+          <div class="e-week">
+            <span class="lab">Cette semaine</span>
+            <div class="e-ticks"><b class="on"></b><b class="on"></b><b></b><b></b><b></b></div>
+          </div>
+          <div class="e-last"><span>Dernière séance</span><b>Extension & gainage · il y a 2 j</b></div>
+          <div class="e-start"><a href="#">Commencer <span class="arw">→</span></a></div>
+          <div class="e-quick"><a href="#">Routine 5 min</a><a href="#">+ Course / marche</a></div>
+        </div>
+        <nav class="nav"><a class="on">Accueil</a><a>Séance</a><a>Exos</a><a>Progrès</a><a>Réglages</a></nav>
+      </div></div>
+      <div class="cap">Accueil <span>— la séance du jour, rien d'autre</span></div>
+    </div>
+
+    <!-- SESSION -->
+    <div class="mock">
+      <div class="device"><div class="screen">
+        <div class="sb"><span>9:43</span><span class="dots">Séance A</span><span>􀛨 98%</span></div>
+        <div class="s-body">
+          <div class="s-top"><span>Exercice <b>3</b> / 8</span><span class="s-idx">03</span></div>
+          <div class="s-name">Band<br>pull-apart</div>
+          <div class="s-fig">
+            <svg viewBox="0 0 300 200" aria-label="Animation band pull-apart">
+              <line class="fig-line" x1="150" y1="60" x2="150" y2="140"/>
+              <circle cx="150" cy="44" r="15" class="fig-line"/>
+              <g class="arm-l"><line class="fig-line" x1="150" y1="80" x2="94" y2="108"/></g>
+              <g class="arm-r"><line class="fig-line" x1="150" y1="80" x2="206" y2="108"/></g>
+              <path class="fig-band" d="M94 108 Q150 92 206 108"/>
+              <line class="fig-line" x1="150" y1="140" x2="128" y2="185"/>
+              <line class="fig-line" x1="150" y1="140" x2="172" y2="185"/>
+            </svg>
+          </div>
+          <div class="s-cue"><b>Consigne</b>Omoplates serrées, coudes tendus. Ouvre sans creuser le bas du dos.</div>
+          <div class="s-sets">
+            <div class="s-dots"><i class="done"></i><i class="cur"></i><i></i></div>
+            <span class="s-serie">Série 2 / 3</span>
+          </div>
+          <div class="s-rep">
+            <div class="lab">Répétitions<b>Recommandé 12–15</b></div>
+            <div class="stepper">
+              <button onclick="rep(-1)" aria-label="moins">−</button>
+              <span class="val" id="repA">15</span>
+              <button onclick="rep(1)" aria-label="plus">+</button>
+            </div>
+          </div>
+          <div class="s-ctrl">
+            <button>← Préc.</button>
+            <button class="prim">Valider série →</button>
+          </div>
+        </div>
+        <div class="s-pain"><button>⚠ Douleur / variante plus simple</button></div>
+      </div></div>
+      <div class="cap">Séance <span>— compteur modifiable, filets, zéro friction</span></div>
+    </div>
+  </div>
+
+  <!-- rationale -->
+  <div class="notes">
+    <div class="note">
+      <h3>Typographie</h3>
+      <p><b style="font-family:'Archivo'">Archivo Black / 900</b> pour les titres et chiffres — condensée, sportive, presse.</p>
+      <p>Archivo Narrow en labels capitales, Inter pour le texte courant. Hiérarchie par la taille, pas par la couleur.</p>
+    </div>
+    <div class="note">
+      <h3>Palette</h3>
+      <div class="sw"><i style="background:#141210"></i><i style="background:#F4F0E7"></i><i style="background:#EBE6DA"></i><i style="background:#E8431F"></i></div>
+      <p>Encre, papier cassé, un vermillon unique. Zéro dégradé, zéro verre. Le contraste fait tout le travail.</p>
+    </div>
+    <div class="note">
+      <h3>Navigation</h3>
+      <p>5 entrées max, barre basse au pouce. Barre « Commencer » pleine largeur, impossible à rater. L'accent ne sert qu'à l'action et l'état.</p>
+    </div>
+    <div class="note">
+      <h3>Forces & limites</h3>
+      <ul class="pro"><li>Identité forte, très peu « IA »</li><li>Lecture immédiate à une main</li></ul>
+      <ul class="con"><li>Exige des visuels/anim soignés</li><li>Le style presse peut sembler froid</li></ul>
+    </div>
+  </div>
+</div>
+<script>
+function rep(d){var e=document.getElementById('repA');e.textContent=Math.max(0,parseInt(e.textContent,10)+d);}
+</script>
+</body>
+</html>

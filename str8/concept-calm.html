@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#EDE7DE">
+<title>Str8 — Concept C · Calm Movement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ CONCEPT C — CALM MOVEMENT ============ */
+:root{
+  --bone:#EDE7DE;        /* warm paper */
+  --bone-2:#E4DCCF;
+  --card:#F5F1EA;
+  --ink:#2B2A27;
+  --ink-soft:#6C685F;
+  --sage:#7C8A5C;        /* muted sage accent */
+  --clay:#B5764F;        /* secondary warm */
+  --line:#D8D0C2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:#20201D;color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Fraunces',serif}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 96px;color:#E9E3D8}
+
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #35342f;padding-bottom:20px;margin-bottom:34px}
+.top .id{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em;font-size:clamp(24px,4vw,34px)}
+.top .id b{color:var(--sage);font-weight:500}
+.top .back{font-size:13px;color:#b7b1a5;text-decoration:none;border:1px solid #403f39;padding:8px 14px;border-radius:999px}
+.top .back:hover{border-color:#6a685f;color:#fff}
+.lede{max-width:640px;color:#c3bdb1;font-size:15px;margin-bottom:40px}
+.lede .k{font-family:'Fraunces',serif;font-style:italic;font-size:13px;letter-spacing:.02em;color:var(--sage);display:block;margin-bottom:10px}
+
+.stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px 40px;align-items:start;justify-items:center}
+.mock{width:100%;max-width:360px}
+.cap{font-size:12px;letter-spacing:.02em;color:#9a948a;margin:16px 2px 0}
+.cap span{color:#d8d2c6}
+
+.device{position:relative;background:#000;border-radius:44px;padding:11px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 1px #35342f}
+.device::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:104px;height:26px;background:#000;border-radius:0 0 16px 16px;z-index:6}
+.screen{position:relative;background:var(--bone);color:var(--ink);border-radius:34px;overflow:hidden;height:720px;display:flex;flex-direction:column}
+
+.sb{display:flex;justify-content:space-between;align-items:center;padding:15px 24px 2px;font-size:12px;font-weight:500;color:var(--ink-soft);flex-shrink:0}
+
+/* ===== HOME (calm) ===== */
+.c-body{flex:1;overflow:hidden;padding:14px 26px 0;display:flex;flex-direction:column}
+.c-greet{font-size:13px;color:var(--ink-soft)}
+.c-date{font-family:'Fraunces',serif;font-size:13px;color:var(--sage);font-style:italic}
+.c-today{font-family:'Fraunces',serif;font-weight:400;font-size:34px;line-height:1.12;letter-spacing:-.01em;margin:20px 0 4px}
+.c-today b{font-weight:500}
+.c-line{display:flex;gap:8px;align-items:center;color:var(--ink-soft);font-size:14px;margin-bottom:6px}
+.c-line i{width:3px;height:3px;border-radius:50%;background:var(--ink-soft);display:block}
+.c-fig{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:8px 0}
+.c-fig svg{width:100%;max-height:220px}
+.c-week{background:var(--card);border-radius:18px;padding:16px 18px;border:1px solid var(--line);margin-bottom:12px}
+.c-week .wl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.c-week .wl span{font-size:12px;color:var(--ink-soft)}
+.c-week .wl b{font-family:'Fraunces',serif;font-weight:500;font-size:15px}
+.c-days{display:flex;justify-content:space-between}
+.c-days div{text-align:center;font-size:10px;color:var(--ink-soft);letter-spacing:.04em}
+.c-days .dot{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);margin:0 auto 5px;display:flex;align-items:center;justify-content:center}
+.c-days .dot.on{background:var(--sage);border-color:var(--sage);color:#fff}
+.c-start{margin-top:auto}
+.c-start a{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:var(--bone);text-decoration:none;padding:18px;border-radius:16px;font-family:'Fraunces',serif;font-weight:500;font-size:18px}
+.c-quick{display:flex;gap:10px;margin:10px 0 6px}
+.c-quick a{flex:1;text-align:center;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:12.5px}
+
+.nav{flex-shrink:0;display:flex;background:var(--card);border-top:1px solid var(--line)}
+.nav a{flex:1;text-align:center;padding:12px 4px 22px;text-decoration:none;font-size:10px;letter-spacing:.02em;color:var(--ink-soft)}
+.nav a.on{color:var(--sage)}
+.nav a .ic{display:block;font-size:16px;margin-bottom:3px}
+
+/* ===== SESSION (calm) ===== */
+.d-body{flex:1;display:flex;flex-direction:column;padding:12px 26px 0;overflow:hidden}
+.d-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink-soft)}
+.d-top .prog{font-family:'Fraunces',serif;font-style:italic;color:var(--sage)}
+.d-name{font-family:'Fraunces',serif;font-weight:500;font-size:29px;line-height:1.1;letter-spacing:-.01em;margin:12px 0 3px}
+.d-obj{font-size:13px;color:var(--ink-soft);margin-bottom:4px}
+.d-fig{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.d-fig svg{width:100%;max-height:170px}
+/* breathing ring for timed holds */
+.d-ring{display:flex;align-items:center;justify-content:center;gap:16px;margin:2px 0 12px}
+.d-ring svg{width:120px;height:120px}
+.d-ring .rbg{fill:none;stroke:var(--line);stroke-width:5}
+.d-ring .rfg{fill:none;stroke:var(--sage);stroke-width:5;stroke-linecap:round;stroke-dasharray:339;stroke-dashoffset:90;transform:rotate(-90deg);transform-origin:center}
+.d-ring .rt{position:absolute;font-family:'Fraunces',serif;font-weight:500;font-size:30px;color:var(--ink)}
+.d-ring .rc{position:relative;display:flex;align-items:center;justify-content:center}
+.d-ring .side .lab{font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em}
+.d-ring .side .rep{font-family:'Fraunces',serif;font-weight:500;font-size:20px}
+.d-cue{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:13.5px;color:#413f39;margin-bottom:10px}
+.d-cue b{font-family:'Fraunces',serif;font-style:italic;color:var(--sage);font-weight:500}
+.d-sets{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.d-sets .s{display:flex;gap:8px}
+.d-sets .s i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink-soft);display:block}
+.d-sets .s i.done{background:var(--ink-soft)}
+.d-sets .s i.cur{background:var(--sage);border-color:var(--sage)}
+.d-sets .lb{font-size:11px;color:var(--ink-soft)}
+.d-rep{display:flex;align-items:center;justify-content:center;gap:22px;margin-bottom:10px}
+.d-rep button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:24px;color:var(--ink);cursor:pointer;line-height:1}
+.d-rep .v{font-family:'Fraunces',serif;font-weight:500;font-size:40px;min-width:60px;text-align:center}
+.d-ctrl{display:flex;gap:10px;padding-bottom:14px}
+.d-ctrl button{flex:1;border:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px;font-size:13px;color:var(--ink);cursor:pointer}
+.d-ctrl button.prim{flex:1.6;background:var(--sage);color:#fff;border-color:var(--sage);font-family:'Fraunces',serif;font-size:15px}
+
+/* anatomical line */
+.an{fill:none;stroke:var(--ink);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.an-a{fill:none;stroke:var(--clay);stroke-width:3;stroke-linecap:round;stroke-dasharray:4 5;opacity:.9}
+.breathe{transform-origin:center;animation:breathe 5s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(.96)}50%{transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.breathe{animation:none}}
+
+/* rationale */
+.notes{margin-top:72px;border-top:1px solid #35342f;padding-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.note h3{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--sage);margin-bottom:12px}
+.note p{font-size:14px;color:#c3bdb1;margin-bottom:8px}
+.note .sw{display:flex;gap:8px;margin-bottom:12px}
+.note .sw i{width:34px;height:34px;border-radius:8px;display:block;border:1px solid #403f39}
+.pro li,.con li{font-size:13.5px;color:#c3bdb1;list-style:none;padding-left:20px;position:relative;margin-bottom:6px}
+.pro li::before{content:"+";position:absolute;left:0;color:#8faa5c;font-weight:800}
+.con li::before{content:"–";position:absolute;left:0;color:#c98b5a;font-weight:800}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="id">Str8 · Concept <b>C</b> — Calm Movement</div>
+    <a class="back" href="/str8/concepts.html">← Comparer les 3 concepts</a>
+  </div>
+  <p class="lede"><span class="k">Sensation — calme · haut de gamme · corporelle</span>
+  Un studio de mobilité contemporain. Tons naturels, serif chaleureuse, beaucoup d'air, formes simples et traits anatomiques minimalistes. Le mouvement respire, rien ne presse. Rassurant sans être médical.</p>
+
+  <div class="stage">
+    <!-- HOME -->
+    <div class="mock">
+      <div class="device"><div class="screen">
+        <div class="sb"><span>9:41</span><span>Str8</span><span>􀛨 100%</span></div>
+        <div class="c-body">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span class="c-greet">Bonjour Hugo</span><span class="c-date">dimanche 26 juillet</span>
+          </div>
+          <div class="c-today">Aujourd'hui,<br><b>Haut du dos.</b></div>
+          <div class="c-line"><span>18 min</span><i></i><span>Élastique</span><i></i><span>8 mouvements</span></div>
+          <div class="c-fig">
+            <svg viewBox="0 0 260 200" aria-label="Silhouette anatomique, ouverture des épaules">
+              <g class="breathe">
+                <circle cx="130" cy="46" r="15" class="an"/>
+                <path class="an" d="M130 61 C130 90 130 110 130 132"/>
+                <path class="an" d="M130 78 C104 74 86 84 74 104"/>
+                <path class="an" d="M130 78 C156 74 174 84 186 104"/>
+                <path class="an-a" d="M74 104 C110 118 150 118 186 104"/>
+                <path class="an" d="M130 132 C120 154 116 172 112 190"/>
+                <path class="an" d="M130 132 C140 154 144 172 148 190"/>
+              </g>
+            </svg>
+          </div>
+          <div class="c-week">
+            <div class="wl"><span>Cette semaine</span><b>2 séances · série de 3 sem.</b></div>
+            <div class="c-days">
+              <div><div class="dot on">L</div></div>
+              <div><div class="dot">M</div></div>
+              <div><div class="dot on">M</div></div>
+              <div><div class="dot">J</div></div>
+              <div><div class="dot">V</div></div>
+              <div><div class="dot">S</div></div>
+              <div><div class="dot">D</div></div>
+            </div>
+          </div>
+          <div class="c-start"><a href="#">Commencer la séance</a></div>
+          <div class="c-quick"><a href="#">Routine · 5 min</a><a href="#">Noter une marche</a></div>
+        </div>
+        <nav class="nav">
+          <a class="on"><span class="ic">◠</span>Accueil</a>
+          <a><span class="ic">▷</span>Séance</a>
+          <a><span class="ic">☰</span>Exos</a>
+          <a><span class="ic">◔</span>Progrès</a>
+          <a><span class="ic">○</span>Réglages</a>
+        </nav>
+      </div></div>
+      <div class="cap">Accueil <span>— calme, spacieux, une intention par écran</span></div>
+    </div>
+
+    <!-- SESSION -->
+    <div class="mock">
+      <div class="device"><div class="screen">
+        <div class="sb"><span>9:44</span><span>Séance A</span><span>􀛨 98%</span></div>
+        <div class="d-body">
+          <div class="d-top"><span>Mouvement 6 / 8</span><span class="prog">bientôt le repos</span></div>
+          <div class="d-name">Extension thoracique</div>
+          <div class="d-obj">Mobilité du haut du dos · sur chaise</div>
+          <div class="d-fig">
+            <svg viewBox="0 0 260 150" aria-label="Extension thoracique sur chaise">
+              <line class="an" x1="60" y1="120" x2="200" y2="120"/>
+              <line class="an" x1="80" y1="120" x2="80" y2="150"/>
+              <line class="an" x1="180" y1="120" x2="180" y2="150"/>
+              <line class="an" x1="180" y1="120" x2="180" y2="70"/>
+              <g class="breathe">
+                <circle cx="150" cy="52" r="12" class="an"/>
+                <path class="an" d="M150 64 C140 78 120 92 100 96"/>
+                <path class="an" d="M132 78 C120 66 108 60 96 60"/>
+                <path class="an-a" d="M150 40 C170 44 182 58 184 74"/>
+              </g>
+              <line class="an" x1="100" y1="96" x2="100" y2="120"/>
+            </svg>
+          </div>
+          <div class="d-cue"><b>Ouvre depuis le sternum</b>, menton rentré, respire lentement. Ne force pas le bas du dos.</div>
+          <div class="d-sets">
+            <div class="s"><i class="done"></i><i class="cur"></i><i></i></div>
+            <span class="lb">Série 2 / 3 · 8 respirations</span>
+          </div>
+          <div class="d-rep">
+            <button onclick="rep(-1)" aria-label="moins">−</button>
+            <span class="v" id="repC">8</span>
+            <button onclick="rep(1)" aria-label="plus">+</button>
+          </div>
+          <div class="d-ctrl">
+            <button>Précédent</button>
+            <button class="prim">Suivant</button>
+          </div>
+        </div>
+      </div></div>
+      <div class="cap">Séance <span>— traits anatomiques, respiration, douceur</span></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="note">
+      <h3>Typographie</h3>
+      <p><b class="serif">Fraunces</b> (serif à haute lisibilité optique) pour les titres — chaleur, calme, haut de gamme.</p>
+      <p>Inter pour le texte : neutre, reposant. Peu de capitales, beaucoup d'interligne.</p>
+    </div>
+    <div class="note">
+      <h3>Palette</h3>
+      <div class="sw"><i style="background:#EDE7DE"></i><i style="background:#2B2A27"></i><i style="background:#7C8A5C"></i><i style="background:#B5764F"></i></div>
+      <p>Os / encre douce / sauge / argile. Contrastes tenus mais accessibles. Zéro couleur criarde.</p>
+    </div>
+    <div class="note">
+      <h3>Navigation</h3>
+      <p>Une intention par écran, gros espaces, cartes douces réservées aux regroupements. Anneau de respiration pour les maintiens ; transitions lentes.</p>
+    </div>
+    <div class="note">
+      <h3>Forces & limites</h3>
+      <ul class="pro"><li>Rassurant, cohérent avec la mobilité/posture</li><li>Se démarque nettement des apps fitness</li></ul>
+      <ul class="con"><li>Moins « punchy » pour le renfo</li><li>Serif + tons doux = calibrage contraste soigné</li></ul>
+    </div>
+  </div>
+</div>
+<script>
+function rep(d){var e=document.getElementById('repC');e.textContent=Math.max(0,parseInt(e.textContent,10)+d);}
+</script>
+</body>
+</html>

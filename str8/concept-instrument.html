@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0E0F11">
+<title>Str8 — Concept B · Training Instrument</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ CONCEPT B — TRAINING INSTRUMENT ============ */
+:root{
+  --bg:#0E0F11;          /* instrument charcoal */
+  --panel:#16181B;
+  --panel-2:#1D2024;
+  --edge:#2A2E33;
+  --edge-2:#3A3F46;
+  --text:#E7EAEC;
+  --dim:#8A9099;
+  --signal:#C7F23A;      /* lab lime */
+  --signal-dim:#5f6e21;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:var(--text);line-height:1.45;-webkit-font-smoothing:antialiased}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 96px}
+
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #1c1f22;padding-bottom:20px;margin-bottom:34px}
+.top .id{font-weight:700;letter-spacing:-.01em;font-size:clamp(24px,4vw,34px)}
+.top .id b{color:var(--signal)}
+.top .back{font-family:'JetBrains Mono',monospace;font-size:12px;color:#9aa0a8;text-decoration:none;border:1px solid #2b2f34;padding:8px 14px;border-radius:6px}
+.top .back:hover{border-color:#565c64;color:#fff}
+.lede{max-width:640px;color:#aeb4bc;font-size:15px;margin-bottom:40px}
+.lede .k{font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:var(--signal);display:block;margin-bottom:10px}
+
+.stage{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px 40px;align-items:start;justify-items:center}
+.mock{width:100%;max-width:360px}
+.cap{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#7d838b;margin:16px 2px 0}
+.cap span{color:#d7dade}
+
+.device{position:relative;background:#000;border-radius:44px;padding:11px;box-shadow:0 30px 60px -20px rgba(0,0,0,.85),0 0 0 1px #24282c}
+.device::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:104px;height:26px;background:#000;border-radius:0 0 16px 16px;z-index:6}
+.screen{position:relative;background:var(--bg);color:var(--text);border-radius:34px;overflow:hidden;height:720px;display:flex;flex-direction:column;
+  background-image:linear-gradient(var(--edge) 1px,transparent 1px),linear-gradient(90deg,var(--edge) 1px,transparent 1px);
+  background-size:100% 44px,44px 100%;background-position:-1px -1px;}
+.screen::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0,transparent 60%,rgba(0,0,0,.5));pointer-events:none}
+
+.sb{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:14px 22px 2px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);flex-shrink:0}
+.sb .live{color:var(--signal)}
+
+/* ===== HOME (instrument) ===== */
+.i-body{position:relative;z-index:2;flex:1;overflow:hidden;padding:10px 18px 0;display:flex;flex-direction:column;gap:12px}
+.i-head{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.08em}
+.i-head .st{display:flex;align-items:center;gap:6px;color:var(--signal)}
+.i-head .st b{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal);display:block;animation:blink 1.6s steps(1) infinite}
+@keyframes blink{50%{opacity:.3}}
+.i-load{border:1px solid var(--edge-2);border-radius:10px;background:var(--panel);overflow:hidden}
+.i-load .lh{display:flex;justify-content:space-between;padding:9px 14px;border-bottom:1px solid var(--edge);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.i-load .lb{padding:14px}
+.i-load .prog{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--signal);letter-spacing:.1em}
+.i-load .name{font-size:26px;font-weight:700;letter-spacing:-.02em;margin:2px 0 10px}
+.i-spec{display:flex;gap:0;font-family:'JetBrains Mono',monospace;font-size:12px}
+.i-spec div{flex:1;border-left:1px solid var(--edge)}
+.i-spec div:first-child{border:none;padding-left:0}
+.i-spec div{padding-left:12px}
+.i-spec .v{color:var(--text);font-size:17px;font-weight:500}
+.i-spec .l{color:var(--dim);font-size:9px;text-transform:uppercase;letter-spacing:.1em}
+/* gauge row */
+.i-gauge{display:flex;align-items:center;gap:14px;border:1px solid var(--edge);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.i-gauge svg{flex-shrink:0}
+.i-gauge .gl{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
+.i-gauge .gv{font-size:20px;font-weight:700}
+.i-gauge .gv small{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);font-weight:400}
+.i-start{margin-top:auto;display:block;text-decoration:none;background:var(--signal);color:#0b0c07;text-align:center;padding:18px;border-radius:10px;font-weight:700;font-size:17px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:10px}
+.i-start .mono{font-size:12px;color:#3a4210}
+.i-mini{display:flex;gap:8px;margin-bottom:4px}
+.i-mini a{flex:1;text-align:center;text-decoration:none;border:1px solid var(--edge-2);border-radius:8px;padding:11px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);letter-spacing:.04em}
+
+/* ===== SESSION / TIMER (instrument) ===== */
+.t-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:8px 18px 0}
+.t-head{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.06em}
+.t-head b{color:var(--text)}
+.t-name{font-size:22px;font-weight:700;letter-spacing:-.01em;margin:8px 0 2px}
+.t-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--signal);letter-spacing:.08em;text-transform:uppercase}
+/* dial */
+.dial{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0}
+.dial svg{width:230px;height:230px}
+.dial .ring-bg{fill:none;stroke:var(--edge);stroke-width:6}
+.dial .ring-fg{fill:none;stroke:var(--signal);stroke-width:6;stroke-linecap:round;stroke-dasharray:596;stroke-dashoffset:150;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset .3s linear;filter:drop-shadow(0 0 6px rgba(199,242,58,.5))}
+.dial .cd{position:absolute;text-align:center}
+.dial .cd .big{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:58px;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.dial .cd .lb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+/* set segments */
+.t-seg{display:flex;gap:5px;margin:2px 0 10px}
+.t-seg i{flex:1;height:6px;border-radius:2px;background:var(--edge);display:block}
+.t-seg i.done{background:var(--dim)}
+.t-seg i.cur{background:var(--signal);box-shadow:0 0 8px var(--signal)}
+/* timer controls */
+.t-adj{display:flex;gap:8px;margin-bottom:8px}
+.t-adj button{flex:1;font-family:'JetBrains Mono',monospace;font-size:13px;background:var(--panel-2);border:1px solid var(--edge-2);color:var(--text);border-radius:8px;padding:12px;cursor:pointer}
+.t-adj button:active{border-color:var(--signal);color:var(--signal)}
+.t-main{display:flex;gap:8px}
+.t-main button{flex:1;border:none;border-radius:8px;padding:16px;font-weight:700;font-size:15px;cursor:pointer;background:var(--panel-2);color:var(--text);border:1px solid var(--edge-2)}
+.t-main button.go{flex:2;background:var(--signal);color:#0b0c07;border-color:var(--signal)}
+.t-main button.go.paused{background:transparent;color:var(--signal)}
+.t-pain{text-align:center;padding:12px 0 4px}
+.t-pain button{background:none;border:none;color:#c98;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;cursor:pointer}
+
+/* rationale (shared look) */
+.notes{margin-top:72px;border-top:1px solid #1c1f22;padding-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.note h3{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--signal);margin-bottom:12px}
+.note p{font-size:14px;color:#aeb4bc;margin-bottom:8px}
+.note .sw{display:flex;gap:8px;margin-bottom:12px}
+.note .sw i{width:34px;height:34px;border-radius:8px;display:block;border:1px solid #2f343a}
+.pro li,.con li{font-size:13.5px;color:#aeb4bc;list-style:none;padding-left:20px;position:relative;margin-bottom:6px}
+.pro li::before{content:"+";position:absolute;left:0;color:var(--signal);font-weight:800}
+.con li::before{content:"–";position:absolute;left:0;color:#e08a5a;font-weight:800}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="id">Str8 · Concept <b>B</b> — Training Instrument</div>
+    <a class="back" href="/str8/concepts.html">← Comparer les 3 concepts</a>
+  </div>
+  <p class="lede"><span class="k">Sensation — précise · efficace · technique</span>
+  L'app comme un instrument de mesure. Grille de fond, relevés monospace, une seule couleur signal. Le timer et les compteurs sont les héros : gros chiffres, gauges, segments. Aucune décoration — tout est lisible d'un coup d'œil, manipulable au pouce.</p>
+
+  <div class="stage">
+    <!-- HOME -->
+    <div class="mock">
+      <div class="device"><div class="screen">
+        <div class="sb"><span>9:41</span><span class="live">● STR8 / READY</span><span class="mono">100%</span></div>
+        <div class="i-body">
+          <div class="i-head"><span>DIM 26.07 · SEM 30</span><span class="st"><b></b>2 / 3 SÉANCES</span></div>
+          <div class="i-load">
+            <div class="lh"><span>Programme chargé</span><span>W04 · D01</span></div>
+            <div class="lb">
+              <div class="prog">SÉANCE A</div>
+              <div class="name">Haut du dos</div>
+              <div class="i-spec">
+                <div><div class="v">18:00</div><div class="l">Durée</div></div>
+                <div><div class="v">08</div><div class="l">Exos</div></div>
+                <div><div class="v">Band</div><div class="l">Matériel</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="i-gauge">
+            <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#2A2E33" stroke-width="5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#C7F23A" stroke-width="5" stroke-linecap="round" stroke-dasharray="119" stroke-dashoffset="40" transform="rotate(-90 23 23)"/></svg>
+            <div><div class="gl">Régularité 7 jours</div><div class="gv">66<small> % · série 3 sem.</small></div></div>
+          </div>
+          <div class="i-mini"><a href="#">◱ ROUTINE 05:00</a><a href="#">◐ RUN / MARCHE</a></div>
+          <a class="i-start" href="#">DÉMARRER <span class="mono">▶ 08 EXOS</span></a>
+        </div>
+      </div></div>
+      <div class="cap">Accueil <span>— tableau de bord, programme « chargé »</span></div>
+    </div>
+
+    <!-- TIMER / SESSION -->
+    <div class="mock">
+      <div class="device"><div class="screen">
+        <div class="sb"><span>9:47</span><span class="live" id="mode">● EXERCICE</span><span class="mono">98%</span></div>
+        <div class="t-body">
+          <div class="t-head"><span>05 / 08</span><span>SÉANCE A · <b>Planche adaptée</b></span></div>
+          <div class="t-name">Maintien isométrique</div>
+          <div class="t-sub">Série 2 / 3 · gainage</div>
+          <div class="dial">
+            <svg viewBox="0 0 210 210"><circle class="ring-bg" cx="105" cy="105" r="95"/><circle class="ring-fg" id="ring" cx="105" cy="105" r="95"/></svg>
+            <div class="cd"><div class="big" id="clock">00:32</div><div class="lb" id="phase">Maintien</div></div>
+          </div>
+          <div class="t-seg"><i class="done"></i><i class="cur"></i><i></i></div>
+          <div class="t-adj">
+            <button onclick="bump(-10)">−10 s</button>
+            <button onclick="bump(10)">+10 s</button>
+            <button onclick="toRest()">→ Repos</button>
+            <button>Suiv. ▷</button>
+          </div>
+          <div class="t-main">
+            <button onclick="reset()">↺</button>
+            <button class="go" id="go" onclick="toggle()">PAUSE</button>
+          </div>
+          <div class="t-pain"><button>⚠ Douleur · variante plus simple</button></div>
+        </div>
+      </div></div>
+      <div class="cap">Timer <span>— chiffres géants, gauge, ±10 s (il tourne)</span></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="note">
+      <h3>Typographie</h3>
+      <p><b class="mono">JetBrains Mono</b> pour toute donnée chiffrée (chrono, %, séries) — chasse fixe = relevé d'instrument.</p>
+      <p>Space Grotesk pour les titres : géométrique, technique mais chaleureuse.</p>
+    </div>
+    <div class="note">
+      <h3>Palette</h3>
+      <div class="sw"><i style="background:#0E0F11"></i><i style="background:#16181B"></i><i style="background:#2A2E33"></i><i style="background:#C7F23A"></i></div>
+      <p>Charbon + une seule couleur signal (lime). La grille de fond ancre l'esthétique « appareil de mesure ».</p>
+    </div>
+    <div class="note">
+      <h3>Navigation</h3>
+      <p>Orientée action : l'écran de séance est un poste de pilotage. ±10 s, repos, suivant, pause — tout au pouce, gros boutons, retour haptique prévu.</p>
+    </div>
+    <div class="note">
+      <h3>Forces & limites</h3>
+      <ul class="pro"><li>Parfait pour timers & compteurs</li><li>Zéro ambiguïté, très « pro »</li></ul>
+      <ul class="con"><li>Sombre en continu, moins « corps »</li><li>Le côté technique peut refroidir</li></ul>
+    </div>
+  </div>
+</div>
+<script>
+var t=32,running=true,rest=false;
+var ring=document.getElementById('ring'),C=596;
+function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+function draw(){document.getElementById('clock').textContent=fmt(Math.max(0,t));
+  var total=rest?45:40;ring.style.strokeDashoffset=C-(C*Math.max(0,t)/total);}
+function tick(){if(running){t--;if(t<=0){running=false;document.getElementById('go').textContent='REPRENDRE';document.getElementById('go').classList.add('paused');}draw();}}
+function toggle(){running=!running;var g=document.getElementById('go');g.textContent=running?'PAUSE':'REPRENDRE';g.classList.toggle('paused',!running);}
+function bump(d){t=Math.max(0,t+d);draw();}
+function reset(){t=rest?45:40;running=true;document.getElementById('go').textContent='PAUSE';document.getElementById('go').classList.remove('paused');draw();}
+function toRest(){rest=true;t=45;running=true;document.getElementById('mode').textContent='● REPOS';document.getElementById('phase').textContent='Repos';document.getElementById('go').textContent='PAUSE';document.getElementById('go').classList.remove('paused');draw();}
+draw();setInterval(tick,1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#111010">
+<title>Str8 — 3 concepts de design</title>
+<meta name="description" content="Str8 — trois directions artistiques pour une app de posture & training personnelle, mobile-first, PWA hors-ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0C0B0A;--panel:#141210;--edge:#2a2724;--text:#F2EEE4;--dim:#a49f96;--accent:#E8431F;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:56px 24px 100px}
+a{color:inherit}
+
+/* hero */
+.mark{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-.03em;font-size:clamp(48px,12vw,120px);line-height:.86;text-transform:uppercase}
+.mark b{color:var(--accent)}
+.tag{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:14px}
+.intro{max-width:640px;margin:26px 0 8px;color:#cfcabf;font-size:16px}
+.intro b{color:var(--text);font-weight:600}
+.meta-note{max-width:680px;border:1px solid var(--edge);border-radius:12px;padding:16px 18px;margin-top:26px;font-size:14px;color:#bdb8ae;background:#100f0d}
+.meta-note b{color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+
+/* recommendation banner */
+.reco{margin-top:22px;border:1px solid #4a2116;background:linear-gradient(0deg,#160f0c,#140f0d);border-radius:14px;padding:20px 22px;max-width:680px}
+.reco .h{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.reco p{font-size:14.5px;color:#d8d2c7}
+.reco p b{color:#fff}
+
+h2.sec{font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:14px;color:var(--dim);margin:64px 0 22px;padding-bottom:12px;border-bottom:1px solid var(--edge)}
+
+/* concept cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{position:relative;display:flex;flex-direction:column;border:1px solid var(--edge);border-radius:18px;overflow:hidden;background:var(--panel);text-decoration:none;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:#5b554d}
+.card .prev{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+/* mini previews */
+.pa{background:#F4F0E7;color:#141210}
+.pa .t{font-family:'Archivo',sans-serif;font-weight:900;font-size:40px;line-height:.86;text-transform:uppercase;text-align:center}
+.pa .t em{font-style:normal;display:block}
+.pa .b{position:absolute;bottom:0;left:0;right:0;background:#141210;color:#F4F0E7;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:12px;text-align:center;padding:9px}
+.pa .b span{color:#E8431F}
+.pb{background:#0E0F11;background-image:linear-gradient(#22262b 1px,transparent 1px),linear-gradient(90deg,#22262b 1px,transparent 1px);background-size:26px 26px}
+.pb .ring{width:96px;height:96px;border-radius:50%;border:5px solid #2A2E33;border-top-color:#C7F23A;border-right-color:#C7F23A;transform:rotate(45deg)}
+.pb .n{position:absolute;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:24px;color:#E7EAEC;transform:rotate(0)}
+.pc{background:#EDE7DE;color:#2B2A27}
+.pc svg{width:120px;opacity:.9}
+.card .body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
+.card .kl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.card h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;margin:4px 0 8px;letter-spacing:-.01em}
+.card p{font-size:13.5px;color:#bdb8ae;margin-bottom:14px}
+.card .feel{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.card .feel span{font-size:11px;color:#d3cec4;border:1px solid var(--edge);border-radius:999px;padding:3px 10px}
+.card .go{margin-top:auto;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.badge-reco{position:absolute;top:14px;right:14px;z-index:3;background:var(--accent);color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+
+/* compare table */
+.cmp{margin-top:26px;overflow-x:auto;border:1px solid var(--edge);border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--edge)}
+th{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);background:#100f0d}
+td:first-child{color:var(--dim)}
+tr:last-child td{border-bottom:none}
+
+.next{margin-top:56px;border-top:1px solid var(--edge);padding-top:28px;color:#bdb8ae;font-size:14px}
+.next h2{font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;font-size:14px;color:var(--text);margin-bottom:14px}
+.next ol{padding-left:20px}
+.next li{margin-bottom:6px}
+.foot{margin-top:56px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6c675f;letter-spacing:.04em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">Str<b>8</b></div>
+  <div class="tag">Posture &amp; training · app perso · mobile-first · PWA hors-ligne</div>
+
+  <p class="intro">Trois directions artistiques pour Str8, avant de développer l'app complète. Chaque concept montre l'<b>écran d'accueil</b> et l'<b>écran de séance</b> réels (compteurs et timer manipulables). Aucun compte, aucune base de données — tout vit dans le navigateur.</p>
+
+  <div class="reco">
+    <div class="h">★ Recommandation par défaut</div>
+    <p>Si tu ne tranches pas : <b>Concept A — Editorial Sport</b>. C'est le plus original, le plus lisible à une main et le moins « généré par IA ». Une réserve utile : l'écran de séance est le cœur de l'app (timer + compteurs) — j'y grefferais la <b>clarté « instrument » du Concept B</b> pour les gros chiffres. A pour l'identité, la rigueur data de B pour le chrono.</p>
+  </div>
+
+  <div class="meta-note">
+    <b>Décisions techniques déjà tranchées</b>
+    Stockage vidéo dans le navigateur = <b style="display:inline;font-size:14px;letter-spacing:0;text-transform:none;color:#fff">jouable</b> via IndexedDB (Blob + <code>createObjectURL</code>, install PWA iOS incluse) → tes vraies vidéos remplaceront les animations plus tard. On démarre sur des <b style="display:inline;font-size:14px;letter-spacing:0;text-transform:none;color:#fff">animations SVG/CSS</b> (visibles dans les écrans de séance). Repo zéro-build → app finale en vanilla PWA statique, pas Next.js.
+  </div>
+
+  <h2 class="sec">Les trois concepts</h2>
+  <div class="cards">
+    <!-- A -->
+    <a class="card" href="/str8/concept-editorial.html">
+      <span class="badge-reco">Reco</span>
+      <div class="prev pa">
+        <div class="t">Haut<em>du dos</em></div>
+        <div class="b">Commencer <span>→</span></div>
+      </div>
+      <div class="body">
+        <div class="kl">Concept A</div>
+        <h3>Editorial Sport</h3>
+        <p>Revue sportive premium : grands titres, filets fins, chiffres imposants, presque aucune carte. Un seul vermillon.</p>
+        <div class="feel"><span>premium</span><span>physique</span><span>direct</span><span>adulte</span></div>
+        <div class="go">Voir le concept →</div>
+      </div>
+    </a>
+    <!-- B -->
+    <a class="card" href="/str8/concept-instrument.html">
+      <div class="prev pb"><div class="ring"></div><div class="n">00:32</div></div>
+      <div class="body">
+        <div class="kl">Concept B</div>
+        <h3>Training Instrument</h3>
+        <p>Appareil de mesure : grille, relevés monospace, gauges, timer géant. Une couleur signal. Zéro décoration.</p>
+        <div class="feel"><span>précis</span><span>efficace</span><span>technique</span></div>
+        <div class="go">Voir le concept →</div>
+      </div>
+    </a>
+    <!-- C -->
+    <a class="card" href="/str8/concept-calm.html">
+      <div class="prev pc">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#2B2A27" stroke-width="3.2" stroke-linecap="round"><circle cx="60" cy="30" r="11"/><path d="M60 41 V78"/><path d="M60 52 C44 48 34 56 26 68"/><path d="M60 52 C76 48 86 56 94 68"/></g><path d="M26 68 C48 80 72 80 94 68" fill="none" stroke="#B5764F" stroke-width="2.6" stroke-dasharray="4 5"/></svg>
+      </div>
+      <div class="body">
+        <div class="kl">Concept C</div>
+        <h3>Calm Movement</h3>
+        <p>Studio de mobilité : tons naturels, serif chaleureuse, air, traits anatomiques minimalistes. Rassurant, pas médical.</p>
+        <div class="feel"><span>calme</span><span>haut de gamme</span><span>corporel</span></div>
+        <div class="go">Voir le concept →</div>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="sec">Comparaison rapide</h2>
+  <div class="cmp">
+    <table>
+      <tr><th>Critère</th><th>A · Editorial</th><th>B · Instrument</th><th>C · Calm</th></tr>
+      <tr><td>Identité / différenciation</td><td>Très forte</td><td>Forte</td><td>Forte</td></tr>
+      <tr><td>Lecture à une main</td><td>Excellente</td><td>Excellente</td><td>Bonne</td></tr>
+      <tr><td>Timer &amp; compteurs</td><td>Bon</td><td>Idéal</td><td>Bon (doux)</td></tr>
+      <tr><td>Cohérence posture / mobilité</td><td>Moyenne</td><td>Faible</td><td>Idéale</td></tr>
+      <tr><td>Chaleur / confort</td><td>Neutre</td><td>Froid</td><td>Élevée</td></tr>
+      <tr><td>Effort visuels/anim requis</td><td>Élevé</td><td>Moyen</td><td>Moyen</td></tr>
+    </table>
+  </div>
+
+  <div class="next">
+    <h2>Et ensuite</h2>
+    <p>Une fois le concept choisi, l'ordre de dev :</p>
+    <ol>
+      <li>Design system final du concept retenu</li>
+      <li>Structures de données + bibliothèque des 25 exercices</li>
+      <li>Écran de séance → timers → compteurs modifiables → gestion des séries</li>
+      <li>Stockage local (localStorage + IndexedDB), export/import JSON &amp; CSV</li>
+      <li>Programme 12 semaines · routine 5 min · progrès</li>
+      <li>PWA (manifest, service worker, offline) · animations SVG · doc « remplacer par mes vidéos »</li>
+    </ol>
+    <p style="margin-top:14px">👉 Dis-moi quel concept tu retiens (ou « prends la reco ») et je passe au design system + à l'app.</p>
+  </div>
+
+  <div class="foot">STR8 — CONCEPTS v1 · 2026-07-26 · prototypes noindex</div>
+</div>
+</body>
+</html>
