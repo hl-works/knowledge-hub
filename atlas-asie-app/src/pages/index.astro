@@ -7,12 +7,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 // Le premier sert de rendu par défaut (crawlers / sans JS) ; le crédit du
 // footer suit la photo tirée.
 const HEROES = [
-  { img: 'brand/hero-issyk-kul.jpg', lieu: 'Lac Issyk-Kul · Kirghizistan', credit: "Coucher de soleil sur le lac Issyk-Kul, Kirghizistan — Wikimedia Commons, CC BY-SA 2.0" },
-  { img: 'brand/hero-zhangjiajie.jpg', lieu: 'Zhangjiajie · Chine', credit: "Forêt de pics de Tianzi Shan, Zhangjiajie, Chine — chensiyuan, Wikimedia Commons, CC BY-SA 4.0" },
-  { img: 'brand/hero-padar.jpg', lieu: 'Île de Padar, Komodo · Indonésie', credit: "L'île de Padar, parc national de Komodo, Indonésie — Jakub Hałun, Wikimedia Commons, CC BY 4.0" },
-  // Les pépites du voyage lui-même — photos de famille AMHE.
+  // La pépite : vue drone de la Grande Muraille — le dragon de pierre sur les crêtes.
+  { img: 'photos/10/05.webp', lieu: 'La Grande Muraille · Chine', credit: 'La Grande Muraille vue du drone (Jinshanling), Chine — photo du voyage AMHE' },
+  { img: 'photos/10/06.webp', lieu: 'La Grande Muraille sauvage · Chine', credit: 'La tribu sur la Grande Muraille sauvage, vue du drone — photo du voyage AMHE' },
+  { img: 'photos/3/32.webp', lieu: 'Lac Issyk-Koul · Kirghizistan', credit: "Le lac Issyk-Koul jusqu'aux montagnes enneigées, Kirghizistan — photo du voyage AMHE" },
+  { img: 'photos/7/16.webp', lieu: 'Dunes de Khongoryn Els · Mongolie', credit: 'Les dunes chantantes de Khongoryn Els, désert de Gobi — photo du voyage AMHE' },
   { img: 'photos/3/06.webp', lieu: 'Alexis face à la rivière des glaciers · Kirghizistan', credit: 'Alexis face à la rivière des glaciers, Kirghizistan — photo du voyage AMHE' },
   { img: 'photos/3/17.webp', lieu: 'Cheval en liberté sur les alpages · Kirghizistan', credit: 'Cheval en liberté sur les alpages kirghiz — photo du voyage AMHE' },
+  // Escales encore à venir (pas de photo perso) — visuels libres de droits en attendant.
+  { img: 'brand/hero-zhangjiajie.jpg', lieu: 'Zhangjiajie · Chine', credit: "Forêt de pics de Tianzi Shan, Zhangjiajie, Chine — chensiyuan, Wikimedia Commons, CC BY-SA 4.0" },
+  { img: 'brand/hero-padar.jpg', lieu: 'Île de Padar, Komodo · Indonésie', credit: "L'île de Padar, parc national de Komodo, Indonésie — Jakub Hałun, Wikimedia Commons, CC BY 4.0" },
 ];
 const heroCredit = HEROES[0].credit;
 ---
