@@ -48,6 +48,7 @@ const CC = {
         </div>
         <p>Une randonnée <strong>longue et physique</strong>, mais vraiment exceptionnelle : le parcours alterne escaliers raides, montées régulières, passages plus sauvages et longues portions sur les crêtes. La marche est ponctuée de nombreuses pauses — observer la carte, faire des photos, boire et manger. Prévoir une vraie demi-journée, voire davantage avec des enfants.</p>
         <p class="walk-tours"><b>Les tours, dans l'ordre :</b> Bingdaogou → General Tower → Brick Crenel → East Taochun → Taochunkou → Six-window Tower. <em>Après la Six-window Tower, la Muraille se poursuit dans la végétation — mais la section accessible s'arrête là.</em></p>
+        <figure class="walk-end"><img src={P('20.webp')} alt="Le bout de la section ouverte de Jinshanling, la Muraille repart verte dans la forêt" loading="lazy" /><figcaption>On a été au bout (16h37). Au-delà, c'est zone militaire : le mur repart, tout vert et non déboisé, se perdre dans la forêt.</figcaption></figure>
         <div class="walk-verdict"><span>Belle</span><span>Physique</span><span>Culturelle</span><b>un combo gagnant.</b></div>
       </section>
 
@@ -241,6 +242,9 @@ const CC = {
   .walk-stats span{font-size:.74rem;color:var(--ink-soft);}
   .walk p{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;line-height:1.72;color:var(--ink);margin:0 0 .8em;}
   .walk-tours{font-size:.98rem;}
+  .walk-end{margin:4px 0 14px;}
+  .walk-end img{width:100%;max-height:300px;object-fit:cover;border-radius:12px;border:2px solid var(--ink);display:block;}
+  .walk-end figcaption{font-size:.84rem;color:var(--ink-soft);margin-top:7px;font-family:'Fraunces',Georgia,serif;font-style:italic;}
   .walk-verdict{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:4px;}
   .walk-verdict span{background:var(--ink);color:var(--cream);font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:20px;}
   .walk-verdict b{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;color:var(--ink-soft);}
