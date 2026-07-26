@@ -62,6 +62,18 @@ const heroCredit = HEROES[0].credit;
     </div>
   </div></div>
 
+  <!-- À LA UNE : l'histoire de la Grande Muraille -->
+  <div class="pushwrap"><div class="wrap">
+    <a class="push" href={`${base}muraille/`}>
+      <img class="push-img" src={`${base}photos/10/05.webp`} alt="La Grande Muraille vue du drone" loading="lazy" />
+      <span class="push-tx">
+        <span class="push-k">🐉 À lire · l'histoire</span>
+        <b class="push-t">La Grande Muraille racontée</b>
+        <span class="push-s">Une visite guidée en 12 épisodes, à lire en marchant avec les enfants →</span>
+      </span>
+    </a>
+  </div></div>
+
   <!-- COMPTEURS -->
   <section class="counters" aria-label="Le voyage en chiffres"><div class="wrap">
     <div class="counter"><b id="c-pays" data-count="0">0</b><span>Pays</span></div>
@@ -112,6 +124,16 @@ const heroCredit = HEROES[0].credit;
   .live .cd{font-size:.95rem;color:rgba(255,255,255,.92);font-variant-numeric:tabular-nums;}
 
   .routewrap{position:relative;z-index:6;margin-top:clamp(-130px,-9vw,-80px);}
+  /* À la une : push vers l'histoire de la Grande Muraille */
+  .pushwrap{position:relative;z-index:6;margin-top:clamp(20px,3vw,32px);}
+  .push{display:flex;align-items:stretch;gap:0;background:var(--ink);color:var(--cream);border-radius:16px;overflow:hidden;text-decoration:none;box-shadow:6px 6px 0 var(--orange);transition:transform .15s;min-height:clamp(150px,22vw,210px);}
+  .push:hover{transform:translate(-2px,-2px);}
+  .push-img{width:clamp(120px,30vw,280px);height:auto;object-fit:cover;flex:none;align-self:stretch;display:block;}
+  .push-tx{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:clamp(16px,3vw,26px) clamp(18px,3vw,30px);}
+  .push-k{font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);}
+  .push-t{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.4rem,4vw,2.2rem);line-height:1.02;}
+  .push-s{font-size:clamp(.9rem,2vw,1.02rem);color:var(--cream);opacity:.92;max-width:46ch;}
+  @media (max-width:520px){.push-img{width:104px;}}
   .routecard{background:var(--teal);border:3px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:0 0 0 4px var(--cream), 8px 8px 0 var(--ink);}
   .rhead{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px 18px;background:var(--ink);color:var(--cream);flex-wrap:wrap;}
   .rhead .t{font-family:var(--disp);font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;}
