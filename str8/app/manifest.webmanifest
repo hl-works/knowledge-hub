@@ -1,0 +1,15 @@
+{
+  "name": "Str8 — Posture & Training",
+  "short_name": "Str8",
+  "description": "App perso de posture & renforcement, hors-ligne, sans compte ni serveur.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E0F11",
+  "theme_color": "#0E0F11",
+  "lang": "fr",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
