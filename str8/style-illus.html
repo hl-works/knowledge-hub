@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0E0F11">
+<title>Str8 — Style d'illustration retenu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0F11;--panel:#16181B;--edge:#2A2E33;--edge-2:#3A3F46;--text:#EEF1F3;--dim:#98a0a9;--signal:#C7F23A;--ink:#E8E2D4;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:#050607;color:var(--text);line-height:1.45;-webkit-font-smoothing:antialiased}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 24px 96px}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #1c1f22;padding-bottom:20px;margin-bottom:30px}
+.top .id{font-weight:700;font-size:clamp(22px,4vw,30px)}.top .id b{color:var(--signal)}
+.top .back{font-family:'JetBrains Mono',monospace;font-size:12px;color:#9aa0a8;text-decoration:none;border:1px solid #2b2f34;padding:8px 14px;border-radius:6px}
+.name-k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+h1{font-size:clamp(26px,5vw,40px);font-weight:700;letter-spacing:-.02em;margin:8px 0 14px}
+.lede{max-width:640px;color:#b4bac2;font-size:15px}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:36px;align-items:stretch}
+.canvas{position:relative;border:1px solid var(--edge-2);border-radius:18px;background:radial-gradient(120% 90% at 50% 15%,#1b1e22,#101215);display:flex;align-items:center;justify-content:center;min-height:460px;overflow:hidden}
+.canvas::before,.canvas::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--signal);opacity:.5}
+.canvas::before{top:14px;left:14px;border-right:0;border-bottom:0}
+.canvas::after{bottom:14px;right:14px;border-left:0;border-top:0}
+.canvas .lbl{position:absolute;top:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--dim)}
+.canvas svg{width:86%;height:auto;max-height:440px}
+.canvas .foot{position:absolute;bottom:14px;left:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--dim)}
+.canvas .foot b{color:var(--ink);font-weight:500}
+
+.spec{display:flex;flex-direction:column;gap:14px}
+.card{border:1px solid var(--edge);border-radius:14px;background:var(--panel);padding:16px 18px}
+.card h3{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:10px}
+.card p{font-size:13.5px;color:#b4bac2;margin-bottom:6px}
+.sw{display:flex;gap:10px;margin-top:4px}
+.sw div{text-align:center;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:.04em}
+.sw i{width:44px;height:44px;border-radius:9px;display:block;margin-bottom:5px;border:1px solid #33383e}
+.recipe li{font-size:13px;color:#b4bac2;margin-left:16px;margin-bottom:5px}
+.recipe li b{color:var(--text)}
+
+/* in-app strip */
+h2{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:56px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--edge)}
+.strip{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center}
+.device{background:#000;border-radius:40px;padding:10px;box-shadow:0 24px 50px -18px rgba(0,0,0,.85),0 0 0 1px #24282c;width:300px}
+.screen{background:var(--bg);border-radius:30px;overflow:hidden;
+  background-image:linear-gradient(var(--edge) 1px,transparent 1px),linear-gradient(90deg,var(--edge) 1px,transparent 1px);background-size:100% 40px,40px 100%;padding:16px 16px 20px}
+.screen .sh{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-bottom:8px}
+.screen .xn{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.screen .xt{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--signal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.screen .media{border:1px solid var(--edge-2);border-radius:12px;background:linear-gradient(180deg,#191c1f,#141619);height:190px;display:flex;align-items:center;justify-content:center}
+.screen .media svg{height:170px}
+.explain p{font-size:14px;color:#b4bac2;margin-bottom:10px}
+.explain .mono{font-size:12.5px;color:#8f959d}
+
+.ask{margin-top:56px;border-top:1px solid var(--edge);padding-top:24px;color:#b4bac2;font-size:14.5px}
+.ask b{color:#fff}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.strip{grid-template-columns:1fr;justify-items:center}}
+
+/* ---- figure ink styles ---- */
+.o{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.o2{fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hatch{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linecap:round;opacity:.45}
+.fillbody{fill:#20242855}
+.band{fill:none;stroke:var(--signal);stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(199,242,58,.5))}
+.grip{fill:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- reusable figure: band pull-apart, editorial line-art / engraving, bust framing -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <symbol id="fig-bpa" viewBox="0 0 300 300">
+    <!-- faint body mass -->
+    <path class="fillbody" d="M150 84 C168 84 176 90 178 100 C180 112 200 106 205 118
+      C210 130 208 150 202 156 C214 176 176 122 174 200 C173 232 168 250 150 258
+      C132 250 127 232 126 200 C124 122 86 176 98 156 C92 150 90 130 95 118
+      C100 106 120 112 122 100 C124 90 132 84 150 84 Z"/>
+    <!-- head -->
+    <path class="o" d="M127 44 C127 25 173 25 173 44 C173 62 164 79 150 82 C136 79 127 62 127 44 Z"/>
+    <!-- hair suggestion -->
+    <path class="o2" d="M129 40 C133 22 167 22 171 40"/>
+    <path class="hatch" d="M136 30 C142 24 158 24 164 30"/>
+    <!-- neck + trapezius -->
+    <path class="o" d="M139 80 C138 88 137 92 132 98"/>
+    <path class="o" d="M161 80 C162 88 163 92 168 98"/>
+    <path class="o2" d="M150 84 C150 92 150 96 150 100"/>
+    <!-- shoulders / deltoids -->
+    <path class="o" d="M132 98 C118 100 104 104 96 116 C90 126 92 140 100 150"/>
+    <path class="o" d="M168 98 C182 100 196 104 204 116 C210 126 208 140 200 150"/>
+    <!-- left arm extended -->
+    <path class="o" d="M100 118 C82 116 60 116 44 120 C40 121 40 128 44 130 C60 134 84 132 104 132"/>
+    <circle class="grip" cx="44" cy="125" r="7"/>
+    <!-- right arm extended -->
+    <path class="o" d="M200 118 C218 116 240 116 256 120 C260 121 260 128 256 130 C240 134 216 132 196 132"/>
+    <circle class="grip" cx="256" cy="125" r="7"/>
+    <!-- torso sides to waist + hips -->
+    <path class="o" d="M100 150 C110 168 118 184 122 206 C123 230 126 248 150 258"/>
+    <path class="o" d="M200 150 C190 168 182 184 178 206 C177 230 174 248 150 258"/>
+    <!-- clavicles -->
+    <path class="o2" d="M150 102 C138 104 126 106 116 112"/>
+    <path class="o2" d="M150 102 C162 104 174 106 184 112"/>
+    <!-- pectorals -->
+    <path class="o2" d="M150 108 C136 108 126 116 124 132 C132 140 146 142 150 132"/>
+    <path class="o2" d="M150 108 C164 108 174 116 176 132 C168 140 154 142 150 132"/>
+    <!-- sternum + linea alba -->
+    <path class="o2" d="M150 106 L150 200"/>
+    <!-- abdominal ticks -->
+    <path class="o2" d="M136 158 L164 158 M137 174 L163 174 M139 190 L161 190"/>
+    <!-- obliques -->
+    <path class="o2" d="M126 150 C123 172 128 192 140 204"/>
+    <path class="o2" d="M174 150 C177 172 172 192 160 204"/>
+    <!-- deltoid contour + hatching (engraving volume) -->
+    <path class="o2" d="M104 120 C100 128 100 138 106 146"/>
+    <path class="o2" d="M196 120 C200 128 200 138 194 146"/>
+    <path class="hatch" d="M100 126 L110 124 M101 132 L112 130 M103 138 L113 137"/>
+    <path class="hatch" d="M200 126 L190 124 M199 132 L188 130 M197 138 L187 137"/>
+    <path class="hatch" d="M130 126 L138 130 M128 132 L137 136 M127 138 L135 142"/>
+    <path class="hatch" d="M170 126 L162 130 M172 132 L163 136 M173 138 L165 142"/>
+    <!-- elastic band across chest -->
+    <path class="band" d="M44 122 C90 140 210 140 256 122"/>
+  </symbol>
+</svg>
+
+<div class="wrap">
+  <div class="top">
+    <div class="id">Str8 · Style <b>illustration</b></div>
+    <a class="back" href="/str8/concept-instrument.html">← Concept Instrument</a>
+  </div>
+
+  <div class="name-k">Style retenu proposé</div>
+  <h1>Line-art éditorial · gravure</h1>
+  <p class="lede">Un seul style, abouti. Trait d'encre continu, volume par hachures fines (gravure), une seule couleur accent. Le même personnage sert pour les 25 exercices — cohérence totale de la bibliothèque.</p>
+
+  <div class="hero">
+    <div class="canvas">
+      <span class="lbl">SVG · ~4 KO · OFFLINE</span>
+      <svg viewBox="0 0 300 300"><use href="#fig-bpa"/></svg>
+      <div class="foot"><b>Band pull-apart</b> · position d'ouverture</div>
+    </div>
+    <div class="spec">
+      <div class="card">
+        <h3>Le trait</h3>
+        <p>Contour d'encre continu (2,6 px), détails internes (1,7 px), hachures de volume (1,2 px, 45 %). Bouts arrondis, pas de remplissage plat — c'est une <b style="color:#fff">gravure</b>, pas un aplat.</p>
+      </div>
+      <div class="card">
+        <h3>Couleurs</h3>
+        <div class="sw">
+          <div><i style="background:#E8E2D4"></i>Encre</div>
+          <div><i style="background:#16181B"></i>Fond</div>
+          <div><i style="background:#C7F23A"></i>Élastique</div>
+          <div><i style="background:#3A3F46"></i>Cadre</div>
+        </div>
+        <p style="margin-top:10px">Monochrome ivoire sur charbon + le lime réservé à l'accessoire actif (élastique, appui, direction). Zéro palette parasite.</p>
+      </div>
+      <div class="card">
+        <h3>Recette (réplicable ×25)</h3>
+        <ul class="recipe">
+          <li><b>Buste cadré</b> tête→hanches (le haut du dos = sujet)</li>
+          <li><b>Anatomie suggérée</b> : deltoïdes, pecs, ligne médiane, obliques</li>
+          <li><b>Accent lime</b> = l'élément qui travaille (bande, mur, sol)</li>
+          <li><b>Animation</b> : bras/segments pivotent (même figure, 2 poses)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2>Dans l'écran de séance</h2>
+  <div class="strip">
+    <div class="device"><div class="screen">
+      <div class="sh"><span>03 / 08</span><span>SÉANCE A</span></div>
+      <div class="xn">Band pull-apart</div>
+      <div class="xt">Dos · omoplates · élastique</div>
+      <div class="media"><svg viewBox="30 20 240 250"><use href="#fig-bpa"/></svg></div>
+    </div></div>
+    <div class="explain">
+      <p>Le dessin vit dans le panneau média, sous le nom de l'exercice. Même grain que l'UI (charbon + lime), donc l'illustration et l'interface parlent la même langue.</p>
+      <p class="mono">Ce SVG reste un repère de mouvement. Quand tu filmes tes vraies vidéos, on remplace le média exo par exo — l'architecture le prévoit déjà.</p>
+    </div>
+  </div>
+
+  <div class="ask">
+    <p><b>Ce style-là, on part dessus ?</b> Si oui, je le décline sur les 25 exercices (chacun sa pose départ/arrivée) et j'attaque le design system final + la structure de données. Si tu veux un cran de plus (hachures plus denses, ou vue 3/4 au lieu de face), dis-le et j'ajuste sur ce même dessin avant de lancer la série.</p>
+  </div>
+</div>
+</body>
+</html>
