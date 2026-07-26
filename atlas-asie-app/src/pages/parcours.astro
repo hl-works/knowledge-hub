@@ -186,11 +186,17 @@ import Footer from '../components/Footer.astro';
     return `<div class="grande-histoire"><h3>La grande histoire</h3><div class="recits">${body}</div></div>`;
   }
 
-  // Escale 10 (Grande Muraille) : lien vers la page immersive « racontée ».
+  // Escales avec une page immersive « racontée » (visite guidée en épisodes).
+  const FEATURES: Record<number, { href: string; ic: string; tit: string; sub: string }> = {
+    3: { href: 'issyk-koul', ic: '🏔️', tit: 'Issyk-Koul raconté', sub: '11 épisodes au bord du lac qui ne gèle jamais →' },
+    7: { href: 'gobi', ic: '🏜️', tit: 'Le Gobi raconté', sub: '11 épisodes dans le désert des dinosaures →' },
+    10: { href: 'muraille', ic: '🐉', tit: 'La Grande Muraille racontée', sub: '10 épisodes à lire en marchant, avec les enfants →' },
+  };
   function featureBlock(s: Stop): string {
-    if (s.ordre !== 10) return '';
+    const f = FEATURES[s.ordre];
+    if (!f) return '';
     const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
-    return `<a class="feature" href="${base}muraille/"><span class="feature-ic">🐉</span><span class="feature-tx"><b>La Grande Muraille racontée</b><small>10 épisodes à lire en marchant, avec les enfants →</small></span></a>`;
+    return `<a class="feature" href="${base}${f.href}/"><span class="feature-ic">${f.ic}</span><span class="feature-tx"><b>${f.tit}</b><small>${f.sub}</small></span></a>`;
   }
 
   // « En images » : galerie légendée de l'escale (photos Sheet + repo + vidéos),
