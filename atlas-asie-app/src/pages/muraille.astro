@@ -6,9 +6,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 // Photos du voyage (escale 10, Jinshanling) et illustrations libres Wikimedia Commons.
 const P = (n: string) => `${base}photos/10/${n}`;
 const CC = {
-  sunrise: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/The_Great_Wall_at_Sunrise.jpg',
-  wild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Wohu_Great_Wall%2C_Gubeikou_%E5%8D%A7%E8%99%8E%E9%95%BF%E5%9F%8E_%287991942594%29.jpg/960px-Wohu_Great_Wall%2C_Gubeikou_%E5%8D%A7%E8%99%8E%E9%95%BF%E5%9F%8E_%287991942594%29.jpg',
-  terracotta: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Xian%2C_Terracotta_Army_%286170329474%29.jpg/960px-Xian%2C_Terracotta_Army_%286170329474%29.jpg',
   beacon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Great_Wall_Beacon_Tower_-_panoramio.jpg/960px-Great_Wall_Beacon_Tower_-_panoramio.jpg',
   qin: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Qin_Shi_Huang_Emperor_by_Trisorn_Triboon_59.jpg/960px-Qin_Shi_Huang_Emperor_by_Trisorn_Triboon_59.jpg',
   aerial: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Badaling_landscape_from_Great_Wall.jpg/960px-Badaling_landscape_from_Great_Wall.jpg',
@@ -23,7 +20,7 @@ const CC = {
   <main id="main">
     <!-- HERO -->
     <section class="mhero">
-      <img class="mhero-bg" src={CC.sunrise} alt="La Grande Muraille de Chine serpentant sur les crêtes au lever du soleil" />
+      <img class="mhero-bg" src={P('05.webp')} alt="La Grande Muraille serpentant sur les crêtes vertes, vue de notre drone" />
       <div class="mhero-scrim"></div>
       <div class="wrap mhero-in">
         <p class="eyebrow">À lire en marchant · escale 10</p>
@@ -43,7 +40,7 @@ const CC = {
       <!-- ÉPISODE 1 -->
       <article class="ep" id="ep1">
         <div class="ep-h"><span class="ep-n">1</span><h2>🐉 Un dragon, pas un mur</h2></div>
-        <figure class="ep-img"><img src={CC.wild} alt="La Grande Muraille sauvage suivant les crêtes des montagnes" loading="lazy" title="Wild Great Wall, Gubeikou — Wikimedia Commons" /><figcaption>Elle monte, redescend, disparaît, réapparaît : on dirait un animal vivant.</figcaption></figure>
+        <figure class="ep-img"><img src={P('06.webp')} alt="La famille minuscule sur la Muraille sauvage, vue du drone" loading="lazy" /><figcaption>Nous, minuscules sur le dos du dragon : la Muraille sauvage vue du ciel.</figcaption></figure>
         <div class="prose">
           <p>Première surprise, avant même de poser le pied dessus : quand on dit « Grande Muraille », on imagine un mur bien droit. En vrai… ce n'en est pas un. C'est un <strong>dragon</strong>.</p>
           <p>Regardez les crêtes autour de vous. La Muraille monte à l'assaut d'un sommet, plonge dans une vallée, tourne, se cache derrière une colline, puis resurgit au loin. Elle ne prend <em>jamais</em> le chemin le plus facile. Les Chinois l'appellent d'ailleurs souvent <strong>le dragon de pierre</strong> — un gardien endormi sur les montagnes, qui protège l'empire depuis des siècles.</p>
@@ -185,6 +182,7 @@ const CC = {
       <!-- LE JEU -->
       <article class="ep game" id="jeu">
         <div class="ep-h"><span class="ep-n">🎯</span><h2>Le jeu des tours</h2></div>
+        <figure class="ep-img"><img src={P('08.webp')} alt="Marion dans l'arche d'une tour de la Muraille de Jinshanling" loading="lazy" /><figcaption>Chaque tour est une petite forteresse pleine de secrets — à vous de les débusquer.</figcaption></figure>
         <div class="prose">
           <p>À chaque tour, une question à poser aux enfants avant de dévoiler la réponse : <strong>« Si tu étais le général, à quoi servirait cette tour ? »</strong> Il n'y a pas une seule bonne réponse — une même tour pouvait tout faire.</p>
         </div>
