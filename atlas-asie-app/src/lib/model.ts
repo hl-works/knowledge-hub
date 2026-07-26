@@ -73,10 +73,13 @@ export function computeStatut(
   const known = ['passe', 'en-cours', 'a-venir'];
   const norm = (manuel ?? '').toLowerCase().replace(/[éè]/g, 'e').replace(/\s+/g, '-');
   if (known.includes(norm)) return norm as Statut;
+  // Départ exclusif : le jour du départ, on a déjà quitté l'escale (on arrive
+  // à la suivante, dont l'arrivée tombe le même jour). Évite deux « en-cours »
+  // le jour de transition.
   if (arrivee && today < arrivee) return 'a-venir';
-  if (depart && today > depart) return 'passe';
+  if (depart && today >= depart) return 'passe';
   if (arrivee && !depart && today > arrivee) return 'passe';
-  if (arrivee && today >= arrivee && (!depart || today <= depart)) return 'en-cours';
+  if (arrivee && today >= arrivee && (!depart || today < depart)) return 'en-cours';
   return 'a-venir';
 }
 
@@ -400,8 +403,9 @@ export function computeLive(stops: Stop[], today: Date = startOfToday()): Live {
   }
   const idx = stops.findIndex((s) => {
     const a = s.arrivee;
-    const d = s.depart ?? s.arrivee;
-    return a && d && today >= a && today <= d;
+    if (!a || today < a) return false;
+    // Départ exclusif : le jour du départ, on est déjà à l'escale suivante.
+    return s.depart ? today < s.depart : today <= a;
   });
   const current = idx >= 0 ? stops[idx] : null;
   const next = idx >= 0 ? stops.slice(idx + 1).find((s) => !isRetour(s)) ?? null : null;
