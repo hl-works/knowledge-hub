@@ -1,10 +1,12 @@
 /* Str8 — service worker : app-shell offline. */
-const CACHE = 'str8-v0-1-20260726b';
+const CACHE = 'str8-v0-1-20260726c';
 const ASSETS = [
   './', './index.html',
   './style.css?v=20260726a',
   './media.js?v=20260726a', './data.js?v=20260726a', './store.js?v=20260726a', './app.js?v=20260726a',
-  './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png',
+  './manifest.webmanifest',
+  './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png',
+  './favicon.svg', './favicon-32.png', './favicon-16.png',
 ];
 
 self.addEventListener('install', (e) => {
