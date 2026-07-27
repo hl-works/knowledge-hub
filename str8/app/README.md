@@ -34,7 +34,7 @@ En prod : `hl-consulting.tech/str8/app/` (GitHub Pages). Sur iPhone : Safari →
 index.html   shell SPA            data.js    profil + 25 exos + séances A/B/C + routine + programme 12 sem
 style.css    design system        media.js   médias blueprint (SVG schématiques par pattern)
 app.js       routeur + logique    store.js   StorageAdapter → LocalStorageAdapter
-sw.js        service worker       manifest.webmanifest · icon.svg
+sw.js        service worker       manifest.webmanifest · icônes PNG (icon-*/favicon-*)
 ```
 
 La couche `store.js` est abstraite : on pourra brancher une base distante un jour sans réécrire l'app.
