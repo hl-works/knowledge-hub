@@ -272,8 +272,8 @@
 <main class="wrap">
 
   <div class="hero">
-    <span class="eyebrow">Projet interne · HL Group · remplace Fyxer</span>
-    <h1>Agent Email<br>Inbox&nbsp;Zero</h1>
+    <span class="eyebrow">Projet interne · HL Group · app « Zéro » · remplace Fyxer</span>
+    <h1>Zéro<br>Inbox&nbsp;Zero</h1>
     <p class="lede"><b>L'inbox est ta todo list.</b> Un mail dedans = une <b>boucle ouverte</b>, un truc pas encore géré. Le tri n'arrive qu'<b>à la fin</b> : quand l'info est prise, la tâche faite ou déléguée, le mail <b>quitte l'inbox</b> vers ton dossier existant. But = <b>zéro mail dans l'inbox</b> (sauf Hotmail). Le dashboard + le digest quotidien sont le cockpit pour y arriver vite. Pattern de référence : l'agent factures fournisseurs — agent serveur autonome, pas une app qu'on ouvre à la main.</p>
   </div>
 
@@ -504,7 +504,7 @@
 
     <div class="step">
       <div class="step-hd"><span class="step-no">Étape 0</span><b>Socle</b></div>
-      <p>Repo <code>/opt/agents/email</code>, chargeur de config (creds hors repo, <code>chmod 600</code>), schéma SQLite, logger à compteurs (lus / nouveaux / dédupliqués / classés / rejetés). Interface normalisée <code>MailSource</code> : <code>list_since()</code>, <code>get_message()</code>, <code>move()</code>, <code>append_draft()</code>.</p>
+      <p>2ᵉ service Render <code>zero</code> sur la base de code HF-OS (<code>DATABASE_URI</code> dédiée + <code>APP_PROFILE=zero</code>), collection <code>Tâches</code> câblée + migration Payload. On réutilise la collection <code>Mailboxes</code> et les libs <code>email-imap</code>/<code>email-smtp</code>/<code>crypto</code>.</p>
       <p class="crit"><b>✅ Critère —</b> <code>selftest</code> liste les 5 derniers mails d'UNE boîte Ionos, les écrit en base, 0 écriture dans la boîte.</p>
     </div>
     <div class="step">
@@ -549,7 +549,7 @@
     </div>
     <div class="step">
       <div class="step-hd"><span class="step-no">Étape 9</span><b>Autonomie (cron) + garde-fous</b></div>
-      <p>Timer systemd (comme factures), kill switch, alerte si un adaptateur tombe.</p>
+      <p>Passage périodique en <b>job Payload / cron Render</b> (<code>RUN_CRON</code>), kill switch, alerte si un adaptateur tombe.</p>
       <p class="crit"><b>✅ Critère —</b> tourne seul chaque matin, tu ne l'ouvres que pour valider.</p>
     </div>
   </section>
@@ -558,13 +558,13 @@
   <section id="stack">
     <p class="kicker">08 — Stack &amp; build</p>
     <h2>Ce sur quoi ça tourne</h2>
-    <p>Python · <code>imapclient</code>/<code>imaplib</code> (IMAP) + SDK Graph existant · SQLite (état, comme le processed-tracker factures) · <code>python-telegram-bot</code> · API Claude (Haiku triage / Sonnet-Opus synthèse &amp; brouillons) · dashboard Flask/FastAPI minimal + HTML statique, zéro framework lourd · <code>systemd timer</code> pour l'autonomie.</p>
-    <h3>À brancher au build (jamais dans le repo)</h3>
+    <p><b>Pivot v2 (2026-07-25) :</b> on abandonne le Python/SQLite/systemd. « Zéro » se construit sur le <b>socle HF-OS</b> : <b>TypeScript · Payload CMS 3 · Postgres · Render</b>. On réutilise ses briques déjà en prod — <code>imapflow</code> (IMAP), <code>nodemailer</code> (SMTP, réponses en fil), la collection <code>Mailboxes</code> (config des boîtes, mot de passe d’app <b>chiffré AES-GCM</b> en base), <code>lib/crypto</code> et le job de synchro. Net-neuf : collection <code>Tâches</code>, pré-filtre déterministe, étage LLM (API Claude — Haiku triage / Sonnet-Opus synthèse &amp; brouillons), bot Telegram (<b>grammY</b>), dashboard. <b>Archi :</b> 1 base de code, 2 services Render (<code>hf-os</code> + <code>zero</code>), 2 BDD → mails perso isolés par construction.</p>
+    <h3>À brancher au déploiement (secrets Render <code>sync:false</code>, jamais dans le repo)</h3>
     <ul class="plain">
-      <li>Mots de passe d'app IMAP par boîte Ionos</li>
-      <li>App password Gmail (2FA)</li>
-      <li>OAuth Hotmail</li>
-      <li>Token bot Telegram</li>
+      <li><code>DATABASE_URI</code> (Postgres dédié à Zéro) · <code>PAYLOAD_SECRET</code> · <code>APP_PROFILE=zero</code></li>
+      <li>Mots de passe d'app IMAP par boîte Ionos → saisis <b>dans l'app</b> (collection Boîtes email, chiffrés en base), pas en env</li>
+      <li>Secret de l'app Azure Graph (Cobra) · App password Gmail (2FA) · OAuth Hotmail</li>
+      <li>Token + chat ID du bot Telegram (<code>TELEGRAM_BOT_TOKEN</code>, <code>TELEGRAM_CHAT_ID</code>)</li>
       <li>Domaines / hosts IMAP exacts de <code>hl-media</code> et <code>hl-holding</code></li>
     </ul>
   </section>
