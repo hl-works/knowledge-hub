@@ -83,7 +83,15 @@ const P = (n: string) => `${base}photos/3/${n}`;
       <!-- ÉPISODE 5 -->
       <article class="ep" id="ep5">
         <div class="ep-h"><span class="ep-n">5</span><h2>🐎 À cheval sur les alpages</h2></div>
-        <figure class="ep-img"><img src={P('16.webp')} alt="Alexis en selle pour la balade dans les alpages kirghiz" loading="lazy" /><figcaption>En selle sur les jailoos — les chevaux kirghiz connaissent le chemin par cœur.</figcaption></figure>
+        <div class="carou" data-carou>
+          <span class="carou-count" aria-hidden="true">1 / 3</span>
+          <div class="carou-track">
+            <figure><img src={P('16.webp')} alt="Alexis en selle sur les alpages kirghiz" loading="lazy" /><figcaption>En selle sur les jailoos — les chevaux kirghiz connaissent le chemin par cœur.</figcaption></figure>
+            <figure><img src={P('17.webp')} alt="Chevaux en liberté sur les alpages kirghiz" loading="lazy" /><figcaption>Sur les alpages, les chevaux vivent en liberté, sans clôture, herbe à volonté.</figcaption></figure>
+            <figure><img src={P('20.webp')} alt="Hugo et les yourtes d'Altyn Arashan, chevaux en liberté" loading="lazy" /><figcaption>Les yourtes d'Altyn Arashan : chevaux en liberté, sapins et sommets.</figcaption></figure>
+          </div>
+          <div class="carou-dots"></div>
+        </div>
         <div class="prose">
           <p>Ici, le cheval n'est pas un loisir du dimanche : c'est un membre de la famille. Les Kirghizes sont un <strong>peuple de cavaliers</strong> depuis des milliers d'années. Beaucoup d'enfants savent tenir sur un cheval avant même de bien courir.</p>
           <p>L'été, les familles montent leurs troupeaux sur les <strong>jailoos</strong>, les grands alpages d'altitude où l'herbe est grasse. On y plante sa yourte pour quelques semaines, et les chevaux y vivent en liberté, sans clôture, jusqu'à l'horizon. On dit ici : <em>« un Kirghize sans cheval, c'est comme un aigle sans ailes ».</em></p>
@@ -94,7 +102,18 @@ const P = (n: string) => `${base}photos/3/${n}`;
       <!-- ÉPISODE 6 -->
       <article class="ep" id="ep6">
         <div class="ep-h"><span class="ep-n">6</span><h2>🦅 L'aiglier et son aigle</h2></div>
-        <figure class="ep-img"><img src={P('45.webp')} alt="Un aiglier kirghiz et son aigle royal" loading="lazy" /><figcaption>Un aiglier (berkutchi) et son aigle royal — un compagnonnage de plusieurs années.</figcaption></figure>
+        <div class="carou" data-carou>
+          <span class="carou-count" aria-hidden="true">1 / 6</span>
+          <div class="carou-track">
+            <figure><img src={P('45.webp')} alt="Un aiglier kirghiz et son aigle royal" loading="lazy" /><figcaption>Un aiglier (berkutchi) et son aigle royal — un compagnonnage de plusieurs années.</figcaption></figure>
+            <figure><img src={P('46.webp')} alt="Alexis, l'aigle royal sur le poing" loading="lazy" /><figcaption>Alexis, l'aigle royal sur le poing — bien plus lourd qu'il n'y paraît.</figcaption></figure>
+            <figure><img src={P('47.webp')} alt="Marion et l'aigle royal, ailes déployées" loading="lazy" /><figcaption>Marion et l'aigle, ailes déployées — l'aiglier veille à ses côtés.</figcaption></figure>
+            <figure><img src={P('49.webp')} alt="Emma caresse les plumes de l'aigle" loading="lazy" /><figcaption>Emma caresse les plumes de l'aigle, tout en douceur.</figcaption></figure>
+            <figure><img src={P('48.webp')} alt="En tête à tête avec l'aigle royal" loading="lazy" /><figcaption>Tête à tête avec le rapace — regard d'or et bec crochu.</figcaption></figure>
+            <figure><img src={P('50.webp')} alt="Serres et bec de l'aigle sur le gant de l'aiglier" loading="lazy" /><figcaption>Serres puissantes et bec crochu, sur le gant brodé de l'aiglier.</figcaption></figure>
+          </div>
+          <div class="carou-dots"></div>
+        </div>
         <div class="prose">
           <p>Regardez la taille de cet oiseau. Un <strong>aigle royal</strong> : jusqu'à deux mètres d'envergure, des serres capables de broyer un os. Chez les femelles, les plus grandes, il peut peser 6 ou 7 kilos. Depuis des siècles, les <strong>berkutchi</strong> apprennent à chasser avec lui, l'hiver, sur la neige — le renard, le lièvre, parfois même le loup.</p>
           <p>Mais attention : ce n'est pas une cage, c'est un <strong>pacte</strong>. L'aiglier passe des années à gagner la confiance de l'oiseau. Il le nourrit à la main, dort près de lui, lui parle. Quand l'aigle chasse et pourrait s'envoler pour toujours, il revient — parce qu'un lien s'est tissé. Et le plus beau : après sept ou huit ans, beaucoup d'aigliers <strong>relâchent</strong> leur aigle dans la montagne, pour qu'il vive libre et fasse des petits. On ne possède pas un aigle : on l'accompagne un bout de chemin.</p>
@@ -199,6 +218,17 @@ const P = (n: string) => `${base}photos/3/${n}`;
   .ep-img{margin:0 0 18px;}
   .ep-img img{width:100%;max-height:440px;object-fit:cover;border-radius:14px;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:block;}
   .ep-img figcaption{font-size:.84rem;color:var(--ink-soft);margin-top:8px;}
+  /* Carrousel de photos (swipe latéral) */
+  .carou{position:relative;margin:0 0 18px;}
+  .carou-track{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .carou-track::-webkit-scrollbar{display:none;}
+  .carou-track figure{flex:0 0 100%;scroll-snap-align:start;margin:0;}
+  .carou-track img{width:100%;height:clamp(300px,64vw,440px);object-fit:cover;border-radius:14px;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:block;}
+  .carou-track figcaption{font-size:.84rem;color:var(--ink-soft);margin-top:8px;min-height:2.4em;}
+  .carou-count{position:absolute;top:12px;right:12px;z-index:2;background:rgba(20,12,8,.62);color:#fff;font-size:.74rem;font-weight:800;letter-spacing:.03em;padding:4px 10px;border-radius:20px;pointer-events:none;}
+  .carou-dots{display:flex;justify-content:center;gap:7px;margin-top:11px;}
+  .carou-dots button{width:9px;height:9px;padding:0;border:none;border-radius:50%;background:var(--line);cursor:pointer;transition:width .2s,background .2s;}
+  .carou-dots button[aria-current="true"]{background:var(--orange);width:22px;border-radius:5px;}
   .prose p{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;line-height:1.78;color:var(--ink);margin:0 0 1em;}
   .prose .aside{background:var(--peach);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:12px 16px;font-size:1.02rem;}
   .q{border:2px solid var(--ink);border-radius:12px;background:var(--card);margin:6px 0 0;overflow:hidden;box-shadow:3px 3px 0 var(--ink);}
@@ -211,3 +241,35 @@ const P = (n: string) => `${base}photos/3/${n}`;
   .mcredit{font-size:.78rem;color:var(--muted);margin:clamp(24px,5vw,44px) 0 12px;border-top:1px solid var(--line);padding-top:14px;}
   .back{display:inline-block;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
 </style>
+
+<script>
+  // Carrousels : points de navigation, compteur, et clic → défilement.
+  document.querySelectorAll('[data-carou]').forEach((c) => {
+    const track = c.querySelector('.carou-track');
+    const figs = Array.from(track.children);
+    const dots = c.querySelector('.carou-dots');
+    const count = c.querySelector('.carou-count');
+    if (figs.length < 2) { if (count) count.remove(); return; }
+    figs.forEach((f, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Aller à la photo ' + (i + 1));
+      b.addEventListener('click', () => track.scrollTo({ left: f.offsetLeft, behavior: 'smooth' }));
+      dots.appendChild(b);
+    });
+    const setActive = (i) => {
+      Array.from(dots.children).forEach((d, j) => d.setAttribute('aria-current', j === i ? 'true' : 'false'));
+      if (count) count.textContent = (i + 1) + ' / ' + figs.length;
+    };
+    setActive(0);
+    let raf;
+    track.addEventListener('scroll', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        let best = 0, bd = Infinity;
+        figs.forEach((f, j) => { const d = Math.abs(f.offsetLeft - track.scrollLeft); if (d < bd) { bd = d; best = j; } });
+        setActive(best);
+      });
+    }, { passive: true });
+  });
+</script>
