@@ -73,7 +73,11 @@ const CC = {
       <!-- EP 2 -->
       <article class="ep" id="ep2">
         <div class="ep-h"><span class="ep-n">2</span><h2>🛗 L'ascenseur des cent dragons</h2></div>
-        <figure class="ep-img"><img src={CC.bailong} alt="L'ascenseur Bailong à flanc de falaise, Zhangjiajie" loading="lazy" title="Bailong Elevator — Wikimedia Commons" /><figcaption>Le Bailong : 326 m d'ascension collés à la falaise, en cabine vitrée.</figcaption></figure>
+        <figure class="ep-img ep-duo">
+          <img src={`${base}photos/12/04.webp`} alt="La famille dans la file d'attente du Bailong, sous les écrans verts" loading="lazy" />
+          <img src={`${base}photos/12/05.webp`} alt="La falaise vue à travers la vitre de la cabine du Bailong" loading="lazy" />
+          <figcaption>En bas, la file sous les écrans du Bailong — puis la paroi qui défile derrière la vitre : 326 m à la verticale.</figcaption>
+        </figure>
         <div class="prose">
           <p>Pour monter en haut des piliers, on peut marcher des heures… ou prendre le <strong>Bailong</strong> — « l'ascenseur des cent dragons ». Il grimpe <strong>326 mètres à la verticale</strong>, collé à la paroi, en <strong>moins de deux minutes</strong>, dans une cabine aux parois de verre. Les cent derniers mètres sont à l'air libre, contre la falaise : le cœur qui lâche, la vue qui explose.</p>
           <p>C'est le <strong>plus haut ascenseur extérieur du monde</strong>, taillé à même la montagne entre 1999 et 2002. Sa construction a fait débat — bâtir une machine pareille dans un site protégé par l'UNESCO ! — mais aujourd'hui il transporte des millions de visiteurs par an.</p>
@@ -84,7 +88,7 @@ const CC = {
       <!-- EP 3 -->
       <article class="ep" id="ep3">
         <div class="ep-h"><span class="ep-n">3</span><h2>🎬 Le monde d'Avatar</h2></div>
-        <figure class="ep-img"><img src={CC.clouds} alt="Piliers de Zhangjiajie émergeant d'une mer de nuages" loading="lazy" title="Zhangjiajie dans les nuages — Wikimedia Commons" /><figcaption>Quand la brume monte, les piliers semblent flotter dans le vide — comme sur Pandora.</figcaption></figure>
+        <figure class="ep-img"><img src={`${base}photos/12/06.webp`} alt="La famille Lahutte devant les piliers d'Avatar à Zhangjiajie" loading="lazy" /><figcaption>Nous quatre devant les colonnes qui ont inspiré les montagnes flottantes de Pandora.</figcaption></figure>
         <div class="prose">
           <p>Vous avez peut-être vu <em>Avatar</em>, le film de <strong>James Cameron</strong> (2009). Sur la planète Pandora, des montagnes <strong>flottent dans le ciel</strong> : les « montagnes de Hallelujah ». Eh bien, l'équipe du film est venue photographier <strong>ici</strong> pour les imaginer.</p>
           <p>Bien sûr, les piliers de Zhangjiajie ne flottent pas pour de vrai. Mais quand la <strong>brume</strong> remplit les vallées et cache leur base, on jurerait qu'ils lévitent. L'illusion est si parfaite qu'en 2010, la Chine a officiellement <strong>rebaptisé</strong> l'un des piliers — la « Colonne du ciel du Sud » — <strong>« Montagne Hallelujah d'Avatar »</strong>.</p>
@@ -106,6 +110,7 @@ const CC = {
       <!-- EP 5 -->
       <article class="ep" id="ep5">
         <div class="ep-h"><span class="ep-n">5</span><h2>👑 La montagne de l'empereur</h2></div>
+        <figure class="ep-img"><img src={`${base}photos/12/08.webp`} alt="Alexis face à la mer de pics de Tianzi, Zhangjiajie" loading="lazy" /><figcaption>Alexis face aux colonnes de Tianzi — on domine des centaines de pics.</figcaption></figure>
         <div class="prose">
           <p>Le plus haut secteur du parc s'appelle <strong>Tianzi</strong> — « le Fils du Ciel », c'est-à-dire l'empereur. Mais l'empereur en question n'était pas né dans un palais : c'était <strong>Xiang Dakun</strong>, un paysan de la région qui, il y a des siècles, a levé une armée de villageois révoltés et s'est proclamé lui-même « Fils du Ciel ». La montagne porte son nom.</p>
           <p>De là-haut, par beau temps, on domine des centaines de pics. Et par temps humide, c'est encore mieux : une <strong>mer de nuages</strong> noie les vallées, seuls les sommets dépassent, et on a l'impression de marcher au-dessus des nuages.</p>
@@ -177,7 +182,7 @@ const CC = {
         </div>
       </article>
 
-      <p class="mcredit">Illustrations : Wikimedia Commons (licences libres CC / domaine public) — nos propres photos remplaceront celles-ci après la visite.</p>
+      <p class="mcredit">Photos : nos clichés (ascenseur Bailong, sommet de Tianzi) + illustrations Wikimedia Commons (licences libres CC / domaine public) pour les lieux pas encore photographiés — remplacées au fil de la visite.</p>
       <a class="back" href={`${base}parcours/#e-12`}>← Retour à l'escale sur le Parcours</a>
 
     </div></section>
@@ -226,6 +231,9 @@ const CC = {
   .ep-img{margin:0 0 18px;}
   .ep-img img{width:100%;max-height:440px;object-fit:cover;border-radius:14px;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:block;}
   .ep-img figcaption{font-size:.84rem;color:var(--ink-soft);margin-top:8px;}
+  .ep-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ep-duo img{max-height:520px;}
+  .ep-duo figcaption{grid-column:1/-1;}
   .prose p{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;line-height:1.78;color:var(--ink);margin:0 0 1em;}
   .prose.final p{font-size:1.16rem;}
 
