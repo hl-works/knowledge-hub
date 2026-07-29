@@ -41,6 +41,20 @@ const CC = {
         <p>On est dans le <strong>Hunan</strong>, au centre de la Chine. Ici, la terre ne fait pas des montagnes en pointe comme ailleurs : elle dresse des <strong>colonnes</strong>. Des milliers de piliers de grès, verticaux, serrés, certains hauts de plus de <strong>200 mètres</strong>, sculptés par l'eau et le gel pendant près de <strong>380 millions d'années</strong>. Résultat : l'un des paysages les plus étranges et les plus beaux de la planète — classé à l'<strong>UNESCO dès 1992</strong>.</p>
       </div>
 
+      <!-- AVANT / APRÈS (bonus rigolo) -->
+      <section class="ba-block">
+        <div class="ba-head"><span class="ba-badge">⚔ Mode Kombat</span><span class="ba-title">La borne d'entrée… version dojo</span></div>
+        <div class="ba" style="--pos:50%">
+          <img class="ba-after" src={`${base}kombat/zhangjiajie-after.webp`} alt="Alexis et Emma en combattants façon Mortal Kombat devant la borne" loading="lazy" />
+          <div class="ba-before"><img src={`${base}kombat/zhangjiajie-before.webp`} alt="Alexis et Emma en vrai, chapeaux coniques, devant le plan de la ligne B" loading="lazy" /></div>
+          <span class="ba-lab ba-lab-a">Avant</span>
+          <span class="ba-lab ba-lab-b">Après ⚔</span>
+          <div class="ba-line"></div>
+          <button class="ba-handle" type="button" role="slider" aria-label="Curseur avant / après" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⟷</button>
+        </div>
+        <p class="ba-cap">Glisse le curseur : Alexis &amp; Emma passent en mode combat. Même borne, mêmes chapeaux. 🎩</p>
+      </section>
+
       <!-- ================= JOUR 1 ================= -->
       <div class="day"><span class="day-n">Jour 1</span><h2>Le parc — la forêt de pierre</h2><p>Route B · Ascenseur Bailong → Yuanjiajie → Tianzi</p></div>
 
@@ -185,6 +199,21 @@ const CC = {
   .mbody .wrap{max-width:760px;}
   .intro-note{font-family:'Fraunces',Georgia,serif;font-size:1.16rem;line-height:1.75;color:var(--ink);border-left:4px solid var(--orange);padding:2px 0 2px 20px;margin:0 0 clamp(26px,5vw,44px);}
 
+  /* Avant / après « Mode Kombat » */
+  .ba-block{background:var(--ink);border-radius:16px;padding:clamp(16px,3.5vw,26px);margin:0 0 clamp(26px,5vw,44px);box-shadow:6px 6px 0 var(--gold);}
+  .ba-head{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:0 0 14px;}
+  .ba-badge{background:var(--gold);color:var(--ink);font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:20px;}
+  .ba-title{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.05rem,3vw,1.35rem);color:var(--cream);letter-spacing:.02em;}
+  .ba{position:relative;width:100%;max-width:380px;margin:0 auto;aspect-ratio:3/4;border-radius:12px;overflow:hidden;border:3px solid var(--gold);box-shadow:0 0 46px rgba(250,70,22,.28);touch-action:none;user-select:none;-webkit-user-select:none;}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+  .ba-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0);}
+  .ba-line{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:linear-gradient(180deg,var(--gold),var(--orange));transform:translateX(-50%);box-shadow:0 0 12px var(--orange);pointer-events:none;}
+  .ba-handle{position:absolute;top:50%;left:var(--pos,50%);transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 34% 28%,#4a3512,#1a130b 72%);border:3px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-size:1.25rem;cursor:ew-resize;box-shadow:0 0 18px rgba(250,70,22,.5);z-index:3;}
+  .ba-handle:focus-visible{outline:3px solid var(--cream);outline-offset:2px;}
+  .ba-lab{position:absolute;top:10px;z-index:2;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.68rem;padding:4px 9px;border-radius:16px;}
+  .ba-lab-a{left:10px;color:var(--cream);background:rgba(20,12,8,.62);}
+  .ba-lab-b{right:10px;color:var(--ink);background:var(--gold);}
+  .ba-cap{color:var(--cream);opacity:.86;font-size:.86rem;text-align:center;margin:13px auto 0;max-width:42ch;}
   .day{margin:clamp(30px,6vw,52px) 0 clamp(20px,4vw,30px);border-top:2px solid var(--ink);padding-top:18px;}
   .day-n{display:inline-block;background:var(--ink);color:var(--cream);font-family:var(--disp);text-transform:uppercase;font-size:1rem;letter-spacing:.04em;padding:4px 14px;border-radius:8px;}
   .day h2{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.6rem,5vw,2.6rem);margin:12px 0 4px;line-height:1;}
@@ -225,3 +254,38 @@ const CC = {
   .mcredit{font-size:.78rem;color:var(--muted);margin:clamp(24px,5vw,44px) 0 12px;border-top:1px solid var(--line);padding-top:14px;}
   .back{display:inline-block;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
 </style>
+
+<script>
+  // Slider avant/après — délégation d'événements (marche aussi si le slider est
+  // ajouté dynamiquement, ex. sur le Parcours).
+  (function () {
+    function setPos(ba: HTMLElement, clientX: number) {
+      const r = ba.getBoundingClientRect();
+      const p = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      ba.style.setProperty('--pos', (p * 100).toFixed(1) + '%');
+      const h = ba.querySelector('.ba-handle');
+      if (h) h.setAttribute('aria-valuenow', String(Math.round(p * 100)));
+    }
+    let active: HTMLElement | null = null;
+    document.addEventListener('pointerdown', (e) => {
+      const ba = (e.target as HTMLElement).closest?.('.ba') as HTMLElement | null;
+      if (!ba) return;
+      active = ba;      setPos(ba, (e as PointerEvent).clientX);
+    });
+    document.addEventListener('pointermove', (e) => { if (active) setPos(active, (e as PointerEvent).clientX); });
+    document.addEventListener('pointerup', () => { active = null; });
+    document.addEventListener('pointercancel', () => { active = null; });
+    document.addEventListener('keydown', (e) => {
+      const h = document.activeElement as HTMLElement;
+      if (!h || !h.classList || !h.classList.contains('ba-handle')) return;
+      const ba = h.closest('.ba') as HTMLElement;
+      let cur = parseFloat(getComputedStyle(ba).getPropertyValue('--pos')) || 50;
+      if (e.key === 'ArrowLeft') cur = Math.max(0, cur - 4);
+      else if (e.key === 'ArrowRight') cur = Math.min(100, cur + 4);
+      else return;
+      e.preventDefault();
+      ba.style.setProperty('--pos', cur + '%');
+      h.setAttribute('aria-valuenow', String(Math.round(cur)));
+    });
+  })();
+</script>
