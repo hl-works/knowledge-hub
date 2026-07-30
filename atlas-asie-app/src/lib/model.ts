@@ -73,13 +73,14 @@ export function computeStatut(
   const known = ['passe', 'en-cours', 'a-venir'];
   const norm = (manuel ?? '').toLowerCase().replace(/[éè]/g, 'e').replace(/\s+/g, '-');
   if (known.includes(norm)) return norm as Statut;
-  // Départ exclusif : le jour du départ, on a déjà quitté l'escale (on arrive
-  // à la suivante, dont l'arrivée tombe le même jour). Évite deux « en-cours »
-  // le jour de transition.
+  // Départ inclusif : le jour du départ, on est encore sur place (le vol part
+  // souvent le soir). On ne bascule en « passé » que le lendemain. Le
+  // chevauchement éventuel avec l'escale suivante (arrivée le même jour) est
+  // résolu dans toStops (l'escale d'arrivée reste « à venir » ce jour-là).
   if (arrivee && today < arrivee) return 'a-venir';
-  if (depart && today >= depart) return 'passe';
+  if (depart && today > depart) return 'passe';
   if (arrivee && !depart && today > arrivee) return 'passe';
-  if (arrivee && today >= arrivee && (!depart || today < depart)) return 'en-cours';
+  if (arrivee && today >= arrivee && (!depart || today <= depart)) return 'en-cours';
   return 'a-venir';
 }
 
@@ -92,7 +93,7 @@ import COORDS from './coords.json';
 const FALLBACK = COORDS as Record<string, { ville: string; lat: number; lng: number }>;
 
 export function toStops(rows: Row[], today: Date = startOfToday()): Stop[] {
-  return rows
+  const stops = rows
     .map((r) => {
       const arrivee = parseDMY(r.date_arrivee);
       const depart = parseDMY(r.date_depart);
@@ -116,6 +117,16 @@ export function toStops(rows: Row[], today: Date = startOfToday()): Stop[] {
       } satisfies Stop;
     })
     .sort((a, b) => a.ordre - b.ordre);
+  // Jour de transfert (vol du soir) : si deux escales consécutives sont
+  // « en-cours » le même jour (l'une part, l'autre arrive), on reste sur celle
+  // qu'on quitte tant qu'on n'a pas décollé → l'escale d'arrivée redevient
+  // « à venir » pour aujourd'hui.
+  for (let i = 1; i < stops.length; i++) {
+    if (stops[i].statut === 'en-cours' && stops[i - 1].statut === 'en-cours') {
+      stops[i].statut = 'a-venir';
+    }
+  }
+  return stops;
 }
 
 export function toCountries(rows: Row[]): Country[] {
@@ -404,8 +415,9 @@ export function computeLive(stops: Stop[], today: Date = startOfToday()): Live {
   const idx = stops.findIndex((s) => {
     const a = s.arrivee;
     if (!a || today < a) return false;
-    // Départ exclusif : le jour du départ, on est déjà à l'escale suivante.
-    return s.depart ? today < s.depart : today <= a;
+    // Départ inclusif : le jour du départ, on est encore sur place (findIndex
+    // renvoie la première escale en cours → celle qu'on quitte ce jour-là).
+    return s.depart ? today <= s.depart : today <= a;
   });
   const current = idx >= 0 ? stops[idx] : null;
   const next = idx >= 0 ? stops.slice(idx + 1).find((s) => !isRetour(s)) ?? null : null;
