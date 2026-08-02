@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+// Illustrations d'appoint libres de droits (Wikimedia Commons, CC / domaine public).
+const CC = {
+  hero: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Wukang_Road%2C_Shanghai%2C_May_2016.JPG/960px-Wukang_Road%2C_Shanghai%2C_May_2016.JPG',
+  wukang: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Wukang_Mansion_2.jpg/960px-Wukang_Mansion_2.jpg',
+  shikumen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/20090518_Shanghai_Shikumen_Museum_6860.jpg/960px-20090518_Shanghai_Shikumen_Museum_6860.jpg',
+  congres: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Site_of_the_First_National_Congress_of_the_Communist_Party_of_China_DSC5396_ff_%2816015513159%29.jpg/960px-Site_of_the_First_National_Congress_of_the_Communist_Party_of_China_DSC5396_ff_%2816015513159%29.jpg',
+  rue: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Street_View_of_Wukang_Road.JPG/960px-Street_View_of_Wukang_Road.JPG',
+};
+---
+<Base
+  title="Le quartier français de Shanghai raconté — Atlas d'Asie"
+  description="Une balade guidée dans l'ancienne Concession française de Shanghai : les avenues de platanes plantées par les Français, le Wukang Mansion en forme de proue de navire (László Hudec, 1924), les maisons shikumen, Xintiandi où est né le Parti communiste chinois en 1921, et le « Paris de l'Orient » des années folles. Histoire, architecture et anecdotes à lire en marchant."
+>
+  <Header variant="solid" active="histoires" />
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="mhero">
+      <img class="mhero-bg" src={CC.hero} alt="Une avenue de platanes de l'ancienne Concession française de Shanghai" loading="eager" title="Wukang Road, Shanghai — Wikimedia Commons" />
+      <div class="mhero-scrim"></div>
+      <div class="wrap mhero-in">
+        <p class="eyebrow">À lire sur place · escale 13 · Shanghai</p>
+        <h1 class="disp">Le quartier français raconté</h1>
+        <p class="lead">Des avenues de <strong>platanes</strong>, des villas Art déco, des cafés à l'ombre… On se croirait à Paris — sauf qu'on est au cœur de <strong>Shanghai</strong>. Bienvenue dans l'ancienne <strong>Concession française</strong>, un morceau d'Europe posé en Chine, où se cache une histoire XXL. <em>Un guide dans la poche — levez les yeux entre les arbres.</em></p>
+      </div>
+    </section>
+
+    <section class="mbody"><div class="wrap">
+
+      <!-- INTRO -->
+      <div class="intro-note">
+        <p>Pendant près d'un siècle, ce quartier n'était pas vraiment la Chine : de <strong>1849 à 1943</strong>, c'était une <strong>concession</strong> administrée par la <strong>France</strong>, avec sa police, ses règles et ses noms de rues français. Aujourd'hui, c'est le coin le plus <strong>charmant</strong> et le plus <strong>ombragé</strong> de Shanghai — et l'un des plus surprenants à raconter.</p>
+      </div>
+
+      <!-- EP 1 -->
+      <article class="ep" id="ep1">
+        <div class="ep-h"><span class="ep-n">1</span><h2>🌳 Un bout de France en Chine</h2></div>
+        <figure class="ep-img"><img src={CC.rue} alt="Rue bordée de platanes dans l'ancienne Concession française" loading="lazy" title="Wukang Road — Wikimedia Commons" /><figcaption>Les avenues de platanes : la signature du quartier, plantée il y a plus d'un siècle.</figcaption></figure>
+        <div class="prose">
+          <p>Au XIX<sup>e</sup> siècle, après des guerres perdues, la Chine a dû laisser des puissances étrangères s'installer dans ses ports. À Shanghai, la France a obtenu son propre quartier, la <strong>Concession française</strong> : un territoire dans la ville, mais géré par des Français, avec ses lois à elle.</p>
+          <p>Pour se sentir chez eux, les Français ont bordé les avenues de <strong>platanes</strong>. Cent ans plus tard, ces arbres géants tiennent toujours et forment de véritables <strong>tunnels de verdure</strong> — c'est ce qui rend le quartier si reconnaissable, et si agréable quand il fait 38 °C.</p>
+        </div>
+        <div class="note savais"><span class="note-l">🤯 Le savais-tu ?</span><p>Les Chinois les appellent « <strong>platanes français</strong> » (法国梧桐)… mais ce sont en réalité des <strong>platanes de Londres</strong> ! Peu importe le vrai nom : à Shanghai, ces arbres restent le symbole du charme « à la française ».</p></div>
+      </article>
+
+      <!-- EP 2 -->
+      <article class="ep" id="ep2">
+        <div class="ep-h"><span class="ep-n">2</span><h2>🚢 L'immeuble en forme de bateau</h2></div>
+        <figure class="ep-img ep-duo">
+          <img src={`${base}photos/13/20.webp`} alt="Alexis et Emma devant le Wukang Mansion" loading="lazy" />
+          <img src={CC.wukang} alt="Le Wukang Mansion, immeuble en proue de navire" loading="lazy" title="Wukang Mansion — Wikimedia Commons" />
+          <figcaption>Le <strong>Wukang Mansion</strong> : sa pointe fend le carrefour comme la proue d'un paquebot.</figcaption>
+        </figure>
+        <div class="prose">
+          <p>À la rencontre de plusieurs rues se dresse le bâtiment le plus photographié du quartier : le <strong>Wukang Mansion</strong>. Sa pointe arrondie, coincée entre les avenues, lui donne l'allure d'une <strong>proue de navire</strong> — un peu comme le célèbre « Flatiron » de New York.</p>
+          <p>Il a été construit en <strong>1924</strong> par un architecte hongrois installé à Shanghai, <strong>László Hudec</strong>, sous le nom d'« <strong>Appartements Normandie</strong> ». Un siècle plus tard, tout le monde s'arrête au feu rouge d'en face pour le prendre en photo.</p>
+        </div>
+        <div class="note savais"><span class="note-l">🤯 Le savais-tu ?</span><p>Le même Hudec a dessiné une bonne partie des monuments de Shanghai des années 1930 — dont le <strong>Park Hotel</strong>, resté le <strong>plus haut gratte-ciel d'Asie</strong> pendant près de 30 ans !</p></div>
+      </article>
+
+      <!-- EP 3 -->
+      <article class="ep" id="ep3">
+        <div class="ep-h"><span class="ep-n">3</span><h2>🚪 Les maisons à porte de pierre</h2></div>
+        <figure class="ep-img"><img src={CC.shikumen} alt="Une porte de pierre sculptée d'une maison shikumen" loading="lazy" title="Shikumen — Wikimedia Commons" /><figcaption>Le <strong>shikumen</strong> : une porte de pierre sculptée, mi-européenne mi-chinoise.</figcaption></figure>
+        <div class="prose">
+          <p>Dans les ruelles, ouvre l'œil sur les <strong>shikumen</strong> (石库门, « la porte encadrée de pierre »). Ce sont des maisons typiquement shanghaïennes, inventées ici : elles mélangent la <strong>maison de ville européenne</strong> (alignées en rangées, en brique) et la <strong>cour intérieure chinoise</strong>, avec une belle porte de pierre à l'entrée.</p>
+          <p>On les a construites par milliers dans les années <strong>1920-1930</strong>, le long de petites allées appelées <em>lilong</em>. Des familles entières s'y entassaient — un monde de linge aux fenêtres, de vélos et de voisins.</p>
+        </div>
+        <details class="q"><summary>🎮 Défi enfants</summary><p>Combien de <strong>portes de pierre sculptées</strong> arrives-tu à repérer dans une seule ruelle ? Regarde les motifs au-dessus de chaque porte : il n'y en a pas deux pareilles.</p></details>
+      </article>
+
+      <!-- EP 4 -->
+      <article class="ep" id="ep4">
+        <div class="ep-h"><span class="ep-n">4</span><h2>⭐ Là où est né un parti d'un milliard de membres</h2></div>
+        <figure class="ep-img"><img src={CC.congres} alt="La maison shikumen du premier congrès du Parti communiste chinois, à Xintiandi" loading="lazy" title="Site of the First National Congress of the CPC — Wikimedia Commons" /><figcaption>La maison de Xintiandi où tout a commencé, en juillet 1921.</figcaption></figure>
+        <div class="prose">
+          <p>Dans une de ces maisons shikumen — aujourd'hui au cœur du quartier chic de <strong>Xintiandi</strong> — s'est joué un moment énorme de l'histoire mondiale. En <strong>juillet 1921</strong>, un jeune homme nommé <strong>Mao Zedong</strong> et douze autres personnes s'y sont réunis en secret pour fonder le <strong>Parti communiste chinois</strong>.</p>
+          <p>Pourquoi ici ? Justement parce qu'on était dans la <strong>Concession française</strong> : la police chinoise n'y avait pas le droit d'entrer. C'était donc l'endroit le plus <strong>discret</strong> de la ville pour une réunion interdite.</p>
+        </div>
+        <div class="note savais"><span class="note-l">🤯 Le savais-tu ?</span><p>La réunion a failli tourner court : un <strong>inconnu suspect</strong> est entré « par erreur ». Pris de peur, les participants ont filé et sont allés <strong>terminer le congrès sur une barque</strong>, au milieu d'un lac près de Jiaxing. Un début de parti… en pédalo !</p></div>
+      </article>
+
+      <!-- EP 5 -->
+      <article class="ep" id="ep5">
+        <div class="ep-h"><span class="ep-n">5</span><h2>🎷 Le « Paris de l'Orient »</h2></div>
+        <figure class="ep-img"><img src={`${base}photos/13/21.webp`} alt="Une boutique de musique du quartier français : « Music is the language of the soul »" loading="lazy" /><figcaption>« Music is the language of the soul » : l'esprit arty du quartier ne date pas d'hier.</figcaption></figure>
+        <div class="prose">
+          <p>Dans les années <strong>1920-1930</strong>, Shanghai était l'une des villes les plus <strong>cosmopolites du monde</strong> : cinémas, clubs de jazz, cafés, néons, voitures de luxe. On la surnommait le « <strong>Paris de l'Orient</strong> », et la Concession française en était le cœur élégant et ombragé.</p>
+          <p>Cet esprit n'a pas disparu : aujourd'hui, les vieux shikumen de <strong>Xintiandi</strong> et de <strong>Tianzifang</strong> se sont transformés en cafés, galeries et boutiques. On flâne sous les platanes exactement comme il y a cent ans — un thé bubble à la main.</p>
+        </div>
+        <div class="note comp"><span class="note-l">🌍 Pour comparer</span><p>Le quartier français de Shanghai, c'est un peu l'inverse d'un « quartier chinois » chez nous : ici, ce sont les <strong>Européens</strong> qui avaient posé leur bout de ville… en pleine Chine. Un échange de décors, à un siècle d'écart.</p></div>
+      </article>
+
+      <!-- FINAL -->
+      <article class="ep" id="fin">
+        <div class="prose final">
+          <p>En quelques pâtés de maisons ombragés, on traverse <strong>cent cinquante ans d'histoire</strong> : une enclave française, des rêves Art déco, la naissance de la Chine moderne, et un charme de café qui ne s'est jamais éteint.</p>
+          <p>Le secret du quartier français, c'est de <strong>ralentir</strong> : marcher sous les platanes, lever les yeux vers les vieilles façades, et se dire qu'ici, deux mondes se sont mélangés pour de bon.</p>
+        </div>
+      </article>
+
+      <p class="mcredit">Photos : nos clichés (Wukang Mansion, boutique de musique) + illustrations Wikimedia Commons (licences libres CC / domaine public).</p>
+      <a class="back" href={`${base}parcours/#e-13`}>← Retour à l'escale sur le Parcours</a>
+
+    </div></section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style is:global>
+  .mhero{position:relative;min-height:62svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0c0a08;}
+  .mhero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .mhero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,8,.28),rgba(20,12,8,.15) 40%,rgba(20,12,8,.84));}
+  .mhero-in{position:relative;z-index:1;padding:0 0 clamp(24px,5vw,52px);}
+  .mhero .eyebrow{color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 .5rem;opacity:.95;}
+  .mhero h1{font-size:clamp(2.4rem,7vw,4.6rem);margin:0 0 .8rem;text-shadow:0 4px 24px rgba(0,0,0,.4);}
+  .mhero .lead{max-width:60ch;font-size:clamp(1.02rem,2vw,1.2rem);line-height:1.6;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+
+  .mbody{padding:clamp(24px,5vw,56px) 0 clamp(48px,7vw,90px);}
+  .mbody .wrap{max-width:760px;}
+  .intro-note{font-family:'Fraunces',Georgia,serif;font-size:1.16rem;line-height:1.75;color:var(--ink);border-left:4px solid var(--orange);padding:2px 0 2px 20px;margin:0 0 clamp(26px,5vw,44px);}
+
+  .ep{margin:0 0 clamp(30px,6vw,54px);scroll-margin-top:84px;}
+  .ep-h{display:flex;align-items:center;gap:14px;margin:0 0 16px;}
+  .ep-n{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--cream);font-family:var(--disp);font-size:1.4rem;box-shadow:4px 4px 0 var(--orange);}
+  .ep-h h2{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.35rem,3.6vw,2rem);margin:0;line-height:1.05;}
+  .ep-img{margin:0 0 18px;}
+  .ep-img img{width:100%;max-height:440px;object-fit:cover;border-radius:14px;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:block;}
+  .ep-img figcaption{font-size:.84rem;color:var(--ink-soft);margin-top:8px;}
+  .ep-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ep-duo img{max-height:520px;}
+  .ep-duo figcaption{grid-column:1/-1;}
+  .prose p{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;line-height:1.78;color:var(--ink);margin:0 0 1em;}
+  .prose.final p{font-size:1.16rem;}
+
+  /* Encarts thématiques */
+  .note{border-radius:12px;padding:13px 16px 14px;margin:10px 0 0;border-left:5px solid var(--orange);background:var(--peach);}
+  .note-l{display:block;font-weight:800;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px;color:var(--orange-deep);}
+  .note p{margin:0;font-size:1.01rem;line-height:1.6;color:var(--ink);}
+  .note.savais{background:var(--peach);border-left-color:var(--orange);}
+  .note.savais .note-l{color:var(--orange-deep);}
+  .note.comp{background:var(--kraft);border-left-color:var(--ink-soft);}
+  .note.comp .note-l{color:var(--ink-soft);}
+
+  /* Q&A / défis dépliables */
+  .q{border:2px solid var(--ink);border-radius:12px;background:var(--card);margin:10px 0 0;overflow:hidden;box-shadow:3px 3px 0 var(--ink);}
+  .q summary{cursor:pointer;list-style:none;padding:12px 15px;font-weight:700;color:var(--ink);}
+  .q summary::-webkit-details-marker{display:none;}
+  .q summary::after{content:" ▾";color:var(--orange-deep);}
+  .q[open] summary::after{content:" ▴";}
+  .q p{margin:0;padding:2px 15px 15px;font-size:1rem;color:var(--ink-soft);line-height:1.6;}
+
+  .mcredit{font-size:.78rem;color:var(--muted);margin:clamp(24px,5vw,44px) 0 12px;border-top:1px solid var(--line);padding-top:14px;}
+  .back{display:inline-block;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
+</style>
