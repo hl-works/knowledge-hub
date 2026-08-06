@@ -412,13 +412,18 @@ export function computeLive(stops: Stop[], today: Date = startOfToday()): Live {
   if (last && today > last) {
     return { state: 'apres', current: null, next: null, daysToStart: 0, dayIndex: 0 };
   }
-  const idx = stops.findIndex((s) => {
-    const a = s.arrivee;
-    if (!a || today < a) return false;
-    // Départ inclusif : le jour du départ, on est encore sur place (findIndex
-    // renvoie la première escale en cours → celle qu'on quitte ce jour-là).
-    return s.depart ? today <= s.depart : today <= a;
-  });
+  // On suit le `statut` déjà résolu par toStops (override manuel de la Sheet,
+  // départ inclusif et résolution des chevauchements compris) : la home, le
+  // Parcours et la carte disent ainsi tous la même chose. Repli sur la logique
+  // de dates si aucune escale n'est « en cours » (jour creux entre deux étapes).
+  let idx = stops.findIndex((s) => s.statut === 'en-cours');
+  if (idx < 0) {
+    idx = stops.findIndex((s) => {
+      const a = s.arrivee;
+      if (!a || today < a) return false;
+      return s.depart ? today <= s.depart : today <= a;
+    });
+  }
   const current = idx >= 0 ? stops[idx] : null;
   const next = idx >= 0 ? stops.slice(idx + 1).find((s) => !isRetour(s)) ?? null : null;
   const dayIndex = first ? Math.round((+today - +first) / day) + 1 : 0;
