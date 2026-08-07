@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Suivi des prix & alignement concurrentiel automatique — Journal · Hugo Lahutte</title>
-<meta name="description" content="Un moteur de règles dans Odoo qui surveille en continu les prix concurrents (via Wiser) et réaligne automatiquement les nôtres : prix cible = meilleur concurrent valide, borné par une marge minimale. Deux modes (observation puis live, décision humaine), tout journalisé et réversible. 6 familles pilotées en live, ~300 prix réalignés.">
+<meta name="description" content="Un moteur de règles Odoo (module cobra_price_rules) surveille en continu les prix concurrents livrés par Wiser et réaligne automatiquement les nôtres — prix cible = meilleur concurrent valide, borné par une marge minimale. Moteur événementiel à chaque import Wiser, écriture via cobra_price (sync Shopify native), pilotage découplé (Flask + cache SQLite). Modes observation puis live (décision humaine), journalisé et réversible. 6 familles en live, ~300 prix réalignés.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/suivi-prix-alignement-concurrentiel-auto.html">
@@ -92,29 +92,39 @@
       <p>Un moteur qui surveille les prix concurrents en continu et réaligne automatiquement les nôtres :</p>
       <ul>
         <li><strong>Wiser</strong> crawle les sites concurrents et livre leurs prix plusieurs fois par jour.</li>
-        <li>Un <strong>moteur de règles</strong> (dans Odoo, module <code>cobra_price_rules</code>) calcule, pour chaque produit d'un périmètre, un <strong>prix cible</strong> : s'aligner sur le meilleur concurrent valide, borné par une <strong>marge minimale</strong>.</li>
+        <li>Un <strong>moteur de règles</strong> (dans Odoo) calcule, pour chaque produit d'un périmètre, un <strong>prix cible</strong> : s'aligner sur le meilleur concurrent valide, borné par une <strong>marge minimale</strong>.</li>
         <li>Deux modes : <strong>observation</strong> (simule, rien ne bouge) puis <strong>live</strong> (applique et pousse sur Shopify). Le passage en live reste une <strong>décision humaine</strong>.</li>
         <li>Tout est <strong>journalisé et réversible</strong>, avec un message déposé sur chaque fiche produit.</li>
-        <li>Un assistant IA traduit une consigne en <strong>langage naturel</strong> en règle exécutable.</li>
       </ul>
       <p><strong>Résultat :</strong> 6 familles pilotées en live (projecteurs, TV, hi-fi, barres de son, amplis home cinéma), <strong>~300 prix réalignés</strong> sur le marché du jour ; le reste s'ajuste tout seul à chaque mise à jour Wiser.</p>
+
+      <h3>Architecture technique</h3>
+      <ul>
+        <li><strong>Module Odoo</strong> <code>cobra_price_rules</code> (dépend de <code>wiser_price_intelligence</code> + <code>cobra_product</code>). Trois modèles clés : <code>cobra.price.rule</code> (la règle), <code>cobra.price.alignment</code> (le journal : simulé / appliqué / bloqué / annulé), <code>cobra.price.retailer</code> (les concurrents).</li>
+        <li><strong>Moteur événementiel</strong> : à chaque import Wiser (cron FTP toutes les 3 h), un hook n'évalue que les produits touchés. Les offres sont lues via un accès unique <strong>source-agnostique</strong> (<code>_get_competitor_offers</code>) — Wiser aujourd'hui, un scraper maison demain, sans toucher aux règles.</li>
+        <li><strong>Écriture via <code>cobra_price</code></strong> (le champ source de vérité), d'où la synchronisation Shopify native ; <strong>jamais</strong> d'écriture directe sur Shopify.</li>
+        <li><strong>Pilotage découplé</strong> : une app Flask + front vanilla JS (interface dédiée, thème sombre, charte Cobra) lit et écrit les mêmes règles en <strong>XML-RPC</strong>, par-dessus un <strong>cache SQLite</strong> rafraîchi toutes les 3 h (timer systemd). Un <strong>assistant IA</strong> (Claude, sortie structurée) transforme une consigne en langage naturel en règle pré-remplie.</li>
+        <li><strong>Options d'une règle</strong> : périmètre dynamique (catégories / marques + exclusions + bande de prix + stock / appro + nouveautés), concurrents suivis, cible (égaler / −X&nbsp;% / −X&nbsp;€), sens (baisse seule / baisse + remontée), garde-fous (marge mini, baisse max, arrondi, ignore les offres sous 60&nbsp;% du prix Cobra).</li>
+      </ul>
 
       <h3>Les garde-fous (ce qui rend l'auto sûr)</h3>
       <ul>
         <li><strong>Marge minimale</strong> par règle — jamais de vente à perte.</li>
         <li><strong>Offres aberrantes ignorées</strong> (sous 60 % de notre prix — produit liquidé, marché gris).</li>
         <li><strong>Normalisation paire / pièce</strong> — comparer une paire d'enceintes à une paire, pas à une pièce.</li>
-        <li><strong>Observation par défaut</strong> ; le cœur de marché (enceintes colonne / bibliothèque) volontairement laissé de côté au début.</li>
+        <li><strong>Un variant = une seule règle</strong> — pas de conflit de pilotage sur une même référence.</li>
+        <li><strong>Observation par défaut</strong> ; le cœur de marché (enceintes colonne / bibliothèque) laissé en observation au départ.</li>
       </ul>
 
       <h3>Ce qu'on a appris</h3>
       <ul>
-        <li>Un garde-fou mal ancré ne protège plus : le seuil anti-aberration était d'abord calculé sur une référence <strong>elle-même contaminée</strong> par l'offre aberrante — il fallait l'ancrer sur <strong>notre propre prix</strong>.</li>
-        <li>L'automatisation ne remplace pas le jugement sur le cœur de marché : mieux vaut <strong>observer avant d'aligner</strong> (normalisation paire/pièce, liquidations concurrentes qui faussent la comparaison).</li>
+        <li><strong>Ancrer un garde-fou sur une valeur fiable.</strong> Le seuil anti-aberration, d'abord calculé sur une référence <strong>elle-même tirée vers le bas</strong> par l'offre aberrante, ne protégeait plus — il fallait l'ancrer sur <strong>notre propre prix</strong>. Un garde-fou mal ancré est pire que pas de garde-fou : il donne une <strong>fausse sécurité</strong>.</li>
+        <li><strong>Attention aux données périmées.</strong> Le cache d'affichage n'avait pas de planificateur (jusqu'à <strong>18 jours de retard</strong>) — un moteur juste, mais une vitrine fausse. Toujours ordonnancer <em>et</em> dater les synchronisations.</li>
+        <li><strong>L'auto ne remplace pas le jugement sur le cœur de marché</strong> : mieux vaut observer avant d'aligner (liquidations concurrentes, normalisation paire/pièce qui faussent la comparaison).</li>
       </ul>
 
       <h3>Stack</h3>
-      <p>Odoo 18 (module <code>cobra_price_rules</code>), Wiser (données concurrents), une app Flask + front vanilla en interface dédiée à accès protégé, un assistant IA (langage naturel → règle).</p>
+      <p>Odoo 18 (module <code>cobra_price_rules</code>), Wiser (données concurrents), Flask + vanilla JS, SQLite (cache d'affichage), timer systemd (ordonnancement), API Claude (assistant langage naturel → règle). Interface dédiée à accès protégé.</p>
 
       <h3>Ce que ça illustre</h3>
       <p>Séparer les <strong>données</strong> (Odoo = source de vérité) et le <strong>pilotage</strong> (une UI simple par-dessus) rend l'outil utilisable au quotidien <strong>sans ouvrir Odoo</strong>. Et un principe qui revient : automatiser d'abord ce qui est mécanique et sûr (marge protégée, offres aberrantes filtrées), garder l'humain là où le jugement compte (cœur de marché, passage en live).</p>
