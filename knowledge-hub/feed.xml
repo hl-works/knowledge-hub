@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Suivi des prix &amp; alignement concurrentiel automatique</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html</guid>
+<pubDate>Fri, 07 Aug 2026 08:00:00 +0000</pubDate>
+<description>On ne pouvait pas surveiller à la main des centaines de références face à Darty, Boulanger, Fnac ou Son-Vidéo. Un moteur de règles dans Odoo (cobra_price_rules) lit les prix concurrents livrés par Wiser plusieurs fois par jour et calcule un prix cible — meilleur concurrent valide, borné par une marge minimale. Deux modes : observation (simule) puis live (applique et pousse sur Shopify), le passage en live restant une décision humaine. Garde-fous : jamais de vente à perte, offres aberrantes (&lt; 60 % de notre prix) ignorées, normalisation paire/pièce. 6 familles en live, ~300 prix réalignés ; le reste s&#x27;ajuste seul à chaque MAJ Wiser.</description>
+</item>
+<item>
 <title>Une app qui lit les tarifs fournisseurs à ma place</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/systeme-instructions-claude-md.html</guid>
 <pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
 <description>Standardiser le comportement de Claude sur tous mes projets et mes deux comptes : un CLAUDE.md universel + extensions strat et dev. Déclenché par un incident de mise en prod Odoo gravé en règle dure.</description>
-</item>
-<item>
-<title>Stratégie Instagram HiFi Lovers — Brief Marine</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/strategie-instagram-hifi-lovers.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/strategie-instagram-hifi-lovers.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Cadrer une stratégie Instagram qui part de zéro pour HiFi Lovers : positionnement 70/30 archive/éditorial, 4 piliers, calendrier, plan d&#x27;amorçage 8 semaines, avant de la confier à Marine.</description>
 </item>
 </channel>
 </rss>
