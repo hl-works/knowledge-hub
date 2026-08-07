@@ -134,7 +134,7 @@
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">61</b><span>Documented sessions</span></div>
+      <div class="stat"><b id="stat-sessions">62</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Active projects</span></div>
       <div class="stat"><b>2</b><span>Claude agents</span></div>
     </div>
@@ -281,10 +281,19 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Search across 61 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Search across 62 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/suivi-prix-alignement-concurrentiel-auto.html">Price tracking &amp; automatic competitive alignment</a></h3>
+          <p class="entry__excerpt">We couldn't manually watch hundreds of references against Darty, Boulanger, Fnac or Son-Vidéo. A rules engine in Odoo (cobra_price_rules) reads competitor prices delivered by Wiser several times a day and computes a target price — best valid competitor, bounded by a minimum margin. Two modes: observation (simulates) then live (applies and pushes to Shopify), going live staying a human decision. Guardrails: never sell at a loss, outlier offers (< 60% of our price) ignored, pair/unit normalization. 6 families live, ~300 prices realigned; the rest adjusts on its own at each Wiser update.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-08-07">2026-08-07</time>
         <div>
@@ -422,7 +431,7 @@
       </li>
 
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">61 entries total — filter by tag in the journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">62 entries total — filter by tag in the journal →</a></p>
   </div>
 </section>
 

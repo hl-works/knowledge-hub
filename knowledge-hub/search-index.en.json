@@ -1,5 +1,12 @@
 [
  {
+  "url": "/knowledge-hub/en/journal/suivi-prix-alignement-concurrentiel-auto.html",
+  "title": "Price tracking & automatic competitive alignment",
+  "excerpt": "We couldn't manually watch hundreds of references against Darty, Boulanger, Fnac or Son-Vidéo. A rules engine in Odoo (cobra_price_rules) reads competitor prices delivered by Wiser several times a day and computes a target price — best valid competitor, bounded by a minimum margin. Two modes: observation (simulates) then live (applies and pushes to Shopify), going live staying a human decision. Guardrails: never sell at a loss, outlier offers (< 60% of our price) ignored, pair/unit normalization. 6 families live, ~300 prices realigned; the rest adjusts on its own at each Wiser update.",
+  "kind": "Journal",
+  "tags": "odoo-dev data strat en-prod cobra"
+ },
+ {
   "url": "/knowledge-hub/en/journal/app-tarifs-fournisseurs-maj-produits.html",
   "title": "An app that reads supplier price lists for me",
   "excerpt": "Every supplier price update (a PDF or a ‘new product’ email) meant manual work: read it, find the product in Odoo, check EAN/SKU, key in buy and sell prices. An internal app (‘Product Update & Creation’) automates the pipeline: PDF upload or watching a read-only mailbox, EAN/SKU/price extraction via a Claude model, matching against the Odoo base, duplicate detection before creation, systematic human validation and traceability. A deliberate guardrail: no created product is ever published online automatically.",
