@@ -7,6 +7,20 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Une app qui lit les tarifs fournisseurs à ma place</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html</guid>
+<pubDate>Fri, 07 Aug 2026 08:00:00 +0000</pubDate>
+<description>Chaque tarif fournisseur (PDF ou mail « nouveauté ») demandait un traitement manuel : lire, retrouver le produit dans Odoo, vérifier EAN/SKU, saisir prix d&#x27;achat et de vente. Une app interne (« MAJ &amp; Création Produits ») automatise le pipeline : upload PDF ou surveillance d&#x27;une boîte mail en lecture seule, extraction EAN/SKU/prix via un modèle Claude, matching sur la base Odoo, détection de doublons avant création, validation humaine systématique et traçabilité. Garde-fou volontaire : aucun produit créé n&#x27;est publié en ligne automatiquement.</description>
+</item>
+<item>
+<title>Une refonte du système de prix découverte en la testant</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/refonte-prix-variantes-decouverte-test.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/refonte-prix-variantes-decouverte-test.html</guid>
+<pubDate>Fri, 07 Aug 2026 08:00:00 +0000</pubDate>
+<description>Une refonte du système de prix par variante se préparait depuis des semaines. En testant l&#x27;app de mise à jour des tarifs, un écart entre le prix écrit dans Odoo et le prix synchronisé côté site marchand a révélé que la refonte était déjà en prod — sans confirmation formelle. Chaque variante a désormais son propre prix de vente, ce qui élimine le risque de contamination entre variantes. L&#x27;app a été corrigée pour écrire sur le nouveau champ, et le sujet remonté au prestataire ERP. Leçon : tester en réel plutôt que se fier à la doc.</description>
+</item>
+<item>
 <title>Statut des commandes clients : facturé, payé, livré — trois badges au lieu d&#x27;un</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html</guid>
@@ -131,20 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/strategie-instagram-hifi-lovers.html</guid>
 <pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
 <description>Cadrer une stratégie Instagram qui part de zéro pour HiFi Lovers : positionnement 70/30 archive/éditorial, 4 piliers, calendrier, plan d&#x27;amorçage 8 semaines, avant de la confier à Marine.</description>
-</item>
-<item>
-<title>Mise à jour prix Sony Bravia II + diagnostic marge nulle</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/sony-bravia-prix-marge.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/sony-bravia-prix-marge.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>19 prix Sony Bravia mis à jour en masse via XML-RPC, puis diagnostic d&#x27;une marge à 0 % : l&#x27;UI affiche sellers_first_price sous « Coût », pas le vrai standard_price.</description>
-</item>
-<item>
-<title>Profil Sogetronic : import stock dropshipping par code fournisseur</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/sogetronic-import-prod.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/sogetronic-import-prod.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Étendre cobra_import_stock_drop pour matcher Sogetronic sur le Code Sage (et non l&#x27;EAN). Migration de schéma, seed XML anti-doublon, cherry-pick preprod3 → main.</description>
 </item>
 </channel>
 </rss>
