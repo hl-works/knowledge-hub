@@ -134,7 +134,7 @@
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">59</b><span>Documented sessions</span></div>
+      <div class="stat"><b id="stat-sessions">61</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Active projects</span></div>
       <div class="stat"><b>2</b><span>Claude agents</span></div>
     </div>
@@ -281,10 +281,28 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Search across 59 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Search across 61 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/app-tarifs-fournisseurs-maj-produits.html">An app that reads supplier price lists for me</a></h3>
+          <p class="entry__excerpt">Every supplier price update (a PDF or a ‘new product’ email) meant manual work: read it, find the product in Odoo, check EAN/SKU, key in buy and sell prices. An internal app (‘Product Update &amp; Creation’) automates the pipeline: PDF upload or watching a read-only mailbox, EAN/SKU/price extraction via a Claude model, matching against the Odoo base, duplicate detection before creation, systematic human validation and traceability. A deliberate guardrail: no created product is ever published online automatically.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/refonte-prix-variantes-decouverte-test.html">A pricing-system overhaul discovered by testing it</a></h3>
+          <p class="entry__excerpt">A per-variant pricing-system overhaul had been in preparation for weeks. While testing the price-update app, a gap between the price written in Odoo and the price synced on the merchant site revealed the overhaul was already in production — without formal confirmation. Each variant now has its own sale price, removing the cross-variant contamination risk. The app was fixed to write to the new field, and the matter escalated to the ERP integrator. Lesson: test in the real system rather than trust the docs.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-07-13">2026-07-13</time>
         <div>
@@ -404,7 +422,7 @@
       </li>
 
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">59 entries total — filter by tag in the journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">61 entries total — filter by tag in the journal →</a></p>
   </div>
 </section>
 

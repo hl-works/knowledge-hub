@@ -136,7 +136,7 @@
       <a class="btn btn--ghost" href="a-propos/">Qui je suis</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">59</b><span>Sessions documentées</span></div>
+      <div class="stat"><b id="stat-sessions">61</b><span>Sessions documentées</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Projets actifs</span></div>
       <div class="stat"><b>2</b><span>Agents Claude</span></div>
     </div>
@@ -284,10 +284,28 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 59 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 61 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/app-tarifs-fournisseurs-maj-produits.html">Une app qui lit les tarifs fournisseurs à ma place</a></h3>
+          <p class="entry__excerpt">Chaque tarif fournisseur (PDF ou mail « nouveauté ») demandait un traitement manuel : lire, retrouver le produit dans Odoo, vérifier EAN/SKU, saisir prix d'achat et de vente. Une app interne (« MAJ &amp; Création Produits ») automatise le pipeline : upload PDF ou surveillance d'une boîte mail en lecture seule, extraction EAN/SKU/prix via un modèle Claude, matching sur la base Odoo, détection de doublons avant création, validation humaine systématique et traçabilité. Garde-fou volontaire : aucun produit créé n'est publié en ligne automatiquement.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="email" href="/knowledge-hub/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
+      <li class="entry">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/refonte-prix-variantes-decouverte-test.html">Une refonte du système de prix découverte en la testant</a></h3>
+          <p class="entry__excerpt">Une refonte du système de prix par variante se préparait depuis des semaines. En testant l'app de mise à jour des tarifs, un écart entre le prix écrit dans Odoo et le prix synchronisé côté site marchand a révélé que la refonte était déjà en prod — sans confirmation formelle. Chaque variante a désormais son propre prix de vente, ce qui élimine le risque de contamination entre variantes. L'app a été corrigée pour écrire sur le nouveau champ, et le sujet remonté au prestataire ERP. Leçon : tester en réel plutôt que se fier à la doc.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-07-13">2026-07-13</time>
         <div>
@@ -407,7 +425,7 @@
       </li>
 
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">59 entrées au total — filtrer par tag dans le journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">61 entrées au total — filtrer par tag dans le journal →</a></p>
   </div>
 </section>
 

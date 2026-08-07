@@ -6,7 +6,7 @@ Auteur : Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn : https://www.linke
 
 Le site est bilingue. Version anglaise : https://hl-consulting.tech/knowledge-hub/en/ — index llms.txt anglais : https://hl-consulting.tech/knowledge-hub/en/llms.txt
 
-Dernière mise à jour : 2026-07-13
+Dernière mise à jour : 2026-08-07
 
 ## Méthode
 
@@ -63,8 +63,10 @@ Dernière mise à jour : 2026-07-13
 - [HiFi Lovers](https://hl-consulting.tech/knowledge-hub/hifi-lovers/): marque néo-rétro audiophile.
 - [Perso](https://hl-consulting.tech/knowledge-hub/perso/): side-projects et expérimentations.
 
-## Journal (59 entrées)
+## Journal (61 entrées)
 
+- [Une app qui lit les tarifs fournisseurs à ma place](https://hl-consulting.tech/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html): Chaque tarif fournisseur (PDF ou mail « nouveauté ») demandait un traitement manuel : lire, retrouver le produit dans Odoo, vérifier EAN/SKU, saisir prix d'achat et de vente. Une app interne (« MAJ & Création Produits ») automatise le pipeline : upload PDF ou surveillance d'une boîte mail en lecture seule, extraction EAN/SKU/prix via un modèle Claude, matching sur la base Odoo, détection de doublons avant création, validation humaine systématique et traçabilité. Garde-fou volontaire : aucun produit créé n'est publié en ligne automatiquement.
+- [Une refonte du système de prix découverte en la testant](https://hl-consulting.tech/knowledge-hub/journal/refonte-prix-variantes-decouverte-test.html): Une refonte du système de prix par variante se préparait depuis des semaines. En testant l'app de mise à jour des tarifs, un écart entre le prix écrit dans Odoo et le prix synchronisé côté site marchand a révélé que la refonte était déjà en prod — sans confirmation formelle. Chaque variante a désormais son propre prix de vente, ce qui élimine le risque de contamination entre variantes. L'app a été corrigée pour écrire sur le nouveau champ, et le sujet remonté au prestataire ERP. Leçon : tester en réel plutôt que se fier à la doc.
 - [Statut des commandes clients : facturé, payé, livré — trois badges au lieu d'un](https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html): Rien ne distinguait clairement « la facture est partie », « le client a payé » et « la marchandise est livrée ». Trois badges indépendants (Facturation / Paiement / Livraison) remplacent le statut fusionné : code couleur, taux d'acompte affiché, bascule automatique reste à encaisser → reste à livrer, lignes livrées grisées. Transposé du module fournisseurs déjà en place ; deux bugs de calcul latents corrigés au passage.
 - [Le « Cobra App Store » continue de s'industrialiser](https://hl-consulting.tech/knowledge-hub/journal/cobra-app-store-industrialisation.html): Synthèse sur 5 sessions : le hub d'apps internes de Cobra passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d'environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.
 - [Refonte du système de prix Odoo (cobra_price) : une seule source de vérité](https://hl-consulting.tech/knowledge-hub/journal/refonte-systeme-prix-cobra-price.html): Le modèle de prix Odoo était empilé et fragile : pricelist web auto-calculée, listes superposées, TVA à 20 % codée en dur, marge à 0 dès qu'un produit sortait de stock. Un champ unique cobra_price devient LA source de vérité via un override de _price_compute — coût et marge recalculés, prix barrés conformes Omnibus, sync Shopify immédiate. 6 modules touchés, ~7 300 produits migrés, avec un vrai suivi post-prod (bug d'affichage corrigé le jour même, 492 produits en promo repoussés).

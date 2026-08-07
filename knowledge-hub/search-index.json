@@ -1,5 +1,19 @@
 [
 {
+"url": "/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html",
+"title": "Une app qui lit les tarifs fournisseurs à ma place",
+"excerpt": "Chaque tarif fournisseur (PDF ou mail « nouveauté ») demandait un traitement manuel : lire, retrouver le produit dans Odoo, vérifier EAN/SKU, saisir prix d'achat et de vente. Une app interne (« MAJ & Création Produits ») automatise le pipeline : upload PDF ou surveillance d'une boîte mail en lecture seule, extraction EAN/SKU/prix via un modèle Claude, matching sur la base Odoo, détection de doublons avant création, validation humaine systématique et traçabilité. Garde-fou volontaire : aucun produit créé n'est publié en ligne automatiquement.",
+"kind": "Journal",
+"tags": "agent odoo-dev email en-prod cobra"
+},
+{
+"url": "/knowledge-hub/journal/refonte-prix-variantes-decouverte-test.html",
+"title": "Une refonte du système de prix découverte en la testant",
+"excerpt": "Une refonte du système de prix par variante se préparait depuis des semaines. En testant l'app de mise à jour des tarifs, un écart entre le prix écrit dans Odoo et le prix synchronisé côté site marchand a révélé que la refonte était déjà en prod — sans confirmation formelle. Chaque variante a désormais son propre prix de vente, ce qui élimine le risque de contamination entre variantes. L'app a été corrigée pour écrire sur le nouveau champ, et le sujet remonté au prestataire ERP. Leçon : tester en réel plutôt que se fier à la doc.",
+"kind": "Journal",
+"tags": "odoo-dev data shopify en-prod cobra"
+},
+{
 "url": "/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html",
 "title": "Statut des commandes clients : facturé, payé, livré — trois badges au lieu d'un",
 "excerpt": "Rien ne distinguait clairement « la facture est partie », « le client a payé » et « la marchandise est livrée ». Trois badges indépendants (Facturation / Paiement / Livraison) remplacent le statut fusionné : code couleur, taux d'acompte affiché, bascule automatique reste à encaisser → reste à livrer, lignes livrées grisées. Transposé du module fournisseurs déjà en place ; deux bugs de calcul latents corrigés au passage.",

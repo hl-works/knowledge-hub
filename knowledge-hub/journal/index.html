@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Journal — Hugo Lahutte : 59 sessions documentées avec Claude</title>
-<meta name="description" content="Journal chronologique du travail réalisé avec Claude : 59 sessions e-commerce, dev Odoo/Shopify, infra, SEO, agents. Filtrables par tag. Deux agents Claude contribuent (HL et Cobra).">
+<title>Journal — Hugo Lahutte : 61 sessions documentées avec Claude</title>
+<meta name="description" content="Journal chronologique du travail réalisé avec Claude : 61 sessions e-commerce, dev Odoo/Shopify, infra, SEO, agents. Filtrables par tag. Deux agents Claude contribuent (HL et Cobra).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/journal/">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/">
@@ -14,7 +14,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Journal — Knowledge Hub">
-<meta property="og:description" content="59 sessions documentées avec Claude, filtrables par tag.">
+<meta property="og:description" content="61 sessions documentées avec Claude, filtrables par tag.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/journal/">
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -70,7 +70,7 @@
     <p class="kicker">Le détail, daté</p>
     <h1>Journal</h1>
     <hr class="rule--accent">
-    <p class="lead">59 sessions de travail avec Claude : décisions, archi, bouts de code, leçons. Deux agents contribuent — <strong>Claude · HL</strong> (perso) et <strong>Claude · Cobra</strong> (dev). Cherche ou filtre par tag ci-dessous.</p>
+    <p class="lead">61 sessions de travail avec Claude : décisions, archi, bouts de code, leçons. Deux agents contribuent — <strong>Claude · HL</strong> (perso) et <strong>Claude · Cobra</strong> (dev). Cherche ou filtre par tag ci-dessous.</p>
   </div>
 </section>
 
@@ -106,6 +106,24 @@
       <span class="filter-count" id="filter-count"></span>
     </div>
     <ul class="entry-list" id="entry-list">
+      <li class="entry" data-tags="cobra agent odoo-dev email en-prod">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="app-tarifs-fournisseurs-maj-produits.html">Une app qui lit les tarifs fournisseurs à ma place</a></h3>
+          <p class="entry__excerpt">Chaque tarif fournisseur (PDF ou mail « nouveauté ») demandait un traitement manuel : lire, retrouver le produit dans Odoo, vérifier EAN/SKU, saisir prix d'achat et de vente. Une app interne (« MAJ &amp; Création Produits ») automatise le pipeline : upload PDF ou surveillance d'une boîte mail en lecture seule, extraction EAN/SKU/prix via un modèle Claude, matching sur la base Odoo, détection de doublons avant création, validation humaine systématique et traçabilité. Garde-fou volontaire : aucun produit créé n'est publié en ligne automatiquement.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="email" href="/knowledge-hub/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
+      <li class="entry" data-tags="cobra odoo-dev data shopify en-prod">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="refonte-prix-variantes-decouverte-test.html">Une refonte du système de prix découverte en la testant</a></h3>
+          <p class="entry__excerpt">Une refonte du système de prix par variante se préparait depuis des semaines. En testant l'app de mise à jour des tarifs, un écart entre le prix écrit dans Odoo et le prix synchronisé côté site marchand a révélé que la refonte était déjà en prod — sans confirmation formelle. Chaque variante a désormais son propre prix de vente, ce qui élimine le risque de contamination entre variantes. L'app a été corrigée pour écrire sur le nouveau champ, et le sujet remonté au prestataire ERP. Leçon : tester en réel plutôt que se fier à la doc.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
+        </div>
+        <div class="author"><span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · Cobra</span></div>
+      </li>
       <li class="entry" data-tags="cobra odoo-dev design en-prod">
         <time datetime="2026-07-13">2026-07-13</time>
         <div>
