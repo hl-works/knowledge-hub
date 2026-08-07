@@ -1592,6 +1592,46 @@ URL : https://hl-consulting.tech/knowledge-hub/lexique/
 
 
 ================================================================
+SUIVI DES PRIX & ALIGNEMENT CONCURRENTIEL AUTOMATIQUE
+URL : https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html
+Publié : 2026-08-07
+================================================================
+
+Un moteur de règles dans Odoo qui surveille en continu les prix concurrents (via Wiser) et réaligne automatiquement les nôtres : prix cible = meilleur concurrent valide, borné par une marge minimale. Deux modes (observation puis live, décision humaine), tout journalisé et réversible. 6 familles pilotées en live, ~300 prix réalignés.
+
+← Journal
+Cobra · Dev
+Suivi des prix & alignement concurrentiel automatique
+Claude · Cobra · 7 août 2026 odoo-devdatastraten-prodCobra
+Contexte
+On ne pouvait pas surveiller à la main des centaines de références face aux grandes enseignes (Darty, Boulanger, Fnac, Son-Vidéo…). Résultat : on perdait des ventes en étant trop cher sans le savoir, et on risquait de brader en réagissant à l'aveugle. Il fallait un suivi continu et un réalignement fiable, marge protégée, sans surveillance manuelle.
+Ce qui a été construit
+Un moteur qui surveille les prix concurrents en continu et réaligne automatiquement les nôtres :
+- Wiser crawle les sites concurrents et livre leurs prix plusieurs fois par jour.
+- Un moteur de règles (dans Odoo, module cobra_price_rules) calcule, pour chaque produit d'un périmètre, un prix cible : s'aligner sur le meilleur concurrent valide, borné par une marge minimale.
+- Deux modes : observation (simule, rien ne bouge) puis live (applique et pousse sur Shopify). Le passage en live reste une décision humaine.
+- Tout est journalisé et réversible, avec un message déposé sur chaque fiche produit.
+- Un assistant IA traduit une consigne en langage naturel en règle exécutable.
+Résultat : 6 familles pilotées en live (projecteurs, TV, hi-fi, barres de son, amplis home cinéma), ~300 prix réalignés sur le marché du jour ; le reste s'ajuste tout seul à chaque mise à jour Wiser.
+Les garde-fous (ce qui rend l'auto sûr)
+- Marge minimale par règle — jamais de vente à perte.
+- Offres aberrantes ignorées (sous 60 % de notre prix — produit liquidé, marché gris).
+- Normalisation paire / pièce — comparer une paire d'enceintes à une paire, pas à une pièce.
+- Observation par défaut ; le cœur de marché (enceintes colonne / bibliothèque) volontairement laissé de côté au début.
+Ce qu'on a appris
+- Un garde-fou mal ancré ne protège plus : le seuil anti-aberration était d'abord calculé sur une référence elle-même contaminée par l'offre aberrante — il fallait l'ancrer sur notre propre prix.
+- L'automatisation ne remplace pas le jugement sur le cœur de marché : mieux vaut observer avant d'aligner (normalisation paire/pièce, liquidations concurrentes qui faussent la comparaison).
+Stack
+Odoo 18 (module cobra_price_rules), Wiser (données concurrents), une app Flask + front vanilla en interface dédiée à accès protégé, un assistant IA (langage naturel → règle).
+Ce que ça illustre
+Séparer les données (Odoo = source de vérité) et le pilotage (une UI simple par-dessus) rend l'outil utilisable au quotidien sans ouvrir Odoo. Et un principe qui revient : automatiser d'abord ce qui est mécanique et sûr (marge protégée, offres aberrantes filtrées), garder l'humain là où le jugement compte (cœur de marché, passage en live).
+Voir aussi
+- Un dashboard de suivi prix concurrentiel construit maison
+- Refonte du système de prix Odoo (cobra_price)
+← Toutes les entrées
+
+
+================================================================
 UNE REFONTE DU SYSTÈME DE PRIX DÉCOUVERTE EN LA TESTANT
 URL : https://hl-consulting.tech/knowledge-hub/journal/refonte-prix-variantes-decouverte-test.html
 Publié : 2026-08-07

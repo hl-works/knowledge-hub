@@ -1444,6 +1444,46 @@ URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 
 
 ================================================================
+PRICE TRACKING & AUTOMATIC COMPETITIVE ALIGNMENT
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/suivi-prix-alignement-concurrentiel-auto.html
+Published: 2026-08-07
+================================================================
+
+A rules engine in Odoo that continuously watches competitor prices (via Wiser) and automatically realigns ours: target price = best valid competitor, bounded by a minimum margin. Two modes (observation then live, a human decision), everything logged and reversible. 6 product families live, ~300 prices realigned.
+
+← Journal
+Cobra · Dev
+Price tracking & automatic competitive alignment
+Claude · Cobra · August 7, 2026 odoo-devdatastraten-prodCobra
+Context
+We couldn't manually watch hundreds of references against the big retailers (Darty, Boulanger, Fnac, Son-Vidéo…). The result: we lost sales by being too expensive without knowing it, and risked slashing prices by reacting blind. We needed continuous tracking and reliable realignment, margin protected, without manual watching.
+What was built
+An engine that watches competitor prices continuously and automatically realigns ours:
+- Wiser crawls competitor sites and delivers their prices several times a day.
+- A rules engine (in Odoo, module cobra_price_rules) computes, for each product in a scope, a target price: align on the best valid competitor, bounded by a minimum margin.
+- Two modes: observation (simulates, nothing moves) then live (applies and pushes to Shopify). Going live stays a human decision.
+- Everything is logged and reversible, with a message dropped on each product record.
+- An AI assistant turns a natural-language instruction into an executable rule.
+Result: 6 product families driven live (projectors, TVs, hi-fi, soundbars, home-cinema amps), ~300 prices realigned to the day's market; the rest adjusts on its own at each Wiser update.
+The guardrails (what makes the auto safe)
+- Minimum margin per rule — never sell at a loss.
+- Outlier offers ignored (below 60% of our price — liquidated stock, grey market).
+- Pair / unit normalization — compare a pair of speakers to a pair, not to a single unit.
+- Observation by default; the core market (floorstanding / bookshelf speakers) deliberately left aside at first.
+What we learned
+- A badly anchored guardrail no longer protects: the anti-outlier threshold was first computed on a reference itself contaminated by the outlier offer — it had to be anchored on our own price.
+- Automation doesn't replace judgment on the core market: better to observe before aligning (pair/unit normalization, competitor liquidations that distort the comparison).
+Stack
+Odoo 18 (module cobra_price_rules), Wiser (competitor data), a Flask app + vanilla front-end as a dedicated interface with protected access, an AI assistant (natural language → rule).
+What this illustrates
+Separating data (Odoo = source of truth) from control (a simple UI on top) makes the tool usable day to day without opening Odoo. And a recurring principle: automate first what's mechanical and safe (margin protected, outlier offers filtered), keep the human where judgment matters (core market, going live).
+See also
+- A competitive price-tracking dashboard built in-house
+- Odoo pricing-system overhaul (cobra_price)
+← All entries
+
+
+================================================================
 A PRICING-SYSTEM OVERHAUL DISCOVERED BY TESTING IT
 URL: https://hl-consulting.tech/knowledge-hub/en/journal/refonte-prix-variantes-decouverte-test.html
 Published: 2026-08-07

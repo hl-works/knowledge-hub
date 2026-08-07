@@ -136,7 +136,7 @@
       <a class="btn btn--ghost" href="a-propos/">Qui je suis</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">61</b><span>Sessions documentées</span></div>
+      <div class="stat"><b id="stat-sessions">62</b><span>Sessions documentées</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Projets actifs</span></div>
       <div class="stat"><b>2</b><span>Agents Claude</span></div>
     </div>
@@ -284,10 +284,19 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 61 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 62 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-08-07">2026-08-07</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/suivi-prix-alignement-concurrentiel-auto.html">Suivi des prix &amp; alignement concurrentiel automatique</a></h3>
+          <p class="entry__excerpt">On ne pouvait pas surveiller à la main des centaines de références face à Darty, Boulanger, Fnac ou Son-Vidéo. Un moteur de règles dans Odoo (cobra_price_rules) lit les prix concurrents livrés par Wiser plusieurs fois par jour et calcule un prix cible — meilleur concurrent valide, borné par une marge minimale. Deux modes : observation (simule) puis live (applique et pousse sur Shopify), le passage en live restant une décision humaine. Garde-fous : jamais de vente à perte, offres aberrantes (< 60 % de notre prix) ignorées, normalisation paire/pièce. 6 familles en live, ~300 prix réalignés ; le reste s'ajuste seul à chaque MAJ Wiser.</p>
+          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-08-07">2026-08-07</time>
         <div>
@@ -425,7 +434,7 @@
       </li>
 
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">61 entrées au total — filtrer par tag dans le journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">62 entrées au total — filtrer par tag dans le journal →</a></p>
   </div>
 </section>
 

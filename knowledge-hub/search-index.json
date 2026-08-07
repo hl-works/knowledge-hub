@@ -1,5 +1,12 @@
 [
 {
+"url": "/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html",
+"title": "Suivi des prix & alignement concurrentiel automatique",
+"excerpt": "On ne pouvait pas surveiller à la main des centaines de références face à Darty, Boulanger, Fnac ou Son-Vidéo. Un moteur de règles dans Odoo (cobra_price_rules) lit les prix concurrents livrés par Wiser plusieurs fois par jour et calcule un prix cible — meilleur concurrent valide, borné par une marge minimale. Deux modes : observation (simule) puis live (applique et pousse sur Shopify), le passage en live restant une décision humaine. Garde-fous : jamais de vente à perte, offres aberrantes (< 60 % de notre prix) ignorées, normalisation paire/pièce. 6 familles en live, ~300 prix réalignés ; le reste s'ajuste seul à chaque MAJ Wiser.",
+"kind": "Journal",
+"tags": "odoo-dev data strat en-prod cobra"
+},
+{
 "url": "/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html",
 "title": "Une app qui lit les tarifs fournisseurs à ma place",
 "excerpt": "Chaque tarif fournisseur (PDF ou mail « nouveauté ») demandait un traitement manuel : lire, retrouver le produit dans Odoo, vérifier EAN/SKU, saisir prix d'achat et de vente. Une app interne (« MAJ & Création Produits ») automatise le pipeline : upload PDF ou surveillance d'une boîte mail en lecture seule, extraction EAN/SKU/prix via un modèle Claude, matching sur la base Odoo, détection de doublons avant création, validation humaine systématique et traçabilité. Garde-fou volontaire : aucun produit créé n'est publié en ligne automatiquement.",
