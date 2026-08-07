@@ -1444,6 +1444,72 @@ URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 
 
 ================================================================
+A PRICING-SYSTEM OVERHAUL DISCOVERED BY TESTING IT
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/refonte-prix-variantes-decouverte-test.html
+Published: 2026-08-07
+================================================================
+
+While testing a new price-update app, a gap between the price written in Odoo and the price synced on the merchant site revealed that the per-variant pricing-system overhaul was already in production — without formal confirmation. The app was fixed to write to the new field, and the matter escalated to the ERP integrator.
+
+← Journal
+Cobra · Dev
+A pricing-system overhaul discovered by testing it
+Claude · Cobra · August 7, 2026 odoo-devdatashopifyen-prodCobra
+Context
+A pricing-system overhaul on the ERP side had been in preparation for several weeks, aiming to simplify a historically fragile mechanism: on a product with several variants (sizes, colors…), the old system shared a single "base" price field across all variants, each one being only an offset from that base price. A badly sequenced update on a single variant could silently shift the price of all the others.
+What was discovered
+While building the price-update app, a real field test revealed that the expected overhaul was in fact already deployed in production — without it having been formally confirmed. The new system now stores a sale price genuinely specific to each variant, which structurally removes the risk of contamination between variants of the same product.
+The detection happened by comparing, on real products, the value expected after an update and the value actually synced on the merchant site: a gap appeared, revealing the app was still writing to the old mechanism, now disconnected. The app's code was fixed to write directly to the new field, in line with the price-consistency constraint imposed by the new system. The matter was also escalated to the technical provider in charge of the ERP, with a broader angle: this pattern (automatic price matching, with human guardrails) could interest other of their clients facing the same need.
+What was hard
+Detecting an architecture change that hadn't been officially communicated as "in production" — the only way to know for sure was to compare the real behavior of the price fields on production data, not to trust the existing documentation.
+Stack
+ERP (read / write via API), comparative verification on real data.
+What this illustrates
+A system's documentation can lag behind its real state. Testing in real conditions — even for a simple operational task like a price update — remains the most reliable way to check what a system actually does, rather than what you think it does.
+See also
+- An app that reads supplier price lists for me
+- Odoo pricing-system overhaul (cobra_price)
+← All entries
+
+
+================================================================
+AN APP THAT READS SUPPLIER PRICE LISTS FOR ME
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/app-tarifs-fournisseurs-maj-produits.html
+Published: 2026-08-07
+================================================================
+
+An internal app that reads supplier price lists (PDF or a dedicated mailbox), extracts EAN, SKU and prices via a Claude model, matches them against the Odoo base and prepares product creation or updates — with systematic human validation, duplicate detection and a guardrail: no product is ever published online automatically.
+
+← Journal
+Cobra · Dev
+An app that reads supplier price lists for me
+Claude · Cobra · August 7, 2026 agentodoo-devemailen-prodCobra
+Context
+Every supplier price update (a PDF, or a "new product" email) meant a long manual task: read the document, find the right product in Odoo, check the EAN/SKU codes, key in the buy price and the sell price one by one. With the volume of suppliers and references we handle, it was repetitive, time-consuming and error-prone.
+What was built
+An internal app ("Product Update & Creation") that automates the whole pipeline:
+- Upload a supplier price-list PDF, or automatic detection by watching a dedicated read-only mailbox.
+- Structured extraction of the content (EAN, SKU, buy / sell price) via a Claude model.
+- Automatic matching against the Odoo base (EAN then supplier code, with tolerance for slight code variations).
+- If the product doesn't exist yet: a creation proposal, preceded by a duplicate-detection pass before anything is created.
+- Systematic human validation before any write, with automatic traceability in each product's history.
+- The option to schedule an update for a future date rather than running it right away.
+- A deliberate guardrail: a newly created product is never published online automatically — going live stays a human action, so an incomplete product never shows up on the site before it's ready.
+What was hard
+- Detecting the real candidates in a busy mailbox without surfacing noise (newsletters, auto-replies, internal threads) — solved with a light AI triage pass before adding anything to the processing queue.
+- Avoiding duplicates when a product had already been created elsewhere, sometimes with incomplete data — added a name-similarity check before any creation.
+- Making the app talk to the Odoo pricing system without risking corrupting the prices of other variants of the same product (see the linked entry).
+Stack
+Python automation + generative AI for document extraction, API connection to the ERP, read-only connection to a professional mailbox, a dedicated web interface with protected access.
+What this illustrates
+A fairly generic pattern — document extraction → matching against the central system → human validation → write — found in many supplier / e-commerce processes. The key point isn't to automate everything, but to keep the human at the steps that matter (validating the content, going live) while eliminating the repetitive data entry.
+See also
+- A pricing-system overhaul discovered by testing it
+- Odoo pricing-system overhaul (cobra_price)
+← All entries
+
+
+================================================================
 CUSTOMER ORDER STATUS: INVOICED, PAID, DELIVERED
 URL: https://hl-consulting.tech/knowledge-hub/en/journal/statut-commandes-clients-facture-paye-livre.html
 Published: 2026-07-13

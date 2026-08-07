@@ -1,5 +1,19 @@
 [
  {
+  "url": "/knowledge-hub/en/journal/app-tarifs-fournisseurs-maj-produits.html",
+  "title": "An app that reads supplier price lists for me",
+  "excerpt": "Every supplier price update (a PDF or a ‘new product’ email) meant manual work: read it, find the product in Odoo, check EAN/SKU, key in buy and sell prices. An internal app (‘Product Update & Creation’) automates the pipeline: PDF upload or watching a read-only mailbox, EAN/SKU/price extraction via a Claude model, matching against the Odoo base, duplicate detection before creation, systematic human validation and traceability. A deliberate guardrail: no created product is ever published online automatically.",
+  "kind": "Journal",
+  "tags": "agent odoo-dev email en-prod cobra"
+ },
+ {
+  "url": "/knowledge-hub/en/journal/refonte-prix-variantes-decouverte-test.html",
+  "title": "A pricing-system overhaul discovered by testing it",
+  "excerpt": "A per-variant pricing-system overhaul had been in preparation for weeks. While testing the price-update app, a gap between the price written in Odoo and the price synced on the merchant site revealed the overhaul was already in production — without formal confirmation. Each variant now has its own sale price, removing the cross-variant contamination risk. The app was fixed to write to the new field, and the matter escalated to the ERP integrator. Lesson: test in the real system rather than trust the docs.",
+  "kind": "Journal",
+  "tags": "odoo-dev data shopify en-prod cobra"
+ },
+ {
   "url": "/knowledge-hub/en/journal/statut-commandes-clients-facture-paye-livre.html",
   "title": "Customer order status: invoiced, paid, delivered — three badges instead of one",
   "excerpt": "Nothing clearly separated the invoice is out, the customer has paid and the goods are delivered. Three independent badges (Invoicing / Payment / Delivery) replace the merged status: color coding, deposit rate shown, automatic switch from remaining-to-collect to remaining-to-deliver, delivered lines greyed out. Transposed from the existing supplier module; two latent calculation bugs fixed along the way.",

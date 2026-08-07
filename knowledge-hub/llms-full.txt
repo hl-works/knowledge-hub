@@ -1592,6 +1592,72 @@ URL : https://hl-consulting.tech/knowledge-hub/lexique/
 
 
 ================================================================
+UNE REFONTE DU SYSTÈME DE PRIX DÉCOUVERTE EN LA TESTANT
+URL : https://hl-consulting.tech/knowledge-hub/journal/refonte-prix-variantes-decouverte-test.html
+Publié : 2026-08-07
+================================================================
+
+En testant une nouvelle app de mise à jour des tarifs, un écart entre le prix écrit dans Odoo et le prix synchronisé côté site marchand a révélé que la refonte du système de prix par variante était déjà en production — sans confirmation formelle. Correctif de l'app pour écrire sur le nouveau champ, et remontée au prestataire ERP.
+
+← Journal
+Cobra · Dev
+Une refonte du système de prix découverte en la testant
+Claude · Cobra · 7 août 2026 odoo-devdatashopifyen-prodCobra
+Contexte
+Une refonte du système de prix côté ERP était en préparation depuis plusieurs semaines, avec l'objectif de simplifier un mécanisme historiquement fragile : sur un produit à plusieurs variantes (tailles, couleurs…), l'ancien système partageait un même champ de prix « de base » entre toutes les variantes, chacune n'étant qu'un écart par rapport à ce prix de base. Une mise à jour mal séquencée sur une seule variante pouvait décaler silencieusement le prix de toutes les autres.
+Ce qui a été découvert
+En construisant l'app de mise à jour des tarifs, un test réel sur le terrain a révélé que la refonte attendue était en fait déjà déployée en production — sans que ça ait été formellement confirmé. Le nouveau système stocke désormais un prix de vente réellement propre à chaque variante, ce qui élimine structurellement le risque de contamination entre variantes d'un même produit.
+La détection s'est faite en comparant, sur des produits réels, la valeur attendue après une mise à jour et la valeur effectivement synchronisée côté site marchand : un écart est apparu, révélant que l'app écrivait encore sur l'ancien mécanisme, désormais déconnecté. Le code de l'app a été corrigé pour écrire directement sur le nouveau champ, en ligne avec la contrainte de cohérence de prix imposée par le nouveau système. Le sujet a aussi été remonté au prestataire technique en charge de l'ERP, avec une proposition d'angle plus large : ce pattern (rapprochement automatique de tarifs, avec garde-fous humains) pourrait intéresser d'autres de ses clients confrontés au même besoin.
+Ce qui était difficile
+Détecter un changement d'architecture qui n'avait pas été officiellement communiqué comme « en prod » — la seule façon de le savoir avec certitude a été de comparer le comportement réel des champs de prix sur des données de production, pas de se fier à la documentation existante.
+Stack
+ERP (lecture / écriture via API), vérification comparative sur données réelles.
+Ce que ça illustre
+La documentation d'un système peut être en retard sur son état réel. Tester en conditions réelles — même pour une tâche opérationnelle simple comme une mise à jour de tarif — reste le moyen le plus fiable de vérifier ce qu'un système fait vraiment, plutôt que ce qu'on pense qu'il fait.
+Voir aussi
+- Une app qui lit les tarifs fournisseurs à ma place
+- Refonte du système de prix Odoo (cobra_price)
+← Toutes les entrées
+
+
+================================================================
+UNE APP QUI LIT LES TARIFS FOURNISSEURS À MA PLACE
+URL : https://hl-consulting.tech/knowledge-hub/journal/app-tarifs-fournisseurs-maj-produits.html
+Publié : 2026-08-07
+================================================================
+
+Une app interne qui lit les tarifs fournisseurs (PDF ou boîte mail dédiée), en extrait EAN, SKU et prix via un modèle Claude, les rapproche de la base Odoo et prépare la création ou la mise à jour de produits — avec validation humaine systématique, détection de doublons et un garde-fou : aucun produit n'est publié en ligne automatiquement.
+
+← Journal
+Cobra · Dev
+Une app qui lit les tarifs fournisseurs à ma place
+Claude · Cobra · 7 août 2026 agentodoo-devemailen-prodCobra
+Contexte
+Chaque mise à jour de tarif fournisseur (un PDF, ou un mail « nouveauté produit ») demandait un traitement manuel long : lire le document, retrouver le bon produit dans Odoo, vérifier les codes EAN/SKU, saisir le prix d'achat et le prix de vente un par un. Avec le volume de fournisseurs et de références qu'on gère, c'était une tâche répétitive, chronophage et propice aux erreurs de saisie.
+Ce qui a été construit
+Une app interne (« MAJ & Création Produits ») qui automatise tout le pipeline :
+- Upload d'un PDF de tarif fournisseur, ou détection automatique en surveillant une boîte mail dédiée en lecture seule.
+- Extraction structurée du contenu (EAN, SKU, prix d'achat / de vente) via un modèle Claude.
+- Matching automatique contre la base Odoo (EAN puis code fournisseur, avec tolérance sur les légères variations de code).
+- Si le produit n'existe pas encore : proposition de création, précédée d'une passe de détection de doublons potentiels avant de créer quoi que ce soit.
+- Validation humaine systématique avant toute écriture, avec traçabilité automatique dans l'historique de chaque produit.
+- Possibilité de programmer une mise à jour à une date future plutôt que de l'exécuter tout de suite.
+- Un garde-fou volontaire : un produit nouvellement créé n'est jamais publié en ligne automatiquement — la mise en ligne reste un geste humain, pour ne jamais laisser un produit incomplet apparaître sur le site avant d'être prêt.
+Ce qui était difficile
+- Détecter les vrais candidats dans une boîte mail chargée sans remonter du bruit (newsletters, réponses automatiques, threads internes) — résolu par une passe de tri légère par IA avant d'ajouter quoi que ce soit à la file de traitement.
+- Éviter de créer des doublons quand un produit avait déjà été créé ailleurs, parfois avec des données incomplètes — ajout d'une vérification par similarité de nom avant toute création.
+- Faire dialoguer l'app avec le système de prix Odoo sans risquer de corrompre les prix d'autres variantes d'un même produit (voir l'entrée liée).
+Stack
+Automatisation Python + IA générative pour l'extraction de documents, connexion API à l'ERP, connexion en lecture à une boîte mail professionnelle, interface web dédiée à accès protégé.
+Ce que ça illustre
+Un pattern assez générique — extraction de document → rapprochement avec le système central → validation humaine → écriture — qu'on retrouve dans beaucoup de process fournisseurs / e-commerce. Le point clé n'est pas de tout automatiser, mais de garder l'humain aux étapes qui comptent (validation du contenu, mise en ligne) tout en éliminant la saisie répétitive.
+Voir aussi
+- Une refonte du système de prix découverte en la testant
+- Refonte du système de prix Odoo (cobra_price)
+← Toutes les entrées
+
+
+================================================================
 STATUT DES COMMANDES CLIENTS : FACTURÉ, PAYÉ, LIVRÉ
 URL : https://hl-consulting.tech/knowledge-hub/journal/statut-commandes-clients-facture-paye-livre.html
 Publié : 2026-07-13
