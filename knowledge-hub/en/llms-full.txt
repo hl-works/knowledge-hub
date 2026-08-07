@@ -1449,7 +1449,7 @@ URL: https://hl-consulting.tech/knowledge-hub/en/journal/suivi-prix-alignement-c
 Published: 2026-08-07
 ================================================================
 
-A rules engine in Odoo that continuously watches competitor prices (via Wiser) and automatically realigns ours: target price = best valid competitor, bounded by a minimum margin. Two modes (observation then live, a human decision), everything logged and reversible. 6 product families live, ~300 prices realigned.
+An Odoo rules engine (cobra_price_rules module) continuously watches competitor prices delivered by Wiser and automatically realigns ours — target price = best valid competitor, bounded by a minimum margin. Event-driven on each Wiser import, writes via cobra_price (native Shopify sync), decoupled control (Flask + SQLite cache). Observation then live modes (a human decision), logged and reversible. 6 families live, ~300 prices realigned.
 
 ← Journal
 Cobra · Dev
@@ -1460,21 +1460,28 @@ We couldn't manually watch hundreds of references against the big retailers (Dar
 What was built
 An engine that watches competitor prices continuously and automatically realigns ours:
 - Wiser crawls competitor sites and delivers their prices several times a day.
-- A rules engine (in Odoo, module cobra_price_rules) computes, for each product in a scope, a target price: align on the best valid competitor, bounded by a minimum margin.
+- A rules engine (in Odoo) computes, for each product in a scope, a target price: align on the best valid competitor, bounded by a minimum margin.
 - Two modes: observation (simulates, nothing moves) then live (applies and pushes to Shopify). Going live stays a human decision.
 - Everything is logged and reversible, with a message dropped on each product record.
-- An AI assistant turns a natural-language instruction into an executable rule.
 Result: 6 product families driven live (projectors, TVs, hi-fi, soundbars, home-cinema amps), ~300 prices realigned to the day's market; the rest adjusts on its own at each Wiser update.
+Technical architecture
+- Odoo module cobra_price_rules (depends on wiser_price_intelligence + cobra_product). Three key models: cobra.price.rule (the rule), cobra.price.alignment (the log: simulated / applied / blocked / cancelled), cobra.price.retailer (the competitors).
+- Event-driven engine: on each Wiser import (FTP cron every 3h), a hook evaluates only the affected products. Offers are read through a single source-agnostic access point (_get_competitor_offers) — Wiser today, an in-house scraper tomorrow, without touching the rules.
+- Writes via cobra_price (the source-of-truth field), hence native Shopify sync; never a direct write to Shopify.
+- Decoupled control: a Flask app + vanilla JS front-end (dedicated interface, dark theme, Cobra branding) reads and writes the same rules over XML-RPC, on top of a SQLite cache refreshed every 3h (systemd timer). An AI assistant (Claude, structured output) turns a natural-language instruction into a pre-filled rule.
+- Rule options: dynamic scope (categories / brands + exclusions + price band + stock / restocking + new products), tracked competitors, target (match / −X % / −X €), direction (decrease only / decrease + increase back), guardrails (min margin, max drop, rounding, ignore offers below 60 % of the Cobra price).
 The guardrails (what makes the auto safe)
 - Minimum margin per rule — never sell at a loss.
 - Outlier offers ignored (below 60% of our price — liquidated stock, grey market).
 - Pair / unit normalization — compare a pair of speakers to a pair, not to a single unit.
-- Observation by default; the core market (floorstanding / bookshelf speakers) deliberately left aside at first.
+- One variant = one rule — no control conflict on the same reference.
+- Observation by default; the core market (floorstanding / bookshelf speakers) left in observation at first.
 What we learned
-- A badly anchored guardrail no longer protects: the anti-outlier threshold was first computed on a reference itself contaminated by the outlier offer — it had to be anchored on our own price.
-- Automation doesn't replace judgment on the core market: better to observe before aligning (pair/unit normalization, competitor liquidations that distort the comparison).
+- Anchor a guardrail on a reliable value. The anti-outlier threshold, first computed on a reference itself dragged down by the outlier offer, no longer protected — it had to be anchored on our own price. A badly anchored guardrail is worse than none: it gives a false sense of safety.
+- Beware of stale data. The display cache had no scheduler (up to 18 days behind) — a correct engine but a wrong storefront. Always schedule and date the syncs.
+- Automation doesn't replace judgment on the core market: better to observe before aligning (competitor liquidations, pair/unit normalization that distort the comparison).
 Stack
-Odoo 18 (module cobra_price_rules), Wiser (competitor data), a Flask app + vanilla front-end as a dedicated interface with protected access, an AI assistant (natural language → rule).
+Odoo 18 (module cobra_price_rules), Wiser (competitor data), Flask + vanilla JS, SQLite (display cache), systemd timer (scheduling), Claude API (natural language → rule assistant). Dedicated interface with protected access.
 What this illustrates
 Separating data (Odoo = source of truth) from control (a simple UI on top) makes the tool usable day to day without opening Odoo. And a recurring principle: automate first what's mechanical and safe (margin protected, outlier offers filtered), keep the human where judgment matters (core market, going live).
 See also
