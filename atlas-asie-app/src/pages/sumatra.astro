@@ -2,7 +2,13 @@
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { readFileSync } from 'node:fs';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+// Toutes les photos du trek (escale 15), lues au build depuis le manifest — la
+// galerie de la page reste ainsi automatiquement à jour quand on ajoute des photos.
+const trek = (JSON.parse(readFileSync('public/photos/manifest.json', 'utf-8'))['15'] ?? [])
+  .map((p: any) => ({ thumb: p.type === 'video' ? p.poster : p.src, legende: p.legende ?? '', video: p.type === 'video' }))
+  .filter((p: any) => p.thumb);
 // Illustration d'appoint libre de droits (Wikimedia Commons).
 const CC = {
   palm: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Oil_Palm_plantation_in_Rupit%2C_North_Musi_Rawas%2C_South_Sumatra.jpg/960px-Oil_Palm_plantation_in_Rupit%2C_North_Musi_Rawas%2C_South_Sumatra.jpg',
@@ -115,6 +121,21 @@ const CC = {
         </div>
       </article>
 
+      <!-- GALERIE DU TREK -->
+      <section class="tgal" aria-label="Le trek en images">
+        <h2 class="tgal-h">📸 Le trek en images</h2>
+        <p class="tgal-sub">Nos {trek.length} moments à Bukit Lawang — de la bat cave aux orangs-outans.</p>
+        <div class="tgal-grid">
+          {trek.map((p) => (
+            <a class="tgal-cell" href={`${base}galerie/`} title={p.legende}>
+              <img src={`${base}${p.thumb}`} alt={p.legende || 'Photo du trek à Bukit Lawang'} loading="lazy" />
+              {p.video && <span class="tgal-play" aria-hidden="true"></span>}
+            </a>
+          ))}
+        </div>
+        <p class="tgal-foot"><a class="back" href={`${base}galerie/`}>Voir toute la galerie du voyage →</a></p>
+      </section>
+
       <p class="mcredit">Photos : nos clichés (latex, orangs-outans, jungle, trek) + illustration Wikimedia Commons (plantation de palmiers à huile, licence libre CC BY-SA).</p>
       <a class="back" href={`${base}parcours/#e-15`}>← Retour à l'escale sur le Parcours</a>
 
@@ -163,6 +184,17 @@ const CC = {
   .note.savais .note-l{color:var(--orange-deep);}
   .note.comp{background:var(--kraft);border-left-color:var(--ink-soft);}
   .note.comp .note-l{color:var(--ink-soft);}
+
+  /* Galerie du trek */
+  .tgal{margin:clamp(30px,6vw,54px) 0 0;}
+  .tgal-h{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.35rem,3.6vw,2rem);margin:0 0 6px;line-height:1.05;}
+  .tgal-sub{color:var(--ink-soft);font-size:.95rem;margin:0 0 16px;}
+  .tgal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(94px,1fr));gap:6px;}
+  .tgal-cell{position:relative;display:block;aspect-ratio:1;border-radius:9px;overflow:hidden;border:1px solid var(--line);box-shadow:2px 2px 0 var(--ink);}
+  .tgal-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s;}
+  .tgal-cell:hover img{transform:scale(1.06);}
+  .tgal-play{position:absolute;inset:0;margin:auto;width:0;height:0;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.7));}
+  .tgal-foot{margin:16px 0 0;}
 
   .mcredit{font-size:.78rem;color:var(--muted);margin:clamp(24px,5vw,44px) 0 12px;border-top:1px solid var(--line);padding-top:14px;}
   .back{display:inline-block;font-weight:700;color:var(--orange-deep);text-decoration:none;border-bottom:2px solid var(--yellow);}
