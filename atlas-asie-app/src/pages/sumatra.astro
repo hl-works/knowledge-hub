@@ -12,6 +12,8 @@ const trek = (JSON.parse(readFileSync('public/photos/manifest.json', 'utf-8'))['
 // Illustration d'appoint libre de droits (Wikimedia Commons).
 const CC = {
   palm: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Oil_Palm_plantation_in_Rupit%2C_North_Musi_Rawas%2C_South_Sumatra.jpg/960px-Oil_Palm_plantation_in_Rupit%2C_North_Musi_Rawas%2C_South_Sumatra.jpg',
+  rafflesia: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Rafflesia_arnoldii%2C_Sumatra.jpg/960px-Rafflesia_arnoldii%2C_Sumatra.jpg',
+  opera: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Teatro_Amazonas%2C_Manaus-AM.jpg/960px-Teatro_Amazonas%2C_Manaus-AM.jpg',
 };
 ---
 <Base
@@ -47,7 +49,11 @@ const CC = {
           <p>Il reste <strong>un seul endroit sur Terre</strong> où quatre géants d'Asie — l'<strong>orang-outan</strong>, le <strong>tigre</strong>, l'<strong>éléphant</strong> et le <strong>rhinocéros</strong> — vivent encore ensemble à l'état sauvage : l'écosystème de <strong>Leuser</strong>, au nord de Sumatra. C'est exactement la forêt où passe le trek de Bukit Lawang.</p>
           <p>On ne verra sans doute ni tigre ni rhinocéros (rarissimes et champions de cache-cache), mais savoir qu'ils sont là, quelque part sous la même canopée, change la texture d'une randonnée. C'est une véritable <strong>arche de Noé</strong> grandeur nature, classée à l'UNESCO.</p>
         </div>
-        <div class="note savais"><span class="note-l">🌺 Le savais-tu ?</span><p>Sumatra abrite la <strong>plus grande fleur du monde</strong>, la <strong>rafflesia</strong> : jusqu'à un mètre de diamètre, sans tige ni feuilles. Son parfum ? De la <strong>viande pourrie</strong> — c'est fait exprès, pour attirer les mouches au lieu des abeilles !</p></div>
+        <figure class="ep-img"><img src={CC.rafflesia} alt="Une rafflesia arnoldii en fleur à Sumatra, la plus grande fleur du monde" loading="lazy" title="Rafflesia arnoldii, Sumatra — Wikimedia Commons (CC BY-SA)" /><figcaption>La <strong>rafflesia</strong> : jusqu'à un mètre de large, elle ne pousse que dans ces forêts.</figcaption></figure>
+        <div class="prose">
+          <p>La star botanique de Sumatra, c'est elle : la <strong>rafflesia</strong>, la <strong>plus grande fleur du monde</strong> — jusqu'à un <strong>mètre</strong> de diamètre et près de <strong>10 kilos</strong>. Elle n'a ni tige, ni feuilles, ni racines : c'est un <strong>parasite</strong> qui vit caché dans les lianes et n'apparaît que quelques jours pour fleurir, en général une fois par an. La voir, c'est un vrai coup de chance.</p>
+        </div>
+        <div class="note savais"><span class="note-l">🌺 Le savais-tu ?</span><p>Son odeur ? De la <strong>viande pourrie</strong> ! Et ce n'est pas un accident : au lieu d'attirer les abeilles avec un doux parfum, elle attire les <strong>mouches</strong>, qui la pollinisent en croyant trouver un cadavre. D'où son surnom de « <strong>fleur-cadavre</strong> ».</p></div>
       </article>
 
       <!-- EP 2 -->
@@ -55,15 +61,28 @@ const CC = {
         <div class="ep-h"><span class="ep-n">2</span><h2>🌳 Le caoutchouc venu du Brésil</h2></div>
         <figure class="ep-img"><img src={`${base}photos/15/07.webp`} alt="Récolte du latex sur un hévéa saigné, à Bukit Lawang" loading="lazy" /><figcaption>La <strong>récolte du latex</strong> croisée en chemin : l'écorce entaillée, la sève qui coule dans la coupelle.</figcaption></figure>
         <div class="prose">
-          <p>Cette sève blanche qui perle sur l'arbre, c'est du <strong>latex</strong> : en séchant, elle devient le <strong>caoutchouc</strong> de tes pneus et de tes gommes. L'arbre s'appelle l'<strong>hévéa</strong>… et il ne vient pas du tout d'Asie : il est originaire de l'<strong>Amazonie, au Brésil</strong> !</p>
-          <p>Comment a-t-il traversé la moitié du globe ? En <strong>1876</strong>, un Anglais nommé <strong>Henry Wickham</strong> emporte <strong>70 000 graines</strong> d'hévéa hors du Brésil (qui interdisait leur sortie) en les déclarant comme de simples « échantillons pour un musée ». Elles arrivent aux serres royales de <strong>Kew</strong>, à Londres, puis quelques plants partent vers l'Asie — dont le jardin botanique de <strong>Bogor</strong>, à Java.</p>
+          <p>Cette sève blanche qui perle sur l'arbre, c'est du <strong>latex</strong> : en séchant, elle devient le <strong>caoutchouc</strong>. L'arbre s'appelle l'<strong>hévéa</strong>… et il ne vient pas du tout d'Asie : il est originaire de l'<strong>Amazonie, au Brésil</strong>, à l'autre bout du monde !</p>
+          <p><strong>À quoi ça sert ?</strong> Pendant longtemps, presque à rien : le caoutchouc fondait au soleil et durcissait au froid. Tout change en <strong>1839</strong>, quand l'Américain <strong>Charles Goodyear</strong> découvre la <strong>vulcanisation</strong> (on « cuit » le caoutchouc avec du soufre) : il devient alors solide, souple et résistant. Puis arrivent le <strong>vélo</strong> et surtout l'<strong>automobile</strong>, avec leurs <strong>pneus</strong> gonflables. D'un coup, la planète en veut des montagnes : pneus, tuyaux, courroies, semelles, gants, joints… et les <strong>gommes</strong> qui effacent le crayon (en anglais, « rubber » = gomme <em>et</em> caoutchouc).</p>
         </div>
-        <div class="note savais"><span class="note-l">🤯 Le savais-tu ?</span><p>De ce petit coup de bluff est née une industrie géante : quelques dizaines d'années plus tard, l'Asie du Sud-Est <strong>écrasait</strong> le Brésil sur le marché du caoutchouc. Une poignée de graines dans une valise… et toute une région du monde a changé de visage.</p></div>
+        <div class="note savais"><span class="note-l">🌡️ Le savais-tu ?</span><p>Le mot <strong>« caoutchouc »</strong> vient d'une langue d'Amazonie, <em>cahutchu</em> : « le bois qui pleure ». Les peuples d'Amérique du Sud s'en servaient déjà, il y a des siècles, pour faire des <strong>balles rebondissantes</strong> et imperméabiliser des tissus — bien avant que l'Europe ne s'y intéresse.</p></div>
       </article>
 
       <!-- EP 3 -->
       <article class="ep" id="ep3">
-        <div class="ep-h"><span class="ep-n">3</span><h2>🌴 L'huile de palme, reine des plantations</h2></div>
+        <div class="ep-h"><span class="ep-n">3</span><h2>🎩 La folie du caoutchouc : la fortune de l'Amazonie… et sa chute</h2></div>
+        <figure class="ep-img"><img src={CC.opera} alt="Le Teatro Amazonas, l'opéra de Manaus construit en pleine forêt amazonienne" loading="lazy" title="Teatro Amazonas, Manaus — Wikimedia Commons (CC BY-SA)" /><figcaption>L'<strong>opéra de Manaus</strong>, en pleine jungle amazonienne : le symbole de la fortune du caoutchouc.</figcaption></figure>
+        <div class="prose">
+          <p>Pendant près de <strong>trente ans</strong>, tout le caoutchouc du monde venait des hévéas <strong>sauvages</strong> de l'Amazonie. Le Brésil détenait un <strong>quasi-monopole</strong> — jusqu'à <strong>90 %</strong> de la production mondiale — et l'argent coulait à flots. Au cœur de la jungle, la ville de <strong>Manaus</strong> est devenue l'une des plus riches de la planète : l'<strong>électricité</strong> avant bien des villes d'Europe, et un <strong>opéra somptueux</strong> bâti avec du marbre et du verre importés, où venaient chanter les stars du moment.</p>
+          <p>Mais derrière les paillettes, une réalité sombre : les <strong>seringueiros</strong>, les récolteurs de latex (souvent des peuples autochtones), étaient <strong>terriblement exploités</strong> pour saigner les arbres perdus dans l'immensité.</p>
+          <p>Le Brésil gardait jalousement son trésor et <strong>interdisait la sortie</strong> des graines d'hévéa. C'est là qu'intervient le coup de 1876 : l'Anglais <strong>Henry Wickham</strong> fait sortir clandestinement <strong>70 000 graines</strong>, déclarées comme de simples « échantillons pour un musée ». Elles filent aux serres de <strong>Kew</strong>, à Londres. De là, les <strong>Britanniques</strong> (à Ceylan, en Malaisie) et les <strong>Hollandais</strong> (à Sumatra et Java, l'actuelle Indonésie) plantent des hévéas bien alignés, en <strong>plantations</strong> ordonnées et efficaces.</p>
+          <p>Vers <strong>1910-1913</strong>, ce caoutchouc d'Asie, bien moins cher, <strong>inonde le marché</strong>. Le monopole brésilien s'effondre presque du jour au lendemain : en 1913, les Britanniques contrôlent environ <strong>95 %</strong> du caoutchouc mondial. Manaus, ruinée, sombre dans l'oubli — pendant que <strong>Sumatra et la Malaisie</strong> deviennent les nouveaux royaumes de l'hévéa. La forêt que vous traversez ? C'est le <strong>camp gagnant</strong> de cette histoire.</p>
+        </div>
+        <div class="note comp"><span class="note-l">🌍 Une guerre d'empires… pour une plante</span><p>Toute cette bataille s'est jouée autour d'un <strong>arbre</strong>. Le Brésil (une ancienne colonie du Portugal) tenait le trésor ; <strong>Londres et Amsterdam</strong> le lui ont pris. Une poignée de graines dans une valise a suffi à <strong>déplacer la richesse</strong> d'un continent à l'autre — et à faire de l'Asie du Sud-Est ce qu'elle est aujourd'hui.</p></div>
+      </article>
+
+      <!-- EP 4 -->
+      <article class="ep" id="ep4">
+        <div class="ep-h"><span class="ep-n">4</span><h2>🌴 L'huile de palme, reine des plantations</h2></div>
         <figure class="ep-img"><img src={CC.palm} alt="Une plantation de palmiers à huile à Sumatra, alignés en rangées régulières" loading="lazy" title="Oil Palm plantation, South Sumatra — Wikimedia Commons (CC BY-SA)" /><figcaption>Une <strong>plantation de palmiers à huile</strong> à Sumatra : des rangées à perte de vue.</figcaption></figure>
         <div class="prose">
           <p>Autre plante voyageuse, autre destin : le <strong>palmier à huile</strong>. Lui vient d'<strong>Afrique de l'Ouest</strong>. Amené comme plante décorative dans les jardins de Java, il se révèle génial pour produire de l'huile — et la <strong>première grande plantation</strong> ouvre justement dans le nord de Sumatra, la région de <strong>Deli</strong>, en <strong>1911</strong>.</p>
@@ -73,8 +92,8 @@ const CC = {
       </article>
 
       <!-- EP 4 -->
-      <article class="ep" id="ep4">
-        <div class="ep-h"><span class="ep-n">4</span><h2>🦧 L'orang-outan, l'« homme de la forêt »</h2></div>
+      <article class="ep" id="ep5">
+        <div class="ep-h"><span class="ep-n">5</span><h2>🦧 L'orang-outan, l'« homme de la forêt »</h2></div>
         <figure class="ep-img"><img src={`${base}photos/15/27.webp`} alt="Un orang-outan sauvage à travers le feuillage de la jungle de Sumatra" loading="lazy" /><figcaption>Le roux vif qui trahit sa présence dans le feuillage — <strong>presque de la famille</strong>.</figcaption></figure>
         <div class="prose">
           <p>En indonésien, <em>orang</em> veut dire « <strong>personne</strong> » et <em>hutan</em> « <strong>forêt</strong> » : l'orang-outan est, mot pour mot, l'<strong>« homme de la forêt »</strong>. Et le nom est mérité — il partage avec nous <strong>près de 97 % de son ADN</strong>. C'est le <strong>seul grand singe d'Asie</strong> (les autres — gorilles, chimpanzés, bonobos — vivent en Afrique).</p>
@@ -84,8 +103,8 @@ const CC = {
       </article>
 
       <!-- EP 5 -->
-      <article class="ep" id="ep5">
-        <div class="ep-h"><span class="ep-n">5</span><h2>🧬 D'où vient l'orang-outan ?</h2></div>
+      <article class="ep" id="ep6">
+        <div class="ep-h"><span class="ep-n">6</span><h2>🧬 D'où vient l'orang-outan ?</h2></div>
         <div class="prose">
           <p>Remonte le temps très, très loin. Il y a <strong>12 à 16 millions d'années</strong>, la branche des orangs-outans s'est séparée de celle qui mènera, bien plus tard, aux gorilles, aux chimpanzés… et à nous. Autrement dit, l'orang-outan est le <strong>plus ancien</strong> des grands singes actuels : notre plus lointain cousin dans cette famille.</p>
           <p>Aujourd'hui, il n'existe plus que dans <strong>deux endroits du monde</strong> : Bornéo et Sumatra. Et on a longtemps cru qu'il n'y avait qu'une ou deux espèces… jusqu'à une surprise récente.</p>
@@ -102,8 +121,8 @@ const CC = {
       </article>
 
       <!-- EP 6 -->
-      <article class="ep" id="ep6">
-        <div class="ep-h"><span class="ep-n">6</span><h2>🏥 Rendus à la forêt : les « semi-sauvages »</h2></div>
+      <article class="ep" id="ep7">
+        <div class="ep-h"><span class="ep-n">7</span><h2>🏥 Rendus à la forêt : les « semi-sauvages »</h2></div>
         <figure class="ep-img"><img src={`${base}photos/15/25.webp`} alt="La famille et son guide sous un abri, à Bukit Lawang" loading="lazy" /><figcaption>Avec le guide : à Bukit Lawang, les orangs-outans qu'on croise ont souvent une histoire.</figcaption></figure>
         <div class="prose">
           <p>Pourquoi peut-on voir des orangs-outans <strong>si près du village</strong> à Bukit Lawang ? À cause d'une belle idée née en <strong>1973</strong> : deux jeunes zoologues suisses, <strong>Regina Frey</strong> et <strong>Monica Borner</strong>, ouvrent ici le <strong>centre de réhabilitation de Bohorok</strong>. Le but : reprendre les orangs-outans capturés ou vendus illégalement, et leur <strong>réapprendre à vivre libres</strong> dans la forêt.</p>
@@ -136,7 +155,7 @@ const CC = {
         <p class="tgal-foot"><a class="back" href={`${base}galerie/`}>Voir toute la galerie du voyage →</a></p>
       </section>
 
-      <p class="mcredit">Photos : nos clichés (latex, orangs-outans, jungle, trek) + illustration Wikimedia Commons (plantation de palmiers à huile, licence libre CC BY-SA).</p>
+      <p class="mcredit">Photos : nos clichés (latex, orangs-outans, jungle, trek) + illustrations Wikimedia Commons (rafflesia, opéra de Manaus, plantation de palmiers à huile — licences libres CC BY-SA).</p>
       <a class="back" href={`${base}parcours/#e-15`}>← Retour à l'escale sur le Parcours</a>
 
     </div></section>
