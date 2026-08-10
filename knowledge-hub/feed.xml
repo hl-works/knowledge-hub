@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Veille HiFi : le bot quotidien réparé, élargi (30 → 64 sources) et fiabilisé</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/veille-hifi-bot-repare-elargi.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/veille-hifi-bot-repare-elargi.html</guid>
+<pubDate>Mon, 10 Aug 2026 08:00:00 +0000</pubDate>
+<description>Le bot de veille HiFi quotidienne (Telegram) était bloqué depuis le 15 juin — le modèle d&#x27;IA codé en dur avait atteint sa fin de vie. Réparé (modèle désormais choisi automatiquement, la veille ne peut plus casser à une mise à jour), fortement élargi (30 → 64 sources : presse FR spé et grand public, Europe, Reddit, forums Head-Fi/diyAudio, YouTube) et fiabilisé (envoi HTML, dédoublonnage, alerte si une source meurt 3 jours, mémoire ~1 mois, coût plafonné ~3-4 €/mois). Validé en prod : 125 articles → 123 sujets → 4 messages Telegram sans erreur.</description>
+</item>
+<item>
 <title>Suivi des prix &amp; alignement concurrentiel automatique</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</guid>
 <pubDate>Tue, 02 Jun 2026 08:00:00 +0000</pubDate>
 <description>Rendre le Knowledge Hub bilingue FR/EN : miroir /en/ des 74 pages, hreflang, sélecteur de langue, recherche et lexique bilingues — plus un workflow GitHub Actions qui traduit chaque nouvelle page FR via l&#x27;API Claude.</description>
-</item>
-<item>
-<title>Système d&#x27;instructions personnalisées Claude (CLAUDE.md + extensions)</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/systeme-instructions-claude-md.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/systeme-instructions-claude-md.html</guid>
-<pubDate>Sat, 30 May 2026 08:00:00 +0000</pubDate>
-<description>Standardiser le comportement de Claude sur tous mes projets et mes deux comptes : un CLAUDE.md universel + extensions strat et dev. Déclenché par un incident de mise en prod Odoo gravé en règle dure.</description>
 </item>
 </channel>
 </rss>
