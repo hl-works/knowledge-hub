@@ -460,6 +460,36 @@
     .e-atlas-media { border-right: 0; border-bottom: var(--e-bw) solid var(--e-border); min-height: 190px; }
   }
 
+  /* ---- Les veilles : deux cartes d'abonnement Telegram ---- */
+  .e-veille-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .e-veille {
+    border: var(--e-bw) solid var(--e-border); margin: -1.5px 0 0 -1.5px;
+    background: var(--e-panel); color: var(--e-on-panel);
+    padding: 28px 30px; display: flex; flex-direction: column;
+  }
+  .e-veille .e-blk-idx {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 14px; margin-bottom: 12px;
+  }
+  .e-veille .e-blk-meta {
+    font-family: "Space Mono", monospace; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; margin-bottom: 14px; opacity: .85;
+  }
+  .e-veille h3 {
+    font-weight: 700; font-size: clamp(26px, 3.8vw, 40px); margin: 0 0 12px;
+    text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.98;
+  }
+  .e-veille p { font-size: 15px; line-height: 1.45; margin: 0 0 22px; flex: 1; }
+  .e-veille-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .e-veille-cta .e-btn { font-size: 14px; padding: 13px 20px; box-shadow: 6px 6px 0 var(--e-shadow); }
+  .e-veille-cta .e-btn:hover, .e-veille-cta .e-btn:focus-visible { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--e-shadow); }
+  .e-veille-alt {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    text-transform: uppercase; text-decoration: none; color: inherit;
+    border-bottom: 2px solid var(--e-signal); padding-bottom: 2px;
+  }
+  .e-veille-alt:hover, .e-veille-alt:focus-visible { opacity: .7; }
+  @media (max-width: 720px) { .e-veille-grid { grid-template-columns: 1fr; } }
+
   /* ============ REELS (Instagram, iframe sans script tiers) ============ */
   .e-reels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .e-reel { border: var(--e-bw) solid var(--e-border); background: #fff; line-height: 0; overflow: hidden; box-shadow: 6px 6px 0 var(--e-shadow); }
@@ -590,6 +620,7 @@
     <button class="e-btn-mini e-burger" id="e-burger" aria-expanded="false" aria-controls="e-nav" aria-label="Menu">≡</button>
     <nav class="e-nav" id="e-nav" aria-label="Worlds">
       <a href="#hub">Hub</a>
+      <a href="#veilles"><span class="e-fr">Veilles</span><span class="e-en">Briefs</span></a>
       <a href="#cobra">Cobra</a>
       <a href="#hifi">HiFi Lovers</a>
       <a href="#mag">Magazine</a>
@@ -724,8 +755,8 @@
           <span class="e-blk-idx e-mono">[01] / KNOWLEDGE HUB</span>
           <h3>Knowledge Hub</h3>
           <p>
-            <span class="e-fr">Le hub de contenu qui alimente tout : méthode, guides, veille IA, journal, lexique. Bilingue FR/EN, pensé SEO + GEO.</span>
-            <span class="e-en">The content hub that powers everything: method, guides, AI watch, journal, lexicon. Bilingual FR/EN, built for SEO + GEO.</span>
+            <span class="e-fr">Le hub de contenu qui alimente tout : méthode, guides, journal, lexique — et deux veilles quotidiennes sur Telegram (IA + HiFi). Bilingue FR/EN, pensé SEO + GEO.</span>
+            <span class="e-en">The content hub that powers everything: method, guides, journal, lexicon — plus two daily Telegram briefs (AI + HiFi). Bilingual FR/EN, built for SEO + GEO.</span>
           </p>
           <span class="e-blk-link e-mono"><span class="e-fr">Entrer dans le Hub</span><span class="e-en">Enter the Hub</span></span>
         </a>
@@ -785,11 +816,57 @@
           <span class="e-blk-meta e-mono"><span class="e-fr">AMHE · CARNET DE VOYAGE</span><span class="e-en">AMHE · TRAVEL LOG</span></span>
           <h3>Atlas d'Asie</h3>
           <p>
-            <span class="e-fr">Le carnet de voyage @amhe passe à l'Asie : itinéraires, rencontres, photos, pays après pays. Le contre-champ perso du build in public, en version site.</span>
-            <span class="e-en">The @amhe travel log turns to Asia: routes, encounters, photos, country by country. The personal flip-side of build in public, as a site.</span>
+            <span class="e-fr">L'été 2026 en famille, du Kazakhstan à l'Indonésie : 26 escales, 7 pays. Carte animée, suivi en direct, fiches pays, hôtels, trajets et photos. Un atlas vivant, en version site.</span>
+            <span class="e-en">Summer 2026 as a family, from Kazakhstan to Indonesia: 26 stops, 7 countries. Animated map, live tracking, country guides, hotels, routes and photos. A living atlas, as a site.</span>
           </p>
           <span class="e-blk-link e-mono"><span class="e-fr">Ouvrir l'Atlas</span><span class="e-en">Open the Atlas</span></span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LES VEILLES (ABONNEMENT TELEGRAM) ============ -->
+  <section class="e-section" id="veilles">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx e-mono">[ 06 ]</span>
+        <h2 class="e-section-title"><span class="e-fr">Les veilles</span><span class="e-en">The daily briefs</span></h2>
+      </div>
+      <p class="e-subtag" style="max-width:680px; margin:0 0 26px;">
+        <span class="e-fr">Deux briefs quotidiens, gratuits, sur Telegram. Un agent IA lit les sources chaque nuit, coupe le bruit et rédige un résumé court en français. Un message par jour, zéro spam — les jours sans rien à dire restent vides. Abonne-toi à celle qui te parle.</span>
+        <span class="e-en">Two free daily briefs on Telegram. An AI agent reads the sources every night, cuts the noise and writes a short digest. One message a day, zero spam — quiet days stay quiet. Subscribe to the one you care about.</span>
+      </p>
+
+      <div class="e-veille-grid">
+        <!-- VEILLE IA -->
+        <div class="e-veille">
+          <span class="e-blk-idx e-mono">/ VEILLE IA</span>
+          <span class="e-blk-meta e-mono"><span class="e-fr">TELEGRAM · CHAQUE MATIN · GRATUIT</span><span class="e-en">TELEGRAM · EVERY MORNING · FREE</span></span>
+          <h3><span class="e-fr">Veille IA</span><span class="e-en">AI brief</span></h3>
+          <p>
+            <span class="e-fr">Les annonces IA qui comptent vraiment — modèles, agents, produits, recherche — résumées sans hype. Avec un angle marchands &amp; PME : ce qui change pour ton business, pas la démo virale du jour.</span>
+            <span class="e-en">The AI news that actually matters — models, agents, products, research — summarized without the hype. With a merchant &amp; SMB angle: what changes for your business, not the viral demo of the day.</span>
+          </p>
+          <div class="e-veille-cta">
+            <a class="e-btn e-btn-primary" href="https://t.me/VeilleIA_HL" target="_blank" rel="noopener"><span class="e-fr">S'abonner sur Telegram</span><span class="e-en">Subscribe on Telegram</span></a>
+            <a class="e-veille-alt" href="/knowledge-hub/veille-ia/"><span class="e-fr">Voir l'archive</span><span class="e-en">Browse the archive</span></a>
+          </div>
+        </div>
+
+        <!-- VEILLE HIFI -->
+        <div class="e-veille">
+          <span class="e-blk-idx e-mono">/ VEILLE HIFI</span>
+          <span class="e-blk-meta e-mono"><span class="e-fr">TELEGRAM · 8H PARIS · GRATUIT</span><span class="e-en">TELEGRAM · 8AM PARIS · FREE</span></span>
+          <h3><span class="e-fr">Veille HiFi</span><span class="e-en">HiFi brief</span></h3>
+          <p>
+            <span class="e-fr">Les news mondiales de la haute-fidélité, chaque matin à 8h. ~35 sources RSS en FR/EN/DE/JP/CN/KR, dédoublonnées et résumées. Le pouls du marché audio — sans ouvrir 35 sites.</span>
+            <span class="e-en">Worldwide hi-fi news, every morning at 8am. ~35 RSS sources in FR/EN/DE/JP/CN/KR, de-duplicated and summarized. The pulse of the audio market — without opening 35 sites.</span>
+          </p>
+          <div class="e-veille-cta">
+            <a class="e-btn e-btn-primary" href="https://t.me/hautefidelite_veille_bot" target="_blank" rel="noopener"><span class="e-fr">S'abonner sur Telegram</span><span class="e-en">Subscribe on Telegram</span></a>
+            <a class="e-veille-alt" href="/knowledge-hub/journal/bot-telegram-veille-hifi.html"><span class="e-fr">Comment c'est fait</span><span class="e-en">How it's built</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -798,7 +875,7 @@
   <section class="e-section" id="chaine">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ 06 ]</span>
+        <span class="e-idx e-mono">[ 07 ]</span>
         <h2 class="e-section-title"><span class="e-fr">La chaîne YouTube</span><span class="e-en">The YouTube channel</span></h2>
       </div>
       <p class="e-subtag" style="max-width:640px; margin:0 0 26px;">
@@ -820,7 +897,7 @@
   <section class="e-section" id="kiosque">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ 07 ]</span>
+        <span class="e-idx e-mono">[ 08 ]</span>
         <h2 class="e-section-title"><span class="e-fr">En kiosque</span><span class="e-en">On newsstands</span></h2>
       </div>
       <div class="e-media2">
@@ -857,7 +934,7 @@
   <section class="e-section" id="voyage">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ 08 ]</span>
+        <span class="e-idx e-mono">[ 09 ]</span>
         <h2 class="e-section-title"><span class="e-fr">Découvrir le monde</span><span class="e-en">Seeing the world</span></h2>
       </div>
       <p class="e-subtag" style="max-width:640px; margin:0 0 26px;">
@@ -871,8 +948,8 @@
           <span class="e-blk-idx e-mono">AMHE · CARNET DE VOYAGE</span>
           <h3>Atlas d'Asie</h3>
           <p>
-            <span class="e-fr">Le nouveau chapitre du carnet @amhe : l'Asie en profondeur — itinéraires, rencontres, photos, pays après pays. Un atlas vivant, en version site.</span>
-            <span class="e-en">The new chapter of the @amhe logbook: Asia in depth — routes, encounters, photos, country by country. A living atlas, as a site.</span>
+            <span class="e-fr">Le carnet @amhe passe à l'Asie : l'été 2026 en famille, du Kazakhstan à l'Indonésie — 26 escales, 7 pays. Carte animée et suivi en direct, fiches pays evergreen (histoire, gastronomie, animaux, quiz), hôtels, trajets et galerie photo. Un atlas vivant, en version site.</span>
+            <span class="e-en">The @amhe logbook turns to Asia: summer 2026 as a family, from Kazakhstan to Indonesia — 26 stops, 7 countries. Animated map and live tracking, evergreen country guides (history, food, wildlife, quiz), hotels, routes and a photo gallery. A living atlas, as a site.</span>
           </p>
           <span class="e-blk-link e-mono"><span class="e-fr">Ouvrir l'Atlas</span><span class="e-en">Open the Atlas</span></span>
         </span>
