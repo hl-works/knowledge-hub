@@ -1,5 +1,12 @@
 [
 {
+"url": "/knowledge-hub/journal/veille-hifi-bot-repare-elargi.html",
+"title": "Veille HiFi : le bot quotidien réparé, élargi (30 → 64 sources) et fiabilisé",
+"excerpt": "Le bot de veille HiFi quotidienne (Telegram) était bloqué depuis le 15 juin — le modèle d'IA codé en dur avait atteint sa fin de vie. Réparé (modèle désormais choisi automatiquement, la veille ne peut plus casser à une mise à jour), fortement élargi (30 → 64 sources : presse FR spé et grand public, Europe, Reddit, forums Head-Fi/diyAudio, YouTube) et fiabilisé (envoi HTML, dédoublonnage, alerte si une source meurt 3 jours, mémoire ~1 mois, coût plafonné ~3-4 €/mois). Validé en prod : 125 articles → 123 sujets → 4 messages Telegram sans erreur.",
+"kind": "Journal",
+"tags": "agent infra data en-prod haute-fidelite"
+},
+{
 "url": "/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html",
 "title": "Suivi des prix & alignement concurrentiel automatique",
 "excerpt": "On ne pouvait pas surveiller à la main des centaines de références face à Darty, Boulanger, Fnac ou Son-Vidéo. Un moteur de règles dans Odoo (cobra_price_rules) lit les prix concurrents livrés par Wiser plusieurs fois par jour et calcule un prix cible — meilleur concurrent valide, borné par une marge minimale. Deux modes : observation (simule) puis live (applique et pousse sur Shopify), le passage en live restant une décision humaine. Garde-fous : jamais de vente à perte, offres aberrantes (< 60 % de notre prix) ignorées, normalisation paire/pièce. 6 familles en live, ~300 prix réalignés ; le reste s'ajuste seul à chaque MAJ Wiser.",

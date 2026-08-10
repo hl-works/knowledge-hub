@@ -134,7 +134,7 @@
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">62</b><span>Documented sessions</span></div>
+      <div class="stat"><b id="stat-sessions">63</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Active projects</span></div>
       <div class="stat"><b>2</b><span>Claude agents</span></div>
     </div>
@@ -281,10 +281,19 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Search across 62 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Search across 63 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-08-10">2026-08-10</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/veille-hifi-bot-repare-elargi.html">HiFi watch: the daily bot repaired, expanded (30 → 64 sources) and hardened</a></h3>
+          <p class="entry__excerpt">The daily HiFi watch bot (Telegram) had been down since June 15 — the hard-coded AI model had reached end of life. Repaired (model now auto-selected, the watch can no longer break on an update), heavily expanded (30 → 64 sources: French specialist and mainstream press, Europe, Reddit, Head-Fi/diyAudio forums, YouTube) and hardened (HTML delivery, deduplication, alert if a source dies for 3 days, ~1-month memory, capped cost ~€3-4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages, error-free.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--hl">Claude · HL</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-08-07">2026-08-07</time>
         <div>
@@ -348,17 +357,8 @@
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
       </li>
-      <li class="entry">
-        <time datetime="2026-07-11">2026-07-11</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/dashboard-prix-concurrentiel-maison.html">A competitive price-tracking dashboard built in-house, rather than an integrator quote</a></h3>
-          <p class="entry__excerpt">The most direct build-vs-buy case of the period: a spec for a competitive price-tracking dashboard (ABC scoring, rules engine, price history), estimated at 3-4 weeks of dev, sent to the integrator in March 2026 — left at to-be-validated-before-development, never started. The most technical brick (price import/matching via Wiser) was already running in production; the control layer was missing. Built in-house with Claude Code, in a few days, on our internal app hub.</p>
-          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">62 entries total — filter by tag in the journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">63 entries total — filter by tag in the journal →</a></p>
   </div>
 </section>
 
