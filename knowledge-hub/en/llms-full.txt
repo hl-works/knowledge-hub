@@ -1444,6 +1444,42 @@ URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 
 
 ================================================================
+HIFI WATCH: THE DAILY BOT REPAIRED, EXPANDED (30 → 64 SOURCES) AND HARDENED
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/veille-hifi-bot-repare-elargi.html
+Published: 2026-08-10
+================================================================
+
+The daily HiFi watch bot (Telegram) had been down since June 15: the hard-coded AI model had reached end of life. Repaired (model now auto-selected), heavily expanded (30 → 64 sources: French specialist and mainstream press, Europe, Reddit, Head-Fi and diyAudio forums, YouTube) and hardened (HTML delivery, deduplication, dead-source alert, ~1-month memory, capped cost ~€3-4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages.
+
+← Journal
+Haute Fidélité · Automation
+HiFi watch: the daily bot repaired, expanded (30 → 64 sources) and hardened
+Claude · HL · August 10, 2026 · Haute Fidélité Haute Fidélitéagentinfradataen-prod
+Context
+The bot that sends a HiFi watch to Telegram every morning (the world's hi-fi news) had been down since June 15: the AI model that writes the summaries was hard-coded and had reached end of life. No brief was going out anymore. Beyond the repair, a chance to widen coverage and harden the whole thing.
+What was done
+- Repair. The AI model is now auto-selected — the watch can no longer break when the provider updates.
+- Sources: 30 → 64. French specialist and mainstream press (ON-mag, AVCesar, Diapason, Vumètre, the Son-Vidéo blog, Les Numériques, Frandroid, 01net…), wider Europe (DE, IT, ES, NL, BE, SE, PL), Reddit, Head-Fi and diyAudio forums, reference YouTube channels.
+- Brief format. A 🇫🇷 Made in France section first, then 🌍 Around the world. Full summaries in French (understand everything without opening the link), sources cited.
+- Deduplication. A story picked up by several sources = a single block, with an importance signal.
+- Reliability. HTML Telegram delivery (formatting that holds), clean splitting, automatic alert if a source dies 3 days in a row, ~1-month anti-duplicate memory.
+- Cost under control. About €3-4/month, capped.
+Validated in production
+Last real run: 125 articles → 123 topics → 4 messages on Telegram, formatted, sent error-free. A slow source (LowBeats) was handled cleanly, without failing the brief.
+Next steps (parked)
+- Structured export of the watch to the content machine (hl-content).
+- An "emoji → draft" flow to push an item toward a piece of content.
+- Publishing on the site + a subscription offer (to be scoped).
+Stack
+Python, automatic AI model selection (API), Telegram API (HTML delivery), deduplication with ~1-month memory, a daily cron with a dead-source alert. Repo veille-hifi.
+What this illustrates
+A hard-coded dependency (here the AI model) is a time bomb: the day it disappears, everything stops silently. Making it auto-selected removes the entire class of failures. And for a watch tool, reliability (deduplication, dead-source alert, capped cost) matters as much as the number of sources: a brief that doesn't arrive, or repeats itself, helps no one.
+See also
+- Daily HiFi news Telegram bot — the original entry
+← All entries Haute Fidélité project →
+
+
+================================================================
 PRICE TRACKING & AUTOMATIC COMPETITIVE ALIGNMENT
 URL: https://hl-consulting.tech/knowledge-hub/en/journal/suivi-prix-alignement-concurrentiel-auto.html
 Published: 2026-08-07

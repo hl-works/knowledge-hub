@@ -1,5 +1,12 @@
 [
  {
+  "url": "/knowledge-hub/en/journal/veille-hifi-bot-repare-elargi.html",
+  "title": "HiFi watch: the daily bot repaired, expanded (30 → 64 sources) and hardened",
+  "excerpt": "The daily HiFi watch bot (Telegram) had been down since June 15 — the hard-coded AI model had reached end of life. Repaired (model now auto-selected, the watch can no longer break on an update), heavily expanded (30 → 64 sources: French specialist and mainstream press, Europe, Reddit, Head-Fi/diyAudio forums, YouTube) and hardened (HTML delivery, deduplication, alert if a source dies for 3 days, ~1-month memory, capped cost ~€3-4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages, error-free.",
+  "kind": "Journal",
+  "tags": "agent infra data en-prod haute-fidelite"
+ },
+ {
   "url": "/knowledge-hub/en/journal/suivi-prix-alignement-concurrentiel-auto.html",
   "title": "Price tracking & automatic competitive alignment",
   "excerpt": "We couldn't manually watch hundreds of references against Darty, Boulanger, Fnac or Son-Vidéo. A rules engine in Odoo (cobra_price_rules) reads competitor prices delivered by Wiser several times a day and computes a target price — best valid competitor, bounded by a minimum margin. Two modes: observation (simulates) then live (applies and pushes to Shopify), going live staying a human decision. Guardrails: never sell at a loss, outlier offers (< 60% of our price) ignored, pair/unit normalization. 6 families live, ~300 prices realigned; the rest adjusts on its own at each Wiser update.",

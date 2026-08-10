@@ -4,7 +4,7 @@
 
 Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedin.com/in/hugo-lahutte · X: https://x.com/hugolh_ai
 
-Last updated: 2026-08-07
+Last updated: 2026-08-10
 
 ## Method
 
@@ -60,8 +60,9 @@ Last updated: 2026-08-07
 - [HiFi Lovers](https://hl-consulting.tech/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
 - [Personal](https://hl-consulting.tech/knowledge-hub/en/perso/): side projects and experiments.
 
-## Journal (62 entries)
+## Journal (63 entries)
 
+- [HiFi watch: the daily bot repaired, expanded (30 → 64 sources) and hardened](https://hl-consulting.tech/knowledge-hub/en/journal/veille-hifi-bot-repare-elargi.html): The daily HiFi watch bot (Telegram) had been down since June 15 — the hard-coded AI model had reached end of life. Repaired (model now auto-selected, the watch can no longer break on an update), heavily expanded (30 → 64 sources: French specialist and mainstream press, Europe, Reddit, Head-Fi/diyAudio forums, YouTube) and hardened (HTML delivery, deduplication, alert if a source dies for 3 days, ~1-month memory, capped cost ~€3-4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages, error-free.
 - [Price tracking & automatic competitive alignment](https://hl-consulting.tech/knowledge-hub/en/journal/suivi-prix-alignement-concurrentiel-auto.html): We couldn't manually watch hundreds of references against Darty, Boulanger, Fnac or Son-Vidéo. A rules engine in Odoo (cobra_price_rules) reads competitor prices delivered by Wiser several times a day and computes a target price — best valid competitor, bounded by a minimum margin. Two modes: observation (simulates) then live (applies and pushes to Shopify), going live staying a human decision. Guardrails: never sell at a loss, outlier offers (< 60% of our price) ignored, pair/unit normalization. 6 families live, ~300 prices realigned; the rest adjusts on its own at each Wiser update.
 - [An app that reads supplier price lists for me](https://hl-consulting.tech/knowledge-hub/en/journal/app-tarifs-fournisseurs-maj-produits.html): Every supplier price update (a PDF or a ‘new product’ email) meant manual work: read it, find the product in Odoo, check EAN/SKU, key in buy and sell prices. An internal app (‘Product Update & Creation’) automates the pipeline: PDF upload or watching a read-only mailbox, EAN/SKU/price extraction via a Claude model, matching against the Odoo base, duplicate detection before creation, systematic human validation and traceability. A deliberate guardrail: no created product is ever published online automatically.
 - [A pricing-system overhaul discovered by testing it](https://hl-consulting.tech/knowledge-hub/en/journal/refonte-prix-variantes-decouverte-test.html): A per-variant pricing-system overhaul had been in preparation for weeks. While testing the price-update app, a gap between the price written in Odoo and the price synced on the merchant site revealed the overhaul was already in production — without formal confirmation. Each variant now has its own sale price, removing the cross-variant contamination risk. The app was fixed to write to the new field, and the matter escalated to the ERP integrator. Lesson: test in the real system rather than trust the docs.

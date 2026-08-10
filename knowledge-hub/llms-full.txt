@@ -1592,6 +1592,42 @@ URL : https://hl-consulting.tech/knowledge-hub/lexique/
 
 
 ================================================================
+VEILLE HIFI : LE BOT QUOTIDIEN RÉPARÉ, ÉLARGI (30 → 64 SOURCES) ET FIABILISÉ
+URL : https://hl-consulting.tech/knowledge-hub/journal/veille-hifi-bot-repare-elargi.html
+Publié : 2026-08-10
+================================================================
+
+Le bot de veille HiFi quotidienne (Telegram) était bloqué depuis le 15 juin : le modèle d'IA codé en dur avait atteint sa fin de vie. Réparé (choix du modèle désormais automatique), fortement élargi (30 → 64 sources : presse FR spécialisée et grand public, Europe, Reddit, forums Head-Fi et diyAudio, YouTube) et fiabilisé (envoi HTML, dédoublonnage, alerte source morte, mémoire ~1 mois, coût plafonné ~3-4 €/mois). Validé en prod : 125 articles → 123 sujets → 4 messages Telegram.
+
+← Journal
+Haute Fidélité · Automatisation
+Veille HiFi : le bot quotidien réparé, élargi (30 → 64 sources) et fiabilisé
+Claude · HL · 10 août 2026 · Haute Fidélité Haute Fidélitéagentinfradataen-prod
+Contexte
+Le bot qui envoie chaque matin une veille HiFi sur Telegram (les news mondiales de la hi-fi) était bloqué depuis le 15 juin : le modèle d'IA qui rédige les synthèses était codé en dur et avait atteint sa fin de vie. Plus aucun brief ne partait. Au-delà de la réparation, l'occasion d'élargir la couverture et de fiabiliser l'ensemble.
+Ce qui a été fait
+- Réparation. Le modèle d'IA est désormais choisi automatiquement — la veille ne peut plus casser lors d'une mise à jour côté fournisseur.
+- Sources : 30 → 64. Presse française spécialisée et grand public (ON-mag, AVCesar, Diapason, Vumètre, blog Son-Vidéo, Les Numériques, Frandroid, 01net…), Europe élargie (DE, IT, ES, NL, BE, SE, PL), Reddit, forums Head-Fi et diyAudio, chaînes YouTube de référence.
+- Format du brief. Section 🇫🇷 Made in France d'abord, puis 🌍 Tour du monde. Synthèses développées en français (tout comprendre sans ouvrir le lien), sources citées.
+- Dé-doublonnage. Une actu reprise par plusieurs sources = un seul bloc, avec un signal d'importance.
+- Fiabilité. Envoi Telegram en HTML (formatage qui tient), découpage propre, alerte automatique si une source meurt 3 jours de suite, mémoire anti-doublon ~1 mois.
+- Coût maîtrisé. Environ 3-4 €/mois, plafonné.
+Validé en production
+Dernier run réel : 125 articles → 123 sujets → 4 messages Telegram, formatés, envoyés sans erreur. Une source lente (LowBeats) a été gérée proprement, sans faire échouer le brief.
+Prochaines étapes (parqué)
+- Export structuré de la veille vers la content machine (hl-content).
+- Flux « emoji → brouillon » pour pousser une info vers un contenu.
+- Publication sur le site + offre d'abonnement (à cadrer).
+Stack
+Python, sélection automatique du modèle d'IA (API), API Telegram (envoi HTML), dédoublonnage avec mémoire ~1 mois, cron quotidien avec alerte de source morte. Repo veille-hifi.
+Ce que ça illustre
+Une dépendance codée en dur (ici le modèle d'IA) est une bombe à retardement : le jour où elle disparaît, tout s'arrête en silence. La rendre auto-sélectionnée supprime la classe entière de pannes. Et sur un outil de veille, la fiabilité (dédoublonnage, alerte de source morte, coût plafonné) compte autant que le nombre de sources : un brief qui n'arrive pas, ou qui se répète, ne sert personne.
+Voir aussi
+- Bot Telegram de veille HiFi quotidienne — l'entrée d'origine
+← Toutes les entrées Projet Haute Fidélité →
+
+
+================================================================
 SUIVI DES PRIX & ALIGNEMENT CONCURRENTIEL AUTOMATIQUE
 URL : https://hl-consulting.tech/knowledge-hub/journal/suivi-prix-alignement-concurrentiel-auto.html
 Publié : 2026-08-07
