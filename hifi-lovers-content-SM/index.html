@@ -73,6 +73,12 @@ nav a{
   color:var(--muted);text-decoration:none;white-space:nowrap;padding:6px 10px;display:block;
 }
 nav a:hover{color:var(--gold)}
+nav a.active{color:var(--gold)}
+body.tabbed nav a.active{box-shadow:inset 0 -2px 0 var(--gold)}
+body.tabbed .wrap.pb>section{display:none}
+body.tabbed .wrap.pb>section.active{display:block;animation:fadein .18s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){body.tabbed .wrap.pb>section.active{animation:none}}
 
 /* ---------- sections ---------- */
 section{margin:0 0 82px;scroll-margin-top:64px}
@@ -249,6 +255,7 @@ footer h3{color:var(--gold);border-color:#3a3a3a;margin-top:0}
       <li><a href="#christine">Drive</a></li>
       <li><a href="#plan">90 jours</a></li>
       <li><a href="#suite">Suite</a></li>
+      <li><a href="#refs">Références</a></li>
     </ol>
   </div>
 </nav>
@@ -771,6 +778,32 @@ Christine ne touche jamais qu'au premier dossier.</i></pre>
   </div>
 </section>
 
+<!-- ============ REFERENCES ============ -->
+<section id="refs">
+  <h2><span class="num">12 — Références</span>D'où vient le style, et qui on démarche</h2>
+  <p class="sub">Deux listes à ne pas confondre. À gauche, les comptes dont on s'inspire pour le ton et le format. À droite, les lieux et boutiques à transformer en collab posts — le problème de droits du §05 changé en levier de croissance. C'est le point de départ concret de la source B (§03) : elle s'enrichira à mesure de la veille.</p>
+
+  <h3>Inspiration éditoriale — le style</h3>
+  <div class="grid g3">
+    <div class="card gold"><span class="tag">Le repère</span><h4><a href="https://instagram.com/hifi.retro" target="_blank" rel="noopener">@hifi.retro</a></h4><p>362 k abonnés, vintage hi-fi. Un contact direct autant qu'une inspiration : le bel objet et la rareté, portés à l'échelle. La barre à atteindre.</p></div>
+    <div class="card"><span class="tag">Lifestyle</span><h4><a href="https://instagram.com/insheepsclothinghifi" target="_blank" rel="noopener">@insheepsclothinghifi</a></h4><p>Los Angeles. Le ton magazine : vinyle, culture analogique, guides de listening bars. Exactement le registre « hi-fi ou lifestyle, niveau mode » qu'on vise.</p></div>
+    <div class="card"><span class="tag">Volume</span><h4><a href="https://instagram.com/vintageaudiolove" target="_blank" rel="noopener">@vintageaudiolove</a></h4><p>~160 k. L'agrégateur de belles pièces : cadence élevée, esthétique brute. La preuve que le format « bel objet » passe à l'échelle.</p></div>
+    <div class="card"><span class="tag">Autorité</span><h4><a href="https://instagram.com/vintagekingaudio" target="_blank" rel="noopener">@vintagekingaudio</a></h4><p>163 k, pro / studio audio. Grosse direction artistique, angle plus matériel-expert — utile pour la couche autorité du §01.</p></div>
+    <div class="card"><span class="tag">La pièce du jour</span><h4><a href="https://instagram.com/lavintageaudio" target="_blank" rel="noopener">@lavintageaudio</a></h4><p>Plus niche : buy / sell / trade. Le format court « une pièce, une histoire, un prix » qu'on reprend pour La cote et Le graal.</p></div>
+  </div>
+
+  <h3>Cibles collab — lieux &amp; boutiques</h3>
+  <div class="grid g3">
+    <div class="card gold"><span class="tag">Paris · prioritaire</span><h4><a href="https://instagram.com/listener_paris" target="_blank" rel="noopener">@listener_paris</a></h4><p>Listening bar parisien. Marché français, actionnable dès la phase 2 — le premier collab post à aller chercher.</p></div>
+    <div class="card gold"><span class="tag">Paris · prioritaire</span><h4><a href="https://instagram.com/hifivintageparis" target="_blank" rel="noopener">@hifivintageparis</a></h4><p>Boutique parisienne, vente et réparation de vintage. Collab locale, et source potentielle de matériel à photographier.</p></div>
+    <div class="card"><span class="tag">Tokyo</span><h4><a href="https://instagram.com/studiomule" target="_blank" rel="noopener">@studiomule</a></h4><p>Listening bar de Shibuya. La caution japonaise : le lieu qui légitime le compte auprès de la niche internationale.</p></div>
+    <div class="card"><span class="tag">New York</span><h4><a href="https://instagram.com/analoguenyc" target="_blank" rel="noopener">@analoguenyc</a></h4><p>Listening bar de Greenwich Village. L'ancrage US, deuxième marché de la hi-fi vintage.</p></div>
+    <div class="card"><span class="tag">Londres · à confirmer</span><h4><a href="https://instagram.com/spiritland" target="_blank" rel="noopener">@spiritland</a></h4><p>Institution du listening bar londonien. Handle à revérifier avant tout contact.</p></div>
+    <div class="card"><span class="tag">Brooklyn · à confirmer</span><h4><a href="https://instagram.com/publicrecords" target="_blank" rel="noopener">@publicrecords</a></h4><p>Listening bar &amp; social club. Handle à revérifier avant tout contact.</p></div>
+  </div>
+  <p class="sm">Liste de départ, pas exhaustive. Les comptes marqués « à confirmer » n'ont pas été vérifiés à la source — ne pas les contacter avant d'avoir validé le handle exact. Une page dédiée aux inspirations pourra détailler tout ça séparément.</p>
+</section>
+
 </div>
 
 <footer>
@@ -806,6 +839,35 @@ Christine ne touche jamais qu'au premier dossier.</i></pre>
     <p style="margin-top:30px;max-width:none">Plan v2 — 11 août 2026. Direction artistique reprise de la boutique Haute Fidélité (Syne, Montserrat, #212121, #a49079, #ab8c52, #f5f2ec). Les points signalés comme non confirmés dans la recherche — durée exacte de protection des œuvres collectives, noms de modèles sur OpenRouter, crédits ElevenLabs, programmation native des Reels Facebook — seront revérifiés en conditions réelles en Phase 0. Ce document ne constitue pas un conseil juridique.</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  if(!nav)return;
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var panels=[].slice.call(document.querySelectorAll('.wrap.pb>section'));
+  if(!panels.length)return;
+  document.body.classList.add('tabbed');
+  function show(id,push){
+    var found=false;
+    panels.forEach(function(p){var on=p.id===id;p.classList.toggle('active',on);if(on)found=true;});
+    if(!found){id=panels[0].id;panels[0].classList.add('active');}
+    links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+id);});
+    if(push&&history.replaceState)history.replaceState(null,'','#'+id);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  links.forEach(function(a){
+    a.addEventListener('click',function(e){
+      var href=a.getAttribute('href')||'';
+      if(href.charAt(0)!=='#')return;
+      e.preventDefault();
+      show(href.slice(1),true);
+    });
+  });
+  var start=(location.hash||'').slice(1);
+  show(panels.some(function(p){return p.id===start;})?start:panels[0].id,false);
+})();
+</script>
 
 </body>
 </html>
