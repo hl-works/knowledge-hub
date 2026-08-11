@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hifi Lovers · Content Engine — Plan d'automatisation Instagram</title>
+<meta name="description" content="Architecture, stratégie éditoriale, budget et roadmap pour faire tourner le compte Instagram Hifi Lovers en publication automatique.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#a49079">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fcfbf9;
+  --cream:#f5f2ec;
+  --ink:#212121;
+  --ink-deep:#010109;
+  --taupe:#a49079;
+  --gold:#ab8c52;
+  --brown:#644d3e;
+  --sand:#b0a38b;
+  --line:#d1cdc4;
+  --line-soft:#e4e0d8;
+  --red:#dc4c43;
+  --muted:#6c6862;
+  --display:"Syne","Helvetica Neue",Arial,sans-serif;
+  --body:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:15.5px;font-weight:400;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:0 30px}
+.wrap.pb{padding-bottom:110px}
+
+/* ---------- header ---------- */
+header{background:var(--ink);color:#fff;padding:72px 0 52px}
+.brandline{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 26px;
+}
+h1{
+  font-family:var(--display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(30px,5vw,56px);line-height:1.02;letter-spacing:-.015em;
+  margin:0 0 24px;max-width:20ch;
+}
+h1 span{color:var(--taupe)}
+.lede{
+  font-size:17px;font-weight:300;line-height:1.65;color:#d9d5cd;max-width:60ch;margin:0;
+}
+.meta{
+  margin-top:34px;padding-top:22px;border-top:1px solid #3a3a3a;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#8f8a82;
+  display:flex;flex-wrap:wrap;gap:8px 30px;
+}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:60;background:rgba(252,251,249,.96);
+  border-bottom:1px solid var(--line);margin-bottom:64px;
+}
+nav .wrap{padding-top:0;padding-bottom:0}
+nav ol{
+  list-style:none;margin:0;padding:11px 0;display:flex;gap:2px;overflow-x:auto;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+}
+nav a{
+  color:var(--muted);text-decoration:none;white-space:nowrap;padding:6px 10px;display:block;
+}
+nav a:hover{color:var(--gold)}
+
+/* ---------- sections ---------- */
+section{margin:0 0 82px;scroll-margin-top:64px}
+h2{
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(22px,3vw,32px);line-height:1.12;letter-spacing:-.01em;margin:0 0 12px;
+}
+h2 .num{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+  color:var(--gold);margin-bottom:14px;text-transform:none;font-weight:400;
+}
+.sub{color:var(--muted);font-size:16px;font-weight:300;max-width:68ch;margin:0 0 34px}
+h3{
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  font-size:14px;letter-spacing:.08em;color:var(--brown);margin:42px 0 16px;
+  padding-bottom:9px;border-bottom:1px solid var(--line);
+}
+h4{font-family:var(--display);font-weight:700;font-size:16px;margin:0 0 9px;letter-spacing:-.005em}
+p{margin:0 0 15px;max-width:74ch}
+a{color:var(--brown)}
+strong{font-weight:600;color:var(--ink-deep)}
+code{font-family:var(--mono);font-size:12.5px;background:var(--cream);padding:2px 6px;border-radius:2px;color:var(--brown)}
+
+/* ---------- highlight block ---------- */
+.hero-note{
+  background:var(--cream);border-left:3px solid var(--gold);
+  padding:30px 34px;margin:0 0 36px;
+}
+.hero-note .big{
+  font-family:var(--display);font-weight:600;font-size:20px;line-height:1.4;
+  margin:0 0 18px;max-width:60ch;
+}
+.hero-note p:last-child{margin-bottom:0}
+
+/* ---------- grid & cards ---------- */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:#fff;border:1px solid var(--line-soft);padding:22px 24px}
+.card .tag{
+  display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--taupe);margin-bottom:11px;
+}
+.card p{font-size:14px;color:#4a4640;margin-bottom:0;font-weight:400}
+.card.gold{border-left:2px solid var(--gold)}
+.card.red{border-left:2px solid var(--red)}
+.card.dark{background:var(--ink);color:#e6e2da;border-color:var(--ink)}
+.card.dark h4{color:#fff}
+.card.dark p{color:#b9b4ab}
+.card.dark .tag{color:var(--gold)}
+
+.stat{background:var(--cream);padding:22px 24px}
+.stat .v{
+  display:block;font-family:var(--display);font-weight:800;font-size:30px;
+  line-height:1;color:var(--brown);margin-bottom:10px;letter-spacing:-.02em;
+}
+.stat .l{font-size:13px;line-height:1.5;color:#4a4640}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:22px 0 10px;border:1px solid var(--line-soft)}
+table{width:100%;border-collapse:collapse;font-size:13.8px;min-width:600px;background:#fff}
+th{
+  text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);font-weight:400;
+  padding:13px 16px;background:var(--cream);border-bottom:1px solid var(--line);
+}
+td{padding:13px 16px;border-bottom:1px solid var(--line-soft);color:#4a4640;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td strong{color:var(--ink-deep)}
+.nc{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+.tot td{background:var(--ink);color:#fff;font-weight:600}
+.tot td strong{color:var(--gold)}
+.sm{font-size:12.5px;color:var(--muted);font-weight:300}
+
+/* ---------- pipeline ---------- */
+.pipe{margin:26px 0;border:1px solid var(--line-soft);background:#fff}
+.stage{display:grid;grid-template-columns:50px 1fr;border-bottom:1px solid var(--line-soft)}
+.stage:last-child{border-bottom:none}
+.stage .n{
+  font-family:var(--mono);font-size:11.5px;color:var(--gold);background:var(--cream);
+  display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line-soft);
+}
+.stage .b{padding:15px 20px}
+.stage .t{font-family:var(--display);font-weight:700;font-size:14.5px;margin-bottom:3px}
+.stage .d{font-size:13.5px;color:#565149;line-height:1.55}
+.stage.human{background:var(--cream)}
+.stage.human .n{background:var(--gold);color:#fff}
+
+/* ---------- phases ---------- */
+.phase{border:1px solid var(--line-soft);margin-bottom:18px;background:#fff}
+.phase-h{
+  padding:15px 22px;background:var(--cream);border-bottom:1px solid var(--line-soft);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;
+}
+.phase-h .w{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.phase-h .t{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:16px;letter-spacing:.01em}
+.phase-h .goal{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.phase-b{padding:18px 22px}
+.phase-b ul{margin:0;padding-left:18px}
+.phase-b li{margin-bottom:9px;font-size:14px;color:#4a4640}
+.phase-b li:last-child{margin-bottom:0}
+
+/* ---------- clean list ---------- */
+ul.clean{list-style:none;padding:0;margin:18px 0}
+ul.clean li{
+  padding:12px 0 12px 24px;border-bottom:1px solid var(--line-soft);position:relative;
+  font-size:14.5px;color:#4a4640;
+}
+ul.clean li:last-child{border-bottom:none}
+ul.clean li::before{content:"—";position:absolute;left:0;color:var(--taupe)}
+
+/* ---------- callouts ---------- */
+.warn,.good{padding:20px 24px;margin:24px 0;border-left:3px solid}
+.warn{background:#fdf3f2;border-color:var(--red)}
+.good{background:var(--cream);border-color:var(--gold)}
+.warn .h,.good .h{
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:9px;
+}
+.warn .h{color:var(--red)}
+.good .h{color:var(--brown)}
+.warn p:last-child,.good p:last-child{margin-bottom:0}
+.warn p,.good p{font-size:14.5px;color:#4a4640}
+
+/* ---------- tree ---------- */
+pre{
+  background:var(--ink);color:#ddd8d0;padding:22px 24px;overflow-x:auto;
+  font-family:var(--mono);font-size:12.3px;line-height:1.65;margin:20px 0;
+}
+pre b{color:var(--gold);font-weight:400}
+pre i{color:#8b857c;font-style:normal}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#8f8a82;padding:44px 0 60px;font-size:12.5px}
+footer .wrap{padding-bottom:0}
+footer h3{color:var(--gold);border-color:#3a3a3a;margin-top:0}
+.srcs{columns:2;column-gap:36px;line-height:1.75}
+.srcs a{display:block;color:#8f8a82;text-decoration:none;margin-bottom:3px;break-inside:avoid}
+.srcs a:hover{color:var(--gold)}
+@media(max-width:640px){
+  .srcs{columns:1}.wrap{padding:0 18px}header{padding:44px 0 34px}
+  .hero-note{padding:22px 20px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="brandline">Hifi Lovers · HL Média · Plan v2 — 11 août 2026</p>
+    <h1>Automatiser le compte <span>de bout en bout</span></h1>
+    <p class="lede">Architecture de publication automatique, stack IA, stratégie éditoriale bilingue et budget. Version révisée : le compte n'est pas une vitrine de hors-série, c'est l'univers Hifi Lovers — bars hi-fi, boutiques et marques iconiques, pubs vintage — dans lequel les numéros viennent s'inscrire.</p>
+    <div class="meta">
+      <span>Compte unique FR/EN</span>
+      <span>2 hors-séries/an · Yamaha → Klipsch</span>
+      <span>~250 €/mois tout compris, publicité incluse</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <ol>
+      <li><a href="#decisions">Décisions</a></li>
+      <li><a href="#mix">Éditorial</a></li>
+      <li><a href="#terrain">Terrain</a></li>
+      <li><a href="#archi">Architecture</a></li>
+      <li><a href="#ia">Stack IA</a></li>
+      <li><a href="#curation">Droit</a></li>
+      <li><a href="#comments">Commentaires</a></li>
+      <li><a href="#facebook">Facebook</a></li>
+      <li><a href="#budget">Budget</a></li>
+      <li><a href="#christine">Drive</a></li>
+      <li><a href="#plan">90 jours</a></li>
+      <li><a href="#suite">Suite</a></li>
+    </ol>
+  </div>
+</nav>
+
+<div class="wrap pb">
+
+<!-- ============ DECISIONS ============ -->
+<section id="decisions">
+  <h2><span class="num">00 — Ce qui est tranché</span>Les décisions prises depuis la v1</h2>
+
+  <div class="hero-note">
+    <p class="big">Six points ont changé le plan. Trois viennent de tes retours, trois de ce que j'ai trouvé en creusant.</p>
+    <p><strong>1. Le compte n'est pas un compte Yamaha.</strong> C'est l'univers Hifi Lovers en permanence — bars hi-fi du monde entier, boutiques et marques iconiques, pubs vintage — avec les marques des hors-séries en rotation régulière et la vente du print en fond de tableau. Ça change tout le calcul du stock de contenu : on n'est plus limité par le magazine.</p>
+    <p><strong>2. OpenAI ne sait toujours pas cloner une voix.</strong> Voice Engine annoncé en mars 2024, jamais sorti ; les voix custom restent réservées aux comptes Enterprise. <strong>ElevenLabs reste le seul choix self-serve pour ta voix</strong>, et c'est aussi le mieux noté sur la narration longue. Le best-of-breed passe par OpenRouter côté texte, et par ElevenLabs en direct côté voix.</p>
+    <p><strong>3. Liker et répondre aux commentaires par API est officiellement possible depuis avril 2026.</strong> Un endpoint dédié existe. On peut donc liker tous les commentaires et répondre dans la langue de la personne — avec deux garde-fous, dont un nouveau : l'article 50 de l'AI Act européen s'applique depuis le 2 août 2026.</p>
+    <p><strong>4. Aucune pub vintage de 1965-1990 n'est dans le domaine public en Europe.</strong> Pas une seule, et aucune ne le sera avant 2036. Ce n'est pas bloquant — mais ça impose une méthode, et cette méthode est exactement celle qui satisfait aussi la règle d'originalité d'Instagram. Un seul travail règle les deux problèmes.</p>
+    <p><strong>5. Facebook : oui, mais en 15 minutes.</strong> Ta cible commerciale (35-65 ans, pouvoir d'achat, souvenirs des pubs Pioneer) est massivement sur Facebook. Crosspost natif, zéro développement, et on décide à J+60 sur les chiffres.</p>
+    <p><strong>6. Le ton de voix ne change pas d'un numéro à l'autre</strong> — donc il vit au niveau de la marque, pas du numéro. Le fichier de configuration se scinde en deux : un <code>hifilovers.yaml</code> permanent, et un <code>numero.yaml</code> minuscule par hors-série. La duplication devient encore plus légère que prévu.</p>
+  </div>
+
+  <div class="grid g4">
+    <div class="stat"><span class="v">~250 €</span><span class="l">par mois tout compris, publicité incluse, quel que soit le nombre de numéros</span></div>
+    <div class="stat"><span class="v">EN + FR</span><span class="l">voix off anglaise clonée sur la tienne, textes dans les deux langues</span></div>
+    <div class="stat"><span class="v">1 fichier</span><span class="l">de 20 lignes à écrire pour ouvrir le numéro Klipsch</span></div>
+    <div class="stat"><span class="v">100 %</span><span class="l">des commentaires likés, une partie répondue dans leur langue</span></div>
+  </div>
+</section>
+
+<!-- ============ MIX EDITORIAL ============ -->
+<section id="mix">
+  <h2><span class="num">01 — Positionnement</span>Ce que le compte raconte</h2>
+  <p class="sub">La hiérarchie que tu as décrite, traduite en règle de production. C'est cette répartition qui est codée dans le planificateur — le système ne peut pas dériver vers le catalogue produit.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:23%">Couche</th><th style="width:13%">Part</th><th style="width:26%">Contenus</th><th>Rôle</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>L'univers</strong><br><span class="sm">en permanence</span></td>
+        <td class="nc">~60 %</td>
+        <td>Bars hi-fi du monde (nouveaux et historiques), boutiques et marques iconiques, <strong>pubs vintage</strong>, objets de culte, histoire de la hi-fi</td>
+        <td>C'est ce qui fait grandir le compte et ce qui se partage en DM. La pub vintage est ton format signature : c'est rare, c'est beau, c'est nostalgique et personne ne le fait avec une vraie couche éditoriale.</td>
+      </tr>
+      <tr>
+        <td><strong>La marque du numéro</strong><br><span class="sm">régulièrement</span></td>
+        <td class="nc">~30 %</td>
+        <td>Yamaha aujourd'hui, Klipsch ensuite. Interviews, bancs d'essai, histoire, archives, produits iconiques — issus du magazine</td>
+        <td>Crée l'attente et l'autorité sur le sujet du numéro sans jamais ressembler à de la promo. Monte en intensité à l'approche de la sortie, redescend après.</td>
+      </tr>
+      <tr>
+        <td><strong>Le print</strong><br><span class="sm">rarement</span></td>
+        <td class="nc">~10 %</td>
+        <td>Coulisses de fabrication, unboxing, lecteurs qui reçoivent le numéro, disponibilité</td>
+        <td>La vente se fait par accumulation de crédibilité, pas par répétition de l'appel à l'achat. Un post de vente pour neuf posts de valeur.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="good">
+    <div class="h">La conséquence sur le stock de contenu</div>
+    <p>Avec deux hors-séries par an et une couche « univers » permanente, la question de l'épuisement du stock disparaît. Le magazine fournit la profondeur (interviews, bancs d'essai, histoire — du contenu qu'aucun compte concurrent n'a), la curation fournit le volume et la régularité. <strong>Le magazine n'est plus la source unique, il devient la réserve d'autorité.</strong> Et l'archive Haute Fidélité — des années de bancs d'essai et de tests — est un gisement que personne d'autre ne possède.</p>
+  </div>
+
+  <h3>Les huit formats récurrents</h3>
+  <div class="grid g4">
+    <div class="card gold"><span class="tag">Signature</span><h4>La pub de la semaine</h4><p>Une annonce de presse 1965-1980, recadrée dans ta charte, avec le décryptage du discours marketing de l'époque et le prix converti en euros d'aujourd'hui. Format le plus partagé de la niche.</p></div>
+    <div class="card gold"><span class="tag">Signature</span><h4>Le bar</h4><p>Un listening bar par semaine — Tokyo, Séoul, Berlin, Paris, New York. Système installé, histoire du lieu, ce qu'on y écoute. En collab post avec le lieu quand c'est possible.</p></div>
+    <div class="card"><span class="tag">Partage max</span><h4>La cote</h4><p>Prix d'époque converti vs cote actuelle. « Cet ampli coûtait un SMIC en 1977. Aujourd'hui il en vaut trois. » Le format le plus envoyé en DM de toute la niche collection.</p></div>
+    <div class="card"><span class="tag">Pic de vues</span><h4>Le graal</h4><p>La pièce introuvable. Rareté + chiffre + belle photo. C'est ce format qui produit les Reels à fort volume, ceux qui font 70 % de la croissance d'un trimestre.</p></div>
+    <div class="card"><span class="tag">Watch time</span><h4>ASMR mécanique</h4><p>Le clic d'un sélecteur, la course d'un potentiomètre, l'aiguille du VU-mètre. Une seule session de captation produit vingt Reels. Zéro texte, zéro droit à gérer.</p></div>
+    <div class="card"><span class="tag">Autorité</span><h4>Le banc d'essai raconté</h4><p>Un test du magazine transformé en carrousel de 10 slides. C'est ce que l'archive Haute Fidélité permet et que personne d'autre ne peut faire.</p></div>
+    <div class="card"><span class="tag">Autorité</span><h4>L'interview en extraits</h4><p>Une citation forte d'ITW en carte typographique, la version longue en Reel avec voix off. Un seul entretien fait quatre à six posts.</p></div>
+    <div class="card"><span class="tag">Communauté</span><h4>Votre système</h4><p>Les lecteurs envoient leur installation, on la retraite éditorialement. Contenu quasi gratuit, chaque personne publiée partage à son réseau, et ça construit le fichier d'acheteurs.</p></div>
+  </div>
+
+  <h3>Bilingue : la règle</h3>
+  <ul class="clean">
+    <li><strong>Voix off : anglais uniquement.</strong> Un seul clone vocal à entraîner et à maintenir, une seule piste audio par Reel. L'anglais ouvre l'audience internationale, qui est celle de la hi-fi vintage — Japon, Corée, US, Allemagne.</li>
+    <li><strong>Texte à l'écran : anglais.</strong> Court, il doit rester lisible et ne pas doubler la surface typographique du visuel.</li>
+    <li><strong>Légende : anglais d'abord, français ensuite</strong>, séparés par un filet. Les 125 premiers caractères — ceux qui sont indexés par Google et affichés avant le « plus » — sont en anglais, avec la référence exacte du matériel.</li>
+    <li><strong>Stories : français</strong> pour les coulisses et la vente du print (marché français), anglais pour l'univers.</li>
+    <li><strong>Réponses aux commentaires : dans la langue de la personne</strong>, sur une liste blanche FR / EN / ES / IT / DE / JA. Tout le reste bascule en anglais.</li>
+    <li><strong>Un point sur ton accent :</strong> ElevenLabs conserve l'accent de la langue d'entraînement. Si on entraîne le clone sur des enregistrements en français, ta voix aura un accent français en anglais. Ce n'est pas un défaut à corriger — pour un magazine français qui raconte l'histoire de la hi-fi japonaise, c'est une signature. Mais c'est un choix à faire consciemment : <strong>je te ferai enregistrer les échantillons dans la langue de l'accent que tu veux entendre.</strong></li>
+  </ul>
+</section>
+
+<!-- ============ TERRAIN ============ -->
+<section id="terrain">
+  <h2><span class="num">02 — Le terrain</span>Cinq faits de 2026 qui contraignent le système</h2>
+
+  <div class="grid g2">
+    <div class="card red">
+      <span class="tag">30 avril 2026 · risque n°1</span>
+      <h4>Le repost brut coupe la croissance</h4>
+      <p>Instagram a étendu aux photos et carrousels la pénalité qui frappait déjà les Reels : un compte majoritairement composé de contenu d'autrui <strong>perd l'éligibilité aux recommandations</strong>. Vu que 60 % de ton contenu est de la curation, c'est le point le plus structurant de tout ce document. Bonne nouvelle : Instagram cite nommément <strong>la voix off</strong> comme élément de transformation valide.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Métrique nord</span>
+      <h4>Les partages en DM ont remplacé les likes</h4>
+      <p>Le signal le plus fort de l'algorithme 2026 est le rapport <strong>partages ÷ portée</strong>. Les partages ont bondi de 67 % en un an. Une pub vintage, une cote, un bar à Tokyo : c'est exactement ce qu'on envoie à un ami. Chaque post doit répondre à <em>qui envoie ça à qui, et pourquoi</em>.</p>
+    </div>
+    <div class="card red">
+      <span class="tag">Formats</span>
+      <h4>La belle photo unique est morte</h4>
+      <p>Sur 24 millions de posts : le post image simple perd <strong>46 % d'engagement</strong> en un an. Le Reel fait 4× les interactions d'une image, le carrousel 9× les enregistrements. Le réflexe « j'ai une superbe pub Yamaha 1977, je la poste » est le pire usage possible de ton stock.</p>
+    </div>
+    <div class="card">
+      <span class="tag">API · bonne nouvelle</span>
+      <h4>Pas d'App Review pour publier</h4>
+      <p>Publier sur son propre compte relève du Standard Access : ni validation Meta, ni vérification d'entreprise. Le quota est de <strong>100 posts/24 h</strong>. En revanche, les <strong>webhooks de commentaires</strong>, eux, exigent l'App Review et la vérification — c'est le seul morceau du projet qui prendra ~20 jours d'attente. On le lance tôt, en parallèle.</p>
+    </div>
+    <div class="card gold">
+      <span class="tag">Levier décisif</span>
+      <h4>Les Trial Reels sont pilotables par API</h4>
+      <p>Publier un Reel <strong>uniquement auprès des non-abonnés</strong> pendant 72 h, sans qu'il apparaisse dans la grille ni dans le fil des abonnés. On teste trois accroches, on ne garde que la gagnante. Sur une niche où <strong>4 comptes sur 5 sous 10 k abonnés ne grandissent plus</strong>, c'est l'avantage décisif — et aucun compte audio ne l'utilise.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Bonus SEO</span>
+      <h4>Instagram est indexé par Google</h4>
+      <p>Depuis juillet 2025. Pour « Yamaha NS-1000M », « Klipsch Cornwall 1977 », « listening bar Tokyo », c'est un canal gratuit et permanent. Corollaire : les hashtags ne servent plus à rien — Mosseri, juillet 2026. On passe de 30 à <strong>0-3</strong>, et l'effort va dans les mots-clés de légende.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section id="archi">
+  <h2><span class="num">03 — Le système</span>Hifi Lovers Content Engine</h2>
+  <p class="sub">Deux sources d'entrée au lieu d'une : le magazine (profondeur) et la curation (volume). Elles convergent vers le même stock d'atomes typés, et tout le reste du pipeline est commun.</p>
+
+  <div class="pipe">
+    <div class="stage"><div class="n">0</div><div class="b"><div class="t">Sources</div><div class="d"><strong>A · Drive HL Média</strong> — un dossier par numéro, structure imposée (voir §09). <strong>B · Veille</strong> — les comptes que Hifi Lovers suit déjà, plus une liste de bars, boutiques et fonds d'archives publicitaires. <strong>C · Archive Haute Fidélité</strong> — les anciens bancs d'essai et interviews.</div></div></div>
+    <div class="stage"><div class="n">1</div><div class="b"><div class="t">Ingestion</div><div class="d">Extraction du texte du PDF, inventaire des images HD avec ratio, dominantes et zones de recadrage sûres. Pour la veille : capture des sources, horodatage, statut de droits.</div></div></div>
+    <div class="stage"><div class="n">2</div><div class="b"><div class="t">Atomisation</div><div class="d">Découpage en atomes typés — <code>chiffre</code>, <code>citation</code>, <code>anecdote</code>, <code>spec</code>, <code>archive_pub</code>, <code>lieu</code>, <code>avant_apres</code>, <code>photo_story</code>. Chaque atome garde sa page source, ses photos éligibles et son statut juridique.</div></div></div>
+    <div class="stage"><div class="n">3</div><div class="b"><div class="t">Angles &amp; équilibrage</div><div class="d">Mapping atome → format, sous contrainte de la répartition 60/30/10 et du ratio minimum de contenu 100 % propriétaire. Repondéré chaque mois par les résultats réels.</div></div></div>
+    <div class="stage"><div class="n">4</div><div class="b"><div class="t">Copy bilingue</div><div class="d">Accroche, texte à l'écran et script de voix off en anglais ; légende EN puis FR. Rédaction directe dans chaque langue, jamais par traduction — la traduction produit des tournures calquées qui sonnent robotiques.</div></div></div>
+    <div class="stage"><div class="n">5</div><div class="b"><div class="t">Visuel &amp; vidéo</div><div class="d">Rendu déterministe : gabarit HTML/CSS + photo HD + polices Syne/Montserrat → PNG 1080×1350. Vidéo : mouvements lents sur photo HD, voix off ElevenLabs, sous-titres brûlés, montage FFmpeg. Publication depuis Cloudflare R2 en URL publique.</div></div></div>
+    <div class="stage"><div class="n">6</div><div class="b"><div class="t">Contrôle qualité</div><div class="d">Texte qui déborde du gabarit → rejet. Mot interdit → rejet. Contraste insuffisant → rejet. Trop proche d'un post récent → quarantaine. Atome sans couche éditoriale suffisante → rejet. Puis un modèle juge, différent de celui qui a rédigé.</div></div></div>
+    <div class="stage human"><div class="n">7</div><div class="b"><div class="t">Ta validation — 20 min/semaine</div><div class="d">Vue galerie sur mobile, triée par score. Oui / non / corriger. Tu peux valider quatre semaines d'avance en une session. C'est aussi ce qui te donne le « contrôle éditorial » exigé par l'AI Act.</div></div></div>
+    <div class="stage"><div class="n">8</div><div class="b"><div class="t">Publication</div><div class="d">Cron toutes les 10 min → vérification du quota → création du container → attente de l'encodage → publication à l'heure exacte. Crosspost natif vers Facebook. Idempotence stricte : jamais de double post.</div></div></div>
+    <div class="stage"><div class="n">9</div><div class="b"><div class="t">Conversation</div><div class="d">Webhook commentaire → like immédiat → classification (langue + type) → réponse rédigée pour les commentaires qui le méritent, avec délai aléatoire. Mot-clé en commentaire → DM avec le sommaire et le lien boutique.</div></div></div>
+    <div class="stage"><div class="n">10</div><div class="b"><div class="t">Mesure &amp; boucle</div><div class="d">Insights à J+3 et J+14, plus <code>facebook_views</code> pour arbitrer le crosspost. Score par format, par couche éditoriale et par langue → réinjection à l'étage 3.</div></div></div>
+  </div>
+
+  <h3>La configuration en deux niveaux</h3>
+  <p>Puisque le ton de voix appartient à Hifi Lovers et non au numéro, la configuration se scinde. C'est ce qui rend l'ouverture d'un nouveau numéro quasi gratuite.</p>
+  <pre><b>brands/hifilovers/</b>            <i># permanent — écrit une fois</i>
+  hifilovers.yaml           <i># voix éditoriale, mots interdits, langues, cadence,
+                              créneaux, répartition 60/30/10, ratio d'originalité</i>
+  tokens.json               <i># DA : Syne / Montserrat, #212121, #a49079, #ab8c52, #f5f2ec</i>
+  templates/                <i># 8 gabarits HTML : pub vintage, bar, cote, graal,
+                              citation, banc d'essai, comparatif, votre-système</i>
+  voice.json                <i># identifiant du clone ElevenLabs + réglages</i>
+
+<b>issues/01-yamaha/</b>            <i># par numéro — ~20 lignes</i>
+  numero.yaml               <i># marque, période, dates clés, lien boutique,
+                              intensité dans le mix, angles prioritaires</i>
+  → pointe vers le dossier Drive
+
+<b>issues/02-klipsch/</b>           <i># le suivant : copier, changer 20 lignes</i></pre>
+</section>
+
+<!-- ============ STACK IA ============ -->
+<section id="ia">
+  <h2><span class="num">04 — Stack IA</span>Best of breed, une seule clé</h2>
+  <p class="sub">Le principe de HL Content s'applique tel quel : tout ce qui est texte passe par OpenRouter — une clé, une facture, et un changement de modèle en une chaîne de caractères quand un meilleur sort. Ce qui ne passe pas par OpenRouter, c'est ta voix.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:24%">Tâche</th><th style="width:24%">Modèle</th><th style="width:15%">Prix</th><th>Pourquoi</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Rédaction éditoriale</strong><br><span class="sm">légendes, scripts de voix off</span></td><td>Claude Opus&nbsp;5 <span class="sm">(via OpenRouter)</span></td><td class="nc">5 $ / 25 $<br><span class="sm">par M tokens</span></td><td>Meilleure tenue stylistique sur du texte « à voix ». C'est le seul poste où la qualité du modèle se voit à l'œil nu.</td></tr>
+      <tr><td>Idem, volume courant</td><td>Claude Sonnet&nbsp;5</td><td class="nc">2 $ / 10 $</td><td>80 % de la qualité pour 40 % du prix. À réserver aux formats répétitifs (cote, graal).</td></tr>
+      <tr><td><strong>Version française</strong></td><td>Claude Opus&nbsp;5 ou Mistral Large&nbsp;3</td><td class="nc">0,50 $ / 1,50 $</td><td>Rédaction directe en français, jamais traduction. Mistral est excellent sur le français natif et dix fois moins cher.</td></tr>
+      <tr><td><strong>Atomisation, classification</strong><br><span class="sm">langue d'un commentaire, tri de veille</span></td><td>GPT-5 nano ou Gemini Flash Lite</td><td class="nc">0,05 $ / 0,40 $</td><td>~0,00002 $ par commentaire classifié. Gratuit à ton échelle. Ajouter le suffixe <code>:floor</code> sur ces appels.</td></tr>
+      <tr><td><strong>Juge qualité</strong></td><td>Gemini 3.1 Pro <em>ou</em> GPT-5.6</td><td class="nc">2 $ / 12 $</td><td><strong>Le juge ne doit jamais être le rédacteur</strong> — les modèles ont un biais favorable à leur propre production. Si Claude écrit, Gemini juge.</td></tr>
+      <tr><td><strong>Voix off</strong></td><td>ElevenLabs <span class="sm">— en direct, pas via OpenRouter</span></td><td class="nc">22 $/mois</td><td>Seul acteur self-serve avec clonage professionnel, licence commerciale immédiate et pas de liste d'attente. Absent du catalogue OpenRouter.</td></tr>
+      <tr><td><strong>Sous-titres</strong></td><td>Whisper sur le serveur</td><td class="nc">0 €</td><td>Les Reels font moins de 90 s ; l'inférence locale suffit largement. Style des sous-titres géré par notre propre gabarit, pas par un outil tiers.</td></tr>
+      <tr><td>Images de complément</td><td>Nano Banana / Flash Image</td><td class="nc">~0,05 $/img</td><td>Uniquement en périphérie : extension de cadre 3:2 → 4:5, détourage, fonds. <strong>Jamais pour composer un visuel.</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="sm">OpenRouter ne prend aucune marge sur l'inférence ; les frais sont de 5,5 % à l'achat de crédits, soit quelques euros par mois à ton volume. En échange : fallback automatique entre fournisseurs, routage par prix ou latence, et un seul poste de facturation. Les noms exacts des modèles seront revérifiés au moment d'écrire le code — deux agrégateurs de prix se contredisaient au moment de la recherche.</p>
+
+  <h3>Ta voix : ce qu'il faut faire</h3>
+  <ul class="clean">
+    <li><strong>Plan ElevenLabs Creator, 22 $/mois.</strong> C'est le premier palier qui débloque le clonage professionnel, il inclut la licence commerciale et couvre largement vingt Reels de 60 s par mois.</li>
+    <li><strong>Une session d'enregistrement de 30 minutes minimum, 2 h idéalement.</strong> Même micro, même pièce, même débit du début à la fin — c'est ce qui détermine la qualité du clone. Je te prépare le texte à lire, en anglais, dans le registre exact des voix off qu'on produira.</li>
+    <li><strong>C'est un investissement unique.</strong> Une fois le clone entraîné, il sert pour tous les numéros, toutes les langues supportées, et pendant des années. Il devient un actif de la marque.</li>
+    <li><strong>Et c'est aussi ta conformité algorithmique.</strong> Instagram cite nommément la voix off comme élément de transformation d'un contenu tiers. Le budget voix n'est pas un confort de production, c'est ce qui rend ta curation légitime aux yeux de l'algorithme.</li>
+  </ul>
+
+  <h3>Peu de vidéo ? Ce n'est pas un problème</h3>
+  <p>Tu as raison de le signaler, mais l'inverse serait presque plus embêtant. Les Reels qui fonctionnent sur cette niche ne sont pas des vidéos tournées — ce sont des photographies mises en mouvement. Quatre techniques suffisent, et elles partent toutes de ce que tu as déjà :</p>
+  <div class="grid g4">
+    <div class="card"><span class="tag">01</span><h4>Mouvement lent sur photo HD</h4><p>Panoramique et zoom très lents sur une photo 300 dpi du magazine, avec voix off. C'est le format documentaire de base, et une seule photo de qualité suffit pour 30 secondes.</p></div>
+    <div class="card"><span class="tag">02</span><h4>Le défilé de pubs</h4><p>Six annonces d'époque enchaînées au rythme de la voix off, dans un cadre typographique maison. Zéro tournage, effet magazine immédiat.</p></div>
+    <div class="card"><span class="tag">03</span><h4>Captation groupée</h4><p>Une demi-journée avec un ou deux appareils : boutons, VU-mètres, sélecteurs, aiguilles. Vingt Reels ASMR d'un coup, réutilisables pendant un an comme plans de coupe.</p></div>
+    <div class="card"><span class="tag">04</span><h4>Le carrousel animé</h4><p>Un carrousel existant re-monté en vidéo verticale avec transitions et voix off. Un même atome donne deux posts sur deux formats, à deux semaines d'écart.</p></div>
+  </div>
+</section>
+
+<!-- ============ CURATION ============ -->
+<section id="curation">
+  <h2><span class="num">05 — Curation</span>Pubs vintage, bars, photos de tiers</h2>
+  <p class="sub">C'est le sujet le plus délicat du projet, et celui qui a le plus de conséquences pratiques. Je te donne les faits — mais rien de ceci n'est un conseil juridique, et une heure avec un avocat en propriété intellectuelle serait un bon investissement avant de monter en volume.</p>
+
+  <div class="warn">
+    <div class="h">Le fait à connaître</div>
+    <p><strong>Aucune publicité de presse de 1965 à 1990 n'est dans le domaine public en France, et aucune ne le sera avant 2036.</strong> Une annonce est une œuvre protégée — composition, photo, illustration, parfois le slogan. Qualifiée d'œuvre collective, elle est protégée 70 ans après publication : une pub de 1975 court jusqu'en 2045, une de 1990 jusqu'en 2060. Et contrairement aux États-Unis, <strong>le droit français n'a pas d'exception d'usage éditorial</strong> : la courte citation est en pratique inapplicable aux images, la jurisprudence étant du tout-ou-rien.</p>
+  </div>
+
+  <p>Ce n'est pas une raison d'arrêter — les comptes de pubs vintage publient massivement sans licence, et le risque de poursuite est faible : ayants droit dispersés, agences disparues, dommage nul, coût de procédure disproportionné. <strong>Mais le vrai danger n'est pas le tribunal, c'est Meta.</strong> Un signalement déclenche un retrait automatique, et l'accumulation de signalements restreint la portée puis suspend le compte. Tu peux perdre ton canal sans jamais voir un avocat.</p>
+
+  <h3>La méthode — et le point important</h3>
+  <p><strong>Les trois problèmes ont une seule et même solution.</strong> Le droit d'auteur sur les pubs, les droits sur les photos de bars, et la règle d'originalité d'Instagram se règlent tous par la même chose : une couche éditoriale lourde, appliquée systématiquement. Ce n'est pas un coût de conformité — c'est le produit.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:28%">Règle</th><th>Application</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Jamais une pub seule et brute</strong></td><td>Toujours recadrée dans le gabarit Hifi Lovers, avec texte d'analyse rédigé et voix off. C'est simultanément l'argument de transformativité, l'argument de valeur ajoutée face à un ayant droit, et la conformité à la règle du 30 avril.</td></tr>
+      <tr><td><strong>Fenêtre 1965-1980</strong></td><td>On écarte le post-1990. Sur cette période, les annonceurs sont soit disparus, soit totalement indifférents.</td></tr>
+      <tr><td><strong>Crédit systématique</strong></td><td>Marque, année, magazine source — retapés dans notre charte. <strong>Jamais de capture d'écran avec le pseudo d'un autre compte visible</strong> : c'est le contre-exemple exact donné par Instagram.</td></tr>
+      <tr><td><strong>Ne jamais monétiser l'image</strong></td><td>Pas de tirages, pas de merch, pas de fonds d'écran. C'est ce qui transformerait un risque théorique en risque réel, sur le droit d'auteur comme sur la marque.</td></tr>
+      <tr><td><strong>Retrait sous 24 h, sans discuter</strong></td><td>Politique écrite et publique. C'est ce qui évite l'accumulation de signalements Meta, le vrai danger.</td></tr>
+      <tr><td><strong>Bars et boutiques : collab post</strong></td><td>La meilleure option pour ce cas précis. Le lieu accepte explicitement l'invitation — consentement horodaté et documenté par Meta — le post apparaît sur les deux profils, et tu accèdes à son audience. <strong>Un problème juridique transformé en levier de croissance.</strong> À défaut : accord écrit en DM, ou kit presse fourni par le lieu.</td></tr>
+      <tr><td><strong>Minimum 40 % de contenu 100 % propriétaire</strong></td><td>La règle Instagram vise les comptes qui republient « principalement » du contenu d'autrui. Le ratio est surveillé par le système, qui refuse de programmer une semaine qui passerait sous le seuil.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ COMMENTAIRES ============ -->
+<section id="comments">
+  <h2><span class="num">06 — Conversation</span>Likes et réponses automatiques</h2>
+  <p class="sub">C'est possible, c'est officiel, et c'est nouveau : Meta a ouvert un endpoint dédié en avril 2026. Mais il y a deux garde-fous à respecter, dont un tout récent.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <span class="tag">Ce qui est ouvert par l'API</span>
+      <h4>Techniquement disponible</h4>
+      <p><strong>Liker un commentaire ou un post</strong> — endpoint dédié, limite de 50 requêtes par 5 secondes (très au-dessus de nos besoins). <strong>Répondre à un commentaire.</strong> <strong>Poster le premier commentaire</strong> sur nos propres médias. <strong>Masquer ou supprimer</strong> les commentaires indésirables. <strong>Webhook temps réel</strong> sur les nouveaux commentaires.</p>
+    </div>
+    <div class="card red">
+      <span class="tag">La contrainte technique</span>
+      <h4>Webhook obligatoire, pas de polling</h4>
+      <p>Le budget d'appels API se calcule en multipliant les impressions du compte. Un compte qui démarre a très peu d'impressions, donc très peu d'appels autorisés. <strong>Interroger l'API toutes les 5 minutes nous mettrait dehors avant 1 000 abonnés.</strong> Il faut donc le webhook — qui exige l'App Review et la vérification d'entreprise, soit ~20 jours. À lancer dès la première semaine.</p>
+    </div>
+  </div>
+
+  <h3>Le règlement de la conversation</h3>
+  <p>Trois traitements, décidés automatiquement par un classifieur de sentiment, et rien d'autre :</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:22%">Commentaire</th><th style="width:20%">Action</th><th>Détail</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sympa</strong><br><span class="sm">enthousiasme, question, souvenir, expertise, emoji positif</span></td><td><strong>Like — 100 %</strong><br><span class="sm">+ réponse si ça le mérite</span></td><td>Aucune exception : tout ce qui est positif est liké, immédiatement. C'est l'outil à fort volume et faible risque, et c'est ce qui donne au compte l'air d'être tenu par quelqu'un qui lit. La réponse, elle, reste sélective — questions, mentions de modèles, commentaires de plus de quinze caractères.</td></tr>
+      <tr><td><strong>Pas terrible</strong><br><span class="sm">hors sujet, spam léger, promo d'un tiers, contradiction stérile</span></td><td><strong>Ignoré</strong></td><td>Ni like, ni réponse, ni masquage. Le commentaire reste visible — masquer du simplement neutre serait perçu comme de la censure si la personne s'en aperçoit, et Instagram permet de le vérifier. Ne rien faire est la bonne réponse.</td></tr>
+      <tr><td><strong>Négatif</strong><br><span class="sm">insulte, agressivité, dénigrement, provocation</span></td><td><strong>Masqué</strong></td><td>Masquage automatique — le commentaire reste visible pour son auteur et ses abonnés, mais disparaît pour tout le monde. C'est plus sûr que la suppression : pas de notification, pas d'escalade. En cas de doute, on ne masque pas et le commentaire remonte dans ta validation hebdomadaire.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="sm">Le seuil de bascule « pas terrible → négatif » est délibérément prudent : une critique argumentée du matériel, ou un désaccord technique de fond, sont classés « sympa » et likés. C'est une audience d'experts — <strong>faire taire un connaisseur qui a raison coûterait plus cher que n'importe quel troll.</strong> Le masquage vise l'agressivité, pas le désaccord.</p>
+
+  <ul class="clean">
+    <li><strong>Plafond de 30 réponses par heure</strong>, avec un délai aléatoire de 2 à 10 minutes entre le commentaire et la réponse. Les Developer Policies visent explicitement les comportements « à très haute fréquence ».</li>
+    <li><strong>Six à huit ouvertures différentes</strong>, jamais deux fois la même formule d'affilée, aucune signature identique. La répétition est ce que la détection anti-spam repère le mieux.</li>
+    <li><strong>Langue : détection par petit modèle, pas par bibliothèque statistique.</strong> Les emojis et le franglais font échouer les détecteurs classiques. Sous 25 caractères, on ne devine pas : on like sans répondre.</li>
+    <li><strong>Japonais et coréen : réponse en anglais.</strong> Une réponse dans un registre inadapté fait plus de dégâts qu'une réponse en anglais.</li>
+    <li><strong>Interdiction absolue d'affirmer un chiffre</strong> non présent dans la fiche fournie au modèle. Un LLM inventera volontiers des specs de matériel hi-fi, et sur une audience d'experts c'est fatal.</li>
+  </ul>
+
+  <div class="warn">
+    <div class="h">Nouveau depuis le 2 août 2026 — AI Act, article 50</div>
+    <p>L'obligation de transparence européenne s'applique depuis neuf jours. Un système qui répond automatiquement entre dans la catégorie « interaction avec une IA » : les personnes doivent pouvoir le savoir. Deux mesures suffisent, et elles ne coûtent rien : <strong>une ligne dans la bio ou dans un post épinglé</strong> (« les réponses aux commentaires peuvent être assistées par IA, la rédaction est supervisée par l'équipe »), et <strong>un humain en approbation sur les réponses</strong> — pas sur les likes, qui ne sont pas de la communication. Cette validation humaine est aussi ce qui préserve l'exemption de « contrôle éditorial » du texte. C'est le même geste que ta validation hebdomadaire, étendu aux réponses.</p>
+  </div>
+
+  <p><strong>Sur ManyChat :</strong> je le retire du plan. Il facture au contact actif, et sur un compte média chaque commentateur unique devient un contact — c'est le poste qui explose exactement quand ça marche. Pour un mot-clé et des réponses éditoriales en six langues, on construit en direct : webhook → file d'attente → modèle → réponse. Coût marginal de 5 à 15 $/mois de modèle contre 29 $ et plus qui croissent avec l'audience, et on garde le contrôle éditorial que l'AI Act impose de toute façon.</p>
+</section>
+
+<!-- ============ FACEBOOK ============ -->
+<section id="facebook">
+  <h2><span class="num">07 — Facebook</span>Oui, en quinze minutes</h2>
+
+  <div class="grid g2">
+    <div class="card gold">
+      <span class="tag">L'argument</span>
+      <h4>Tes lecteurs les plus solvables y sont</h4>
+      <p>Pénétration par âge : 30-49 ans <strong>75 %</strong>, 50-64 ans <strong>69 %</strong>. C'est exactement le profil qui achète une platine à 3 000 € et qui se souvient des pubs Pioneer. Les Pages de 10 à 50 k abonnés ont crû de <strong>38 % en 2025</strong>, et la fréquence de publication des marques a chuté de 22 % — moins de concurrence dans le fil. Ce n'est pas un canal mort, c'est un canal délaissé.</p>
+    </div>
+    <div class="card">
+      <span class="tag">La méthode</span>
+      <h4>Crosspost natif, rien d'autre</h4>
+      <p>Une case à cocher dans les paramètres Meta. Zéro développement, zéro adaptation de format. On ne répond pas aux commentaires Facebook au début. <strong>À J+60, on regarde <code>facebook_views</code></strong> — une métrique livrée par Meta en décembre 2025, qui isole exactement l'apport de Facebook. Au-delà de 15 % des vues totales, on investit. En dessous, on laisse tourner et on n'y consacre plus une minute.</p>
+    </div>
+  </div>
+  <p style="margin-top:20px">Ce qu'il ne faut <em>pas</em> faire : écrire un connecteur API Pages dédié (les Reels Facebook s'y publient en trois phases, avec une gestion de jetons séparée) pour un canal dont on ignore encore le rendement. Deux à quatre jours de développement pour une hypothèse. On mesure d'abord.</p>
+</section>
+
+<!-- ============ BUDGET ============ -->
+<section id="budget">
+  <h2><span class="num">08 — Budget</span>Le chiffrage révisé</h2>
+  <p class="sub">Trois paliers. Recommandation : palier 1 pendant six semaines pour valider la DA et le pipeline sans engagement, puis palier 2 au lancement.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:30%">Poste</th><th style="width:23%">1 · Amorçage</th><th style="width:23%">2 · Lancement</th><th>3 · Régime</th></tr></thead>
+    <tbody>
+      <tr><td>Serveur &amp; exécution <span class="sm">(VPS)</span></td><td class="nc">0 €</td><td class="nc">6 €</td><td class="nc">6 €</td></tr>
+      <tr><td>Stockage média <span class="sm">(Cloudflare R2)</span></td><td class="nc">0 €</td><td class="nc">1 €</td><td class="nc">2 €</td></tr>
+      <tr><td>Banque de contenu &amp; validation</td><td class="nc">0 € <span class="sm">(Sheets)</span></td><td class="nc">22 € <span class="sm">(Airtable)</span></td><td class="nc">22 €</td></tr>
+      <tr><td><strong>Voix — ElevenLabs Creator</strong><br><span class="sm">clone pro + licence commerciale</span></td><td class="nc">19 €</td><td class="nc">19 €</td><td class="nc">19 €</td></tr>
+      <tr><td><strong>Modèles via OpenRouter</strong><br><span class="sm">rédaction, atomisation, juge, commentaires</span></td><td class="nc">12 €</td><td class="nc">30 €</td><td class="nc">45 €</td></tr>
+      <tr><td>Images de complément</td><td class="nc">0 €</td><td class="nc">5 €</td><td class="nc">10 €</td></tr>
+      <tr><td>Rendu visuel, sous-titres, publication</td><td class="nc">0 €</td><td class="nc">0 €</td><td class="nc">0 €</td></tr>
+      <tr><td>Analytics &amp; veille concurrents</td><td class="nc">0 €</td><td class="nc">16 €</td><td class="nc">16 €</td></tr>
+      <tr><td>DM &amp; commentaires <span class="sm">(construit, pas acheté)</span></td><td class="nc">0 €</td><td class="nc">0 €</td><td class="nc">0 €</td></tr>
+      <tr><td><strong>Sous-total outillage</strong></td><td class="nc"><strong>≈ 31 €</strong></td><td class="nc"><strong>≈ 99 €</strong></td><td class="nc"><strong>≈ 120 €</strong></td></tr>
+      <tr><td>Publicité Meta</td><td class="nc">0 €</td><td class="nc">150 €</td><td class="nc">400 €</td></tr>
+      <tr class="tot"><td><strong>TOTAL MENSUEL</strong></td><td class="nc"><strong>31 €</strong></td><td class="nc"><strong>≈ 250 €</strong></td><td class="nc"><strong>≈ 520 €</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Ce qu'on ne paie pas — et pourquoi</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:26%">Évité</th><th style="width:16%">Économie</th><th>Raison</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Canva Enterprise</strong></td><td class="nc">sur devis</td><td>L'API Autofill l'exige. J'ai vérifié ton compte : deux Brand Kits, <strong>zéro brand template</strong>. Canva reste l'atelier de design de Christine ; la production se fait en HTML/CSS.</td></tr>
+      <tr><td><strong>ManyChat</strong></td><td class="nc">350–800 €/an</td><td>Facturation au contact actif, qui croît avec le succès. On construit le flux en direct pour 5–15 $/mois de modèle.</td></tr>
+      <tr><td><strong>Bannerbear / Placid / Templated</strong></td><td class="nc">350–950 €/an</td><td>Fidélité DA inférieure à du CSS, et les gabarits vivent dans leur interface — non versionnés, non duplicables.</td></tr>
+      <tr><td><strong>Ayrshare</strong></td><td class="nc">~1 800 €/an</td><td>Pour éviter d'écrire ~150 lignes d'intégration Meta, sans App Review à passer. À reconsidérer à partir de quatre comptes.</td></tr>
+      <tr><td><strong>Hootsuite / Later / Buffer</strong></td><td class="nc">60–2 000 €/an</td><td>On publie par API. L'interface, c'est Airtable — qui est aussi la banque de contenu.</td></tr>
+      <tr><td><strong>Submagic / OpusClip</strong></td><td class="nc">150–300 €/an</td><td>Sous-titres brûlés dans notre propre gabarit typographique. Un sous-titre « TikTok » ruinerait la DA d'un magazine.</td></tr>
+      <tr><td><strong>n8n Cloud / Make / Zapier</strong></td><td class="nc">150–600 €/an</td><td>Bons pour prototyper, mauvais comme colonne vertébrale versionnée.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="sm">Prix relevés en août 2026, hors taxes. Les tarifs de serveurs ont beaucoup augmenté cette année (deux hausses successives) — à revérifier à la commande. Le tarif Claude Sonnet passe de 2 $/10 $ à 3 $/15 $ après le 31 août 2026.</p>
+</section>
+
+<!-- ============ CHRISTINE ============ -->
+<section id="christine">
+  <h2><span class="num">09 — Sources</span>Ce qu'on attend de Christine</h2>
+  <p class="sub">Une seule consigne, et elle tient en une phrase : <strong>déposer tout en vrac dans un dossier, sans rien renommer ni trier.</strong> Le rangement est fait ensuite par une IA qui lit le magazine et identifie chaque image. Cette section peut être envoyée telle quelle.</p>
+
+  <div class="good">
+    <div class="h">C'est fait — les dossiers sont créés</div>
+    <p>L'arborescence est en place dans <strong>HL Média › Hifi Lovers Hors Série</strong>, pour les deux numéros, avec une note d'instructions déposée dans chaque boîte. Christine n'a rien à créer — voici les deux liens à lui envoyer.</p>
+    <p style="margin-top:14px;line-height:2.1">
+      <a href="https://drive.google.com/drive/folders/1EkY-7btfNpPnqIpSwLXgnpSQY2HiPtLT" target="_blank"><strong>Boîte de dépôt — Hors-série n°1 Yamaha →</strong></a><br>
+      <a href="https://drive.google.com/drive/folders/1PrLYn185pfTD8haA1guc6MYczVIopOvb" target="_blank"><strong>Boîte de dépôt — Hors-série n°2 Klipsch →</strong></a>
+    </p>
+  </div>
+
+  <h3>Le principe : une boîte de dépôt, pas une arborescence à respecter</h3>
+  <p>Demander à quelqu'un de nommer <code>NS-1000M_01.jpg</code> au lieu de <code>DSC_4471.jpg</code>, c'est demander une heure de travail fastidieux par numéro — et c'est une heure qui sera mal faite, parce que c'est ennuyeux. Le rangement est un problème de machine, pas un problème d'humain.</p>
+  <p>Donc l'ordre est inversé : <strong>Christine dépose en vrac, et une passe automatique fait le tri.</strong> L'IA lit le PDF du magazine, en extrait la structure — quel article, quelle page, quel modèle, quelle légende — puis compare chaque image déposée au contenu des pages pour l'identifier. Elle la renomme (<code>Yamaha-NS-1000M_01.jpg</code>), la classe dans <code>produits</code>, <code>archives_pubs</code>, <code>portraits</code>, <code>ambiance</code> ou <code>pages</code>, et note ce qu'elle n'a pas su identifier dans un rapport que je relis. La boîte de dépôt se vide au fur et à mesure.</p>
+  <p>Résultat : <strong>le seul geste demandé est un glisser-déposer.</strong> Cinq minutes, pas une heure.</p>
+
+  <h3>Ce qui est attendu, par ordre d'importance</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:6%"></th><th style="width:26%">Élément</th><th>Détail</th></tr></thead>
+    <tbody>
+      <tr><td class="nc">1</td><td><strong>Les images d'origine, en HD</strong><br><span class="sm">le point le plus important</span></td><td>Photos produits, ambiance, portraits, et surtout <strong>les scans de publicités d'époque</strong> — les plus précieuses de toutes. En vrac. Une seule exigence, non négociable : <strong>les fichiers d'origine, pas des images extraites du PDF.</strong> Une image tirée d'un PDF est recompressée et souvent recadrée ; c'est la différence entre un compte qui a l'air d'un magazine et un compte qui a l'air d'un scan.</td></tr>
+      <tr><td class="nc">2</td><td><strong>Les textes, séparés</strong></td><td>Un fichier par article — édito, histoire de la marque, chaque interview, chaque banc d'essai. Word, Google Docs, texte brut : le format est libre. Ce qui compte, c'est qu'ils soient séparés plutôt qu'en un seul document de cent pages. Le découpage éditorial existe déjà dans sa tête au moment de la maquette.</td></tr>
+      <tr><td class="nc">3</td><td><strong>Le PDF du magazine</strong></td><td>Haute et basse définition. <span class="sm">Déjà présents pour Yamaha dans « fichier final » — rien à faire de ce côté.</span></td></tr>
+      <tr><td class="nc">4</td><td><strong>La DA, une seule fois</strong></td><td>Le logo en SVG ou EPS et les fichiers de polices sous licence. Déposé une fois, c'est valable pour tous les numéros suivants — il n'y a pas à y revenir.</td></tr>
+      <tr><td class="nc">5</td><td><strong>Les crédits photo</strong></td><td>Une ligne par image, ou même une capture du tableau qu'elle utilise déjà. Sans ça, on ne peut pas publier une photo dont on ignore la provenance — et personne ne s'en souviendra dans six mois. Si le fichier n'existe pas, autant le dire tout de suite.</td></tr>
+      <tr><td class="nc">+</td><td><strong>Un export IDML</strong><br><span class="sm">bonus, non obligatoire</span></td><td>Si c'est facile à produire, c'est ce qui simplifie le plus la suite : textes et liens vers les images d'origine, proprement séparés, en un seul fichier. Ça remplacerait à la fois les points 1 et 2. Mais si ça demande le moindre travail, on s'en passe.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>L'arborescence produite</h3>
+  <p>Pour information — c'est le résultat du tri automatique, pas une consigne de rangement.</p>
+
+  <pre><b>0X Marque (année)/</b>
+│
+├── <b>_A DEPOSER (Christine)/</b>     <i>← le seul dossier qu'elle ouvre. Tout va ici, en vrac.</i>
+│     A LIRE.gdoc                <i>la note d'instructions, déjà déposée</i>
+│
+├── <b>00_LIVRAISON/</b>              <i>le magazine fini (Yamaha : voir « fichier final »)</i>
+├── <b>01_TEXTES/</b>                <i>un fichier par article, renommés par ordre de pagination</i>
+├── <b>02_IMAGES/</b>
+│     ├── produits/              <i>renommées &lt;Marque&gt;-&lt;Modèle&gt;_01.jpg</i>
+│     ├── ambiance/              <i>contexte, ateliers, lieux</i>
+│     ├── archives_pubs/         <i>scans d'époque, renommés &lt;année&gt;_&lt;marque&gt;_&lt;support&gt;.jpg</i>
+│     ├── portraits/             <i>les personnes interviewées</i>
+│     └── pages/                 <i>doubles-pages exportées du magazine</i>
+├── <b>03_DA/</b>                    <i>logo, polices sous licence, couleurs</i>
+└── <b>04_INFOS/</b>                 <i>sommaire, crédits photo, lien boutique</i>
+
+<i>Tout ce qui est en gris est produit par le tri automatique.
+Christine ne touche jamais qu'au premier dossier.</i></pre>
+
+  <div class="good">
+    <div class="h">Sur le PDF Acrobat modifiable</div>
+    <p>Ce n'est pas nécessaire, et ça lui donnerait du travail pour rien. Ce dont j'ai besoin, ce n'est pas de modifier la maquette — c'est d'accéder aux <strong>éléments séparés</strong> qui la composent. Un PDF, même modifiable, reste un objet de mise en page dont on extrait mal les images. L'export IDML, lui, est utile s'il est facile à produire. Sinon, le dépôt en vrac suffit largement.</p>
+  </div>
+
+  <h3>Ce que fait exactement la passe de tri</h3>
+  <ul class="clean">
+    <li><strong>Elle lit le magazine</strong> et en reconstruit la structure : articles, pages, modèles cités, légendes, crédits imprimés.</li>
+    <li><strong>Elle regarde chaque image déposée</strong> et la rapproche de la page où elle apparaît — c'est ce qui permet de la nommer avec la référence exacte du matériel plutôt qu'avec un numéro d'appareil photo.</li>
+    <li><strong>Elle classe, renomme et déplace</strong>, en conservant l'original tant que le rangement n'est pas validé.</li>
+    <li><strong>Elle produit un rapport</strong> de ce qu'elle n'a pas su identifier — typiquement une photo qui n'est pas dans le magazine. Ces cas-là me remontent, pas à Christine.</li>
+    <li><strong>Elle détecte les doublons et les basses définitions</strong> et signale les images trop petites pour un visuel Instagram propre.</li>
+    <li><strong>Elle tourne à chaque nouveau dépôt</strong>, pas une fois pour toutes. Christine peut donc déposer au fil de l'eau, sans attendre d'avoir tout réuni.</li>
+  </ul>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section id="plan">
+  <h2><span class="num">10 — Roadmap</span>Les 90 jours</h2>
+  <p class="sub">Audience, puis conversion, puis communauté. Chaque phase a un critère de réussite unique.</p>
+
+  <div class="phase">
+    <div class="phase-h"><span class="w">Semaines 1–2</span><span class="t">Phase 0 · Le socle</span><span class="goal">Critère : la DA passe</span></div>
+    <div class="phase-b"><ul>
+      <li><strong>Toi :</strong> compte Instagram en Business, Page Facebook créée, session d'enregistrement de la voix (30 min à 2 h).</li>
+      <li><strong>Christine :</strong> le dossier Yamaha complété selon la structure du §09.</li>
+      <li><strong>Moi :</strong> app Meta en Standard Access, jetons et renouvellement automatique, stockage R2, base de contenu, clone vocal entraîné, huit gabarits HTML dans la DA Hifi Lovers.</li>
+      <li><strong>Moi, en parallèle :</strong> dépôt de la demande d'App Review pour les webhooks de commentaires — ~20 jours d'attente, autant les lancer tout de suite.</li>
+      <li><strong>Le jalon :</strong> un article et trois pubs vintage → dix atomes → cinq posts rendus, dont un Reel avec ta voix. <strong>Si ce n'est pas digne du magazine, on retravaille les gabarits avant toute chose.</strong></li>
+    </ul></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-h"><span class="w">Semaines 3–4</span><span class="t">Phase 1 · Le stock</span><span class="goal">Critère : 60 posts en attente</span></div>
+    <div class="phase-b"><ul>
+      <li>Le hors-série Yamaha ingéré, plus une première vague de curation : trente bars identifiés, cinquante pubs d'époque sourcées et datées.</li>
+      <li><strong>Toi :</strong> une session de tri de deux heures. Tu valides, tu jettes, tu corriges. <strong>Cette session vaut trois mois de réglages</strong> — c'est là que le système apprend la voix Hifi Lovers.</li>
+      <li>Publication manuelle des dix premiers posts, pour observer avant d'automatiser.</li>
+      <li>Ouverture du canal de diffusion, et repérage de partenaires dans les comptes que Hifi Lovers suit déjà : bars, restaurateurs, boutiques, collectionneurs.</li>
+    </ul></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-h"><span class="w">Semaines 5–8</span><span class="t">Phase 2 · Audience</span><span class="goal">Critère : &gt;70 % de portée non-abonnés</span></div>
+    <div class="phase-b"><ul>
+      <li><strong>La publication passe en automatique</strong>, crosspost Facebook activé. Tu ne fais plus que valider par lot.</li>
+      <li><strong>60 % des Reels en Trial</strong> auprès des non-abonnés. Une variable à la fois : même contenu, trois accroches, 48 h d'écart, décision à 72 h.</li>
+      <li>Constitution de la bibliothèque d'accroches validées — c'est cet actif, pas les abonnés, qui fait la croissance du trimestre suivant.</li>
+      <li>Deux collabs par mois avec des bars ou des boutiques. Je produis le contenu sur leur lieu, ils n'ont qu'à accepter l'invitation.</li>
+      <li>Les likes automatiques démarrent dès que l'App Review passe ; les réponses suivent, avec validation humaine.</li>
+    </ul></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-h"><span class="w">Semaines 9–11</span><span class="t">Phase 3 · Conversion</span><span class="goal">Critère : exemplaires vendus / 1 000 vues</span></div>
+    <div class="phase-b"><ul>
+      <li>Le mot-clé s'active : appel à l'action en fin de Reel → commentaire → envoi automatique du sommaire et du lien boutique. Double effet — du commentaire (signal de ranking) et du DM (signal de relation).</li>
+      <li>Publicité : 150 €/mois, <strong>aucune acquisition froide optimisée sur l'achat</strong> — c'est un piège avec un produit à 20 €. On booste uniquement les posts organiques ayant déjà dépassé trois fois la portée médiane, en placement Reels.</li>
+      <li>Reciblage des vues à 75 % et des comptes ayant interagi sur 365 jours. C'est la seule poche où viser la vente a du sens.</li>
+      <li>Stories sur la fabrication du numéro Klipsch — c'est ce qui vend du papier, pas la promotion.</li>
+    </ul></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-h"><span class="w">Semaines 12–13</span><span class="t">Phase 4 · Communauté &amp; duplication</span><span class="goal">Critère : 20 lignes pour Klipsch</span></div>
+    <div class="phase-b"><ul>
+      <li>Lancement de « Votre système » : les lecteurs envoient leur installation, on la retraite éditorialement. Chaque personne publiée partage à son réseau, et le fichier d'acheteurs se construit.</li>
+      <li><strong>Le test de duplication :</strong> ouverture du numéro Klipsch avec le seul <code>numero.yaml</code>. Si j'ai dû écrire du code, je corrige l'abstraction maintenant.</li>
+      <li>Arbitrage Facebook sur <code>facebook_views</code>. Revue des scores par format et repondération du planificateur.</li>
+    </ul></div>
+  </div>
+
+  <h3>Les indicateurs à suivre</h3>
+  <div class="grid g3">
+    <div class="stat"><span class="v">&gt;1 %</span><span class="l">Partages ÷ portée — la métrique nord de 2026</span></div>
+    <div class="stat"><span class="v">&gt;70 %</span><span class="l">Part de portée non-abonnés — la machine à découverte fonctionne</span></div>
+    <div class="stat"><span class="v">&gt;1,5 %</span><span class="l">Enregistrements ÷ portée sur carrousels — l'autorité éditoriale</span></div>
+    <div class="stat"><span class="v">&gt;12 s</span><span class="l">Temps de visionnage moyen — la moyenne plateforme est à 8,5 s</span></div>
+    <div class="stat"><span class="v">&gt;15 %</span><span class="l">Part de Facebook dans les vues totales — seuil d'investissement</span></div>
+    <div class="stat"><span class="v">→ €</span><span class="l">DM déclenchés par le mot-clé — le seul proxy direct des ventes</span></div>
+  </div>
+
+  <p style="margin-top:22px">Ordre de grandeur réaliste à 90 jours : <strong>1 000 à 2 500 abonnés</strong> avec une exécution sérieuse. Le scénario haut (5 000 à 15 000) dépend d'un seul Reel qui perce — sur cette niche, la distribution est très asymétrique et un contenu peut représenter 70 % de la croissance d'un trimestre. Le scénario bas reste 300 à 800, et il faut le garder en tête : <strong>seuls 21 % des comptes de moins de 10 000 abonnés ont grandi en 2026.</strong> C'est pourquoi la stratégie n'est pas « publier régulièrement » mais « multiplier les tirages qualifiés ».</p>
+</section>
+
+<!-- ============ SUITE ============ -->
+<section id="suite">
+  <h2><span class="num">11 — La suite</span>Ce qu'il me faut, et deux questions</h2>
+
+  <h3>De ton côté</h3>
+  <ul class="clean">
+    <li><strong>Le compte Instagram en Business</strong> et un accès administrateur pour créer l'application Meta. Deux minutes, réversible, pas de validation à passer pour la publication.</li>
+    <li><strong>Une session d'enregistrement voix</strong> — 30 minutes minimum, deux heures idéalement, même micro du début à la fin. Je te prépare le texte à lire.</li>
+    <li><strong>Les polices sous licence et le logo en vectoriel</strong> (Christine les a). J'ai déjà la palette et les familles typographiques depuis ta boutique : Syne en titrage, Montserrat en texte, taupe #a49079 et or #ab8c52.</li>
+    <li><strong>Le dossier Yamaha complété</strong> selon la structure du §09 — le PDF y est déjà, il manque surtout les images seules et les textes séparés.</li>
+    <li><strong>Le lien de vente de chaque numéro</strong>, pour construire le tunnel de conversion dès la phase 3.</li>
+    <li><strong>Un arbitrage sur le périmètre humain.</strong> Ce que le système absorbe, c'est la production et la programmation. Ce qui garde une vraie valeur humaine, c'est la relation : démarcher les bars et les boutiques, négocier les collabs, entretenir les partenariats créateurs. À toi de décider comment ce périmètre est couvert — c'est le seul poste que l'automatisation ne remplace pas.</li>
+  </ul>
+
+  <h3>Deux questions ouvertes</h3>
+  <div class="grid g2">
+    <div class="card gold">
+      <span class="tag">Question 01</span>
+      <h4>Hébergement sur hl-consulting.tech</h4>
+      <p>C'est la bonne destination — le site a déjà un Knowledge Hub et une entrée HiFi Lovers. Mais je ne peux pas pousser d'ici : la session est authentifiée sur GitHub en tant que <code>hugolahutte</code>, mais <strong>elle n'est liée à aucun dépôt</strong> — tous les appels renvoient une erreur d'autorisation. Il faut soit ouvrir une session Claude Code depuis ta machine sur le dépôt du site (je pousse alors directement), soit relancer cette session en la liant au dépôt. En attendant, la page est un fichier HTML autonome : aucune dépendance, aucun script externe hormis les polices Google — il suffit de la déposer où tu veux.</p>
+    </div>
+    <div class="card gold">
+      <span class="tag">Question 02</span>
+      <h4>Et « HL Content » ?</h4>
+      <p>Tu mentionnes ce qu'on a préparé avec OpenRouter. J'ai cherché dans le Drive HL Média : rien qui y ressemble, donc c'est vraisemblablement un dépôt Git. Pointe-le moi — <strong>autant réutiliser la couche modèles, les clés et les prompts déjà écrits</strong> plutôt que d'en refaire une. Le pipeline Instagram viendrait s'y brancher comme un consommateur de plus, et les deux projets partageraient le même routage et la même facturation.</p>
+    </div>
+  </div>
+
+  <div class="good">
+    <div class="h">Ma proposition de première étape</div>
+    <p>Ne t'engage sur rien. Complète le dossier Yamaha, donne-moi l'accès au compte, et je te livre en <strong>48 heures</strong> la preuve de la Phase 0 : cinq posts complets — deux pubs vintage traitées, un bar, une cote, et un Reel de 30 secondes avec voix off — visuels rendus dans ta DA, légendes bilingues, prêts à publier. Si ce n'est pas digne du magazine, tu n'as rien dépensé et on retravaille les gabarits jusqu'à ce que ça le soit.</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <h3>Sources principales</h3>
+    <div class="srcs">
+      <a href="https://developers.facebook.com/docs/instagram-platform/content-publishing" target="_blank">Meta — Publish Content using the Instagram Platform</a>
+      <a href="https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/user-likes" target="_blank">Meta — Like Media and Comments API</a>
+      <a href="https://developers.facebook.com/docs/instagram-platform/webhooks" target="_blank">Meta — Instagram Webhooks (commentaires)</a>
+      <a href="https://developers.facebook.com/docs/instagram-platform/overview" target="_blank">Meta — Access levels &amp; rate limits</a>
+      <a href="https://developers.facebook.com/devpolicy/" target="_blank">Meta — Developer Policies</a>
+      <a href="https://techcrunch.com/2026/04/30/instagram-restricts-reach-of-content-aggregators-in-new-crackdown/" target="_blank">TechCrunch — Instagram restreint les agrégateurs (30 avril 2026)</a>
+      <a href="https://metricool.com/press-release-instagram-study-2026/" target="_blank">Metricool — Étude Instagram 2026 (24,4 M de posts)</a>
+      <a href="https://www.socialinsider.io/social-media-benchmarks" target="_blank">Socialinsider — Benchmarks 2026</a>
+      <a href="https://www.socialinsider.io/social-media-benchmarks/facebook" target="_blank">Socialinsider — Benchmarks Facebook 2026</a>
+      <a href="https://backlinko.com/facebook-users" target="_blank">Backlinko — Démographie Facebook 2026</a>
+      <a href="https://www.kontentino.com/q-and-a/instagram-hashtags-reach/" target="_blank">Mosseri sur les hashtags (juillet 2026)</a>
+      <a href="https://www.socialmediatoday.com/news/instagram-allows-creators-to-schedule-trial-reels/816549/" target="_blank">Social Media Today — Trial Reels programmables</a>
+      <a href="https://elevenlabs.io/docs/product-guides/voices/voice-cloning/professional-voice-cloning" target="_blank">ElevenLabs — Professional Voice Cloning</a>
+      <a href="https://elevenlabs.io/pricing" target="_blank">ElevenLabs — Tarifs</a>
+      <a href="https://community.openai.com/t/custom-voices-in-the-api-not-available/1377611" target="_blank">OpenAI — Voix custom non disponibles</a>
+      <a href="https://openrouter.ai/docs/features/provider-routing" target="_blank">OpenRouter — Provider Routing</a>
+      <a href="https://openrouter.ai/blog/announcements/announcing-audio-apis/" target="_blank">OpenRouter — Audio APIs (mai 2026)</a>
+      <a href="https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice" target="_blank">Artificial Analysis — Classement TTS</a>
+      <a href="https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act" target="_blank">Commission européenne — FAQ AI Act article 50</a>
+      <a href="https://www.cooley.com/news/insight/2026/2026-08-03-eu-ai-act-transparency-obligations-take-effect-2-august-2026" target="_blank">Cooley — Transparence AI Act (3 août 2026)</a>
+      <a href="https://everybodyslibraries.com/2019/07/10/everybodys-library-questions-copyright-and-advertisements/" target="_blank">Copyright et publicités anciennes</a>
+      <a href="https://www.droit-technologie.org/actualites/lexception-de-citation-ecartee-en-cas-de-reproduction-integrale-dune-photographie/" target="_blank">Droit &amp; Technologies — exception de citation et images</a>
+      <a href="https://www.canva.dev/docs/connect/api-reference/autofills/" target="_blank">Canva — Autofill API (restriction Enterprise)</a>
+      <a href="https://www.mdpi.com/2673-5172/6/1/30" target="_blank">MDPI Media — Publication automatisée en rédaction</a>
+      <a href="https://reutersinstitute.politics.ox.ac.uk/journalism-media-and-technology-trends-and-predictions-2026" target="_blank">Reuters Institute — Trends &amp; Predictions 2026</a>
+    </div>
+    <p style="margin-top:30px;max-width:none">Plan v2 — 11 août 2026. Direction artistique reprise de la boutique Haute Fidélité (Syne, Montserrat, #212121, #a49079, #ab8c52, #f5f2ec). Les points signalés comme non confirmés dans la recherche — durée exacte de protection des œuvres collectives, noms de modèles sur OpenRouter, crédits ElevenLabs, programmation native des Reels Facebook — seront revérifiés en conditions réelles en Phase 0. Ce document ne constitue pas un conseil juridique.</p>
+  </div>
+</footer>
+
+</body>
+</html>
