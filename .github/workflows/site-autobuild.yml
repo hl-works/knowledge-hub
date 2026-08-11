@@ -5,6 +5,7 @@ name: Site autobuild (llms-full, feeds, veille + atlas statiques)
 # - feed.xml + veille-ia/feed.xml (RSS)
 # - rendu statique de la veille dans les pages veille (crawlers IA sans JS)
 # - grille vidéos de la home : dernières « Voyage en Haute-Fidélité » (YouTube)
+# - encart « en kiosque » de la home : dernier numéro du magazine (Shopify)
 # - atlas-asie : rendu statique pays/parcours + sitemap.xml + llms.txt
 #   (mêmes crawlers sans JS ; un rebuild Astro committé efface ces blocs,
 #   le workflow les réinjecte aussitôt)
@@ -50,6 +51,7 @@ jobs:
           python3 scripts/build_feeds.py
           python3 scripts/build_atlas_static.py
           python3 scripts/update_home_videos.py
+          python3 scripts/update_home_magazine.py
       - name: Vérifier la cohérence
         run: python3 scripts/check_site_health.py
       - name: Commit si diff
