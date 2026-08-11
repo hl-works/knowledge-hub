@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://hl-consulting.tech/hl-content/">
+<title>HL Content — la machine à contenus attestés</title>
+<meta name="description" content="La version lisible du projet HL Content : deux légitimités (y avoir été, ou faire un choix), la chaîne de traitement en gros blocs, et l'état d'avancement de chacun." />
+
+<style>
+  /* ============================ TOKENS ============================ */
+  :root {
+    --ground: #e9edee;
+    --surface: #f5f8f8;
+    --surface-2: #fdfefe;
+    --ink: #14181b;
+    --ink-soft: #525a60;
+    --ink-faint: #7c858b;
+    --line: #d6dcde;
+    --line-strong: #c1c9cb;
+    --accent: #986a1b;
+    --accent-bright: #b5812e;
+    --cool: #256660;
+    --ok: #2c7a54;
+    --wip: #2360a5;
+    --todo: #6b7378;
+    --accent-wash: rgba(152,106,27,.10);
+    --cool-wash: rgba(37,102,96,.10);
+    --shadow: 0 1px 2px rgba(20,24,27,.05), 0 10px 30px -14px rgba(20,24,27,.16);
+    --shadow-lg: 0 30px 80px -30px rgba(20,24,27,.4);
+    --hatch: rgba(37,102,96,.16);
+    --scrim: rgba(20,24,27,.34);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131619; --surface: #1b1f23; --surface-2: #22272b;
+      --ink: #eaeef0; --ink-soft: #98a1a7; --ink-faint: #767f85;
+      --line: #2a3036; --line-strong: #363e45;
+      --accent: #d6a24a; --accent-bright: #e6b968; --cool: #5aa99d;
+      --ok: #4fa97d; --wip: #5c9be0; --todo: #7c858b;
+      --accent-wash: rgba(214,162,74,.13); --cool-wash: rgba(90,169,157,.12);
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 36px -16px rgba(0,0,0,.6);
+      --shadow-lg: 0 40px 90px -30px rgba(0,0,0,.7);
+      --hatch: rgba(90,169,157,.20); --scrim: rgba(0,0,0,.5);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #131619; --surface: #1b1f23; --surface-2: #22272b;
+    --ink: #eaeef0; --ink-soft: #98a1a7; --ink-faint: #767f85;
+    --line: #2a3036; --line-strong: #363e45;
+    --accent: #d6a24a; --accent-bright: #e6b968; --cool: #5aa99d;
+    --ok: #4fa97d; --wip: #5c9be0; --todo: #7c858b;
+    --accent-wash: rgba(214,162,74,.13); --cool-wash: rgba(90,169,157,.12);
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 36px -16px rgba(0,0,0,.6);
+    --shadow-lg: 0 40px 90px -30px rgba(0,0,0,.7);
+    --hatch: rgba(90,169,157,.20); --scrim: rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px; line-height: 1.62; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .serif { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; }
+  .mono { font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace; font-variant-numeric: tabular-nums; }
+
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { color: var(--accent-bright); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
+
+  .eyebrow {
+    font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 18px; display: flex; align-items: center; gap: 11px;
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--accent); }
+
+  h1, h2, h3 { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; text-wrap: balance; font-weight: 600; }
+
+  /* ============================ HEADER ============================ */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    background: color-mix(in srgb, var(--ground) 86%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line);
+  }
+  .topbar .row { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+  .brand { display: flex; align-items: center; gap: 11px; font-weight: 600; }
+  .brand .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-wash); flex: none; }
+  .brand small { color: var(--ink-faint); font-weight: 500; }
+  .toolbtn {
+    font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .08em; color: var(--ink-soft);
+    background: transparent; border: 1px solid var(--line-strong); padding: 8px 13px; border-radius: 999px; cursor: pointer;
+  }
+  .toolbtn:hover { color: var(--ink); border-color: var(--accent); }
+
+  /* ============================ HERO ============================ */
+  .hero { padding: clamp(60px, 10vw, 128px) 0 clamp(48px, 7vw, 88px); }
+  .stamp {
+    display: inline-flex; align-items: center; gap: 9px; font-family: ui-monospace, Menlo, monospace;
+    font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--cool);
+    border: 1px solid color-mix(in srgb, var(--cool) 40%, var(--line)); background: var(--cool-wash);
+    padding: 7px 13px; border-radius: 5px; margin-bottom: 30px;
+  }
+  .stamp .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--cool); }
+  .hero h1 { font-size: clamp(2.4rem, 6.2vw, 4.4rem); line-height: 1.03; letter-spacing: -.015em; margin: 0 0 .55em; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero .lede { font-size: clamp(1.1rem, 2vw, 1.34rem); color: var(--ink-soft); max-width: 46ch; margin: 0; }
+  .hero-meta { margin-top: 46px; display: flex; flex-wrap: wrap; gap: 30px 52px; }
+  .stat .k { font-family: ui-monospace, Menlo, monospace; font-size: clamp(1.4rem,3vw,1.9rem); font-weight: 600; letter-spacing: -.01em; display: block; }
+  .stat .l { font-size: 13px; color: var(--ink-faint); margin-top: 4px; }
+  .stat .k.warm { color: var(--accent); } .stat .k.cool { color: var(--cool); }
+
+  /* ============================ TABS ============================ */
+  .tabbar {
+    position: sticky; top: 60px; z-index: 30; background: color-mix(in srgb, var(--ground) 86%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .tablist { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .tablist::-webkit-scrollbar { display: none; }
+  .tab {
+    appearance: none; background: transparent; border: none; cursor: pointer; white-space: nowrap;
+    font-family: inherit; font-size: 15px; color: var(--ink-soft); padding: 17px 18px 15px;
+    border-bottom: 2px solid transparent; display: inline-flex; align-items: center; gap: 9px;
+  }
+  .tab .num { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--ink-faint); letter-spacing: .1em; }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+  .tab[aria-selected="true"] .num { color: var(--accent); }
+
+  .panel { padding: clamp(48px, 7vw, 88px) 0; }
+  .panel[hidden] { display: none; }
+  .panel-intro { max-width: 60ch; margin: 0 0 clamp(36px, 5vw, 52px); }
+  .panel-intro h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); letter-spacing: -.01em; margin: 0 0 14px; }
+  .panel-intro p { color: var(--ink-soft); margin: 0; font-size: 1.06rem; }
+
+  /* ============================ ENTRIES (deux légitimités) ============================ */
+  .entries-label { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 18px; }
+  .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 40px; }
+
+  /* clickable block (shared) */
+  .block {
+    text-align: left; width: 100%; font: inherit; color: inherit; cursor: pointer;
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px;
+    padding: 26px 26px 24px; box-shadow: var(--shadow);
+    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden;
+  }
+  .block:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow-lg); }
+  .block:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .block .kicker { font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); }
+  .block.cool .kicker { color: var(--cool); }
+  .block h3 { margin: 0; font-size: 1.4rem; letter-spacing: -.01em; }
+  .block p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+  .block .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; }
+  .block .dig { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .06em; color: var(--ink-faint); display: inline-flex; align-items: center; gap: 6px; }
+  .block:hover .dig { color: var(--accent); }
+  .block.entry.warm::before, .block.entry.coolborder::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  }
+  .block.entry.warm::before { background: var(--accent); }
+  .block.entry.coolborder::before { background: var(--cool); }
+  .block.entry.coolborder::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background: repeating-linear-gradient(135deg, transparent 0 9px, var(--hatch) 9px 10px);
+    -webkit-mask-image: linear-gradient(90deg, transparent 55%, #000); mask-image: linear-gradient(90deg, transparent 55%, #000);
+  }
+
+  .converge { text-align: center; color: var(--ink-faint); font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 34px; display: flex; align-items: center; gap: 14px; justify-content: center; }
+  .converge::before, .converge::after { content: ""; height: 1px; width: 40px; background: var(--line-strong); }
+
+  /* ============================ SURFACES ============================ */
+  .surfaces-band { border-top: 1px solid var(--line); background: var(--surface); }
+  .surfaces-band .wrap { padding-top: clamp(38px, 5vw, 58px); padding-bottom: clamp(38px, 5vw, 58px); }
+  .surfaces-band .lead-line { color: var(--ink-soft); max-width: 56ch; margin: 0 0 26px; font-size: 15.5px; }
+  .surfaces { display: grid; grid-template-columns: repeat(auto-fit, minmax(216px, 1fr)); gap: 16px; }
+  .surface {
+    display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; border: 1px solid var(--line);
+    border-radius: 13px; background: var(--surface-2); text-decoration: none; color: inherit;
+    transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+  }
+  button.surface { text-align: left; font: inherit; color: inherit; cursor: pointer; }
+  a.surface:hover, button.surface:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .surface.lead { border-left: 3px solid var(--accent); }
+  .s-name { font-family: Georgia, "Iowan Old Style", serif; font-size: 1.2rem; font-weight: 600; }
+  .s-desc { color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
+  .s-badge { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-top: 8px; }
+  .s-badge.muted { color: var(--ink-faint); }
+
+  /* ============================ CHAIN (vertical) ============================ */
+  .chain { display: grid; grid-template-columns: 36px 1fr; gap: 0 20px; }
+  .rail { position: relative; }
+  .rail .line { position: absolute; left: 50%; top: 10px; bottom: 10px; width: 2px; transform: translateX(-50%); background: var(--line-strong); border-radius: 2px; overflow: hidden; }
+  .rail .line .spark { position: absolute; left: 0; right: 0; height: 48px; background: linear-gradient(180deg, transparent, var(--accent), transparent); animation: travel 5s cubic-bezier(.5,.15,.4,.9) infinite; }
+  @keyframes travel { 0% { top: -48px; } 100% { top: 100%; } }
+  .stage { position: relative; padding-bottom: 18px; }
+  .stage:last-child { padding-bottom: 0; }
+  .node {
+    position: absolute; left: 0; top: 22px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%;
+    background: var(--surface-2); border: 1.5px solid var(--line-strong);
+    font-family: ui-monospace, Menlo, monospace; font-size: 13px; font-weight: 600; color: var(--ink-soft); z-index: 2;
+  }
+  .stage.on .node { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 4px var(--accent-wash); }
+  .chain .block { margin-bottom: 0; }
+
+  /* status pills */
+  .pill { font-family: ui-monospace, Menlo, monospace; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; white-space: nowrap; border: 1px solid transparent; }
+  .pill.ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 13%, transparent); border-color: color-mix(in srgb, var(--ok) 30%, transparent); }
+  .pill.wip { color: var(--wip); background: color-mix(in srgb, var(--wip) 13%, transparent); border-color: color-mix(in srgb, var(--wip) 30%, transparent); }
+  .pill.todo { color: var(--todo); background: color-mix(in srgb, var(--todo) 12%, transparent); border-color: color-mix(in srgb, var(--todo) 28%, transparent); }
+  .pill.think { color: var(--cool); background: var(--cool-wash); border-color: color-mix(in srgb, var(--cool) 30%, transparent); }
+
+  /* ============================ PRINCIPE ============================ */
+  .thesis-quote { font-family: Georgia, serif; font-size: clamp(1.5rem, 3.6vw, 2.5rem); line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; margin: 0 0 40px; max-width: 22ch; }
+  .thesis-quote b { color: var(--accent); font-weight: 600; }
+  .thesis-quote .c2 { color: var(--cool); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .matter { border: 1px solid var(--line); border-radius: 14px; padding: 28px; background: var(--surface-2); position: relative; overflow: hidden; }
+  .matter.temoigne { border-left: 3px solid var(--accent); }
+  .matter.documente { border-left: 3px solid var(--cool); }
+  .matter .tag { font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; display: inline-block; padding: 4px 9px; border-radius: 5px; margin-bottom: 15px; }
+  .matter.temoigne .tag { color: var(--accent); background: var(--accent-wash); }
+  .matter.documente .tag { color: var(--cool); background: var(--cool-wash); }
+  .matter h3 { margin: 0 0 9px; font-size: 1.4rem; }
+  .matter p { margin: 0; color: var(--ink-soft); }
+  .matter .note { margin-top: 16px; font-size: 14px; color: var(--ink-faint); }
+
+  .rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-top: 52px; }
+  .rule { background: var(--surface-2); padding: 26px; }
+  .rule .n { font-family: ui-monospace, Menlo, monospace; color: var(--accent); font-size: 13px; letter-spacing: .1em; }
+  .rule h3 { margin: 9px 0 7px; font-size: 1.14rem; }
+  .rule p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+  /* ============================ AVANCEMENT ============================ */
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--ink-soft); margin-bottom: 30px; }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend i { width: 9px; height: 9px; border-radius: 50%; }
+  .track { display: grid; gap: 11px; }
+  .item { display: grid; grid-template-columns: 32px 1fr auto; align-items: center; gap: 16px; padding: 17px 22px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2); }
+  .item .idx { font-family: ui-monospace, Menlo, monospace; color: var(--ink-faint); font-size: 13px; }
+  .item .t { font-weight: 600; }
+  .item .t small { display: block; font-weight: 400; color: var(--ink-faint); font-size: 13.5px; margin-top: 3px; }
+  .item.done { border-left: 3px solid var(--ok); }
+  .item.ready { border-left: 3px solid var(--wip); }
+  .item.next { border-left: 3px solid var(--line-strong); }
+
+  .guards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 54px; }
+  .guard { border: 1px dashed var(--line-strong); border-radius: 12px; padding: 24px; background: color-mix(in srgb, var(--surface) 55%, transparent); }
+  .guard .lk { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .05em; color: var(--cool); }
+  .guard h3 { margin: 10px 0 7px; font-size: 1.1rem; }
+  .guard p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+  /* ============================ PROGRESS (hero) ============================ */
+  .progress { margin-top: 44px; max-width: 660px; }
+  .progress .phead { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .progress .lab { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+  .progress .cap { font-size: 13px; color: var(--ink-soft); }
+  .pbar { display: flex; gap: 4px; height: 12px; }
+  .pseg { flex: 1; border-radius: 3px; background: var(--line-strong); }
+  .pseg.ok { background: var(--ok); }
+  .pseg.ready { background: var(--wip); }
+  .pkey { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; color: var(--ink-faint); }
+  .pkey span { display: inline-flex; align-items: center; gap: 7px; }
+  .pkey i { width: 9px; height: 9px; border-radius: 2px; }
+
+  /* ============================ REPOS / STACK ============================ */
+  .repos { display: grid; gap: 14px; }
+  .repo { border: 1px solid var(--line); border-radius: 13px; background: var(--surface-2); padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; }
+  button.repo, a.repo { text-align: left; font: inherit; color: inherit; cursor: pointer; text-decoration: none; transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+  button.repo:hover, a.repo:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .repo .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .repo .rn { font-family: ui-monospace, Menlo, monospace; font-size: 14.5px; color: var(--ink); }
+  .repo .rn b { color: var(--accent); font-weight: 600; }
+  .repo .rd { color: var(--ink-soft); font-size: 14.5px; margin: 0; }
+  .repo .dig { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--ink-faint); }
+  .repo:hover .dig { color: var(--accent); }
+  .stack { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+  .chip { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--ink-soft); border: 1px solid var(--line); background: var(--surface-2); padding: 7px 12px; border-radius: 999px; }
+  .chip b { color: var(--accent); font-weight: 600; }
+  .subhead { font-family: Georgia, serif; font-size: 1.3rem; margin: 48px 0 6px; }
+  .subhead + p { color: var(--ink-soft); margin: 0 0 6px; font-size: 15px; }
+
+  /* prochaine étape */
+  .nextup { display: flex; gap: 16px; align-items: flex-start; border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line)); background: var(--accent-wash); border-radius: 13px; padding: 22px 24px; margin-bottom: 34px; }
+  .nextup .badge { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 5px; padding: 5px 9px; white-space: nowrap; flex: none; margin-top: 2px; }
+  .nextup p { margin: 0; color: var(--ink); }
+  .nextup p strong { color: var(--accent); }
+
+  /* ============================ DRAWER ============================ */
+  .scrim { position: fixed; inset: 0; background: var(--scrim); opacity: 0; pointer-events: none; transition: opacity .28s ease; z-index: 60; backdrop-filter: blur(2px); }
+  .scrim.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed; top: 0; right: 0; height: 100%; width: min(520px, 94vw); z-index: 70;
+    background: var(--surface); border-left: 1px solid var(--line-strong); box-shadow: var(--shadow-lg);
+    transform: translateX(100%); transition: transform .3s cubic-bezier(.4,.1,.2,1);
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .drawer.open { transform: none; }
+  .drawer-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 26px 28px 20px; border-bottom: 1px solid var(--line); }
+  .drawer-head .kicker { font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); }
+  .drawer-head h2 { margin: 8px 0 0; font-size: 1.6rem; letter-spacing: -.01em; }
+  .xbtn { appearance: none; background: transparent; border: 1px solid var(--line-strong); color: var(--ink-soft); width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 18px; line-height: 1; flex: none; }
+  .xbtn:hover { color: var(--ink); border-color: var(--accent); }
+  .drawer-body { padding: 24px 28px 40px; overflow-y: auto; }
+  .drawer-body p { color: var(--ink-soft); margin: 0 0 16px; }
+  .drawer-body p strong { color: var(--ink); }
+  .drawer-body .status-row { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--ink-faint); letter-spacing: .04em; }
+  .drawer-body ul { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; }
+  .drawer-body li { position: relative; padding-left: 20px; color: var(--ink-soft); font-size: 15px; }
+  .drawer-body li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .drawer-body li.cool::before { background: var(--cool); }
+  .drawer-body .refs { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; color: var(--ink-faint); display: flex; flex-wrap: wrap; gap: 8px 16px; }
+
+  /* ============================ FOOTER ============================ */
+  footer { border-top: 1px solid var(--line); padding: 48px 0 66px; color: var(--ink-faint); }
+  .foot-row { display: flex; flex-wrap: wrap; gap: 24px 40px; justify-content: space-between; align-items: flex-start; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 10px 22px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  .foot-note { font-size: 13.5px; max-width: 48ch; line-height: 1.55; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 720px) {
+    .entries, .grid-2, .rules, .guards { grid-template-columns: 1fr; }
+    .item { grid-template-columns: 28px 1fr; }
+    .item .pill { grid-column: 2; justify-self: start; margin-top: 2px; }
+    .tabbar { top: 60px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rail .line .spark { animation: none; opacity: 0; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+    .block, .drawer, .scrim { transition: none; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap row">
+    <div class="brand"><span class="dot"></span> HL&nbsp;Content <small>· HL Média</small></div>
+    <button class="toolbtn" id="theme" type="button" aria-label="Changer de thème">◑ thème</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="stamp"><span class="pulse"></span> État vérifié · socle en place · non indexé</div>
+    <h1 class="serif">Elle ne produit pas du contenu.<br>Elle <em>transporte une présence.</em></h1>
+    <p class="lede">Deux légitimités, une seule machine : <strong>y avoir été</strong> — ou <strong>faire le choix</strong> de le pousser. L'IA n'est pas l'auteur, c'est la logistique.</p>
+    <div class="hero-meta">
+      <div class="stat"><span class="k mono">‹ 10 s</span><span class="l">poser une observation</span></div>
+      <div class="stat"><span class="k mono warm">13</span><span class="l">collections en base</span></div>
+      <div class="stat"><span class="k mono cool">1 → N</span><span class="l">une machine, N surfaces</span></div>
+      <div class="stat"><span class="k mono">false</span><span class="l">SITE_INDEXABLE (préprod)</span></div>
+    </div>
+
+    <div class="progress">
+      <div class="phead">
+        <span class="lab">Avancement</span>
+        <span class="cap">Socle en place · déploiement prêt · le flux se construit</span>
+      </div>
+      <div class="pbar" role="img" aria-label="Cinq briques faites, une prête, le flux à venir">
+        <span class="pseg ok"></span><span class="pseg ok"></span><span class="pseg ok"></span>
+        <span class="pseg ok"></span><span class="pseg ok"></span>
+        <span class="pseg ready"></span>
+        <span class="pseg"></span><span class="pseg"></span><span class="pseg"></span>
+      </div>
+      <div class="pkey">
+        <span><i style="background:var(--ok)"></i> socle &amp; sécurité — fait</span>
+        <span><i style="background:var(--wip)"></i> déploiement — prêt</span>
+        <span><i style="background:var(--line-strong)"></i> capture → diffusion — à venir</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SURFACES -->
+<section class="surfaces-band">
+  <div class="wrap">
+    <p class="entries-label">Une machine, plusieurs surfaces · collection <span class="mono">Sites</span></p>
+    <p class="lead-line">Le même moteur alimente plusieurs univers éditoriaux, chacun avec sa surface publique et son ton. Le premier est déjà cadré.</p>
+    <div class="surfaces">
+      <button class="surface lead" data-detail="hifilovers" data-kicker="Surface · sous-projet" data-title="Hifi Lovers" aria-haspopup="dialog">
+        <span class="s-name">Hifi&nbsp;Lovers</span>
+        <span class="s-desc">L'univers hi-fi vintage — pubs d'époque, bars &amp; marques iconiques. Compte Instagram <span class="mono">@hifi.lvrs</span>.</span>
+        <span class="s-badge">Cadrage publié · creuser →</span>
+      </button>
+      <div class="surface">
+        <span class="s-name">Haute&nbsp;Fidélité</span>
+        <span class="s-desc">Le magazine — comptes rendus de salon, brèves. Cible SEO/GEO principale.</span>
+        <span class="s-badge muted">surface à venir</span>
+      </div>
+      <div class="surface">
+        <span class="s-name">Carnets voyage</span>
+        <span class="s-desc">Atlas d'Asie et sites duplicables offerts aux proches. Carte, timeline, livre.</span>
+        <span class="s-badge muted">surface à venir</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<nav class="tabbar" aria-label="Sections du projet">
+  <div class="wrap tablist" role="tablist">
+    <button class="tab" role="tab" id="tab-chaine" aria-controls="p-chaine" aria-selected="true"><span class="num">01</span> La chaîne</button>
+    <button class="tab" role="tab" id="tab-principe" aria-controls="p-principe" aria-selected="false"><span class="num">02</span> Le principe</button>
+    <button class="tab" role="tab" id="tab-avancement" aria-controls="p-avancement" aria-selected="false"><span class="num">03</span> L'avancement</button>
+    <button class="tab" role="tab" id="tab-technique" aria-controls="p-technique" aria-selected="false"><span class="num">04</span> Technique</button>
+  </div>
+</nav>
+
+<main>
+  <!-- ===================== PANEL : LA CHAÎNE ===================== -->
+  <section class="panel" id="p-chaine" role="tabpanel" aria-labelledby="tab-chaine" tabindex="0">
+    <div class="wrap">
+      <div class="panel-intro">
+        <p class="eyebrow">Du terrain à la diffusion</p>
+        <h2 class="serif">Les grands blocs, et où en est chacun</h2>
+        <p>Le rail existe déjà — modèle, page publique, sécurité, déploiement. Ce qui reste, c'est le flux qui le traverse. Clique un bloc pour creuser.</p>
+      </div>
+
+      <p class="entries-label">Deux entrées · deux légitimités</p>
+      <div class="entries reveal">
+        <button class="block entry warm" data-detail="capture" aria-haspopup="dialog">
+          <span class="kicker">Y avoir été · Capture Telegram</span>
+          <h3 class="serif">Le terrain</h3>
+          <p>Photo, vocal ou note — hors-ligne, envoi partiel. Moins de dix secondes. La matière attestée.</p>
+          <div class="foot"><span class="pill todo">à construire — P1</span><span class="dig">creuser →</span></div>
+        </button>
+        <button class="block entry coolborder cool" data-detail="veille" aria-haspopup="dialog">
+          <span class="kicker">Faire un choix · Veille &amp; curation</span>
+          <h3 class="serif">Le repush</h3>
+          <p>Des contenus tombent de la concurrence (site, Insta). Un humain — toi — décide si on repousse, et où.</p>
+          <div class="foot"><span class="pill think">réflexion</span><span class="dig">creuser →</span></div>
+        </button>
+      </div>
+
+      <p class="converge">convergent vers la machine</p>
+
+      <div class="chain reveal">
+        <div class="rail"><div class="line"><div class="spark"></div></div></div>
+        <div>
+          <div class="stage on">
+            <div class="node">1</div>
+            <button class="block" data-detail="observation" aria-haspopup="dialog">
+              <span class="kicker">Observation attestée</span>
+              <h3 class="serif">Le cœur</h3>
+              <p>Objet daté, situé, attribué. La transcription brute, jamais réécrasée.</p>
+              <div class="foot"><span class="pill ok">modèle en place</span><span class="dig">creuser →</span></div>
+            </button>
+          </div>
+          <div class="stage">
+            <div class="node">2</div>
+            <button class="block cool" data-detail="entites" aria-haspopup="dialog">
+              <span class="kicker">Documentation · Entités</span>
+              <h3 class="serif">L'appui, en second plan</h3>
+              <p>Marque, lieu, produit — l'actif partagé. Servi en page publique avec Schema.org.</p>
+              <div class="foot"><span class="pill ok">modèle + page SSR</span><span class="dig">creuser →</span></div>
+            </button>
+          </div>
+          <div class="stage">
+            <div class="node">3</div>
+            <button class="block" data-detail="rendus" aria-haspopup="dialog">
+              <span class="kicker">Réécriture · Rendus</span>
+              <h3 class="serif">Un rendu par destination</h3>
+              <p>Jetable, évolutif ou définitif — jamais un même texte décliné. Dans la voix du titre.</p>
+              <div class="foot"><span class="pill todo">à construire — P2/P5</span><span class="dig">creuser →</span></div>
+            </button>
+          </div>
+          <div class="stage">
+            <div class="node">4</div>
+            <button class="block" data-detail="arbitrage" aria-haspopup="dialog">
+              <span class="kicker">Arbitrage · le SR</span>
+              <h3 class="serif">La machine propose, l'humain tranche</h3>
+              <p>Destination, moment, canal — avec le raisonnement. Rien ne part sans un bouton.</p>
+              <div class="foot"><span class="pill todo">à construire — P3</span><span class="dig">creuser →</span></div>
+            </button>
+          </div>
+          <div class="stage">
+            <div class="node">5</div>
+            <button class="block" data-detail="diffusion" aria-haspopup="dialog">
+              <span class="kicker">Diffusion · push réseaux</span>
+              <h3 class="serif">Le site est la source de vérité</h3>
+              <p>Instagram, LinkedIn (brouillon seul), newsletter, carnet, papier, livre — des satellites.</p>
+              <div class="foot"><span class="pill wip">page entité en ligne</span><span class="dig">creuser →</span></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANEL : LE PRINCIPE ===================== -->
+  <section class="panel" id="p-principe" role="tabpanel" aria-labelledby="tab-principe" tabindex="0" hidden>
+    <div class="wrap">
+      <div class="panel-intro">
+        <p class="eyebrow">La thèse</p>
+        <blockquote class="thesis-quote">L'important, c'est <b>d'y avoir été</b> — ou <span class="c2">de faire un choix.</span></blockquote>
+        <p>Écrire n'est plus rare. Ce qui l'est : la présence sur le terrain, ou le jugement éditorial qui décide qu'un contenu mérite d'être poussé. Les deux sont légitimes ; ni l'un ni l'autre n'est automatique.</p>
+      </div>
+
+      <div class="grid-2 reveal">
+        <div class="matter temoigne">
+          <span class="tag">Témoigné</span>
+          <h3 class="serif">Vu, entendu, photographié</h3>
+          <p>Réel par construction. Vit dans les <strong>Observations</strong>. Premier plan — la matière attestée, jamais réécrasée.</p>
+          <p class="note">qui · où · quand · médias · transcription brute</p>
+        </div>
+        <div class="matter documente">
+          <span class="tag">Documenté</span>
+          <h3 class="serif">Histoire, date, contexte</h3>
+          <p>Légitime, mais <strong>généré</strong>. Vit dans les <strong>Entités</strong>. Appui — identifié comme tel, sourcé, en second plan.</p>
+          <p class="note">marque · lieu · produit · sources · statut de relecture</p>
+        </div>
+      </div>
+
+      <div class="rules reveal">
+        <div class="rule"><div class="n mono">01</div><h3 class="serif">Témoigné ≠ documenté</h3><p>Séparés en base, distincts à l'affichage. La photo au premier plan, la fiche générée en appui.</p></div>
+        <div class="rule"><div class="n mono">02</div><h3 class="serif">Aucune publication automatique</h3><p>Rien ne part sans action humaine. LinkedIn en brouillon seul. Rôle « auteur » requis pour publier.</p></div>
+        <div class="rule"><div class="n mono">03</div><h3 class="serif">L'embargo est un verrou dur</h3><p>Une date de sortie notée sur un stand n'est pas du contenu — c'est un verrou, vérifié côté serveur.</p></div>
+        <div class="rule"><div class="n mono">04</div><h3 class="serif">Vie privée : défauts restrictifs</h3><p>Visibilité restreinte par défaut, noindex calculé, EXIF strippé. Aucune reconnaissance faciale.</p></div>
+        <div class="rule"><div class="n mono">05</div><h3 class="serif">Confidentialité par contexte</h3><p>Un voyage perso est public ; un déplacement pro est privé par défaut.</p></div>
+        <div class="rule"><div class="n mono">◆</div><h3 class="serif">La provenance est le produit</h3><p>Chaque page dit qui, où, quand. Le signal d'expérience de première main — structurellement vrai ici.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANEL : L'AVANCEMENT ===================== -->
+  <section class="panel" id="p-avancement" role="tabpanel" aria-labelledby="tab-avancement" tabindex="0" hidden>
+    <div class="wrap">
+      <div class="panel-intro">
+        <p class="eyebrow">Où on en est</p>
+        <h2 class="serif">Le socle tient. Le flux arrive.</h2>
+        <p>Les rails sont posés et testés ; les organes du flux (capture, réécriture, diffusion) se remplissent ensuite.</p>
+      </div>
+
+      <div class="nextup reveal">
+        <span class="badge">Prochaine étape</span>
+        <p>Lancer le <strong>bot Telegram de capture</strong> (sur HL-Whisper) pour poster sur <strong>Atlas d'Asie</strong> sans passer par Claude — photo, vidéo ou idée envoyées dans Telegram, qui remontent au bon endroit.</p>
+      </div>
+
+      <div class="legend">
+        <span><i style="background:var(--ok)"></i> fait &amp; testé</span>
+        <span><i style="background:var(--wip)"></i> prêt</span>
+        <span><i style="background:var(--line-strong)"></i> à venir</span>
+      </div>
+
+      <div class="track reveal">
+        <div class="item done"><span class="idx mono">✓</span><span class="t">Fondations &amp; gouvernance <small>CDC, règles, socle de référence</small></span><span class="pill ok">fait</span></div>
+        <div class="item done"><span class="idx mono">✓</span><span class="t">Socle Payload 3 · Next 16 · Postgres <small>13 collections, admin accessible</small></span><span class="pill ok">fait</span></div>
+        <div class="item done"><span class="idx mono">✓</span><span class="t">Garde-fou d'indexation <small>SITE_INDEXABLE → robots + meta + en-tête</small></span><span class="pill ok">fait</span></div>
+        <div class="item done"><span class="idx mono">✓</span><span class="t">Connexion Google + rôles d'accès <small>SSO, admin/lecteur, anti-escalade</small></span><span class="pill ok">fait</span></div>
+        <div class="item done"><span class="idx mono">✓</span><span class="t">Page entité SSR + Schema.org <small>verrous embargo &amp; relecture, canonical</small></span><span class="pill ok">fait</span></div>
+        <div class="item ready"><span class="idx mono">→</span><span class="t">Déploiement <small>Dockerfile, render.yaml, migrations — content.hl-consulting.tech</small></span><span class="pill wip">prêt</span></div>
+        <div class="item next"><span class="idx mono">1</span><span class="t">Capture Telegram <small>photo · vocal · texte, &lt; 10 s</small></span><span class="pill todo">à venir</span></div>
+        <div class="item next"><span class="idx mono">2</span><span class="t">Documentation &amp; routeur LLM <small>coûts lus en base, deux paliers</small></span><span class="pill todo">à venir</span></div>
+        <div class="item next"><span class="idx mono">3–7</span><span class="t">Instagram · Carnet · Site HF + LinkedIn · Papier · Livre <small>les destinations</small></span><span class="pill todo">à venir</span></div>
+      </div>
+
+      <div class="guards reveal">
+        <div class="guard"><div class="lk mono">SITE_INDEXABLE = false</div><h3 class="serif">Rien ne s'indexe avant le domaine définitif</h3><p>Préprod sur hl-consulting sans risque SEO ; le déménagement futur ne coûte qu'une URL.</p></div>
+        <div class="guard"><div class="lk mono">dateLeveeEmbargo</div><h3 class="serif">Embargo vérifié côté serveur</h3><p>Une entité sous embargo renvoie 404 en public. Fail closed — la porte est fermée.</p></div>
+        <div class="guard"><div class="lk mono">statutRelecture</div><h3 class="serif">Pas de fait non relu en public</h3><p>Seules les entités relues ou validées sont servies. Relecture obligatoire.</p></div>
+        <div class="guard"><div class="lk mono">slugs.ts · /lieux/…</div><h3 class="serif">Structure d'URL irréversible</h3><p>Chemins, pas sous-domaines. Une migration après indexation coûte des mois.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANEL : TECHNIQUE ===================== -->
+  <section class="panel" id="p-technique" role="tabpanel" aria-labelledby="tab-technique" tabindex="0" hidden>
+    <div class="wrap">
+      <div class="panel-intro">
+        <p class="eyebrow">Sous le capot</p>
+        <h2 class="serif">Les repos et la stack</h2>
+        <p>Un moteur, plusieurs briques versionnées. Rien d'important ne vit hors du repo et de la base — le projet est fait pour être cédé un jour.</p>
+      </div>
+
+      <div class="repos reveal">
+        <div class="repo">
+          <div class="top"><span class="rn"><b>hl-works/</b>hl-content</span><span class="pill wip">ce repo · le moteur</span></div>
+          <p class="rd">La machine à contenus attestés. Payload 3 · Next 16 · Postgres. Collections, page entité SSR, auth Google, déploiement.</p>
+        </div>
+
+        <button class="repo" data-detail="whisper" data-kicker="Repo · plomberie Telegram" data-title="HL-Whisper" aria-haspopup="dialog">
+          <div class="top"><span class="rn"><b>hl-works/</b>hl-whisper</span><span class="pill ok">skill prêt · à brancher</span></div>
+          <p class="rd">Le patron Telegram : agent admin par texte ou <strong>voix</strong>, en deux temps (préparer → confirmer → exécuter). La plomberie de la capture et de l'arbitrage.</p>
+          <span class="dig">creuser →</span>
+        </button>
+
+        <div class="repo">
+          <div class="top"><span class="rn"><b>hl-works/</b>haute-fidelite</span><span class="pill ok">HF-OS · base d'origine</span></div>
+          <p class="rd">La base de code d'où viennent les patterns (Dockerfile, Render, LLM par env, cron) et le socle recopié. Le service « machine » s'y adossait.</p>
+        </div>
+
+        <div class="repo">
+          <div class="top"><span class="rn"><b>hl-works/</b>knowledge-hub</span><span class="pill todo">satellite</span></div>
+          <p class="rd">Le journal de bord — gabarit d'entrées, taxonomie. Cible d'un des publishers (rédaction dans la voix de Hugo).</p>
+        </div>
+      </div>
+
+      <h3 class="subhead serif">La stack</h3>
+      <p>Fournisseurs jamais codés en dur — endpoints par variables d'environnement, versions d'API épinglées.</p>
+      <div class="stack reveal">
+        <span class="chip"><b>Payload 3</b> · CMS/admin</span>
+        <span class="chip"><b>Next.js 16</b> · SSR</span>
+        <span class="chip"><b>Postgres</b></span>
+        <span class="chip"><b>Docker</b> · Render</span>
+        <span class="chip"><b>Cloudflare R2</b> · médias</span>
+        <span class="chip"><b>OpenRouter</b> · LLM (2 paliers)</span>
+        <span class="chip"><b>Whisper</b> · voix → texte</span>
+        <span class="chip"><b>ElevenLabs</b> · voix (Hifi Lovers)</span>
+        <span class="chip"><b>Telegram</b> · capture &amp; SR</span>
+        <span class="chip"><b>Meta · LinkedIn</b> · diffusion</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>
+      <div class="brand" style="margin-bottom:12px"><span class="dot"></span> HL&nbsp;Content</div>
+      <p class="foot-note">La version lisible du projet. Mise à jour à chaque avancée — la version « live » branchée sur la base viendra dans la machine elle-même, une fois déployée.</p>
+    </div>
+    <div class="foot-links">
+      <span>hl-works/hl-content</span><span>docs/CDC.md</span><span>docs/ETAT.md</span><span>docs/deploiement.md</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== DRAWER ===================== -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dtitle" aria-hidden="true">
+  <div class="drawer-head">
+    <div><span class="kicker" id="dkicker"></span><h2 class="serif" id="dtitle"></h2></div>
+    <button class="xbtn" id="dclose" type="button" aria-label="Fermer">✕</button>
+  </div>
+  <div class="drawer-body" id="dbody"></div>
+</aside>
+
+<!-- detail content (cloned into the drawer) -->
+<div hidden>
+  <template id="d-capture">
+    <div class="status-row"><span class="pill todo">à construire — Palier 1</span> le goulot qui ne se rattrape pas</div>
+    <p>C'est ici que tout le système meurt ou vit : le moment où l'on est debout devant un stand et où il faut sortir le téléphone. <strong>Si capturer coûte trente secondes d'attention, ça ne se fera pas.</strong></p>
+    <ul>
+      <li>Photo, vocal ou texte — <strong>aucun champ obligatoire</strong> à la capture</li>
+      <li>Fonctionne <strong>hors-ligne</strong>, file locale, envoi différé</li>
+      <li>Envoi partiel : trois photos maintenant, le vocal dans dix minutes, rattachement automatique</li>
+      <li>Tampon sur les albums (<span class="mono">media_group_id</span>) — 10 photos ≠ 10 observations</li>
+      <li>Aucune reconnaissance faciale — il s'agit de mineurs</li>
+    </ul>
+    <p><strong>Critère chronométré :</strong> poser une observation prend moins de dix secondes, mesuré en conditions réelles.</p>
+    <p><strong>Objectif concret :</strong> poster sur <strong>Atlas d'Asie</strong> directement depuis Telegram — sans passer par Claude. Photo, vidéo ou idée partent là-bas et remontent au bon endroit. La brique se pose sur <strong>HL-Whisper</strong> (voix → transcription → intention → confirmation).</p>
+    <div class="refs"><span>CDC §3</span><span>Palier 1</span><a href="https://github.com/hl-works/hl-whisper" target="_blank" rel="noopener">hl-whisper ↗</a></div>
+  </template>
+
+  <template id="d-veille">
+    <div class="status-row"><span class="pill think">réflexion ouverte</span> la deuxième légitimité</div>
+    <p>Tout n'exige pas d'y avoir été. Des contenus <strong>tombent de la veille</strong> — un site concurrent, un post Instagram, une actualité qui mérite une réaction. La légitimité vient alors non pas de la présence, mais du <strong>choix éditorial</strong>.</p>
+    <ul>
+      <li>Un humain — <strong>toi de préférence</strong> — décide : on repousse, ou pas</li>
+      <li>Et si oui, <strong>sous quelle forme et sur quelle destination</strong></li>
+      <li class="cool">Jamais automatique — c'est un arbitrage, pas un flux</li>
+      <li class="cool">Reste du <strong>documenté</strong> : identifié comme tel, jamais confondu avec une observation attestée</li>
+    </ul>
+    <p>À formaliser : la frontière entre « réagir à » et « attester de » doit rester nette, sinon la promesse du réel se dilue.</p>
+    <div class="refs"><span>réflexion</span><span>lié à Arbitrage · le SR</span></div>
+  </template>
+
+  <template id="d-observation">
+    <div class="status-row"><span class="pill ok">modèle en place</span> collection Observations</div>
+    <p>L'unité de base n'est pas l'article, c'est l'<strong>observation</strong> : quelques médias, un vocal ou une note, à un lieu, à une heure, par une personne identifiée. Tout le reste n'en est qu'un rendu.</p>
+    <ul>
+      <li>Objet atomique — <strong>daté, situé, attribué</strong></li>
+      <li>La <strong>transcription brute est conservée</strong>, jamais réécrasée : c'est la matière primaire</li>
+      <li>Le témoigné et le documenté reliés, mais jamais mélangés</li>
+      <li>Porte son propre verrou d'embargo</li>
+    </ul>
+    <div class="refs"><span>CDC §2 &amp; §5</span><span>src/collections/Observations.ts</span></div>
+  </template>
+
+  <template id="d-entites">
+    <div class="status-row"><span class="pill ok">modèle + page SSR en ligne</span> collection Entites</div>
+    <p>Un monument, une marque, un produit, un salon ont la même forme. Une seule collection <strong>globale et partagée</strong> — c'est l'actif du projet, ce qu'aucun modèle ne peut régénérer.</p>
+    <ul>
+      <li>Servi en <strong>page publique SSR</strong> : <span class="mono">/lieux/&lt;chemin&gt;</span></li>
+      <li>Balisage <strong>Schema.org</strong> valide + canonical → renforce le SEO au lieu de le diluer</li>
+      <li class="cool">Verrou d'embargo <em>et</em> de relecture : une fiche non relue n'est pas servie</li>
+      <li>Tout fait daté ou chiffré porte une source et un statut de relecture</li>
+    </ul>
+    <div class="refs"><span>CDC §5.4 &amp; §11</span><span>src/app/(frontend)/lieux</span><span>fait &amp; testé</span></div>
+  </template>
+
+  <template id="d-rendus">
+    <div class="status-row"><span class="pill todo">à construire — Paliers 2 &amp; 5</span> collection Rendus</div>
+    <p>Le piège serait de générer un texte puis de le décliner. Les rendus n'ont pas le même <strong>cycle de vie</strong> — les modéliser comme des variantes condamne à un refactor.</p>
+    <ul>
+      <li>Instagram, story → <strong>jetable</strong> · Site → <strong>évolutif</strong> · Papier → <strong>définitif et daté</strong></li>
+      <li>Écrit dans la <strong>voix du titre</strong>, appuyé sur un corpus de style étiqueté (retrieval, pas fine-tuning)</li>
+      <li>Le <strong>jugement n'est jamais signé du magazine</strong> — seule exception : LinkedIn, en nom propre</li>
+      <li>Le papier impose un <strong>calibrage en signes</strong>, vérifié avant livraison</li>
+    </ul>
+    <div class="refs"><span>CDC §5.3, §7, §8</span><span>Paliers 2 &amp; 5</span></div>
+  </template>
+
+  <template id="d-arbitrage">
+    <div class="status-row"><span class="pill todo">à construire — Palier 3</span> le SR sur Telegram</div>
+    <p>Ce n'est pas un bouton « publier ». Un secrétaire de rédaction <strong>relance, vérifie, calibre et arbitre</strong> le chemin de fer. Générer le texte est trivial ; décider où et quand ça part est le vrai travail.</p>
+    <ul>
+      <li>Réclame ce qui manque, <strong>signale les faits non sourcés</strong> avant qu'ils partent</li>
+      <li>Propose destination, moment et canal — <strong>avec son raisonnement</strong></li>
+      <li>Tient l'embargo en blocage dur ; <strong>l'humain tranche d'un bouton</strong> inline</li>
+      <li>Deux canaux distincts : groupe privé (arbitrage) et canal en lecture seule (sortie)</li>
+      <li class="cool">C'est aussi ici que se décide le <strong>repush d'un contenu de veille</strong></li>
+    </ul>
+    <div class="refs"><span>CDC §6 &amp; §9</span><span>Palier 3</span><span>pattern HL-Whisper</span></div>
+  </template>
+
+  <template id="d-diffusion">
+    <div class="status-row"><span class="pill wip">page entité en ligne · réseaux à venir</span></div>
+    <p>Le <strong>site est la source de vérité</strong> ; les réseaux sont des satellites. Si un adaptateur tombe, le contenu existe toujours. Chaque plateforme a ses contraintes — une par une.</p>
+    <ul>
+      <li><strong>Site HF</strong> — rendu serveur, cible SEO/GEO principale ✓ (page entité en ligne)</li>
+      <li><strong>Instagram</strong> — 25 posts/24 h, deux temps (conteneur puis publication) ; l'expiration de token est la 1ʳᵉ cause de panne → cron + alerte</li>
+      <li><strong>LinkedIn</strong> — <strong>brouillon seul, jamais publié</strong> même validé ; c'est du nom propre, du réputationnel</li>
+      <li><strong>Newsletter</strong> (Brevo) · <strong>Carnet</strong> duplicable · <strong>Papier</strong> (calibré) · <strong>Livre</strong> (print-on-demand)</li>
+      <li class="cool">X / Twitter : <strong>volontairement absent</strong></li>
+      <li>Versions d'API <strong>épinglées</strong> — jamais d'auto-mise à jour ; un cron détecte la casse</li>
+    </ul>
+    <div class="refs"><span>CDC §7</span><span>interface Publisher</span><span>Paliers 3 → 7</span></div>
+  </template>
+
+  <template id="d-hifilovers">
+    <div class="status-row"><span class="pill think">sous-projet · cadrage publié</span> une surface du moteur</div>
+    <p>Pas une vitrine commerciale : l'<strong>univers éditorial</strong> autour des hors-séries — bars hi-fi du monde, boutiques et marques iconiques, pubs d'époque. Objectif : automatiser le compte Instagram <span class="mono">@hifi.lvrs</span> dans la voix du titre.</p>
+    <ul>
+      <li>Hiérarchie éditoriale <strong>60 / 30 / 10</strong> — univers · marque du numéro · vente directe</li>
+      <li>Signature : <strong>pubs vintage 1965–1980</strong> ; formats reels (voix off clonée), carrousels, stories, ASMR mécanique</li>
+      <li>Ton lifestyle expert, nostalgique mais sérieux, <strong>bilingue FR/EN</strong></li>
+      <li class="cool">Droits : curation <strong>transformative</strong> face aux pubs protégeables</li>
+      <li>Budget ≈ <strong>250 €/mois</strong> à régime de croisière · roadmap 90 j en 4 phases</li>
+    </ul>
+    <p>C'est le premier test grandeur nature du moteur sur une surface à part entière — sa propre voix, son propre calendrier, ses propres droits.</p>
+    <div class="refs"><span>collection Sites</span><a href="https://hl-consulting.tech/hifi-lovers-content-SM/" target="_blank" rel="noopener">voir le cadrage ↗</a></div>
+  </template>
+
+  <template id="d-whisper">
+    <div class="status-row"><span class="pill ok">patron réutilisable · skill prêt</span> la plomberie Telegram</div>
+    <p>Extrait de <strong>Cobra Fournisseurs</strong> et factorisé pour resservir sur HL Content. Un token, un webhook, deux usages qui cohabitent — c'est la base du <strong>bot de capture</strong> et de l'<strong>arbitrage du SR</strong>.</p>
+    <ul>
+      <li><strong>Agent admin</strong> — tu pilotes par texte libre <em>ou</em> par <strong>message vocal</strong> (transcrit)</li>
+      <li>Deux temps toujours séparés : <span class="mono">prepare()</span> lit et ne modifie rien → bouton <strong>✅ Confirmer</strong> → <span class="mono">execute()</span> écrit. Rien sans clic explicite</li>
+      <li>Classification par LLM en <strong>sortie structurée</strong> : jamais de droit d'écriture direct ; contexte réel (ids/noms valides) pour ne pas halluciner ; pose une question s'il ne sait pas</li>
+      <li>Mémoire courte (4 messages) : combine une consigne éclatée en une seule intention</li>
+      <li class="cool">Relais multi-comptes cloisonnés : des tiers reçoivent des alertes, répondent, mais ne déclenchent <strong>aucune</strong> action</li>
+    </ul>
+    <p>Le « l'humain tranche d'un bouton » du CDC est déjà, mot pour mot, le pattern de ce repo.</p>
+    <div class="refs"><span>skill telegram-admin-agent</span><span>Paliers 1 &amp; 3</span><a href="https://github.com/hl-works/hl-whisper" target="_blank" rel="noopener">github ↗</a></div>
+  </template>
+</div>
+
+<script>
+  // ---------- thème (3 états : système, puis choix explicite) ----------
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    btn.addEventListener('click', function () {
+      var cur = root.getAttribute('data-theme');
+      var dark = cur ? cur === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', dark ? 'light' : 'dark');
+    });
+  })();
+
+  // ---------- onglets ----------
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+    function select(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        var n = (i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+        tabs[n].focus(); select(tabs[n]);
+      });
+    });
+  })();
+
+  // ---------- drawer ----------
+  (function () {
+    var scrim = document.getElementById('scrim'), drawer = document.getElementById('drawer');
+    var dclose = document.getElementById('dclose'), dbody = document.getElementById('dbody');
+    var dtitle = document.getElementById('dtitle'), dkicker = document.getElementById('dkicker');
+    var opener = null;
+
+    function open(card) {
+      var key = card.getAttribute('data-detail');
+      var tpl = document.getElementById('d-' + key);
+      if (!tpl) return;
+      var kEl = card.querySelector('.kicker');
+      var tEl = card.querySelector('h3') || card.querySelector('.s-name') || card.querySelector('.rn');
+      dkicker.textContent = card.getAttribute('data-kicker') || (kEl ? kEl.textContent : '');
+      dtitle.textContent = card.getAttribute('data-title') || (tEl ? tEl.textContent : '');
+      dbody.innerHTML = '';
+      dbody.appendChild(tpl.content.cloneNode(true));
+      opener = card;
+      scrim.classList.add('open'); drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      dclose.focus();
+    }
+    function close() {
+      scrim.classList.remove('open'); drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (opener) opener.focus();
+    }
+    document.querySelectorAll('[data-detail]').forEach(function (b) {
+      b.addEventListener('click', function () { open(b); });
+    });
+    dclose.addEventListener('click', close);
+    scrim.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('open')) close(); });
+  })();
+
+  // ---------- reveal ----------
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: .1 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
