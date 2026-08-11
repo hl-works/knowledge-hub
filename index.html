@@ -286,6 +286,56 @@
     box-shadow: 0 0 0 var(--e-shadow);
   }
 
+  /* ============ LES RADARS (veilles Telegram) ============ */
+  .e-veille-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--e-off); }
+  @media (max-width: 760px) { .e-veille-grid { grid-template-columns: 1fr; } }
+  .e-veille {
+    display: flex; flex-direction: column;
+    background: var(--e-panel); color: var(--e-on-panel);
+    border: var(--e-bw) solid var(--e-border);
+    box-shadow: var(--e-off) var(--e-off) 0 var(--e-shadow);
+    padding: 28px 30px;
+  }
+  .e-veille-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  .e-veille h3 {
+    font-weight: 700; font-size: clamp(26px, 3.6vw, 38px); margin: 0 0 12px;
+    text-transform: uppercase; letter-spacing: -.01em; line-height: .98;
+  }
+  .e-veille p { font-size: 15px; line-height: 1.45; margin: 0 0 22px; flex: 1; }
+  .e-veille .e-blk-meta { margin-bottom: 16px; }
+  .e-veille-cta { display: flex; align-items: center; gap: 16px 22px; flex-wrap: wrap; }
+  .e-veille-alt {
+    font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px;
+    text-transform: uppercase; text-decoration: none; color: inherit;
+    border-bottom: 2px solid var(--e-signal); padding-bottom: 2px;
+  }
+  .e-veille-alt:hover, .e-veille-alt:focus-visible { color: var(--e-signal); }
+  /* pastille radar — esprit Dragon Radar (Bulma) */
+  .e-radar {
+    position: relative; width: 30px; height: 30px; border-radius: 50%;
+    border: 2px solid var(--e-border); overflow: hidden; flex: 0 0 auto;
+  }
+  .e-radar::before {
+    content: ""; position: absolute; inset: -2px; border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 300deg, var(--e-signal) 352deg, transparent 360deg);
+    animation: e-radar-sweep 2.2s linear infinite;
+  }
+  .e-radar::after {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 54%, var(--e-border) 55%, transparent 58%),
+      radial-gradient(3px 3px at 66% 40%, var(--e-signal) 55%, transparent 60%);
+  }
+  @keyframes e-radar-sweep { to { transform: rotate(360deg); } }
+  /* petites barres — esprit signal hi-fi */
+  .e-signal-bars { display: flex; align-items: flex-end; gap: 3px; height: 22px; flex: 0 0 auto; }
+  .e-signal-bars i { width: 4px; background: var(--e-signal); border: 1px solid var(--e-border); border-bottom: 0; }
+  .e-signal-bars i:nth-child(1) { height: 35%; }
+  .e-signal-bars i:nth-child(2) { height: 62%; }
+  .e-signal-bars i:nth-child(3) { height: 100%; }
+  .e-signal-bars i:nth-child(4) { height: 50%; }
+  @media (prefers-reduced-motion: reduce) { .e-radar::before { animation: none; } }
+
   /* ============ MARQUEE ============ */
   .e-marquee {
     background: var(--e-bar); color: var(--e-on-bar);
@@ -593,6 +643,7 @@
       <a href="#cobra">Cobra</a>
       <a href="#hifi">HiFi Lovers</a>
       <a href="#mag">Magazine</a>
+      <a href="#radars">Radars</a>
       <a href="#voyage"><span class="e-fr">Voyage</span><span class="e-en">Travel</span></a>
       <a href="/a-propos/"><span class="e-fr">À propos</span><span class="e-en">About</span></a>
       <a href="#contact">Contact</a>
@@ -794,11 +845,61 @@
     </div>
   </section>
 
+  <!-- ============ LES RADARS (VEILLES TELEGRAM) ============ -->
+  <section class="e-section" id="radars">
+    <div class="e-wrap">
+      <div class="e-section-head">
+        <span class="e-idx e-mono">[ 06 ]</span>
+        <h2 class="e-section-title"><span class="e-fr">Les radars</span><span class="e-en">The radars</span></h2>
+      </div>
+      <p class="e-subtag" style="max-width:680px; margin:0 0 26px;">
+        <span class="e-fr">Deux briefs quotidiens, gratuits, sur Telegram. Un agent IA lit les sources chaque nuit, coupe le bruit et rédige un résumé court en français. Un message par jour, zéro spam — les jours calmes restent calmes. Abonne-toi à celui qui te parle.</span>
+        <span class="e-en">Two free daily briefs on Telegram. An AI agent reads the sources every night, cuts the noise and writes a short digest in French. One message a day, zero spam — quiet days stay quiet. Subscribe to the one that speaks to you.</span>
+      </p>
+      <div class="e-veille-grid">
+        <!-- RADAR IA -->
+        <div class="e-veille">
+          <div class="e-veille-top">
+            <span class="e-blk-idx e-mono">/ RADAR IA</span>
+            <span class="e-radar" aria-hidden="true"></span>
+          </div>
+          <span class="e-blk-meta e-mono"><span class="e-fr">TELEGRAM · CHAQUE MATIN · GRATUIT</span><span class="e-en">TELEGRAM · EVERY MORNING · FREE</span></span>
+          <h3>Radar IA</h3>
+          <p>
+            <span class="e-fr">Les annonces IA qui comptent vraiment — modèles, agents, produits, recherche — résumées sans hype. Angle marchands &amp; PME : ce qui change pour ton business, pas la démo virale du jour.</span>
+            <span class="e-en">The AI news that actually matters — models, agents, products, research — summarized without the hype. A merchant &amp; SMB angle: what changes for your business, not the viral demo of the day.</span>
+          </p>
+          <div class="e-veille-cta">
+            <a class="e-btn e-btn-primary" href="https://t.me/VeilleIA_HL" target="_blank" rel="noopener"><span class="e-fr">S'abonner sur Telegram</span><span class="e-en">Subscribe on Telegram</span></a>
+            <a class="e-veille-alt" href="/knowledge-hub/veille-ia/"><span class="e-fr">Voir l'archive</span><span class="e-en">Browse the archive</span></a>
+          </div>
+        </div>
+        <!-- SIGNAL HI-FI -->
+        <div class="e-veille">
+          <div class="e-veille-top">
+            <span class="e-blk-idx e-mono">/ SIGNAL HI-FI</span>
+            <span class="e-signal-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
+          <span class="e-blk-meta e-mono"><span class="e-fr">TELEGRAM · 8H PARIS · GRATUIT</span><span class="e-en">TELEGRAM · 8AM PARIS · FREE</span></span>
+          <h3>Signal Hi-Fi</h3>
+          <p>
+            <span class="e-fr">Les news mondiales de la haute-fidélité, chaque matin à 8h. ~60 sources RSS en FR/EN/DE/JP/CN/KR, dédoublonnées et résumées. Le pouls du marché audio — sans ouvrir 60 sites.</span>
+            <span class="e-en">Worldwide hi-fi news, every morning at 8am. ~60 RSS sources in FR/EN/DE/JP/CN/KR, de-duplicated and summarized. The pulse of the audio market — without opening 60 sites.</span>
+          </p>
+          <div class="e-veille-cta">
+            <a class="e-btn e-btn-primary" href="https://t.me/hautefidelite_veille_bot" target="_blank" rel="noopener"><span class="e-fr">S'abonner sur Telegram</span><span class="e-en">Subscribe on Telegram</span></a>
+            <a class="e-veille-alt" href="/knowledge-hub/journal/bot-telegram-veille-hifi.html"><span class="e-fr">Comment c'est fait</span><span class="e-en">How it's built</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ LA CHAÎNE (VIDÉO) ============ -->
   <section class="e-section" id="chaine">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ 06 ]</span>
+        <span class="e-idx e-mono">[ 07 ]</span>
         <h2 class="e-section-title"><span class="e-fr">La chaîne YouTube</span><span class="e-en">The YouTube channel</span></h2>
       </div>
       <p class="e-subtag" style="max-width:640px; margin:0 0 26px;">
@@ -820,7 +921,7 @@
   <section class="e-section" id="kiosque">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ 07 ]</span>
+        <span class="e-idx e-mono">[ 08 ]</span>
         <h2 class="e-section-title"><span class="e-fr">En kiosque</span><span class="e-en">On newsstands</span></h2>
       </div>
       <div class="e-media2">
@@ -857,7 +958,7 @@
   <section class="e-section" id="voyage">
     <div class="e-wrap">
       <div class="e-section-head">
-        <span class="e-idx e-mono">[ 08 ]</span>
+        <span class="e-idx e-mono">[ 09 ]</span>
         <h2 class="e-section-title"><span class="e-fr">Découvrir le monde</span><span class="e-en">Seeing the world</span></h2>
       </div>
       <p class="e-subtag" style="max-width:640px; margin:0 0 26px;">
