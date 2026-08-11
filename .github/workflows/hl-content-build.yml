@@ -1,0 +1,46 @@
+name: HL Content — page projet (régénération auto)
+
+# Régénère hl-content/index.html depuis le manifeste hl-content/status.json.
+# Édite status.json (statut d'une brique) → au push, cette action reconstruit la
+# page et la recommite. Aussi déclenchable à la main, chaque lundi (restamp), et
+# par un autre repo via repository_dispatch (type: hl-content-update) — pratique
+# pour que hl-content ping le site quand une brique passe « fait ».
+# Les pushes du bot (GITHUB_TOKEN) ne redéclenchent pas les workflows : pas de boucle.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "hl-content/status.json"
+      - "hl-content/_template.html"
+      - "scripts/build_hl_content.py"
+  schedule:
+    - cron: "17 6 * * 1" # lundi 06:17 UTC
+  workflow_dispatch:
+  repository_dispatch:
+    types: [hl-content-update]
+
+concurrency:
+  group: hl-content-build
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Régénérer la page depuis status.json
+        run: python3 scripts/build_hl_content.py
+      - name: Commit si diff
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hl-content/index.html
+          git diff --cached --quiet && echo "Rien à committer" && exit 0
+          git commit -m "content: régénération auto de la page projet HL Content (status.json)"
+          git push origin main

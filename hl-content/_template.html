@@ -363,10 +363,10 @@
     <div class="progress">
       <div class="phead">
         <span class="lab">Avancement</span>
-        <span class="cap">5 faits · 1 prêt · 3 à venir</span>
+        <span class="cap">{{CAP}}</span>
       </div>
-      <div class="pbar" role="img" aria-label="5 faites · 1 prête · 3 à venir">
-        <span class="pseg ok"></span><span class="pseg ok"></span><span class="pseg ok"></span><span class="pseg ok"></span><span class="pseg ok"></span><span class="pseg ready"></span><span class="pseg"></span><span class="pseg"></span><span class="pseg"></span>
+      <div class="pbar" role="img" aria-label="{{PBAR_LABEL}}">
+{{PROGRESS}}
       </div>
       <div class="pkey">
         <span><i style="background:var(--ok)"></i> socle &amp; sécurité — fait</span>
@@ -549,15 +549,7 @@
       </div>
 
       <div class="track reveal">
-        <div class="item done"><span class="idx mono">✓</span><span class="t">Fondations &amp; gouvernance <small>CDC, règles, socle de référence</small></span><span class="pill ok">fait</span></div>
-        <div class="item done"><span class="idx mono">✓</span><span class="t">Socle Payload 3 · Next 16 · Postgres <small>13 collections, admin accessible</small></span><span class="pill ok">fait</span></div>
-        <div class="item done"><span class="idx mono">✓</span><span class="t">Garde-fou d'indexation <small>SITE_INDEXABLE → robots + meta + en-tête</small></span><span class="pill ok">fait</span></div>
-        <div class="item done"><span class="idx mono">✓</span><span class="t">Connexion Google + rôles d'accès <small>SSO, admin/lecteur, anti-escalade</small></span><span class="pill ok">fait</span></div>
-        <div class="item done"><span class="idx mono">✓</span><span class="t">Page entité SSR + Schema.org <small>verrous embargo &amp; relecture, canonical</small></span><span class="pill ok">fait</span></div>
-        <div class="item ready"><span class="idx mono">→</span><span class="t">Déploiement <small>Dockerfile, render.yaml, migrations — content.hl-consulting.tech</small></span><span class="pill wip">prêt</span></div>
-        <div class="item next"><span class="idx mono">1</span><span class="t">Capture Telegram <small>photo · vocal · texte, &lt; 10 s</small></span><span class="pill todo">à venir</span></div>
-        <div class="item next"><span class="idx mono">2</span><span class="t">Documentation &amp; routeur LLM <small>coûts lus en base, deux paliers</small></span><span class="pill todo">à venir</span></div>
-        <div class="item next"><span class="idx mono">3–7</span><span class="t">Instagram · Carnet · Site HF + LinkedIn · Papier · Livre <small>les destinations</small></span><span class="pill todo">à venir</span></div>
+{{TRACK}}
       </div>
 
       <div class="guards reveal">
@@ -624,7 +616,7 @@
     <div>
       <div class="brand" style="margin-bottom:12px"><span class="dot"></span> HL&nbsp;Content</div>
       <p class="foot-note">La version lisible du projet. Mise à jour à chaque avancée — la version « live » branchée sur la base viendra dans la machine elle-même, une fois déployée.</p>
-      <p class="foot-note" style="margin-top:10px;opacity:.7;font-size:12.5px">Mis à jour le 11 août 2026 · régénéré automatiquement depuis <span class="mono">status.json</span>.</p>
+      <p class="foot-note" style="margin-top:10px;opacity:.7;font-size:12.5px">{{UPDATED}}</p>
     </div>
     <div class="foot-links">
       <span>hl-works/hl-content</span><span>docs/CDC.md</span><span>docs/ETAT.md</span><span>docs/deploiement.md</span>

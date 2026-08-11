@@ -1,0 +1,14 @@
+{
+  "_comment": "Source de vérité de l'avancement de HL Content. Édite les statuts ICI : au push sur main, le workflow hl-content-build régénère hl-content/index.html. Statuts possibles : done | ready | next. idx optionnel (sinon dérivé : done=✓, ready=→).",
+  "items": [
+    { "label": "Fondations & gouvernance", "sub": "CDC, règles, socle de référence", "status": "done" },
+    { "label": "Socle Payload 3 · Next 16 · Postgres", "sub": "13 collections, admin accessible", "status": "done" },
+    { "label": "Garde-fou d'indexation", "sub": "SITE_INDEXABLE → robots + meta + en-tête", "status": "done" },
+    { "label": "Connexion Google + rôles d'accès", "sub": "SSO, admin/lecteur, anti-escalade", "status": "done" },
+    { "label": "Page entité SSR + Schema.org", "sub": "verrous embargo & relecture, canonical", "status": "done" },
+    { "label": "Déploiement", "sub": "Dockerfile, render.yaml, migrations — content.hl-consulting.tech", "status": "ready" },
+    { "label": "Capture Telegram", "sub": "photo · vocal · texte, < 10 s", "status": "next", "idx": "1" },
+    { "label": "Documentation & routeur LLM", "sub": "coûts lus en base, deux paliers", "status": "next", "idx": "2" },
+    { "label": "Instagram · Carnet · Site HF + LinkedIn · Papier · Livre", "sub": "les destinations", "status": "next", "idx": "3–7" }
+  ]
+}
