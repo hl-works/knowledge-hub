@@ -168,8 +168,14 @@ Le repo est la voie recommandée : URLs stables, servies par le site, hors ligne
 **Quand Hugo envoie des photos dans une conversation avec un n° ou un nom
 d'escale** (ex. « escale 12 » ou « Bichkek : ces 3 photos, légende … ») :
 
-1. Retrouver l'`ordre` de l'escale dans `public/fixtures/parcours.csv` si Hugo
-   donne un nom de ville.
+1. **Toujours lire l'EXIF d'abord** (règle Hugo) :
+   `python3 scripts/photo-exif.py <fichiers>` → la **date** situe l'escale (sa
+   fenêtre de dates dans `parcours.csv`) et le **GPS** donne le lieu exact
+   (ouvrir le lien Google Maps affiché pour confirmer la ville/l'île). On place
+   ainsi la photo sur la **bonne escale sans demander**. Si Hugo a précisé un
+   n° / nom d'escale, il prime ; sinon l'EXIF tranche. EXIF absent (photo
+   transférée via WhatsApp/Telegram) → se rabattre sur le contexte ou demander.
+   Retrouver ensuite l'`ordre` correspondant dans `public/fixtures/parcours.csv`.
 2. Photos : `node scripts/add-photos.mjs <ordre> [--legende "…"] <fichiers>` —
    redimensionne (1600 px, WebP q78, ~150-300 Ko), range et met à jour le
    manifest. Une légende différente par photo → un appel par photo.
