@@ -99,6 +99,11 @@
     <div class="prose" style="margin-top:var(--space-8);">
       <p>Une chaîne interne où une demande de modification Odoo se décrit en 8 champs, se dépose avec ses captures et sa vidéo, et se fait relire automatiquement — la relecture allant <strong>vérifier dans la vraie base</strong> ce que la demande tient pour acquis.</p>
 
+    <figure class="figure" style="margin-block:var(--space-6);">
+      <img src="../assets/cdc-relecture.webp" alt="La relecture dépliée : le verdict et les points à combler, chacun avec la question exacte à poser à l'auteur." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+      <figcaption class="caption">La relecture dépliée : le verdict et les points à combler, chacun avec la question exacte à poser à l'auteur.</figcaption>
+    </figure>
+
       <h3>Contexte</h3>
       <p>Les demandes d'évolution Odoo arrivaient en une ligne dans un message : « il faudrait un bouton pour… ». Il manquait toujours les trois mêmes informations — où exactement placer la chose, ce qui doit se passer au clic, et surtout <strong>ce qui ne doit pas bouger</strong>. Résultat : deux ou trois allers-retours avant que ça avance, et de temps en temps une modification qui casse autre chose au passage.</p>
 
@@ -111,10 +116,37 @@
         <li><strong>La relecture automatique en deux passes</strong> (le cœur, détaillé plus bas).</li>
         <li><strong>Une page de suivi</strong> : verdict, ce qui manque, et un cycle de vie modifiable — à relire → relu → en cours → en preprod → livré.</li>
       </ul>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);margin-block:var(--space-6);">
+      <figure class="figure" style="margin:0;">
+      <img src="../assets/cdc-guide.webp" alt="Le guide de méthode — à quoi sert la page, et surtout comment nommer précisément une zone d'écran Odoo." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+      <figcaption class="caption">Le guide de méthode — à quoi sert la page, et surtout comment nommer précisément une zone d'écran Odoo.</figcaption>
+    </figure>
+      <figure class="figure" style="margin:0;">
+      <img src="../assets/cdc-formulaire.webp" alt="Le formulaire de déclaration en mode Essentiel : 8 champs, dictée possible, sommaire à pastilles." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+      <figcaption class="caption">Le formulaire de déclaration en mode Essentiel : 8 champs, dictée possible, sommaire à pastilles.</figcaption>
+    </figure>
+    </div>
       <p><strong>Résultat :</strong> la relecture tourne en <strong>~100 secondes</strong> pour environ <strong>15 000 tokens</strong>, soit quelques centimes par demande ; la transcription d'une vidéo de 5 minutes en coûte environ trois. Sur les demandes de test, elle a rendu « pas codable en l'état » avec 9 puis 11 points à combler — chacun formulé avec la question exacte à poser à l'auteur.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);margin-block:var(--space-6);">
+      <figure class="figure" style="margin:0;">
+      <img src="../assets/cdc-suivi.webp" alt="La page de suivi : compteurs cliquables, verdict coloré, statut modifiable par demande." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+      <figcaption class="caption">La page de suivi : compteurs cliquables, verdict coloré, statut modifiable par demande.</figcaption>
+    </figure>
+      <figure class="figure" style="margin:0;">
+      <img src="../assets/cdc-video.webp" alt="Une vidéo déposée et sa transcription générée automatiquement, ajoutée en annexe de la demande." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+      <figcaption class="caption">Une vidéo déposée et sa transcription générée automatiquement, ajoutée en annexe de la demande.</figcaption>
+    </figure>
+    </div>
 
       <h3>Ce qui était difficile / ce qu'on a appris</h3>
       <p><strong>Un modèle ne doit pas affirmer sur un système qu'il ne voit pas.</strong> D'où deux passes au lieu d'une. La première rend du JSON — blocs manquants, trous, cas limites — <strong>plus une liste de vérifications à faire dans la base</strong>. Le serveur les exécute en <strong>lecture seule</strong> : existence d'un modèle, existence et type d'un champ, avec une liste blanche de méthodes et un plafond de douze vérifications. La seconde passe rédige en connaissant les faits.</p>
+
+    <figure class="figure" style="margin-block:var(--space-6);">
+      <img src="../assets/cdc-verifie.webp" alt="Le mécanisme : chaque question du modèle mise en face du fait constaté dans la vraie base Odoo (lecture seule)." loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+      <figcaption class="caption">Le mécanisme : chaque question du modèle mise en face du fait constaté dans la vraie base Odoo (lecture seule).</figcaption>
+    </figure>
       <p>L'écart entre les deux est net. Une demande citait un champ de marge comme s'il existait : il n'existe pas, et la relecture a trouvé les deux champs standard réellement présents en base. Une autre décrivait une évolution du module de réparation : le modèle <code>repair.order</code> n'existe pas dans l'installation, et la relecture a conclu que <strong>le sujet était en réalité un ticket Helpdesk</strong> — donc « ajouter une étape dans une barre de statut Helpdesk, c'est de la configuration de données, pas du développement ». Une demande de dev venait de se transformer en dix minutes de paramétrage.</p>
       <p>Mais le meilleur point n'était pas technique. La demande se justifiait par « quinze appels au fournisseur par semaine », et la relecture a remarqué que la solution proposée ne les supprimait pas : <em>« une étape manuelle de plus n'évite aucun appel : elle dit ‹ on a commandé ›, pas ‹ ça arrive quand › »</em>. C'est exactement l'écart entre le besoin annoncé et la solution imaginée qu'un relecteur humain pressé laisse passer — et qu'on ne découvre normalement qu'une fois la fonctionnalité livrée.</p>
       <p><strong>Un canal de notification branché en production n'a pas de mode test.</strong> Mes essais ont envoyé de vraies alertes sur le téléphone, dont une portant le prénom d'un collègue comme auteur de la demande. Hugo a cru qu'une vraie demande venait d'arriver. Deux corrections : un interrupteur pour couper les notifications pendant une recette, et des données de test <strong>visiblement fausses</strong> — l'auteur s'appelle désormais « TEST — ne pas traiter ». Le coût de cette erreur n'était pas technique, il était en confiance.</p>
