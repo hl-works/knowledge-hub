@@ -1,5 +1,12 @@
 [
 {
+"url": "/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html",
+"title": "L'IA ne code pas ma demande, elle vérifie ce qu'elle suppose",
+"excerpt": "Les demandes d'évolution Odoo arrivaient en une ligne — sans où, sans quoi au clic, sans « ce qui ne doit pas bouger ». Une chaîne interne les cadre : formulaire guidé (8 champs, dictée possible), dépôt de captures et d'une vidéo transcrite automatiquement, puis une relecture IA en deux passes — elle pose des questions structurées, le serveur les vérifie dans la vraie base Odoo en lecture seule, l'IA conclut. Elle a requalifié une demande de dev en dix minutes de paramétrage, et vu qu'une solution ne supprimait pas les appels fournisseur qu'elle prétendait éviter. ~100 s et quelques centimes par relecture.",
+"kind": "Journal",
+"tags": "agent infra doc en-prod cobra"
+},
+{
 "url": "/knowledge-hub/journal/veille-hifi-bot-repare-elargi.html",
 "title": "Veille HiFi : le bot quotidien réparé, élargi (30 → 64 sources) et fiabilisé",
 "excerpt": "Le bot de veille HiFi quotidienne (Telegram) était bloqué depuis le 15 juin — le modèle d'IA codé en dur avait atteint sa fin de vie. Réparé (modèle désormais choisi automatiquement, la veille ne peut plus casser à une mise à jour), fortement élargi (30 → 64 sources : presse FR spé et grand public, Europe, Reddit, forums Head-Fi/diyAudio, YouTube) et fiabilisé (envoi HTML, dédoublonnage, alerte si une source meurt 3 jours, mémoire ~1 mois, coût plafonné ~3-4 €/mois). Validé en prod : 125 articles → 123 sujets → 4 messages Telegram sans erreur.",

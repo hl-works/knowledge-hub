@@ -134,7 +134,7 @@
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">63</b><span>Documented sessions</span></div>
+      <div class="stat"><b id="stat-sessions">64</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Active projects</span></div>
       <div class="stat"><b>2</b><span>Claude agents</span></div>
     </div>
@@ -282,10 +282,19 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Search across 63 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Search across 64 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-08-28">2026-08-28</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/cdc-odoo-ia-verifie-avant-de-coder.html">AI doesn't code my request — it verifies what it assumes</a></h3>
+          <p class="entry__excerpt">Odoo change requests used to arrive as a one-liner — no where, no what-on-click, no « what must not move ». An internal chain frames them: a guided form (8 fields, dictation possible), screenshot and auto-transcribed-video upload, then a two-pass AI review — it asks structured questions, the server checks them in the real Odoo database read-only, the AI concludes. It reclassified a dev request as ten minutes of configuration, and saw that a solution didn't remove the supplier calls it claimed to avoid. ~100 s and a few cents per review.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--hl">Claude · HL</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-08-10">2026-08-10</time>
         <div>
@@ -349,17 +358,8 @@
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
       </li>
-      <li class="entry">
-        <time datetime="2026-07-12">2026-07-12</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/code-review-irokoo-vendor-payment.html">An integrator code review handled in full, point by point</a></h3>
-          <p class="entry__excerpt">After a Cobra change to an Odoo module, the integrator (Irokoo) came back with 6 technical points (security, reliability, consistency). Each evaluated individually: 3 fixed as recommended, 2 with an explicit trade-off (keeping the chatter visibility Hugo cared about, while neutralizing the risk another way), 1 deliberately declined. An unreported bug caught and fixed along the way. Deployed in an isolated Git worktree so as not to interfere with another job in progress.</p>
-          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">63 entries total — filter by tag in the journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">64 entries total — filter by tag in the journal →</a></p>
   </div>
 </section>
 

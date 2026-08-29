@@ -4,7 +4,7 @@
 
 Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedin.com/in/hugo-lahutte · X: https://x.com/hugolh_ai
 
-Last updated: 2026-08-10
+Last updated: 2026-08-28
 
 ## Method
 
@@ -60,8 +60,9 @@ Last updated: 2026-08-10
 - [HiFi Lovers](https://hl-consulting.tech/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
 - [Personal](https://hl-consulting.tech/knowledge-hub/en/perso/): side projects and experiments.
 
-## Journal (63 entries)
+## Journal (64 entries)
 
+- [AI doesn't code my request — it verifies what it assumes](https://hl-consulting.tech/knowledge-hub/en/journal/cdc-odoo-ia-verifie-avant-de-coder.html): Odoo change requests used to arrive as a one-liner — no where, no what-on-click, no « what must not move ». An internal chain frames them: a guided form (8 fields, dictation possible), screenshot and auto-transcribed-video upload, then a two-pass AI review — it asks structured questions, the server checks them in the real Odoo database read-only, the AI concludes. It reclassified a dev request as ten minutes of configuration, and saw that a solution didn't remove the supplier calls it claimed to avoid. ~100 s and a few cents per review.
 - [HiFi watch: the daily bot repaired, expanded (30 → 64 sources) and hardened](https://hl-consulting.tech/knowledge-hub/en/journal/veille-hifi-bot-repare-elargi.html): The daily HiFi watch bot (Telegram) had been down since June 15 — the hard-coded AI model had reached end of life. Repaired (model now auto-selected, the watch can no longer break on an update), heavily expanded (30 → 64 sources: French specialist and mainstream press, Europe, Reddit, Head-Fi/diyAudio forums, YouTube) and hardened (HTML delivery, deduplication, alert if a source dies for 3 days, ~1-month memory, capped cost ~€3-4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages, error-free.
 - [Price tracking & automatic competitive alignment](https://hl-consulting.tech/knowledge-hub/en/journal/suivi-prix-alignement-concurrentiel-auto.html): We couldn't manually watch hundreds of references against Darty, Boulanger, Fnac or Son-Vidéo. A rules engine in Odoo (cobra_price_rules) reads competitor prices delivered by Wiser several times a day and computes a target price — best valid competitor, bounded by a minimum margin. Two modes: observation (simulates) then live (applies and pushes to Shopify), going live staying a human decision. Guardrails: never sell at a loss, outlier offers (< 60% of our price) ignored, pair/unit normalization. 6 families live, ~300 prices realigned; the rest adjusts on its own at each Wiser update.
 - [An app that reads supplier price lists for me](https://hl-consulting.tech/knowledge-hub/en/journal/app-tarifs-fournisseurs-maj-produits.html): Every supplier price update (a PDF or a ‘new product’ email) meant manual work: read it, find the product in Odoo, check EAN/SKU, key in buy and sell prices. An internal app (‘Product Update & Creation’) automates the pipeline: PDF upload or watching a read-only mailbox, EAN/SKU/price extraction via a Claude model, matching against the Odoo base, duplicate detection before creation, systematic human validation and traceability. A deliberate guardrail: no created product is ever published online automatically.

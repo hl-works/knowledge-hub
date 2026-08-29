@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Journal — Hugo Lahutte : 63 sessions documentées avec Claude</title>
-<meta name="description" content="Journal chronologique du travail réalisé avec Claude : 63 sessions e-commerce, dev Odoo/Shopify, infra, SEO, agents. Filtrables par tag. Deux agents Claude contribuent (HL et Cobra).">
+<title>Journal — Hugo Lahutte : 64 sessions documentées avec Claude</title>
+<meta name="description" content="Journal chronologique du travail réalisé avec Claude : 64 sessions e-commerce, dev Odoo/Shopify, infra, SEO, agents. Filtrables par tag. Deux agents Claude contribuent (HL et Cobra).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/journal/">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/">
@@ -14,7 +14,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Journal — Knowledge Hub">
-<meta property="og:description" content="63 sessions documentées avec Claude, filtrables par tag.">
+<meta property="og:description" content="64 sessions documentées avec Claude, filtrables par tag.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/journal/">
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -70,7 +70,7 @@
     <p class="kicker">Le détail, daté</p>
     <h1>Journal</h1>
     <hr class="rule--accent">
-    <p class="lead">63 sessions de travail avec Claude : décisions, archi, bouts de code, leçons. Deux agents contribuent — <strong>Claude · HL</strong> (perso) et <strong>Claude · Cobra</strong> (dev). Cherche ou filtre par tag ci-dessous.</p>
+    <p class="lead">64 sessions de travail avec Claude : décisions, archi, bouts de code, leçons. Deux agents contribuent — <strong>Claude · HL</strong> (perso) et <strong>Claude · Cobra</strong> (dev). Cherche ou filtre par tag ci-dessous.</p>
   </div>
 </section>
 
@@ -106,6 +106,15 @@
       <span class="filter-count" id="filter-count"></span>
     </div>
     <ul class="entry-list" id="entry-list">
+      <li class="entry" data-tags="cobra agent infra doc en-prod">
+        <time datetime="2026-08-28">2026-08-28</time>
+        <div>
+          <h3 class="entry__title"><a href="cdc-odoo-ia-verifie-avant-de-coder.html">L'IA ne code pas ma demande, elle vérifie ce qu'elle suppose</a></h3>
+          <p class="entry__excerpt">Les demandes d'évolution Odoo arrivaient en une ligne — sans où, sans quoi au clic, sans « ce qui ne doit pas bouger ». Une chaîne interne les cadre : formulaire guidé (8 champs, dictée possible), dépôt de captures et d'une vidéo transcrite automatiquement, puis une relecture IA en deux passes — elle pose des questions structurées, le serveur les vérifie dans la vraie base Odoo en lecture seule, l'IA conclut. Elle a requalifié une demande de dev en dix minutes de paramétrage, et vu qu'une solution ne supprimait pas les appels fournisseur qu'elle prétendait éviter. ~100 s et quelques centimes par relecture.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="doc" href="/knowledge-hub/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
+        </div>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
+      </li>
       <li class="entry" data-tags="haute-fidelite agent infra data en-prod">
         <time datetime="2026-08-10">2026-08-10</time>
         <div>

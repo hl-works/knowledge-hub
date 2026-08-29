@@ -1,5 +1,12 @@
 [
  {
+  "url": "/knowledge-hub/en/journal/cdc-odoo-ia-verifie-avant-de-coder.html",
+  "title": "AI doesn't code my request — it verifies what it assumes",
+  "excerpt": "Odoo change requests used to arrive as a one-liner — no where, no what-on-click, no « what must not move ». An internal chain frames them: a guided form (8 fields, dictation possible), screenshot and auto-transcribed-video upload, then a two-pass AI review — it asks structured questions, the server checks them in the real Odoo database read-only, the AI concludes. It reclassified a dev request as ten minutes of configuration, and saw that a solution didn't remove the supplier calls it claimed to avoid. ~100 s and a few cents per review.",
+  "kind": "Journal",
+  "tags": "agent infra doc en-prod cobra"
+ },
+ {
   "url": "/knowledge-hub/en/journal/veille-hifi-bot-repare-elargi.html",
   "title": "HiFi watch: the daily bot repaired, expanded (30 → 64 sources) and hardened",
   "excerpt": "The daily HiFi watch bot (Telegram) had been down since June 15 — the hard-coded AI model had reached end of life. Repaired (model now auto-selected, the watch can no longer break on an update), heavily expanded (30 → 64 sources: French specialist and mainstream press, Europe, Reddit, Head-Fi/diyAudio forums, YouTube) and hardened (HTML delivery, deduplication, alert if a source dies for 3 days, ~1-month memory, capped cost ~€3-4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages, error-free.",
