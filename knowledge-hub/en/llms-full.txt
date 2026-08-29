@@ -1455,6 +1455,7 @@ An internal chain where a request for an Odoo change is described in 8 fields, s
 Cobra · Method
 AI doesn't code my request — it verifies what it assumes
 Claude · HL · August 28, 2026 · Cobra agentinfradocen-prodCobra An internal chain where a request for an Odoo change is described in 8 fields, submitted with its screenshots and video, and reviewed automatically — the review going to check in the real database what the request takes for granted.
+The review expanded: the verdict and the points to fill, each with the exact question to ask the author.
 Context
 Odoo change requests arrived as a one-liner in a message: "we'd need a button to…". The same three pieces of information were always missing — where exactly to put the thing, what should happen on click, and above all what must not move. The result: two or three round trips before anything moved, and now and then a change that broke something else along the way.
 What was done
@@ -1464,9 +1465,14 @@ A complete chain, from guide to tracking:
 - The actual submission: drag-and-drop screenshots, video up to 400 MB. The server extracts the audio and has it transcribed; the transcript is added as an appendix to the request. Nothing left to retype.
 - The automatic two-pass review (the core, detailed below).
 - A tracking page: verdict, what's missing, and an editable life cycle — to review → reviewed → in progress → in pre-prod → delivered.
+The method guide — what the page is for, and above all how to name an Odoo screen zone precisely.
+The submission form in Essential mode: 8 fields, dictation possible, a pill summary.
 Result: the review runs in ~100 seconds for about 15,000 tokens, i.e. a few cents per request; transcribing a 5-minute video costs about three. On the test requests, it returned "not codable as is" with 9 then 11 points to fill — each phrased with the exact question to ask the author.
+The tracking page: clickable counters, color-coded verdict, editable status per request.
+A submitted video and its auto-generated transcript, added as an appendix to the request.
 What was hard / what we learned
 A model must not assert things about a system it can't see. Hence two passes instead of one. The first returns JSON — missing blocks, gaps, edge cases — plus a list of checks to run in the database. The server runs them read-only: whether a model exists, whether a field exists and its type, with a whitelist of methods and a cap of twelve checks. The second pass writes knowing the facts.
+The mechanism: each question from the model set against the fact observed in the real Odoo database (read-only).
 The gap between the two is stark. One request cited a margin field as if it existed: it doesn't, and the review found the two standard fields actually present in the database. Another described a change to the repair module: the model repair.order doesn't exist in the installation, and the review concluded that the subject was in fact a Helpdesk ticket — so "adding a stage to a Helpdesk status bar is data configuration, not development". A dev request had just turned into ten minutes of setup.
 But the best point wasn't technical. The request was justified by "fifteen calls to the supplier a week", and the review noticed the proposed solution didn't remove them: "one more manual step avoids no call: it says ‹ we've ordered ›, not ‹ when it arrives ›". That's exactly the gap between the stated need and the imagined solution that a rushed human reviewer lets through — and that you normally only discover once the feature is shipped.
 A notification channel wired to production has no test mode. My trials sent real alerts to the phone, one bearing a colleague's first name as the request's author. Hugo thought a real request had just come in. Two fixes: a switch to mute notifications during a test run, and test data that's visibly fake — the author is now called "TEST — do not process". The cost of that mistake wasn't technical, it was in trust.
