@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>L&#x27;IA ne code pas ma demande, elle vérifie ce qu&#x27;elle suppose</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html</guid>
+<pubDate>Fri, 28 Aug 2026 08:00:00 +0000</pubDate>
+<description>Les demandes d&#x27;évolution Odoo arrivaient en une ligne — sans où, sans quoi au clic, sans « ce qui ne doit pas bouger ». Une chaîne interne les cadre : formulaire guidé (8 champs, dictée possible), dépôt de captures et d&#x27;une vidéo transcrite automatiquement, puis une relecture IA en deux passes — elle pose des questions structurées, le serveur les vérifie dans la vraie base Odoo en lecture seule, l&#x27;IA conclut. Elle a requalifié une demande de dev en dix minutes de paramétrage, et vu qu&#x27;une solution ne supprimait pas les appels fournisseur qu&#x27;elle prétendait éviter. ~100 s et quelques centimes par relecture.</description>
+</item>
+<item>
 <title>Veille HiFi : le bot quotidien réparé, élargi (30 → 64 sources) et fiabilisé</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/veille-hifi-bot-repare-elargi.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/veille-hifi-bot-repare-elargi.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/fable-5-revue-site-geo.html</guid>
 <pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
 <description>Premier test grandeur nature de Fable 5 au lendemain de sa sortie : audit complet du site, 4 bugs corrigés (compteurs, index de recherche EN), veille rendue en HTML statique pour les crawlers IA, flux RSS et check de cohérence hebdo — tout en prod dans la session.</description>
-</item>
-<item>
-<title>Knowledge Hub bilingue : version anglaise + auto-traduction</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html</guid>
-<pubDate>Tue, 02 Jun 2026 08:00:00 +0000</pubDate>
-<description>Rendre le Knowledge Hub bilingue FR/EN : miroir /en/ des 74 pages, hreflang, sélecteur de langue, recherche et lexique bilingues — plus un workflow GitHub Actions qui traduit chaque nouvelle page FR via l&#x27;API Claude.</description>
 </item>
 </channel>
 </rss>
