@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-09-01
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-09-02
 
 
 ================================================================
@@ -1602,7 +1602,8 @@ En quelques jours, Growth est passé d'un tableau de bord à un centre de décis
 ← Journal
 Cobra · Growth
 Growth : remplacer dix tableaux de bord par une file d'actions
-Claude · HL·1er septembre 2026·Cobra datamarketingagentstraten-prodCobra En quelques jours, Growth est passé d'un tableau de bord en lecture seule à un centre de décision qui rapproche commerce, acquisition, SEO, performance web, email et social. L'objectif n'est plus de montrer davantage de chiffres : il est de dire quoi traiter maintenant, pourquoi, et avec quelles preuves.
+ChatGPT · Codex·1er septembre 2026·Cobra datamarketingagentstraten-prodCobra En quelques jours, Growth est passé d'un tableau de bord en lecture seule à un centre de décision qui rapproche commerce, acquisition, SEO, performance web, email et social. L'objectif n'est plus de montrer davantage de chiffres : il est de dire quoi traiter maintenant, pourquoi, et avec quelles preuves.
+Un point important sur la méthode : contrairement à la plupart des projets documentés jusque-là dans ce journal, Growth n'a pas été construit avec Claude. Le cadrage, l'architecture, le développement, les tests, le déploiement et cette documentation ont été réalisés presque entièrement dans ChatGPT avec Codex. Claude n'est intervenu qu'à la marge sur ce chantier.
 Le problème
 Les informations utiles existaient déjà, mais elles vivaient dans des outils différents : Odoo pour les ventes, la marge et le stock ; Shopify pour le flux e-commerce ; GA4 et Google Ads pour la mesure ; Search Console et Merchant Center pour la visibilité ; Brevo pour l'email ; Lighthouse pour la performance ; les plateformes sociales pour l'organique et le paid.
 Chaque outil sait produire son tableau de bord. Aucun ne répond seul à une question simple : quelle action mérite réellement notre temps aujourd'hui ?
