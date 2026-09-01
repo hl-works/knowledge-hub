@@ -13,7 +13,7 @@
   /* Neutres secondaires */
   --c-offwhite:#FFFCF8; --c-sand:#E2D2BF;
   /* Accents secondaires (parcimonie) */
-  --c-gold:#FAB62F; --c-indigo:#39359E; --c-sunset:#EA5045; --c-violet:#926FC1; --c-chatgpt:#0F766E;
+  --c-gold:#FAB62F; --c-indigo:#39359E; --c-sunset:#EA5045; --c-violet:#926FC1;
   /* Rôles sémantiques */
   --bg:var(--c-offwhite); --surface:var(--c-white); --surface-alt:var(--c-sand);
   --text:var(--c-black); --text-muted:#6B6B6B;
@@ -182,7 +182,6 @@ section{padding-block:var(--space-16);}
 .author span{display:inline-block; font-size:.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:var(--radius);}
 .author--hl{background:var(--c-black); color:var(--c-white);}
 .author--cobra{background:var(--c-indigo); color:var(--c-white);}
-.author--chatgpt{background:var(--c-chatgpt); color:var(--c-white);}
 
 /* ------------------- Filtres journal (chips) ---------------------- */
 .filter-bar{display:flex; flex-wrap:wrap; gap:var(--space-2); margin:var(--space-6) 0 var(--space-4);}
