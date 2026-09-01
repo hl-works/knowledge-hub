@@ -1615,6 +1615,16 @@ Ce qui a été construit
 - un moteur commun réutilisable pour une future instance Haute Fidélité dans HL OS ;
 - un garde-fou : toute écriture sensible reste soumise à validation humaine.
 Données de démonstration. Tous les noms, chiffres et recommandations de cette capture sont fictifs.
+Comment le système est découpé
+Le produit repose sur deux dépôts de code et une plateforme de données. Cette séparation évite que l'interface Growth reconstruise ses propres chiffres ou accède directement aux données brutes.
+- Le dépôt cobra-data fabrique la donnée fiable. Il collecte Odoo et Shopify en lecture seule, intègre les autres sources analytiques, nettoie, déduplique, rapproche les identifiants et construit les indicateurs métier. Il porte aussi les contrôles de qualité, les curseurs de reprise et la surveillance de fraîcheur.
+- BigQuery conserve les différentes couches. cobra_raw reçoit les copies techniques, cobra_staging les fiabilise, cobra_marts publie les vues métier stables et cobra_audit garde la trace des traitements. BigQuery n'est pas un troisième dépôt : c'est la plateforme commune entre Data et les applications.
+- Le dépôt applicatif cobra-pilotage, dans apps/growth, transforme les faits en décisions. Growth lit uniquement une liste autorisée de marts et les indicateurs agrégés de fraîcheur. Il classe les opportunités, montre les preuves, répond aux questions et prépare les actions. Il ne peut ni modifier BigQuery, ni consulter raw ou staging, ni écrire dans Odoo ou Shopify par défaut.
+Data fabrique les faits ; BigQuery les conserve et les partage ; Growth les transforme en décisions ; l'humain donne l'autorisation.
+En production, le navigateur passe par la protection de apps.cobra.fr, puis par le service Growth exécuté sur Cloud Run avec une identité Google dédiée. Cette identité dispose du droit de lire les seules tables utiles, jamais de les créer, les modifier ou les supprimer.
+Comment circule une action
+La collecte, les contrôles, la détection des anomalies et le classement des opportunités peuvent tourner automatiquement. En revanche, une action sensible suit un contrat explicite : preuve visible, aperçu du changement, validation humaine, exécution par un connecteur autorisé, journal puis mesure avant/après.
+La mécanique reste la même pour Cobra ou Haute Fidélité ; les données, comptes, profils métier et droits restent séparés.
 Le changement de philosophie
 Le produit avait commencé comme un tableau de bord. C'était utile pour vérifier que les données remontaient, mais insuffisant pour changer la façon de travailler. La page d'accueil a donc été retournée : les indicateurs détaillés sont devenus des preuves secondaires. Le premier écran présente quelques propositions classées par impact, confiance, effort et urgence.
 Le flux cible est volontairement lisible : demande → analyse → aperçu du changement → validation → exécution → journal → mesure. Growth peut lire et rafraîchir automatiquement. Il ne doit pas modifier un prix, un stock, une campagne, un email ou une publication sociale sans le droit correspondant.

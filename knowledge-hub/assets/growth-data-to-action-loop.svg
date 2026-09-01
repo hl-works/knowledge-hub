@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Boucle complète de Growth, des sources à la mesure du résultat</title>
+  <desc id="desc">Odoo, Shopify et les plateformes marketing alimentent la plateforme Data et BigQuery. Growth classe les opportunités, présente les preuves, fait valider l'action par un humain, l'exécute via un connecteur autorisé puis mesure le résultat.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbfbff"/>
+      <stop offset="1" stop-color="#fff7f0"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#626bdc"/>
+      <stop offset="1" stop-color="#d34f7d"/>
+    </linearGradient>
+    <filter id="shadow2" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="12" flood-color="#171a3d" flood-opacity=".10"/>
+    </filter>
+    <marker id="arrow2" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M0,0 L11,5.5 L0,11 Z" fill="#6b6f84"/>
+    </marker>
+    <marker id="arrowAccent" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M0,0 L11,5.5 L0,11 Z" fill="#d34f7d"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="820" rx="32" fill="url(#bg2)"/>
+  <text x="64" y="70" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#171a3d">Une boucle, pas un tableau de bord</text>
+  <text x="64" y="106" font-family="Inter, Arial, sans-serif" font-size="19" fill="#666b82">Chaque recommandation conserve sa preuve, son autorisation et son résultat.</text>
+
+  <g filter="url(#shadow2)">
+    <rect x="64" y="170" width="226" height="170" rx="22" fill="#ffffff"/>
+  </g>
+  <circle cx="102" cy="210" r="20" fill="#eceeff"/>
+  <text x="102" y="217" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#5965db">1</text>
+  <text x="134" y="217" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#171a3d">Sources</text>
+  <text x="94" y="258" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Odoo · Shopify · GA4</text>
+  <text x="94" y="286" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Ads · Search Console</text>
+  <text x="94" y="314" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Brevo · Web · Social</text>
+
+  <path d="M290 255 H348" stroke="#6b6f84" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <g filter="url(#shadow2)">
+    <rect x="355" y="170" width="226" height="170" rx="22" fill="#ffffff"/>
+  </g>
+  <circle cx="393" cy="210" r="20" fill="#eceeff"/>
+  <text x="393" y="217" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#5965db">2</text>
+  <text x="425" y="217" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#171a3d">Data + BQ</text>
+  <text x="385" y="258" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Collecte et rapprochement</text>
+  <text x="385" y="286" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Qualité et fraîcheur</text>
+  <text x="385" y="314" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Marts métier stables</text>
+
+  <path d="M581 255 H639" stroke="#6b6f84" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <g filter="url(#shadow2)">
+    <rect x="646" y="170" width="226" height="170" rx="22" fill="url(#hero)"/>
+  </g>
+  <circle cx="684" cy="210" r="20" fill="#ffffff" fill-opacity=".20"/>
+  <text x="684" y="217" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">3</text>
+  <text x="716" y="217" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Growth</text>
+  <text x="676" y="258" font-family="Inter, Arial, sans-serif" font-size="16" fill="#ffffff">Détecte les opportunités</text>
+  <text x="676" y="286" font-family="Inter, Arial, sans-serif" font-size="16" fill="#ffffff">Classe impact × confiance</text>
+  <text x="676" y="314" font-family="Inter, Arial, sans-serif" font-size="16" fill="#ffffff">Explique avec les preuves</text>
+
+  <path d="M872 255 H930" stroke="#6b6f84" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <g filter="url(#shadow2)">
+    <rect x="937" y="170" width="199" height="170" rx="22" fill="#ffffff"/>
+  </g>
+  <circle cx="975" cy="210" r="20" fill="#fff0e8"/>
+  <text x="975" y="217" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#d65b48">4</text>
+  <text x="1007" y="217" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#171a3d">Expert</text>
+  <text x="967" y="258" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Questionne</text>
+  <text x="967" y="286" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Vérifie l'aperçu</text>
+  <text x="967" y="314" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#d65b48">Valide ou refuse</text>
+
+  <path d="M1036 340 V418" stroke="#6b6f84" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <g filter="url(#shadow2)">
+    <rect x="782" y="430" width="354" height="164" rx="22" fill="#ffffff"/>
+  </g>
+  <circle cx="824" cy="473" r="20" fill="#fff0e8"/>
+  <text x="824" y="480" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#d65b48">5</text>
+  <text x="856" y="480" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#171a3d">Action autorisée</text>
+  <text x="812" y="523" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Le connecteur exécute uniquement ce qui a été validé.</text>
+  <text x="812" y="553" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">L'opération est datée, attribuée et journalisée.</text>
+
+  <path d="M782 512 H680" stroke="#6b6f84" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <g filter="url(#shadow2)">
+    <rect x="410" y="430" width="260" height="164" rx="22" fill="#ffffff"/>
+  </g>
+  <circle cx="452" cy="473" r="20" fill="#e9f8f1"/>
+  <text x="452" y="480" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#278a60">6</text>
+  <text x="484" y="480" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#171a3d">Mesure</text>
+  <text x="440" y="523" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Avant / après</text>
+  <text x="440" y="553" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">Impact réel et anomalies</text>
+
+  <path d="M410 512 H308" stroke="#6b6f84" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <g filter="url(#shadow2)">
+    <rect x="64" y="430" width="234" height="164" rx="22" fill="#ffffff"/>
+  </g>
+  <circle cx="106" cy="473" r="20" fill="#e9f8f1"/>
+  <text x="106" y="480" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#278a60">7</text>
+  <text x="138" y="480" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#171a3d">Apprentissage</text>
+  <text x="94" y="523" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">La règle et le classement</text>
+  <text x="94" y="553" font-family="Inter, Arial, sans-serif" font-size="16" fill="#53586d">s'améliorent avec le résultat.</text>
+
+  <path d="M181 430 V387 C181 371 194 358 210 358 H755 C771 358 784 345 784 329" fill="none" stroke="#d34f7d" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#arrowAccent)"/>
+  <text x="335" y="389" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#b74670">La boucle suivante part d'une connaissance meilleure</text>
+
+  <rect x="164" y="655" width="872" height="92" rx="24" fill="#242947"/>
+  <text x="600" y="692" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Ce qui peut tourner seul</text>
+  <text x="600" y="722" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#d9dbea">collecte · contrôles · détection · classement · mesure</text>
+  <text x="600" y="771" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#d34f7d">Ce qui reste humain</text>
+  <text x="600" y="798" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#575d75">arbitrage · autorisation · responsabilité</text>
+</svg>
