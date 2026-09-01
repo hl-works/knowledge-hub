@@ -7,6 +7,27 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Fable 5.1 repasse tout le site : méthode v2, six guides, un lexique doublé</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/refonte-knowledge-hub-fable-5-1.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/refonte-knowledge-hub-fable-5-1.html</guid>
+<pubDate>Tue, 01 Sep 2026 08:00:00 +0000</pubDate>
+<description>Cinq mois après sa création, ce site décrivait une méthode qui n&#x27;était plus la mienne. Le jour de la sortie de Claude Fable 5.1 : la Méthode réécrite, six guides nouveaux (Brain, contexte, skills, garde-fous, HL OS, Content Machine), vingt-trois guides mis à jour, un lexique passé de 27 à 82 termes, l&#x27;accueil et les pages projets à la date du jour, trois entrées pour les projets de l&#x27;été, et le miroir anglais. Sans rien inventer : le Brain d&#x27;abord.</description>
+</item>
+<item>
+<title>HL OS : cinq briques, un socle — la carte du système</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/hl-os-cinq-briques-un-socle.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/hl-os-cinq-briques-un-socle.html</guid>
+<pubDate>Tue, 01 Sep 2026 08:00:00 +0000</pubDate>
+<description>Ce que je construis depuis juin a un nom : HL OS. Un socle commun (base de données héritée de HF-OS, couche IA, identité et droits, journal des actions) et cinq briques — Zéro, Knowledge, Content Machine, Growth, Socle IA — avec leurs frontières décidées le 1er septembre. Un cœur, plusieurs contextes ; un flux unique demande → analyse → aperçu → validation → exécution → journal → mesure ; et une priorité consignée : fiabiliser la mesure d&#x27;audience avant de déplacer un budget.</description>
+</item>
+<item>
+<title>Content Machine : trois projets de publication deviennent un seul système</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/content-machine-une-capture-n-destinations.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/content-machine-une-capture-n-destinations.html</guid>
+<pubDate>Tue, 01 Sep 2026 08:00:00 +0000</pubDate>
+<description>La machine à contenus attestés (CDC v2 du 30 juillet), le sens « sortie » du Brain et le déclencheur « à publier » deviennent un seul système : une capture, N destinations. L&#x27;observation attestée comme unité de base, trois entrées (capture Telegram, repurposing du magazine, « publie cette idée »), un routage par contexte, et des décisions tranchées : Telegram reste le cockpit, publication enfichable et auto-hébergée, l&#x27;Atlas d&#x27;Asie pilote du carnet, ordre réseaux → web → papier. Échéance : le salon Haute Fidélité, fin septembre.</description>
+</item>
+<item>
 <title>Growth : remplacer dix tableaux de bord par une file d&#x27;actions</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/growth-centre-actions.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/growth-centre-actions.html</guid>
@@ -19,6 +40,13 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html</guid>
 <pubDate>Fri, 28 Aug 2026 08:00:00 +0000</pubDate>
 <description>Les demandes d&#x27;évolution Odoo arrivaient en une ligne — sans où, sans quoi au clic, sans « ce qui ne doit pas bouger ». Une chaîne interne les cadre : formulaire guidé (8 champs, dictée possible), dépôt de captures et d&#x27;une vidéo transcrite automatiquement, puis une relecture IA en deux passes — elle pose des questions structurées, le serveur les vérifie dans la vraie base Odoo en lecture seule, l&#x27;IA conclut. Elle a requalifié une demande de dev en dix minutes de paramétrage, et vu qu&#x27;une solution ne supprimait pas les appels fournisseur qu&#x27;elle prétendait éviter. ~100 s et quelques centimes par relecture.</description>
+</item>
+<item>
+<title>Le Brain : mon wiki privé au format OKF, lu par tous mes Claude</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/brain-okf-wiki-prive.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/brain-okf-wiki-prive.html</guid>
+<pubDate>Sat, 22 Aug 2026 08:00:00 +0000</pubDate>
+<description>Un tweet sur l&#x27;Open Knowledge Format déclenche la révision de ma brique Knowledge : le Markdown devient la source de vérité, un dépôt privé en sept dossiers (entités, briques, projets, perso, méthode, notes, sessions) lu par tous mes Claude via un simple connecteur GitHub, et les étapes base vectorielle + serveur MCP repoussées derrière un critère de bascule écrit. Un rituel de capture, la règle des coquilles, et une conviction : un brain périmé est pire qu&#x27;un brain vide.</description>
 </item>
 <item>
 <title>Veille HiFi : le bot quotidien réparé, élargi (30 → 64 sources) et fiabilisé</title>
@@ -117,34 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/davis-odoo-krypton-ariane.html</guid>
 <pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
 <description>Préparation de l&#x27;intégration d&#x27;une nouvelle marque d&#x27;enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d&#x27;abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.</description>
-</item>
-<item>
-<title>HF-OS : socle Next.js 16 + Payload 3 déployé, connexion admin par Google</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/hf-os-socle-deploiement.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/hf-os-socle-deploiement.html</guid>
-<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
-<description>Initialisation puis mise en prod du socle technique de HF-OS (Next.js 16 + Payload 3, PostgreSQL Scaleway, hébergement Render), connexion admin par Google SSO restreinte à une liste blanche. Pas encore de collections métier — juste la coquille déployée.</description>
-</item>
-<item>
-<title>Relier un produit Shopify à Odoo : wizard LINK/RELINK dans cobra_shopify</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/shopify-link-relink-wizard.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/shopify-link-relink-wizard.html</guid>
-<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
-<description>Des liens Odoo↔Shopify se cassaient quand un produit était recréé avec variantes (historique orphelin). Après un sauvetage par script (Focal Bathys MG), on en fait une feature : un wizard LINK/RELINK dans cobra_shopify — matching SKU, swap atomique, sans script.</description>
-</item>
-<item>
-<title>Odoo → Shopify : archivage et remise en ligne des produits synchronisés</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/shopify-archivage-produits-eol.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/shopify-archivage-produits-eol.html</guid>
-<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
-<description>Le connecteur ne répercutait ni l&#x27;archivage ni la remise en ligne d&#x27;un produit. 3 bugs corrigés dans cobra_shopify + un script de rattrapage (~590 fiches fantômes nettoyées, 2 produits encore en vente rendus non-achetables).</description>
-</item>
-<item>
-<title>Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/cobra-docs-contexte-claude.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cobra-docs-contexte-claude.html</guid>
-<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
-<description>Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.</description>
 </item>
 </channel>
 </rss>
