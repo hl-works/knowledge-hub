@@ -1592,6 +1592,51 @@ URL : https://hl-consulting.tech/knowledge-hub/lexique/
 
 
 ================================================================
+GROWTH : REMPLACER DIX TABLEAUX DE BORD PAR UNE FILE D'ACTIONS
+URL : https://hl-consulting.tech/knowledge-hub/journal/growth-centre-actions.html
+Publié : 2026-09-01
+================================================================
+
+En quelques jours, Growth est passé d'un tableau de bord à un centre de décision qui rapproche commerce, acquisition, SEO, web, email et social pour proposer le prochain travail utile.
+
+← Journal
+Cobra · Growth
+Growth : remplacer dix tableaux de bord par une file d'actions
+Claude · HL·1er septembre 2026·Cobra datamarketingagentstraten-prodCobra En quelques jours, Growth est passé d'un tableau de bord en lecture seule à un centre de décision qui rapproche commerce, acquisition, SEO, performance web, email et social. L'objectif n'est plus de montrer davantage de chiffres : il est de dire quoi traiter maintenant, pourquoi, et avec quelles preuves.
+Le problème
+Les informations utiles existaient déjà, mais elles vivaient dans des outils différents : Odoo pour les ventes, la marge et le stock ; Shopify pour le flux e-commerce ; GA4 et Google Ads pour la mesure ; Search Console et Merchant Center pour la visibilité ; Brevo pour l'email ; Lighthouse pour la performance ; les plateformes sociales pour l'organique et le paid.
+Chaque outil sait produire son tableau de bord. Aucun ne répond seul à une question simple : quelle action mérite réellement notre temps aujourd'hui ?
+Ce qui a été construit
+- un accueil limité aux actions prioritaires ;
+- une barre principale pour poser une question, ouvrir une preuve, rafraîchir les données ou préparer une action ;
+- un rapprochement Odoo ↔ Shopify et une lecture croisée GA4, Ads et ventes réelles ;
+- un backlog SEO issu de Search Console, complété à la demande par DataForSEO ;
+- des contrôles Merchant Center, Lighthouse, liens, erreurs HTTP, Brevo et réseaux sociaux ;
+- un moteur commun réutilisable pour une future instance Haute Fidélité dans HL OS ;
+- un garde-fou : toute écriture sensible reste soumise à validation humaine.
+Données de démonstration. Tous les noms, chiffres et recommandations de cette capture sont fictifs.
+Le changement de philosophie
+Le produit avait commencé comme un tableau de bord. C'était utile pour vérifier que les données remontaient, mais insuffisant pour changer la façon de travailler. La page d'accueil a donc été retournée : les indicateurs détaillés sont devenus des preuves secondaires. Le premier écran présente quelques propositions classées par impact, confiance, effort et urgence.
+Le flux cible est volontairement lisible : demande → analyse → aperçu du changement → validation → exécution → journal → mesure. Growth peut lire et rafraîchir automatiquement. Il ne doit pas modifier un prix, un stock, une campagne, un email ou une publication sociale sans le droit correspondant.
+Données de démonstration. Cette capture ne contient aucune donnée réelle de Cobra.
+La difficulté réelle
+Le code de l'interface n'était pas la partie la plus coûteuse. Le travail difficile consistait à décider quelle source croire et à empêcher les rapprochements trompeurs. Odoo reste la vérité commerciale. Shopify décrit le flux web. Les plateformes publicitaires donnent leur attribution déclarée. GA4 décrit le comportement observé. Ces chiffres peuvent être comparés, mais ils ne doivent jamais être confondus.
+Le premier apprentissage important est venu de cette règle : lorsque la couverture analytics est insuffisante par rapport aux commandes réelles, Growth doit recommander de fiabiliser la mesure avant de proposer un déplacement de budget.
+Temps comprimé et valeur de développement
+Le cadrage a commencé pendant le week-end, la première trace projet date du 31 août et la première version a été mise en production le 1er septembre.
+PrestataireChargeDélaiBudget HTFreelance senior polyvalent30–45 jours6–9 semaines25–42 k€Petite équipe spécialisée40–55 jours-homme4–6 semaines40–70 k€Agence avec pilotage et garantie50–70 jours-homme6–10 semaines60–95 k€ La valeur de remplacement du développement actuel se situe autour de 45 à 55 k€ HT, avec un point central proche de 50 k€ HT. Une industrialisation complète — supervision durable des connecteurs, boucle avant/après, droits fins et documentation d'exploitation — porterait plutôt l'ensemble vers 65 à 80 k€ HT.
+Ce chiffrage estime un coût de reconstruction externe, pas la valorisation financière du logiciel ni un retour sur investissement. Repères : baromètre Malt 2026 et synthèse des TJM IT en France.
+Ce que ça change
+La valeur n'est pas d'avoir ajouté un nouveau tableau de bord à la collection. Elle est de pouvoir progressivement cesser d'ouvrir dix interfaces pour reconstituer une situation.
+Growth rassemble les faits, propose le prochain travail et conserve les preuves accessibles à l'expert. Le même cœur pourra servir un commerçant comme Cobra ou un éditeur comme Haute Fidélité, avec des données, comptes et règles séparés.
+La prochaine étape n'est donc pas d'ajouter cent graphiques. C'est de fermer la boucle : mesurer ce qui s'est réellement passé après chaque action, puis rendre la recommandation suivante meilleure que la précédente.
+Voir aussi
+- Le « Cobra App Store » continue de s'industrialiser
+- Suivi des prix et alignement concurrentiel automatique
+← Toutes les entréesProjet Cobra →
+
+
+================================================================
 L'IA NE CODE PAS MA DEMANDE, ELLE VÉRIFIE CE QU'ELLE SUPPOSE
 URL : https://hl-consulting.tech/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html
 Publié : 2026-08-28
