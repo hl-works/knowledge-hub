@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>C'est quoi un « agent IA » ? — Guides · Hugo Lahutte</title>
-<meta name="description" content="Un agent IA, c'est Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat. Ce que ça permet — et le garde-fou sans lequel ça part en vrille.">
+<title>C'est quoi un « agent IA » ? Formes en 2026, ce qui tourne chez moi, et le garde-fou — Guides · Hugo Lahutte</title>
+<meta name="description" content="Un agent IA, c'est Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat. La différence assistant / agent, les quatre formes d'un agent en 2026 (dans la session, sous-agents, routines, agents hébergés), les six agents en production chez moi (veilles, factures, tarifs, prix, relecture des demandes, Growth), et le garde-fou indispensable : objectif, budget, fréquence, critère — et lecture automatique, écriture validée.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-agent-ia.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-agent-ia.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html">
@@ -16,12 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="C'est quoi un « agent IA » ?">
-<meta property="og:description" content="Claude à qui on confie un objectif et les moyens d'agir seul, en boucle — et le garde-fou indispensable.">
+<meta property="og:description" content="Un assistant répond, un agent agit — en boucle, jusqu'au résultat. Les formes en 2026, ce qui tourne chez moi, et le garde-fou sans lequel ça part en vrille.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-agent-ia.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -38,7 +39,7 @@
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../style.css?v=20260622a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,31 +47,90 @@
     {
       "@type": "TechArticle",
       "headline": "C'est quoi un « agent IA » ?",
-      "description": "Un agent IA, c'est Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — et le garde-fou sans lequel ça part en vrille.",
+      "description": "Assistant (répond) vs agent (agit en boucle vers un objectif). Quatre formes en 2026 : agent dans la session, sous-agents, routines planifiées, agents hébergés. Six agents en production chez Hugo Lahutte. Garde-fous : objectif explicite, budget plafonné, fréquence limitée, critère de succès, et lecture automatique / écriture validée. Commencer petit, en lecture seule.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-05-31",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-agent-ia.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["agent IA", "agent autonome", "Claude", "automatisation", "garde-fou"],
-      "keywords": "agent IA, agent autonome, assistant vs agent, automatisation, garde-fou"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "agent IA",
+        "sous-agents",
+        "routines",
+        "automatisation",
+        "garde-fous",
+        "Claude Code"
+      ],
+      "keywords": "agent IA, sous-agent, routine, automatisation, garde-fous, validation humaine, injection de prompt"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "C'est quoi un agent IA ?", "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-agent-ia.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "C'est quoi un agent IA ?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-agent-ia.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Quelle est la différence entre un assistant et un agent IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Un assistant répond : tu demandes, il répond, tu reprends la main. Un agent agit : tu lui fixes un but et il enchaîne les étapes seul — chercher, décider, exécuter, vérifier, recommencer — jusqu'à livrer. L'ingrédient clé est l'autonomie en boucle plus l'accès à des outils pour agir."}},
-        {"@type": "Question", "name": "À quoi sert un agent IA concrètement ?", "acceptedAnswer": {"@type": "Answer", "text": "Branché à tes outils, il fait tourner des tâches sans toi : une veille qui se compose et se publie chaque matin, du tri de mails, de la surveillance de chiffres. Certains tournent en continu, d'autres se mettent en pause faute de cadre."}},
-        {"@type": "Question", "name": "Quel est le garde-fou indispensable d'un agent IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Un agent sans cadre boucle et part en vrille (j'ai eu un agent qui cramait son budget chaque jour sans rien produire). Avant de lancer, il faut quatre choses : un objectif explicite, un plafond de budget dur, une fréquence limitée, et un critère de succès mesurable."}},
-        {"@type": "Question", "name": "Par où commencer avec les agents IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Petit : un seul agent, une seule tâche, et on prouve sa fiabilité avant d'en lancer un deuxième. Le big bang « des agents partout » est le meilleur moyen de tout casser."}}
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un assistant IA et un agent IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un assistant répond : tu demandes, il répond, tu reprends la main. Un agent agit : tu lui fixes un objectif et il enchaîne les étapes seul — chercher, décider, exécuter, vérifier, recommencer — jusqu'à livrer. L'ingrédient clé est l'autonomie en boucle plus l'accès à des outils pour agir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles formes prend un agent IA en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quatre : l'agent dans ta session (Claude Code ou Cowork qui enchaîne les étapes, parfois pendant des heures), les sous-agents (des copies déléguées en parallèle, en arrière-plan), les routines (un agent planifié, exécuté dans le cloud sans ta machine) et les agents hébergés (sur un serveur, branchés par l'API, qui tournent 24/7)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels garde-fous avant de lancer un agent ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quatre choses : un objectif explicite, un plafond de budget dur, une fréquence limitée, un critère de succès mesurable. Et une cinquième depuis que les agents agissent dans les outils : lecture automatique, écriture validée — l'agent lit et propose, une personne valide ce qui modifie un prix, un stock, une campagne, un mail ou une publication."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Par où commencer avec les agents IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Petit : un seul agent, une seule tâche, en lecture seule d'abord — il regarde et alerte, il ne touche à rien. On prouve qu'il est fiable avant de lui donner un bouton, puis on en lance un deuxième. Le big bang « des agents partout » est le meilleur moyen de tout casser."
+          }
+        }
       ]
     }
   ]
@@ -80,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -104,19 +165,25 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › C'est quoi un agent IA ?</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">C'est quoi un « agent IA » ?</h1>
     <hr class="rule--accent">
-    <p class="lead">Un agent IA, c'est Claude à qui on confie un <strong>objectif</strong> et les moyens d'<strong>agir seul, en boucle</strong>, jusqu'au résultat. Ce que ça permet — et le garde-fou sans lequel ça part en vrille.</p>
+    <p class="lead">Un agent IA, c'est Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat. Ce que ça permet, les formes que ça prend en 2026 (sous-agents, routines, agents hébergés), ce qui tourne chez moi — et le garde-fou sans lequel ça part en vrille.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>~5 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>·</span>
+      <span>~6 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
-      <a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a>
+      <a class="tag" data-tag="agent" data-tagsearch="agent" href="/knowledge-hub/guides/">agent</a>
       <a class="tag" data-tag="ia" data-tagsearch="ia" href="/knowledge-hub/guides/">IA</a>
       <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/guides/">vulgarisation</a>
     </div>
@@ -135,8 +202,8 @@
       <p class="kicker">En 30 secondes</p>
       <ul>
         <li>Un assistant <strong>répond</strong> ; un agent <strong>agit</strong> : il enchaîne des étapes tout seul vers un objectif (chercher, décider, exécuter, vérifier, recommencer).</li>
-        <li>Branché à tes outils, il fait tourner des tâches <strong>sans toi</strong> : veille, tri de mails, surveillance de chiffres.</li>
-        <li>Le piège : sans garde-fous (objectif clair, budget plafonné, fréquence limitée), un agent <strong>boucle et part en vrille</strong>. J'en ai fait les frais.</li>
+        <li>Branché à tes outils, il fait tourner des tâches <strong>sans toi</strong> : veille, factures, tarifs fournisseurs, prix, surveillance de chiffres. En 2026, il se démultiplie (sous-agents), se planifie (routines) et s'héberge dans le cloud.</li>
+        <li>Le piège : sans garde-fous (objectif clair, budget plafonné, fréquence limitée, critère de succès), un agent <strong>boucle et part en vrille</strong>. J'en ai fait les frais. Et la règle qui rend tout possible : l'IA propose, l'humain valide.</li>
       </ul>
     </aside>
 
@@ -144,9 +211,10 @@
       <p class="kicker">Sommaire</p>
       <ul>
         <li><a href="#difference">1. Assistant ou agent : la vraie différence</a></li>
-        <li><a href="#usages">2. À quoi ça sert concrètement</a></li>
-        <li><a href="#garde-fou">3. Le garde-fou indispensable</a></li>
-        <li><a href="#commencer">4. Par où commencer</a></li>
+        <li><a href="#formes">2. Les formes d'un agent en 2026</a></li>
+        <li><a href="#usages">3. Ce qui tourne chez moi</a></li>
+        <li><a href="#garde-fou">4. Le garde-fou indispensable</a></li>
+        <li><a href="#commencer">5. Par où commencer</a></li>
       </ul>
     </nav>
 
@@ -154,7 +222,7 @@
 
       <h2 id="difference">1. Assistant ou agent : la vraie différence</h2>
       <p>Quand tu discutes avec Claude, c'est un <strong>assistant</strong> : tu demandes, il répond, tu reprends la main. Un <strong>agent</strong>, c'est la marche au-dessus : tu lui fixes un but, et il <strong>enchaîne les étapes seul</strong> — il cherche, décide, agit, vérifie son résultat, et recommence si besoin, jusqu'à livrer.</p>
-      <p>L'ingrédient clé, c'est l'<strong>autonomie en boucle</strong> + l'accès à des outils pour agir.</p>
+      <p>L'ingrédient clé, c'est l'<strong>autonomie en boucle</strong> + l'accès à des outils pour agir (les <a href="cest-quoi-mcp-connecter-claude.html">connecteurs</a>).</p>
 
       <figure class="diagram">
         <div class="loop" role="img" aria-label="Boucle d'agent : objectif, puis agir, observer le résultat, ajuster, recommencer, jusqu'à livrer.">
@@ -172,20 +240,40 @@
         <figcaption class="caption">Ce qui fait un agent : la boucle autonome, qui tourne jusqu'à atteindre l'objectif.</figcaption>
       </figure>
 
-      <h2 id="usages">2. À quoi ça sert concrètement</h2>
-      <p>Chez moi : une <strong>veille</strong> qui se compose et se publie chaque matin sans que j'y touche. Et des agents en cours pour trier mes mails ou surveiller des chiffres. Honnêtement, certains tournent, d'autres je les ai mis <strong>en pause</strong> — parce que justement…</p>
+      <h2 id="formes">2. Les formes d'un agent en 2026</h2>
+      <p>Il y a un an, « un agent » voulait dire un script qui appelle un modèle en boucle. Aujourd'hui, ça prend quatre formes, de la plus proche de toi à la plus autonome :</p>
+      <ul>
+        <li><strong>L'agent dans ta session</strong> — Claude Code ou Cowork qui enchaîne les étapes d'une tâche pendant que tu regardes (ou pas). Depuis les modèles Claude 5, ça peut durer des heures : il livre une fonctionnalité testée, pas une fonction.</li>
+        <li><strong>Les sous-agents</strong> — un agent principal qui délègue des sous-tâches à des copies de lui-même, en parallèle, en arrière-plan, chacune avec son propre contexte. Traduire vingt pages, auditer dix fichiers, vérifier cinq sources. Détail dans <a href="cest-quoi-un-skill.html">C'est quoi un skill</a>.</li>
+        <li><strong>Les routines</strong> — un agent planifié (chaque matin, chaque lundi), exécuté dans le cloud sans ta machine. La nouveauté de l'été. Voir <a href="cest-quoi-une-loop.html">Loops, routines et tâches planifiées</a>.</li>
+        <li><strong>Les agents hébergés</strong> — un agent qui vit sur un serveur (le tien, ou chez Anthropic), branché à tes outils par l'API, qui tourne 24/7 avec ses propres secrets et son propre journal. C'est la forme de mon agent factures et de mes veilles.</li>
+      </ul>
 
-      <h2 id="garde-fou">3. Le garde-fou indispensable</h2>
-      <p>…un agent sans cadre, c'est un robot lâché. J'en ai eu un qui se relançait en boucle et <strong>cramait son budget chaque jour sans rien produire d'utilisable</strong>. La leçon, devenue règle chez moi : tout agent a besoin de quatre choses avant d'être lancé —</p>
+      <h2 id="usages">3. Ce qui tourne chez moi</h2>
+      <p>Pas une liste d'intentions — ce qui est en production au 1er septembre 2026 :</p>
+      <ul>
+        <li><strong>Deux veilles quotidiennes</strong> (hi-fi mondiale sur 64 sources, actualité IA) qui lisent, trient, rédigent et publient chaque matin sur Telegram et ici. Réparées et fiabilisées en août : modèle choisi automatiquement, alerte si une source meurt trois jours, coût plafonné.</li>
+        <li><strong>L'agent factures fournisseurs</strong> de Cobra : il lit les mails toutes les quinze minutes, extrait chaque facture, la rattache à la bonne commande et la pousse pour validation. Il ne peut rattacher qu'à une commande qui existe — c'est ce qui l'empêche de dériver.</li>
+        <li><strong>L'app qui lit les tarifs fournisseurs</strong> : extraction des références et des prix, rapprochement avec la base, détection des doublons, validation humaine avant toute écriture. Aucun produit créé n'est publié en ligne automatiquement.</li>
+        <li><strong>Le moteur d'alignement des prix</strong> : il recalcule des prix cibles face à la concurrence à chaque livraison de données, jamais à perte, en observation d'abord puis en live famille par famille — le passage en live restant une décision humaine.</li>
+        <li><strong>La relecture des demandes de développement</strong> : l'IA pose des questions, vérifie ses hypothèses dans la vraie base en lecture seule, et conclut — avant qu'une ligne de code soit écrite.</li>
+        <li><strong>Growth</strong> : la file d'actions qui rapproche ventes, acquisition, visibilité, e-mail et réseaux, et propose le prochain travail utile avec ses preuves. Lecture automatique, écriture validée.</li>
+      </ul>
+      <p>Le point commun n'est pas la technologie. C'est que chacun a un périmètre, un budget, et une frontière nette entre ce qu'il fait seul et ce qu'il soumet.</p>
+
+      <h2 id="garde-fou">4. Le garde-fou indispensable</h2>
+      <p>Un agent sans cadre, c'est un robot lâché. J'en ai eu un qui se relançait en boucle et <strong>cramait son budget chaque jour sans rien produire d'utilisable</strong>. La leçon, devenue règle chez moi : tout agent a besoin de quatre choses avant d'être lancé —</p>
       <ol>
         <li>un <strong>objectif explicite</strong> (« on saura que c'est bon quand… »),</li>
         <li>un <strong>plafond de budget</strong> dur,</li>
         <li>une <strong>fréquence limitée</strong> (pas en boucle permanente),</li>
         <li>un <strong>critère de succès</strong> mesurable.</li>
       </ol>
+      <p>Et une cinquième, depuis que les agents agissent dans les outils : <strong>lecture automatique, écriture validée</strong>. Un agent lit, propose, prépare ; une personne valide ce qui modifie un prix, un stock, une campagne, un mail, une publication. Ce n'est pas de la prudence excessive : c'est ce qui me permet de laisser tourner six agents en dormant. Le détail — trois régimes d'autonomie, le flux d'une action, les verrous — est dans <a href="lia-propose-lhumain-valide.html">L'IA propose, l'humain valide</a>.</p>
+      <p>Une menace propre aux agents, à connaître : un agent qui lit une page web ou un mail peut y rencontrer des instructions piégées (une <em>injection de prompt</em>). Les modèles de 2026 y résistent bien mieux, mais la vraie protection reste des droits limités : un agent qui ne peut pas envoyer d'argent ne peut pas être manipulé pour le faire.</p>
 
       <figure class="diagram">
-        <div class="compare" role="img" aria-label="Assistant à gauche : un échange question-réponse. Agent à droite : une boucle autonome encadrée par un budget, un objectif et une fréquence.">
+        <div class="compare" role="img" aria-label="Assistant à gauche : un échange question-réponse. Agent à droite : une boucle autonome encadrée par un budget, un objectif, une fréquence et une validation.">
           <div class="compare__side">
             <span class="compare__tag">Assistant</span>
             <h4>Question → réponse</h4>
@@ -202,29 +290,32 @@
             <ul>
               <li>Tu fixes un but</li>
               <li>Il agit en boucle</li>
-              <li>Cadre : budget · objectif · fréquence</li>
+              <li>Cadre : objectif · budget · fréquence · critère</li>
+              <li>Il lit seul, il écrit sous validation</li>
             </ul>
           </div>
         </div>
         <figcaption class="caption">Un agent sans cadre part en vrille. Le cadre (à droite) n'est pas optionnel.</figcaption>
       </figure>
 
-      <h2 id="commencer">4. Par où commencer</h2>
-      <p>Petit. <strong>Un seul agent, une seule tâche</strong>, et on prouve qu'il est fiable avant d'en lancer un deuxième. Le big bang « des agents partout » est le meilleur moyen de tout casser.</p>
+      <h2 id="commencer">5. Par où commencer</h2>
+      <p>Petit. <strong>Un seul agent, une seule tâche</strong>, en lecture seule d'abord (il regarde et alerte, il ne touche à rien), et on prouve qu'il est fiable avant de lui donner un bouton — puis un deuxième agent. Le big bang « des agents partout » est le meilleur moyen de tout casser. Ma veille a tourné des mois avant que je laisse un agent écrire dans Odoo.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="lia-propose-lhumain-valide.html"><strong>L'IA propose, l'humain valide</strong></a> — les garde-fous, en détail.</li>
           <li>→ <a href="cest-quoi-mcp-connecter-claude.html"><strong>C'est quoi un MCP</strong></a> — ce qui donne des bras à l'agent.</li>
+          <li>→ <a href="cest-quoi-une-loop.html"><strong>Loops, routines et tâches planifiées</strong></a> — l'agent qui revient vérifier.</li>
           <li>→ <a href="../veille-ia/"><strong>Mon agent de veille IA</strong></a> — un agent réel, en ligne, abonnable.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Un agent factures cadré avant la moindre ligne de code → <a href="../journal/agent-factures-architecture.html">Agent autonome de traitement des factures</a> · création auto de produits → <a href="../journal/agent-creation-produits.html">Agent de création automatique de produits Odoo</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Un agent factures cadré avant la moindre ligne de code → <a href="../journal/agent-factures-architecture.html">l'architecture</a>, puis <a href="../journal/agent-factures-prod-scaleway.html">en prod</a> · les tarifs fournisseurs → <a href="../journal/app-tarifs-fournisseurs-maj-produits.html">Une app qui lit les tarifs à ma place</a> · la file d'actions → <a href="../journal/growth-centre-actions.html">Growth</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
@@ -233,12 +324,11 @@
       <p class="prose">Si tu as une corvée récurrente que tu rêves d'automatiser, parlons-en — surtout du cadre à poser pour que ça ne parte pas en vrille. Je documente tout en public.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
-        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Agent%20IA%20—%20échange">M'écrire</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Agent%20IA%20—%20échange">M'écrire</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -300,7 +390,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

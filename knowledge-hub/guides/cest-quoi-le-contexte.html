@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>C'est quoi « le contexte » d'une IA, et pourquoi c'est tout (fenêtre de contexte, compaction, mémoire) — Guides · Hugo Lahutte</title>
+<meta name="description" content="Le contexte, c'est tout ce que le modèle voit au moment de répondre : consignes, fichiers, historique, résultats d'outils — rien d'autre. La fenêtre de contexte expliquée simplement (jusqu'à un million de tokens sur Claude 5, mais l'attention se dilue), ce qui y entre par couches (CLAUDE.md, Brain, skills, connecteurs, conversation), ce qui se passe quand ça déborde (compaction, brief de reprise, capture), la différence avec la mémoire, et quatre réflexes de context engineering.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-le-contexte.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-le-contexte.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-le-contexte.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-le-contexte.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="C'est quoi « le contexte », et pourquoi c'est tout">
+<meta property="og:description" content="La fenêtre de contexte, ce qui y entre, ce qui en sort, et les quatre réflexes qui changent la qualité de tout. Le context engineering, sans jargon.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-le-contexte.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-09-01">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../style.css?v=20260622a">
+
+<!-- ===== JSON-LD (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "C'est quoi « le contexte », et pourquoi c'est tout",
+      "description": "Le contexte est tout ce que le modèle voit au moment de répondre. La fenêtre de contexte (jusqu'à un million de tokens sur les modèles Claude 5) est relue à chaque réponse et l'attention se dilue quand elle se remplit. Les couches : règles (CLAUDE.md), connaissance (Brain), procédures (skills), outils (connecteurs), conversation. Compaction, brief de reprise, capture ; mémoire de l'outil vs mémoire choisie ; quatre réflexes de context engineering.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-01",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-le-contexte.html",
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "context engineering",
+        "fenêtre de contexte",
+        "tokens",
+        "compaction",
+        "mémoire",
+        "CLAUDE.md",
+        "Brain"
+      ],
+      "keywords": "contexte, fenêtre de contexte, context engineering, tokens, compaction, mémoire, brief de reprise, Claude"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "C'est quoi le contexte ?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-le-contexte.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "C'est quoi la fenêtre de contexte d'une IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est tout ce que le modèle peut lire au moment où il répond : ta consigne, les fichiers de contexte, les documents joints, l'historique de la conversation, les résultats de ses outils. Elle se mesure en tokens (jusqu'à un million sur les modèles Claude 5). Tout ce qui y est posé est relu à chaque réponse, et l'attention se dilue quand elle se remplit : une longue conversation n'est pas une conversation qui s'améliore."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "C'est quoi le context engineering ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'art d'organiser ce que l'IA sait au moment de répondre : des règles stables et courtes (CLAUDE.md), une connaissance à jour chargée à la demande (Brain), des procédures rangées (skills), des outils cadrés (connecteurs), et la discipline de découper — une conversation par sujet, des sous-agents pour les lectures lourdes, un brief de reprise avant que la fenêtre déborde."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il quand la conversation est trop longue ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'outil compacte : il remplace le début de la conversation par un résumé, automatiquement. C'est utile mais risqué, parce que le résumé garde l'essentiel selon le modèle, pas forcément selon toi. Le réflexe : clore avec un brief de reprise validé (où on en est, ce qui est décidé, ce qui reste), repartir dans une conversation neuve, et capturer ce qui est durable dans le Brain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre la mémoire de Claude et un Brain ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La mémoire de l'outil retient implicitement tes préférences et tes projets d'une conversation à l'autre (partagée entre chat et Cowork depuis août 2026), mais elle ne se relit pas et reste dans un outil. Le Brain est la mémoire choisie : explicite, versionnée, corrigeable à la main, lue par tous les outils. Ce qui engage une décision va dans le Brain ; le confort peut rester dans la mémoire."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">Veille IA</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/en/guides/cest-quoi-le-contexte.html" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › C'est quoi le contexte ?</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Méthode</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">C'est quoi « le contexte »,<br>et pourquoi c'est tout</h1>
+    <hr class="rule--accent">
+    <p class="lead">On a tous commencé par chercher le bon prompt. Le vrai levier est ailleurs : dans tout ce que l'IA sait au moment où tu lui parles — et dans ce qu'elle ne sait plus quand la conversation s'allonge. Le contexte expliqué simplement : la fenêtre, ce qui y entre, ce qui en sort, et les quatre réflexes qui changent la qualité de tout.</p>
+    <div class="meta-bar">
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-09-01">1er septembre 2026</time>
+      <span>·</span>
+      <span>~6 min de lecture</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="contexte" data-tagsearch="contexte" href="/knowledge-hub/guides/">contexte</a>
+      <a class="tag" data-tag="methode" data-tagsearch="méthode" href="/knowledge-hub/guides/">méthode</a>
+      <a class="tag" data-tag="llm" data-tagsearch="LLM" href="/knowledge-hub/guides/">LLM</a>
+      <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/guides/">vulgarisation</a>
+    </div>
+    <ul class="levels" aria-label="Niveaux de lecture">
+      <li class="level-pill"><b>1</b> En 30 secondes</li>
+      <li class="level-pill"><b>2</b> Le corps, visuel</li>
+      <li class="level-pill"><b>3</b> Pour aller plus loin</li>
+    </ul>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
+      <p class="kicker">En 30 secondes</p>
+      <ul>
+        <li>Le <strong>contexte</strong>, c'est tout ce que le modèle « voit » à l'instant où il répond : ta consigne, les fichiers de contexte, les documents joints, l'historique de la conversation, les résultats de ses outils. Rien d'autre. Il n'a pas de mémoire cachée.</li>
+        <li>Ça tient dans une <strong>fenêtre</strong> limitée (jusqu'à un million de tokens sur les modèles Claude 5). Plus elle se remplit, plus l'attention se dilue : une longue conversation devient moins bonne, pas meilleure.</li>
+        <li>Le métier s'appelle le <strong>context engineering</strong> : organiser ce que l'IA sait (CLAUDE.md, Brain, skills), découper (une conversation par sujet, des sous-agents pour les lectures lourdes), et savoir quand clore avec un brief de reprise.</li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Sommaire">
+      <p class="kicker">Sommaire</p>
+      <ul>
+        <li><a href="#fenetre">1. La fenêtre de contexte : la table de travail</a></li>
+        <li><a href="#couches">2. Ce qui entre dans le contexte (par couches)</a></li>
+        <li><a href="#deborde">3. Quand ça déborde : compaction, brief de reprise, capture</a></li>
+        <li><a href="#memoire">4. Et la « mémoire » ?</a></li>
+        <li><a href="#reflexes">5. Les quatre réflexes</a></li>
+        <li><a href="#evolution">6. Du prompt au système</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="fenetre">1. La fenêtre de contexte : la table de travail</h2>
+      <p>Imagine une table de travail. Tout ce qui est posé dessus, le modèle peut le lire et l'utiliser pour répondre. Tout ce qui n'y est pas n'existe pas pour lui — même si tu le lui as dit hier, même si c'est dans un autre fil. Cette table, c'est la <strong>fenêtre de contexte</strong>, et elle se mesure en <a href="cest-quoi-ia-llm.html">tokens</a> (des bouts de mots).</p>
+      <p>Elle est grande — un million de tokens sur les modèles récents, soit plusieurs livres — mais deux choses la rendent moins confortable qu'elle en a l'air. D'abord, tout ce qui est posé dessus est <strong>relu à chaque réponse</strong> : une longue conversation coûte plus cher et répond plus lentement. Ensuite, l'attention du modèle se dilue : plus la table est encombrée, plus il risque de rater le détail qui compte, mélanger deux consignes, ou repartir sur une décision que tu avais déjà tranchée trois heures plus tôt. Une conversation qui dure n'est pas une conversation qui s'améliore.</p>
+
+      <figure class="diagram">
+        <div class="stack" role="img" aria-label="La fenêtre de contexte : consignes système et CLAUDE.md, skills et outils, documents joints, historique de la conversation, résultats d'outils.">
+          <div class="stack__block"><b>Les consignes de base</b><span>Le fonctionnement de l'outil, puis ton CLAUDE.md : ton, principes, règles. Toujours là, doit rester court.</span></div>
+          <div class="stack__block"><b>Ce qui est chargé à la demande</b><span>Un skill quand ta demande correspond, une fiche du Brain, un document joint, les outils branchés (connecteurs).</span></div>
+          <div class="stack__block"><b>L'historique de la conversation</b><span>Tout ce qui a été dit, toi et lui. C'est ce qui grossit — et ce qui finit par déborder.</span></div>
+          <div class="stack__block"><b>Les résultats d'outils</b><span>Une recherche web, un fichier lu, une commande exécutée. Souvent le plus volumineux, rarement le plus utile après coup.</span></div>
+        </div>
+        <figcaption class="caption">Tout ce qui est sur la table est relu à chaque réponse. Le context engineering, c'est décider ce qui y est posé, et quand on la débarrasse.</figcaption>
+      </figure>
+
+      <h2 id="couches">2. Ce qui entre dans le contexte (par couches)</h2>
+      <p>La bonne façon d'y penser, c'est en couches, de la plus stable à la plus volatile :</p>
+      <ol>
+        <li><strong>Les règles</strong> — le <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>. Comment travailler avec moi. Change peu, chargé à chaque fois : d'où l'obsession de le garder court.</li>
+        <li><strong>La connaissance</strong> — le <a href="cest-quoi-un-brain-okf.html">Brain</a>. Ce qu'on sait. Change tout le temps, chargé à la demande : la fiche de l'entité concernée, pas tout le wiki.</li>
+        <li><strong>Les procédures</strong> — les <a href="cest-quoi-un-skill.html">skills</a>. Chargés seulement quand la demande correspond, pour ne pas polluer les conversations qui n'en ont pas besoin.</li>
+        <li><strong>Les outils</strong> — les connecteurs. Chaque outil branché ajoute sa description au contexte ; brancher quarante connecteurs « au cas où » coûte de la place à chaque réponse.</li>
+        <li><strong>La conversation</strong> — ta demande du jour, les documents joints, l'historique.</li>
+      </ol>
+      <p>Cette hiérarchie est la même que celle de ma <a href="../how-to/">méthode</a>. Ce n'est pas un hasard : la méthode <em>est</em> une organisation du contexte.</p>
+
+      <h2 id="deborde">3. Quand ça déborde : compaction, brief de reprise, capture</h2>
+      <p>Quand la table est pleine, l'outil <strong>compacte</strong> : il remplace le début de la conversation par un résumé. C'est automatique dans Claude Code et dans l'API. C'est utile, et c'est risqué : le résumé garde l'essentiel selon le modèle, pas forcément selon toi. J'ai déjà vu une session repartir après compaction en ayant oublié une contrainte que j'avais posée au début — elle était dans la partie résumée, et le résumé l'avait lissée.</p>
+      <p>Ma réponse est double, et elle est dans mon CLAUDE.md :</p>
+      <ul>
+        <li><strong>Le brief de reprise.</strong> Quand la conversation s'allonge, Claude me propose de clore avec un brief : où on en est, ce qui est décidé, ce qui reste, les contraintes. Je repars dans une conversation neuve avec ce brief. Une table propre, et rien d'oublié — parce que c'est moi qui ai validé ce qui devait rester.</li>
+        <li><strong>La capture.</strong> Ce que la session a produit de durable (une décision, une leçon, un état de projet) ne reste pas dans l'historique : il va dans le Brain. Le contexte de demain se construit aujourd'hui.</li>
+      </ul>
+
+      <h2 id="memoire">4. Et la « mémoire » ?</h2>
+      <p>Les assistants ont des fonctions de mémoire : Claude retient tes préférences et le contexte de tes projets d'une conversation à l'autre — et depuis août 2026, cette mémoire est partagée entre le chat et Cowork. C'est pratique pour ce qui est <em>implicite</em> (ton style, tes projets en cours). Mais c'est une mémoire que tu ne relis pas, que tu corriges difficilement, et qui reste dans un outil.</p>
+      <p>Le Brain, c'est la mémoire <strong>choisie</strong> : explicite, relisible, versionnée, corrigeable à la main, lue par tous mes outils. Les deux coexistent. La règle que j'applique : ce qui engage une décision ou décrit un projet va dans le Brain ; ce qui relève du confort (« il préfère les listes courtes ») peut rester dans la mémoire de l'outil.</p>
+
+      <h2 id="reflexes">5. Les quatre réflexes</h2>
+      <div class="card-grid" role="img" aria-label="Quatre réflexes : une conversation par sujet, charger le bon fichier, déléguer les lectures lourdes, clore avec un brief.">
+        <div class="card" style="min-height:auto;"><span class="card__kicker">Réflexe 1</span><span class="card__title">Une conversation par sujet</span><span class="card__desc">Nouveau sujet, nouvelle conversation. Mélanger la stratégie de la rentrée et un bug Odoo dans le même fil dégrade les deux.</span></div>
+        <div class="card" style="min-height:auto;"><span class="card__kicker">Réflexe 2</span><span class="card__title">Charger le bon fichier, pas tout</span><span class="card__desc">La fiche de l'entité concernée, le skill qui correspond, le document utile. Pas « tout le dossier au cas où ».</span></div>
+        <div class="card" style="min-height:auto;"><span class="card__kicker">Réflexe 3</span><span class="card__title">Déléguer les lectures lourdes</span><span class="card__desc">Un long rapport, un dépôt entier : un sous-agent lit et rend la conclusion. La conversation principale reste légère.</span></div>
+        <div class="card" style="min-height:auto;"><span class="card__kicker">Réflexe 4</span><span class="card__title">Clore avec un brief de reprise</span><span class="card__desc">Avant que ça déborde : un brief validé par toi, une conversation neuve, une capture dans le Brain.</span></div>
+      </div>
+
+      <h2 id="evolution">6. Du prompt au système</h2>
+      <p>Il y a dix-huit mois, la compétence à la mode était le <em>prompt engineering</em> : trouver la formule. Elle n'a pas disparu — <a href="ecrire-un-bon-prompt.html">un bon prompt</a> compte toujours — mais elle est devenue la petite partie du travail. Ce qui fait la différence entre quelqu'un qui « utilise ChatGPT » et quelqu'un qui livre des choses en production avec l'IA, c'est ce qu'il a construit <em>autour</em> de la conversation : des règles stables, une connaissance à jour, des procédures rangées, des outils cadrés, et la discipline de débarrasser la table.</p>
+      <p>Le bon modèle mental : tu n'écris pas des prompts, tu <strong>gères l'attention</strong> d'un collaborateur très compétent et très distrait, qui ne sait que ce que tu as posé devant lui.</p>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Pour aller plus loin</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="ecrire-un-bon-prompt.html"><strong>Écrire un bon prompt</strong></a> — la couche conversation, bien faite.</li>
+          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Écrire un bon CLAUDE.md</strong></a> — la couche règles.</li>
+          <li>→ <a href="cest-quoi-un-brain-okf.html"><strong>C'est quoi un Brain</strong></a> — la couche connaissance.</li>
+          <li>→ <a href="combien-coute-lia.html"><strong>Combien coûte l'IA</strong></a> — pourquoi un contexte encombré coûte cher.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Cas réel.</strong> Une reprise post-compaction qui a failli mal tourner → <a href="../journal/seo-collections-shopify.html">Correctif SEO collections Shopify</a>.</p>
+      </aside>
+
+    </div>
+  </div>
+</article>
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
+      <h2>Tes conversations s'essoufflent ?</h2>
+      <p class="prose">Si l'IA « oublie » en cours de route, ou que tes sessions finissent moins bonnes qu'elles ont commencé, c'est presque toujours une question de contexte. Parlons-en — je documente tout en public.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Contexte%20—%20échange">M'écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navigation principale — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      </div>
+
+      <nav aria-label="Liens de pied de page">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
+          <li><a href="/knowledge-hub/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/a-propos/" style="text-decoration:none;">À propos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
+        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="../search.js?v=20260601d" defer></script>
+<script src="../lexique.js?v=20260601d" defer></script>
+<script src="../theme.js?v=20260601d" defer></script>
+</body>
+</html>

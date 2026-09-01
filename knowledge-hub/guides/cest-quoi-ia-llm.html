@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "L'IA générative et les LLM expliqués sans jargon : ce qu'ils font, qui sont les grands acteurs, et ce qu'ils ne savent pas faire.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-05-31",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-ia-llm.html",
       "author": {
         "@type": "Person", "@id": "https://hl-consulting.tech/#hugo",
@@ -137,7 +138,7 @@
     <div class="meta-bar">
       <span>Par <strong>Hugo Lahutte</strong></span>
       <span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time>
+      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
       <span>·</span>
       <span>~6 min de lecture</span>
     </div>
@@ -164,7 +165,7 @@
       <ul>
         <li>L'<strong>IA générative</strong>, c'est une famille de logiciels qui produisent du texte, du code ou des images à partir d'une simple consigne écrite en langage normal.</li>
         <li>Le moteur derrière les assistants type ChatGPT ou Claude s'appelle un <strong>LLM</strong> (<em>large language model</em>) : un modèle entraîné sur d'énormes quantités de texte, dont le seul vrai talent est de <strong>prédire la suite la plus plausible</strong> de ce qu'on lui écrit — et ça suffit à faire des choses bluffantes.</li>
-        <li>Les grands acteurs aujourd'hui : <strong>OpenAI</strong> (ChatGPT), <strong>Anthropic</strong> (Claude), <strong>Google</strong> (Gemini), <strong>Meta</strong> (Llama), <strong>Mistral</strong> (le français), <strong>DeepSeek</strong> (le chinois), <strong>xAI</strong> (Grok), plus <strong>Microsoft</strong> (Copilot) et <strong>Perplexity</strong>.</li>
+        <li>Les grands acteurs aujourd'hui : <strong>OpenAI</strong> (ChatGPT), <strong>Anthropic</strong> (Claude), <strong>Google</strong> (Gemini), <strong>Meta</strong>, <strong>Mistral</strong> (le français), <strong>xAI</strong> (Grok), les <strong>modèles ouverts chinois</strong> (DeepSeek, GLM, Kimi, Qwen), plus <strong>Microsoft</strong> (Copilot) et <strong>Perplexity</strong>. Les versions changent tous les mois ; les rôles, beaucoup moins.</li>
       </ul>
     </aside>
 
@@ -227,15 +228,15 @@
       <h2 id="acteurs">3. Quels sont les LLM les plus connus ?</h2>
       <p>Le marché s'est structuré autour de quelques familles. Les versions se succèdent vite (tous les quelques mois) — ce qui compte, c'est de savoir qui fait quoi :</p>
       <ul>
-        <li><strong>OpenAI — ChatGPT</strong> : le plus connu du grand public, celui qui a lancé la vague fin 2022.</li>
-        <li><strong>Anthropic — Claude</strong> : orienté fiabilité, raisonnement et travail « sérieux » (rédaction, code, analyse). C'est celui sur lequel je construis tout (voir le guide dédié).</li>
-        <li><strong>Google — Gemini</strong> : intégré à l'écosystème Google, très fort sur les longs documents et le multimodal (texte + image + audio).</li>
-        <li><strong>Meta — Llama</strong> : « poids ouverts », c'est-à-dire qu'on peut l'héberger soi-même.</li>
-        <li><strong>Mistral</strong> : <strong>le champion français/européen</strong>, lui aussi en partie ouvert — l'argument souveraineté quand héberger ses données en Europe compte.</li>
-        <li><strong>DeepSeek</strong> : chinois, ouvert, redoutable sur le rapport performance/prix (mais pose des questions de confidentialité des données).</li>
-        <li><strong>xAI — Grok</strong> : le modèle d'Elon Musk, branché en direct sur X.</li>
-        <li><strong>Microsoft — Copilot</strong> : l'IA intégrée à Windows et à la suite Office, et un « Copilot » très utilisé pour le code. Sous le capot, des modèles partenaires (dont OpenAI).</li>
-        <li><strong>Perplexity</strong> : moins un modèle qu'un <em>moteur de réponse</em> — il cherche sur le web et répond avec ses sources citées.</li>
+        <li><strong>OpenAI — ChatGPT</strong> : le plus connu du grand public, celui qui a lancé la vague fin 2022. Famille GPT-5.6 depuis juillet 2026, et « ChatGPT Work », un agent pour les tâches professionnelles.</li>
+        <li><strong>Anthropic — Claude</strong> : orienté fiabilité, raisonnement et travail « sérieux » (rédaction, code, analyse, agents). Famille Claude 5 depuis l'été 2026 (Sonnet 5, Opus 5, Fable 5.1). C'est celui sur lequel je construis tout (voir <a href="cest-quoi-claude.html">le guide dédié</a>).</li>
+        <li><strong>Google — Gemini</strong> : intégré à l'écosystème Google (et à ses résumés IA dans la recherche), très fort sur les longs documents, la vidéo et le multimodal ; publie aussi des modèles ouverts (Gemma).</li>
+        <li><strong>Meta</strong> : longtemps le champion des « poids ouverts » (Llama, qu'on peut héberger soi-même) ; en 2026, des modèles agentiques à bas prix (Muse Spark) et un accent mis sur la publicité et les assistants dans ses applications.</li>
+        <li><strong>Mistral</strong> : <strong>le champion français/européen</strong>, en partie ouvert — l'argument souveraineté quand héberger ses données en Europe compte. Mille employés en 2026, très bon sur des briques spécialisées (lecture de documents, robotique), un cran derrière la frontière sur les modèles généralistes.</li>
+        <li><strong>Les modèles ouverts chinois</strong> — DeepSeek, GLM, Kimi, Qwen : ouverts, redoutables sur le rapport performance/prix, et qui comblent l'écart avec les leaders à chaque version (mais posent des questions de confidentialité quand on utilise leurs services en ligne).</li>
+        <li><strong>xAI — Grok</strong> : le modèle d'Elon Musk, branché en direct sur X, devenu en 2026 une option sérieuse pour les agents grâce à son rapport performance/prix (Grok 4.6).</li>
+        <li><strong>Microsoft — Copilot</strong> : l'IA intégrée à Windows et à la suite Office. Sous le capot, surtout des modèles partenaires (OpenAI, et Claude sur son cloud Azure), plus ses premiers modèles maison.</li>
+        <li><strong>Perplexity</strong> : moins un modèle qu'un <em>moteur de réponse</em> — il cherche sur le web et répond avec ses sources citées ; et depuis 2026 un « Computer », un agent qui exécute des tâches en orchestrant les modèles des autres.</li>
       </ul>
 
       <figure class="diagram">
@@ -245,7 +246,7 @@
             <span class="actor__mark"><svg viewBox="0 0 44 44" fill="none" stroke="#0C0C0C" stroke-width="3" stroke-linejoin="round" aria-hidden="true"><path d="M22 5 36 13.5 36 30.5 22 39 8 30.5 8 13.5Z"/><circle cx="22" cy="22" r="6"/></svg></span>
             <span class="actor__name">OpenAI</span>
             <span class="actor__prod">ChatGPT</span>
-            <span class="actor__spec">Le grand public, l'écosystème le plus large.</span>
+            <span class="actor__spec">Le grand public, l'écosystème le plus large. GPT-5.6.</span>
             <span class="actor__meta"><span class="actor__flag">🇺🇸</span><span class="actor__badge actor__badge--closed">Fermé</span></span>
           </div>
 
@@ -253,7 +254,7 @@
             <span class="actor__mark"><svg viewBox="0 0 44 44" stroke="#C96442" stroke-width="3.4" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="6" x2="22" y2="38"/><line x1="6" y1="22" x2="38" y2="22"/><line x1="10.7" y1="10.7" x2="33.3" y2="33.3"/><line x1="33.3" y1="10.7" x2="10.7" y2="33.3"/></svg></span>
             <span class="actor__name">Anthropic</span>
             <span class="actor__prod">Claude</span>
-            <span class="actor__spec">Fiabilité, raisonnement, code et travail sérieux.</span>
+            <span class="actor__spec">Fiabilité, raisonnement, code, agents. Famille Claude 5.</span>
             <span class="actor__meta"><span class="actor__flag">🇺🇸</span><span class="actor__badge actor__badge--closed">Fermé</span></span>
           </div>
 
@@ -261,15 +262,15 @@
             <span class="actor__mark"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4 C24 15 29 20 40 22 C29 24 24 29 22 40 C20 29 15 24 4 22 C15 20 20 15 22 4Z" fill="#4285F4"/></svg></span>
             <span class="actor__name">Google</span>
             <span class="actor__prod">Gemini</span>
-            <span class="actor__spec">Multimodal et longs documents, intégré à Google.</span>
+            <span class="actor__spec">Multimodal, vidéo, longs documents, intégré à Google.</span>
             <span class="actor__meta"><span class="actor__flag">🇺🇸</span><span class="actor__badge actor__badge--closed">Fermé</span></span>
           </div>
 
           <div class="actor">
             <span class="actor__mark"><svg viewBox="0 0 44 44" fill="none" stroke="#0866FF" stroke-width="3.5" stroke-linecap="round" aria-hidden="true"><path d="M22 22 C17 13 9 14 9 22 C9 30 17 31 22 22 C27 13 35 14 35 22 C35 30 27 31 22 22Z"/></svg></span>
             <span class="actor__name">Meta</span>
-            <span class="actor__prod">Llama</span>
-            <span class="actor__spec">Poids ouverts : auto-hébergeable chez soi.</span>
+            <span class="actor__prod">Llama · Muse Spark</span>
+            <span class="actor__spec">Poids ouverts historiques ; agents à bas prix en 2026.</span>
             <span class="actor__meta"><span class="actor__flag">🇺🇸</span><span class="actor__badge actor__badge--open">Ouvert</span></span>
           </div>
 
@@ -277,15 +278,15 @@
             <span class="actor__mark"><svg viewBox="0 0 44 44" aria-hidden="true"><rect x="7" y="9" width="30" height="5.4" fill="#FFD300"/><rect x="7" y="15.6" width="30" height="5.4" fill="#FFA800"/><rect x="7" y="22.2" width="30" height="5.4" fill="#FF7000"/><rect x="7" y="28.8" width="30" height="5.4" fill="#FF4400"/></svg></span>
             <span class="actor__name">Mistral</span>
             <span class="actor__prod">Mistral / Le Chat</span>
-            <span class="actor__spec">Le champion européen, argument souveraineté.</span>
+            <span class="actor__spec">Le champion européen ; souveraineté, documents, robotique.</span>
             <span class="actor__meta"><span class="actor__flag">🇫🇷</span><span class="actor__badge actor__badge--open">Ouvert</span></span>
           </div>
 
           <div class="actor">
             <span class="actor__mark"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="17" fill="#4D6BFE"/><path d="M12 19 C19 18 24 22 25 28 C30 27 32 23 33 19" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span>
             <span class="actor__name">DeepSeek</span>
-            <span class="actor__prod">DeepSeek</span>
-            <span class="actor__spec">Performance/prix imbattable (vigilance données).</span>
+            <span class="actor__prod">DeepSeek · GLM · Kimi · Qwen</span>
+            <span class="actor__spec">Les ouverts chinois : performance/prix imbattable (vigilance données).</span>
             <span class="actor__meta"><span class="actor__flag">🇨🇳</span><span class="actor__badge actor__badge--open">Ouvert</span></span>
           </div>
 
@@ -293,7 +294,7 @@
             <span class="actor__mark"><svg viewBox="0 0 44 44" stroke="#0C0C0C" stroke-width="4.5" stroke-linecap="round" aria-hidden="true"><line x1="11" y1="11" x2="33" y2="33"/><line x1="33" y1="11" x2="11" y2="33"/></svg></span>
             <span class="actor__name">xAI</span>
             <span class="actor__prod">Grok</span>
-            <span class="actor__spec">Branché en direct sur le réseau X.</span>
+            <span class="actor__spec">Branché sur X ; très compétitif pour les agents.</span>
             <span class="actor__meta"><span class="actor__flag">🇺🇸</span><span class="actor__badge actor__badge--closed">Fermé</span></span>
           </div>
 
@@ -301,7 +302,7 @@
             <span class="actor__mark"><svg viewBox="0 0 44 44" aria-hidden="true"><rect x="6" y="6" width="14.5" height="14.5" fill="#F25022"/><rect x="23.5" y="6" width="14.5" height="14.5" fill="#7FBA00"/><rect x="6" y="23.5" width="14.5" height="14.5" fill="#00A4EF"/><rect x="23.5" y="23.5" width="14.5" height="14.5" fill="#FFB900"/></svg></span>
             <span class="actor__name">Microsoft</span>
             <span class="actor__prod">Copilot</span>
-            <span class="actor__spec">Intégré à Windows/Office ; fort sur le code.</span>
+            <span class="actor__spec">Intégré à Windows/Office ; modèles partenaires + maison.</span>
             <span class="actor__meta"><span class="actor__flag">🇺🇸</span><span class="actor__badge actor__badge--closed">Fermé</span></span>
           </div>
 
@@ -309,12 +310,12 @@
             <span class="actor__mark"><svg viewBox="0 0 44 44" fill="none" stroke="#20B8CD" stroke-width="3.2" aria-hidden="true"><circle cx="22" cy="22" r="15"/><line x1="22" y1="7" x2="22" y2="37" stroke-linecap="round"/><path d="M22 15 12 23 V31 M22 15 32 23 V31" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <span class="actor__name">Perplexity</span>
             <span class="actor__prod">Perplexity</span>
-            <span class="actor__spec">Moteur de réponse : web cherché, sources citées.</span>
+            <span class="actor__spec">Moteur de réponse et agent « Computer ».</span>
             <span class="actor__meta"><span class="actor__flag">🇺🇸</span><span class="actor__badge actor__badge--closed">Fermé</span></span>
           </div>
 
         </div>
-        <figcaption class="caption">Un repère, pas un benchmark : les classements de performance changent tous les mois. « Ouvert » = poids du modèle téléchargeables/auto-hébergeables.</figcaption>
+        <figcaption class="caption">Un repère daté (septembre 2026), pas un benchmark : les classements changent tous les mois. « Ouvert » = poids du modèle téléchargeables/auto-hébergeables.</figcaption>
       </figure>
 
       <h2 id="limites">4. Qu'est-ce qu'un LLM ne sait PAS faire ?</h2>
@@ -333,7 +334,7 @@
           <li>→ <a href="pourquoi-lia-change-le-travail.html">Pourquoi l'IA change vraiment la façon de travailler</a></li>
           <li>→ <a href="mes-donnees-sont-elles-en-securite.html">Mes données sont-elles en sécurité ?</a></li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réel.</strong> Chaque matin, un LLM me rédige une revue de presse de l'actu hi-fi mondiale à partir de ~35 sources. Pas une démo — un truc qui tourne en prod. → <a href="../journal/bot-telegram-veille-hifi.html">Bot Telegram de veille HiFi quotidienne</a></p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réel.</strong> Chaque matin, un LLM me rédige une revue de presse de l'actu hi-fi mondiale à partir de 64 sources. Pas une démo — un truc qui tourne en prod. → <a href="../journal/bot-telegram-veille-hifi.html">Bot Telegram de veille HiFi quotidienne</a></p>
       </aside>
 
     </div>

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal ») — Guides · Hugo Lahutte</title>
-<meta name="description" content="Trois façons d'utiliser Claude selon la tâche — et la vérité sur le « terminal », qui fait peur mais s'installe en une seule commande à copier-coller.">
+<title>Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal ») — à jour septembre 2026 — Guides · Hugo Lahutte</title>
+<meta name="description" content="Trois façons d'utiliser Claude selon la tâche : Chat (discuter), Cowork (déléguer un travail de bureau, sur ordinateur, web et mobile) et Code (agir sur tes fichiers et ton site, dans le terminal, le navigateur ou le téléphone). La vérité sur le terminal, l'installation en une commande, pourquoi il ne faut pas un gros ordi, et ce qui a changé en 2026 : routines, navigateur intégré, sessions cloud, mode Auto.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/chat-cowork-code-terminal.html">
@@ -15,13 +15,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Chat, Cowork ou Code : lequel utiliser">
-<meta property="og:description" content="Les trois façons d'utiliser Claude selon la tâche, et la vérité sur le terminal — une seule commande à coller.">
+<meta property="og:title" content="Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)">
+<meta property="og:description" content="Discuter, déléguer, agir : trois portes vers le même Claude. Le terminal dédramatisé, l'installation en une commande, et ce qui a changé en 2026.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -38,7 +39,7 @@
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../style.css?v=20260622a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,34 +47,53 @@
     {
       "@type": "TechArticle",
       "headline": "Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)",
-      "description": "Trois façons d'utiliser Claude selon la tâche, et la vérité sur le terminal qui s'installe en une seule commande à copier-coller.",
+      "description": "Trois façons d'utiliser Claude : Chat pour discuter, Cowork pour déléguer un travail de bureau sans terminal (ordinateur, web, mobile, navigateur intégré, routines), Code pour agir sur des fichiers et des projets (terminal, navigateur, application, mobile, sessions cloud). Installation en une commande, pas besoin de GPU, ce qui a changé en 2026.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-05-31",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["Claude", "Claude Code", "terminal", "ligne de commande", "Claude Chat", "installation"],
-      "keywords": "Claude Chat, Claude Code, terminal, installation, ligne de commande"
-    },
-    {
-      "@type": "HowTo",
-      "name": "Installer Claude Code",
-      "description": "Installer Claude Code en une seule commande, sur Mac/Linux ou Windows.",
-      "inLanguage": "fr-FR",
-      "step": [
-        {"@type": "HowToStep", "position": 1, "name": "Ouvrir le terminal", "text": "Ouvre le Terminal (Mac/Linux) ou PowerShell (Windows)."},
-        {"@type": "HowToStep", "position": 2, "name": "Coller la commande d'installation", "text": "Mac/Linux : curl -fsSL https://claude.ai/install.sh | bash. Windows (PowerShell) : irm https://claude.ai/install.ps1 | iex."},
-        {"@type": "HowToStep", "position": 3, "name": "Vérifier et lancer", "text": "Tape claude --version pour vérifier l'installation, puis claude pour lancer."},
-        {"@type": "HowToStep", "position": 4, "name": "Se connecter à son compte", "text": "Au premier lancement, Claude Code ouvre le navigateur pour se connecter au compte Claude (abonnement payant requis)."}
-      ]
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "Claude Chat",
+        "Claude Cowork",
+        "Claude Code",
+        "terminal",
+        "installation",
+        "routines"
+      ],
+      "keywords": "Claude Code, Claude Cowork, terminal, installer Claude Code, routines, mode Auto"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "Chat, Cowork ou Code", "item": "https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chat, Cowork ou Code",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html"
+        }
       ]
     },
     {
@@ -81,23 +101,35 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Quelle est la différence entre Claude Chat, Cowork et Code ?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Ce sont trois portes d'entrée vers le même Claude. Chat est la conversation (réfléchir, rédiger, analyser). Cowork délègue un vrai travail de bureau en autonomie à un non-développeur (manipuler des fichiers, un tableur, naviguer sur le web). Code agit directement sur des fichiers, un projet ou un site, et lance des commandes — l'option la plus puissante."}
-        },
-        {
-          "@type": "Question",
-          "name": "C'est quoi le terminal ?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Le terminal est simplement une fenêtre où l'on tape des commandes au lieu de cliquer sur des boutons. Son côté « film de hacker » intimide, mais c'est une interface comme une autre. Pas besoin de le maîtriser : on copie, on colle, on valide — et si une commande coince, on colle l'erreur à Claude."}
+          "name": "Quelle différence entre Claude Chat, Cowork et Code ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chat : tu discutes, il produit du texte, des analyses, des idées, avec sa mémoire et tes outils connectés. Cowork : tu lui délègues un travail de bureau de bout en bout sans terminal — fichiers, tableurs, présentations, navigateur intégré, routines planifiées — sur ordinateur, web et mobile. Code : il agit directement sur tes fichiers, ton projet, ton site, dans le terminal, le navigateur, l'application de bureau ou le mobile."
+          }
         },
         {
           "@type": "Question",
           "name": "Comment installer Claude Code ?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Une seule commande à coller dans le terminal. Sur Mac ou Linux : curl -fsSL https://claude.ai/install.sh | bash. Sur Windows (PowerShell) : irm https://claude.ai/install.ps1 | iex. On lance ensuite avec la commande claude, qui ouvre le navigateur pour se connecter à son compte (abonnement payant requis). Une appli Desktop existe aussi, sans terminal."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une commande à coller dans le terminal : sur Mac ou Linux, curl -fsSL https://claude.ai/install.sh | bash ; sur Windows, irm https://claude.ai/install.ps1 | iex dans PowerShell. Puis claude pour lancer. Il faut un abonnement payant ; tous les forfaits payants incluent Claude Code et Cowork. Sans terminal : l'application de bureau, Claude Code dans le navigateur (session cloud) ou l'application mobile."
+          }
         },
         {
           "@type": "Question",
-          "name": "Faut-il un ordinateur puissant pour utiliser Claude ?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Non. Tout le calcul se passe sur les serveurs d'Anthropic, pas sur votre machine : pas besoin de carte graphique ni d'un ordinateur puissant. Un bon ordi sert au confort, et surtout, si l'on veut héberger des automatisations, à avoir une machine qui reste allumée en permanence."}
+          "name": "Faut-il un ordinateur puissant pour utiliser Claude Code ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Tout le calcul se passe sur les serveurs d'Anthropic ; ta machine n'envoie et ne reçoit que du texte. Et une machine allumée en permanence est de moins en moins nécessaire : Claude Code sur le web et Cowork exécutent dans le cloud, et les routines planifiées tournent sans ton ordinateur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qui a changé dans Claude Code et Cowork en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cowork est disponible sur ordinateur, web et mobile pour tous les forfaits payants, avec un navigateur intégré, l'apprentissage d'une compétence par enregistrement d'écran, une mémoire partagée avec le chat et des routines. Claude Code fonctionne dans le navigateur et sur mobile avec des sessions cloud, le mode Auto est devenu le défaut, les sous-agents tournent en arrière-plan, les workflows orchestrent plusieurs agents."
+          }
         }
       ]
     }
@@ -138,19 +170,21 @@
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Chat, Cowork ou Code</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste → pratique</p>
-    <h1 style="font-size:clamp(2rem,4.5vw,3.6rem);">Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)</h1>
     <hr class="rule--accent">
-    <p class="lead">Trois façons d'utiliser Claude selon la tâche — et la vérité sur le « terminal », qui fait peur mais s'installe en <strong>une seule commande à copier-coller</strong>.</p>
+    <p class="lead">Trois façons d'utiliser Claude selon la tâche — discuter, déléguer, agir — et la vérité sur le « terminal », qui fait peur mais s'installe en une commande. Avec ce qui a changé en 2026 : Cowork partout, Code dans le navigateur et sur mobile, et des routines qui tournent sans ta machine.</p>
     <div class="meta-bar">
       <span>Par <strong>Hugo Lahutte</strong></span>
       <span>·</span>
       <time datetime="2026-05-31">31 mai 2026</time>
       <span>·</span>
-      <span>~6 min de lecture</span>
+      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>·</span>
+      <span>~7 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="claude" data-tagsearch="claude" href="/knowledge-hub/guides/">Claude</a>
-      <a class="tag" data-tag="claude-code" data-tagsearch="claude-code" href="/knowledge-hub/guides/">Claude Code</a>
+      <a class="tag" data-tag="claude-code" data-tagsearch="Claude Code" href="/knowledge-hub/guides/">Claude Code</a>
       <a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a>
       <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/guides/">vulgarisation</a>
     </div>
@@ -165,24 +199,23 @@
 <article class="article" style="padding-top:0;">
   <div class="container">
 
-    <!-- En 30 secondes -->
     <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
       <p class="kicker">En 30 secondes</p>
       <ul>
-        <li><strong>Chat</strong> : tu discutes, il produit du texte, des analyses, des idées. C'est l'interface que tu connais déjà.</li>
-        <li><strong>Cowork</strong> : tu lui <strong>délègues un vrai travail de bureau</strong> en autonomie (préparer un doc, fouiller des fichiers, piloter un tableur) — pensé pour les non-développeurs.</li>
-        <li><strong>Code</strong> : il <strong>agit directement</strong> sur tes fichiers, ton projet, ton site — l'option la plus puissante. Elle vit dans le « terminal », qui impressionne mais s'installe en <strong>une commande copier-coller</strong>.</li>
+        <li><strong>Chat</strong> : tu discutes, il produit du texte, des analyses, des idées — avec sa mémoire et tes outils connectés. L'interface que tu connais déjà.</li>
+        <li><strong>Cowork</strong> : tu lui <strong>délègues un vrai travail de bureau</strong> (préparer un doc, dépouiller des fichiers, remplir un formulaire dans son navigateur intégré, exécuter une routine) — pensé pour les non-développeurs, sur ordinateur, web et mobile.</li>
+        <li><strong>Code</strong> : il <strong>agit directement</strong> sur tes fichiers, ton projet, ton site — l'option la plus puissante. Dans le « terminal » (une commande à coller), mais aussi dans le navigateur, l'application ou le téléphone, où la session tourne dans le cloud.</li>
       </ul>
     </aside>
 
-    <!-- TOC -->
     <nav class="toc prose" aria-label="Sommaire">
       <p class="kicker">Sommaire</p>
       <ul>
         <li><a href="#lequel">1. Chat, Cowork, Code : lequel pour quoi</a></li>
         <li><a href="#terminal">2. C'est quoi « le terminal »</a></li>
         <li><a href="#installer">3. Installer Claude Code, vraiment facilement</a></li>
-        <li><a href="#ordi">4. Pourquoi avoir un ordi un peu sympa</a></li>
+        <li><a href="#ordi">4. Faut-il un gros ordi ? (Non.)</a></li>
+        <li><a href="#2026">5. Ce qui a changé en 2026</a></li>
       </ul>
     </nav>
 
@@ -191,9 +224,9 @@
       <h2 id="lequel">1. Chat, Cowork, Code : lequel pour quoi</h2>
       <p>Ce sont trois portes d'entrée vers le même Claude, à choisir selon ce que tu veux faire :</p>
       <ul>
-        <li><strong>Chat</strong> (web, mobile, appli) — la conversation. Pour réfléchir, rédiger, analyser un document, préparer une stratégie. 90 % des gens commencent et restent ici, et c'est très bien.</li>
-        <li><strong>Cowork</strong> — un assistant qui <strong>exécute un travail de bureau de bout en bout</strong>, en autonomie, pour quelqu'un qui ne code pas. Il peut manipuler des fichiers, un tableur, une présentation, naviguer sur le web pour toi. La marche entre « discuter » et « déléguer ».</li>
-        <li><strong>Code</strong> — l'agent qui <strong>met les mains dans le cambouis</strong> : il lit et modifie tes fichiers, lance des commandes, gère un dépôt de code, déploie un site. C'est avec ça que je fais tourner Cobra et que je publie ce site. Pas réservé aux devs : c'est juste le niveau « il agit, il ne se contente pas de répondre ».</li>
+        <li><strong>Chat</strong> (web, mobile, appli) — la conversation. Pour réfléchir, rédiger, analyser un document, préparer une stratégie. 90 % des gens commencent et restent ici, et c'est très bien. Chez moi, c'est là que s'écrit tout ce qui a ma voix — et on s'arrête au texte validé : pas de HTML, pas de mise en ligne.</li>
+        <li><strong>Cowork</strong> — un assistant qui <strong>exécute un travail de bureau de bout en bout</strong>, pour quelqu'un qui ne code pas. Il manipule des fichiers, un tableur, une présentation ; il ouvre un navigateur dans son panneau pour remplir un formulaire ou terminer une démarche ; il exécute des routines planifiées ; il partage sa mémoire avec le chat. La marche entre « discuter » et « déléguer ».</li>
+        <li><strong>Code</strong> — l'agent qui <strong>met les mains dans le cambouis</strong> : il lit et modifie tes fichiers, lance des commandes, gère un dépôt de code, déploie un site, met à jour tout le maillage d'une page. C'est avec ça que je fais tourner Cobra et que je publie ce site. Pas réservé aux devs : c'est juste le niveau « il agit, il ne se contente pas de répondre ».</li>
       </ul>
 
       <figure class="diagram">
@@ -202,29 +235,31 @@
             <div class="mode__head"><b>Chat</b><span>Discuter</span></div>
             <dl>
               <div><dt>À quoi ça sert</dt><dd>Réfléchir, rédiger, analyser, décider.</dd></div>
-              <div><dt>Un exemple</dt><dd>Préparer une stratégie, résumer un PDF.</dd></div>
+              <div><dt>Un exemple</dt><dd>Cadrer un cahier des charges, résumer un PDF, écrire un texte dans ta voix.</dd></div>
               <div><dt>Pour qui</dt><dd>Tout le monde — le point de départ.</dd></div>
             </dl>
           </div>
           <div class="mode mode--cowork">
             <div class="mode__head"><b>Cowork</b><span>Déléguer</span></div>
             <dl>
-              <div><dt>À quoi ça sert</dt><dd>Confier un travail de bureau en autonomie.</dd></div>
-              <div><dt>Un exemple</dt><dd>Monter un doc, fouiller des fichiers, un tableur.</dd></div>
+              <div><dt>À quoi ça sert</dt><dd>Confier un travail de bureau de bout en bout, sans terminal.</dd></div>
+              <div><dt>Un exemple</dt><dd>Monter un support, dépouiller un dossier, une routine du lundi matin.</dd></div>
               <div><dt>Pour qui</dt><dd>Les non-développeurs qui veulent déléguer.</dd></div>
             </dl>
           </div>
           <div class="mode mode--code">
             <div class="mode__head"><b>Code</b><span>Agir</span></div>
             <dl>
-              <div><dt>À quoi ça sert</dt><dd>Modifier des fichiers, lancer, déployer.</dd></div>
-              <div><dt>Un exemple</dt><dd>Faire tourner un ERP, publier un site.</dd></div>
+              <div><dt>À quoi ça sert</dt><dd>Modifier des fichiers, lancer, déployer, maintenir.</dd></div>
+              <div><dt>Un exemple</dt><dd>Un module de gestion, un site en ligne une minute après, une app interne.</dd></div>
               <div><dt>Pour qui</dt><dd>Quiconque veut qu'il agisse, devs ou non.</dd></div>
             </dl>
           </div>
         </div>
         <figcaption class="caption">De gauche (discuter) à droite (agir). On monte d'un cran quand on veut que Claude fasse, pas seulement réponde.</figcaption>
       </figure>
+
+      <p>Ma règle de frontière, qui structure tout mon travail : <strong>Chat rédige, Code exécute</strong>. Une session Chat produit un texte validé ; Code le transforme en livrable. Les deux moitiés n'ont pas le même critère de succès — la justesse du propos d'un côté, la conformité au gabarit de l'autre — et les mélanger dans une même session, c'est perdre les deux. Détail dans <a href="../how-to/">ma méthode</a>.</p>
 
       <h2 id="terminal">2. C'est quoi « le terminal », et pourquoi ça ne doit pas te bloquer</h2>
       <p>Le terminal, c'est juste une <strong>fenêtre où on tape des commandes</strong> au lieu de cliquer sur des boutons. Ça a un côté « film de hacker » qui intimide, mais c'est une interface comme une autre.</p>
@@ -251,60 +286,68 @@
       <pre class="codeblock">claude --version
 claude</pre>
 
-      <p style="margin-top:var(--space-6);">Au premier lancement, il ouvre ton navigateur pour te connecter à ton compte Claude (il faut un abonnement payant, type Pro ou Max). Et si vraiment le terminal te rebute : il existe une <strong>appli Desktop</strong> (Mac/Windows) qui fait tourner Claude Code <strong>sans terminal du tout</strong>.</p>
+      <p style="margin-top:var(--space-6);">Au premier lancement, il ouvre ton navigateur pour te connecter à ton compte Claude. Il faut un abonnement payant — et bonne nouvelle : <strong>tous les forfaits payants incluent Claude Code et Cowork</strong>, du forfait Pro (une vingtaine de dollars par mois) aux forfaits Max ; ce qui change entre eux, c'est le volume d'usage.</p>
+      <p>Et si vraiment le terminal te rebute, tu as trois autres portes : l'<strong>application de bureau</strong> (Mac/Windows) qui fait tourner Claude Code sans terminal, <strong>Claude Code dans le navigateur</strong> (la session tourne dans le cloud, sur une copie de ton projet, sans rien installer), et l'<strong>application mobile</strong> — je lance des corrections depuis mon téléphone, et je vérifie en ligne une minute après.</p>
       <p class="caption">Détails officiels : <a href="https://code.claude.com/docs/en/setup" rel="nofollow noopener" target="_blank">code.claude.com/docs/en/setup</a>.</p>
 
-      <h2 id="ordi">4. Pourquoi avoir un ordi un peu sympa</h2>
-      <p>D'abord, démystifions : <strong>tout le calcul se passe sur les serveurs d'Anthropic, pas sur ta machine.</strong> Tu n'as <strong>pas</strong> besoin d'une carte graphique de gamer ni d'un monstre — ton ordi ne fait qu'envoyer/recevoir du texte.</p>
-      <p>Un bon ordi sert ailleurs : du <strong>confort</strong> (faire tourner plusieurs choses en parallèle sans ramer), et surtout, si tu veux aller plus loin, une machine qui <strong>reste allumée 24/7</strong> pour héberger tes automatisations. C'est typiquement mon cas : un petit Mac qui tourne en permanence et exécute mes tâches même quand je dors.</p>
+      <h2 id="ordi">4. Faut-il un gros ordi ? (Non.)</h2>
+      <p>Démystifions : <strong>tout le calcul se passe sur les serveurs d'Anthropic, pas sur ta machine.</strong> Tu n'as <strong>pas</strong> besoin d'une carte graphique de gamer ni d'un monstre — ton ordi ne fait qu'envoyer et recevoir du texte.</p>
+      <p>Il y a un an, je conseillais une machine qui reste allumée 24/7 pour héberger ses automatisations. C'est de moins en moins nécessaire : Claude Code sur le web et Cowork exécutent <strong>dans le cloud</strong>, et les <strong>routines planifiées</strong> tournent sans ta machine. Mon petit Mac allumé en permanence ne sert plus qu'à ce qui doit vraiment tourner chez moi. Le vrai confort d'un bon ordi, c'est de faire tourner plusieurs sessions en parallèle sans ramer — pas la puissance de calcul.</p>
 
       <figure class="diagram">
         <div class="flow" role="img" aria-label="Ton ordinateur échange du texte par internet avec les serveurs d'Anthropic, où se fait tout le calcul. Pas besoin de carte graphique.">
           <div class="flow__node">
             <span class="flow__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="11" rx="1"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
-            <b>Ton ordi</b>
+            <b>Ton ordi (ou ton téléphone)</b>
             <span>envoie / reçoit du texte</span>
           </div>
           <div class="flow__link">Internet</div>
           <div class="flow__node flow__node--server">
             <span class="flow__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="7" rx="1"/><rect x="4" y="13" width="16" height="7" rx="1"/><line x1="8" y1="7.5" x2="8.01" y2="7.5"/><line x1="8" y1="16.5" x2="8.01" y2="16.5"/></svg></span>
             <b>Serveurs Anthropic</b>
-            <span>là où ça calcule</span>
+            <span>là où ça calcule — et où tournent les sessions cloud et les routines</span>
           </div>
         </div>
         <p style="text-align:center; margin:0;"><span class="flow-badge">Pas besoin de GPU</span></p>
         <figcaption class="caption">Ta machine n'est qu'une télécommande : le moteur tourne ailleurs.</figcaption>
       </figure>
 
-      <!-- Pour aller plus loin -->
+      <h2 id="2026">5. Ce qui a changé en 2026</h2>
+      <p>Pour ceux qui avaient lu la première version de ce guide, en mai :</p>
+      <ul>
+        <li><strong>Cowork est sorti du bureau.</strong> Ordinateur, web et mobile pour tous les forfaits payants (août) ; un navigateur intégré pour finir une démarche en ligne ; la possibilité d'<strong>apprendre une compétence à Claude en filmant son écran</strong> ; une mémoire partagée avec le chat ; des routines planifiées ; une place de marché de plugins.</li>
+        <li><strong>Code a quitté le terminal.</strong> Navigateur, application de bureau, mobile — la session tourne dans le cloud. Le mode <em>Auto</em> (Claude décide seul des permissions courantes, avec des protections contre les manipulations) est devenu le défaut en août. Les sous-agents travaillent en arrière-plan, les workflows orchestrent plusieurs agents, les Artifacts produisent des pages partageables depuis une session, et une commande de nettoyage range skills et fichiers de contexte inutilisés.</li>
+        <li><strong>Chat agit.</strong> Les connecteurs ne lisent plus seulement : Claude peut envoyer une réponse dans Gmail ou ranger un fichier dans Drive, avec validation sur les actions qui comptent.</li>
+        <li><strong>Les modèles.</strong> La <a href="cest-quoi-claude.html">famille Claude 5</a> — Sonnet 5, Opus 5, Fable 5.1 — a rendu Code capable de tâches autonomes de plusieurs heures. Ce n'est plus « il écrit une fonction », c'est « il livre une fonctionnalité, testée ».</li>
+      </ul>
+
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="cest-quoi-github.html">GitHub : le truc gratuit qui sauvegarde tout tout seul</a></li>
+          <li>→ <a href="cest-quoi-github.html"><strong>GitHub</strong></a> — le truc gratuit qui sauvegarde tout tout seul, et sur lequel Code travaille.</li>
+          <li>→ <a href="cest-quoi-un-skill.html"><strong>C'est quoi un skill</strong></a> — les procédures que Cowork et Code chargent à la demande.</li>
           <li>→ <a href="cest-quoi-claude.html"><strong>C'est quoi Claude</strong></a> — les modèles derrière ces trois portes.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Pourquoi je fais tourner deux sessions Code séparées → <a href="../journal/double-claude-code.html">Double Claude Code : Cobra vs HL</a> · et comment je documente mon setup pour le transmettre → <a href="../journal/setup-claude-onboarding.html">Setup Claude : documentation et onboarding</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Pourquoi je fais tourner deux sessions Code séparées → <a href="../journal/double-claude-code.html">Double Claude Code : Cobra vs HL</a> · comment je documente mon setup pour le transmettre → <a href="../journal/setup-claude-onboarding.html">Setup Claude : documentation et onboarding</a> · la répartition Chat / Code dans <a href="../how-to/">ma méthode</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
       <h2>Tu hésites par où commencer ?</h2>
-      <p class="prose">Chat pour tester, Code quand tu veux qu'il agisse. Si tu bloques à l'install ou que tu veux comparer nos setups, écris-moi — je documente tout en public.</p>
+      <p class="prose">Chat pour tester, Cowork quand tu veux déléguer, Code quand tu veux qu'il agisse. Si tu bloques à l'install ou que tu veux comparer nos setups, écris-moi — je documente tout en public.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
-        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Claude%20Code%20—%20échange">M'écrire</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Chat%20Cowork%20Code%20—%20échange">M'écrire</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -366,7 +409,6 @@ claude</pre>
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

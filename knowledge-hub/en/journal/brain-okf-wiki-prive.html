@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>The Brain: my private wiki in OKF format, read by all my Claudes — Journal · Hugo Lahutte</title>
+<meta name="description" content="A tweet about the Open Knowledge Format triggers a revision of my Knowledge building block: Markdown becomes the source of truth, a private repo in seven folders (entities, building blocks, projects, personal, method, notes, sessions) read by all my Claudes through a plain GitHub connector, and the vector database + MCP server steps pushed back behind a written switch-over criterion. A capture ritual, the shell rule, and one conviction: a stale brain is worse than an empty brain.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/journal/brain-okf-wiki-prive.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/brain-okf-wiki-prive.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/brain-okf-wiki-prive.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/journal/brain-okf-wiki-prive.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Brain: my private wiki in OKF format, read by all my Claudes">
+<meta property="og:description" content="A tweet about the Open Knowledge Format triggers a revision of my Knowledge building block: Markdown becomes the source of truth, a private repo in seven folders (entities, building blocks, projects, personal, method, notes, sessions) read by all my Claudes through a plain GitHub connector, and the vector database + MCP server steps pushed back behind a written switch-over criterion. A capture ritual, the shell rule, and one conviction: a stale brain is worse than an empty brain.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/journal/brain-okf-wiki-prive.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-08-22">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+
+<!-- ===== JSON-LD (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Brain: my private wiki in OKF format, read by all my Claudes",
+  "description": "A tweet about the Open Knowledge Format triggers a revision of my Knowledge building block: Markdown becomes the source of truth, a private repo in seven folders (entities, building blocks, projects, personal, method, notes, sessions) read by all my Claudes through a plain GitHub connector, and the vector database + MCP server steps pushed back behind a written switch-over criterion. A capture ritual, the shell rule, and one conviction: a stale brain is worse than an empty brain.",
+  "inLanguage": "en-US",
+  "datePublished": "2026-08-22",
+  "dateModified": "2026-08-22",
+  "url": "https://hl-consulting.tech/knowledge-hub/journal/brain-okf-wiki-prive.html",
+  "author": {
+    "@type": "Person",
+    "@id": "https://hl-consulting.tech/#hugo",
+    "name": "Hugo Lahutte",
+    "url": "https://hl-consulting.tech/knowledge-hub/",
+    "email": "mailto:hugo@hl-consulting.tech"
+  },
+  "keywords": "Brain, OKF, Open Knowledge Format, LLM wiki, Markdown, GitHub connector, session capture, Knowledge",
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Knowledge Hub — Journal",
+    "url": "https://hl-consulting.tech/knowledge-hub/journal/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
+      <li><a href="../guides/">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="./" aria-current="page">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/journal/brain-okf-wiki-prive.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<article class="article">
+  <div class="container">
+    <p class="caption"><a href="./">← Journal</a></p>
+    <p class="kicker">HL Consulting · Cross-cutting method</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">The Brain: my private wiki in OKF format, read by all my Claudes</h1>
+    <hr class="rule--accent">
+    <div class="meta-bar">
+      <span><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></span>
+      <span>·</span>
+      <time datetime="2026-08-22">August 22, 2026</time>
+      <span>·</span>
+      <a href="../perso/" style="text-decoration:none;">Perso</a>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="perso" href="/knowledge-hub/en/journal/?tag=perso" style="border-style:dashed;">Perso</a></div>
+
+    <div class="prose" style="margin-top:var(--space-8);">
+
+      <h2>Context</h2>
+      <p>A tweet, on a Friday evening in August: an open-source plugin for the <strong>Open Knowledge Format</strong>, the specification Google Cloud published in June that formalizes Karpathy's “wiki for LLMs”. Two questions behind it: can I put <em>everything</em> I do into a wiki, and can a single wiki serve both my Claudes — the personal account and the Cobra account — plus another assistant now and then?</p>
+      <p>The “Knowledge” building block of my system had already been specified in late July, with a PostgreSQL database and a vector index as storage, and a homemade MCP server to plug it into three clients. So the real question was: does OKF replace that plan, or slot into it?</p>
+
+      <h2>What was done</h2>
+      <ul>
+        <li><strong>The <code>brain</code> bundle</strong>: a private git repo, seven folders — <em>entities</em> (the group's structures), <em>building blocks</em> (the systems under construction), <em>projects</em> (what has an end), <em>personal</em> (always private), <em>method</em> (prescriptive), <em>notes</em> (revisable), <em>sessions</em> (the raw journal) — a root <code>index.md</code> and a <code>log.md</code> for structural changes.</li>
+        <li><strong>The front-matter convention</strong>: OKF's standard fields (type, title, description, tags, date) plus two homemade ones — <code>confidentialite</code> (<em>prive</em> or <em>publiable</em>), which makes the public/private guardrail machine-readable, and <code>auteur</code> (me, Claude HL or Claude Cobra), without which it's impossible, six months later, to judge how reliable a page is.</li>
+        <li><strong>The Knowledge building block, revised</strong>: Markdown becomes the source of truth; the database and the vector index become a derived index, rebuilt from the files — and pushed back until navigation is no longer enough.</li>
+        <li><strong>The capture ritual</strong>: a skill that, at the end of a session, writes the <em>sessions/</em> entry and proposes targeted edits to the reference pages it touched. Then, the next day, the <strong>shell</strong> rule (a shell being an empty placeholder page: it announces itself as empty and asks questions; we never invent its contents), the <em>notes/</em> folder with its status (draft, held, revised, abandoned) and its mandatory “what could take this apart” section, and a small linter that checks all of it before every commit.</li>
+      </ul>
+
+      <h2>What was hard / unexpected</h2>
+      <p><strong>The “OKF solves multi-client sharing” trap.</strong> It doesn't: OKF is a format, not a service. It syncs nothing, searches nothing, exposes nothing. What lets one wiki serve several Claudes is the access layer — so the MCP server was still needed… until we noticed that the <strong>GitHub connector</strong> is enough as long as the bundle stays small: agents start from the index and follow the links. Hence the MCP steps being deferred, and one sentence written in place of the step: <em>the day “find me what we said about order dedup” no longer surfaces the right document, we build the index</em>.</p>
+      <p><strong>No auto-trigger possible.</strong> The idea of launching the capture automatically past a certain conversation length doesn't hold: no mechanism fires on a context threshold, and hooks only run in Claude Code — not on mobile, not in Cowork. The answer came through instruction rather than infrastructure: a CLAUDE.md rule that, when the conversation gets long, offers to close with a handoff brief <em>and</em> to capture.</p>
+      <p><strong>A pleasant side effect</strong>: the item “Claude project documents have no export” disappears. Those documents natively become pages in the bundle.</p>
+
+      <h2>Stack</h2>
+      <p>OKF (Markdown + YAML front matter), git, a private GitHub repo, the GitHub connector in the Claude apps, a Python linter. PostgreSQL and pgvector deferred to the moment navigation is no longer enough.</p>
+
+      <h2>What it illustrates</h2>
+      <p>A standard format doesn't replace infrastructure, but it can <strong>delay</strong> the moment it becomes necessary — and that delay is the real win. The initial plan built the server in step 2; the GitHub shortcut covers the same need with zero lines of code, and leaves a clear signal for knowing when to build. A corollary, now a note in the Brain: <em>writing down the switch-over criterion beats building the step ahead of time</em>. And one conviction that governs everything else: <strong>a stale brain is worse than an empty brain</strong>. A missing document triggers a search; a wrong document triggers a decision.</p>
+
+      <h2>See also</h2><ul><li><a href="../guides/cest-quoi-un-brain-okf.html">What a Brain is, and why it's my real asset</a></li><li><a href="systeme-instructions-claude-md.html">Claude custom instruction system (CLAUDE.md + extensions)</a></li><li><a href="hl-os-cinq-briques-un-socle.html">HL OS: five building blocks, one foundation</a></li><li><a href="../how-to/">My method, updated September 2026</a></li></ul>
+    </div>
+    <p class="caption" style="margin-top:var(--space-12);"><a href="./">← All entries</a> &nbsp;·&nbsp; <a href="../perso/">Perso project →</a></p>
+  </div>
+</article>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/en/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/en/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/en/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/en/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/en/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/en/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependencies</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/en/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private area">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

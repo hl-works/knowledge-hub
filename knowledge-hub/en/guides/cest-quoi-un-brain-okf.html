@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>What is a “Brain” (a private wiki in the OKF format), and why it's my real asset — Guides · Hugo Lahutte</title>
+<meta name="description" content="A Brain is the durable memory of what you know and decide, in Markdown files readable by all your AIs. The open OKF format (Google Cloud, June 2026), the seven folders of mine, reading through a GitHub connector with no database or server, the capture ritual, and the rule that holds it all together: a stale brain is worse than an empty brain.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-un-brain-okf.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-brain-okf.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-un-brain-okf.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-brain-okf.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is a “Brain”, and why it's my real asset">
+<meta property="og:description" content="A private wiki in the OKF format, read by all my AIs. What it is, how it fills up, and the rule: a stale brain is worse than an empty brain.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-un-brain-okf.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-09-01">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+
+<!-- ===== JSON-LD (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "What is a “Brain”, and why it's my real asset",
+      "description": "A Brain is a private repository of Markdown files in the OKF format (Open Knowledge Format) that describes entities, projects, decisions, method and notes, read by all AIs through a GitHub connector. Seven folders, a capture ritual, and two rules: a stale brain is worse than an empty brain; we never invent a page we don't know how to fill in.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-01",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-brain-okf.html",
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "Brain",
+        "Open Knowledge Format",
+        "OKF",
+        "LLM wiki",
+        "AI memory",
+        "context engineering",
+        "Claude"
+      ],
+      "keywords": "Brain, OKF, Open Knowledge Format, LLM wiki, memory, Markdown, YAML, GitHub connector"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is a Brain?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Brain for an AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Brain is a folder of Markdown files (plain text with a small YAML header) that durably describes your organizations, your projects, your decisions and the way you work. Your AI assistants read it before answering, which replaces the short, siloed memory of conversations. Hugo Lahutte's lives in a private git repository, in seven folders: entities, building blocks, projects, personal, method, notes, sessions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the OKF format (Open Knowledge Format)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OKF is an open specification published by Google Cloud in June 2026 that formalizes the “LLM wiki” popularized by Andrej Karpathy: Markdown files with a YAML header where a single field is required (type), optional fields (title, description, resource, tags, date), and Markdown links between documents that form a graph. An OKF bundle can be read in any editor and renders on GitHub."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need a vector database for a Brain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not at first. A GitHub connector is enough as long as the bundle stays within a few dozen documents: the AIs navigate from the index and follow the links. The switch criterion for building a search index (embeddings): the day a precise question no longer surfaces the right document by navigation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you keep a Brain from going stale?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With an end-of-session ritual: write the session entry and, above all, propose targeted updates to the reference pages affected. Three rules: a stale brain is worse than an empty brain; we never invent the content of an empty page (a shell); a document we no longer believe moves to abandoned status but is never deleted."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/guides/cest-quoi-un-brain-okf.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › What is a Brain?</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Method</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">What is a “Brain”,<br>and why it's my real asset</h1>
+    <hr class="rule--accent">
+    <p class="lead">A Brain is the durable memory of everything you know and decide, written in text files that all your AIs can read. Mine is in the open <strong>OKF</strong> format, in a private repository. Here's what it is, how it fills up, and the rule that holds it together: a stale brain is worse than an empty brain.</p>
+    <div class="meta-bar">
+      <span>By <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-09-01">September 1, 2026</time>
+      <span>·</span>
+      <span>~7 min read</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="brain" data-tagsearch="brain" href="/knowledge-hub/en/guides/">Brain</a>
+      <a class="tag" data-tag="okf" data-tagsearch="OKF" href="/knowledge-hub/en/guides/">OKF</a>
+      <a class="tag" data-tag="methode" data-tagsearch="méthode" href="/knowledge-hub/en/guides/">méthode</a>
+      <a class="tag" data-tag="claude" data-tagsearch="claude" href="/knowledge-hub/en/guides/">Claude</a>
+      <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/en/guides/">vulgarisation</a>
+    </div>
+    <ul class="levels" aria-label="Reading levels">
+      <li class="level-pill"><b>1</b> In 30 seconds</li>
+      <li class="level-pill"><b>2</b> The body, visual</li>
+      <li class="level-pill"><b>3</b> Go deeper</li>
+    </ul>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <aside class="callout callout--tldr prose" aria-label="30-second summary">
+      <p class="kicker">In 30 seconds</p>
+      <ul>
+        <li>A <strong>Brain</strong> is a folder of Markdown files (plain text + a small header) that describes your organizations, your projects, your decisions and the way you work. Your AIs read it before answering you.</li>
+        <li>The <strong>OKF</strong> format (Open Knowledge Format, Google Cloud, June 2026) standardizes this “LLM wiki”: a single required field, links between files, an index. Zero software to install.</li>
+        <li>What holds it together isn't the tech: it's the <strong>update ritual</strong>, and two rules — a stale brain is worse than an empty brain; we never invent a page we don't know how to fill in.</li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Contents">
+      <p class="kicker">Contents</p>
+      <ul>
+        <li><a href="#probleme">1. The problem: AI has a short memory, and a siloed one</a></li>
+        <li><a href="#quoi">2. What it is, concretely</a></li>
+        <li><a href="#lecture">3. How my AIs read it</a></li>
+        <li><a href="#remplir">4. How it fills up (and doesn't go stale)</a></li>
+        <li><a href="#vs">5. Brain, CLAUDE.md, Knowledge Hub: who does what</a></li>
+        <li><a href="#commencer">6. Where to start</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="probleme">1. The problem: AI has a short memory, and a siloed one</h2>
+      <p>An AI assistant only “retains” what fits in its <a href="cest-quoi-le-contexte.html">context window</a> — the current conversation, plus whatever you've given it to read. Close the conversation, and everything starts from zero. The assistants' memory features help with your preferences, but they're tied to <em>one</em> tool, opaque, and impossible to re-read or correct by hand.</p>
+      <p>In my case, the symptom was clear: what I knew about Cobra, Haute Fidélité and the building blocks under construction lived in Claude project documents (not shareable between tools), in conversation threads, and in my head. Two Claude instances, a personal account and a work account, that didn't know the same things. And with every new piece of work, ten minutes of re-explaining.</p>
+
+      <h2 id="quoi">2. What it is, concretely</h2>
+      <p>A Brain is a <strong>private git repository</strong> full of Markdown files. Each file starts with a header (YAML: a few <code>key: value</code> lines) followed by a free-text body. Mine fits in seven folders:</p>
+
+      <figure class="diagram">
+        <div class="card-grid" role="img" aria-label="The seven folders of the Brain: entities, building blocks, projects, personal, method, notes, sessions.">
+          <div class="card" style="min-height:auto;"><span class="card__kicker">entities</span><span class="card__title">The organizations</span><span class="card__desc">Cobra, Haute Fidélité, HiFi Lovers, HL Consulting… Four questions per page: what it is, where it lives online, my position, what runs on it.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">building blocks</span><span class="card__title">The systems under construction</span><span class="card__desc">A living spec, a dev plan with success criteria, a dated Decisions section.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">projects</span><span class="card__title">What has an end</span><span class="card__desc">A site, a trip, a redesign. As opposed to entities, which carry on.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">method</span><span class="card__title">How I work</span><span class="card__desc">Prescriptive: a rule an agent must follow. Chat vs Code, compound engineering, capture.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">notes</span><span class="card__title">What I think</span><span class="card__desc">Revisable: an opinion to cite, with a status (draft, held, revised, abandoned) and its “what could take it down” section.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">sessions</span><span class="card__title">The raw log</span><span class="card__desc">One entry per work session that produced something. The raw material for this site's public entries.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">personal</span><span class="card__title">Outside business</span><span class="card__desc">Always private. How things work, never the data: no credentials, no third-party names.</span></div>
+        </div>
+        <figcaption class="caption">Seven folders, an index at the root, links between pages: that's the graph. <em>Method</em> and <em>notes</em> look alike and don't serve the same purpose — one is applied, the other is cited.</figcaption>
+      </figure>
+
+      <p>The format is called <strong>OKF — Open Knowledge Format</strong>. It's an open specification published by Google Cloud in June 2026 that formalizes the “LLM wiki” popularized by Andrej Karpathy: Markdown, a YAML header with <strong>a single required field</strong> (<code>type</code>) and a few optional fields (title, description, resource, tags, date), Markdown links between documents. An OKF bundle can be read in any editor, renders on GitHub, and any search tool knows how to index it.</p>
+      <p>I kept six fields, plus two of my own: <code>confidentialite</code> (<em>prive</em> or <em>publiable</em> — private or publishable) — the guardrail made machine-readable — and <code>auteur</code> (me, Claude HL or Claude Cobra), because without it, there's no way six months later to judge how reliable a page on a given topic is. A small checking script (a <em>linter</em>) verifies all of this before every commit: fields present, links that exist, no secrets, note-specific rules.</p>
+
+      <div class="codeblock" aria-label="Example OKF header"><span class="cb-c"># At the top of every file — YAML, then the text</span>
+---
+type: Brique            <span class="cb-c"># Entité | Brique | Projet | Perso | Méthode | Note | Session</span>
+title: Knowledge
+description: One sentence. The one that makes you want to open it.
+tags: [knowledge, okf]
+timestamp: 2026-08-21T23:34:30Z
+confidentialite: prive   <span class="cb-c"># prive | publiable</span>
+auteur: claude-hl        <span class="cb-c"># hugo | claude-hl | claude-cobra</span>
+---</div>
+
+      <h2 id="lecture">3. How my AIs read it</h2>
+      <p>Here's a decision that saved me weeks of work: <strong>no database, no server, no semantic search</strong>. The repository is private on GitHub; my Claude clients have the GitHub connector plugged in; they read the Brain directly, starting from the <code>index.md</code> and following the links. That's exactly what OKF's “progressive disclosure” is meant to allow.</p>
+      <p>Honesty: it works by navigation, not by search. That's enough as long as the bundle stays within a few dozen documents. I wrote down the <strong>switch criterion</strong> rather than building the step: the day “find me what we said about order dedup” no longer surfaces the right document, that'll be the signal to build a search index (embeddings + vector database). Not before. Writing down the signal that will tell you it's time to build almost always beats building as a precaution.</p>
+
+      <figure class="diagram">
+        <div class="hub" role="img" aria-label="A single Brain read by every client: Claude HL, Claude Cobra, Claude Code, Cowork, and other assistants through a GitHub connector.">
+          <span class="hub__core">Brain (OKF)</span>
+          <div class="hub__link"></div>
+          <div class="hub__nodes">
+            <div class="hub__node"><b>Claude · HL</b><span>Chat, Cowork, Code — personal account</span></div>
+            <div class="hub__node"><b>Claude · Cobra</b><span>Odoo / Shopify dev — work account</span></div>
+            <div class="hub__node"><b>Other assistants</b><span>Any client with a GitHub connector</span></div>
+            <div class="hub__node"><b>Me</b><span>A text editor, anywhere</span></div>
+          </div>
+        </div>
+        <figcaption class="caption">A format, not a service: OKF doesn't sync anything, doesn't search anything. What lets one wiki serve several AIs is the access layer — and a GitHub connector is enough as long as the bundle is small.</figcaption>
+      </figure>
+
+      <h2 id="remplir">4. How it fills up (and doesn't go stale)</h2>
+      <p>This is the part that matters. A knowledge base runs at two speeds: the log grows on its own (writing an entry is rewarding and risk-free), and the reference pages go stale in silence (updating them means re-reading what you wrote and admitting it has moved). Nothing flags the gap. An agent querying the base sees a structured, dated, authoritative document — and answers with it.</p>
+      <p>Hence the conviction that structures everything: <strong>a stale brain is worse than an empty brain</strong>. A missing document triggers a search; a wrong document triggers a decision. And the better the rest of the bundle is kept, the more you trust it, the more a stale page costs.</p>
+      <p>The remedy is a ritual, not a tool. At the end of a session, a capture skill does four things, in this order:</p>
+      <ol>
+        <li>re-read the session, identify the entity and the topic;</li>
+        <li>write the <code>sessions/</code> entry in the OKF format;</li>
+        <li><strong>propose targeted changes to the reference pages affected</strong> — that's the point you're tempted to skip, so it sits at the top of the procedure;</li>
+        <li>run the confidentiality filter, then propose the commit.</li>
+      </ol>
+      <p>Three rules complete the ritual:</p>
+      <ul>
+        <li><strong>We never invent the content of a shell (empty placeholder page).</strong> A document tagged “to fill in” opens with a box that says so and asks questions instead of answering them. An empty doc that says it's empty is honest; a doc filled in by guesswork is a trap that will go off six months later, at the precise moment you trust it.</li>
+        <li><strong>A conviction without a counter-argument isn't a conviction, it's a reflex.</strong> Every note carries a “what could take it down” section. If there's nothing to put there, we say so, rather than writing a hollow section.</li>
+        <li><strong>A document we no longer believe is never deleted</strong>: it moves to <em>abandoned</em> status. Knowing why you were wrong is reusable; a hole in the base isn't.</li>
+      </ul>
+
+      <h2 id="vs">5. Brain, CLAUDE.md, Knowledge Hub: who does what</h2>
+      <p>Three things that look alike and shouldn't be confused:</p>
+      <div class="compare" role="img" aria-label="CLAUDE.md says how to work; the Brain says what we know; the Knowledge Hub is the public, curated version.">
+        <div class="compare__side"><span class="compare__tag">CLAUDE.md</span><h4>How to work with me</h4><ul><li>Tone, principles, hard rules</li><li>Rarely changes</li><li>Loaded at every session</li><li>Private, versioned with the code</li></ul></div>
+        <div class="compare__arrow" aria-hidden="true">+</div>
+        <div class="compare__side compare__side--after"><span class="compare__tag">Brain (OKF)</span><h4>What we know</h4><ul><li>Entities, projects, decisions, method, notes</li><li>Changes all the time</li><li>Read on demand, by navigation</li><li>Private — a connector, not a sync</li></ul></div>
+      </div>
+      <p style="margin-top:var(--space-6);">And this <strong>Knowledge Hub</strong> is the third thing: the <em>curated</em> version of the Brain, rewritten to be read by humans and cited by AIs. Nothing marked <em>prive</em> can end up here, and even for a <em>publiable</em> document, it takes a human action. Moving from one to the other is an editorial act, never a sync. A good Brain contains things that will never get out — that's what makes it useful.</p>
+
+      <h2 id="commencer">6. Where to start</h2>
+      <p>Small. A private repository, an <code>index.md</code> that lists the folders, and three to five pages: one per important organization in your professional life (the four questions), one <em>method</em> page with your working rules. Plug the GitHub connector into your assistant, and check the criterion that matters: from any conversation, does a question about a project surface the right document?</p>
+      <p>Then, the ritual: at the end of every session that produced something, a session entry <em>and</em> an update of the pages affected. Three to five dictated lines are enough; the rest formats itself. And remember the rule that argues even harder for pruning than for updating: a base of fifteen living pages beats a base of two hundred half-dead ones.</p>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Going further</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="cest-quoi-le-contexte.html"><strong>What is context (and why it's everything)</strong></a> — the context window, what goes into it, and why the Brain is a chosen memory.</li>
+          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Writing a good CLAUDE.md</strong></a> — the other layer of context, the one that rarely changes.</li>
+          <li>→ <a href="compound-engineering.html"><strong>Compound Engineering</strong></a> — the loop that fills the Brain instead of letting it go stale.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Real case.</strong> Adopting the format and the decisions made that day → <a href="../journal/brain-okf-wiki-prive.html">The Brain: my private wiki in the OKF format, read by all my Claude instances</a>. The OKF spec, at Google Cloud → <a href="https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing" rel="external noopener" target="_blank">How the Open Knowledge Format can improve data sharing</a>.</p>
+      </aside>
+
+    </div>
+  </div>
+</article>
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
+      <h2>Building your own memory?</h2>
+      <p class="prose">If you're setting up a Brain, hesitating over how to split it, or want to compare capture rituals, write to me — I document everything in public.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Add me on LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Brain%20OKF%20—%20échange">Email me</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/en/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/en/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/en/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/en/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/en/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/en/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependencies</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/en/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private area">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

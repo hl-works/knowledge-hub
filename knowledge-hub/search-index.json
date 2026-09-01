@@ -99,15 +99,15 @@
 },
 {
 "url": "/knowledge-hub/how-to/",
-"title": "Comment j'utilise Claude",
-"excerpt": "La méthode : CLAUDE.md, Compound Engineering, Claude Chat vs Code, prompt à copier.",
+"title": "Comment j'utilise Claude (v2, septembre 2026)",
+"excerpt": "La méthode : CLAUDE.md versionnés, Brain OKF, Chat/Cowork/Code, deux agents, skills et connecteurs, compound engineering + capture, garde-fous, prompt à copier.",
 "kind": "Méthode",
 "tags": ""
 },
 {
 "url": "/knowledge-hub/guides/",
 "title": "Guides IA",
-"excerpt": "Guides clairs sur l'IA pour marchands et dirigeants — comprendre pour décider.",
+"excerpt": "Une trentaine de guides clairs sur l'IA pour marchands et dirigeants — repassés en entier le 1er septembre 2026.",
 "kind": "Guides",
 "tags": ""
 },
@@ -121,9 +121,9 @@
 {
 "url": "/knowledge-hub/lexique/",
 "title": "Lexique IA",
-"excerpt": "Définitions claires des termes IA : LLM, agent, MCP, RAG, contexte, prompt, tokens… Le vocabulaire pour comprendre Claude et l'IA appliquée.",
+"excerpt": "82 termes de l'IA définis simplement : Brain, OKF, skill, hook, routine, contexte, HL OS, Growth, Content Machine…",
 "kind": "Lexique",
-"tags": "lexique ia glossaire"
+"tags": ""
 },
 {
 "url": "/knowledge-hub/a-propos/",
@@ -233,9 +233,9 @@
 {
 "url": "/knowledge-hub/guides/cest-quoi-claude.html",
 "title": "C'est quoi Claude, et pourquoi j'ai tout bâti dessus ?",
-"excerpt": "Claude, l'assistant IA d'Anthropic, expliqué simplement : qui le fait, pourquoi il est dans le peloton de tête, et pourquoi j'en ai fait le socle de tous mes projets (pour de vrai, pas en démo).",
+"excerpt": "L'assistant d'Anthropic : la famille Claude 5 (Fable 5.1, Opus 5, Sonnet 5, Haiku), les produits Chat/Cowork/Code, pourquoi il est dans le peloton de tête, et tout ce qui tourne dessus chez moi.",
 "kind": "Guide",
-"tags": "ia guide"
+"tags": "claude, anthropic, ia, fable, opus, sonnet, haiku"
 },
 {
 "url": "/knowledge-hub/guides/site-bot-ia-en-un-week-end.html",
@@ -282,16 +282,16 @@
 {
 "url": "/knowledge-hub/guides/cest-quoi-ia-llm.html",
 "title": "C'est quoi l'IA, et c'est quoi un « LLM » ?",
-"excerpt": "L'IA générative et les LLM expliqués sans jargon : ce qu'ils font, qui sont les grands acteurs (OpenAI, Anthropic, Google, Mistral…), et surtout ce qu'ils ne savent PAS faire.",
+"excerpt": "L'IA générative et les LLM sans jargon : ce qu'ils font, les grands acteurs en septembre 2026, et ce qu'ils ne savent pas faire.",
 "kind": "Guide",
-"tags": "ia guide"
+"tags": "ia, llm, vulgarisation, openai, anthropic, google, mistral"
 },
 {
 "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html",
 "title": "Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)",
-"excerpt": "Trois façons d'utiliser Claude selon la tâche — et la vérité sur le « terminal », qui fait peur mais s'installe en une seule commande à copier-coller.",
+"excerpt": "Discuter, déléguer, agir : trois portes vers le même Claude. Le terminal dédramatisé, l'installation en une commande, et ce qui a changé en 2026 (sessions cloud, routines, navigateur intégré).",
 "kind": "Guide",
-"tags": "ia guide"
+"tags": "claude, claude code, cowork, terminal, infra, vulgarisation"
 },
 {
 "url": "/knowledge-hub/guides/pourquoi-lia-change-le-travail.html",
@@ -310,16 +310,16 @@
 {
 "url": "/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html",
 "title": "C'est quoi un « MCP », et comment brancher Claude à tes outils",
-"excerpt": "Copier-coller, navigateur, API, MCP : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante.",
+"excerpt": "Copier-coller, navigateur, API, MCP : les 4 façons de connecter Claude à Shopify, Gmail, Drive… et pourquoi, depuis 2026, il agit sous ta validation.",
 "kind": "Guide",
-"tags": "mcp claude infra guide"
+"tags": "mcp, connecteur, shopify, gmail, drive, github, infra"
 },
 {
 "url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html",
 "title": "C'est quoi un « agent IA » ?",
-"excerpt": "Un agent IA, c'est Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat. Ce que ça permet — et le garde-fou indispensable.",
+"excerpt": "Un assistant répond, un agent agit — en boucle, jusqu'au résultat. Les formes en 2026, les six agents en production chez moi, et le garde-fou sans lequel ça part en vrille.",
 "kind": "Guide",
-"tags": "agent ia guide"
+"tags": "agent, sous-agent, routine, automatisation, garde-fous, ia"
 },
 {
 "url": "/knowledge-hub/guides/fable-mythos-glasswing.html",
@@ -330,17 +330,17 @@
 },
 {
 "url": "/knowledge-hub/guides/cest-quoi-une-loop.html",
-"title": "C'est quoi une « loop » ? Les tâches récurrentes d'agent",
-"excerpt": "Un agent qui relance la même tâche à intervalle régulier : surveiller, vérifier, alerter — sans toi. Le /loop de Claude Code, la différence avec une tâche planifiée, et le cadre.",
+"title": "C'est quoi une « loop » ? Loops, routines et tâches planifiées",
+"excerpt": "La même tâche relancée à intervalle régulier, sans toi. Loop, routine ou tâche planifiée : lequel choisir, et le cadre.",
 "kind": "Guide",
-"tags": "loop agent claude-code automatisation guide"
+"tags": "loop, routine, cron, agent, automatisation, claude code"
 },
 {
 "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html",
 "title": "Écrire un bon CLAUDE.md (le fichier le plus rentable)",
-"excerpt": "Le fichier qui dit à Claude comment travailler avec toi — ton, conventions, pièges à éviter. Comment le rédiger, et comment le faire grandir.",
+"excerpt": "Ton, conventions, interdits, pièges devenus règles. Court, versionné, relu. Et ce qu'il n'est pas : un Brain, un skill, un hook.",
 "kind": "Guide",
-"tags": "claude methode doc guide"
+"tags": "claude.md, contexte, méthode, doc, conventions"
 },
 {
 "url": "/knowledge-hub/guides/principes-facon-karpathy.html",
@@ -387,9 +387,9 @@
 {
 "url": "/knowledge-hub/guides/combien-coute-lia.html",
 "title": "Combien coûte l'IA : abonnements, API et facture maîtrisée",
-"excerpt": "Tout se compte en tokens. Les façons de payer l'IA (gratuit, abonnement, API à l'usage, entreprise), laquelle choisir, et comment garder la facture sous contrôle.",
+"excerpt": "Tokens, abonnements (Pro, Max), API, ordres de grandeur de septembre 2026 par million de tokens, et les réflexes pour garder la facture sous contrôle.",
 "kind": "Guide",
-"tags": "cout strat vulgarisation guide"
+"tags": "coût, prix, tokens, abonnement, api, strat"
 },
 {
 "url": "/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html",
@@ -705,5 +705,75 @@
 "excerpt": "Hisser le template de bon de commande au niveau du template « paiement », en double langue, avec contrainte de texte figé. Mise en forme uniquement, zéro AR sur le fond.",
 "kind": "Journal",
 "tags": "email, en-prod"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html",
+"title": "C'est quoi un « Brain », et pourquoi c'est mon vrai actif",
+"excerpt": "Un wiki privé au format OKF, lu par toutes mes IA : sept dossiers, un rituel de capture, et la règle — un brain périmé est pire qu'un brain vide.",
+"kind": "Guide",
+"tags": "brain, okf, méthode, claude, mémoire, wiki"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-le-contexte.html",
+"title": "C'est quoi « le contexte », et pourquoi c'est tout",
+"excerpt": "La fenêtre de contexte, ce qui y entre par couches, la compaction, la mémoire, et les quatre réflexes du context engineering.",
+"kind": "Guide",
+"tags": "contexte, context engineering, tokens, compaction, mémoire, méthode"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-un-skill.html",
+"title": "C'est quoi un « skill » (et un hook, un sous-agent, un plugin) ?",
+"excerpt": "Une procédure dans un dossier, chargée quand il faut. Skill, hook, sous-agent, plugin : ce que chacun fait, et lequel choisir.",
+"kind": "Guide",
+"tags": "skill, hook, sous-agent, plugin, workflow, claude code, cowork"
+},
+{
+"url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html",
+"title": "L'IA propose, l'humain valide : les garde-fous qui tiennent",
+"excerpt": "Lecture automatique, écriture validée. Trois régimes d'autonomie, le flux d'une action, quatre règles avant tout agent, les verrous non négociables.",
+"kind": "Guide",
+"tags": "garde-fous, agent, sécurité, validation humaine, déploiement, strat"
+},
+{
+"url": "/knowledge-hub/guides/cest-quoi-hl-os.html",
+"title": "C'est quoi HL OS : un système d'exploitation pour piloter un groupe avec l'IA",
+"excerpt": "Un socle commun, cinq briques (Zéro, Knowledge, Content Machine, Growth, Socle IA), un cœur et plusieurs contextes, un flux unique demande → mesure.",
+"kind": "Guide",
+"tags": "hl os, growth, content machine, brain, hf-os, agent, strat"
+},
+{
+"url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html",
+"title": "Content Machine : une capture, N destinations",
+"excerpt": "Elle ne produit pas du contenu, elle transporte une présence. Observation attestée, témoigné vs documenté, verrous, destinations — jamais une publication sans validation.",
+"kind": "Guide",
+"tags": "content machine, publication, repurposing, provenance, telegram, geo, marketing"
+},
+{
+"url": "/knowledge-hub/journal/refonte-knowledge-hub-fable-5-1.html",
+"title": "Fable 5.1 repasse tout le site : méthode v2, six guides, un lexique doublé",
+"excerpt": "Cinq mois après sa création, ce site décrivait une méthode qui n'était plus la mienne. Une repasse complète le jour de la sortie de Fable 5.1 : méthode réécrite, six guides nouveaux, vingt-trois mis à jour, lexique de 27 à 82 termes, sans rien inventer.",
+"kind": "Journal",
+"tags": "meta doc seo-gtm en-prod perso"
+},
+{
+"url": "/knowledge-hub/journal/hl-os-cinq-briques-un-socle.html",
+"title": "HL OS : cinq briques, un socle — la carte du système",
+"excerpt": "Ce que je construis depuis juin a un nom. Un socle commun et cinq briques (Zéro, Knowledge, Content Machine, Growth, Socle IA), un cœur et plusieurs contextes, un flux unique demande → analyse → aperçu → validation → exécution → journal → mesure.",
+"kind": "Journal",
+"tags": "strat agent infra en-cours perso"
+},
+{
+"url": "/knowledge-hub/journal/content-machine-une-capture-n-destinations.html",
+"title": "Content Machine : trois projets de publication deviennent un seul système",
+"excerpt": "La machine à contenus attestés, le sens « sortie » du Brain et le déclencheur « à publier » deviennent un seul système : une capture, N destinations. Telegram comme cockpit, ordre réseaux → web → papier. Échéance : le salon Haute Fidélité, fin septembre.",
+"kind": "Journal",
+"tags": "marketing agent strat en-cours haute-fidelite"
+},
+{
+"url": "/knowledge-hub/journal/brain-okf-wiki-prive.html",
+"title": "Le Brain : mon wiki privé au format OKF, lu par tous mes Claude",
+"excerpt": "Un tweet sur l'Open Knowledge Format déclenche la révision de ma brique Knowledge : le Markdown devient la source de vérité, un dépôt privé en sept dossiers lu par tous mes Claude via un connecteur GitHub. Un brain périmé est pire qu'un brain vide.",
+"kind": "Journal",
+"tags": "doc meta strat en-prod perso"
 }
 ]

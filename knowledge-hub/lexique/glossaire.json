@@ -84,7 +84,8 @@
         "url": "/knowledge-hub/guides/cest-quoi-ia-llm.html"
       },
       {
-        "label": "Combien ça coûte (à venir)"
+        "label": "Combien coûte l'IA, concrètement",
+        "url": "/knowledge-hub/guides/combien-coute-lia.html"
       }
     ],
     "projets": []
@@ -117,15 +118,15 @@
       "prompts",
       "consigne"
     ],
-    "definition": "La consigne qu'on donne à l'IA. Un bon prompt — clair, avec le contexte et l'objectif — change tout le résultat.",
+    "definition": "La consigne qu'on donne à l'IA. Un bon prompt — clair, avec le contexte et l'objectif — change le résultat d'une réponse. Mais ce qui pèse sur toutes les réponses, c'est le contexte (CLAUDE.md, Brain, skills).",
     "guides": [
       {
-        "label": "Écrire un bon CLAUDE.md",
-        "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html"
+        "label": "Écrire un bon prompt",
+        "url": "/knowledge-hub/guides/ecrire-un-bon-prompt.html"
       },
       {
-        "label": "Les principes (façon Karpathy)",
-        "url": "/knowledge-hub/guides/principes-facon-karpathy.html"
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
       }
     ],
     "projets": []
@@ -194,7 +195,7 @@
     "aliases": [
       "Claude"
     ],
-    "definition": "L'assistant IA d'Anthropic, décliné en plusieurs tailles (Opus, Sonnet, Haiku) et plusieurs produits (Chat, Cowork, Code).",
+    "definition": "L'assistant IA d'Anthropic. Une famille de modèles (en 2026 : Fable, Opus, Sonnet, Haiku — la famille Claude 5) et plusieurs produits : Chat (discuter), Cowork (déléguer un travail de bureau), Code (agir dans un projet).",
     "guides": [
       {
         "label": "C'est quoi Claude",
@@ -213,17 +214,30 @@
   },
   {
     "id": "opus-sonnet-haiku",
-    "terme": "Opus / Sonnet / Haiku",
+    "terme": "Fable / Opus / Sonnet / Haiku",
     "aliases": [
       "Opus",
       "Sonnet",
-      "Haiku"
+      "Haiku",
+      "Fable 5.1",
+      "Fable 5",
+      "Opus 5",
+      "Sonnet 5",
+      "Haiku 4.5"
     ],
-    "definition": "Les trois tailles de Claude : le plus puissant (Opus), l'équilibré (Sonnet), le rapide (Haiku). On choisit selon la tâche.",
+    "definition": "Les quatre gabarits de Claude : Fable (la classe au-dessus, le plus capable), Opus (le costaud), Sonnet (l'équilibré), Haiku (le rapide). Règle : le moins cher qui fait le travail.",
     "guides": [
       {
         "label": "C'est quoi Claude",
         "url": "/knowledge-hub/guides/cest-quoi-claude.html"
+      },
+      {
+        "label": "Fable, Mythos, Glasswing",
+        "url": "/knowledge-hub/guides/fable-mythos-glasswing.html"
+      },
+      {
+        "label": "Combien coûte l'IA",
+        "url": "/knowledge-hub/guides/combien-coute-lia.html"
       }
     ],
     "projets": []
@@ -236,7 +250,7 @@
       "Claude Cowork",
       "Claude Code"
     ],
-    "definition": "Trois façons d'utiliser Claude : discuter (Chat), déléguer un travail de bureau (Cowork), agir sur des fichiers et des projets (Code).",
+    "definition": "Trois façons d'utiliser Claude : discuter (Chat), déléguer un travail de bureau sans terminal (Cowork — ordinateur, web, mobile), agir sur des fichiers et des projets (Code — terminal, navigateur, mobile). Règle maison : Chat rédige, Code exécute.",
     "guides": [
       {
         "label": "Chat, Cowork ou Code",
@@ -297,15 +311,15 @@
       "MCP",
       "Model Context Protocol"
     ],
-    "definition": "Un standard ouvert créé par Anthropic : une « prise universelle » pour brancher Claude à des outils (Shopify, Drive, Gmail…) sans intégration sur-mesure.",
+    "definition": "Un standard ouvert créé par Anthropic fin 2024 : une « prise universelle » pour brancher Claude à des outils (Shopify, Drive, Gmail, GitHub…) sans intégration sur-mesure. Dans les applications Claude, ça s'appelle un connecteur. Depuis 2026, Claude ne fait plus que lire : il agit, sous validation.",
     "guides": [
       {
         "label": "C'est quoi un MCP",
         "url": "/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"
       },
       {
-        "label": "C'est quoi un agent IA",
-        "url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html"
+        "label": "C'est quoi un skill",
+        "url": "/knowledge-hub/guides/cest-quoi-un-skill.html"
       }
     ],
     "projets": [
@@ -327,15 +341,15 @@
       "agent autonome",
       "agent"
     ],
-    "definition": "Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — au lieu de simplement répondre.",
+    "definition": "Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — au lieu de simplement répondre. En 2026 : dans une session, en sous-agents, en routines planifiées, ou hébergé sur un serveur. Toujours avec un cadre : objectif, budget, fréquence, critère.",
     "guides": [
       {
         "label": "C'est quoi un agent IA",
         "url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html"
       },
       {
-        "label": "C'est quoi un MCP",
-        "url": "/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"
+        "label": "L'IA propose, l'humain valide",
+        "url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html"
       }
     ],
     "projets": [
@@ -412,11 +426,11 @@
       "cron",
       "tâche planifiée"
     ],
-    "definition": "Un minuteur qui lance une tâche automatiquement à intervalle régulier (ex. tous les matins à 7 h).",
+    "definition": "Un minuteur qui lance une tâche automatiquement à intervalle régulier (ex. tous les matins à 7 h). La forme « infrastructure » des tâches récurrentes, à côté des loops (éphémères) et des routines (planifiées côté Claude).",
     "guides": [
       {
-        "label": "C'est quoi un agent IA",
-        "url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html"
+        "label": "Loops, routines et tâches planifiées",
+        "url": "/knowledge-hub/guides/cest-quoi-une-loop.html"
       }
     ],
     "projets": [
@@ -480,15 +494,15 @@
       "CLAUDE.md",
       "fichier de contexte"
     ],
-    "definition": "Un fichier que Claude lit au démarrage : ton, conventions, pièges. Il évite de tout réexpliquer à chaque conversation.",
+    "definition": "Un fichier que Claude lit au démarrage : ton, conventions, pièges devenus règles. Il évite de tout réexpliquer à chaque conversation. Versionné dans le dépôt (convention CLAUDE-{domaine}-{projet}.md), court, relu à date fixe. Les faits vont dans le Brain, les procédures dans les skills.",
     "guides": [
       {
         "label": "Écrire un bon CLAUDE.md",
         "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html"
       },
       {
-        "label": "Compound Engineering",
-        "url": "/knowledge-hub/guides/compound-engineering.html"
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
       }
     ],
     "projets": [
@@ -504,15 +518,15 @@
     "aliases": [
       "compound engineering"
     ],
-    "definition": "Méthode (popularisée par Kieran Klaassen et Dan Shipper, chez Every) où chaque leçon devient une règle réutilisable : ton système s'améliore tout seul à chaque session.",
+    "definition": "Méthode (popularisée par Kieran Klaassen et Dan Shipper, chez Every) où chaque leçon devient une règle réutilisable : ton système s'améliore avec l'usage. Chez Hugo, deux étages : une erreur → une règle du CLAUDE.md ; une session → une capture dans le Brain.",
     "guides": [
       {
         "label": "Compound Engineering",
         "url": "/knowledge-hub/guides/compound-engineering.html"
       },
       {
-        "label": "Écrire un bon CLAUDE.md",
-        "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html"
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
       }
     ],
     "projets": []
@@ -523,15 +537,15 @@
     "aliases": [
       "vibe coding"
     ],
-    "definition": "Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy.",
+    "definition": "Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy en 2025. Devenu banal en 2026 : ce qui distingue, c'est le context engineering.",
     "guides": [
       {
-        "label": "Les principes (façon Karpathy)",
+        "label": "Les principes façon Karpathy",
         "url": "/knowledge-hub/guides/principes-facon-karpathy.html"
       },
       {
-        "label": "Chat, Cowork ou Code",
-        "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html"
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
       }
     ],
     "projets": []
@@ -570,8 +584,12 @@
     "definition": "L'équivalent du SEO pour les IA : optimiser ses contenus pour être **cité** par les assistants (ChatGPT, Claude, Perplexity). C'est l'objectif de ce site.",
     "guides": [
       {
-        "label": "C'est quoi l'IA et un LLM",
-        "url": "/knowledge-hub/guides/cest-quoi-ia-llm.html"
+        "label": "Être visible dans l'IA : le GEO",
+        "url": "/knowledge-hub/guides/etre-visible-dans-lia-geo.html"
+      },
+      {
+        "label": "Content Machine",
+        "url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html"
       }
     ],
     "projets": [
@@ -580,5 +598,1061 @@
         "url": "/knowledge-hub/journal/knowledge-hub.html"
       }
     ]
+  },
+  {
+    "id": "brain",
+    "terme": "Brain (wiki privé)",
+    "aliases": [
+      "Brain",
+      "mon Brain",
+      "wiki privé",
+      "wiki pour LLM",
+      "LLM wiki"
+    ],
+    "definition": "La mémoire durable de ce qu'on sait et décide : un dépôt privé de fichiers Markdown (entités, briques, projets, méthode, notes, sessions) que toutes les IA lisent via un connecteur. Règle : un brain périmé est pire qu'un brain vide.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      },
+      {
+        "label": "Ma méthode",
+        "url": "/knowledge-hub/guides/../how-to/"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Le Brain au format OKF",
+        "url": "/knowledge-hub/journal/brain-okf-wiki-prive.html"
+      }
+    ]
+  },
+  {
+    "id": "okf",
+    "terme": "OKF (Open Knowledge Format)",
+    "aliases": [
+      "OKF",
+      "Open Knowledge Format"
+    ],
+    "definition": "Spécification ouverte publiée par Google Cloud en juin 2026 : des fichiers Markdown avec un en-tête YAML (un seul champ obligatoire, « type »), reliés par des liens, avec un index. Elle formalise le « wiki pour LLM » de Karpathy. Le format du Brain.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Adoption d'OKF",
+        "url": "/knowledge-hub/journal/brain-okf-wiki-prive.html"
+      }
+    ]
+  },
+  {
+    "id": "frontmatter",
+    "terme": "Frontmatter (en-tête YAML)",
+    "aliases": [
+      "frontmatter",
+      "en-tête YAML",
+      "YAML"
+    ],
+    "definition": "Les quelques lignes « clé : valeur » en tête d'un fichier Markdown (type, titre, description, tags, date…). C'est ce qui rend un simple texte lisible par une machine — la base d'OKF.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "contexte",
+    "terme": "Contexte (fenêtre de contexte)",
+    "aliases": [
+      "fenêtre de contexte",
+      "context engineering",
+      "contexte"
+    ],
+    "definition": "Tout ce que le modèle « voit » au moment de répondre : consigne, fichiers de contexte, documents, historique, résultats d'outils — rien d'autre. Limité (jusqu'à un million de tokens sur Claude 5) et relu à chaque réponse. Le context engineering, c'est organiser ce que l'IA sait.",
+    "guides": [
+      {
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      },
+      {
+        "label": "Ma méthode",
+        "url": "/knowledge-hub/guides/../how-to/"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "compaction",
+    "terme": "Compaction",
+    "aliases": [
+      "compaction",
+      "compacter"
+    ],
+    "definition": "Quand la conversation devient trop longue, l'outil remplace son début par un résumé automatique. Utile, mais le résumé garde l'essentiel selon le modèle — d'où le brief de reprise et la capture dans le Brain.",
+    "guides": [
+      {
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Reprise post-compaction",
+        "url": "/knowledge-hub/journal/seo-collections-shopify.html"
+      }
+    ]
+  },
+  {
+    "id": "brief-de-reprise",
+    "terme": "Brief de reprise",
+    "aliases": [
+      "brief de reprise"
+    ],
+    "definition": "Le résumé validé qu'on demande à Claude quand une conversation s'allonge — où on en est, ce qui est décidé, ce qui reste, les contraintes — pour repartir dans une conversation neuve sans rien perdre.",
+    "guides": [
+      {
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "memoire",
+    "terme": "Mémoire (de l'assistant)",
+    "aliases": [
+      "mémoire"
+    ],
+    "definition": "La fonction qui permet à Claude de retenir tes préférences et le contexte de tes projets d'une conversation à l'autre (partagée entre le chat et Cowork depuis août 2026). Implicite et attachée à un outil, à la différence du Brain — la mémoire choisie, relisible et partagée.",
+    "guides": [
+      {
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      },
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "skill",
+    "terme": "Skill",
+    "aliases": [
+      "skill",
+      "skills",
+      "compétence (skill)"
+    ],
+    "definition": "Une procédure packagée dans un dossier (un fichier SKILL.md, parfois des scripts) que Claude charge à la demande quand ta demande correspond. Du savoir-faire écrit, portable d'un outil à l'autre.",
+    "guides": [
+      {
+        "label": "C'est quoi un skill",
+        "url": "/knowledge-hub/guides/cest-quoi-un-skill.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "La refonte du site, publiée avec un skill",
+        "url": "/knowledge-hub/journal/refonte-knowledge-hub-fable-5-1.html"
+      }
+    ]
+  },
+  {
+    "id": "hook",
+    "terme": "Hook",
+    "aliases": [
+      "hook",
+      "hooks"
+    ],
+    "definition": "Un script qui se déclenche automatiquement à un moment précis du travail de Claude (avant une commande, après une modification). Déterministe : il vérifie, bloque ou journalise, sans réfléchir. Une règle se lit ; un hook s'exécute.",
+    "guides": [
+      {
+        "label": "C'est quoi un skill",
+        "url": "/knowledge-hub/guides/cest-quoi-un-skill.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "sous-agent",
+    "terme": "Sous-agent",
+    "aliases": [
+      "sous-agent",
+      "sous-agents",
+      "subagent"
+    ],
+    "definition": "Un Claude à qui l'agent principal confie une sous-tâche, avec son propre contexte, en arrière-plan. Pour paralléliser, isoler une lecture lourde, ou spécialiser (relecteur, vérificateur). Un workflow orchestre plusieurs sous-agents.",
+    "guides": [
+      {
+        "label": "C'est quoi un skill",
+        "url": "/knowledge-hub/guides/cest-quoi-un-skill.html"
+      },
+      {
+        "label": "C'est quoi un agent IA",
+        "url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Traduction du site par sous-agents",
+        "url": "/knowledge-hub/journal/knowledge-hub-bilingue-fr-en.html"
+      }
+    ]
+  },
+  {
+    "id": "plugin",
+    "terme": "Plugin",
+    "aliases": [
+      "plugin",
+      "plugins"
+    ],
+    "definition": "Un paquet versionné qui regroupe skills, sous-agents, commandes, hooks et connecteurs, installable en une commande — depuis une place de marché ou pour partager un savoir-faire avec une équipe.",
+    "guides": [
+      {
+        "label": "C'est quoi un skill",
+        "url": "/knowledge-hub/guides/cest-quoi-un-skill.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "connecteur",
+    "terme": "Connecteur",
+    "aliases": [
+      "connecteur",
+      "connecteurs"
+    ],
+    "definition": "Un outil branché à Claude (Shopify, Gmail, Drive, GitHub…) depuis un menu des applications Claude. Sous le capot, un MCP. Règle : l'assistant n'a jamais plus de droits que la personne qui lui parle.",
+    "guides": [
+      {
+        "label": "C'est quoi un MCP",
+        "url": "/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "loop",
+    "terme": "Loop",
+    "aliases": [
+      "loop",
+      "loops"
+    ],
+    "definition": "Un prompt relancé à intervalle régulier par un agent, dans ta session Claude Code, pour surveiller ou vérifier quelque chose pendant quelques heures. Éphémère : elle expire seule.",
+    "guides": [
+      {
+        "label": "Loops, routines et tâches planifiées",
+        "url": "/knowledge-hub/guides/cest-quoi-une-loop.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "routine",
+    "terme": "Routine (tâche planifiée)",
+    "aliases": [
+      "routine",
+      "routines",
+      "tâche planifiée"
+    ],
+    "definition": "Un agent planifié (chaque matin, chaque lundi) exécuté dans le cloud côté Claude — Claude Code sur le web, Cowork ou un agent hébergé — sans ta machine. Le chaînon entre la loop éphémère et l'infrastructure maison (cron).",
+    "guides": [
+      {
+        "label": "Loops, routines et tâches planifiées",
+        "url": "/knowledge-hub/guides/cest-quoi-une-loop.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "workflow",
+    "terme": "Workflow (d'agents)",
+    "aliases": [
+      "workflow",
+      "workflows"
+    ],
+    "definition": "Un petit script qui orchestre plusieurs sous-agents de façon déterministe — revue par dimension, puis vérification de chaque trouvaille, par exemple. Disponible dans Claude Code depuis juin 2026. À réserver aux tâches qui méritent une douzaine d'agents.",
+    "guides": [
+      {
+        "label": "C'est quoi un skill",
+        "url": "/knowledge-hub/guides/cest-quoi-un-skill.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "claude-code",
+    "terme": "Claude Code",
+    "aliases": [
+      "Claude Code"
+    ],
+    "definition": "L'agent de Claude qui agit dans un projet : lit et modifie les fichiers, lance des commandes, déploie. Dans le terminal, le navigateur, l'application de bureau ou le mobile (session cloud). Inclus dans tous les forfaits payants.",
+    "guides": [
+      {
+        "label": "Chat, Cowork ou Code",
+        "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Double Claude Code",
+        "url": "/knowledge-hub/journal/double-claude-code.html"
+      }
+    ]
+  },
+  {
+    "id": "cowork",
+    "terme": "Claude Cowork",
+    "aliases": [
+      "Cowork"
+    ],
+    "definition": "L'assistant de bureau de Claude, qui exécute un travail de bout en bout sans terminal : fichiers, tableurs, présentations, navigateur intégré, routines, et l'apprentissage d'une compétence en filmant son écran. Sur ordinateur, web et mobile depuis l'été 2026.",
+    "guides": [
+      {
+        "label": "Chat, Cowork ou Code",
+        "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "mode-auto",
+    "terme": "Mode Auto",
+    "aliases": [
+      "mode Auto",
+      "Auto mode"
+    ],
+    "definition": "Dans Claude Code, le mode où Claude décide seul des permissions courantes, avec des protections contre les manipulations. Devenu le défaut en août 2026.",
+    "guides": [
+      {
+        "label": "Chat, Cowork ou Code",
+        "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "injection-de-prompt",
+    "terme": "Injection de prompt",
+    "aliases": [
+      "injection de prompt",
+      "prompt injection"
+    ],
+    "definition": "Des instructions piégées cachées dans une page web ou un mail qu'un agent lit, pour le pousser à faire autre chose que sa tâche. Les modèles de 2026 y résistent bien mieux ; la vraie protection reste des droits limités.",
+    "guides": [
+      {
+        "label": "L'IA propose, l'humain valide",
+        "url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html"
+      },
+      {
+        "label": "Mes données sont-elles en sécurité",
+        "url": "/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "validation-humaine",
+    "terme": "Validation humaine",
+    "aliases": [
+      "validation humaine",
+      "human in the loop",
+      "lecture automatique, écriture validée"
+    ],
+    "definition": "Le principe : l'IA lit, analyse et propose automatiquement ; une personne valide ce qui modifie un prix, un stock, une campagne, un mail ou une publication. Le flux : demande → analyse → aperçu → validation → exécution → journal → mesure.",
+    "guides": [
+      {
+        "label": "L'IA propose, l'humain valide",
+        "url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html"
+      },
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Growth : validation avant toute écriture",
+        "url": "/knowledge-hub/journal/growth-centre-actions.html"
+      }
+    ]
+  },
+  {
+    "id": "idempotent",
+    "terme": "Idempotent",
+    "aliases": [
+      "idempotent",
+      "idempotence"
+    ],
+    "definition": "Se dit d'une action qu'on peut relancer plusieurs fois sans produire plusieurs effets. C'est ce qui rend une automatisation rattrapable : rejouer une publication ou un import ne duplique rien.",
+    "guides": [
+      {
+        "label": "L'IA propose, l'humain valide",
+        "url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "hl-os",
+    "terme": "HL OS",
+    "aliases": [
+      "HL OS"
+    ],
+    "definition": "Le système que je construis pour piloter mes structures avec l'IA : un socle commun (base de données, couche IA, identité et droits, journal des actions) et cinq briques — Zéro, Knowledge, Content Machine, Growth, Socle IA. Un cœur, plusieurs contextes.",
+    "guides": [
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "HL OS : cinq briques, un socle",
+        "url": "/knowledge-hub/journal/hl-os-cinq-briques-un-socle.html"
+      }
+    ]
+  },
+  {
+    "id": "brique",
+    "terme": "Brique",
+    "aliases": [
+      "brique",
+      "briques"
+    ],
+    "definition": "Dans HL OS, un système en construction : un périmètre, une spécification vivante, un plan de développement avec des critères de succès (« on saura que c'est bon quand… ») et une section Décisions datée.",
+    "guides": [
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "growth",
+    "terme": "Growth",
+    "aliases": [
+      "Growth"
+    ],
+    "definition": "La brique de décision « action-first » de HL OS : elle rapproche ventes, acquisition, SEO, web, e-mail et social, et propose quelques actions classées par impact, confiance, effort et risque, avec leurs preuves. Lecture automatique, écriture validée. En production pour Cobra depuis septembre 2026.",
+    "guides": [
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Growth : remplacer dix tableaux de bord par une file d'actions",
+        "url": "/knowledge-hub/journal/growth-centre-actions.html"
+      }
+    ]
+  },
+  {
+    "id": "content-machine",
+    "terme": "Content Machine",
+    "aliases": [
+      "Content Machine",
+      "machine à contenus"
+    ],
+    "definition": "La brique de publication de HL OS : une capture, N destinations. L'unité de base est l'observation attestée ; le post ou l'article n'en sont que des rendus, proposés par la machine et validés par un humain. Jamais une publication sans validation.",
+    "guides": [
+      {
+        "label": "Content Machine",
+        "url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Content Machine : le pivot",
+        "url": "/knowledge-hub/journal/content-machine-une-capture-n-destinations.html"
+      }
+    ]
+  },
+  {
+    "id": "observation-attestee",
+    "terme": "Observation attestée",
+    "aliases": [
+      "observation attestée",
+      "témoigné",
+      "documenté"
+    ],
+    "definition": "Quelques médias, un vocal ou une note, à un lieu, une heure, par une personne identifiée. L'unité de base de la Content Machine. « Témoigné » (vu sur le terrain) et « documenté » (lu, possédé) sont séparés en base et en forme.",
+    "guides": [
+      {
+        "label": "Content Machine",
+        "url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "provenance",
+    "terme": "Provenance",
+    "aliases": [
+      "provenance"
+    ],
+    "definition": "Qui, où, quand derrière un contenu. Le signal d'expérience de première main que valorisent les moteurs et les IA qui répondent — et l'exact opposé du contenu généré à la chaîne. « La provenance est le produit. »",
+    "guides": [
+      {
+        "label": "Content Machine",
+        "url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html"
+      },
+      {
+        "label": "Être visible dans l'IA : le GEO",
+        "url": "/knowledge-hub/guides/etre-visible-dans-lia-geo.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "repurposing",
+    "terme": "Repurposing",
+    "aliases": [
+      "repurposing",
+      "réutilisation de contenu"
+    ],
+    "definition": "Transformer une matière existante (un article de magazine, une archive) en rendus adaptés à d'autres destinations (réseaux, site, newsletter). Dans la Content Machine, la matière « documentée » du magazine Haute Fidélité.",
+    "guides": [
+      {
+        "label": "Content Machine",
+        "url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "embargo",
+    "terme": "Embargo",
+    "aliases": [
+      "embargo"
+    ],
+    "definition": "Une date avant laquelle un contenu ne peut pas sortir. Dans la Content Machine, c'est un verrou, pas une consigne : porte fermée jusqu'à la date.",
+    "guides": [
+      {
+        "label": "Content Machine",
+        "url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html"
+      },
+      {
+        "label": "L'IA propose, l'humain valide",
+        "url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "zero",
+    "terme": "Zéro (brique mail + tâches)",
+    "aliases": [
+      "Zéro",
+      "brique Zéro"
+    ],
+    "definition": "La brique de HL OS qui trie et résume les mails et transforme un mail en tâche. La source de signal quotidien du Brain, et un des déclencheurs de publication (« à publier »).",
+    "guides": [
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "socle-ia",
+    "terme": "Socle IA",
+    "aliases": [
+      "Socle IA"
+    ],
+    "definition": "La couche IA commune de HL OS : rédaction dans ma voix, embeddings pour la recherche, un routeur qui choisit le modèle par palier et journalise chaque appel, et un motif de secrets chiffrés côté serveur. Les autres briques appellent, ne réimplémentent pas.",
+    "guides": [
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "hf-os",
+    "terme": "HF-OS",
+    "aliases": [
+      "HF-OS"
+    ],
+    "definition": "L'ERP interne de Haute Fidélité, bâti de zéro en cinq jours avec Claude Code en juin 2026 (CRM, régie publicitaire, facturation, relances). Devenu le socle technique de HL OS : une application unique (CMS headless + framework web + PostgreSQL).",
+    "guides": [
+      {
+        "label": "Faut-il encore acheter un ERP",
+        "url": "/knowledge-hub/guides/faut-il-encore-acheter-un-erp.html"
+      },
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "HF-OS : le socle déployé",
+        "url": "/knowledge-hub/journal/hf-os-socle-deploiement.html"
+      }
+    ]
+  },
+  {
+    "id": "erp",
+    "terme": "ERP",
+    "aliases": [
+      "ERP"
+    ],
+    "definition": "Le logiciel de gestion central d'une entreprise (ventes, achats, stock, facturation). Chez Cobra : Odoo, étendu presque chaque jour avec Claude Code. Chez Haute Fidélité : HF-OS, bâti sur mesure.",
+    "guides": [
+      {
+        "label": "Faut-il encore acheter un ERP",
+        "url": "/knowledge-hub/guides/faut-il-encore-acheter-un-erp.html"
+      },
+      {
+        "label": "Odoo ou ERP sur mesure",
+        "url": "/knowledge-hub/guides/odoo-vs-erp-maison.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "odoo",
+    "terme": "Odoo",
+    "aliases": [
+      "Odoo"
+    ],
+    "definition": "L'ERP open source utilisé par Cobra (ventes, achats, stock, facturation), étendu par des modules maison. La vérité commerciale : les ventes réelles, la marge, le stock.",
+    "guides": [
+      {
+        "label": "Odoo ou ERP sur mesure",
+        "url": "/knowledge-hub/guides/odoo-vs-erp-maison.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Toutes les sessions Odoo",
+        "url": "/knowledge-hub/journal/?tag=odoo-dev"
+      }
+    ]
+  },
+  {
+    "id": "shopify",
+    "terme": "Shopify",
+    "aliases": [
+      "Shopify"
+    ],
+    "definition": "La plateforme e-commerce des boutiques Cobra et Haute Fidélité. Elle décrit le flux web ; Odoo porte le réalisé. Branchée à Claude par connecteur, et ouverte aux agents d'achat depuis 2026.",
+    "guides": [
+      {
+        "label": "C'est quoi un MCP",
+        "url": "/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Toutes les sessions Shopify",
+        "url": "/knowledge-hub/journal/?tag=shopify"
+      }
+    ]
+  },
+  {
+    "id": "cdc",
+    "terme": "CDC (cahier des charges)",
+    "aliases": [
+      "CDC",
+      "cahier des charges"
+    ],
+    "definition": "Le document qui décrit ce qu'on veut construire : où, quoi, ce qui ne doit pas bouger. Chez Cobra, chaque évolution Odoo a son CDC numéroté — et depuis 2026, l'IA relit la demande et vérifie ses hypothèses dans la vraie base avant qu'une ligne soit écrite.",
+    "guides": [
+      {
+        "label": "L'IA propose, l'humain valide",
+        "url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "L'IA vérifie ce qu'elle suppose avant de coder",
+        "url": "/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html"
+      }
+    ]
+  },
+  {
+    "id": "build-vs-buy",
+    "terme": "Build vs buy",
+    "aliases": [
+      "build vs buy",
+      "construire ou acheter"
+    ],
+    "definition": "Construire soi-même ou acheter (ou faire faire). En 2026, l'IA fait s'effondrer le coût de la customisation : le calcul bascule pour tout ce qui est spécifique à un métier — de l'ERP à la couche de pilotage.",
+    "guides": [
+      {
+        "label": "Faut-il encore acheter un ERP",
+        "url": "/knowledge-hub/guides/faut-il-encore-acheter-un-erp.html"
+      },
+      {
+        "label": "Un dashboard de prix construit maison",
+        "url": "/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "pull-request",
+    "terme": "Pull request (PR)",
+    "aliases": [
+      "pull request",
+      "PR"
+    ],
+    "definition": "Une demande de fusion : un lot de modifications proposé sur GitHub, relu et vérifié automatiquement (CI) avant d'entrer dans la version de production. L'unité de travail de Claude Code. HF-OS : 96 PR en cinq jours.",
+    "guides": [
+      {
+        "label": "C'est quoi GitHub",
+        "url": "/knowledge-hub/guides/cest-quoi-github.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "HF-OS : 96 PR en cinq jours",
+        "url": "/knowledge-hub/journal/hf-os-socle-deploiement.html"
+      }
+    ]
+  },
+  {
+    "id": "ci",
+    "terme": "CI (intégration continue)",
+    "aliases": [
+      "CI",
+      "intégration continue",
+      "GitHub Actions"
+    ],
+    "definition": "Les vérifications automatiques lancées à chaque modification d'un projet (lint, tests, build) ou à heure fixe (GitHub Actions). Chez moi : la traduction automatique des pages, la régénération des index, un contrôle de cohérence hebdomadaire.",
+    "guides": [
+      {
+        "label": "C'est quoi GitHub",
+        "url": "/knowledge-hub/guides/cest-quoi-github.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Fable 5 passe le site en revue",
+        "url": "/knowledge-hub/journal/fable-5-revue-site-geo.html"
+      }
+    ]
+  },
+  {
+    "id": "deploiement-chirurgical",
+    "terme": "Déploiement chirurgical",
+    "aliases": [
+      "déploiement chirurgical",
+      "cherry-pick"
+    ],
+    "definition": "Pousser en production le commit précis d'une fonctionnalité, jamais une branche entière où des développements sont mélangés. Règle dure née d'une mise en production qui a tout cassé en mai 2026.",
+    "guides": [
+      {
+        "label": "L'IA propose, l'humain valide",
+        "url": "/knowledge-hub/guides/lia-propose-lhumain-valide.html"
+      },
+      {
+        "label": "Les principes façon Karpathy",
+        "url": "/knowledge-hub/guides/principes-facon-karpathy.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Système d'instructions Claude",
+        "url": "/knowledge-hub/journal/systeme-instructions-claude-md.html"
+      }
+    ]
+  },
+  {
+    "id": "webhook",
+    "terme": "Webhook",
+    "aliases": [
+      "webhook",
+      "webhooks"
+    ],
+    "definition": "Un signal qu'un service envoie automatiquement à un autre quand quelque chose se passe (une commande passée, un statut changé). L'inverse d'un cron : on ne va pas vérifier, on est prévenu.",
+    "guides": [
+      {
+        "label": "Loops, routines et tâches planifiées",
+        "url": "/knowledge-hub/guides/cest-quoi-une-loop.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "embeddings",
+    "terme": "Embeddings",
+    "aliases": [
+      "embeddings",
+      "embedding"
+    ],
+    "definition": "La transformation d'un texte en une suite de nombres qui capture son sens, pour retrouver des documents proches par le sens et non par les mots. La base d'un index de recherche sémantique — celui que le Brain n'a pas encore besoin d'avoir.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "rag",
+    "terme": "RAG (retrieval-augmented generation)",
+    "aliases": [
+      "RAG"
+    ],
+    "definition": "Faire chercher au modèle les documents pertinents (par embeddings) avant de répondre, au lieu de compter sur sa mémoire. Le Brain fait la même chose par navigation, sans index — tant que ça suffit.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      },
+      {
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "base-vectorielle",
+    "terme": "Base vectorielle (pgvector)",
+    "aliases": [
+      "base vectorielle",
+      "pgvector"
+    ],
+    "definition": "Une base de données qui stocke des embeddings et retrouve les plus proches d'une question. Dans HL OS : PostgreSQL avec l'extension pgvector, prévu comme index dérivé du Brain — reconstruit depuis les fichiers, jamais source de vérité.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "postgresql",
+    "terme": "PostgreSQL",
+    "aliases": [
+      "PostgreSQL",
+      "Postgres"
+    ],
+    "definition": "La base de données open source qui sert de socle à HF-OS et aux briques de HL OS. Une seule base, partagée.",
+    "guides": [
+      {
+        "label": "C'est quoi HL OS",
+        "url": "/knowledge-hub/guides/cest-quoi-hl-os.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "HF-OS : le socle déployé",
+        "url": "/knowledge-hub/journal/hf-os-socle-deploiement.html"
+      }
+    ]
+  },
+  {
+    "id": "cms-headless",
+    "terme": "CMS headless",
+    "aliases": [
+      "CMS headless",
+      "headless",
+      "Payload"
+    ],
+    "definition": "Un système de gestion de contenu qui fournit une administration et une API, sans imposer la façon d'afficher. HF-OS repose sur un CMS headless (Payload) et un framework web (Next.js) dans une seule application.",
+    "guides": [
+      {
+        "label": "Faut-il encore acheter un ERP",
+        "url": "/knowledge-hub/guides/faut-il-encore-acheter-un-erp.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "ssr",
+    "terme": "SSR (rendu côté serveur)",
+    "aliases": [
+      "SSR",
+      "rendu côté serveur",
+      "HTML statique"
+    ],
+    "definition": "Produire la page en HTML complet sur le serveur, plutôt que de la construire dans le navigateur avec du JavaScript. Indispensable pour être lu par les robots des IA, qui n'exécutent pas le JavaScript.",
+    "guides": [
+      {
+        "label": "Être visible dans l'IA : le GEO",
+        "url": "/knowledge-hub/guides/etre-visible-dans-lia-geo.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "La veille rendue visible aux LLMs",
+        "url": "/knowledge-hub/journal/fable-5-revue-site-geo.html"
+      }
+    ]
+  },
+  {
+    "id": "json-ld",
+    "terme": "JSON-LD (données structurées)",
+    "aliases": [
+      "JSON-LD",
+      "données structurées",
+      "schema.org"
+    ],
+    "definition": "Un bloc de données lisible par les machines, placé dans une page, qui dit qui parle et de quoi (auteur, article, question/réponse). Le vocabulaire est schema.org. Sur chaque page de ce site.",
+    "guides": [
+      {
+        "label": "Être visible dans l'IA : le GEO",
+        "url": "/knowledge-hub/guides/etre-visible-dans-lia-geo.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Ce Knowledge Hub lui-même",
+        "url": "/knowledge-hub/journal/knowledge-hub.html"
+      }
+    ]
+  },
+  {
+    "id": "llms-txt",
+    "terme": "llms.txt",
+    "aliases": [
+      "llms.txt",
+      "llms-full.txt"
+    ],
+    "definition": "Un fichier texte à la racine d'un site qui résume son contenu pour les IA, page par page (et sa version étendue llms-full.txt, avec le texte intégral). Le point d'entrée d'un agent sur ce site.",
+    "guides": [
+      {
+        "label": "Être visible dans l'IA : le GEO",
+        "url": "/knowledge-hub/guides/etre-visible-dans-lia-geo.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Ce Knowledge Hub lui-même",
+        "url": "/knowledge-hub/journal/knowledge-hub.html"
+      }
+    ]
+  },
+  {
+    "id": "claude-hl-cobra",
+    "terme": "Claude · HL / Claude · Cobra",
+    "aliases": [
+      "Claude · HL",
+      "Claude · Cobra",
+      "deux agents"
+    ],
+    "definition": "Mes deux Claude, volontairement séparés : HL (compte perso — pilotage, stratégie, éditorial, méthode, ce site) et Cobra (compte d'entreprise — dev Odoo et Shopify, purement technique). Les badges de chaque entrée du journal.",
+    "guides": [
+      {
+        "label": "Ma méthode",
+        "url": "/knowledge-hub/guides/../how-to/"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Double Claude Code",
+        "url": "/knowledge-hub/journal/double-claude-code.html"
+      }
+    ]
+  },
+  {
+    "id": "capture-de-session",
+    "terme": "Capture de session",
+    "aliases": [
+      "capture de session",
+      "wiki-capture"
+    ],
+    "definition": "Le rituel de fin de session : relire, écrire l'entrée de session dans le Brain, proposer la mise à jour des fiches de référence touchées, passer le filtre de confidentialité. Le deuxième étage du Compound Engineering.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      },
+      {
+        "label": "Compound Engineering",
+        "url": "/knowledge-hub/guides/compound-engineering.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "coquille",
+    "terme": "Coquille (fiche à remplir)",
+    "aliases": [
+      "coquille",
+      "à remplir"
+    ],
+    "definition": "Dans le Brain, une fiche dont le titre est vrai mais le contenu n'existe pas encore : elle l'annonce et pose des questions au lieu d'y répondre. On n'invente jamais le contenu d'une coquille.",
+    "guides": [
+      {
+        "label": "C'est quoi un Brain",
+        "url": "/knowledge-hub/guides/cest-quoi-un-brain-okf.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "mythos",
+    "terme": "Mythos (classe de modèles)",
+    "aliases": [
+      "Mythos",
+      "Mythos 5.1",
+      "Glasswing"
+    ],
+    "definition": "La classe de modèles Claude au-dessus d'Opus, inaugurée par Fable 5 en juin 2026. « Mythos » désigne aussi la version sans certains garde-fous, réservée à des programmes d'accès de confiance (Project Glasswing : cyberdéfense, sciences du vivant).",
+    "guides": [
+      {
+        "label": "Fable, Mythos, Glasswing",
+        "url": "/knowledge-hub/guides/fable-mythos-glasswing.html"
+      },
+      {
+        "label": "C'est quoi Claude",
+        "url": "/knowledge-hub/guides/cest-quoi-claude.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "cache",
+    "terme": "Cache (de contexte)",
+    "aliases": [
+      "cache",
+      "cache de contexte"
+    ],
+    "definition": "La réutilisation par le modèle de ce qu'il a déjà lu dans une conversation, facturée à une fraction du prix. Une conversation bien structurée (contexte stable en tête, questions variables ensuite) coûte moins qu'une conversation brouillonne.",
+    "guides": [
+      {
+        "label": "Combien coûte l'IA",
+        "url": "/knowledge-hub/guides/combien-coute-lia.html"
+      },
+      {
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "telegram-topics",
+    "terme": "Topics Telegram",
+    "aliases": [
+      "topics Telegram",
+      "sujets Telegram"
+    ],
+    "definition": "Les sous-canaux d'un groupe Telegram. Dans la Content Machine, un sujet par contexte (perso, pro, magazine) : poster dans le bon sujet dit d'où vient la capture, sans tag manuel.",
+    "guides": [
+      {
+        "label": "Content Machine",
+        "url": "/knowledge-hub/guides/content-machine-une-capture-n-destinations.html"
+      }
+    ],
+    "projets": []
   }
 ]

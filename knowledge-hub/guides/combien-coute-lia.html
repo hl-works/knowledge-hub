@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Combien coûte l'IA : abonnements, API et comment maîtriser la facture — Guides · Hugo Lahutte</title>
-<meta name="description" content="Tout se compte en tokens. Les trois façons de payer l'IA (gratuit, abonnement, API à l'usage, entreprise), laquelle choisir, et comment garder la facture sous contrôle.">
+<title>Combien coûte l'IA : abonnements, API et comment maîtriser la facture (repères septembre 2026) — Guides · Hugo Lahutte</title>
+<meta name="description" content="Tout se compte en tokens. Les façons de payer l'IA (gratuit, abonnement Pro ou Max qui inclut Chat, Cowork et Code, API à l'usage, entreprise), les ordres de grandeur de septembre 2026 (Haiku 1 $/5 $, Sonnet 5 2 $/10 $, Opus 5 5 $/25 $, Fable 5.1 10 $/50 $ par million de tokens), abonnement ou API selon l'usage, et comment garder la facture sous contrôle : plafonds, bon modèle, agents cadrés, contexte structuré.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/combien-coute-lia.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/combien-coute-lia.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/combien-coute-lia.html">
@@ -16,12 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="Combien coûte l'IA : abonnements, API et facture maîtrisée">
-<meta property="og:description" content="Les façons de payer l'IA, laquelle choisir selon l'usage, et comment garder la facture sous contrôle.">
+<meta property="og:description" content="Tokens, abonnements, API, ordres de grandeur de septembre 2026 et les réflexes pour garder la facture sous contrôle.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/combien-coute-lia.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -38,39 +39,98 @@
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../style.css?v=20260622a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "Combien coûte l'IA : abonnements, API et comment maîtriser la facture",
-      "description": "Tout se compte en tokens. Les façons de payer l'IA (gratuit, abonnement, API à l'usage, entreprise), laquelle choisir, et comment garder la facture sous contrôle.",
+      "headline": "Combien coûte l'IA : abonnements, API et facture maîtrisée",
+      "description": "Le coût de l'IA se compte en tokens. Quatre façons de payer (gratuit, abonnement, API, entreprise), repères de septembre 2026 pour l'API Claude par million de tokens (Haiku 4.5 1 $/5 $, Sonnet 5 2 $/10 $, Opus 5 5 $/25 $, Fable 5.1 10 $/50 $), abonnement pour discuter et construire, API pour automatiser, et les réflexes pour maîtriser la facture.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-05-31",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/combien-coute-lia.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["coût de l'IA", "abonnement IA", "API", "tokens", "tarification"],
-      "keywords": "combien coûte l'IA, prix ChatGPT Claude, abonnement, API, tokens"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "coût de l'IA",
+        "tokens",
+        "abonnement",
+        "API",
+        "prix Claude",
+        "budget"
+      ],
+      "keywords": "coût IA, tokens, abonnement Claude Pro Max, API, prix par million de tokens, budget IA"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "Combien coûte l'IA ?", "item": "https://hl-consulting.tech/knowledge-hub/guides/combien-coute-lia.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Combien coûte l'IA ?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/combien-coute-lia.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Qu'est-ce qui détermine le coût de l'IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Tout se compte en tokens — des bouts de mots que le modèle lit et produit. Plus l'échange est long (longue consigne, gros document, longue réponse), plus il consomme de tokens, donc plus il coûte. Les modèles plus puissants coûtent aussi plus cher au token que les modèles rapides."}},
-        {"@type": "Question", "name": "Quelles sont les façons de payer l'IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Quatre grands modèles : gratuit (limité, et tes données peuvent servir à l'entraînement) ; abonnement personnel (un forfait mensuel fixe, souvent autour d'une vingtaine d'euros) ; API à l'usage (tu paies au token consommé, idéal pour automatiser) ; et entreprise (facturation par utilisateur/siège avec garanties). Les prix évoluent : raisonne en ordres de grandeur."}},
-        {"@type": "Question", "name": "Abonnement ou API : que choisir ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour une personne qui discute avec l'IA au quotidien, l'abonnement à forfait fixe est le plus simple et le plus prévisible. Pour automatiser, brancher l'IA à des outils ou faire tourner des agents, c'est l'API (paiement à l'usage) qu'il faut."}},
-        {"@type": "Question", "name": "Comment maîtriser la facture ?", "acceptedAnswer": {"@type": "Answer", "text": "Mettre des plafonds de dépense sur l'API, choisir le modèle adapté à la tâche (un modèle rapide pour le volume, le puissant seulement quand il faut), et encadrer les agents (budget, fréquence) pour éviter qu'ils ne tournent en boucle."}}
+        {
+          "@type": "Question",
+          "name": "Comment se calcule le coût de l'IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En tokens : des fragments de mots que le modèle lit (consigne, documents, historique de la conversation) et produit (réponse). Plus l'échange est long, plus il consomme. Deuxième levier : le modèle — un modèle puissant coûte plus cher au token qu'un modèle rapide. Le prix par tâche compte plus que le prix par token."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte Claude en septembre 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Côté API, par million de tokens en entrée / sortie : Haiku 4.5 à 1 $/5 $, Sonnet 5 à 2 $/10 $, Opus 5 à 5 $/25 $, Fable 5.1 à 10 $/50 $. Côté abonnement : Pro autour de 20 $ par mois, Max à 100 ou 200 $ pour 5× à 20× plus de volume ; tous les forfaits payants incluent Chat, Cowork et Code. Ordres de grandeur, qui bougent au fil des versions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Abonnement ou API : lequel choisir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Abonnement pour discuter, déléguer et construire au quotidien (facture fixe, Chat, Cowork et Code inclus). API pour les automatisations qui tournent sans toi (agents, veilles), avec des plafonds. Beaucoup finissent par avoir les deux : chez Hugo Lahutte, tout ce qui est construit passe par l'abonnement, tout ce qui tourne seul passe par l'API pour quelques euros par mois."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment éviter qu'une facture d'API s'emballe ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un plafond de dépense mensuel dur dès le début ; le bon modèle pour chaque tâche, choisi automatiquement plutôt que codé en dur ; des agents cadrés (objectif, budget, fréquence, critère d'arrêt) ; un contexte structuré (une conversation par sujet, documents chargés à la demande, brief de reprise). Une veille quotidienne sur 64 sources coûte ainsi trois à quatre euros par mois."
+          }
+        }
       ]
     }
   ]
@@ -80,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -104,19 +165,25 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Combien coûte l'IA ?</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste → décider</p>
-    <h1 style="font-size:clamp(2.1rem,5vw,3.8rem);">Combien coûte l'IA : abonnements, API et facture maîtrisée</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Combien coûte l'IA : abonnements, API et facture maîtrisée</h1>
     <hr class="rule--accent">
-    <p class="lead">Tout se compte en <strong>tokens</strong>. Les façons de payer l'IA (gratuit, abonnement, API à l'usage, entreprise), <strong>laquelle choisir</strong> selon ton usage, et comment garder la facture sous contrôle.</p>
+    <p class="lead">Tout se compte en tokens. Les façons de payer l'IA (gratuit, abonnement, API à l'usage, entreprise), laquelle choisir selon ton usage, les ordres de grandeur de septembre 2026, et comment garder la facture sous contrôle.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>~5 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>·</span>
+      <span>~6 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
-      <a class="tag" data-tag="cout" data-tagsearch="cout" href="/knowledge-hub/guides/">coût</a>
+      <a class="tag" data-tag="cout" data-tagsearch="coût" href="/knowledge-hub/guides/">coût</a>
       <a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a>
       <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/guides/">vulgarisation</a>
     </div>
@@ -135,8 +202,8 @@
       <p class="kicker">En 30 secondes</p>
       <ul>
         <li>Tout se compte en <strong>tokens</strong> (des bouts de mots) : plus l'échange est long, plus ça coûte ; un modèle puissant coûte plus qu'un rapide.</li>
-        <li>Quatre façons de payer : <strong>gratuit</strong> (limité), <strong>abonnement</strong> perso (forfait fixe, souvent autour de 20 €/mois), <strong>API</strong> à l'usage (tu paies ce que tu consommes), <strong>entreprise</strong> (par utilisateur).</li>
-        <li>Pour une personne : l'abonnement suffit souvent. Pour automatiser/brancher des outils : l'API, avec des <strong>plafonds</strong>.</li>
+        <li>Quatre façons de payer : <strong>gratuit</strong> (limité), <strong>abonnement</strong> perso (forfait fixe — Pro autour de 20 $/mois, Max à 100 ou 200 $ pour plus de volume), <strong>API</strong> à l'usage (tu paies ce que tu consommes), <strong>entreprise</strong> (par utilisateur).</li>
+        <li>Pour une personne : l'abonnement suffit souvent — et il inclut désormais Chat, Cowork et Code. Pour automatiser et brancher des outils : l'API, avec des <strong>plafonds</strong>.</li>
       </ul>
     </aside>
 
@@ -145,16 +212,17 @@
       <ul>
         <li><a href="#tokens">1. Ce qui fait le coût : les tokens</a></li>
         <li><a href="#modeles">2. Les façons de payer</a></li>
-        <li><a href="#choisir">3. Abonnement ou API : lequel</a></li>
-        <li><a href="#maitriser">4. Maîtriser la facture</a></li>
+        <li><a href="#reperes">3. Les ordres de grandeur en septembre 2026</a></li>
+        <li><a href="#choisir">4. Abonnement ou API : lequel</a></li>
+        <li><a href="#maitriser">5. Maîtriser la facture</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="tokens">1. Ce qui fait le coût : les tokens</h2>
-      <p>L'IA ne facture pas « à la question ». Tout se mesure en <strong>tokens</strong> — des fragments de mots que le modèle lit (ta consigne, les documents que tu lui donnes) et produit (sa réponse). <strong>Plus l'échange est long, plus il consomme</strong>, donc plus il coûte. Coller un PDF de 80 pages « coûte » plus qu'une question d'une ligne.</p>
-      <p>Deuxième levier : le <strong>choix du modèle</strong>. Un modèle puissant (type Opus) coûte plus cher au token qu'un modèle rapide (type Haiku). D'où l'intérêt de prendre le bon outil pour la bonne tâche — pas le plus gros marteau pour planter une punaise.</p>
+      <p>L'IA ne facture pas « à la question ». Tout se mesure en <strong>tokens</strong> — des fragments de mots que le modèle lit (ta consigne, les documents que tu lui donnes, l'historique de la conversation) et produit (sa réponse). <strong>Plus l'échange est long, plus il consomme</strong>, donc plus il coûte. Coller un PDF de 80 pages « coûte » plus qu'une question d'une ligne — et une conversation de trois heures relit tout son historique à chaque réponse (c'est tout l'enjeu du <a href="cest-quoi-le-contexte.html">contexte</a>).</p>
+      <p>Deuxième levier : le <strong>choix du modèle</strong>. Un modèle puissant (type Opus ou Fable) coûte plus cher au token qu'un modèle rapide (type Haiku). D'où l'intérêt de prendre le bon outil pour la bonne tâche — pas le plus gros marteau pour planter une punaise.</p>
 
       <h2 id="modeles">2. Les façons de payer</h2>
       <p>Quatre grands modèles, du plus simple au plus pro. <em>Les montants évoluent vite : raisonne en ordres de grandeur, pas en prix gravés.</em></p>
@@ -169,12 +237,12 @@
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Abonnement perso</span>
             <span class="card__title">~ forfait /mois</span>
-            <span class="card__desc">Un montant fixe (souvent autour d'une vingtaine d'euros). Tu discutes autant que tu veux, facture prévisible. Le choix par défaut d'un individu.</span>
+            <span class="card__desc">Un montant fixe (une vingtaine de dollars pour Pro ; 100 ou 200 pour Max, avec 5× à 20× plus de volume). Chat, Cowork et Code inclus. Le choix par défaut d'un individu.</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">API à l'usage</span>
             <span class="card__title">au token</span>
-            <span class="card__desc">Tu paies ce que tu consommes. Indispensable pour automatiser, brancher des outils, faire tourner des agents.</span>
+            <span class="card__desc">Tu paies ce que tu consommes. Indispensable pour automatiser, brancher des outils, faire tourner des agents qui travaillent sans toi.</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Entreprise</span>
@@ -185,18 +253,33 @@
         <figcaption class="caption">Ordre de grandeur, pas devis : les tarifs bougent au fil des versions. La logique, elle, reste stable.</figcaption>
       </figure>
 
-      <h2 id="choisir">3. Abonnement ou API : lequel</h2>
+      <h2 id="reperes">3. Les ordres de grandeur en septembre 2026</h2>
+      <p>Un repère daté, pour situer — les prix ci-dessous sont ceux de l'API Claude, par million de tokens, en entrée / en sortie :</p>
+      <ul class="kpi" aria-label="Prix API par million de tokens, septembre 2026">
+        <li><b>1 $ / 5 $</b><span>Haiku 4.5 — le rapide, pour le volume</span></li>
+        <li><b>2 $ / 10 $</b><span>Sonnet 5 — l'équilibré, tarif rendu permanent en août</span></li>
+        <li><b>5 $ / 25 $</b><span>Opus 5 — le costaud, proche de Fable pour moitié prix</span></li>
+        <li><b>10 $ / 50 $</b><span>Fable 5.1 — la classe au-dessus, à garder pour les problèmes durs</span></li>
+      </ul>
+      <p>Trois choses à retenir de ce tableau :</p>
+      <ul>
+        <li><strong>Le prix par tâche compte plus que le prix par token.</strong> Un modèle plus cher qui résout en un aller-retour bat un modèle « pas cher » qui en demande quatre. Et les modèles récents réutilisent ce qu'ils ont déjà lu (le <em>cache</em>) à une fraction du prix : une conversation bien structurée coûte moins qu'une conversation brouillonne.</li>
+        <li><strong>Un Sonnet 5 fait aujourd'hui ce qu'un Opus faisait au printemps</strong>, cinq fois moins cher. C'est lui qui fait tourner mes agents.</li>
+        <li><strong>Les forfaits ne donnent pas tous accès au modèle le plus haut de gamme à volonté</strong> : le plus puissant est inclus dans les forfaits supérieurs avec un quota réduit, et facturé à part sur les autres. Ça a changé plusieurs fois cet été ; vérifie la grille du moment plutôt que de croire ce guide sur parole.</li>
+      </ul>
+
+      <h2 id="choisir">4. Abonnement ou API : lequel</h2>
       <p>C'est la vraie question pratique, et elle se tranche selon <strong>ce que tu fais</strong> :</p>
 
       <figure class="diagram">
-        <div class="compare" role="img" aria-label="Abonnement : forfait fixe, pour discuter au quotidien. API : paiement à l'usage, pour automatiser et brancher des outils.">
+        <div class="compare" role="img" aria-label="Abonnement : forfait fixe, pour discuter et déléguer au quotidien. API : paiement à l'usage, pour automatiser et brancher des outils.">
           <div class="compare__side">
             <span class="compare__tag">Abonnement</span>
-            <h4>Tu discutes</h4>
+            <h4>Tu discutes, tu délègues, tu construis</h4>
             <ul>
               <li>Forfait mensuel fixe</li>
+              <li>Chat, Cowork et Code inclus</li>
               <li>Facture prévisible, zéro réglage</li>
-              <li>Idéal pour un usage individuel quotidien</li>
             </ul>
           </div>
           <div class="compare__arrow" aria-hidden="true">→</div>
@@ -205,36 +288,40 @@
             <h4>Tu automatises</h4>
             <ul>
               <li>Paiement au token consommé</li>
-              <li>Pour brancher des outils, des agents</li>
+              <li>Pour des agents qui tournent sans toi</li>
               <li>Plus puissant, à encadrer (plafonds)</li>
             </ul>
           </div>
         </div>
-        <figcaption class="caption">Discuter au quotidien → abonnement. Faire tourner des automatisations → API. Beaucoup finissent par avoir les deux.</figcaption>
+        <figcaption class="caption">Discuter, déléguer, construire au quotidien → abonnement. Faire tourner des automatisations sans toi → API. Beaucoup finissent par avoir les deux.</figcaption>
       </figure>
 
-      <h2 id="maitriser">4. Maîtriser la facture</h2>
+      <p>Chez moi : ce site, mes modules Odoo, mes apps internes, HF-OS — tout est construit via l'abonnement, donc à coût marginal nul. Ce qui tourne <em>sans moi</em> (les veilles, l'agent factures, la relecture des demandes de développement, Growth) passe par l'API et se compte en quelques euros par mois et par automatisation.</p>
+
+      <h2 id="maitriser">5. Maîtriser la facture</h2>
       <p>L'API fait peur (« et si ça s'emballe ? »), mais ça se cadre très bien :</p>
       <ul>
         <li><strong>Pose des plafonds de dépense.</strong> La plupart des plateformes API permettent de fixer une limite mensuelle dure. Mets-la dès le début.</li>
-        <li><strong>Prends le bon modèle.</strong> Un modèle rapide pour le volume et les tâches simples ; le modèle puissant seulement quand la difficulté le justifie.</li>
-        <li><strong>Encadre tes agents.</strong> Budget, fréquence, critère d'arrêt — sinon un agent peut boucler et consommer pour rien (j'en parle dans le guide Agent IA).</li>
+        <li><strong>Prends le bon modèle — et laisse-le se choisir.</strong> Un modèle rapide pour le volume et les tâches simples ; le puissant seulement quand la difficulté le justifie. Et ne code jamais un nom de modèle en dur : ma veille hi-fi s'est arrêtée trois semaines en juin parce que le modèle qu'elle appelait avait atteint sa fin de vie. Depuis, elle choisit son modèle automatiquement et ne peut plus casser à une mise à jour.</li>
+        <li><strong>Encadre tes agents.</strong> Budget, fréquence, critère d'arrêt — sinon un agent peut boucler et consommer pour rien (les quatre règles sont dans <a href="lia-propose-lhumain-valide.html">L'IA propose, l'humain valide</a>).</li>
+        <li><strong>Structure le contexte.</strong> Une conversation par sujet, des documents chargés à la demande, un brief de reprise quand ça s'allonge : c'est bon pour la qualité <em>et</em> pour la facture.</li>
       </ul>
-      <p>Pour donner un repère : ma veille hi-fi quotidienne tourne sur l'API et me coûte une broutille par mois — parce qu'elle est cadrée (sources limitées, une fois par jour, modèle adapté). Le coût n'est un problème que quand on ne le cadre pas.</p>
+      <p>Pour donner un repère : ma veille hi-fi quotidienne lit 64 sources, rédige et publie chaque matin, et me coûte trois à quatre euros par mois — parce qu'elle est cadrée et plafonnée. Une relecture IA d'une demande de développement, avec vérification dans la vraie base, coûte quelques centimes. Le coût n'est un problème que quand on ne le cadre pas.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="chat-cowork-code-terminal.html"><strong>Chat, Cowork ou Code</strong></a> — les usages qui nécessitent un abonnement payant.</li>
-          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>C'est quoi un agent IA</strong></a> — pourquoi le budget plafonné est vital.</li>
+          <li>→ <a href="chat-cowork-code-terminal.html"><strong>Chat, Cowork ou Code</strong></a> — ce que l'abonnement inclut.</li>
+          <li>→ <a href="cest-quoi-claude.html"><strong>C'est quoi Claude</strong></a> — la gamme, gabarit par gabarit.</li>
+          <li>→ <a href="cest-quoi-le-contexte.html"><strong>C'est quoi le contexte</strong></a> — pourquoi une conversation encombrée coûte cher.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réel.</strong> Une automatisation API qui tourne chaque jour pour quelques euros → <a href="../journal/bot-telegram-veille-hifi.html">Bot Telegram de veille HiFi</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Une automatisation API cadrée et plafonnée → <a href="../journal/veille-hifi-bot-repare-elargi.html">Veille HiFi : réparée, élargie, fiabilisée</a> · quelques centimes par relecture → <a href="../journal/cdc-odoo-ia-verifie-avant-de-coder.html">L'IA vérifie ce qu'elle suppose</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
@@ -243,12 +330,11 @@
       <p class="prose">Abonnement, API, modèle à choisir, plafonds à poser : si tu veux y voir clair avant d'engager des frais, écris-moi. Je documente tout en public, sans rien à vendre.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
-        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Coût%20IA%20—%20échange">M'écrire</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Budget%20IA%20—%20échange">M'écrire</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -310,7 +396,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

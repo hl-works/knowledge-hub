@@ -1,7 +1,8 @@
 # Knowledge Hub — Hugo Lahutte
 
-Journal de bord et méthode de tout ce que je construis avec Claude. Mi-portfolio IA,
-mi-documentation opérationnelle. Site statique **HTML/CSS, zéro dépendance, zéro
+Journal de bord, méthode, guides evergreen, lexique et veille IA — tout ce que je construis
+avec Claude (HL OS, Growth, Content Machine, un Brain au format OKF). Mi-portfolio IA,
+mi-documentation opérationnelle. Repassé en entier le 1er septembre 2026. Site statique **HTML/CSS, zéro dépendance, zéro
 framework**, publié sur GitHub Pages.
 
 🔗 **Live** : landing https://hl-consulting.tech/ · Knowledge Hub https://hl-consulting.tech/knowledge-hub/
@@ -28,7 +29,8 @@ knowledge-hub/
 ├── README.md
 ├── llms.txt / llms-full.txt← pointeurs GEO pour les LLMs
 ├── robots.txt / sitemap.xml
-├── how-to/index.html       ← LA méthode (« Comment j'utilise Claude »)
+├── how-to/index.html       ← LA méthode (« Comment j'utilise Claude », v2 sept. 2026)
+├── guides/                 ← ~30 guides evergreen (7 clusters), lexique/ (82 termes), veille-ia/
 ├── a-propos/index.html     ← parcours / qui je suis (GEO authorship)
 ├── journal/
 │   ├── index.html          ← liste chronologique

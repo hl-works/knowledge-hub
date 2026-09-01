@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Guides — Comprendre l'IA pour décider, par Hugo Lahutte</title>
-<meta name="description" content="Une série de guides clairs sur l'IA et les LLM : c'est quoi, à quoi ça sert, ce que ça change. Pour marchands et dirigeants qui veulent capter vite — lisible à tous les niveaux.">
+<title>Guides — Comprendre l'IA pour décider (repassés en septembre 2026), par Hugo Lahutte</title>
+<meta name="description" content="Une trentaine de guides clairs sur l'IA et les outils que j'utilise, pour marchands et dirigeants : les bases (IA, LLM, Claude, agents), mettre en place (Chat/Cowork/Code, GitHub, MCP, loops, skills), la méthode (prompt, contexte, CLAUDE.md, Brain, Compound Engineering), décider (usages, coût, données, garde-fous, GEO), mes systèmes (HL OS, Content Machine, HF-OS) et des études de cas chiffrées. Repassés en entier le 1er septembre 2026.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/">
@@ -16,7 +16,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Guides — Comprendre l'IA pour décider">
-<meta property="og:description" content="Une série de guides evergreen sur l'IA et les LLM, pour capter vite et bien.">
+<meta property="og:description" content="Une trentaine de guides clairs, en trois niveaux de lecture, pour marchands et dirigeants. Repassés en septembre 2026.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
@@ -36,46 +36,46 @@
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../style.css?v=20260622a">
 
-<!-- ===== JSON-LD : CollectionPage + Breadcrumb (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "CollectionPage",
-      "name": "Guides — Knowledge Hub",
-      "description": "Série de guides clairs sur l'IA et les LLM : c'est quoi, à quoi ça sert, ce que ça change.",
+      "name": "Guides — Comprendre l'IA pour décider",
+      "description": "Série de guides evergreen sur l'IA et les outils utilisés par Hugo Lahutte : comprendre, outiller, méthode, décider, mes systèmes, études de cas.",
       "inLanguage": "fr-FR",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/",
-      "isPartOf": {"@type": "WebSite", "name": "Knowledge Hub — Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
-      "hasPart": [
-        {"@type": "TechArticle", "headline": "C'est quoi l'IA, et c'est quoi un « LLM » ?", "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-ia-llm.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "C'est quoi Claude, et pourquoi j'ai tout bâti dessus ?", "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-claude.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Pourquoi l'IA change vraiment la façon de travailler", "url": "https://hl-consulting.tech/knowledge-hub/guides/pourquoi-lia-change-le-travail.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Chat, Cowork ou Code : lequel utiliser", "url": "https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "C'est quoi GitHub, et pourquoi c'est gratuit et magique", "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-github.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "C'est quoi un « MCP », et comment brancher Claude à tes outils", "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "C'est quoi un « agent IA » ?", "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-agent-ia.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle", "url": "https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html", "datePublished": "2026-06-10"},
-        {"@type": "TechArticle", "headline": "C'est quoi une « loop » ? Les tâches récurrentes d'agent", "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html", "datePublished": "2026-06-10"},
-        {"@type": "TechArticle", "headline": "Écrire un bon CLAUDE.md", "url": "https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-claude-md.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Les 4 principes que j'applique avec l'IA (façon Karpathy)", "url": "https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Compound Engineering : ta méthode s'améliore toute seule", "url": "https://hl-consulting.tech/knowledge-hub/guides/compound-engineering.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "L'IA concrètement, pour un commerçant ou une PME", "url": "https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Mes données sont-elles en sécurité avec l'IA ?", "url": "https://hl-consulting.tech/knowledge-hub/guides/mes-donnees-sont-elles-en-securite.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Comment bien parler à l'IA : écrire un bon prompt", "url": "https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Être visible dans l'IA : le GEO expliqué", "url": "https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Combien coûte l'IA : abonnements, API et facture maîtrisée", "url": "https://hl-consulting.tech/knowledge-hub/guides/combien-coute-lia.html", "datePublished": "2026-05-31"},
-        {"@type": "TechArticle", "headline": "Étude de cas — Un agent IA qui traite les factures fournisseurs dans Odoo", "url": "https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-agent-facturation.html", "datePublished": "2026-06-17"},
-        {"@type": "TechArticle", "headline": "Étude de cas — Un dashboard de prix concurrentiels construit maison", "url": "https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html", "datePublished": "2026-07-13"}
-      ]
+      "datePublished": "2026-05-31",
+      "dateModified": "2026-09-01",
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        }
       ]
     }
   ]
@@ -115,188 +115,257 @@
     <p class="kicker">Méthode · Comprendre pour décider</p>
     <h1>Guides</h1>
     <hr class="rule--accent">
-    <p class="lead">Des guides clairs sur l'IA et les outils que j'utilise : <strong>c'est quoi, à quoi ça sert, ce que ça change.</strong> Pensés pour des marchands et des dirigeants qui veulent capter vite — mais lisibles à tous les niveaux. Trois niveaux de lecture dans chaque page : <em>en 30 secondes</em>, le corps visuel, et <em>pour aller plus loin</em>.</p>
+    <p class="lead">Des guides clairs sur l'IA et les outils que j'utilise : <strong>c'est quoi, à quoi ça sert, ce que ça change.</strong> Pensés pour des marchands et des dirigeants qui veulent capter vite — mais lisibles à tous les niveaux. Trois niveaux de lecture dans chaque page : <em>en 30 secondes</em>, le corps visuel, et <em>pour aller plus loin</em>. Repassés en entier le 1er septembre 2026 : les façons de faire ont changé en cinq mois, les guides aussi.</p>
   </div>
 </section>
 
 <section style="padding-top:0;">
   <div class="container">
 
-    <!-- Cluster 0 : Derniers guides (à rafraîchir à chaque nouvelle étude de cas) -->
     <div>
-      <p class="kicker">★ · Les plus récents</p>
-      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Derniers guides</h2>
+      <p class="kicker">★ · Septembre 2026</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Les nouveaux guides</h2>
+      <p class="prose" style="margin-top:var(--space-3);">Six guides écrits pour la rentrée : le Brain, le contexte, les skills, les garde-fous — et deux de mes systèmes, HL OS et la Content Machine.</p>
       <div class="guide-grid">
-        <a class="guide-card" href="etude-de-cas-dashboard-prix-concurrentiels.html">
-          <span class="guide-card__num">Étude de cas · 13 juillet 2026</span>
-          <span class="guide-card__title">Un dashboard de prix concurrentiels, construit maison</span>
-          <span class="guide-card__desc">La donnée concurrents (Wiser) était déjà en prod, livrée par l'intégrateur. La couche de pilotage — chiffrée à plusieurs semaines — construite en interne avec Claude Code en quelques jours. Le build vs buy le plus direct de l'année.</span>
-          <span class="guide-card__foot">Lire l'étude de cas →</span>
+        <a class="guide-card" href="cest-quoi-un-brain-okf.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 18 · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi un « Brain », et pourquoi c'est mon vrai actif</span>
+          <span class="guide-card__desc">La mémoire durable de ce que tu sais et décides, en fichiers Markdown lisibles par toutes tes IA. Le format ouvert OKF, sept dossiers, un rituel — et la règle : un brain périmé est pire qu'un brain vide.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="etude-de-cas-agent-facturation.html">
-          <span class="guide-card__num">Étude de cas · 17 juin 2026</span>
-          <span class="guide-card__title">Un agent qui traite les factures fournisseurs</span>
-          <span class="guide-card__desc">Il lit les mails, extrait chaque facture, la rattache à la bonne commande Odoo et la pousse dans Teams. ~2 M€ de dérive historique chiffrée — et un workflow qui ne peut plus dériver.</span>
-          <span class="guide-card__foot">Lire l'étude de cas →</span>
+        <a class="guide-card" href="cest-quoi-le-contexte.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 19 · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi « le contexte », et pourquoi c'est tout</span>
+          <span class="guide-card__desc">La fenêtre de contexte, ce qui y entre par couches, ce qui se passe quand ça déborde, la différence avec la mémoire — et les quatre réflexes du context engineering.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="cest-quoi-un-skill.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 20 · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi un « skill » (et un hook, un sous-agent, un plugin) ?</span>
+          <span class="guide-card__desc">Une procédure dans un dossier, chargée quand il faut. Ce que chacun fait, mes trois skills du quotidien, et comment choisir entre règle, skill, hook et connecteur.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="lia-propose-lhumain-valide.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 21 · 1er septembre 2026</span>
+          <span class="guide-card__title">L'IA propose, l'humain valide : les garde-fous qui tiennent</span>
+          <span class="guide-card__desc">Trois incidents, trois règles. Lecture automatique, écriture validée ; trois régimes d'autonomie ; le flux d'une action ; les verrous non négociables. Pourquoi le cadre libère.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="cest-quoi-hl-os.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Mes systèmes · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi HL OS : un système d'exploitation pour piloter un groupe avec l'IA</span>
+          <span class="guide-card__desc">Un socle commun, cinq briques (Zéro, Knowledge, Content Machine, Growth, Socle IA), un cœur et plusieurs contextes. La carte, sans jargon, et où ça en est.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="content-machine-une-capture-n-destinations.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Mes systèmes · 1er septembre 2026</span>
+          <span class="guide-card__title">Content Machine : une capture, N destinations</span>
+          <span class="guide-card__desc">Elle ne produit pas du contenu, elle transporte une présence. L'observation attestée, témoigné vs documenté, les verrous, les destinations — et pourquoi la provenance est le produit.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
         </a>
       </div>
     </div>
-
-    <!-- Cluster 1 : Comprendre -->
-    <div>
+    <div style="margin-top:var(--space-16);">
       <p class="kicker">01 · Comprendre</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Les bases</h2>
       <p class="prose" style="margin-top:var(--space-3);">De quoi on parle, sans jargon : l'IA, les LLM, Claude, et ce que tout ça change.</p>
       <div class="guide-grid">
-        <a class="guide-card" href="cest-quoi-ia-llm.html">
-          <span class="guide-card__num">Guide 01 · 31 mai 2026</span>
+        <a class="guide-card" href="cest-quoi-ia-llm.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 01 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">C'est quoi l'IA, et c'est quoi un « LLM » ?</span>
-          <span class="guide-card__desc">L'IA générative et les LLM sans jargon : ce qu'ils font, qui sont les grands acteurs (OpenAI, Anthropic, Google, Mistral…), et ce qu'ils ne savent pas faire.</span>
+          <span class="guide-card__desc">L'IA générative et les LLM sans jargon : ce qu'ils font, qui sont les grands acteurs en septembre 2026 (OpenAI, Anthropic, Google, Mistral, les ouverts chinois…), et ce qu'ils ne savent pas faire.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="cest-quoi-claude.html">
-          <span class="guide-card__num">Guide 02 · 31 mai 2026</span>
+        <a class="guide-card" href="cest-quoi-claude.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 02 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">C'est quoi Claude, et pourquoi j'ai tout bâti dessus</span>
-          <span class="guide-card__desc">L'assistant d'Anthropic : les gabarits Opus/Sonnet/Haiku, pourquoi il est dans le peloton de tête, et tout ce qui tourne dessus chez moi.</span>
+          <span class="guide-card__desc">L'assistant d'Anthropic : la famille Claude 5 (Fable 5.1, Opus 5, Sonnet 5, Haiku), les produits derrière le nom, pourquoi il est dans le peloton de tête, et tout ce qui tourne dessus chez moi.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="pourquoi-lia-change-le-travail.html">
-          <span class="guide-card__num">Guide 03 · 31 mai 2026</span>
+        <a class="guide-card" href="pourquoi-lia-change-le-travail.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 03 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Pourquoi l'IA change vraiment la façon de travailler</span>
-          <span class="guide-card__desc">Une rupture du même ordre que l'électricité : ce qui bascule pour un dirigeant (faire → piloter), et ce que ça ne change pas.</span>
+          <span class="guide-card__desc">Une rupture du même ordre que l'électricité : ce qui bascule pour un dirigeant (faire → piloter), les signaux de l'été 2026, et ce que ça ne change pas.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="cest-quoi-un-agent-ia.html">
-          <span class="guide-card__num">Guide 07 · 31 mai 2026</span>
+        <a class="guide-card" href="cest-quoi-un-agent-ia.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 07 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">C'est quoi un « agent IA » ?</span>
-          <span class="guide-card__desc">Un assistant répond, un agent agit — en boucle, jusqu'au résultat. Ce que ça permet, et le garde-fou sans lequel ça part en vrille.</span>
+          <span class="guide-card__desc">Un assistant répond, un agent agit — en boucle, jusqu'au résultat. Les formes en 2026, les six agents en production chez moi, et le garde-fou sans lequel ça part en vrille.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="fable-mythos-glasswing.html">
-          <span class="guide-card__num">Guide 16 · 10 juin 2026</span>
+        <a class="guide-card" href="fable-mythos-glasswing.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 16 · 10 juin 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle</span>
-          <span class="guide-card__desc">Le 9 juin, Anthropic a lancé Fable 5 — première brique d'une classe au-dessus d'Opus — et réservé la version sans garde-fous, Mythos 5, à des cyberdéfenseurs triés. L'histoire, sans jargon.</span>
+          <span class="guide-card__desc">Le 9 juin, Anthropic a lancé Fable 5, première brique d'une classe au-dessus d'Opus. Puis un été mouvementé : suspension, retour, Opus 5, et Fable 5.1 le 1er septembre. L'histoire, sans jargon.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
       </div>
     </div>
-
-    <!-- Cluster 2 : Outiller -->
     <div style="margin-top:var(--space-16);">
       <p class="kicker">02 · Outiller</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Mettre en place</h2>
       <p class="prose" style="margin-top:var(--space-3);">Les briques concrètes pour passer de « discuter » à « faire agir » l'IA sur tes outils.</p>
       <div class="guide-grid">
-        <a class="guide-card" href="chat-cowork-code-terminal.html">
-          <span class="guide-card__num">Guide 04 · 31 mai 2026</span>
+        <a class="guide-card" href="chat-cowork-code-terminal.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 04 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Chat, Cowork ou Code : lequel utiliser</span>
-          <span class="guide-card__desc">Trois façons d'utiliser Claude selon la tâche, la vérité sur le « terminal », et comment installer Claude Code en une commande.</span>
+          <span class="guide-card__desc">Trois façons d'utiliser Claude selon la tâche, la vérité sur le « terminal », l'installation en une commande — et ce qui a changé en 2026 : sessions cloud, routines, navigateur intégré.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="cest-quoi-github.html">
-          <span class="guide-card__num">Guide 05 · 31 mai 2026</span>
+        <a class="guide-card" href="cest-quoi-github.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 05 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">C'est quoi GitHub, et pourquoi c'est gratuit et magique</span>
-          <span class="guide-card__desc">Le coffre-fort qui sauvegarde ton travail, garde tout l'historique, et une fois branché, se déploie tout seul. Pour les non-devs.</span>
+          <span class="guide-card__desc">Le coffre-fort qui sauvegarde ton travail, garde tout l'historique, et une fois branché, se déploie tout seul. Pour les non-devs — et l'endroit où Claude travaille désormais.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="cest-quoi-mcp-connecter-claude.html">
-          <span class="guide-card__num">Guide 06 · 31 mai 2026</span>
+        <a class="guide-card" href="cest-quoi-mcp-connecter-claude.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 06 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">C'est quoi un « MCP », et comment brancher Claude à tes outils</span>
-          <span class="guide-card__desc">Copier-coller, navigateur, API, MCP : les 4 façons de connecter Claude à Shopify, Gmail, Drive… et pourquoi le MCP change tout.</span>
+          <span class="guide-card__desc">Copier-coller, navigateur, API, MCP : les 4 façons de connecter Claude à Shopify, Gmail, Drive… Pourquoi le MCP change tout, et pourquoi Claude agit désormais sous ta validation.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="cest-quoi-une-loop.html">
-          <span class="guide-card__num">Guide 17 · 10 juin 2026</span>
-          <span class="guide-card__title">C'est quoi une « loop » ? Les tâches récurrentes d'agent</span>
-          <span class="guide-card__desc">Un agent qui relance la même tâche à intervalle régulier : surveiller, vérifier, alerter — sans toi. Le /loop de Claude Code, la différence avec une tâche planifiée, et le cadre.</span>
+        <a class="guide-card" href="cest-quoi-une-loop.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 17 · 10 juin 2026 · màj sept. 2026</span>
+          <span class="guide-card__title">C'est quoi une « loop » ? Loops, routines et tâches planifiées</span>
+          <span class="guide-card__desc">Un agent qui relance la même tâche à intervalle régulier : surveiller, vérifier, alerter — sans toi. Trois outils selon la durée du besoin, et le cadre.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="cest-quoi-un-skill.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 20 · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi un « skill » (et un hook, un sous-agent, un plugin) ?</span>
+          <span class="guide-card__desc">Une procédure dans un dossier, chargée quand il faut — portable d'un outil à l'autre. Et comment choisir entre règle, skill, hook et connecteur.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
       </div>
     </div>
-
-    <!-- Cluster 3 : Méthode -->
     <div style="margin-top:var(--space-16);">
       <p class="kicker">03 · Méthode</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Bien travailler avec l'IA</h2>
       <p class="prose" style="margin-top:var(--space-3);">Les réflexes qui font la différence entre « gadget » et gain de temps réel.</p>
       <div class="guide-grid">
         <a class="guide-card" href="ecrire-un-bon-prompt.html">
-          <span class="guide-card__num">Guide 13 · 31 mai 2026</span>
+          <span class="guide-card__num">Guide 13 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Comment bien parler à l'IA : écrire un bon prompt</span>
-          <span class="guide-card__desc">Un bon prompt = 80 % du résultat. La recette (contexte, tâche, format, contraintes), les réflexes, et pourquoi itérer bat la « phrase magique ».</span>
+          <span class="guide-card__desc">Un bon prompt = la recette (contexte, tâche, format, contraintes), les réflexes, et pourquoi itérer bat la « phrase magique ». Et pourquoi le prompt n'est que 20 % de l'histoire.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="ecrire-un-bon-claude-md.html">
-          <span class="guide-card__num">Guide 08 · 31 mai 2026</span>
+        <a class="guide-card" href="cest-quoi-le-contexte.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 19 · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi « le contexte », et pourquoi c'est tout</span>
+          <span class="guide-card__desc">Tout ce que l'IA sait au moment de répondre — et ce qu'elle ne sait plus quand la conversation s'allonge. La fenêtre, les couches, la compaction, les quatre réflexes.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="ecrire-un-bon-claude-md.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 08 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Écrire un bon CLAUDE.md (le fichier le plus rentable)</span>
-          <span class="guide-card__desc">Le fichier qui dit à Claude comment travailler avec toi : ton, conventions, pièges. Comment le rédiger et le faire grandir.</span>
+          <span class="guide-card__desc">Le fichier qui dit à Claude comment travailler avec toi : ton, conventions, pièges. Comment le rédiger, le faire grandir, où le ranger — et ce qu'il n'est pas.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="cest-quoi-un-brain-okf.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 18 · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi un « Brain », et pourquoi c'est mon vrai actif</span>
+          <span class="guide-card__desc">Un wiki privé au format OKF, lu par toutes mes IA : sept dossiers, un rituel de capture, et deux règles qui le font tenir.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
         <a class="guide-card" href="principes-facon-karpathy.html">
-          <span class="guide-card__num">Guide 09 · 31 mai 2026</span>
+          <span class="guide-card__num">Guide 09 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Les 4 principes que j'applique avec l'IA (façon Karpathy)</span>
           <span class="guide-card__desc">Qui est Karpathy, et 4 réflexes pour que l'IA fasse gagner du temps : réfléchir avant, faire simple, rester chirurgical, piloter par l'objectif.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="compound-engineering.html">
-          <span class="guide-card__num">Guide 10 · 31 mai 2026</span>
+        <a class="guide-card" href="compound-engineering.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 10 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Compound Engineering : ta méthode s'améliore toute seule</span>
-          <span class="guide-card__desc">Chaque leçon devient une règle réutilisable : l'effet intérêts composés appliqué à ta façon de travailler avec l'IA.</span>
+          <span class="guide-card__desc">Chaque leçon devient une règle réutilisable — et, depuis 2026, chaque session une capture dans le Brain. L'effet intérêts composés appliqué à ta façon de travailler.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
       </div>
     </div>
-
-    <!-- Cluster 4 : Décider -->
     <div style="margin-top:var(--space-16);">
       <p class="kicker">04 · Décider</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Pour un dirigeant ou un commerçant</h2>
-      <p class="prose" style="margin-top:var(--space-3);">Les questions stratégiques : usages qui rapportent, coût, données, visibilité.</p>
+      <p class="prose" style="margin-top:var(--space-3);">Les questions stratégiques : usages qui rapportent, coût, données, garde-fous, visibilité.</p>
       <div class="guide-grid">
-        <a class="guide-card" href="lia-pour-un-commercant.html">
-          <span class="guide-card__num">Guide 11 · 31 mai 2026</span>
+        <a class="guide-card" href="lia-pour-un-commercant.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 11 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">L'IA concrètement, pour un commerçant ou une PME</span>
-          <span class="guide-card__desc">Les usages qui rapportent vite, sans équipe technique, vus depuis mon magasin — et par où commencer.</span>
+          <span class="guide-card__desc">Les usages qui rapportent vite, sans équipe technique, vus depuis mon magasin — et les trois marches franchies en 2026 : achats, prix, décision.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="combien-coute-lia.html">
-          <span class="guide-card__num">Guide 15 · 31 mai 2026</span>
+        <a class="guide-card" href="combien-coute-lia.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 15 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Combien coûte l'IA : abonnements, API et facture maîtrisée</span>
-          <span class="guide-card__desc">Tout se compte en tokens. Les façons de payer (gratuit, abonnement, API, entreprise), laquelle choisir, et comment garder la facture sous contrôle.</span>
+          <span class="guide-card__desc">Tout se compte en tokens. Les façons de payer, les ordres de grandeur de septembre 2026, laquelle choisir, et comment garder la facture sous contrôle.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="mes-donnees-sont-elles-en-securite.html">
-          <span class="guide-card__num">Guide 12 · 31 mai 2026</span>
+        <a class="guide-card" href="mes-donnees-sont-elles-en-securite.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 12 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Mes données sont-elles en sécurité ?</span>
-          <span class="guide-card__desc">Où vont tes données, qui les voit, servent-elles à entraîner les modèles — et les réflexes simples (offre, réglages, souveraineté) pour rester tranquille.</span>
+          <span class="guide-card__desc">Où vont tes données, qui les voit, servent-elles à entraîner les modèles — et, depuis que l'IA agit dans tes outils, les trois règles de droits.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
-        <a class="guide-card" href="etre-visible-dans-lia-geo.html">
-          <span class="guide-card__num">Guide 14 · 31 mai 2026</span>
+        <a class="guide-card" href="lia-propose-lhumain-valide.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Guide 21 · 1er septembre 2026</span>
+          <span class="guide-card__title">L'IA propose, l'humain valide : les garde-fous qui tiennent</span>
+          <span class="guide-card__desc">Lecture automatique, écriture validée. Trois régimes, un flux, quatre règles avant tout agent, et les verrous non négociables.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="etre-visible-dans-lia-geo.html"><span class="guide-card__badge">Mis à jour</span>
+          <span class="guide-card__num">Guide 14 · 31 mai 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Être visible dans l'IA : le GEO expliqué</span>
-          <span class="guide-card__desc">Le SEO de l'ère des IA : être cité dans les réponses de ChatGPT, Perplexity ou Claude. Pourquoi c'est vital et comment s'y prendre.</span>
+          <span class="guide-card__desc">Le SEO de l'ère des IA : être cité dans les réponses de ChatGPT, Perplexity ou Claude. Pourquoi c'est vital, comment s'y prendre — et ce que trois mois de pratique ont appris.</span>
           <span class="guide-card__foot">Lire le guide →</span>
         </a>
       </div>
     </div>
-
-    <!-- Cluster 5 : Build in public · Études de cas -->
     <div style="margin-top:var(--space-16);">
-      <p class="kicker">05 · Build in public</p>
-      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Études de cas</h2>
-      <p class="prose" style="margin-top:var(--space-3);">Du concret, chiffré en temps et en coût : comment, sans savoir coder, j'ai livré un site complet et un bot de veille IA en un week-end avec Claude Code.</p>
+      <p class="kicker">05 · Mes systèmes</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Ce que je construis</h2>
+      <p class="prose" style="margin-top:var(--space-3);">Les systèmes derrière ce site et mes structures, expliqués comme des guides : ce que c'est, pourquoi, et où ça en est.</p>
       <div class="guide-grid">
+        <a class="guide-card" href="cest-quoi-hl-os.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Système · 1er septembre 2026</span>
+          <span class="guide-card__title">C'est quoi HL OS : un système d'exploitation pour piloter un groupe avec l'IA</span>
+          <span class="guide-card__desc">Un socle commun, cinq briques, un cœur et plusieurs contextes, et un flux unique : demande → analyse → aperçu → validation → exécution → journal → mesure.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
+        <a class="guide-card" href="content-machine-une-capture-n-destinations.html"><span class="guide-card__badge">Nouveau</span>
+          <span class="guide-card__num">Système · 1er septembre 2026</span>
+          <span class="guide-card__title">Content Machine : une capture, N destinations</span>
+          <span class="guide-card__desc">La brique de publication : observation attestée, témoigné vs documenté, trois entrées, six verrous, des destinations jetables ou définitives. Jamais une publication sans validation.</span>
+          <span class="guide-card__foot">Lire le guide →</span>
+        </a>
         <a class="guide-card" href="faut-il-encore-acheter-un-erp.html">
-          <span class="guide-card__num">Dossier · 14 juin 2026</span>
+          <span class="guide-card__num">Dossier · 14 juin 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Faut-il encore acheter un ERP quand l'IA permet de bâtir le sien ?</span>
-          <span class="guide-card__desc">HF-OS : un ERP de presse bâti de zéro en 5 jours / 96 PR avec Claude Code, plus l'Odoo étendu chez Cobra. CRM, régie, facturation, relances — et la vraie question build vs buy.</span>
+          <span class="guide-card__desc">HF-OS : un ERP de presse bâti de zéro en 5 jours / 96 PR avec Claude Code, devenu le socle de HL OS. CRM, régie, facturation, relances — et la vraie question build vs buy.</span>
           <span class="guide-card__foot">Lire le dossier →</span>
         </a>
         <a class="guide-card" href="odoo-vs-erp-maison.html">
-          <span class="guide-card__num">Comparatif · 16 juin 2026</span>
+          <span class="guide-card__num">Comparatif · 16 juin 2026 · màj sept. 2026</span>
           <span class="guide-card__title">Odoo ou ERP sur mesure : lequel choisir en 2026 ?</span>
-          <span class="guide-card__desc">Comparatif décisionnel critère par critère (coût, délai, flexibilité, dépendance, risque) par quelqu'un qui pratique les deux : Odoo étendu chez Cobra, ERP maison bâti en 5 jours.</span>
+          <span class="guide-card__desc">Comparatif décisionnel critère par critère par quelqu'un qui pratique les deux : Odoo étendu chez Cobra, ERP maison bâti en 5 jours — et le troisième chemin apparu depuis.</span>
           <span class="guide-card__foot">Lire le comparatif →</span>
+        </a>
+      </div>
+    </div>
+    <div style="margin-top:var(--space-16);">
+      <p class="kicker">06 · Build in public</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);">Études de cas</h2>
+      <p class="prose" style="margin-top:var(--space-3);">Du concret, chiffré en temps et en coût : ce que j'ai livré, comment, et ce qui a cassé.</p>
+      <div class="guide-grid">
+        <a class="guide-card" href="etude-de-cas-dashboard-prix-concurrentiels.html">
+          <span class="guide-card__num">Étude de cas · 13 juillet 2026</span>
+          <span class="guide-card__title">Un dashboard de prix concurrentiels, construit maison</span>
+          <span class="guide-card__desc">La donnée concurrents était déjà en prod ; la couche de pilotage, chiffrée à plusieurs semaines, construite en interne avec Claude Code en quelques jours. Et depuis, le moteur est passé en live.</span>
+          <span class="guide-card__foot">Lire l'étude de cas →</span>
+        </a>
+        <a class="guide-card" href="etude-de-cas-agent-facturation.html">
+          <span class="guide-card__num">Étude de cas · 17 juin 2026</span>
+          <span class="guide-card__title">Un agent qui traite les factures fournisseurs</span>
+          <span class="guide-card__desc">Il lit les mails, extrait chaque facture, la rattache à la bonne commande Odoo et la pousse dans Teams. Hébergé, cron 15 min. ~2 M€ de dérive historique chiffrée — et un workflow qui ne peut plus dériver.</span>
+          <span class="guide-card__foot">Lire l'étude de cas →</span>
         </a>
         <a class="guide-card" href="site-bot-ia-en-un-week-end.html">
           <span class="guide-card__num">Guide · 1er juin 2026</span>
@@ -307,25 +376,13 @@
         <a class="guide-card" href="etude-de-cas-knowledge-hub.html">
           <span class="guide-card__num">Étude de cas · 1er juin 2026</span>
           <span class="guide-card__title">Knowledge Hub : de l'idée à la prod</span>
-          <span class="guide-card__desc">Un site statique complet (70+ pages, dark mode, couche GEO) en HTML/CSS/JS vanilla sur GitHub Pages. Décisions, galères, temps réel. Coût au token : zéro.</span>
+          <span class="guide-card__desc">Un site statique complet en HTML/CSS/JS vanilla sur GitHub Pages. Décisions, galères, temps réel. Coût au token : zéro. Et trois mois plus tard : bilingue, cent pages, un Brain derrière.</span>
           <span class="guide-card__foot">Lire l'étude de cas →</span>
         </a>
         <a class="guide-card" href="etude-de-cas-veille-ia.html">
           <span class="guide-card__num">Étude de cas · 1er juin 2026</span>
           <span class="guide-card__title">Bot de veille IA : de l'idée à la prod</span>
-          <span class="guide-card__desc">Un agent sans serveur : X/Twitter → API Claude → Telegram + site. Architecture 2 repos, bridge cross-repo, galères CI. Coût réel ~quelques centimes/jour.</span>
-          <span class="guide-card__foot">Lire l'étude de cas →</span>
-        </a>
-        <a class="guide-card" href="etude-de-cas-dashboard-prix-concurrentiels.html">
-          <span class="guide-card__num">Étude de cas · 13 juillet 2026</span>
-          <span class="guide-card__title">Un dashboard de prix concurrentiels, construit maison</span>
-          <span class="guide-card__desc">La donnée concurrents (Wiser) était déjà en prod, livrée par l'intégrateur. Il manquait la couche de pilotage — chiffrée à plusieurs semaines, restée en attente. Construite en interne avec Claude Code en quelques jours. Le build vs buy le plus direct de l'année.</span>
-          <span class="guide-card__foot">Lire l'étude de cas →</span>
-        </a>
-        <a class="guide-card" href="etude-de-cas-agent-facturation.html">
-          <span class="guide-card__num">Étude de cas · 17 juin 2026</span>
-          <span class="guide-card__title">Un agent qui traite les factures fournisseurs</span>
-          <span class="guide-card__desc">Il lit les mails, extrait chaque facture, la rattache à la bonne commande Odoo et la pousse dans Teams. Hébergé Scaleway, cron 15 min. ~2 M€ de dérive historique chiffrée — et un workflow qui ne peut plus dériver.</span>
+          <span class="guide-card__desc">Un agent sans serveur : X/Twitter → API Claude → Telegram + site. Architecture 2 repos, galères CI, coût réel ~quelques centimes/jour — et la panne de juin qui est devenue une règle.</span>
           <span class="guide-card__foot">Lire l'étude de cas →</span>
         </a>
         <a class="guide-card" href="making-of.html">
@@ -337,7 +394,7 @@
       </div>
     </div>
 
-    <p class="caption" style="margin-top:var(--space-12);">La série s'étoffe au fil de l'eau. Pour le détail daté de ce que je construis, file au <a href="../journal/">journal</a>.</p>
+    <p class="caption" style="margin-top:var(--space-12);">La série s'étoffe au fil de l'eau. Pour le détail daté de ce que je construis, file au <a href="../journal/">journal</a> ; pour les mots, au <a href="../lexique/">lexique</a>.</p>
   </div>
 </section>
 
@@ -402,7 +459,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

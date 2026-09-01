@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>C'est quoi une « loop » ? Les tâches récurrentes d'agent — Guides · Hugo Lahutte</title>
-<meta name="description" content="Une loop, c'est un agent qui relance la même tâche à intervalle régulier : surveiller, vérifier, alerter — sans toi. Comment ça marche dans Claude Code (/loop), la différence avec une tâche planifiée, et le cadre pour que ça ne parte pas en vrille.">
+<title>C'est quoi une « loop » ? Loops, routines et tâches planifiées d'agent — Guides · Hugo Lahutte</title>
+<meta name="description" content="Une loop, c'est un prompt relancé à intervalle régulier par un agent, pour surveiller ou vérifier sans toi. Trois outils selon la durée du besoin : la loop de Claude Code (éphémère, expire seule), la routine (planifiée, exécutée dans le cloud côté Claude, sans ta machine) et la tâche planifiée maison (cron, GitHub Actions). Le concept, comment choisir, les usages côté marchand et le cadre : une tâche récurrente lit et alerte, elle n'écrit pas seule.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-une-loop.html">
@@ -15,13 +15,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="C'est quoi une « loop » ? Les tâches récurrentes d'agent">
-<meta property="og:description" content="Un agent qui relance la même tâche à intervalle régulier : surveiller, vérifier, alerter — sans toi. Le /loop de Claude Code, et le cadre indispensable.">
+<meta property="og:title" content="C'est quoi une « loop » ? Loops, routines et tâches planifiées">
+<meta property="og:description" content="La même tâche relancée à intervalle régulier, sans toi. Loop, routine ou tâche planifiée : lequel choisir, et le cadre.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-06-10">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -38,39 +39,91 @@
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../style.css?v=20260622a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "C'est quoi une « loop » ? Les tâches récurrentes d'agent",
-      "description": "Une loop, c'est un agent qui relance la même tâche à intervalle régulier : surveiller, vérifier, alerter — sans toi. Comment ça marche dans Claude Code (/loop), la différence avec une tâche planifiée, et le cadre pour que ça ne parte pas en vrille.",
+      "headline": "C'est quoi une « loop » ? Loops, routines et tâches planifiées",
+      "description": "Une loop est un prompt relancé à intervalle régulier par un agent pour surveiller ou vérifier sans intervention. Trois outils : la loop de Claude Code (éphémère, expire seule), la routine (planifiée, cloud côté Claude), la tâche planifiée maison (cron, GitHub Actions). Usages côté marchand et cadre : lire et alerter, ne pas écrire seul.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-06-10",
-      "dateModified": "2026-06-10",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["loop", "tâche récurrente", "agent IA", "Claude Code", "automatisation"],
-      "keywords": "loop, /loop, Claude Code, tâche récurrente, agent IA, cron, automatisation"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "loop",
+        "routine",
+        "tâche planifiée",
+        "cron",
+        "agent IA",
+        "Claude Code",
+        "surveillance"
+      ],
+      "keywords": "loop, routine, tâche planifiée, cron, GitHub Actions, agent, Claude Code, surveillance"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "C'est quoi une loop ?", "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "C'est quoi une loop ?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "C'est quoi une loop d'agent ?", "acceptedAnswer": {"@type": "Answer", "text": "Une tâche qu'un agent IA relance tout seul à intervalle régulier : toutes les 5 minutes, toutes les heures, tous les jours. Là où un agent classique travaille une fois vers un objectif puis s'arrête, une loop recommence — pour surveiller, vérifier ou alerter en continu, sans intervention humaine."}},
-        {"@type": "Question", "name": "Comment fonctionne /loop dans Claude Code ?", "acceptedAnswer": {"@type": "Answer", "text": "Tu donnes un prompt et un intervalle (secondes, minutes, heures ou jours) ; Claude Code le convertit en planification et relance le prompt à chaque échéance, dans ta session de travail. Garde-fou intégré : une loop expire automatiquement au bout de 3 jours — elle tourne une dernière fois puis se supprime. Une loop oubliée ne peut donc pas tourner indéfiniment."}},
-        {"@type": "Question", "name": "Quelle différence entre une loop et une tâche planifiée (cron) ?", "acceptedAnswer": {"@type": "Answer", "text": "La loop est éphémère et liée à la session : parfaite pour du « pendant que je travaille » (surveiller un déploiement, attendre un résultat), zéro mise en place. La tâche planifiée type cron ou GitHub Actions est durable et tourne sans toi, mais demande une vraie installation. Règle simple : besoin de moins de 3 jours → loop ; besoin permanent → tâche planifiée."}},
-        {"@type": "Question", "name": "À quoi sert une loop pour un commerçant ?", "acceptedAnswer": {"@type": "Answer", "text": "Tout ce qui se vérifie à intervalle régulier sur une journée : surveiller que les commandes du matin partent bien, suivre un réapprovisionnement critique, vérifier qu'une mise en production s'est bien passée, contrôler un import de stock fournisseur. La loop regarde, compare, et ne te dérange que s'il y a quelque chose à dire."}}
+        {
+          "@type": "Question",
+          "name": "C'est quoi une loop d'agent IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un prompt relancé à intervalle régulier par un agent — toutes les 5 minutes, toutes les heures — pour surveiller ou vérifier quelque chose sans toi : un déploiement, un flux de commandes, un import attendu. Dans Claude Code, la commande /loop fait ça en une ligne, avec un garde-fou intégré : la loop expire seule après quelques jours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre une loop, une routine et une tâche planifiée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La loop est éphémère et liée à ta session Claude Code (quelques heures). La routine est planifiée et exécutée dans le cloud côté Claude — Claude Code sur le web, Cowork ou un agent hébergé — sans ta machine (un rapport hebdomadaire, une surveillance de sept jours). La tâche planifiée maison (cron, GitHub Actions, serveur) est une vraie infrastructure de production pour ce qui doit tourner tous les jours, pour toujours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "À quoi sert une loop pour un commerçant ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vérifier que les commandes du matin partent en préparation, contrôler qu'une mise en production n'a rien cassé, surveiller qu'un import de stock est arrivé, recalculer des prix cibles à chaque livraison des prix concurrents, alerter quand une source de veille ne répond plus. Règle : une tâche récurrente lit et alerte, elle n'écrit pas seule dans un outil de production."
+          }
+        }
       ]
     }
   ]
@@ -80,6 +133,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -104,21 +158,27 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › C'est quoi une loop ?</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Mettre en place</p>
-    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">C'est quoi une « loop » ? Les tâches récurrentes d'agent</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">C'est quoi une « loop » ? Loops, routines et tâches planifiées</h1>
     <hr class="rule--accent">
-    <p class="lead">Un agent classique travaille vers un objectif puis s'arrête. Une <strong>loop</strong>, c'est l'étage au-dessus : la même tâche <strong>relancée à intervalle régulier</strong> — surveiller, vérifier, alerter — sans toi. Je suis en train d'en déployer chez Cobra ; voilà le concept, et le cadre.</p>
+    <p class="lead">Un agent classique travaille vers un objectif puis s'arrête. Une loop, c'est l'étage au-dessus : la même tâche relancée à intervalle régulier — surveiller, vérifier, alerter — sans toi. Depuis l'été 2026, il y a trois façons de faire ça, de la plus éphémère à la plus durable. Le concept, les trois outils, et le cadre.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-06-10">10 juin 2026</time><span>·</span><span>~4 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-06-10">10 juin 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>·</span>
+      <span>~5 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
-      <a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a>
+      <a class="tag" data-tag="agent" data-tagsearch="agent" href="/knowledge-hub/guides/">agent</a>
       <a class="tag" data-tag="automatisation" data-tagsearch="automatisation" href="/knowledge-hub/guides/">automatisation</a>
-      <a class="tag" data-tag="claude-code" data-tagsearch="claude-code" href="/knowledge-hub/guides/">Claude Code</a>
+      <a class="tag" data-tag="claude-code" data-tagsearch="Claude Code" href="/knowledge-hub/guides/">Claude Code</a>
     </div>
     <ul class="levels" aria-label="Niveaux de lecture">
       <li class="level-pill"><b>1</b> En 30 secondes</li>
@@ -135,8 +195,8 @@
       <p class="kicker">En 30 secondes</p>
       <ul>
         <li>Une loop = un <strong>prompt relancé à intervalle régulier</strong> par un agent (toutes les 5 min, toutes les heures…), pour surveiller ou vérifier quelque chose sans toi.</li>
-        <li>Dans Claude Code, la commande <code>/loop</code> fait ça en une ligne — avec un garde-fou intégré : <strong>expiration automatique au bout de 3 jours</strong>.</li>
-        <li>Règle simple : besoin ponctuel (&lt; 3 jours) → loop ; besoin permanent → vraie <strong>tâche planifiée</strong> (cron, GitHub Actions).</li>
+        <li>Trois outils selon la durée du besoin : la <strong>loop</strong> (éphémère, dans ta session Claude Code, expire seule), la <strong>routine</strong> (planifiée, tourne dans le cloud côté Claude, sans ta machine), la <strong>tâche planifiée maison</strong> (cron, GitHub Actions, serveur — pour ce qui doit tourner pour toujours).</li>
+        <li>Règle simple : besoin de quelques heures → loop ; besoin récurrent qui peut vivre chez Claude → routine ; infrastructure de production → tâche planifiée. Et toujours un cadre : objectif, budget, fréquence, critère.</li>
       </ul>
     </aside>
 
@@ -144,8 +204,8 @@
       <p class="kicker">Sommaire</p>
       <ul>
         <li><a href="#definition">1. La loop, l'étage au-dessus de l'agent</a></li>
-        <li><a href="#claude-code">2. Comment ça marche dans Claude Code</a></li>
-        <li><a href="#loop-vs-cron">3. Loop ou tâche planifiée ?</a></li>
+        <li><a href="#claude-code">2. La loop dans Claude Code</a></li>
+        <li><a href="#trois">3. Loop, routine ou tâche planifiée ?</a></li>
         <li><a href="#usages">4. À quoi ça sert chez un marchand</a></li>
       </ul>
     </nav>
@@ -172,77 +232,62 @@
         <figcaption class="caption">La loop : une boucle de surveillance bornée dans le temps — pas une boucle infinie.</figcaption>
       </figure>
 
-      <h2 id="claude-code">2. Comment ça marche dans Claude Code</h2>
-      <p>Claude Code (l'outil que j'utilise pour tout le dev — voir <a href="chat-cowork-code-terminal.html">Chat, Cowork ou Code</a>) embarque une commande <code>/loop</code> : tu donnes un <strong>prompt</strong> et un <strong>intervalle</strong> (en secondes, minutes, heures ou jours), et il relance ce prompt à chaque échéance, dans ta session.</p>
-      <p>Le détail qui m'a fait adopter le truc : le <strong>garde-fou est intégré</strong>. Une loop expire automatiquement <strong>3 jours</strong> après sa création — elle tourne une dernière fois, puis se supprime. Une loop oubliée ne peut pas tourner indéfiniment ni cramer un budget en silence. C'est exactement le genre de cadre que je réclamais dans <a href="cest-quoi-un-agent-ia.html">le guide sur les agents</a> (objectif, budget, fréquence, critère de succès) — sauf qu'ici, la borne est posée par l'outil lui-même.</p>
+      <h2 id="claude-code">2. La loop dans Claude Code</h2>
+      <p>Claude Code (voir <a href="chat-cowork-code-terminal.html">Chat, Cowork ou Code</a>) embarque une commande <code>/loop</code> : tu donnes un <strong>prompt</strong> et un <strong>intervalle</strong>, et il relance ce prompt à chaque échéance, dans ta session. Sans intervalle, il décide lui-même du rythme selon ce qu'il attend — un déploiement de huit minutes mérite une vérification, pas huit.</p>
+      <p>Le détail qui m'a fait adopter le truc : le <strong>garde-fou est intégré</strong>. Une loop expire automatiquement après quelques jours — elle tourne une dernière fois, puis se supprime. Une loop oubliée ne peut pas tourner indéfiniment ni cramer un budget en silence. C'est exactement le genre de cadre que je réclame pour tout agent (objectif, budget, fréquence, critère de succès) — sauf qu'ici, la borne est posée par l'outil lui-même.</p>
 
-      <h2 id="loop-vs-cron">3. Loop ou tâche planifiée ?</h2>
-      <p>Les deux relancent une tâche à intervalle régulier ; tout le reste diffère.</p>
+      <h2 id="trois">3. Loop, routine ou tâche planifiée ?</h2>
+      <p>Les trois relancent une tâche à intervalle régulier ; ce qui diffère, c'est la durée de vie et l'endroit où ça tourne.</p>
 
       <figure class="diagram">
-        <div class="compare" role="img" aria-label="Loop : éphémère, liée à la session, zéro installation, expire en 3 jours. Tâche planifiée : durable, tourne sans toi, demande une vraie mise en place.">
-          <div class="compare__side">
-            <span class="compare__tag">Loop</span>
-            <h4>Éphémère, zéro setup</h4>
-            <ul>
-              <li>Liée à ta session de travail</li>
-              <li>Se crée en une ligne</li>
-              <li>Expire seule (3 jours max)</li>
-            </ul>
-          </div>
-          <div class="compare__arrow" aria-hidden="true">vs</div>
-          <div class="compare__side compare__side--after">
-            <span class="compare__tag">Tâche planifiée</span>
-            <h4>Durable, vraie infra</h4>
-            <ul>
-              <li>Tourne sans toi (cron, Actions)</li>
-              <li>Demande une mise en place</li>
-              <li>Vit jusqu'à ce qu'on l'arrête</li>
-            </ul>
-          </div>
+        <div class="card-grid" role="img" aria-label="Trois outils : la loop éphémère dans la session, la routine planifiée dans le cloud côté Claude, la tâche planifiée maison sur une infrastructure.">
+          <div class="card" style="min-height:auto;"><span class="card__kicker">Quelques heures</span><span class="card__title">Loop</span><span class="card__desc">Liée à ta session de travail. Se crée en une ligne, expire seule. Pour surveiller un déploiement cet après-midi.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">Récurrent, sans infra</span><span class="card__title">Routine</span><span class="card__desc">Planifiée (chaque matin, chaque lundi) et exécutée dans le cloud côté Claude — Claude Code sur le web, Cowork ou un agent hébergé — sans ta machine. Pour un rapport hebdomadaire, une surveillance de sept jours.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">Pour toujours</span><span class="card__title">Tâche planifiée maison</span><span class="card__desc">Cron, GitHub Actions, un petit serveur. Vraie infrastructure de production, journalisée, avec ses secrets côté serveur. Pour ce qui doit tourner tous les jours, sans dépendre d'un abonnement.</span></div>
         </div>
-        <figcaption class="caption">Besoin de moins de 3 jours → loop. Besoin permanent → tâche planifiée.</figcaption>
+        <figcaption class="caption">De l'éphémère au durable. Les routines sont la nouveauté de 2026 : le chaînon manquant entre « je surveille pendant trois heures » et « je monte une infra ».</figcaption>
       </figure>
 
-      <p>Ma veille IA quotidienne, par exemple, est une <strong>tâche planifiée</strong> (elle doit tourner tous les matins, pour toujours). Surveiller qu'un déploiement Odoo se passe bien cet après-midi, c'est une <strong>loop</strong> : utile trois heures, oubliable ensuite.</p>
+      <p>Chez moi, les trois coexistent. Mes deux veilles quotidiennes (hi-fi et IA) sont des <strong>tâches planifiées</strong> : elles doivent tourner tous les matins, pour toujours, avec leurs secrets sur un serveur. La surveillance de sept jours de ma mesure d'audience — comparer chaque matin les commandes réelles, le flux web et l'analytics, en lecture seule, sans rien modifier — est une <strong>routine</strong>. Vérifier qu'un déploiement Odoo se passe bien cet après-midi, c'est une <strong>loop</strong> : utile trois heures, oubliable ensuite.</p>
 
       <h2 id="usages">4. À quoi ça sert chez un marchand</h2>
-      <p>Tout ce qui se vérifie à intervalle régulier <em>sur une journée ou deux</em> :</p>
+      <p>Tout ce qui se vérifie à intervalle régulier :</p>
       <ul>
         <li><strong>Commandes</strong> : vérifier toutes les 30 minutes que les commandes du matin partent bien en préparation, alerter si un statut bloque.</li>
         <li><strong>Mise en production</strong> : après un déploiement, contrôler toutes les 10 minutes que les pages clés répondent et que rien ne casse.</li>
         <li><strong>Flux fournisseurs</strong> : surveiller qu'un import de stock attendu est bien arrivé et s'est bien intégré.</li>
-        <li><strong>Réappro critique</strong> : suivre une référence en rupture et prévenir dès que le stock remonte.</li>
+        <li><strong>Prix</strong> : mon moteur d'alignement recalcule les prix cibles à chaque nouvelle livraison des prix concurrents, plusieurs fois par jour — en observation d'abord, en live famille par famille.</li>
+        <li><strong>Sources</strong> : ma veille alerte quand une source ne répond plus depuis trois jours. Une surveillance de la surveillance.</li>
       </ul>
-      <p>C'est ce chantier que j'ouvre en ce moment chez <a href="../cobra/">Cobra</a> : faire passer des vérifications que je faisais à la main (ou pas du tout) dans des loops. L'entrée de journal détaillée arrivera quand les premières tourneront en prod — comme toujours, <a href="../journal/">tout sera documenté</a>.</p>
+      <p>Une règle transverse, quelle que soit la forme : <strong>une tâche récurrente lit et alerte ; elle n'écrit pas seule</strong> dans un outil de production sans qu'un humain ait validé le geste. Le détail dans <a href="lia-propose-lhumain-valide.html">L'IA propose, l'humain valide</a>.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
           <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>C'est quoi un agent IA</strong></a> — la boucle de base, et les quatre garde-fous.</li>
-          <li>→ <a href="chat-cowork-code-terminal.html"><strong>Chat, Cowork ou Code</strong></a> — où vit la commande /loop.</li>
-          <li>→ <a href="etude-de-cas-veille-ia.html"><strong>Étude de cas : la veille IA</strong></a> — l'exemple inverse, une vraie tâche planifiée durable.</li>
+          <li>→ <a href="chat-cowork-code-terminal.html"><strong>Chat, Cowork ou Code</strong></a> — où vivent les loops et les routines.</li>
+          <li>→ <a href="etude-de-cas-veille-ia.html"><strong>Étude de cas : la veille IA</strong></a> — une vraie tâche planifiée durable, de A à Z.</li>
         </ul>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Une veille qui surveille ses propres sources → <a href="../journal/veille-hifi-bot-repare-elargi.html">Veille HiFi : 64 sources, alerte si une source meurt</a> · un moteur relancé à chaque livraison de prix → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">Alignement concurrentiel automatique</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
       <h2>Une corvée à surveiller ?</h2>
-      <p class="prose">Si tu as une vérification que tu fais à la main trois fois par jour, c'est probablement une loop qui s'ignore. Parlons-en — je documente tout en public.</p>
+      <p class="prose">Si tu as une vérification que tu fais à la main trois fois par jour, c'est probablement une loop ou une routine qui s'ignore. Parlons-en — je documente tout en public.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
-        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Loop%20—%20échange">M'écrire</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Loops%20—%20échange">M'écrire</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">

@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "Le GEO, le SEO de l'ère des IA : être cité dans les réponses de ChatGPT, Perplexity ou Claude. Pourquoi c'est vital et comment s'y prendre.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-05-31",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html",
       "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
       "publisher": {"@type": "Organization", "name": "HL Consulting"},
@@ -113,7 +114,7 @@
     <p class="lead">Le <strong>GEO</strong>, c'est le SEO de l'ère des IA : être <strong>cité dans les réponses</strong> de ChatGPT, Perplexity ou Claude. Pourquoi ça devient vital, et les réflexes concrets pour y arriver — appliqués sur ce site même.</p>
     <div class="meta-bar">
       <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>~6 min de lecture</span>
+      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span><span>·</span><span>~6 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="geo" data-tagsearch="geo" href="/knowledge-hub/guides/">GEO</a>
@@ -202,6 +203,17 @@
 
       <h2 id="exemple">4. Ce site comme cas d'école</h2>
       <p>Je ne théorise pas dans le vide : ce Knowledge Hub <strong>est</strong> mon terrain d'essai GEO. Une page par question, des intertitres en questions, du JSON-LD (<code>TechArticle</code>, <code>FAQPage</code>, <code>Person</code>) sur chaque page, un <code>llms.txt</code> et un <code>llms-full.txt</code> qui résument tout le site pour les modèles. C'est précisément pour ça qu'il est construit en HTML statique, propre et léger : la lisibilité machine est une feature, pas un détail.</p>
+
+      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
+        <p class="kicker" style="color:var(--c-gold);">Mise à jour · 1er septembre 2026</p>
+        <h3 style="margin-top:var(--space-2);">Ce que trois mois de pratique ont appris</h3>
+                <ul style="margin-top:var(--space-3);">
+          <li><strong>Mon contenu le plus frais était invisible pour les IA.</strong> La veille IA de ce site était rendue par JavaScript ; or les robots des assistants (GPTBot, ClaudeBot, PerplexityBot) n'exécutent pas le JavaScript. Depuis juin, un script injecte les dix derniers jours en HTML statique dans la page, deux flux RSS existent, et le fichier <code>llms-full.txt</code> est régénéré automatiquement à chaque publication. Règle : <strong>ce qui n'est pas dans le HTML n'existe pas pour une IA</strong>.</li>
+          <li><strong>La provenance est le produit.</strong> Ce que les moteurs et les IA valorisent, c'est le signal d'expérience de première main : qui, où, quand. C'est le principe de ma <a href="content-machine-une-capture-n-destinations.html">Content Machine</a> — une page par entité, des données structurées, une observation attestée derrière chaque rendu — et l'exact opposé du contenu généré à la chaîne.</li>
+          <li><strong>Le canal grossit, et il se mesure.</strong> Les résumés IA de Google pèsent déjà sur le trafic de sites de référence ; Shopify a ajouté une section « visibilité dans les IA » à ses boutiques et ouvert l'achat aux agents ; des outils testent si ta marque est citée dans les réponses de ChatGPT, Perplexity et Google — et quels concurrents le sont à ta place. Le GEO n'est plus un pari : c'est un poste de la file d'actions de <a href="cest-quoi-hl-os.html">Growth</a>.</li>
+        </ul>
+      </aside>
+
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>

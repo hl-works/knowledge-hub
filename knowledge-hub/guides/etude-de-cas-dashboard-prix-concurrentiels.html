@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-07-13">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "La donnée de prix concurrents (Wiser) était déjà livrée par l'intégrateur et en production. La couche de pilotage manquante, chiffrée à plusieurs semaines, a été construite en interne avec Claude Code en quelques jours.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-07-13",
-      "dateModified": "2026-07-13",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-dashboard-prix-concurrentiels.html",
       "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
       "publisher": {"@type": "Organization", "name": "HL Consulting"},
@@ -106,7 +107,7 @@
     <div class="meta-bar">
       <span>Par <strong>Hugo Lahutte</strong></span>
       <span>·</span>
-      <time datetime="2026-07-13">13 juillet 2026</time>
+      <time datetime="2026-07-13">13 juillet 2026</time><span>·</span><span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
       <span>·</span>
       <span>~8 min de lecture</span>
     </div>
@@ -194,6 +195,13 @@
     <div class="btn-row" style="margin-top:var(--space-12);">
       <a class="btn btn--ghost" href="./">← Tous les guides</a>
       <a class="btn btn--primary" href="../#contact">En discuter →</a>
+
+      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
+        <p class="kicker" style="color:var(--c-gold);">Mise à jour · 1er septembre 2026</p>
+        <h3 style="margin-top:var(--space-2);">Et après : le moteur est passé en live</h3>
+                <p style="margin-top:var(--space-3);">La « première version » de ce dashboard a eu sa suite en août 2026 : un moteur de règles dans Odoo lit les prix concurrents à chaque livraison, calcule un prix cible (meilleur concurrent valide, borné par une marge minimale), a tourné en mode observation, puis a été passé en live famille par famille — six familles et quelques centaines de prix réalignés, le reste s'ajustant seul. Le passage en live reste une décision humaine. → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">Suivi des prix et alignement automatique</a> · les garde-fous communs → <a href="lia-propose-lhumain-valide.html">L'IA propose, l'humain valide</a></p>
+      </aside>
+
     </div>
   </div>
 </article>

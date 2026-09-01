@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>C'est quoi un « MCP », et comment brancher Claude à tes outils — Guides · Hugo Lahutte</title>
-<meta name="description" content="API, MCP, navigateur, copier-coller : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante — et pourquoi le MCP change tout.">
+<title>C'est quoi un « MCP », et comment brancher Claude à tes outils (connecteurs, droits, actions) — Guides · Hugo Lahutte</title>
+<meta name="description" content="Les quatre façons de brancher Claude à tes outils (copier-coller, navigateur, API, MCP), ce qu'est le MCP — le standard ouvert d'Anthropic, une prise universelle adoptée par Shopify, Meta, GitHub et les autres —, ce qui a changé en 2026 (Claude ne se contente plus de lire : il envoie un mail, range un fichier, sous validation), les deux règles de droits, ce qui est branché chez moi, et la différence entre un MCP (les bras) et un skill (le savoir-faire).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-mcp-connecter-claude.html">
@@ -16,12 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="C'est quoi un « MCP », et comment brancher Claude à tes outils">
-<meta property="og:description" content="Les quatre façons de connecter Claude à tes outils, de la plus simple à la plus puissante — et pourquoi le MCP change tout.">
+<meta property="og:description" content="Copier-coller, navigateur, API, MCP : les 4 façons de connecter Claude à Shopify, Gmail, Drive… et pourquoi, depuis 2026, il agit sous ta validation.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
+<meta property="article:modified_time" content="2026-09-01">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -38,7 +39,7 @@
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../style.css?v=20260622a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,31 +47,92 @@
     {
       "@type": "TechArticle",
       "headline": "C'est quoi un « MCP », et comment brancher Claude à tes outils",
-      "description": "Les quatre façons de connecter Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante, et pourquoi le MCP change tout.",
+      "description": "Quatre niveaux de branchement (copier-coller, navigateur, API, MCP). Le MCP (Model Context Protocol) est le standard ouvert d'Anthropic, une prise universelle adoptée par tout le marché ; dans les applications Claude, c'est un connecteur. Depuis 2026, Claude lit et agit (Gmail, Drive, Shopify, GitHub) sous validation ; règles de droits ; MCP (les bras) vs skill (le savoir-faire).",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-05-31",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["MCP", "Model Context Protocol", "API", "Claude", "intégration", "Shopify", "Gmail"],
-      "keywords": "MCP, Model Context Protocol, API, connecter Claude, intégration outils"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "MCP",
+        "Model Context Protocol",
+        "connecteurs",
+        "Shopify",
+        "Gmail",
+        "Google Drive",
+        "GitHub",
+        "droits"
+      ],
+      "keywords": "MCP, Model Context Protocol, connecteur, brancher Claude, Shopify, Gmail, Drive, GitHub, injection de prompt"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "C'est quoi un MCP ?", "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "C'est quoi un MCP ?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-mcp-connecter-claude.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Claude voit-il mes outils par défaut ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Par défaut Claude raisonne mais ne touche à rien : il ne sait rien de ton Shopify ni de tes mails tant que tu ne le branches pas. « Connecter » Claude, c'est lui donner des bras."}},
-        {"@type": "Question", "name": "Quelles sont les façons de connecter Claude à mes outils ?", "acceptedAnswer": {"@type": "Answer", "text": "Quatre, du plus simple au plus puissant : 1) copier-coller / capture d'écran (zéro installation) ; 2) le navigateur, où Claude pilote un site à ta place ; 3) l'API, un tuyau programmé entre un service et Claude ; 4) le MCP, la prise standard la plus propre et durable."}},
-        {"@type": "Question", "name": "C'est quoi un MCP, concrètement ?", "acceptedAnswer": {"@type": "Answer", "text": "MCP signifie Model Context Protocol : un standard ouvert créé par Anthropic, comme une prise universelle façon USB. N'importe quel outil compatible MCP se branche à Claude sans intégration sur-mesure — Shopify, Google Drive, Gmail… Claude peut alors lire dedans et agir, dans le cadre que tu autorises."}},
-        {"@type": "Question", "name": "Pourquoi le MCP change-t-il les choses ?", "acceptedAnswer": {"@type": "Answer", "text": "Au lieu de re-coder une intégration pour chaque outil, tout le monde parle la même prise. Claude travaille alors sur tes vrais outils, pas sur une démo : c'est la différence entre un chatbot sympa et un collègue opérationnel."}}
+        {
+          "@type": "Question",
+          "name": "C'est quoi un MCP ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MCP veut dire Model Context Protocol : un standard ouvert créé par Anthropic fin 2024 et adopté depuis par tout le marché. C'est une prise universelle, comme l'USB : n'importe quel outil compatible (Shopify, Google Drive, Gmail, GitHub, Meta Ads…) se branche à Claude sans intégration sur-mesure. Dans les applications Claude, un MCP branché s'appelle un connecteur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont les façons de connecter Claude à ses outils ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quatre niveaux, du plus simple au plus puissant : le copier-coller ou la capture d'écran (zéro installation), le navigateur (Claude clique et lit à ta place — Cowork en a un intégré), l'API (un tuyau programmé, automatisable) et le MCP (la prise standard, le branchement le plus propre et durable)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Claude peut-il agir dans mes outils, pas seulement lire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, depuis 2026 : il peut envoyer une réponse dans Gmail, ranger un fichier dans Drive, mettre à jour une fiche produit ou ouvrir une demande de modification sur un dépôt — avec un contrôle sur les actions qui nécessitent ta validation. Deux règles : l'assistant n'a jamais plus de droits que la personne qui lui parle, et la lecture est automatique mais l'écriture est validée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un MCP et un skill ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un MCP donne accès à un outil : c'est un bras. Un skill décrit une procédure : c'est du savoir-faire. Publier une page demande les deux — le connecteur pour écrire, et le skill qui sait dans quel ordre mettre à jour les fichiers. Un bras sans procédure fait n'importe quoi vite ; une procédure sans bras reste un document."
+          }
+        }
       ]
     }
   ]
@@ -80,6 +142,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -104,19 +167,25 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › C'est quoi un MCP ?</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste</p>
-    <h1 style="font-size:clamp(2.1rem,5vw,3.8rem);">C'est quoi un « MCP », et comment brancher Claude à tes outils</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">C'est quoi un « MCP », et comment brancher Claude à tes outils</h1>
     <hr class="rule--accent">
-    <p class="lead">API, MCP, navigateur, copier-coller : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante — et pourquoi le <strong>MCP</strong> change tout.</p>
+    <p class="lead">API, MCP, navigateur, copier-coller : les quatre façons de brancher Claude à tes outils (Shopify, Gmail, Drive…), de la plus simple à la plus puissante. Pourquoi le MCP a tout changé — et, depuis 2026, pourquoi Claude ne se contente plus de lire : il agit, sous ta validation.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>~5 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>·</span>
+      <span>~6 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
-      <a class="tag" data-tag="mcp" data-tagsearch="mcp" href="/knowledge-hub/guides/">MCP</a>
+      <a class="tag" data-tag="mcp" data-tagsearch="MCP" href="/knowledge-hub/guides/">MCP</a>
       <a class="tag" data-tag="claude" data-tagsearch="claude" href="/knowledge-hub/guides/">Claude</a>
       <a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a>
       <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/guides/">vulgarisation</a>
@@ -136,8 +205,8 @@
       <p class="kicker">En 30 secondes</p>
       <ul>
         <li>Par défaut, Claude <strong>ne voit pas</strong> tes outils. Il raisonne, mais ne touche à rien tant que tu ne le branches pas.</li>
-        <li>Quatre façons de le connecter, du plus simple au plus costaud : <strong>copier-coller / capture → navigateur → API → MCP</strong>.</li>
-        <li>Le <strong>MCP</strong>, c'est une prise standard qui laisse Claude lire et agir <strong>directement</strong> dans Shopify, Gmail, Drive… Ça transforme l'assistant en collègue branché sur ton entreprise.</li>
+        <li>Quatre façons de le connecter, du plus simple au plus costaud : <strong>copier-coller / capture → navigateur → API → MCP</strong>. Dans les applications Claude, un MCP branché s'appelle un <strong>connecteur</strong>.</li>
+        <li>Le <strong>MCP</strong>, c'est une prise standard qui laisse Claude lire <em>et agir</em> dans Shopify, Gmail, Drive, GitHub… Ça transforme l'assistant en collègue branché sur ton entreprise — d'où une règle : <strong>il n'a jamais plus de droits que toi</strong>, et les actions qui comptent se valident.</li>
       </ul>
     </aside>
 
@@ -147,7 +216,9 @@
         <li><a href="#bras">1. Le point de départ : une tête sans bras</a></li>
         <li><a href="#niveaux">2. Les 4 niveaux de branchement</a></li>
         <li><a href="#mcp">3. C'est quoi un MCP, concrètement</a></li>
-        <li><a href="#chez-moi">4. Pourquoi c'est fou chez moi</a></li>
+        <li><a href="#agir">4. Lire, puis agir : ce qui a changé en 2026</a></li>
+        <li><a href="#chez-moi">5. Ce qui est branché chez moi</a></li>
+        <li><a href="#skills-vs-mcp">6. MCP ou skill ? Les bras et le savoir-faire</a></li>
       </ul>
     </nav>
 
@@ -160,7 +231,7 @@
       <p>Du plus simple au plus puissant :</p>
       <ol>
         <li><strong>Copier-coller / capture d'écran</strong> — zéro installation. Tu colles un texte, une photo d'un écran, un export. Parfait pour démarrer.</li>
-        <li><strong>Le navigateur</strong> — tu laisses Claude piloter un navigateur pour aller cliquer/lire à ta place sur un site.</li>
+        <li><strong>Le navigateur</strong> — tu laisses Claude piloter un navigateur pour aller cliquer et lire à ta place sur un site. Cowork en a un intégré depuis août 2026, dans son panneau latéral.</li>
         <li><strong>L'API</strong> — un tuyau programmé entre un service et Claude. Plus technique, mais automatisable.</li>
         <li><strong>Le MCP</strong> — la prise standard (voir ci-dessous). Le branchement le plus propre et le plus durable.</li>
       </ol>
@@ -177,53 +248,67 @@
       </figure>
 
       <h2 id="mcp">3. C'est quoi un MCP, concrètement</h2>
-      <p>MCP veut dire <em>Model Context Protocol</em>. C'est un <strong>standard ouvert créé par Anthropic</strong> : pense à une prise universelle, comme l'USB. N'importe quel outil compatible MCP se branche à Claude sans bricolage sur-mesure. Tu « connectes » Shopify, Google Drive, Gmail… et Claude peut alors lire dedans et agir, dans le cadre que tu autorises.</p>
-      <p>L'intérêt : au lieu de re-coder une intégration pour chaque outil, tout le monde parle la même prise.</p>
+      <p>MCP veut dire <em>Model Context Protocol</em>. C'est un <strong>standard ouvert créé par Anthropic</strong> fin 2024 et adopté depuis par tout le marché : pense à une prise universelle, comme l'USB. N'importe quel outil compatible MCP se branche à Claude — ou à un autre assistant — sans bricolage sur-mesure. Tu « connectes » Shopify, Google Drive, Gmail… et Claude peut alors lire dedans et agir, dans le cadre que tu autorises.</p>
+      <p>L'intérêt : au lieu de re-coder une intégration pour chaque outil, tout le monde parle la même prise. En 2026, les éditeurs publient eux-mêmes leur prise : Shopify pour les boutiques, Meta pour les comptes publicitaires, les hébergeurs, les banques en ligne, les outils de facturation. Dans les applications Claude, ça s'appelle simplement un <strong>connecteur</strong>, à activer dans un menu.</p>
 
       <figure class="diagram">
-        <div class="hub" role="img" aria-label="Claude au centre, branché par des prises MCP à Shopify, Google Drive, Gmail et l'agenda.">
+        <div class="hub" role="img" aria-label="Claude au centre, branché par des prises MCP à Shopify, Google Drive, Gmail, GitHub et la banque.">
           <span class="hub__core">Claude</span>
           <div class="hub__link"></div>
           <div class="hub__nodes">
-            <div class="hub__node"><b>Shopify</b><span>commandes, produits</span></div>
+            <div class="hub__node"><b>Shopify</b><span>commandes, produits, collections</span></div>
             <div class="hub__node"><b>Google Drive</b><span>fichiers, tableurs</span></div>
-            <div class="hub__node"><b>Gmail</b><span>mails</span></div>
-            <div class="hub__node"><b>Agenda</b><span>rendez-vous</span></div>
+            <div class="hub__node"><b>Gmail</b><span>lire — et répondre, sous validation</span></div>
+            <div class="hub__node"><b>GitHub</b><span>le code, les dépôts, le Brain</span></div>
+            <div class="hub__node"><b>Banque, hébergeur…</b><span>factures, déploiements, journaux</span></div>
           </div>
         </div>
         <figcaption class="caption">Une prise standard (façon USB) : chaque outil compatible MCP se branche sans intégration sur-mesure.</figcaption>
       </figure>
 
-      <h2 id="chez-moi">4. Pourquoi c'est fou chez moi</h2>
-      <p>Concrètement : ma boutique Shopify est branchée en direct, mon Drive et mes mails aussi, et côté technique, Claude Code est relié à GitHub → qui pilote Odoo et Shopify. Résultat : Claude travaille sur mes <strong>vrais</strong> outils, pas sur une démo. C'est la différence entre « un chatbot sympa » et « un collègue opérationnel ».</p>
+      <h2 id="agir">4. Lire, puis agir : ce qui a changé en 2026</h2>
+      <p>Au printemps, les connecteurs servaient surtout à <em>lire</em> : croiser des ventes, retrouver un document, résumer une boîte mail. Depuis l'été, Claude <strong>agit</strong> : il rédige et envoie une réponse dans Gmail, range ou crée un fichier dans Drive, met à jour une fiche produit, ouvre une demande de modification sur un dépôt de code — avec un contrôle sur les actions qui nécessitent ta validation.</p>
+      <p>C'est un changement de nature, et il impose deux règles que je ne négocie pas :</p>
+      <ul>
+        <li><strong>L'assistant n'a jamais plus de droits que la personne qui lui parle.</strong> Un connecteur hérite de ton compte, pas d'un compte administrateur. Chez moi, chaque Claude a ses connecteurs : le Claude Cobra voit Odoo et la boutique Cobra, le Claude HL voit mes projets et mon Brain — jamais l'inverse.</li>
+        <li><strong>Lecture automatique, écriture validée.</strong> Lire et proposer : automatique. Envoyer, modifier, publier : un aperçu, puis un bouton. Le détail de ces régimes est dans <a href="lia-propose-lhumain-valide.html">L'IA propose, l'humain valide</a>.</li>
+      </ul>
+      <p>Une raison de plus d'être strict : un agent qui lit des contenus extérieurs (une page web, un mail) peut y trouver des instructions piégées — ce qu'on appelle une <em>injection de prompt</em>. Les modèles de 2026 y résistent beaucoup mieux (Anthropic dit avoir quasiment neutralisé le problème avec Opus 5 et le mode Auto de Claude Code), mais des droits limités restent la vraie protection : un assistant qui ne peut pas virer d'argent ne peut pas être manipulé pour le faire.</p>
+
+      <h2 id="chez-moi">5. Ce qui est branché chez moi</h2>
+      <p>Concrètement : mes deux boutiques Shopify (Cobra et Haute Fidélité) en direct, mon Drive et mes mails, GitHub — qui porte mon code, ce site et mon <a href="cest-quoi-un-brain-okf.html">Brain</a> —, la banque en ligne pour les factures et les relevés, l'hébergeur de mes apps pour lire les journaux et redéployer, et Odoo via le code. Résultat : Claude travaille sur mes <strong>vrais</strong> outils, pas sur une démo. C'est la différence entre « un chatbot sympa » et « un collègue opérationnel ».</p>
+      <p>Deux exemples de la semaine type : croiser les commandes de la boutique et les ventes tous canaux d'Odoo pour une marque, en une question ; ou, depuis mon téléphone, demander à Claude Code de corriger une page de ce site, et la voir en ligne une minute après.</p>
+
+      <h2 id="skills-vs-mcp">6. MCP ou skill ? Les bras et le savoir-faire</h2>
+      <p>On confond souvent les deux. Un <strong>MCP</strong> donne accès à un outil : c'est un bras. Un <a href="cest-quoi-un-skill.html"><strong>skill</strong></a> décrit une procédure : c'est du savoir-faire. Publier une entrée sur ce site demande les deux — le connecteur GitHub pour écrire, et le skill qui sait dans quel ordre mettre à jour les vingt fichiers. Un bras sans procédure fait n'importe quoi vite ; une procédure sans bras reste un document.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
           <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>C'est quoi un agent IA</strong></a> — une fois branché, Claude peut agir seul.</li>
-          <li>→ <a href="cest-quoi-github.html"><strong>C'est quoi GitHub</strong></a> — le maillon qui relie mon code à mes boutiques.</li>
+          <li>→ <a href="cest-quoi-un-skill.html"><strong>C'est quoi un skill</strong></a> — le savoir-faire qui va avec les bras.</li>
+          <li>→ <a href="mes-donnees-sont-elles-en-securite.html"><strong>Mes données sont-elles en sécurité ?</strong></a> — brancher, c'est ouvrir un accès.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Croiser les ventes Shopify et Odoo → <a href="../journal/audit-shopify-odoo-803.html">Audit Shopify/Odoo 803 produits</a> · <a href="../journal/dynaudio-analyse-ventes.html">Analyse ventes Dynaudio</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Croiser les ventes Shopify et Odoo → <a href="../journal/audit-shopify-odoo-803.html">Audit Shopify/Odoo 803 produits</a> · <a href="../journal/dynaudio-analyse-ventes.html">Analyse ventes Dynaudio</a> · piloter un déploiement depuis la session → <a href="../journal/hf-os-socle-deploiement.html">HF-OS : le socle déployé</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
       <h2>Tu veux brancher Claude à tes outils ?</h2>
-      <p class="prose">Du copier-coller au MCP, il y a un chemin progressif. Si tu veux comprendre par où commencer sur ta stack, écris-moi — je documente tout en public.</p>
+      <p class="prose">Du copier-coller au MCP, il y a un chemin progressif — et des droits à cadrer avant le premier connecteur. Si tu veux comprendre par où commencer sur ta stack, écris-moi — je documente tout en public.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
-        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20MCP%20—%20échange">M'écrire</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=MCP%20—%20échange">M'écrire</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -285,7 +370,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

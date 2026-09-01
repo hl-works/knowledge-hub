@@ -15,7 +15,7 @@
 > `knowledge-hub/sitemap.xml`, `knowledge-hub/llms.txt`). Les scripts `scripts/*.py`
 > pointent déjà sur `knowledge-hub/` via leur `ROOT`. `landing-lab/` = prototypes de
 > la landing (noindex, exclus des workflows).
-> MAJ : 2026-06-22.
+> MAJ : 2026-09-01 (repasse complète du site : méthode v2, 31 guides, lexique 82 termes).
 
 ---
 
@@ -109,6 +109,25 @@ ET à une couleur dans `style.css` (`.tag[data-tag="…"]` / `.chip[data-filter=
    check hebdo tourne aussi via `.github/workflows/site-health.yml`).
 5. **EN** : laisser le workflow d'auto-traduction générer la jumelle au push
    (recommandé), ou créer `en/journal/<slug>.html` + `en/llms.txt`.
+
+### Guides & lexique (repasse du 2026-09-01)
+
+- **Guides** (`knowledge-hub/guides/`, index à 7 clusters : Nouveaux / Comprendre / Outiller /
+  Méthode / Décider / Mes systèmes / Études de cas). Un guide de fond (agents, coût, MCP…) se
+  **réécrit** sans trace de l'ancienne version ; un guide qui raconte un événement daté (Fable
+  du 9 juin, études de cas) reçoit un **encart « Mise à jour · date »** en tête ou avant
+  « Pour aller plus loin », son récit reste. Toujours : `dateModified` + `article:modified_time`
+  + « Mis à jour le … » dans la meta-bar, et la carte de l'index (`màj …`, badge `Nouveau` /
+  `Mis à jour`).
+- **Lexique** : chaque nouveau concept d'un guide → une entrée dans `lexique/glossaire.json`
+  **et** `en/lexique/glossaire.en.json` (mêmes `id`, même ordre ; `aliases` = les mots liés
+  automatiquement par `lexique.js`, `guides`/`projets` = où la notion prend vie).
+- **Faits mouvants** (modèles, prix, produits) : dater explicitement (« repère septembre 2026 »),
+  vérifier dans `veille-ia/feed.json` (chronologie) et sur le web ; ne jamais coder un nom de
+  modèle en dur dans un guide « evergreen ».
+- **Brain → site** : le Brain (`hl-works/brain`) est la source de vérité de ce qui a changé ;
+  on publie principes, architecture, décisions tranchées et état daté — jamais une fiche
+  `prive`, jamais de synchro. Le skill `brain` lit ; l'écriture n'est jamais implicite.
 
 ### Veille IA
 

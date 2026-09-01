@@ -6,7 +6,7 @@
 
 <!-- ===== SEO ===== -->
 <title>Case study — An AI agent that processes supplier invoices in Odoo — Guides · Hugo Lahutte</title>
-<meta name="description" content="Build in public: an autonomous agent that reads supplier emails, extracts invoices, links them to the right purchase order in Odoo, and pushes them for approval in Teams. Hosted on Scaleway, triggered every 15 min. The real win isn't speed: it's a workflow that no longer drifts.">
+<meta name="description" content="Build in public: an autonomous agent that reads supplier emails, extracts the invoices, attaches them to the right purchase order in Odoo and pushes them for validation in Teams. Hosted on Scaleway, triggered every 15 min. The real gain isn&#x27;t speed: it&#x27;s a workflow that no longer drifts.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-agent-facturation.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-agent-facturation.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-agent-facturation.html">
@@ -16,14 +16,15 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="Case study — An AI agent that processes supplier invoices in Odoo">
-<meta property="og:description" content="An autonomous agent that reads emails, extracts invoices, links them to the right Odoo purchase order, and pushes them into Teams. Hosted on Scaleway, 15-min cron. The real win: a workflow that no longer drifts.">
+<meta property="og:description" content="An autonomous agent that reads emails, extracts the invoices, attaches them to the right Odoo purchase order and pushes them into Teams. Hosted on Scaleway, 15-min cron. The real gain: a workflow that no longer drifts.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/etude-de-cas-agent-facturation.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-06-17">
+<meta property="article:modified_time" content="2026-09-01">
 
-<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,10 +47,10 @@
     {
       "@type": "TechArticle",
       "headline": "Case study — An AI agent that processes supplier invoices in Odoo",
-      "description": "An autonomous agent that reads supplier emails, extracts invoices, links them to the right Odoo purchase order, and pushes them for approval in Teams. Hosted on Scaleway, triggered every 15 minutes.",
+      "description": "An autonomous agent that reads supplier emails, extracts the invoices, attaches them to the right Odoo purchase order and pushes them for validation in Teams. Hosted on Scaleway, triggered every 15 minutes.",
       "inLanguage": "en-US",
       "datePublished": "2026-06-17",
-      "dateModified": "2026-06-17",
+      "dateModified": "2026-09-01",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/etude-de-cas-agent-facturation.html",
       "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
       "publisher": {"@type": "Organization", "name": "HL Consulting"},
@@ -75,6 +76,7 @@
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Main">
     <ul class="nav__links" id="nav-links">
+      
       <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
       <li><a href="../how-to/">Method</a></li>
       <li><a href="./" aria-current="page">Guides</a></li>
@@ -82,12 +84,12 @@
       <li><a href="../#projets">Projects</a></li>
       <li><a href="../journal/">Journal</a></li>
       <li><a href="../#contact">Connect</a></li>
-      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
       <li class="nav__lang"><a href="/knowledge-hub/guides/etude-de-cas-agent-facturation.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
     </ul>
     <div class="nav__actions">
       <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
       <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
     </div>
   </nav>
@@ -102,11 +104,11 @@
     <p class="kicker" style="margin-top:var(--space-3);">Case study · Build in public · Cobra</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">An agent that processes<br>supplier invoices</h1>
     <hr class="rule--accent">
-    <p class="lead">It reads emails, extracts each invoice, links it to the right purchase order in Odoo, checks prices, and pushes it for one-click approval in Teams. Hosted on a Scaleway instance, triggered every 15 minutes. The real win isn't speed — it's a workflow that <strong>can no longer drift</strong>.</p>
+    <p class="lead">It reads the emails, extracts each invoice, attaches it to the right purchase order in Odoo, checks the prices, and pushes it for one-click validation in Teams. Hosted on a Scaleway instance, triggered every 15 minutes. The real gain isn't speed — it's a workflow that <strong>can no longer drift</strong>.</p>
     <div class="meta-bar">
       <span>By <strong>Hugo Lahutte</strong></span>
       <span>·</span>
-      <time datetime="2026-06-17">June 17, 2026</time>
+      <time datetime="2026-06-17">June 17, 2026</time><span>·</span><span>Updated <time datetime="2026-09-01">September 1, 2026</time></span>
       <span>·</span>
       <span>~10 min read</span>
     </div>
@@ -118,113 +120,112 @@
   <div class="container">
 
     <figure class="figure" style="margin-block:var(--space-8);">
-      <img src="/knowledge-hub/assets/agent_factures_cobra_flux_map.svg" alt="Architecture of the Cobra invoice agent: input channels (emails), orchestrator, sub-agents, line-by-line matching against the purchase order, Teams actions, invoice states" loading="lazy" decoding="async" style="width:100%;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);">
-      <figcaption class="caption">The full flow: emails → extraction → line-by-line matching against the PO → Teams card → Odoo write. Design details in the <a href="../journal/agent-factures-architecture.html">"architecture" journal entry</a>.</figcaption>
+      <img src="/knowledge-hub/assets/agent_factures_cobra_flux_map.svg" alt="Architecture of the Cobra invoice agent: input channels (emails), orchestrator, subagents, line-by-line matching against the purchase order, Teams actions, invoice states" loading="lazy" decoding="async" style="width:100%;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4);">
+      <figcaption class="caption">The full flow: emails → extraction → line-by-line matching against the PO → Teams card → Odoo write. Design details in <a href="../journal/agent-factures-architecture.html">the “architecture” journal entry</a>.</figcaption>
     </figure>
 
     <nav class="toc prose" aria-label="Contents">
       <p class="kicker">Contents</p>
       <ul>
         <li><a href="#probleme">1. The real problem: not speed, discipline</a></li>
-        <li><a href="#derive">2. The drift, quantified (~€2M off-chain)</a></li>
+        <li><a href="#derive">2. The drift, in numbers (~€2M off-chain)</a></li>
         <li><a href="#agent">3. What the agent does (and why it can't drift)</a></li>
         <li><a href="#archi">4. The production architecture on Scaleway</a></li>
         <li><a href="#chiffres">5. The numbers: volume, time, ROI</a></li>
         <li><a href="#limites">6. What the agent does NOT do</a></li>
         <li><a href="#illustre">7. What this illustrates</a></li>
-        <li><a href="#suite">What's next</a></li>
+        <li><a href="#suite">Coming up / what's next</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="probleme">1. The real problem: not speed, discipline</h2>
-      <p>Odoo has been in place at Cobra since <strong>February 2025</strong>. On paper, the accounting chain is crystal clear: <strong>sales order (SO) → purchase order (PO) → invoice → payment → SEPA batch</strong>. Each invoice should point to the order that triggered it — that's what enables the <em>3-way match</em> (order / receipt / invoice), and therefore automatic price and quantity checks.</p>
-      <p>In real life, this chain was never applied properly. The accounts-payable setup in place never mastered the tool: invoices were entered "flat," disconnected from their original order, payments rarely reconciled correctly. The result: an Odoo full of unreadable entries, and a chain impossible to follow end to end.</p>
+      <p>Odoo has been in place at Cobra since <strong>February 2025</strong>. On paper, the accounting chain is crystal clear: <strong>sales order (SO) → purchase order (PO) → invoice → payment → SEPA batch</strong>. Each invoice should point to the order that triggered it — that's what enables the <em>3-way match</em> (order / receipt / invoice) and therefore the automatic control of prices and quantities.</p>
+      <p>In real life, that chain was never applied properly. The accounts-payable staff in place never mastered the tool: invoices were entered “flat,” disconnected from their original order, payments rarely reconciled correctly. The result: an Odoo full of unreadable entries, and a chain impossible to read end to end.</p>
       <aside class="callout">
         <p class="kicker">The angle of this piece</p>
-        <p style="margin-top:var(--space-3);">A rushed human skips linking to the order. Not out of carelessness — because it's the tedious step, and <strong>no alarm goes off</strong> when you forget it. Discipline doesn't hold over time. <strong>A coded rule does.</strong> That's the whole point of handing this to an agent: not "go faster," but <strong>make the error impossible by design</strong>.</p>
+        <p style="margin-top:var(--space-3);">A rushed human skips attaching the invoice to the order. Not out of stupidity — because it's the tedious step, and <strong>no alarm goes off</strong> when you forget it. Discipline doesn't hold over time. <strong>A coded rule does.</strong> That's the whole point of handing this to an agent: not to “go faster,” but to <strong>make the error impossible by construction</strong>.</p>
       </aside>
 
-      <h2 id="derive">2. The drift, quantified</h2>
-      <p>Before writing a single line, we measured the database's real state (read-only, via XML-RPC). The numbers speak for themselves — out of <strong>5,450 supplier invoices posted</strong> since February 2025:</p>
+      <h2 id="derive">2. The drift, in numbers</h2>
+      <p>Before writing a single line, we measured the real state of the database (read-only, via XML-RPC). The numbers speak for themselves — out of <strong>5,450 supplier invoices posted</strong> since February 2025:</p>
       <div style="overflow-x:auto;margin-block:var(--space-6);">
       <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
         <thead><tr style="text-align:left;border-bottom:2px solid var(--border);">
           <th style="padding:var(--space-3);">Symptom of the drift</th><th style="padding:var(--space-3);">Count</th><th style="padding:var(--space-3);">Amount</th>
         </tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Invoices with <strong>no link</strong> to a purchase order (PO)</td><td style="padding:var(--space-3);">1,524</td><td style="padding:var(--space-3);"><strong>€2,032,524</strong> incl. tax</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Unpaid / partial for <strong>more than 2 months</strong></td><td style="padding:var(--space-3);">241</td><td style="padding:var(--space-3);"><strong>€600,531</strong> still to pay</td></tr>
-          <tr><td style="padding:var(--space-3);">— of which prior to 2026 (5-6 months and up)</td><td style="padding:var(--space-3);">130</td><td style="padding:var(--space-3);">€371,762</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Invoices with <strong>no link at all</strong> to a purchase order (PO)</td><td style="padding:var(--space-3);">1,524</td><td style="padding:var(--space-3);"><strong>€2,032,524</strong> incl. VAT</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Unpaid / partially paid for <strong>more than 2 months</strong></td><td style="padding:var(--space-3);">241</td><td style="padding:var(--space-3);"><strong>€600,531</strong> still to pay</td></tr>
+          <tr><td style="padding:var(--space-3);">— of which prior to 2026 (5-6 months and older)</td><td style="padding:var(--space-3);">130</td><td style="padding:var(--space-3);">€371,762</td></tr>
         </tbody>
       </table>
       </div>
-      <p>In plain terms: <strong>~€2M of supplier invoices entered off-chain</strong>, with no link to any order, and <strong>€600k of unpaid invoices lingering for more than two months</strong>. That's the cost of the drift — and precisely what the agent keeps from happening again.</p>
-      <p>An honest caveat, because this site is <em>build in public</em> and not brochure mode: the drift is mostly <strong>historical</strong>. Of the invoices detached from an order, 1,379 are old (&gt; 2 months) versus 145 recent. It improved over time — but <strong>those 145 recent ones prove that without an automatic constraint, human data entry drifts again</strong>, every time.</p>
+      <p>In plain terms: <strong>~€2M of supplier invoices entered off-chain</strong>, with no link to any order, and <strong>€600k of unpaid invoices dragging on for more than two months</strong>. That's the cost of the drift — and precisely what the agent prevents from happening again.</p>
+      <p>An honest nuance, because this site is <em>build in public</em>, not brochure mode: the drift is mostly <strong>historical</strong>. Among the invoices detached from an order, 1,379 are old (&gt; 2 months) versus 145 recent. It improved over time — but <strong>145 recent ones prove that without an automatic constraint, human entry drifts again</strong>, always.</p>
 
       <h3>Making the chain readable: the 3 statuses on the order</h3>
-      <p>First building block, on the Odoo side: I added three fields on the purchase order (<code>purchase.order</code>) to expose the full state <strong>directly from the PO</strong> — before, you had to dig through invoices and payments separately.</p>
+      <p>First building block, on the Odoo side: I added three fields on the purchase order (<code>purchase.order</code>) to expose the complete state <strong>directly from the PO</strong> — before, you had to dig through invoices and payments separately.</p>
       <div style="overflow-x:auto;margin-block:var(--space-6);">
       <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
         <thead><tr style="text-align:left;border-bottom:2px solid var(--border);">
-          <th style="padding:var(--space-3);">Field</th><th style="padding:var(--space-3);">Reads as</th><th style="padding:var(--space-3);">On confirmed POs</th>
+          <th style="padding:var(--space-3);">Field</th><th style="padding:var(--space-3);">Meaning</th><th style="padding:var(--space-3);">On confirmed POs</th>
         </tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>Delivered</strong></td><td style="padding:var(--space-3);">Goods received?</td><td style="padding:var(--space-3);">full 3,439 · partial 77 · no 309</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>Invoiced</strong></td><td style="padding:var(--space-3);">Invoice received and linked?</td><td style="padding:var(--space-3);">full 3,319 · partial 144 · no 362</td></tr>
-          <tr><td style="padding:var(--space-3);"><strong>Paid</strong></td><td style="padding:var(--space-3);">Settled?</td><td style="padding:var(--space-3);">full 3,003 · partial 147 · no 675</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>Delivered</strong></td><td style="padding:var(--space-3);">Goods received?</td><td style="padding:var(--space-3);">complete 3,439 · partial 77 · no 309</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>Invoiced</strong></td><td style="padding:var(--space-3);">Invoice received and linked?</td><td style="padding:var(--space-3);">complete 3,319 · partial 144 · no 362</td></tr>
+          <tr><td style="padding:var(--space-3);"><strong>Paid</strong></td><td style="padding:var(--space-3);">Settled?</td><td style="padding:var(--space-3);">complete 3,003 · partial 147 · no 675</td></tr>
         </tbody>
       </table>
       </div>
-      <p>At a glance on an order: <em>delivered? invoiced? paid?</em> The chain becomes readable again — which was impossible with invoices detached from their order.</p>
+      <p>One glance at an order: <em>delivered? invoiced? paid?</em> The chain becomes readable again — which was impossible with invoices detached from their order.</p>
 
       <aside class="callout">
         <p class="kicker">Why the <em>paid</em> status is vital here</p>
-        <p style="margin-top:var(--space-3);">Cobra carries almost <strong>no supplier payables</strong>: most suppliers are paid on receipt or on short terms. So knowing at any moment what's <strong>invoiced</strong> and <strong>paid</strong>, order by order, isn't accounting comfort — it's <strong>cash-flow management</strong>. An invoice detached from its order is a payment you risk forgetting… or paying twice. That's exactly what these statuses, and their automatic tracking, make impossible.</p>
+        <p style="margin-top:var(--space-3);">Cobra has almost <strong>no outstanding supplier credit</strong>: most suppliers are paid on receipt or on short terms. Knowing at any moment what is <strong>invoiced</strong> and <strong>paid</strong>, order by order, is therefore not accounting comfort — it's <strong>cash-flow steering</strong>. An invoice detached from its order is a payment you risk forgetting… or paying twice. That's exactly what these statuses, and their automatic tracking, make impossible.</p>
       </aside>
 
       <figure class="figure" style="margin-block:var(--space-8);">
-        <img src="/knowledge-hub/assets/agent-factures-odoo-cockpit.webp" alt="Odoo list view of confirmed supplier purchase orders: aggregate tiles Pending, Drop, Cobra, Lead-time with Unpaid / Paid counters, and Delivered / Invoiced / Paid columns per order" loading="lazy" decoding="async" width="1600" height="875" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
-        <figcaption class="caption">The purchasing control tower in Odoo: each order shows its delivered / invoiced / paid state, and the tiles aggregate unpaid amounts in real time. With no supplier payables, this is the view that drives cash flow.</figcaption>
+        <img src="/knowledge-hub/assets/agent-factures-odoo-cockpit.webp" alt="Odoo list view of confirmed supplier purchase orders: aggregate tiles Pending, Drop, Cobra, Lead time with Unpaid / Paid counters, and Delivered / Invoiced / Paid columns per order" loading="lazy" decoding="async" width="1600" height="875" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+        <figcaption class="caption">The purchasing control tower in Odoo: each order shows its delivered / invoiced / paid state, and the tiles aggregate unpaid invoices in real time. With no supplier credit, this is the view that steers cash flow.</figcaption>
       </figure>
 
       <figure class="figure" style="margin-block:var(--space-8);">
-        <img src="/knowledge-hub/assets/agent-factures-odoo-po-statuts.webp" alt="Detail of an Odoo purchase order (P06116) showing the three statuses Delivered, Invoiced, and Paid" loading="lazy" decoding="async" width="1600" height="878" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+        <img src="/knowledge-hub/assets/agent-factures-odoo-po-statuts.webp" alt="Detail of an Odoo purchase order (P06116) showing the three statuses Delivered, Invoiced and Paid" loading="lazy" decoding="async" width="1600" height="878" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
         <figcaption class="caption">The detail of an order, augmented with the 3 statuses that make the chain readable end to end.</figcaption>
       </figure>
 
       <h2 id="agent">3. What the agent does (and why it can't drift)</h2>
-      <p>The agent doesn't "help" you enter data better. It <strong>replaces</strong> data entry with a workflow it's incapable of not following. An invoice's journey, end to end:</p>
+      <p>The agent doesn't “help” you enter data better. It <strong>replaces</strong> data entry with a workflow it is incapable of not following. The journey of an invoice, end to end:</p>
       <ol>
-        <li><strong>Invoice collection (two sources).</strong> Every 15 minutes, the agent picks up invoices wherever they land: PDFs already <strong>attached to orders in Odoo</strong> (source A), and above all the <strong>mailboxes</strong> where suppliers converge — including a catch-all — via the <strong>Microsoft Graph API</strong> (sources B/C). It spots the attachments and email bodies that are invoices, and deduplicates (SHA-256 + message ID).</li>
-        <li><strong>Extraction.</strong> Depending on the supplier, each invoice is read either by a <strong>dedicated parser</strong> (known, structured formats, highly reliable) or — the general case — by <strong>OCR + Claude API</strong> (Opus 4.8 model). Either way, the output is a clean structure with a confidence score: supplier, number, date, lines, amounts, VAT, WEEE, shipping.</li>
-        <li><strong>Line-by-line matching.</strong> Each line is matched to the exact order line (identification hierarchy: supplier code → EAN → name → price), handling the silent traps (pair/unit quantities, WEEE and shipping bundled in or as a separate line).</li>
-        <li><strong>Blocking checks.</strong> Duplicate? Price gap &gt; 5%? Order not found? → the invoice doesn't go to draft: it's parked for human handling (the "intervention" channel, or "to sort" if there's no readable order reference in the document).</li>
-        <li><strong>Human approval in Teams.</strong> A card (Adaptive Card) summarizes the invoice and offers the actions in one click. The human never touches the Odoo interface again, except for the weekly SEPA batch.</li>
+        <li><strong>Invoice collection (two sources).</strong> Every 15 minutes, the agent picks up invoices where they arrive: the PDFs already <strong>attached to orders in Odoo</strong> (source A), and above all the <strong>mailboxes</strong> where suppliers converge — including a catch-all — through the <strong>Microsoft Graph API</strong> (sources B/C). It spots the attachments and email bodies that are invoices, and deduplicates (SHA-256 + message ID).</li>
+        <li><strong>Extraction.</strong> Depending on the supplier, each invoice is read either by a <strong>dedicated parser</strong> (known, structured formats, highly reliable), or — the general case — by <strong>OCR + the Claude API</strong> (Opus 4.8 model). In both cases, the output is a clean structure, with a confidence score: supplier, number, date, lines, amounts, VAT, WEEE eco-fee, shipping.</li>
+        <li><strong>Line-by-line matching.</strong> Each line is matched to the exact order line (identification hierarchy: supplier code → EAN → name → price), handling the silent traps (pair/unit quantities, WEEE fee and shipping bundled in or on a separate line).</li>
+        <li><strong>Blocking checks.</strong> Duplicate? Price gap &gt; 5%? Order not found? → the invoice doesn't go to draft: it's parked for human follow-up (the “intervention” channel, or “to sort” if there's no readable order reference in the document).</li>
+        <li><strong>Human validation in Teams.</strong> A card (Adaptive Card) summarizes the invoice and offers one-click actions. The human never touches the Odoo interface again, except for the weekly SEPA batch.</li>
       </ol>
       <p>The four guardrails that make drift <strong>structurally impossible</strong>:</p>
       <ul>
-        <li><strong>Linking guaranteed by design.</strong> Every invoice line created points to the exact order line (<code>purchase_line_id</code>) and fills in the source automatically. The agent <em>can't</em> create a "free" invoice. <strong>100% of what it creates is linked to its order</strong> — versus the 28% detached in the human history.</li>
-        <li><strong>Duplicate prevention.</strong> It refuses to create if the supplier reference already exists, or if the order line is already invoiced.</li>
-        <li><strong>Price consistency.</strong> Invoice vs order gap &gt; 5% → block and request a corrected invoice from the supplier, before any write.</li>
-        <li><strong>Consistency.</strong> The same rules, every 15 minutes, on every invoice, indefinitely. Code doesn't get tired, never skips the tedious step.</li>
+        <li><strong>Attachment guaranteed by construction.</strong> Each invoice line created points to the exact order line (<code>purchase_line_id</code>) and fills in the origin automatically. The agent <em>doesn't know how</em> to create a “free” invoice. <strong>100% of what it creates is linked to its order</strong> — versus the 28% detached in the human-entered history.</li>
+        <li><strong>Anti-duplicate.</strong> It refuses to create if the supplier reference already exists, or if the order line is already invoiced.</li>
+        <li><strong>Price consistency.</strong> Invoice vs. order gap &gt; 5% → block and request a corrected invoice from the supplier, before any write.</li>
+        <li><strong>Constancy.</strong> The same rules, every 15 minutes, on every invoice, indefinitely. Code doesn't get tired, never skips the tedious step.</li>
       </ul>
 
       <h3>The price-gap check, in code</h3>
-      <p>The "price consistency" guardrail isn't wishful thinking: it's a coded rule that blocks <strong>before</strong> any write to Odoo. Beyond a 5% gap between the invoiced price and the price negotiated on the order, the agent creates <em>nothing</em> — the invoice is parked and flagged.</p>
-      <pre class="codeblock" aria-label="Python function controle_ecart_prix: compares the invoiced unit price to the order price and blocks beyond a 5% gap">TOLERANCE_PRIX = 0.05   # 5%: beyond this, we create NOTHING, the invoice goes to intervention
+      <p>The “price consistency” guardrail isn't wishful thinking: it's a coded rule, which blocks <strong>before</strong> any write to Odoo. Beyond a 5% gap between the invoiced price and the price negotiated on the order, the agent creates <em>nothing</em> — the invoice is parked and flagged.</p>
+      <pre class="codeblock" aria-label="Python function controle_ecart_prix: compares the invoiced unit price to the order price and blocks beyond a 5% gap">TOLERANCE_PRIX = 0.05   # 5%: beyond that, we create NOTHING, the invoice goes to intervention
 
 
 def controle_ecart_prix(ligne_facture, ligne_commande):
-    """Compare the invoiced unit price to the price negotiated on the order (PO).
-
-    ≤ 5%  : minor gap (shipping absorbed, rounding) → the invoice follows the normal flow.
+    """Compare the invoiced unit price to the price negotiated on the purchase order (PO).
+    ≤ 5%  : minor gap (bundled shipping, rounding) → the invoice follows the normal flow.
     &gt; 5%  : blocking → no draft is created, the invoice is parked and flagged.
              The human then requests a corrected invoice from the supplier.
     """
     prix_po = ligne_commande.prix_unitaire_ht
-    if not prix_po:                  # line with no order reference: not checkable here
+    if not prix_po:                  # line without an order reference: can't be checked here
         return Verdict(statut="non_controle")
 
     ecart = (ligne_facture.prix_unitaire_ht - prix_po) / prix_po
@@ -242,19 +243,19 @@ def controle_ecart_prix(ligne_facture, ligne_commande):
             f"beyond the {TOLERANCE_PRIX:.0%} tolerance"
         ),
     )</pre>
-      <p>A <code>bloquant</code> verdict goes up to the decision engine, which refuses to create the draft and routes the invoice to the "intervention" channel with its reason. That's anti-drift in one function: no human judgment on every invoice, a rule that applies on its own, always.</p>
+      <p>A <code>bloquant</code> (blocking) verdict goes up to the decision engine, which refuses to create the draft and routes the invoice to the “intervention” channel with its reason. That's anti-drift in one function: no human judgment call on every invoice, a rule that applies on its own, always.</p>
 
       <figure class="figure" style="margin-block:var(--space-8);">
-        <img src="/knowledge-hub/assets/agent-factures-teams-validation.webp" alt="Adaptive Card in Microsoft Teams: supplier invoice extracted and matched to its order, with the Approve, Create payment, Reject and View in Odoo buttons, and the To approve / To pay / Paid channels on the left" loading="lazy" decoding="async" width="1600" height="1301" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
-        <figcaption class="caption">An invoice extracted and matched to its order (here PO P06152, extraction confidence 95%), ready to handle from Teams: <em>Approve</em>, <em>Create payment</em>, <em>Reject</em> or <em>View in Odoo</em> — one click = Odoo write. On the left, the 3 channels To approve / To pay / Paid that track the payment state. Zero accounting interface.</figcaption>
+        <img src="/knowledge-hub/assets/agent-factures-teams-validation.webp" alt="Adaptive Card in Microsoft Teams: supplier invoice extracted and matched to its order, with the Validate, Create payment, Reject and View in Odoo buttons, and the To validate / To pay / Paid channels on the left" loading="lazy" decoding="async" width="1600" height="1301" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
+        <figcaption class="caption">An invoice extracted and matched to its order (here PO P06152, extraction confidence 95%), ready to process from Teams: <em>Validate</em>, <em>Create payment</em>, <em>Reject</em> or <em>View in Odoo</em> — one click = an Odoo write. On the left, the 3 channels To validate / To pay / Paid that track the payment state. Zero accounting interface.</figcaption>
       </figure>
 
       <h2 id="archi">4. The production architecture on Scaleway</h2>
-      <p>The thing that changes everything compared to the design phase: the agent <strong>exists outside my computer</strong>. It runs on a <strong>Scaleway instance</strong> (<code>BASIC3-X2C-4G</code> VM: 2 vCPUs, 4 GB RAM, Paris region), for <strong>~€36/month</strong>. French hosting — that matters for accounting data.</p>
+      <p>The point that changes everything compared to the design phase: the agent <strong>exists outside my computer</strong>. It runs on a <strong>Scaleway instance</strong> (<code>BASIC3-X2C-4G</code> VM: 2 vCPU, 4 GB RAM, Paris region), for <strong>~€36/month</strong>. French hosting — that matters for accounting data.</p>
       <ul>
-        <li><strong>The batch:</strong> a <code>cron</code> every 15 minutes runs the agent's loop (read email → extraction → matching → Teams cards).</li>
-        <li><strong>The endpoint:</strong> a small Flask server, meanwhile, runs continuously (systemd service) to receive clicks on the Teams card buttons and write back to Odoo. It's reachable via a <strong>dedicated subdomain</strong> (<code>agent-factures.cobra.fr</code>, DNS at Gandi) rather than a bare IP, with an HMAC signature on every incoming request.</li>
-        <li><strong>Reading email:</strong> via <strong>Microsoft Graph</strong> (Microsoft 365 API, application flow), no IMAP. Reading email directly at the source is what makes the agent autonomous: no human intervention to "forward it" an invoice.</li>
+        <li><strong>The batch:</strong> a <code>cron</code> every 15 minutes launches the agent loop (read emails → extraction → matching → Teams cards).</li>
+        <li><strong>The endpoint:</strong> a small Flask server, for its part, runs permanently (systemd service) to receive the clicks on the Teams card buttons and write back to Odoo. It's reachable through a <strong>dedicated subdomain</strong> (<code>agent-factures.cobra.fr</code>, DNS at Gandi) rather than a bare IP, with an HMAC signature on every incoming request.</li>
+        <li><strong>Reading emails:</strong> through <strong>Microsoft Graph</strong> (Microsoft 365 API, application flow), no IMAP. Reading emails directly at the source is what makes the agent autonomous: no human intervention to “forward it” an invoice.</li>
         <li><strong>Odoo:</strong> Odoo 18 Enterprise, XML-RPC access + API key.</li>
       </ul>
       <div style="overflow-x:auto;margin-block:var(--space-6);">
@@ -264,102 +265,102 @@ def controle_ecart_prix(ligne_facture, ligne_commande):
           <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Extraction</td><td style="padding:var(--space-3);">Claude API (Opus 4.8) · <code>pdfplumber</code> · Tesseract OCR (fr/en) · Poppler</td></tr>
           <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Logic</td><td style="padding:var(--space-3);">Python 3.14 · <code>pydantic</code> (strict schema)</td></tr>
           <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Teams endpoint</td><td style="padding:var(--space-3);">Flask · HMAC signature · Adaptive Cards v1.5 via Power Automate</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Email</td><td style="padding:var(--space-3);">Microsoft Graph (application flow)</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);">Emails</td><td style="padding:var(--space-3);">Microsoft Graph (application flow)</td></tr>
           <tr><td style="padding:var(--space-3);">Hosting</td><td style="padding:var(--space-3);">Scaleway instance (Paris) · cron + systemd</td></tr>
         </tbody>
       </table>
       </div>
 
       <figure class="figure" style="margin-block:var(--space-8);">
-        <img src="/knowledge-hub/assets/agent-factures-fetch-mail-code.webp" alt="Claude Code editor showing the agent's fetch_mail.py file: docstring describing invoice collection by email via Microsoft Graph in application flow (headless), anti-noise filters, SHA-256 deduplication, then the imports and config loading" loading="lazy" decoding="async" width="1414" height="1750" style="width:100%;height:auto;max-width:760px;border:1px solid var(--border);border-radius:var(--radius);">
-        <figcaption class="caption">The email invoice collection module (<code>fetch_mail.py</code>), written with Claude Code: Microsoft Graph application flow, anti-noise filters, SHA-256 deduplication, PDF drop-off. <em>Build in public</em> right down to the code.</figcaption>
+        <img src="/knowledge-hub/assets/agent-factures-fetch-mail-code.webp" alt="Claude Code editor showing the agent's fetch_mail.py file: docstring describing invoice collection by email through Microsoft Graph in application (headless) flow, anti-noise filters, SHA-256 deduplication, then the imports and config loading" loading="lazy" decoding="async" width="1414" height="1750" style="width:100%;height:auto;max-width:760px;border:1px solid var(--border);border-radius:var(--radius);">
+        <figcaption class="caption">The email invoice-collection module (<code>fetch_mail.py</code>), written with Claude Code: Microsoft Graph application flow, anti-noise filters, SHA-256 deduplication, PDF drop-off. <em>Build in public</em> all the way down to the code.</figcaption>
       </figure>
 
       <figure class="figure" style="margin-block:var(--space-8);">
         <img src="/knowledge-hub/assets/agent-factures-scaleway-instance.webp" alt="Scaleway console, Instances page: the scw-cool-hodgkin instance (BASIC3-X2C-4G) running in the PAR 1 zone (Paris), Agents-IA project of the Cobra organization" loading="lazy" decoding="async" width="1600" height="699" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);">
-        <figcaption class="caption">Proof the agent lives outside my computer: the Scaleway instance running, in Paris.</figcaption>
+        <figcaption class="caption">Proof that the agent lives outside my computer: the Scaleway instance running, in Paris.</figcaption>
       </figure>
 
-      <h3>What a run actually looks like</h3>
-      <p>Here's the log of a real 15-minute cycle (37 seconds of execution). Nine invoices queued, and above all: <strong>every possible outcome shows up</strong> — approval, already-booked duplicate, price gap that blocks, order not found, non-invoiceable document rejected. The agent is the one sorting, applying the same rules to every line.</p>
-      <pre class="codeblock" aria-label="Log of a 15-minute agent cycle: 9 invoices processed, 3 approved, 1 already processed, 3 in intervention, 1 to sort, 1 rejected">$ python agent_loop.py --write
+      <h3>What a run looks like, for real</h3>
+      <p>Here's the log of a real 15-minute cycle (37 seconds of execution). Nine invoices in the queue, and above all: <strong>every possible outcome shows up</strong> — validation, duplicate already booked, price gap that blocks, order not found, non-invoiceable document rejected. The agent does the sorting, applying the same rules to every line.</p>
+      <pre class="codeblock" aria-label="Log of a 15-minute agent cycle: 9 invoices processed, 3 validated, 1 already processed, 3 in intervention, 1 to sort, 1 rejected">$ python agent_loop.py --write
 
 2026-06-17 08:15:00 [INFO] agent_loop  — ═══ Loop run 2026-06-17T08:15:00Z (write=True) ═══
-2026-06-17 08:15:03 [INFO] fetch_po    — [A] Odoo PO: 261 POs scanned · 4 candidate attachments · 2 collected · 2 dedup
+2026-06-17 08:15:03 [INFO] fetch_po    — [A] Odoo POs: 261 POs scanned · 4 candidate attachments · 2 collected · 2 dedup
 2026-06-17 08:15:10 [INFO] fetch_mail  — [B/C] Graph: 3 mailboxes (***@cobra.fr) → 87 messages · 31 PDF attachments
 2026-06-17 08:15:10 [INFO] fetch_mail  —        → 7 collected · 22 dedup · 2 ignored (delivery note / payment reminder)
 2026-06-17 08:15:10 [INFO] agent_loop  — 9 new invoices in the processing queue
 
-2026-06-17 08:15:13 [INFO] extract     — [1/9] FA-2026-04417 · Supplier-A → LLM ok (confidence 0.94 · 3 lines · net 1,642.80 €)
-2026-06-17 08:15:14 [INFO] orchestr.   — [1/9] PO P06143 found · 3/3 lines matched · max price gap +1.2% → ✅ APPROVE
-2026-06-17 08:15:14 [INFO] orchestr.   —        draft 150148 created · PDF attached · card → "To approve" channel
+2026-06-17 08:15:13 [INFO] extract     — [1/9] FA-2026-04417 · Supplier-A → LLM ok (confidence 0.94 · 3 lines · excl. VAT 1,642.80 €)
+2026-06-17 08:15:14 [INFO] orchestr.   — [1/9] PO P06143 found · 3/3 lines matched · max price gap +1.2% → ✅ VALIDATE
+2026-06-17 08:15:14 [INFO] orchestr.   —        draft 150148 created · PDF attached · card → “To validate” channel
 2026-06-17 08:15:17 [INFO] extract     — [2/9] 26060940 · Supplier-B → regex parser (confidence 0.99 · 1 line + WEEE 0.75 €)
-2026-06-17 08:15:18 [INFO] orchestr.   — [2/9] PO P06122 · invoice already booked (ref exists) → 🟣 ALREADY PROCESSED → mirror card "To pay"
+2026-06-17 08:15:18 [INFO] orchestr.   — [2/9] PO P06122 · invoice already booked (existing ref) → 🟣 ALREADY PROCESSED → mirror card “To pay”
 2026-06-17 08:15:21 [WARN] orchestr.   — [3/9] PROF-5582 · Supplier-C · PO P06097 · line 2: 214.00 € vs 180.00 € (+18.9%) &gt; 5%
-2026-06-17 08:15:21 [WARN] orchestr.   —        → 🟠 INTERVENTION (ecart_prix) · no draft created · card → "To approve"
+2026-06-17 08:15:21 [WARN] orchestr.   —        → 🟠 INTERVENTION (ecart_prix) · no draft created · card → “To validate”
 2026-06-17 08:15:24 [INFO] extract     — [4/9] F007241 · Supplier-D → LLM ok (confidence 0.91 · 6 lines · shipping 12.00 €)
 2026-06-17 08:15:25 [WARN] orchestr.   — [4/9] no PO ref in the document (email source) → ⏸️ TO SORT · parked · no card
 2026-06-17 08:15:27 [INFO] extract     — [5/9] AVR-1180 · Supplier-E → LLM ok (confidence 0.86)
 2026-06-17 08:15:28 [WARN] orchestr.   — [5/9] PO P05904 · line already fully invoiced (qty_invoiced ≥ qty) → 🟠 INTERVENTION (doublon)
 2026-06-17 08:15:30 [INFO] extract     — [6/9] FC-77310 · Supplier-F → LLM ok (confidence 0.92 · 2 lines)
-2026-06-17 08:15:31 [WARN] orchestr.   — [6/9] PO ref "P06210" not found in Odoo → 🟠 INTERVENTION (commande_introuvable)
-2026-06-17 08:15:33 [INFO] orchestr.   — [7/9] FA-2026-04420 · Supplier-A · PO P06151 · 2/2 matched · +0.4% → ✅ APPROVE → draft 150149
-2026-06-17 08:15:35 [INFO] orchestr.   — [8/9] 26061002 · Supplier-B · PO P06160 · 1/1 matched · 0.0% → ✅ APPROVE → draft 150150
+2026-06-17 08:15:31 [WARN] orchestr.   — [6/9] PO ref “P06210” not found in Odoo → 🟠 INTERVENTION (commande_introuvable)
+2026-06-17 08:15:33 [INFO] orchestr.   — [7/9] FA-2026-04420 · Supplier-A · PO P06151 · 2/2 matched · +0.4% → ✅ VALIDATE → draft 150149
+2026-06-17 08:15:35 [INFO] orchestr.   — [8/9] 26061002 · Supplier-B · PO P06160 · 1/1 matched · 0.0% → ✅ VALIDATE → draft 150150
 2026-06-17 08:15:36 [INFO] orchestr.   — [9/9] BL-99317 → non-invoiceable document (delivery note) → rejected
 
 2026-06-17 08:15:37 [INFO] agent_loop  — [PIPELINE] {'total': 9, 'valider': 3, 'deja_traite': 1, 'intervention': 3, 'a_trier': 1, 'rejete': 1, 'erreur': 0}
 2026-06-17 08:15:37 [INFO] agent_loop  — ═══ Run finished in 37s — 3 drafts created, 3 intervention cards ═══</pre>
-      <p>Of these 9 invoices: <strong>3 approved</strong> and moved to an Odoo draft linked to their order, <strong>1 already booked</strong> (payment mirror card), <strong>3 parked for intervention</strong> (price gap, duplicate, order not found), <strong>1 to sort</strong> (no order reference) and <strong>1 rejected</strong> (delivery note, not an invoice). None slipped off-chain — which is precisely what human data entry didn't guarantee.</p>
-      <p>A note on the channels: "<strong>To approve</strong>" is the <strong>human action queue</strong> — it gathers both the clean drafts ready to approve in one click <em>and</em> the parked cases to handle (price gap, duplicate…). The "<strong>To pay</strong>" and "<strong>Paid</strong>" channels, meanwhile, track the payment state on the Odoo side.</p>
+      <p>Out of these 9 invoices: <strong>3 validated</strong> and moved to an Odoo draft linked to their order, <strong>1 already booked</strong> (payment mirror card), <strong>3 parked in intervention</strong> (price gap, duplicate, order not found), <strong>1 to sort</strong> (no order reference) and <strong>1 rejected</strong> (delivery note, not an invoice). None slipped off-chain — which is precisely what human entry didn't guarantee.</p>
+      <p>A note on the channels: “<strong>To validate</strong>” is the <strong>human action queue</strong> — it groups both the clean drafts ready to validate in one click <em>and</em> the parked cases to handle (price gap, duplicate…). The “<strong>To pay</strong>” and “<strong>Paid</strong>” channels, for their part, track the payment state on the Odoo side.</p>
 
       <h2 id="chiffres">5. The numbers: volume, time, ROI</h2>
       <p><strong>Measured volume:</strong> ~349 supplier invoices/month, i.e. <strong>~80/week</strong>.</p>
-      <p>Human time per invoice (import, line-by-line check, reconciliation) is on the order of <strong>7 to 12 minutes</strong> with manual entry. Taking a median of 9 minutes across 80 invoices/week:</p>
+      <p>The human time per invoice (import, line-by-line check, reconciliation) is in the range of <strong>7 to 12 minutes</strong> with manual entry. Taking a median of 9 minutes over 80 invoices/week:</p>
       <div style="overflow-x:auto;margin-block:var(--space-6);">
       <table style="width:100%;border-collapse:collapse;font-size:.9375rem;">
         <thead><tr style="text-align:left;border-bottom:2px solid var(--border);"><th style="padding:var(--space-3);"></th><th style="padding:var(--space-3);">Human time / week</th></tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>Before the agent</strong> (entry + checking + reconciliation)</td><td style="padding:var(--space-3);">~12 hrs <span class="caption">(≈ 0.35 FTE)</span></td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>With the agent</strong> (approving Teams cards + intervention cases)</td><td style="padding:var(--space-3);">~2 to 2.5 hrs</td></tr>
-          <tr><td style="padding:var(--space-3);"><strong>Net time saved</strong></td><td style="padding:var(--space-3);"><strong>~9 to 10 hrs / week</strong></td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>Before the agent</strong> (entry + check + reconciliation)</td><td style="padding:var(--space-3);">~12 h <span class="caption">(≈ 0.35 FTE)</span></td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:var(--space-3);"><strong>With the agent</strong> (validating the Teams cards + intervention cases)</td><td style="padding:var(--space-3);">~2 to 2.5 h</td></tr>
+          <tr><td style="padding:var(--space-3);"><strong>Net time saved</strong></td><td style="padding:var(--space-3);"><strong>~9 to 10 h / week</strong></td></tr>
         </tbody>
       </table>
       </div>
       <aside class="callout">
         <p class="kicker">Honesty: measured volume, estimated minutes</p>
-        <p style="margin-top:var(--space-3);">The volume (80/wk) is <strong>measured in Odoo</strong>. The minutes per invoice are a <strong>market range</strong> for manual accounts-payable entry — not a stopwatch measurement. To be adjusted with our real times. On the cost side: this role took up <strong>a full-time position</strong> in accounts payable, of which only about ten hours were actually productive for lack of mastery of the tool; on top of that came "extra" time taken from other people and an outside accounting firm. At ~€3k/month fully loaded for an equivalent role (market estimate), the agent pays back its hosting (~€36/month) several dozen times over.</p>
+        <p style="margin-top:var(--space-3);">The volume (80/week) is <strong>measured in Odoo</strong>. The minutes per invoice are a <strong>market range</strong> for manual accounts-payable entry — not a stopwatch measurement. To be adjusted with our real times. On the cost side: this task occupied <strong>a full-time position</strong> in accounts payable, of which only about ten hours were actually productive for lack of mastery of the tool; on top of that came “extra” time taken from other people and an external accounting firm. At ~€3k/month fully loaded for an equivalent position (market estimate), the agent pays back its hosting (~€36/month) several dozen times over.</p>
       </aside>
 
       <h2 id="limites">6. What the agent does NOT do</h2>
-      <p>To stay credible, you have to be clear about the scope. The agent guarantees the invoice → order link and price consistency. It does <strong>not do</strong>:</p>
+      <p>To stay credible, the scope has to be clear. The agent guarantees the invoice → order attachment and price consistency. It <strong>does not</strong> do:</p>
       <ul>
-        <li><strong>Reconciliation / bank matching.</strong> Payment and the SEPA batch stay a human and banking step. What the agent brings on the payment side is <strong>visibility, not execution</strong>: three Teams sub-channels (To approve / To pay / Paid) mirror the Odoo payment state. But by delivering invoices that are <strong>clean and linked to their order</strong>, it makes downstream reconciliation trivial and reliable — where a detached invoice makes it manual and fragile.</li>
-        <li><strong>"In-place" updates of the Teams cards.</strong> On each state change, the agent posts a <strong>new mirror card</strong> in the right channel — it doesn't modify the existing card (a Power Automate webhook limitation). A true <em>live-update</em> via a Teams bot is identified as the next step, not done yet.</li>
-        <li><strong>Cleaning up the past.</strong> The ~1,500 detached invoices and the 241 lingering unpaid ones remain a cleanup project. The agent doesn't fix the history — <strong>it guarantees the future stays clean.</strong></li>
+        <li><strong>Reconciliation / bank matching.</strong> Payment and the SEPA batch remain a human and banking step. What the agent brings on the payment side is <strong>visibility, not execution</strong>: three Teams sub-channels (To validate / To pay / Paid) reflect the Odoo payment state. But by delivering invoices that are <strong>clean and linked to their order</strong>, it makes downstream reconciliation trivial and reliable — where a detached invoice makes it manual and fragile.</li>
+        <li><strong>Updating Teams cards “in place.”</strong> At every state change, the agent posts a <strong>new mirror card</strong> in the right channel — it doesn't modify the existing card (a limitation of Power Automate webhooks). A true <em>live update</em> through a Teams bot is identified as the next step, not done yet.</li>
+        <li><strong>Cleaning up the past.</strong> The ~1,500 detached invoices and the 241 lingering unpaid ones remain a regularization project. The agent doesn't repair the history — <strong>it guarantees the future no longer gets dirty.</strong></li>
       </ul>
       <aside class="callout">
-        <p class="kicker">A point to harden (said honestly)</p>
-        <p style="margin-top:var(--space-3);">Secrets (API keys, Odoo access) currently live in a protected <code>.env</code> file on the instance, not in a dedicated secrets manager. It works, it's acceptable for a single-operator start — but it's the first hardening on the list.</p>
+        <p class="kicker">Point to harden (said honestly)</p>
+        <p style="margin-top:var(--space-3);">The secrets (API keys, Odoo access) currently live in a protected <code>.env</code> file on the instance, not in a dedicated secrets manager. It works, it's acceptable for a single-operator start — but it's the first hardening item on the list.</p>
       </aside>
 
       <h2 id="illustre">7. What this illustrates</h2>
-      <p>The lesson isn't "AI processes invoices." It's: <strong>when a business process drifts because it depends on human discipline, the right move isn't to add more training or oversight — it's to code the rule</strong> so it applies on its own, always, without exception.</p>
-      <p>The agent isn't "faster than an accountant." It's <strong>incapable of drifting</strong>. That's a different property, and it's the one that durably fixes an accounting chain, where no amount of human effort could.</p>
+      <p>The lesson isn't “AI processes invoices.” It's: <strong>when a business process drifts because it depends on human discipline, the right reflex isn't more training or more control — it's coding the rule</strong> so it applies on its own, always, without exception.</p>
+      <p>The agent isn't “faster than an accountant.” It is <strong>incapable of drifting</strong>. That's a different property, and it's the one that durably repairs an accounting chain, where no amount of human effort managed to.</p>
 
-      <h2 id="suite">What's next</h2>
+      <h2 id="suite">Coming up / what's next</h2>
       <ul>
-        <li><strong>Live-update of the Teams cards</strong> (Teams bot rather than webhook) for a card that updates in place.</li>
-        <li><strong>Secrets management</strong> via a dedicated vault.</li>
-        <li><strong>Cleanup project</strong> for the history (detached invoices, lingering unpaid ones) — partly automatable once the incoming flow is under control.</li>
-        <li><strong>Real measurement</strong> of before/after times to replace the market range with our own figures.</li>
+        <li><strong>Live update of Teams cards</strong> (Teams bot rather than webhook) for a card that updates in place.</li>
+        <li><strong>Secrets management</strong> through a dedicated vault.</li>
+        <li><strong>Regularization project</strong> for the history (detached invoices, lingering unpaid) — semi-automatable once the incoming flow is under control.</li>
+        <li><strong>Real measurement</strong> of before/after times to replace the market range with our own numbers.</li>
       </ul>
 
       <aside class="callout" style="margin-top:var(--space-12);">
         <h3>See also</h3>
         <ul style="margin-top:var(--space-3);">
-          <li><a href="../journal/agent-factures-architecture.html">The agent's design: architecture, business rules, edge cases</a></li>
-          <li><a href="etude-de-cas-veille-ia.html">Case study — AI Watch bot: from idea to production</a></li>
-          <li><a href="cest-quoi-un-agent-ia.html">What is an "AI agent"?</a></li>
+          <li><a href="../journal/agent-factures-architecture.html">Designing the agent: architecture, business rules, edge cases</a></li>
+          <li><a href="etude-de-cas-veille-ia.html">Case study — AI-watch bot: from idea to production</a></li>
+          <li><a href="cest-quoi-un-agent-ia.html">What is an “AI agent”?</a></li>
         </ul>
       </aside>
 
@@ -367,7 +368,14 @@ def controle_ecart_prix(ligne_facture, ligne_commande):
 
     <div class="btn-row" style="margin-top:var(--space-12);">
       <a class="btn btn--ghost" href="./">← All guides</a>
-      <a class="btn btn--primary" href="../#contact">Let's talk about it →</a>
+      <a class="btn btn--primary" href="../#contact">Let's discuss →</a>
+
+      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
+        <p class="kicker" style="color:var(--c-gold);">Update · September 1, 2026</p>
+        <h3 style="margin-top:var(--space-2);">The same pattern, applied to price lists and prices</h3>
+                <p style="margin-top:var(--space-3);">This agent's pattern — extraction, matching against reference data, human validation before writing — has become the norm at Cobra: an <a href="../journal/app-tarifs-fournisseurs-maj-produits.html">app reads supplier price lists</a> and prepares product creation without publishing anything on its own; a <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">pricing engine</a> proposes then applies, family by family, on human decision. The shared guardrails are detailed in <a href="lia-propose-lhumain-valide.html">AI proposes, humans validate</a>.</p>
+      </aside>
+
     </div>
   </div>
 </article>
@@ -379,12 +387,12 @@ def controle_ecart_prix(ligne_facture, ligne_commande):
   "@type": "ItemList",
   "name": "Main navigation — Knowledge Hub",
   "itemListElement": [
-    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
-    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
-    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
-    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexicon", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
-    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
-    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/en/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/en/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/en/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/en/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/en/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/en/journal/"}
   ]
 }
 </script>
@@ -395,8 +403,8 @@ def controle_ecart_prix(ligne_facture, ligne_commande):
       <div style="max-width:300px;">
         <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
         <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
-        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependency</p>
-        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private space">🔒</a></p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependencies</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/en/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private area">🔒</a></p>
       </div>
 
       <nav aria-label="Footer links">

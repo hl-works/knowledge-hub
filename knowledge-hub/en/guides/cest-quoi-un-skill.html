@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>What is a "skill" (and a hook, a subagent, a plugin)? — Guides · Hugo Lahutte</title>
+<meta name="description" content="A skill is a procedure written in a folder (a SKILL.md file, sometimes scripts) that Claude loads on its own when your request matches; a hook is an automatic, deterministic script; a subagent is a delegated Claude with its own context; a plugin is the package that installs it all. What each one does, my three everyday skills, and how to choose between an instruction, a skill, a hook and a connector.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-un-skill.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-skill.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-un-skill.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-skill.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is a &quot;skill&quot; (and a hook, a subagent, a plugin)?">
+<meta property="og:description" content="A procedure in a folder, loaded when it's needed. Skill, hook, subagent, plugin: what each one does, and which to pick.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-un-skill.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-09-01">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+
+<!-- ===== JSON-LD (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "What is a \"skill\" (and a hook, a subagent, a plugin)?",
+      "description": "Skill: a procedure packaged in a folder with a SKILL.md, loaded on demand, portable between tools. Hook: a deterministic script triggered at a specific moment. Subagent: a delegated Claude with its own context, running in the background. Plugin: the versioned package of all of it. How to choose between a CLAUDE.md rule, a skill, a hook and an MCP connector.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-01",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-skill.html",
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "skill",
+        "hook",
+        "subagent",
+        "plugin",
+        "Claude Code",
+        "Claude Cowork",
+        "workflow"
+      ],
+      "keywords": "skill, SKILL.md, hook, subagent, sub-agent, plugin, workflow, Claude Code, Cowork"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is a skill?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-skill.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a skill for Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A skill is a folder containing a SKILL.md file — a name, a description that says when it applies, then the procedure in plain text with its rules, examples and guardrails — and sometimes scripts. Claude loads it on demand, when your request matches the description. It's packaged know-how, portable from one tool to another."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between a skill and a hook?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A skill is a procedure Claude reads and applies with judgment. A hook is a script that fires automatically at a specific moment (before a command, after a file change) and runs deterministically: it checks, blocks or logs, without thinking. A rule gets read; a hook gets executed. Hooks run in Claude Code, not in a Chat conversation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a subagent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Claude that the main agent hands a subtask to, with its own context and its own instructions. It works in the background and returns a result. Three uses: parallelizing, isolating a heavy read so it doesn't clutter the main conversation, specializing (adversarial reviewer, verifier). Workflows orchestrate several subagents deterministically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you create a skill without knowing how to code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A skill is text first: the procedure you explain most often, written in ten lines with a filled-in example. Claude Cowork installs skills from a marketplace and, since summer 2026, lets you teach Claude a skill by recording your screen while narrating."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/guides/cest-quoi-un-skill.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › What is a skill?</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Getting set up</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">What is a "skill"<br>(and a hook, a subagent, a plugin)?</h1>
+    <hr class="rule--accent">
+    <p class="lead">When you're explaining the same procedure to Claude for the third time, that's a skill in disguise. A skill is a procedure written in a folder, which Claude loads on its own when the situation calls for it. Around it, three words that keep coming up: hook, subagent, plugin. Here's what each one does, and which to pick.</p>
+    <div class="meta-bar">
+      <span>By <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-09-01">September 1, 2026</time>
+      <span>·</span>
+      <span>~6 min read</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="skill" data-tagsearch="skill" href="/knowledge-hub/en/guides/">skill</a>
+      <a class="tag" data-tag="claude-code" data-tagsearch="Claude Code" href="/knowledge-hub/en/guides/">Claude Code</a>
+      <a class="tag" data-tag="agent" data-tagsearch="agent" href="/knowledge-hub/en/guides/">agent</a>
+      <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/en/guides/">vulgarisation</a>
+    </div>
+    <ul class="levels" aria-label="Reading levels">
+      <li class="level-pill"><b>1</b> In 30 seconds</li>
+      <li class="level-pill"><b>2</b> The visual body</li>
+      <li class="level-pill"><b>3</b> Going further</li>
+    </ul>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <aside class="callout callout--tldr prose" aria-label="30-second summary">
+      <p class="kicker">In 30 seconds</p>
+      <ul>
+        <li>A <strong>skill</strong> = a folder with a <code>SKILL.md</code> file (the procedure, in text) and sometimes scripts. Claude loads it on demand, when your request matches. It's packaged know-how, <strong>portable</strong> from one tool to another.</li>
+        <li>A <strong>hook</strong> = a script that fires automatically at a specific moment (before a command, after a change). Deterministic: it doesn't "think," it checks or blocks.</li>
+        <li>A <strong>subagent</strong> = a Claude delegated to a subtask, with its own context. A <strong>plugin</strong> = the package that installs skills, hooks, subagents and connectors in one go.</li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Contents">
+      <p class="kicker">Contents</p>
+      <ul>
+        <li><a href="#probleme">1. The problem: the procedure you keep re-explaining</a></li>
+        <li><a href="#skill">2. The skill: a procedure in a folder</a></li>
+        <li><a href="#hook">3. The hook: an automatic reflex</a></li>
+        <li><a href="#sous-agent">4. The subagent: delegating a subtask</a></li>
+        <li><a href="#plugin">5. The plugin: the package</a></li>
+        <li><a href="#choisir">6. Instruction, skill, hook or connector: which to choose</a></li>
+        <li><a href="#sans-terminal">7. And without a terminal?</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="probleme">1. The problem: the procedure you keep re-explaining</h2>
+      <p>Publishing an entry on this site takes about twenty steps: the page, its English twin, the journal index, the homepage teaser, the sitemap, the <code>llms.txt</code>, the search index, the counters, a consistency check. The first six times, I explained it to Claude at the start of the session. The seventh time, I realized the problem wasn't Claude: it was me keeping the procedure in my head instead of writing it down.</p>
+      <p>The <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> takes care of general rules (tone, principles, pitfalls). But a twenty-step procedure has no business there: it would weigh down every conversation, including the ones that don't need it. I needed a place for procedures, loaded <em>only when useful</em>. That's the skill.</p>
+
+      <h2 id="skill">2. The skill: a procedure in a folder</h2>
+      <p>A skill is a folder containing a <code>SKILL.md</code> file: at the top, a name and a description (that's what Claude reads to decide whether the skill applies to your request); below, the procedure in plain text, with its rules, its examples and its guardrails. Optionally, scripts or reference files alongside. Nothing else.</p>
+      <p>Three skills do the bulk of my work:</p>
+      <ul>
+        <li><strong><code>kh-post-brief</code></strong> — at the end of a session, with any AI, produce the brief for a journal entry: title, vertical, author, tags from the whitelist, status, sections (context, what was done, what was hard, stack, what it illustrates), visuals to attach, and the sanitization guardrails (no secrets, no sensitive financial figures, no internal app URLs). I paste the brief into Claude Code, which publishes the FR + EN entry and all the cross-linking.</li>
+        <li><strong><code>brain</code></strong> — read, search and update my <a href="cest-quoi-un-brain-okf.html">Brain</a>, with a strict write gate: read freely, write only on explicit instruction ("note that in my Brain"), never turn a discussion into a write.</li>
+        <li><strong><code>wiki-capture</code></strong> — the end-of-session ritual: the session entry <em>and</em> the update of the reference pages.</li>
+      </ul>
+
+      <figure class="diagram">
+        <div class="stack" role="img" aria-label="Anatomy of a skill: a name and a description, the procedure, the guardrails, optional scripts.">
+          <div class="stack__block"><b>Name + description</b><span>One sentence that says <em>when</em> this skill applies. It's the trigger: Claude compares it to your request.</span></div>
+          <div class="stack__block"><b>The procedure</b><span>The steps, in order, in plain text. With a filled-in example: one example is worth ten lines of explanation.</span></div>
+          <div class="stack__block"><b>The guardrails</b><span>What we never do (secrets, amounts, internal URLs), the cases where we stop and ask.</span></div>
+          <div class="stack__block"><b>Scripts and references (optional)</b><span>A check script, a template, a whitelist. Loaded only if the procedure needs them.</span></div>
+        </div>
+        <figcaption class="caption">A skill isn't magic: it's written method, filed in the right place and loaded at the right moment.</figcaption>
+      </figure>
+
+      <p>The property that matters: a skill is <strong>portable</strong>. The text of <code>kh-post-brief</code> is written to be pasted into ChatGPT or Gemini at the end of a session; the AI returns the brief, and Claude Code publishes. A well-written skill survives a change of tool. And since summer 2026, the Claude Cowork app even lets you <strong>teach a skill by recording your screen</strong> while narrating: Claude turns it into a reusable skill, without writing a line.</p>
+
+      <h2 id="hook">3. The hook: an automatic reflex</h2>
+      <p>A hook is a script that fires <em>automatically</em> at a specific moment in Claude's work: before a command is run, after a file has been modified, when the conversation gets compacted, when a session ends. The fundamental difference from a skill: a hook doesn't think. It checks, blocks, formats, logs — <strong>deterministically</strong>, every time, no exceptions.</p>
+      <p>Useful examples for a merchant: refusing any command that would push code straight to production; running a consistency checker after every change to a data file; forbidding a file containing a secret from being added to the repo. What I used to entrust to a CLAUDE.md rule ("never merge the whole branch") can become a hook that makes the mistake physically impossible. A rule gets read; a hook gets executed.</p>
+      <p>Honest limit: hooks run in Claude Code (the terminal, or its web and desktop versions). In a Chat conversation or on mobile, they don't exist — hence, in my setup, a duplicate instruction rule for whatever has to work everywhere.</p>
+
+      <h2 id="sous-agent">4. The subagent: delegating a subtask</h2>
+      <p>A subagent is a Claude that the main agent hands a subtask to, with its own context, its own instructions, sometimes its own tools. It works — in the background by default, since summer 2026 — and returns a result. Three uses:</p>
+      <ul>
+        <li><strong>Parallelize</strong>: translate twenty pages, audit ten files, check five sources at the same time.</li>
+        <li><strong>Isolate context</strong>: a heavy read (a long document, an entire repo) doesn't clutter the main conversation; only the conclusion comes back up.</li>
+        <li><strong>Specialize</strong>: a "reviewer" subagent with adversarial instructions, a "verifier" subagent that only confirms or refutes.</li>
+      </ul>
+      <p><strong>Workflows</strong> (available in Claude Code since June 2026) are the layer above: a small script that orchestrates several subagents deterministically — a review per dimension, then a check of each finding, for example. Useful, but reserve it for tasks that deserve a dozen agents. The default reflex is still: <strong>start without</strong>.</p>
+
+      <h2 id="plugin">5. The plugin: the package</h2>
+      <p>A plugin bundles skills, subagents, commands, hooks and connectors into a versioned package, installable in one command. It's the way to share complete know-how with a team — or to install it at home from a marketplace. The code security checker I use before every delivery is a plugin; my publishing pipeline will become one the day someone other than me has to publish here.</p>
+
+      <h2 id="choisir">6. Instruction, skill, hook or connector: which to choose</h2>
+      <figure class="diagram">
+        <div class="card-grid" role="img" aria-label="Four tools: instruction in CLAUDE.md, skill, hook, MCP connector — and when to use each.">
+          <div class="card" style="min-height:auto;"><span class="card__kicker">A general rule</span><span class="card__title">CLAUDE.md</span><span class="card__desc">Tone, principles, pitfalls turned into rules. Short, always loaded. "Keep it casual," "never a whole branch in prod."</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">A procedure</span><span class="card__title">Skill</span><span class="card__desc">Steps, a template, guardrails. Loaded when the request matches. "Publish an entry," "capture the session."</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">A systematic check</span><span class="card__title">Hook</span><span class="card__desc">Has to happen every time, no judgment. "Block any push to main," "run the check after every change."</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">Access to a tool</span><span class="card__title">Connector (MCP)</span><span class="card__desc">Read or act in Shopify, Drive, Gmail, GitHub. The arms — to be framed by permissions.</span></div>
+        </div>
+        <figcaption class="caption">The test: is it a rule (CLAUDE.md), a procedure (skill), a reflex that must always run (hook), or a tool to plug in (connector)?</figcaption>
+      </figure>
+
+      <h2 id="sans-terminal">7. And without a terminal?</h2>
+      <p>Skills aren't reserved for developers. Claude Cowork (the desktop app, also on the web and on mobile) installs them from a marketplace and loads them into ordinary office work: preparing a deck, going through a file, running a routine. And learning by screen recording is the simplest way there is to turn know-how into a procedure: you do the task once while narrating, Claude writes it up.</p>
+      <p>My advice for getting started: take the procedure you explain most often — not the most impressive, the most <em>repeated</em> — and write it in ten lines with a filled-in example. If Claude gets it right three times in a row without your help, it's a skill. If not, the procedure wasn't clear, and you just learned that.</p>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Going further</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Writing a good CLAUDE.md</strong></a> — the general rules, the other half.</li>
+          <li>→ <a href="cest-quoi-mcp-connecter-claude.html"><strong>What is an MCP</strong></a> — the connectors, the arms.</li>
+          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>What is an AI agent</strong></a> — the basic loop that subagents multiply.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Real cases.</strong> The publishing skill → <a href="../journal/refonte-knowledge-hub-fable-5-1.html">this site's redesign, published with it</a> · the adversarial review of a dev request → <a href="../journal/cdc-odoo-ia-verifie-avant-de-coder.html">the AI checks what it assumes</a>.</p>
+      </aside>
+
+    </div>
+  </div>
+</article>
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
+      <h2>A procedure you keep re-explaining?</h2>
+      <p class="prose">If there's a task you're describing to an AI for the third time, that's a skill in disguise. Send it my way, we'll write it in ten lines. I document everything in public.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Add me on LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Skills%20—%20échange">Email me</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/en/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/en/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/en/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/en/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/en/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/en/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependencies</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/en/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private area">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>C'est quoi HL OS : un système d'exploitation pour piloter un groupe avec l'IA — Guides · Hugo Lahutte</title>
+<meta name="description" content="HL OS, c'est le socle commun (base de données, couche IA, identité et droits, journal des actions) et les cinq briques (Zéro, Knowledge, Content Machine, Growth, Socle IA) que Hugo Lahutte construit depuis juin 2026 pour piloter Cobra, Haute Fidélité et ses projets avec l'IA. Un cœur, plusieurs contextes, et un flux unique : demande → analyse → aperçu → validation → exécution → journal → mesure.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-hl-os.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-hl-os.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-hl-os.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-hl-os.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="C'est quoi HL OS : un système d'exploitation pour piloter un groupe avec l'IA">
+<meta property="og:description" content="Un socle commun, cinq briques (Zéro, Knowledge, Content Machine, Growth, Socle IA), et une règle : l'IA propose, l'humain valide. La carte, sans jargon.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-hl-os.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-09-01">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../style.css?v=20260622a">
+
+<!-- ===== JSON-LD (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "C'est quoi HL OS : un système d'exploitation pour piloter un groupe avec l'IA",
+      "description": "HL OS : un socle commun (base de données héritée de HF-OS, couche IA, identité et droits, journal des actions) et cinq briques — Zéro (mail et tâches), Knowledge (le Brain), Content Machine (publication), Growth (décision action-first), Socle IA. Un cœur, plusieurs contextes isolés (Cobra, Haute Fidélité). Lecture automatique, écriture validée.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-01",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-hl-os.html",
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "HL OS",
+        "Growth",
+        "Content Machine",
+        "Brain",
+        "HF-OS",
+        "agents IA",
+        "PME",
+        "pilotage"
+      ],
+      "keywords": "HL OS, Growth, Content Machine, Brain, Zéro, Socle IA, HF-OS, système d'exploitation, IA, PME"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "C'est quoi HL OS ?",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-hl-os.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "C'est quoi HL OS ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HL OS est le nom du système que Hugo Lahutte construit depuis juin 2026 pour piloter ses structures (Cobra, Haute Fidélité, HiFi Lovers, HL Consulting) avec l'IA : un socle commun — base de données héritée de HF-OS, couche IA, identité et droits, journal des actions — et cinq briques qui s'y branchent : Zéro (mail et tâches), Knowledge (le Brain), Content Machine (publication), Growth (décision action-first) et Socle IA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la brique Growth ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Growth n'est pas un tableau de bord de plus : elle récupère automatiquement les faits (Odoo, Shopify, Google Analytics, Ads, Search Console, Merchant Center, e-mail, réseaux sociaux), les rapproche, et propose quelques actions classées par impact, confiance, effort et risque, avec leurs preuves. Toute écriture sensible reste soumise à validation humaine. En production pour Cobra depuis le 1er septembre 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment HL OS sépare-t-il Cobra et Haute Fidélité ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Par le principe « un cœur, plusieurs contextes » : les deux entités partagent les moteurs (l'intelligence, les connecteurs, les règles de calcul) mais jamais les comptes, les secrets, les données ni les règles opérationnelles. Chaque entité est un contexte isolé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le flux d'une action dans HL OS ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Demande → analyse → aperçu du changement → validation humaine → exécution via le connecteur → journal → mesure après action. La lecture et le rafraîchissement sont automatiques ; les écritures vers Shopify, Odoo, les régies publicitaires, l'e-mail ou les réseaux restent en validation requise, et l'assistant n'a jamais plus de droits que l'utilisateur."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">Veille IA</a></li>
+      <li><a href="../#projets">Projets</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/en/guides/cest-quoi-hl-os.html" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › C'est quoi HL OS ?</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Mes systèmes</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">C'est quoi HL OS :<br>un système d'exploitation pour piloter un groupe avec l'IA</h1>
+    <hr class="rule--accent">
+    <p class="lead">Un magasin, un magazine, une marque, une structure perso — et dix outils qui ne se parlent pas. HL OS, c'est le nom que je donne à ce que je construis depuis juin 2026 pour piloter tout ça avec l'IA : un socle commun, cinq briques, et une règle — l'IA propose, l'humain valide. La carte, sans jargon.</p>
+    <div class="meta-bar">
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-09-01">1er septembre 2026</time>
+      <span>·</span>
+      <span>~8 min de lecture</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="hl-os" data-tagsearch="HL OS" href="/knowledge-hub/guides/">HL OS</a>
+      <a class="tag" data-tag="agent" data-tagsearch="agent" href="/knowledge-hub/guides/">agent</a>
+      <a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a>
+      <a class="tag" data-tag="claude-code" data-tagsearch="Claude Code" href="/knowledge-hub/guides/">Claude Code</a>
+    </div>
+    <ul class="levels" aria-label="Niveaux de lecture">
+      <li class="level-pill"><b>1</b> En 30 secondes</li>
+      <li class="level-pill"><b>2</b> Le corps, visuel</li>
+      <li class="level-pill"><b>3</b> Pour aller plus loin</li>
+    </ul>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
+      <p class="kicker">En 30 secondes</p>
+      <ul>
+        <li><strong>HL OS</strong> = un <strong>socle commun</strong> (une base de données, une couche IA, l'identité et les droits, un journal des actions) + <strong>cinq briques</strong> qui s'y branchent : Zéro (mail et tâches), Knowledge (le Brain), Content Machine (publier), Growth (décider), Socle IA (rédiger, chercher, sécuriser).</li>
+        <li><strong>Un cœur, plusieurs contextes</strong> : Cobra et Haute Fidélité partagent les moteurs, jamais les comptes, les données ni les règles.</li>
+        <li>Chaque action suit le même flux : <strong>demande → analyse → aperçu → validation → exécution → journal → mesure</strong>. Lire est automatique ; écrire est validé.</li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Sommaire">
+      <p class="kicker">Sommaire</p>
+      <ul>
+        <li><a href="#pourquoi">1. Pourquoi un « OS »</a></li>
+        <li><a href="#socle">2. Le socle</a></li>
+        <li><a href="#briques">3. Les cinq briques</a></li>
+        <li><a href="#contextes">4. Un cœur, plusieurs contextes</a></li>
+        <li><a href="#flux">5. Le flux d'une action</a></li>
+        <li><a href="#etat">6. Où ça en est (septembre 2026)</a></li>
+        <li><a href="#illustre">7. Ce que ça illustre</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <h2 id="pourquoi">1. Pourquoi un « OS »</h2>
+      <p>Mon quotidien, c'est Odoo pour les ventes, la marge et le stock ; Shopify pour les boutiques ; Google Analytics, Ads, Search Console et Merchant Center pour la visibilité ; Brevo pour l'e-mail ; les réseaux sociaux ; une boîte mail par structure ; un magazine à fabriquer. Chaque outil sait produire son tableau de bord. Aucun ne répond seul à la question qui compte : <strong>qu'est-ce qui mérite mon temps aujourd'hui ?</strong></p>
+      <p>Jusqu'en 2025, la réponse était « embaucher, ou acheter une suite ». En 2026, l'IA change l'échelle de ce qu'un dirigeant qui sait ce qu'il veut peut faire construire. J'ai donc arrêté d'empiler des outils et commencé à bâtir la <strong>couche au-dessus</strong> — celle qui lit tous les outils, rapproche les faits, propose des actions et garde la trace. Un système d'exploitation, au sens propre : ce sur quoi tout le reste tourne.</p>
+      <p>Le mot est un peu grand pour une structure de ma taille. Je l'assume : le jour où j'ai commencé à appeler ça un OS, j'ai arrêté de le penser comme une collection de scripts.</p>
+
+      <h2 id="socle">2. Le socle</h2>
+      <p>Tout repose sur quatre choses partagées :</p>
+      <ul>
+        <li><strong>Une base de données commune</strong>, héritée de <a href="faut-il-encore-acheter-un-erp.html">HF-OS</a>, l'ERP de presse que j'ai bâti en cinq jours en juin : une seule application (un CMS headless + un framework web + PostgreSQL) qui sert le tableau de bord, l'administration et l'API. Les briques ne réinventent pas un stockage : elles s'y branchent.</li>
+        <li><strong>Une couche IA commune</strong> — le Socle IA : rédaction dans ma voix (plusieurs voix, en fait : le magazine, moi en première personne, le carnet de voyage), embeddings pour la recherche, un routeur qui choisit le modèle par palier (petit, grand, secours) et journalise chaque appel, et un motif de secrets chiffrés côté serveur — jamais dans le code, jamais dans le Brain.</li>
+        <li><strong>L'identité et les droits</strong> : connexion Google restreinte à une liste blanche, rôles, et la règle qui gouverne tout — <em>l'assistant n'obtient jamais plus de droits que la personne qui lui parle</em>.</li>
+        <li><strong>Un journal des actions</strong> : chaque écriture laisse une trace exploitable, idempotente quand le connecteur le permet.</li>
+      </ul>
+
+      <h2 id="briques">3. Les cinq briques</h2>
+      <p>Une brique, c'est un périmètre, une spécification vivante, un plan de développement avec des critères de succès (« on saura que c'est bon quand… ») et une section Décisions datée. Les cinq :</p>
+
+      <figure class="diagram">
+        <div class="hub" role="img" aria-label="Le socle HL OS au centre, et cinq briques : Zéro, Knowledge, Content Machine, Growth, Socle IA.">
+          <span class="hub__core">Socle HL OS</span>
+          <div class="hub__link"></div>
+          <div class="hub__nodes">
+            <div class="hub__node"><b>Zéro</b><span>Mail + tâches. Trie, résume, transforme un mail en tâche. La source de signal quotidien du Brain.</span></div>
+            <div class="hub__node"><b>Knowledge</b><span>Le Brain et son index : tout ce qui me concerne devient interrogeable par mes IA.</span></div>
+            <div class="hub__node"><b>Content Machine</b><span>Une capture, N destinations : capture terrain, repurposing magazine, publication validée.</span></div>
+            <div class="hub__node"><b>Growth</b><span>Décision action-first : rapproche ventes, acquisition, SEO, web, e-mail et social, et propose le prochain travail utile.</span></div>
+            <div class="hub__node"><b>Socle IA</b><span>Rédaction dans ma voix, embeddings, routeur de modèles, secrets chiffrés. Les autres briques appellent, ne réimplémentent pas.</span></div>
+          </div>
+        </div>
+        <figcaption class="caption">Cinq briques, un socle. La frontière est nette : Growth mesure et recommande, la Content Machine fabrique et publie, Knowledge conserve, Zéro alimente, le Socle IA sert les autres.</figcaption>
+      </figure>
+
+      <h3>Growth — de dix tableaux de bord à une file d'actions</h3>
+      <p>La brique la plus avancée. Elle récupère automatiquement les faits disponibles (Odoo, Shopify, Analytics, Ads, Search Console, Merchant Center, contrôles de santé web, e-mail, réseaux), les rapproche, et propose quelques actions classées par impact, confiance, effort et risque. Une page d'accueil courte, une barre unique pour poser une question ou préparer une action, et les vues expertes derrière, comme preuves. Une absence de donnée s'affiche comme telle — jamais un zéro silencieux. Détail dans <a href="../journal/growth-centre-actions.html">l'entrée de journal</a>.</p>
+
+      <h3>Content Machine — une capture, N destinations</h3>
+      <p>Elle ne produit pas du contenu, elle transporte une présence : quelques photos, un vocal, à un lieu, une heure, par une personne identifiée — et la machine propose les rendus (post, article, page papier) vers les bonnes destinations, sans jamais publier seule. Guide dédié : <a href="content-machine-une-capture-n-destinations.html">Content Machine</a>.</p>
+
+      <h3>Knowledge — le Brain</h3>
+      <p>La mémoire durable, au format OKF, lue par toutes mes IA. Guide dédié : <a href="cest-quoi-un-brain-okf.html">C'est quoi un Brain</a>.</p>
+
+      <h2 id="contextes">4. Un cœur, plusieurs contextes</h2>
+      <p>La décision d'architecture la plus importante, prise dès le début : <strong>Cobra et Haute Fidélité partagent l'intelligence, jamais les comptes, les secrets, les données ni les règles opérationnelles</strong>. La première instance de Growth tourne pour Cobra ; une instance Haute Fidélité réutilisera le même cœur avec ses propres comptes, données et objectifs — un contexte isolé dans HL OS. La Content Machine fonctionne pareil : un contexte (la provenance — où, quand, pourquoi) n'est pas une destination (où ça publie), et un contexte se déploie vers plusieurs destinations.</p>
+      <p>Le bénéfice n'est pas que technique. C'est ce qui permet de faire tourner un compte pro et un compte perso, un Claude Cobra et un Claude HL, sans jamais mélanger deux périmètres dans une base lue des deux côtés.</p>
+
+      <h2 id="flux">5. Le flux d'une action</h2>
+      <p>Quelle que soit la brique, une action qui touche au monde réel (un prix, un stock, une campagne, un e-mail, une publication) suit le même chemin :</p>
+      <div class="pipeline" role="img" aria-label="Demande, analyse, aperçu du changement, validation, exécution, journal, mesure.">
+        <div class="pipeline__step"><b>Demande</b><span>une question, une intention</span></div><div class="pipeline__arrow"><b>→</b><span>auto</span></div>
+        <div class="pipeline__step"><b>Analyse</b><span>faits, sources, fraîcheur</span></div><div class="pipeline__arrow"><b>→</b><span>auto</span></div>
+        <div class="pipeline__step"><b>Aperçu</b><span>ce qui va changer</span></div><div class="pipeline__arrow"><b>→</b><span>humain</span></div>
+        <div class="pipeline__step pipeline__step--live"><b>Validation</b><span>un bouton, une personne</span></div><div class="pipeline__arrow"><b>→</b><span>auto</span></div>
+        <div class="pipeline__step"><b>Exécution</b><span>via le connecteur</span></div><div class="pipeline__arrow"><b>→</b><span>auto</span></div>
+        <div class="pipeline__step"><b>Journal + mesure</b><span>avant / après, réinjecté</span></div>
+      </div>
+      <p style="margin-top:var(--space-6);">Lire et rafraîchir peuvent être automatiques. Écrire vers Shopify, Odoo, une régie publicitaire, l'outil d'e-mail ou un réseau social reste en validation requise tant qu'une permission explicite plus fine n'existe pas. Et une recommandation sans mesure après exécution ne ferme pas la boucle : elle n'est pas « apprise ».</p>
+
+      <h2 id="etat">6. Où ça en est (septembre 2026)</h2>
+      <aside class="callout" style="border-left:3px solid var(--c-gold);">
+        <p class="kicker" style="color:var(--c-gold);">Instantané daté · 1er septembre 2026</p>
+        <ul style="margin-top:var(--space-3);">
+          <li><strong>Growth</strong> — en production pour Cobra depuis le 1er septembre : accueil action-first, barre principale, vues de preuve, lectures de toutes les sources branchées. Priorité du moment : fiabiliser la mesure d'audience avant d'autoriser toute recommandation de déplacement de budget. Particularité : cette brique a été construite avec ChatGPT et Codex, Claude n'intervenant qu'à la marge (<a href="../journal/growth-centre-actions.html">le récit et l'architecture</a>).</li>
+          <li><strong>Content Machine</strong> — cahier des charges v2 (30 juillet), socle en place ; le pivot du 1er septembre unifie capture terrain, repurposing magazine et « publie cette idée » en un seul système. Prochaine étape : la capture en moins de dix secondes, puis un premier rendu Instagram. Échéance : le salon Haute Fidélité, fin septembre.</li>
+          <li><strong>Knowledge / Brain</strong> — en place depuis le 21 août ; lecture par connecteur GitHub ; index de recherche repoussé jusqu'au signal.</li>
+          <li><strong>Zéro</strong> et <strong>Socle IA</strong> — en cours ; les spécifications migrent dans le Brain.</li>
+        </ul>
+        <p class="caption" style="margin-top:var(--space-4);">Cet état est un instantané, pas une vérité durable : les chiffres et statuts vivent dans les outils et dans le Brain, jamais recopiés ici comme permanents.</p>
+      </aside>
+
+      <h2 id="illustre">7. Ce que ça illustre</h2>
+      <p>Trois choses, que je crois transférables à n'importe quelle PME :</p>
+      <ul>
+        <li><strong>La valeur n'est pas dans un tableau de bord de plus.</strong> Elle est dans le fait de pouvoir cesser d'ouvrir dix interfaces pour reconstituer une situation — et d'avoir une file d'actions avec leurs preuves.</li>
+        <li><strong>Le travail difficile n'était pas le code.</strong> C'était de décider quelle source croire (Odoo porte le réalisé, Shopify le flux web, les régies leur attribution déclarée) et d'empêcher les rapprochements trompeurs. L'IA a frappé le code ; les arbitrages restent humains.</li>
+        <li><strong>Construire plutôt qu'attendre un devis</strong>, quand le métier est spécifique et que le coût de la customisation s'effondre. Le cœur de Growth a été cadré un week-end et mis en production le mardi — construit, pour cette brique, avec ChatGPT et Codex plutôt qu'avec Claude. La question <a href="faut-il-encore-acheter-un-erp.html">« faut-il encore acheter ? »</a> se pose désormais pour la couche de pilotage, pas seulement pour l'ERP.</li>
+      </ul>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Pour aller plus loin</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="content-machine-une-capture-n-destinations.html"><strong>Content Machine : une capture, N destinations</strong></a> — la brique de publication.</li>
+          <li>→ <a href="cest-quoi-un-brain-okf.html"><strong>C'est quoi un Brain</strong></a> — la brique Knowledge.</li>
+          <li>→ <a href="lia-propose-lhumain-valide.html"><strong>L'IA propose, l'humain valide</strong></a> — les garde-fous qui rendent tout ça possible.</li>
+          <li>→ <a href="faut-il-encore-acheter-un-erp.html"><strong>Faut-il encore acheter un ERP ?</strong></a> — HF-OS, le socle technique, bâti en cinq jours.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> <a href="../journal/hl-os-cinq-briques-un-socle.html">HL OS : cinq briques, un socle</a> · <a href="../journal/growth-centre-actions.html">Growth : remplacer dix tableaux de bord par une file d'actions</a> · <a href="../journal/hf-os-socle-deploiement.html">HF-OS : le socle déployé</a>.</p>
+      </aside>
+
+    </div>
+  </div>
+</article>
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
+      <h2>Tu pilotes plusieurs structures ?</h2>
+      <p class="prose">Si tu empiles les outils sans vue d'ensemble, ou que tu te demandes par quelle brique commencer, parlons-en — je documente tout en public, sans rien à vendre.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=HL%20OS%20—%20échange">M'écrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Navigation principale — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      </div>
+
+      <nav aria-label="Liens de pied de page">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/how-to/" style="text-decoration:none;">Méthode</a></li>
+          <li><a href="/knowledge-hub/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
+          <li><a href="/knowledge-hub/lexique/" style="text-decoration:none;">Lexique</a></li>
+          <li><a href="/knowledge-hub/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/a-propos/" style="text-decoration:none;">À propos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Me suivre</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · IA (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · perso</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · voyage famille</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
+        <p class="caption" style="margin-top:var(--space-3);">Le mieux : ajoute-moi sur LinkedIn et envoie-moi un message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">M'ajouter sur LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">ou par e-mail :<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="../search.js?v=20260601d" defer></script>
+<script src="../lexique.js?v=20260601d" defer></script>
+<script src="../theme.js?v=20260601d" defer></script>
+</body>
+</html>
