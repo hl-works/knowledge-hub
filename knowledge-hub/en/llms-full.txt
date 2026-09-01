@@ -1449,12 +1449,13 @@ URL: https://hl-consulting.tech/knowledge-hub/en/journal/growth-centre-actions.h
 Published: 2026-09-01
 ================================================================
 
-In a few days, Growth evolved from a dashboard into a decision centre connecting commerce, acquisition, SEO, web performance, email and social data.
+Loose ideas at the end of the week, a weekend with ChatGPT and Codex, then a Growth Hub connected to real data and running in production by Tuesday.
 
 ← Journal
 Cobra · Growth
 Growth : remplacer dix tableaux de bord par une file d'actions
-Claude · HL·1er septembre 2026·Cobra datamarketingagentstraten-prodCobra En quelques jours, Growth est passé d'un tableau de bord en lecture seule à un centre de décision qui rapproche commerce, acquisition, SEO, performance web, email et social. L'objectif n'est plus de montrer davantage de chiffres : il est de dire quoi traiter maintenant, pourquoi, et avec quelles preuves.
+ChatGPT · Codex·1er septembre 2026·Cobra datamarketingagentstraten-prodCobra En quelques jours, Growth est passé d'un tableau de bord en lecture seule à un centre de décision qui rapproche commerce, acquisition, SEO, performance web, email et social. L'objectif n'est plus de montrer davantage de chiffres : il est de dire quoi traiter maintenant, pourquoi, et avec quelles preuves.
+Un point important sur la méthode : contrairement à la plupart des projets documentés jusque-là dans ce journal, Growth n'a pas été construit avec Claude. Le cadrage, l'architecture, le développement, les tests, le déploiement et cette documentation ont été réalisés presque entièrement dans ChatGPT avec Codex. Claude n'est intervenu qu'à la marge sur ce chantier.
 Le problème
 Les informations utiles existaient déjà, mais elles vivaient dans des outils différents : Odoo pour les ventes, la marge et le stock ; Shopify pour le flux e-commerce ; GA4 et Google Ads pour la mesure ; Search Console et Merchant Center pour la visibilité ; Brevo pour l'email ; Lighthouse pour la performance ; les plateformes sociales pour l'organique et le paid.
 Chaque outil sait produire son tableau de bord. Aucun ne répond seul à une question simple : quelle action mérite réellement notre temps aujourd'hui ?
@@ -1467,6 +1468,15 @@ Ce qui a été construit
 - un moteur commun réutilisable pour une future instance Haute Fidélité dans HL OS ;
 - un garde-fou : toute écriture sensible reste soumise à validation humaine.
 Données de démonstration. Tous les noms, chiffres et recommandations de cette capture sont fictifs.
+Comment le système est découpé
+Le produit repose sur deux dépôts de code et une plateforme de données. Cette séparation évite que l'interface Growth reconstruise ses propres chiffres ou accède directement aux données brutes.
+- Le dépôt cobra-data fabrique la donnée fiable. Il collecte Odoo et Shopify en lecture seule, intègre les autres sources analytiques, nettoie, déduplique, rapproche les identifiants et construit les indicateurs métier.
+- BigQuery conserve les différentes couches. cobra_raw reçoit les copies techniques, cobra_staging les fiabilise, cobra_marts publie les vues métier stables et cobra_audit garde la trace des traitements.
+- Le dépôt applicatif cobra-pilotage, dans apps/growth, transforme les faits en décisions. Growth lit uniquement les marts autorisés et les indicateurs agrégés de fraîcheur. Il ne peut ni modifier BigQuery, ni consulter raw ou staging, ni écrire dans Odoo ou Shopify par défaut.
+Data fabrique les faits ; BigQuery les conserve et les partage ; Growth les transforme en décisions ; l'humain donne l'autorisation.
+Comment circule une action
+La collecte, les contrôles, la détection des anomalies et le classement peuvent tourner automatiquement. Une action sensible suit en revanche un contrat explicite : preuve, aperçu, validation humaine, exécution autorisée, journal et mesure avant/après.
+La mécanique reste la même pour Cobra ou Haute Fidélité ; les données, comptes, profils métier et droits restent séparés.
 Le changement de philosophie
 Le produit avait commencé comme un tableau de bord. C'était utile pour vérifier que les données remontaient, mais insuffisant pour changer la façon de travailler. La page d'accueil a donc été retournée : les indicateurs détaillés sont devenus des preuves secondaires. Le premier écran présente quelques propositions classées par impact, confiance, effort et urgence.
 Le flux cible est volontairement lisible : demande → analyse → aperçu du changement → validation → exécution → journal → mesure. Growth peut lire et rafraîchir automatiquement. Il ne doit pas modifier un prix, un stock, une campagne, un email ou une publication sociale sans le droit correspondant.

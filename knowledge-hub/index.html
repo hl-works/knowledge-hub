@@ -151,6 +151,28 @@
       <p class="kicker">Nouveau · septembre 2026</p>
       <div class="two-col" style="margin-top:var(--space-3);align-items:center;">
         <div>
+          <p style="font-size:1.15rem;font-weight:700;line-height:1.3;margin:0;">Des idées jetées en l'air en fin de semaine. Un Growth Hub en production le mardi.</p>
+          <p style="margin-top:var(--space-2);">Il n'y avait pas de cahier des charges. Seulement une intuition : arrêter d'empiler les tableaux de bord et construire un outil qui dise <strong>quoi faire maintenant</strong>, avec les bonnes preuves. J'ai travaillé avec <strong>ChatGPT et Codex pendant le week-end</strong>. Le mardi, Growth tournait déjà en production.</p>
+          <p style="margin-top:var(--space-2);">Ce qui devait être une app a produit beaucoup plus : plusieurs dépôts et briques créés ou restructurés, une plateforme Data et BigQuery fiabilisée, une application déployée avec ses tests et ses garde-fous, et un <strong>cœur agentique prêt à être instancié sur d'autres projets</strong>. Pas une maquette : un système connecté aux vraies sources, conçu pour proposer puis mesurer des actions.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-4);">
+            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">un week-end</span>
+            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">idée → production</span>
+            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">Data + BigQuery + Growth</span>
+            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">ChatGPT · Codex</span>
+          </div>
+          <p style="margin-top:var(--space-4);"><a class="btn btn--primary" href="journal/growth-centre-actions.html">Lire l'histoire et l'architecture →</a></p>
+        </div>
+        <figure class="figure" style="margin:0;">
+          <img src="assets/growth-proof-views-demo.png" alt="Aperçu du Growth Hub Cobra présentant des actions prioritaires et des indicateurs commerciaux fictifs" loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);background:#fff;">
+          <figcaption class="caption"><strong>Données de démonstration.</strong> La capture illustre le produit sans exposer les données réelles de Cobra.</figcaption>
+        </figure>
+      </div>
+      <p class="caption" style="margin-top:var(--space-4);">Le vrai gain n'est pas seulement le produit livré : c'est la compression du cycle <strong>idée → architecture → données → tests → production</strong>, sans retirer les contrôles humains.</p>
+    </aside>
+    <aside class="callout" style="margin-block:var(--space-4) 0;border-left:3px solid var(--c-red);">
+      <p class="kicker">Le système derrière · HL OS</p>
+      <div class="two-col" style="margin-top:var(--space-3);align-items:center;">
+        <div>
           <p style="font-size:1.15rem;font-weight:700;line-height:1.3;margin:0;">HL OS : un socle, cinq briques, et une règle — l'IA propose, l'humain valide.</p>
           <p style="margin-top:var(--space-2);">Ce que je construis depuis juin a un nom. Un <strong>socle commun</strong> (base de données héritée de HF-OS, couche IA, droits, journal des actions) et cinq briques : <strong>Zéro</strong> (mail et tâches), <strong>Knowledge</strong> (mon <a href="guides/cest-quoi-un-brain-okf.html">Brain</a>, un wiki privé au format OKF lu par tous mes Claude), la <strong><a href="guides/content-machine-une-capture-n-destinations.html">Content Machine</a></strong> (une capture, N destinations), <strong>Growth</strong> (une file d'actions qui remplace dix tableaux de bord, en production chez Cobra depuis le 1er septembre) et le <strong>Socle IA</strong>. Un cœur, plusieurs contextes : Cobra et Haute Fidélité partagent les moteurs, jamais les comptes ni les données.</p>
           <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-4);">
@@ -359,10 +381,10 @@
         <time datetime="2026-09-01">2026-09-01</time>
         <div>
           <h3 class="entry__title"><a href="journal/growth-centre-actions.html">Growth : remplacer dix tableaux de bord par une file d'actions</a></h3>
-          <p class="entry__excerpt">En quelques jours, Growth est passé d'un tableau de bord à un centre de décision qui rapproche commerce, acquisition, SEO, web, email et social. Il propose le prochain travail utile, garde les preuves accessibles et soumet toute action sensible à validation humaine.</p>
+          <p class="entry__excerpt">Des idées jetées en l'air en fin de semaine, un week-end avec ChatGPT et Codex, puis Growth en production le mardi. Data, BigQuery, application et cœur agentique réutilisable ont été construits pour transformer les faits en actions validées.</p>
           <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="marketing" href="/knowledge-hub/journal/?tag=marketing">marketing</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
         </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
+        <div class="author"><span class="author--chatgpt" style="background:var(--c-violet);color:var(--c-white);">ChatGPT · Codex</span></div>
       </li>
       <li class="entry">
         <time datetime="2026-08-28">2026-08-28</time>

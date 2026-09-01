@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Découpage technique de Growth entre les dépôts Data, BigQuery et Growth</title>
+  <desc id="desc">Les sources alimentent le dépôt cobra-data, qui construit les couches BigQuery. L'application Growth lit uniquement les marts et transforme les faits en recommandations, preuves et actions soumises à validation humaine.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f8ff"/>
+      <stop offset="1" stop-color="#fff8f2"/>
+    </linearGradient>
+    <linearGradient id="data" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5965db"/>
+      <stop offset="1" stop-color="#7b62df"/>
+    </linearGradient>
+    <linearGradient id="growth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ef744f"/>
+      <stop offset="1" stop-color="#d94d76"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#171a3d" flood-opacity=".10"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#656a84"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" rx="32" fill="url(#bg)"/>
+  <text x="64" y="72" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#171a3d">Trois couches, trois responsabilités</text>
+  <text x="64" y="108" font-family="Inter, Arial, sans-serif" font-size="19" fill="#666b82">La donnée est préparée une fois. Growth ne contourne jamais cette source de vérité.</text>
+
+  <path d="M370 350 H430" stroke="#656a84" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M770 350 H830" stroke="#656a84" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="158" width="320" height="455" rx="24" fill="#ffffff"/>
+    <rect x="50" y="158" width="320" height="92" rx="24" fill="url(#data)"/>
+    <rect x="50" y="225" width="320" height="25" fill="url(#data)"/>
+  </g>
+  <text x="82" y="197" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#e9ebff">DÉPÔT 1</text>
+  <text x="82" y="228" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">cobra-data</text>
+  <text x="82" y="292" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#171a3d">La fabrique de données</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="17" fill="#4d5268">
+    <text x="82" y="334">✓ collecte les API en lecture seule</text>
+    <text x="82" y="373">✓ nettoie, dédoublonne, rapproche</text>
+    <text x="82" y="412">✓ calcule les indicateurs métier</text>
+    <text x="82" y="451">✓ contrôle qualité et fraîcheur</text>
+    <text x="82" y="490">✓ rejoue sans créer de doublons</text>
+  </g>
+  <line x1="82" y1="525" x2="338" y2="525" stroke="#e5e6ef"/>
+  <text x="82" y="561" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#5965db">N'écrit jamais dans les outils métier</text>
+  <text x="82" y="586" font-family="Inter, Arial, sans-serif" font-size="15" fill="#777b90">Odoo et Shopify restent protégés.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="158" width="340" height="455" rx="24" fill="#ffffff"/>
+    <rect x="430" y="158" width="340" height="92" rx="24" fill="#242947"/>
+    <rect x="430" y="225" width="340" height="25" fill="#242947"/>
+  </g>
+  <text x="462" y="197" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#c9cce0">PLATEFORME</text>
+  <text x="462" y="228" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">BigQuery</text>
+  <text x="462" y="292" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#171a3d">La source de vérité partagée</text>
+  <rect x="462" y="319" width="276" height="55" rx="12" fill="#f1f2f8"/>
+  <text x="485" y="353" font-family="Inter, Arial, sans-serif" font-size="17" fill="#555b72"><tspan font-weight="700">raw</tspan> · copies techniques</text>
+  <rect x="462" y="387" width="276" height="55" rx="12" fill="#ebeefe"/>
+  <text x="485" y="421" font-family="Inter, Arial, sans-serif" font-size="17" fill="#4d5478"><tspan font-weight="700">staging</tspan> · données fiabilisées</text>
+  <rect x="462" y="455" width="276" height="66" rx="12" fill="#e0e5ff"/>
+  <text x="485" y="484" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#3d467e">marts · vues métier</text>
+  <text x="485" y="508" font-family="Inter, Arial, sans-serif" font-size="14" fill="#60678b">ventes, marge, stock, SEO, Ads, web</text>
+  <rect x="462" y="534" width="276" height="50" rx="12" fill="#fff3e8"/>
+  <text x="485" y="565" font-family="Inter, Arial, sans-serif" font-size="16" fill="#89553f"><tspan font-weight="700">audit</tspan> · exécutions et fraîcheur</text>
+
+  <g filter="url(#shadow)">
+    <rect x="830" y="158" width="320" height="455" rx="24" fill="#ffffff"/>
+    <rect x="830" y="158" width="320" height="92" rx="24" fill="url(#growth)"/>
+    <rect x="830" y="225" width="320" height="25" fill="url(#growth)"/>
+  </g>
+  <text x="862" y="197" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#fff0ec">DÉPÔT 2</text>
+  <text x="862" y="228" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">Growth</text>
+  <text x="862" y="292" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#171a3d">Le moteur de décision</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="17" fill="#4d5268">
+    <text x="862" y="334">✓ lit uniquement les marts autorisés</text>
+    <text x="862" y="373">✓ compare impact, confiance, effort</text>
+    <text x="862" y="412">✓ propose la prochaine action utile</text>
+    <text x="862" y="451">✓ ouvre les preuves à l'expert</text>
+    <text x="862" y="490">✓ prépare et journalise l'action</text>
+  </g>
+  <line x1="862" y1="525" x2="1118" y2="525" stroke="#e5e6ef"/>
+  <text x="862" y="561" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#d94d76">Lecture seule par défaut</text>
+  <text x="862" y="586" font-family="Inter, Arial, sans-serif" font-size="15" fill="#777b90">Toute écriture exige un connecteur autorisé.</text>
+
+  <rect x="206" y="654" width="788" height="58" rx="29" fill="#ffffff" stroke="#dedfea"/>
+  <circle cx="244" cy="683" r="8" fill="#47b881"/>
+  <text x="266" y="690" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#171a3d">Règle structurante :</text>
+  <text x="444" y="690" font-family="Inter, Arial, sans-serif" font-size="18" fill="#4d5268">la donnée vient de Data ; la décision vient de Growth ; l'autorisation vient de l'humain.</text>
+</svg>
