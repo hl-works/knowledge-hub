@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Growth : remplacer dix tableaux de bord par une file d&#x27;actions</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/growth-centre-actions.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/growth-centre-actions.html</guid>
+<pubDate>Tue, 01 Sep 2026 08:00:00 +0000</pubDate>
+<description>En quelques jours, Growth est passé d&#x27;un tableau de bord à un centre de décision qui rapproche commerce, acquisition, SEO, web, email et social. Il propose le prochain travail utile, garde les preuves accessibles et soumet toute action sensible à validation humaine.</description>
+</item>
+<item>
 <title>L&#x27;IA ne code pas ma demande, elle vérifie ce qu&#x27;elle suppose</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cobra-docs-contexte-claude.html</guid>
 <pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
 <description>Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.</description>
-</item>
-<item>
-<title>Fable 5 passe le site en revue : 4 bugs, du RSS et une veille enfin visible des LLMs</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/fable-5-revue-site-geo.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/fable-5-revue-site-geo.html</guid>
-<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
-<description>Premier test grandeur nature de Fable 5 au lendemain de sa sortie : audit complet du site, 4 bugs corrigés (compteurs, index de recherche EN), veille rendue en HTML statique pour les crawlers IA, flux RSS et check de cohérence hebdo — tout en prod dans la session.</description>
 </item>
 </channel>
 </rss>
