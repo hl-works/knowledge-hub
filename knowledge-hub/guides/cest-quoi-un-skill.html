@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "Skill : une procédure packagée dans un dossier avec un SKILL.md, chargée à la demande, portable entre outils. Hook : un script déterministe déclenché à un moment précis. Sous-agent : un Claude délégué avec son propre contexte, en arrière-plan. Plugin : le paquet versionné de tout ça. Comment choisir entre une règle CLAUDE.md, un skill, un hook et un connecteur MCP.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-09-01",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-skill.html",
       "author": {
         "@type": "Person",
@@ -178,6 +179,8 @@
       <span>·</span>
       <time datetime="2026-09-01">1er septembre 2026</time>
       <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
       <span>~6 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
@@ -223,7 +226,7 @@
 
       <h2 id="probleme">1. Le problème : la procédure qu'on réexplique</h2>
       <p>Publier une entrée sur ce site, c'est une vingtaine d'étapes : la page, sa jumelle anglaise, l'index du journal, le teaser de l'accueil, le plan du site, le <code>llms.txt</code>, l'index de recherche, les compteurs, un contrôle de cohérence. Les six premières fois, je l'ai expliqué à Claude en début de session. La septième, j'ai compris que le problème n'était pas Claude : c'était moi qui gardais la procédure dans ma tête au lieu de l'écrire.</p>
-      <p>Le <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> règle le cas des règles générales (ton, principes, pièges). Mais une procédure de vingt étapes n'a rien à y faire : elle alourdirait chaque conversation, y compris celles qui n'en ont pas besoin. Il fallait un endroit pour les procédures, chargé <em>seulement quand c'est utile</em>. C'est le skill.</p>
+      <p>La mémoire de Claude — et le <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> d'un dépôt — règle le cas des règles générales (ton, principes, pièges). Mais une procédure de vingt étapes n'a rien à y faire : elle alourdirait chaque conversation, y compris celles qui n'en ont pas besoin. Il fallait un endroit pour les procédures, chargé <em>seulement quand c'est utile</em>. C'est le skill.</p>
 
       <h2 id="skill">2. Le skill : une procédure dans un dossier</h2>
       <p>Un skill est un dossier qui contient un fichier <code>SKILL.md</code> : en tête, un nom et une description (c'est elle que Claude lit pour décider si le skill s'applique à ta demande) ; en dessous, la procédure en texte normal, avec ses règles, ses exemples et ses garde-fous. Éventuellement des scripts ou des fichiers de référence à côté. Rien d'autre.</p>
@@ -265,13 +268,13 @@
 
       <h2 id="choisir">6. Instruction, skill, hook ou connecteur : lequel choisir</h2>
       <figure class="diagram">
-        <div class="card-grid" role="img" aria-label="Quatre outils : instruction dans CLAUDE.md, skill, hook, connecteur MCP — et quand utiliser chacun.">
-          <div class="card" style="min-height:auto;"><span class="card__kicker">Une règle générale</span><span class="card__title">CLAUDE.md</span><span class="card__desc">Ton, principes, pièges devenus règles. Court, toujours chargé. « Tutoie-moi », « jamais de branche entière en prod ».</span></div>
+        <div class="card-grid" role="img" aria-label="Quatre outils : règle en mémoire ou dans le CLAUDE.md du dépôt, skill, hook, connecteur MCP — et quand utiliser chacun.">
+          <div class="card" style="min-height:auto;"><span class="card__kicker">Une règle générale</span><span class="card__title">Mémoire / CLAUDE.md</span><span class="card__desc">Ton, principes, pièges devenus règles : en mémoire (Claude les retient). Les règles d'un dépôt : dans son CLAUDE.md, court, toujours chargé. « Tutoie-moi », « jamais de branche entière en prod ».</span></div>
           <div class="card" style="min-height:auto;"><span class="card__kicker">Une procédure</span><span class="card__title">Skill</span><span class="card__desc">Des étapes, un gabarit, des garde-fous. Chargé quand la demande correspond. « Publie une entrée », « capture la session ».</span></div>
           <div class="card" style="min-height:auto;"><span class="card__kicker">Une vérification systématique</span><span class="card__title">Hook</span><span class="card__desc">Doit arriver à chaque fois, sans jugement. « Bloque tout push sur main », « lance le check après chaque modif ».</span></div>
           <div class="card" style="min-height:auto;"><span class="card__kicker">Un accès à un outil</span><span class="card__title">Connecteur (MCP)</span><span class="card__desc">Lire ou agir dans Shopify, Drive, Gmail, GitHub. Les bras — à cadrer par des droits.</span></div>
         </div>
-        <figcaption class="caption">Le test : est-ce une règle (CLAUDE.md), une procédure (skill), un réflexe qui doit toujours s'exécuter (hook), ou un outil à brancher (connecteur) ?</figcaption>
+        <figcaption class="caption">Le test : est-ce une règle (mémoire, ou CLAUDE.md du dépôt), une procédure (skill), un réflexe qui doit toujours s'exécuter (hook), ou un outil à brancher (connecteur) ?</figcaption>
       </figure>
 
       <h2 id="sans-terminal">7. Et sans terminal ?</h2>

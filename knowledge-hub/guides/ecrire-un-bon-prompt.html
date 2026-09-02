@@ -6,7 +6,7 @@
 
 <!-- ===== SEO ===== -->
 <title>Bien parler à l'IA en 2026 : du prompt au brief — Guides · Hugo Lahutte</title>
-<meta name="description" content="La recette d'un bon prompt (contexte, tâche, format, contraintes) tient toujours. Mais quand l'IA travaille seule, le prompt devient un brief : objectif, critère de succès, contexte fourni plutôt que décrit, points de contrôle. Les réflexes de 2026, un brief réel, et les trois endroits où vit une consigne (prompt, CLAUDE.md, skill).">
+<meta name="description" content="La recette d'un bon prompt (contexte, tâche, format, contraintes) tient toujours. Mais quand l'IA travaille seule, le prompt devient un brief : objectif, critère de succès, contexte fourni plutôt que décrit, points de contrôle. Les réflexes de 2026, un brief réel, et les trois endroits où vit une consigne (prompt, mémoire ou CLAUDE.md d'un dépôt, skill).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-prompt.html">
@@ -47,7 +47,7 @@
     {
       "@type": "TechArticle",
       "headline": "Bien parler à l'IA en 2026 : du prompt au brief",
-      "description": "Recette de base d'un prompt (contexte, tâche, format, contraintes, exemple), puis le brief pour une IA qui agit seule : objectif et critère de succès, contexte fourni, tâche découpée, points de contrôle. Réflexes 2026 (plan avant exécution, une question à la fois, itérer sur le résultat, dire ce qu'on ne touche pas, brief de reprise) et les trois niveaux d'une consigne : prompt, CLAUDE.md, skill.",
+      "description": "Recette de base d'un prompt (contexte, tâche, format, contraintes, exemple), puis le brief pour une IA qui agit seule : objectif et critère de succès, contexte fourni, tâche découpée, points de contrôle. Réflexes 2026 (plan avant exécution, une question à la fois, itérer sur le résultat, dire ce qu'on ne touche pas, brief de reprise) et les trois niveaux d'une consigne : prompt, mémoire (ou CLAUDE.md d'un dépôt), skill.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
       "dateModified": "2026-09-02",
@@ -71,7 +71,7 @@
         "CLAUDE.md",
         "skills"
       ],
-      "keywords": "prompt, brief, prompt engineering, critère de succès, contexte, CLAUDE.md, skill, brief de reprise"
+      "keywords": "prompt, brief, prompt engineering, critère de succès, contexte, mémoire, CLAUDE.md, skill, brief de reprise"
     },
     {
       "@type": "BreadcrumbList",
@@ -120,7 +120,7 @@
           "name": "Faut-il retaper les mêmes consignes à chaque conversation ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non. Ce qui est vrai tout le temps (ton, règles, outils) va dans un fichier CLAUDE.md lu automatiquement ; une procédure que l'on refait devient un skill. Le prompt ne contient plus que ce qui est propre à la demande du jour."
+            "text": "Non. Ce qui est vrai tout le temps (ton, règles, préférences) est retenu par la mémoire de Claude, unifiée entre le chat et Cowork depuis août 2026 ; les règles d'un dépôt de code vont dans son CLAUDE.md ; une procédure que l'on refait devient un skill. Le prompt ne contient plus que ce qui est propre à la demande du jour."
           }
         },
         {
@@ -238,7 +238,7 @@
       <p>En mai, une demande à l'IA produisait <em>une réponse</em>. En septembre 2026, elle déclenche souvent <em>un travail</em> : Claude lit un dossier, corrige vingt fichiers, envoie un mail sous validation, tourne une heure en arrière-plan. Le mode par défaut de Claude Code enchaîne les actions sans te demander la permission à chaque étape ; Cowork fait pareil sur ton bureau. Une consigne d'une ligne qui suffisait pour une réponse devient dangereuse pour une mission.</p>
       <p>D'où le passage du prompt au <strong>brief</strong>. Deux briques de plus, et un changement de nature pour la première :</p>
       <ul>
-        <li><strong>Le contexte se fournit, il ne se décrit plus.</strong> Au lieu d'expliquer ton métier, tu donnes les fichiers, le dossier, le connecteur. « Voici le tableau de ventes » vaut mieux que trois paragraphes sur tes ventes. Ce qui est permanent (ton, règles, outils) n'a même plus sa place dans le prompt : il vit dans un <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>.</li>
+        <li><strong>Le contexte se fournit, il ne se décrit plus.</strong> Au lieu d'expliquer ton métier, tu donnes les fichiers, le dossier, le connecteur. « Voici le tableau de ventes » vaut mieux que trois paragraphes sur tes ventes. Ce qui est permanent (ton, règles, outils) n'a même plus sa place dans le prompt : Claude l'a en <strong>mémoire</strong> — et, pour un dépôt de code, dans son <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>.</li>
         <li><strong>L'objectif et le critère de succès.</strong> « On saura que c'est bon quand… » : les 175 fiches ont un ton homogène, le script tourne sans erreur, le mail tient en 120 mots. Une IA qui agit seule a besoin de savoir quand s'arrêter — sinon elle continue, ou s'arrête trop tôt.</li>
         <li><strong>Les points de vérification.</strong> Pour une mission longue : « propose un plan avant de commencer », « montre-moi le diff avant de pousser », « une seule question à la fois si c'est ambigu ». Tu gardes la main aux moments qui comptent, pas à chaque ligne.</li>
       </ul>
@@ -297,7 +297,7 @@ Règles : ne modifie rien dans Odoo ; ne devine jamais un montant.
 Étapes : 1) lis le dossier et propose un plan en 5 lignes, attends mon OK ;
 2) traite les factures ; 3) livre le tableau + la liste des cas douteux.
 Si un point est ambigu, pose UNE question, puis continue.</code></pre>
-      <p>Remarque ce qui manque : aucune explication de ce qu'est une facture, aucune consigne de ton, aucune règle de nommage. Tout ça est déjà dans le contexte permanent. Le brief ne contient que ce qui est <em>propre à cette mission</em>.</p>
+      <p>Remarque ce qui manque : aucune explication de ce qu'est une facture, aucune consigne de ton, aucune règle de nommage. Tout ça est déjà su : en mémoire, dans le Brain, dans le CLAUDE.md du dépôt. Le brief ne contient que ce qui est <em>propre à cette mission</em>.</p>
 
       <h2 id="reflexes">4. Les réflexes de 2026</h2>
       <ul>
@@ -314,22 +314,22 @@ Si un point est ambigu, pose UNE question, puis continue.</code></pre>
       <p>La question à se poser devant chaque consigne : est-ce que je vais la réécrire ? Si oui, elle n'est pas au bon endroit.</p>
 
       <figure class="diagram">
-        <div class="stairs" role="img" aria-label="Trois niveaux : le prompt pour ce qui est propre à une demande, le CLAUDE.md pour ce qui est permanent, le skill pour une procédure qu'on refait.">
+        <div class="stairs" role="img" aria-label="Trois niveaux : le prompt pour ce qui est propre à une demande, la mémoire (ou le CLAUDE.md d'un dépôt) pour ce qui est permanent, le skill pour une procédure qu'on refait.">
           <div class="stairs__step"><b>Le prompt</b><span>ce qui est propre à cette demande</span></div>
-          <div class="stairs__step"><b>Le CLAUDE.md</b><span>ce qui est vrai tout le temps : ton, règles, outils</span></div>
+          <div class="stairs__step"><b>La mémoire (ou le CLAUDE.md du dépôt)</b><span>ce qui est vrai tout le temps : ton, règles, outils</span></div>
           <div class="stairs__step"><b>Le skill</b><span>une procédure qu'on refait : étapes, gabarit, vérifications</span></div>
         </div>
         <div class="stairs__axes"><span>← une fois</span><span>réutilisé ↑</span></div>
         <figcaption class="caption">Plus une consigne revient, plus elle monte : du prompt à la règle, de la règle à la procédure.</figcaption>
       </figure>
 
-      <p>Chez moi, le tutoiement, « pas de préambule », « une seule question à la fois » ou « signale sans modifier d'office » ne sont plus jamais tapés : ils sont dans le <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>. Publier une entrée de journal (page, index, sitemap, flux, traduction) n'est plus expliqué : c'est un skill. Ce guide même est né d'un brief de deux lignes, parce que tout le reste était déjà su. C'est l'idée centrale du guide <a href="cest-quoi-le-contexte.html">C'est quoi le contexte</a> : le prompt, c'est 20 % ; le contexte, c'est le reste.</p>
+      <p>Chez moi, le tutoiement, « pas de préambule », « une seule question à la fois » ou « signale sans modifier d'office » ne sont plus jamais tapés : Claude les a en mémoire, et le <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> de chaque dépôt porte les règles du code. Je n'ai plus de fichier de consignes de base depuis que la mémoire est unifiée (août 2026). Publier une entrée de journal (page, index, sitemap, flux, traduction) n'est plus expliqué : c'est un skill. Ce guide même est né d'un brief de deux lignes, parce que tout le reste était déjà su. C'est l'idée centrale du guide <a href="cest-quoi-le-contexte.html">C'est quoi le contexte</a> : le prompt, c'est 20 % ; le contexte, c'est le reste.</p>
 
       <h2 id="outils">6. Selon l'outil : Chat, Cowork, Code</h2>
       <ul>
-        <li><strong>Dans Claude Chat</strong> — la recette de base suffit. Pour un sujet récurrent, crée un projet avec ses instructions et ses documents : le contexte est fourni une fois pour toutes.</li>
+        <li><strong>Dans Claude Chat</strong> — la recette de base suffit, et la mémoire fait le reste : dis-lui une fois comment tu travailles, il s'en souvient. Pour un sujet récurrent, un projet avec ses documents : le contexte est fourni une fois pour toutes.</li>
         <li><strong>Dans Cowork</strong> — désigne le dossier ou le connecteur (Gmail, Drive, Shopify…) plutôt que de décrire ce qu'il contient, et dis explicitement ce qui doit être <em>validé</em> avant d'être envoyé ou modifié. Le guide <a href="lia-propose-lhumain-valide.html">L'IA propose, l'humain valide</a> détaille la règle.</li>
-        <li><strong>Dans Claude Code</strong> — écris un brief (objectif, critère, étapes, points de contrôle), demande le plan, laisse tourner, relis le diff. Pour une tâche qui revient chaque jour, ce n'est plus un prompt : c'est une <a href="cest-quoi-une-loop.html">routine</a>.</li>
+        <li><strong>Dans Claude Code</strong> — écris un brief (objectif, critère, étapes, points de contrôle), demande le plan, laisse tourner en mode auto, relis le diff. Pour une tâche qui revient chaque jour, ce n'est plus un prompt : c'est une <a href="cest-quoi-une-loop.html">routine</a>.</li>
       </ul>
       <p>Le choix de l'outil lui-même est traité dans <a href="chat-cowork-code-terminal.html">Chat, Cowork ou Code</a>.</p>
 

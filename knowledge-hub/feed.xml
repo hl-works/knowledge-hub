@@ -7,11 +7,18 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Méthode v2.1 : plus de fichier de base — la mémoire, le mode auto, les loops et le navigateur</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/methode-v2-1-memoire-mode-auto-navigateur.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/methode-v2-1-memoire-mode-auto-navigateur.html</guid>
+<pubDate>Wed, 02 Sep 2026 08:00:00 +0000</pubDate>
+<description>Plus de fichier de consignes de base : la mémoire de Claude s&#x27;en charge, un CLAUDE.md par dépôt pour le code. Le mode auto par défaut, des loops et des routines pour ce qui tourne sans moi, et le navigateur pour tout ce qui n&#x27;a pas de connecteur. La Méthode passe en v2.1.</description>
+</item>
+<item>
 <title>Fable 5.1 repasse tout le site : méthode v2, six guides, un lexique doublé</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/refonte-knowledge-hub-fable-5-1.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/refonte-knowledge-hub-fable-5-1.html</guid>
 <pubDate>Tue, 01 Sep 2026 08:00:00 +0000</pubDate>
-<description>Cinq mois après sa création, ce site décrivait une méthode qui n&#x27;était plus la mienne. Le jour de la sortie de Claude Fable 5.1 : la Méthode réécrite, six guides nouveaux (Brain, contexte, skills, garde-fous, HL OS, Content Machine), vingt-trois guides mis à jour, un lexique passé de 27 à 85 termes, l&#x27;accueil et les pages projets à la date du jour, trois entrées pour les projets de l&#x27;été, et le miroir anglais. Sans rien inventer : le Brain d&#x27;abord.</description>
+<description>Cinq mois après sa création, ce site décrivait une méthode qui n&#x27;était plus la mienne. Le jour de la sortie de Claude Fable 5.1 : la Méthode réécrite, six guides nouveaux (Brain, contexte, skills, garde-fous, HL OS, Content Machine), vingt-trois guides mis à jour, un lexique passé de 27 à 86 termes, l&#x27;accueil et les pages projets à la date du jour, trois entrées pour les projets de l&#x27;été, et le miroir anglais. Sans rien inventer : le Brain d&#x27;abord.</description>
 </item>
 <item>
 <title>HL OS : cinq briques, un socle — la carte du système</title>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/agent-produit-ia-cdc-dashboard.html</guid>
 <pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
 <description>On a créé 36 variantes Davis à la main, en script Python. Plutôt que de recommencer à chaque nouvelle marque, on a formalisé la méthode : un agent IA conversationnel sur le dashboard Cobra, capable de lire n&#x27;importe quel fichier source et de créer ou mettre à jour des produits Odoo sans intervention technique.</description>
-</item>
-<item>
-<title>Catalogue Davis → Odoo : extraction tarif + brief de création (Krypton &amp; Ariane)</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/davis-odoo-krypton-ariane.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/davis-odoo-krypton-ariane.html</guid>
-<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
-<description>Préparation de l&#x27;intégration d&#x27;une nouvelle marque d&#x27;enceintes (Davis, gammes Krypton + Ariane) dans Odoo 18 : extraction propre du tarif fournisseur en 11 modèles / 36 variantes, et brief Claude Code « lecture seule d&#x27;abord, création seulement après feu vert ». Rien créé en base à ce stade — volontaire.</description>
 </item>
 </channel>
 </rss>

@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "Garde-fous pour laisser une IA agir sur ses outils : lecture automatique et écriture validée, trois régimes d'autonomie selon la nature du geste, flux standard avec aperçu, validation, exécution idempotente, journal et mesure, quatre prérequis avant un agent (objectif, budget, fréquence, critère), vérification IA d'une demande avant de coder, verrous non négociables.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-09-01",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/lia-propose-lhumain-valide.html",
       "author": {
         "@type": "Person",
@@ -178,6 +179,8 @@
       <span>·</span>
       <time datetime="2026-09-01">1er septembre 2026</time>
       <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
       <span>~7 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
@@ -216,6 +219,7 @@
         <li><a href="#verifier">5. Faire vérifier avant de coder</a></li>
         <li><a href="#non-negociables">6. Les verrous non négociables</a></li>
         <li><a href="#liberent">7. Pourquoi les garde-fous libèrent</a></li>
+        <li><a href="#mode-auto">Et le mode auto de Claude Code ?</a></li>
       </ul>
     </nav>
 
@@ -283,6 +287,10 @@
       <h2 id="liberent">7. Pourquoi les garde-fous libèrent</h2>
       <p>On présente souvent les garde-fous comme un frein. C'est l'inverse. Parce que le moteur de prix ne peut pas vendre à perte et ignore les offres aberrantes, je peux le laisser tourner sur six familles de produits sans le surveiller. Parce que l'agent factures ne peut rattacher une facture qu'à une commande qui existe, je peux le laisser lire mes mails toutes les quinze minutes. Parce que Growth ne modifie rien sans validation, je peux lui brancher tous mes outils.</p>
       <p>Le cadre n'est pas ce qui empêche d'automatiser. C'est ce qui permet d'automatiser <em>plus</em> — en dormant.</p>
+
+      <h2 id="mode-auto">Et le mode auto de Claude Code ?</h2>
+      <p>Depuis le 14 août 2026, Claude Code enchaîne les commandes d'un projet <strong>sans demander la permission</strong> à chaque étape : c'est le mode auto, le défaut. Ça ne contredit pas la règle, ça la précise. Le mode auto porte sur les <em>commandes d'un dépôt</em> — lire, modifier des fichiers, lancer un test, déployer ce site — et un classifieur relit chaque action pour bloquer ce qui dépasse la demande, touche une infrastructure inconnue ou semble dicté par un contenu piégé. Mes interdits écrits dans le dépôt passent avant lui. Ce qu'il ne touche pas : les <strong>écritures dans mes outils métier</strong>. Modifier un prix, envoyer un mail, publier : toujours un aperçu et un bouton.</p>
+      <p>Le chiffre qui m'a convaincu, mesuré par Anthropic sur un millier de testeurs : en relisant chaque demande, les humains interceptaient 13,6 % des commandes dangereuses ; le mode auto, 89 %. Et la vigilance humaine tombait à 5 % après cinquante validations. Cliquer « oui » cinquante fois ne protège rien. Le contrôle utile est ailleurs : dans les interdits écrits, le diff relu, le script de santé qui passe — et le bouton final sur ce qui engage.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>

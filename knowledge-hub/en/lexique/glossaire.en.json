@@ -543,14 +543,14 @@
       "CLAUDE.md",
       "context file"
     ],
-    "definition": "A file Claude reads at startup: tone, conventions, pitfalls turned into rules. It saves you from re-explaining everything in every conversation. Versioned in the repo (CLAUDE-{domain}-{project}.md convention), short, reviewed on a set schedule. Facts go in the Brain, procedures go in skills.",
+    "definition": "The file Claude Code reads when it opens a repository: conventions, commands, hard rules, pitfalls turned into rules. In 2026 it is no longer a personality file — tone and preferences live in memory — but the house rules of a code project, short, versioned, read by any human or agent working on it. Indispensable in auto mode: a written prohibition beats a repeated instruction.",
     "guides": [
       {
-        "label": "Writing a good CLAUDE.md",
+        "label": "Writing a good CLAUDE.md (when you still need one)",
         "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html"
       },
       {
-        "label": "What's the context",
+        "label": "What is context",
         "url": "/knowledge-hub/en/guides/cest-quoi-le-contexte.html"
       }
     ],
@@ -802,7 +802,7 @@
       "memory",
       "assistant memory"
     ],
-    "definition": "The feature that lets Claude remember your preferences and your projects' context from one conversation to the next (shared between chat and Cowork since August 2026). Implicit and tied to one tool, unlike the Brain — the memory you choose, can re-read, and share.",
+    "definition": "What Claude remembers about you from one conversation to the next: tone, preferences, behavior rules, ongoing projects. Shared between chat and Cowork since August 25, 2026, on by default, reviewable and editable topic by topic in the settings. Claude Code is not part of it but keeps its own automatic memory per project, where it writes down your corrections itself. It replaced the base instruction file; the Brain remains the chosen memory (decisions, projects), and the CLAUDE.md the memory of a repository.",
     "guides": [
       {
         "label": "What's the context",
@@ -997,13 +997,41 @@
     "projets": []
   },
   {
+    "id": "navigation-web",
+    "terme": "Web browsing (Claude in Chrome, Cowork browser)",
+    "aliases": [
+      "Claude in Chrome",
+      "built-in browser",
+      "Cowork browser",
+      "web browsing",
+      "browser agent"
+    ],
+    "definition": "Claude's ability to use a browser the way you do: read a page, click, fill in a form, move between tabs. Two ways since August 26, 2026: the Claude in Chrome extension, on your own browser (all paid plans, desktop Chrome), and Cowork's built-in browser, separate from your tabs and passwords. The door for everything that has no connector — supplier portals, back offices, admin procedures. Same rule as connectors: Claude reads and fills in, the click that commits stays human.",
+    "guides": [
+      {
+        "label": "Chat, Cowork, or Code (and the browser)",
+        "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html"
+      },
+      {
+        "label": "What's an AI agent",
+        "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Method v2.1: no more base file — memory, auto mode, loops and the browser",
+        "url": "/knowledge-hub/en/journal/methode-v2-1-memoire-mode-auto-navigateur.html"
+      }
+    ]
+  },
+  {
     "id": "mode-auto",
     "terme": "Auto mode",
     "aliases": [
-      "Auto mode",
-      "mode Auto"
+      "auto mode",
+      "automatic mode"
     ],
-    "definition": "In Claude Code, the mode where Claude decides routine permissions on its own, with protections against manipulation. Became the default in August 2026.",
+    "definition": "In Claude Code, the default mode since August 14, 2026: Claude chains a project's commands without asking permission at each step, and a classifier — a second model — reviews every action to block what goes beyond the request, touches unknown infrastructure or seems driven by hostile content. Written deny rules take precedence over it. In practice: you validate the result, no longer each command; writes into business tools remain validated by a human.",
     "guides": [
       {
         "label": "Chat, Cowork, or Code",

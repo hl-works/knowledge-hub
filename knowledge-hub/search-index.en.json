@@ -1,5 +1,12 @@
 [
  {
+  "url": "/knowledge-hub/en/journal/methode-v2-1-memoire-mode-auto-navigateur.html",
+  "title": "Method v2.1: no more base file — memory, auto mode, loops and the browser",
+  "excerpt": "No more base instruction file: Claude's memory takes care of it, one CLAUDE.md per repository for the code. Auto mode by default, loops and routines for what runs without me, and the browser for everything that has no connector. The Method moves to v2.1.",
+  "kind": "Journal",
+  "tags": "meta agent doc en-prod perso"
+ },
+ {
   "url": "/knowledge-hub/en/journal/growth-centre-actions.html",
   "title": "Growth: replacing ten dashboards with an action queue",
   "excerpt": "Loose ideas at the end of the week, a weekend with ChatGPT and Codex, then Growth running in production by Tuesday. Data, BigQuery, the application and a reusable agentic core were built to turn facts into approved actions.",
@@ -99,8 +106,8 @@
  },
  {
   "url": "/knowledge-hub/en/how-to/",
-  "title": "How I use Claude (v2, September 2026)",
-  "excerpt": "The method: versioned CLAUDE.md files, OKF Brain, Chat/Cowork/Code, two agents, skills and connectors, compound engineering + capture, guardrails, prompt to copy.",
+  "title": "How I use Claude: my method (v2.1, September 2026)",
+  "excerpt": "No more base instruction file: memory takes care of it, one CLAUDE.md per repository for code. OKF Brain, Chat/Cowork/Code and the browser, auto mode, skills, loops and routines, guardrails. Step by step, with the prompt to copy.",
   "kind": "Method",
   "tags": ""
  },
@@ -281,8 +288,8 @@
  },
  {
   "url": "/knowledge-hub/en/guides/chat-cowork-code-terminal.html",
-  "title": "Chat, Cowork, or Code: which one to use (and the \"terminal\")",
-  "excerpt": "Chat, delegate, act: three doors to the same Claude. The terminal demystified, one-command install, and what changed in 2026 (cloud sessions, routines, built-in browser).",
+  "title": "Chat, Cowork, or Code: which to use (and the browser)",
+  "excerpt": "Three doors to the same Claude, plus a fourth: Claude in Chrome or Cowork's built-in browser for anything without a connector. The terminal demystified, auto mode, what changed in 2026.",
   "kind": "Guide",
   "tags": "claude, claude code, cowork, terminal, infra"
  },
@@ -309,8 +316,8 @@
  },
  {
   "url": "/knowledge-hub/en/guides/cest-quoi-un-agent-ia.html",
-  "title": "What's an \"AI agent\"?",
-  "excerpt": "An assistant responds, an agent acts — in a loop, until the result. The 2026 forms, the six agents in production at my place, and the guardrail without which it spins out.",
+  "title": "What's an “AI agent”?",
+  "excerpt": "An assistant answers, an agent acts — in a loop, until the result. The five forms in 2026 (session, browser, subagents, routines, hosted), the six agents in production at my place, and the guardrail without which it spins out.",
   "kind": "Guide",
   "tags": "agent, subagent, routine, automation, guardrails, ai"
  },
@@ -330,8 +337,8 @@
  },
  {
   "url": "/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html",
-  "title": "Writing a good CLAUDE.md (the most valuable file you'll ever make)",
-  "excerpt": "Tone, conventions, off-limits, pitfalls turned into rules. Short, versioned, re-read. And what it is not: a Brain, a skill, a hook.",
+  "title": "Writing a good CLAUDE.md (when you still need one)",
+  "excerpt": "No more base file: memory remembers your tone and rules. What remains is the house rules of a repository — conventions, commands, prohibitions — indispensable in auto mode. What goes in it, where it lives, what it isn't.",
   "kind": "Guide",
   "tags": "claude.md, context, method, doc, conventions"
  },
@@ -715,8 +722,8 @@
  },
  {
   "url": "/knowledge-hub/en/guides/cest-quoi-le-contexte.html",
-  "title": "What is \"context\", and why it's everything",
-  "excerpt": "The context window, what goes in it layer by layer, compaction, memory, and the four context-engineering reflexes.",
+  "title": "What is “context”, and why it's everything",
+  "excerpt": "The context window, what enters it layer by layer (memory, Brain, skills, tools), what happens when it overflows, why memory replaced the base file — and the four reflexes of context engineering.",
   "kind": "Guide",
   "tags": "context, context engineering, tokens, compaction, memory, method"
  },
@@ -751,7 +758,7 @@
  {
   "url": "/knowledge-hub/en/journal/refonte-knowledge-hub-fable-5-1.html",
   "title": "Fable 5.1 revises the whole site: method v2, six guides, a doubled glossary",
-  "excerpt": "Five months after its creation, this site described a method that was no longer mine. A full revision on the day Fable 5.1 shipped: method rewritten, six new guides, twenty-three updated, glossary from 27 to 85 terms, without inventing anything.",
+  "excerpt": "Five months after its creation, this site described a method that was no longer mine. A full revision on the day Fable 5.1 shipped: method rewritten, six new guides, twenty-three updated, glossary from 27 to 86 terms, without inventing anything.",
   "kind": "Journal",
   "tags": "meta doc seo-gtm en-prod perso"
  },

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Writing a good CLAUDE.md (the highest-return file) — what goes in it, where it lives, what it isn't — Guides · Hugo Lahutte</title>
-<meta name="description" content="CLAUDE.md is the context file Claude reads at startup: tone, conventions, no-gos, pitfalls turned into rules. How to write it (short, concrete, one rule per real mistake), grow it and re-read it on a fixed date, where to keep it (versioned in the repo, CLAUDE-{domain}-{project}.md convention), and what it isn't: facts go in the Brain, procedures in skills, mandatory reflexes in hooks.">
+<title>Writing a good CLAUDE.md (when you still need one) — the file for a repository, not for your personality — Guides · Hugo Lahutte</title>
+<meta name="description" content="In 2026, you no longer need a base CLAUDE.md: Claude's memory (unified across chat and Cowork since August) retains tone, preferences, and behavior rules, and Claude Code notes your corrections per project on its own. The file remains essential for a repository: conventions, commands, prohibitions, pitfalls turned into rules — read by any human or agent working on it, especially in auto mode. What goes in it, how it grows, where it lives, what it isn't (memory, Brain, skill, hook).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-claude-md.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html">
@@ -15,14 +15,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Writing a good CLAUDE.md (the highest-return file)">
-<meta property="og:description" content="Tone, conventions, no-gos, pitfalls turned into rules. Short, versioned, re-read. And what it isn't: a Brain, a skill, a hook.">
+<meta property="og:title" content="Writing a good CLAUDE.md (when you still need one)">
+<meta property="og:description" content="No more base file: memory takes care of that. What's left is a repository's house rules: conventions, prohibitions, pitfalls. Short, versioned, re-read.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
@@ -46,11 +46,11 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "Writing a good CLAUDE.md (the highest-return file)",
-      "description": "The context file Claude reads at startup: tone and format, conventions, no-gos, pitfalls turned into rules, context management. Best practices (short, concrete, one rule per real mistake, no facts that change), growing and re-reading it, keeping it in the repo with the CLAUDE-{domain}-{project}.md convention, and the boundary with the Brain, skills and hooks.",
+      "headline": "Writing a good CLAUDE.md (when you still need one)",
+      "description": "The context file Claude reads at startup: tone and format, conventions, prohibitions, pitfalls turned into rules, context management. Best practices (short, concrete, one rule per real mistake, no facts that change), growing and re-reading it, filing it in the repository with the CLAUDE-{domain}-{project}.md convention, and the boundary with the Brain, skills, and hooks.",
       "inLanguage": "en-US",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-claude-md.html",
       "author": {
         "@type": "Person",
@@ -100,34 +100,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What's a CLAUDE.md?",
+          "name": "What is a CLAUDE.md?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A Markdown context file that Claude reads at startup and that sets how to work with you: tone and format, conventions and vocabulary, what you don't want, and the pitfalls already hit, turned into rules. Immediate effect: you stop re-explaining yourself and the answers match the way you work from the very first message."
+            "text": "A Markdown context file that Claude reads at startup and that sets how to work with you: tone and format, conventions and vocabulary, what you don't want, and the pitfalls already hit, turned into rules. Immediate effect: you stop re-explaining yourself, and the answers match the way you work from the very first message."
           }
         },
         {
           "@type": "Question",
-          "name": "What goes — and doesn't go — in a CLAUDE.md?",
+          "name": "What to put — and not put — in a CLAUDE.md?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Put in what needs to be there every time: tone, principles, no-gos, pitfalls turned into rules, context management. Leave out the facts that change (a project's status, a server name, a module count — they go in the Brain, dated), long procedures (they go in skills), and the reflexes that must always run (hooks)."
+            "text": "Put in what has to be there every time: tone, principles, prohibitions, pitfalls turned into rules, context management. Leave out the facts that change (a project's status, a server name, a module count — they go in the Brain, dated), long procedures (they go in skills), and the reflexes that must always run (hooks)."
           }
         },
         {
           "@type": "Question",
-          "name": "Where to keep your CLAUDE.md files?",
+          "name": "Where should you keep your CLAUDE.md files?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In the repositories, versioned next to the code: Claude Code automatically reads the CLAUDE.md at a project's root; the extensions live in a docs/ folder with a simple convention — CLAUDE-{domain}.md for the generic (strategy, dev), CLAUDE-{domain}-{project}.md for the specific. The foundation says when to load the extensions."
+            "text": "In the repositories, versioned next to the code: Claude Code automatically reads the CLAUDE.md at a project's root; the extensions live in a docs/ folder with a simple convention — CLAUDE-{domain}.md for the generic (strat, dev), CLAUDE-{domain}-{project}.md for the specific. The foundation says when to load the extensions."
           }
         },
         {
           "@type": "Question",
-          "name": "How to grow a CLAUDE.md without it going stale?",
+          "name": "How do you grow a CLAUDE.md without it going stale?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Add a rule for every recurring mistake (Compound Engineering), and re-read it on a fixed date: a wrong context file is worse than a missing one, as the June 2026 refresh of the Cobra files showed (hosting, deploy workflow and module count all out of date). A cleanup command in Claude Code spots duplicates and unused files."
+            "text": "Add a rule with every recurring mistake (Compound Engineering), and re-read it on a fixed date: a wrong context file is worse than a missing one, as the refresh of the Cobra files in June 2026 showed (stale hosting, deploy workflow, and module count). A cleanup command in Claude Code spots duplicates and unused files."
           }
         }
       ]
@@ -169,16 +169,16 @@
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Writing a good CLAUDE.md</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Guides · General → hands-on</p>
-    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Writing a good CLAUDE.md (the highest-return file)</h1>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · General → practice</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Writing a good CLAUDE.md (when you still need one)</h1>
     <hr class="rule--accent">
-    <p class="lead">The file that tells Claude how to work with you — tone, conventions, pitfalls to avoid. It's the highest-return thing you can set up. How to write it, how to grow it, where to keep it — and what it isn't (a skill, a Brain, a hook).</p>
+    <p class="lead">In 2026, you no longer need a base CLAUDE.md: Claude's <strong>memory</strong> retains your tone, your rules, and your preferences. There's one case left where the file matters, and it matters a lot: the <strong>repository</strong> — a site, an app, a code project. What goes in it, how it grows, where it lives, and what it isn't.</p>
     <div class="meta-bar">
       <span>By <strong>Hugo Lahutte</strong></span>
       <span>·</span>
       <time datetime="2026-05-31">May 31, 2026</time>
       <span>·</span>
-      <span>Updated <time datetime="2026-09-01">September 1, 2026</time></span>
+      <span>Updated <time datetime="2026-09-02">September 2, 2026</time></span>
       <span>·</span>
       <span>~6 min read</span>
     </div>
@@ -189,7 +189,7 @@
       <a class="tag" data-tag="vulgarisation" data-tagsearch="vulgarisation" href="/knowledge-hub/en/guides/">vulgarisation</a>
     </div>
     <ul class="levels" aria-label="Reading levels">
-      <li class="level-pill"><b>1</b> 30-second take</li>
+      <li class="level-pill"><b>1</b> In 30 seconds</li>
       <li class="level-pill"><b>2</b> The body, visual</li>
       <li class="level-pill"><b>3</b> Go deeper</li>
     </ul>
@@ -200,30 +200,31 @@
   <div class="container">
 
     <aside class="callout callout--tldr prose" aria-label="30-second summary">
-      <p class="kicker">30-second take</p>
+      <p class="kicker">In 30 seconds</p>
       <ul>
-        <li>A CLAUDE.md is a <strong>context file</strong> that Claude reads at startup and that sets your tone, your rules, your pitfalls.</li>
-        <li>Immediate effect: you stop repeating the same instructions, and the answers match the way you work <strong>from the first try</strong>.</li>
-        <li>The key: short, concrete, <strong>it grows with every corrected mistake</strong> — and it lives in your repo, versioned, re-read on a fixed date. Facts go elsewhere (the Brain), and so do procedures (skills).</li>
+        <li>A CLAUDE.md is a <strong>context file</strong> that Claude reads at startup in a repository: conventions, commands, prohibitions, pitfalls turned into rules.</li>
+        <li>What it no longer is in 2026: the personality file you pasted everywhere. Tone, preferences, and behavior rules live in Claude's <strong>memory</strong> (unified across chat and Cowork, on by default); Claude Code notes your corrections on its own in a per-project memory.</li>
+        <li>What's left: a <strong>repository's house rules</strong>, read by whoever works on it, human or agent — especially in auto mode, where a written prohibition beats a repeated instruction. Short, versioned, re-read on a fixed date. Facts go elsewhere (the Brain), and so do procedures (skills).</li>
       </ul>
     </aside>
 
     <nav class="toc prose" aria-label="Contents">
       <p class="kicker">Contents</p>
       <ul>
-        <li><a href="#investissement">1. Why it's the best investment</a></li>
+        <li><a href="#investissement">1. What it no longer is, and what's left</a></li>
         <li><a href="#contenu">2. What goes in it</a></li>
         <li><a href="#pratiques">3. Best practices</a></li>
         <li><a href="#grandir">4. How to grow it</a></li>
         <li><a href="#ou">5. Where it lives, and how to split it</a></li>
-        <li><a href="#pas">6. What it isn't: Brain, skill, hook</a></li>
+        <li><a href="#pas">6. What it isn't: memory, Brain, skill, hook</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
-      <h2 id="investissement">1. Why it's the best investment</h2>
-      <p>Without a CLAUDE.md, you re-brief Claude in every conversation: “answer in French, get to the point, here's what I do…”. With one, it's framed <strong>once and for all</strong>. The return on time spent is immediate — it's the first thing I recommend to anyone getting started, and fifteen months later, it's still true.</p>
+      <h2 id="investissement">1. What it no longer is, and what's left</h2>
+      <p>In May, this guide opened on “the best investment”: without a CLAUDE.md, you re-brief Claude in every conversation; with one, it's framed once and for all. That was true. It's no longer quite true, and that's good news: <strong>you no longer need a base file</strong>. Since August 25, 2026, Claude's memory is a single one across chat and Cowork, and on by default: the casual register, “get to the point,” your line of work, your ongoing projects — it retains them, and you can re-read, correct, or erase what it has retained, topic by topic. Claude Code, for its part, keeps an <strong>automatic memory per project</strong>: it notes on its own what it learns from a session — your corrections, your preferences — and re-reads it the next time.</p>
+      <p>What's left, and has never been more useful: a <strong>repository's</strong> CLAUDE.md. A site, an app, a code project have conventions, commands, prohibitions that don't depend on you but on the project — and that have to be read by whoever works on it, human or agent, on any machine. Now that Claude Code chains commands without asking (<a href="chat-cowork-code-terminal.html">auto mode</a>), a prohibition written in the repository beats any repeated instruction: “never force-push to the production branch” gets read there before the first command, and my prohibition rules come before the classifier. The rest of this guide is about that file.</p>
 
       <h2 id="contenu">2. What goes in it</h2>
       <p>Four families of things:</p>
@@ -236,10 +237,10 @@
       <p>And two operating rules I added this year, because no tool can do them in place of the instruction: <strong>context management</strong> (“when the conversation gets long, offer to close with a handoff brief — and to capture into the Brain”) and <strong>the extraction rule</strong> (“when I state a principle that would hold in another project, offer in one line to keep it as a note; a single offer per conversation”).</p>
 
       <figure class="diagram">
-        <div class="stack" role="img" aria-label="Anatomy of a CLAUDE.md in four stacked blocks: tone and format, conventions, no-gos, pitfalls turned into rules.">
+        <div class="stack" role="img" aria-label="Anatomy of a CLAUDE.md in four stacked blocks: tone and format, conventions, prohibitions, pitfalls turned into rules.">
           <div class="stack__block"><b>Tone &amp; format</b><span>Casual register, prose or lists, answer length.</span></div>
           <div class="stack__block"><b>Conventions</b><span>Line of work, tools, in-house vocabulary, context management.</span></div>
-          <div class="stack__block"><b>No-gos</b><span>Empty jargon, unrequested plans, flattery.</span></div>
+          <div class="stack__block"><b>Prohibitions</b><span>Empty jargon, unrequested plans, flattery.</span></div>
           <div class="stack__block"><b>Pitfalls → rules</b><span>The mistakes encountered, carved into rules. The most valuable part.</span></div>
         </div>
         <figcaption class="caption">The typical structure — from the most general (tone) to the most valuable (pitfalls turned into rules).</figcaption>
@@ -248,7 +249,7 @@
       <h2 id="pratiques">3. Best practices</h2>
       <ul>
         <li><strong>Short beats exhaustive.</strong> A file nobody reads is useless — and it's re-read with every answer, so it costs with every answer.</li>
-        <li><strong>Concrete beats abstract.</strong> “Give me commands ready to paste” rather than “be helpful.”</li>
+        <li><strong>Concrete beats abstract.</strong> “Give me the commands ready to paste” rather than “be helpful.”</li>
         <li><strong>One rule = one real mistake.</strong> Don't add speculative “just in case” rules.</li>
         <li><strong>Split by context.</strong> Rather than one big slab, a shared foundation + extensions (one for strategy, one for tech, one per project).</li>
         <li><strong>No facts that change.</strong> A module count, a server name, the status of a project: it goes stale, and a wrong rule is worse than a missing one. Those facts live in the <a href="cest-quoi-un-brain-okf.html">Brain</a>, dated.</li>
@@ -284,32 +285,33 @@
       </figure>
 
       <h2 id="ou">5. Where it lives, and how to split it</h2>
-      <p>At first, my files lived in a chat's “Project Instructions.” Today, they live <strong>in the repositories</strong>, next to the code, versioned: Claude Code automatically reads the <code>CLAUDE.md</code> at a project's root, and the other files are kept in a <code>docs/</code> folder with a simple naming convention:</p>
+      <p>At first, my files lived in a chat's “Project Instructions,” then in a <code>docs/</code> folder with a shared foundation and extensions per domain (<code>CLAUDE-strat.md</code>, <code>CLAUDE-dev.md</code>, <code>CLAUDE-dev-cobra.md</code>). The foundation and the strategy extension are gone — memory carries them now. What's left lives <strong>at the root of each repository</strong>, next to the code, versioned: Claude Code automatically reads a project's <code>CLAUDE.md</code> when it opens it.</p>
       <ul>
-        <li><code>CLAUDE.md</code> — the foundation: tone, principles, behavior rules. Shared by everything.</li>
-        <li><code>CLAUDE-{domain}.md</code> — generic to a domain: <code>CLAUDE-strat.md</code>, <code>CLAUDE-dev.md</code>.</li>
-        <li><code>CLAUDE-{domain}-{project}.md</code> — specific to a project: <code>CLAUDE-dev-cobra.md</code>, with its hard deploy rules and its ongoing topics.</li>
+        <li><code>CLAUDE.md</code> at the root — the repository's rules: conventions, commands, prohibitions, pitfalls, publishing procedure. Short.</li>
+        <li>One file per sub-project only when a repository holds several (<code>CLAUDE-dev-cobra.md</code> for the hard Odoo deploy rules, next to a generic technical foundation).</li>
+        <li>This site is the public example: its <code>CLAUDE.md</code> describes the stack, the rules for every page, the allowed tags, the procedure for adding a journal entry — nothing about my tone, which Claude has in memory.</li>
       </ul>
-      <p>The foundation says when to load the extensions. The result: the context stays light in a strategy conversation, and complete in a development session. And a versioned file has a history: you know who added which rule, when, and after which incident.</p>
+      <p>A versioned file has a history: you know who added which rule, when, and after which incident. And a Claude Code command (<code>/checkup</code>, since July) tidies up what's lying around: duplicate files, unused skills and connectors.</p>
 
-      <h2 id="pas">6. What it isn't: Brain, skill, hook</h2>
-      <p>CLAUDE.md long served as a catch-all. In 2026, three things moved out of it, and it's all the better for it:</p>
+      <h2 id="pas">6. What it isn't: memory, Brain, skill, hook</h2>
+      <p>CLAUDE.md long served as a catch-all. In 2026, four things moved out of it, and it's all the better for it:</p>
       <ul>
-        <li><strong>Facts</strong> → the <a href="cest-quoi-un-brain-okf.html">Brain</a>. What you know (entities, projects, decisions, project status) changes all the time; it belongs in dated pages, loaded on demand. CLAUDE.md says <em>how</em> to work, not <em>what</em>.</li>
+        <li><strong>Personality and preferences</strong> → <strong>memory</strong>. Tone, format, “one question at a time,” what you don't want: Claude retains it on its own, everywhere. CLAUDE.md says how we work <em>on this repository</em>, not how to talk to you.</li>
+        <li><strong>Facts</strong> → the <a href="cest-quoi-un-brain-okf.html">Brain</a>. What we know (entities, projects, decisions, project status) changes all the time; it belongs in dated pages, loaded on demand. CLAUDE.md says <em>how</em> to work, not <em>what</em>.</li>
         <li><strong>Procedures</strong> → <a href="cest-quoi-un-skill.html">skills</a>. A twenty-step procedure has no business in a file re-read with every answer; it lives in a folder, loaded when the request matches.</li>
         <li><strong>Reflexes that must always run</strong> → hooks. “Never merge the whole branch” is a rule you read; a hook that blocks the command is a rule you can't forget.</li>
       </ul>
-      <p>What stays in CLAUDE.md is what needs to be there <em>every time</em>: tone, principles, no-gos, pitfalls. It's short. That's on purpose.</p>
+      <p>What stays in CLAUDE.md is what has to be there <em>every time this repository is opened</em>: conventions, commands, prohibitions, pitfalls. It's short. That's on purpose.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
-        <p class="kicker">Go deeper</p>
+        <p class="kicker">Going further</p>
         <ul style="margin-top:var(--space-3);">
           <li>→ <a href="../how-to/"><strong>My method</strong></a> — the prompt to generate your starting CLAUDE.md and Brain.</li>
-          <li>→ <a href="cest-quoi-le-contexte.html"><strong>What's context</strong></a> — why this file must stay short.</li>
+          <li>→ <a href="cest-quoi-le-contexte.html"><strong>What is “context”</strong></a> — why this file has to stay short.</li>
           <li>→ <a href="compound-engineering.html"><strong>Compound Engineering</strong></a> — how this file improves on its own.</li>
           <li>→ <a href="principes-facon-karpathy.html"><strong>The principles (Karpathy-style)</strong></a> — the philosophy behind it.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Real-world cases.</strong> My CLAUDE.md + extensions system, born from an incident → <a href="../journal/systeme-instructions-claude-md.html">Claude custom instructions system</a> · its refresh and its split → <a href="../journal/cobra-docs-contexte-claude.html">Claude Cobra context files: refresh + split</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Real-world cases.</strong> My CLAUDE.md + extensions system, born from an incident → <a href="../journal/systeme-instructions-claude-md.html">Claude custom instruction system</a> · its refresh and its split → <a href="../journal/cobra-docs-contexte-claude.html">Claude context files for Cobra: update + split</a>.</p>
       </aside>
 
     </div>

@@ -1,5 +1,12 @@
 [
 {
+"url": "/knowledge-hub/journal/methode-v2-1-memoire-mode-auto-navigateur.html",
+"title": "Méthode v2.1 : plus de fichier de base — la mémoire, le mode auto, les loops et le navigateur",
+"excerpt": "Plus de fichier de consignes de base : la mémoire de Claude s'en charge, un CLAUDE.md par dépôt pour le code. Le mode auto par défaut, des loops et des routines pour ce qui tourne sans moi, et le navigateur pour tout ce qui n'a pas de connecteur. La Méthode passe en v2.1.",
+"kind": "Journal",
+"tags": "meta agent doc en-prod perso"
+},
+{
 "url": "/knowledge-hub/journal/growth-centre-actions.html",
 "title": "Growth : remplacer dix tableaux de bord par une file d'actions",
 "excerpt": "Des idées jetées en l'air en fin de semaine, un week-end avec ChatGPT et Codex, puis Growth en production le mardi. Data, BigQuery, application et cœur agentique réutilisable ont été construits pour transformer les faits en actions validées.",
@@ -99,8 +106,8 @@
 },
 {
 "url": "/knowledge-hub/how-to/",
-"title": "Comment j'utilise Claude (v2, septembre 2026)",
-"excerpt": "La méthode : CLAUDE.md versionnés, Brain OKF, Chat/Cowork/Code, deux agents, skills et connecteurs, compound engineering + capture, garde-fous, prompt à copier.",
+"title": "Comment j'utilise Claude : ma méthode (v2.1, septembre 2026)",
+"excerpt": "Plus de fichier de consignes de base : la mémoire s'en charge, un CLAUDE.md par dépôt pour le code. Brain OKF, Chat/Cowork/Code et le navigateur, mode auto, skills, loops et routines, garde-fous. Pas à pas, avec le prompt à copier.",
 "kind": "Méthode",
 "tags": ""
 },
@@ -121,7 +128,7 @@
 {
 "url": "/knowledge-hub/lexique/",
 "title": "Lexique IA",
-"excerpt": "85 termes de l'IA définis simplement : Brain, OKF, skill, hook, routine, contexte, HL OS, Growth, Content Machine…",
+"excerpt": "86 termes de l'IA définis simplement : Brain, OKF, skill, hook, routine, contexte, HL OS, Growth, Content Machine…",
 "kind": "Lexique",
 "tags": ""
 },
@@ -288,8 +295,8 @@
 },
 {
 "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html",
-"title": "Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)",
-"excerpt": "Discuter, déléguer, agir : trois portes vers le même Claude. Le terminal dédramatisé, l'installation en une commande, et ce qui a changé en 2026 (sessions cloud, routines, navigateur intégré).",
+"title": "Chat, Cowork ou Code : lequel utiliser (et le navigateur)",
+"excerpt": "Trois portes vers le même Claude, plus une quatrième : Claude dans Chrome ou le navigateur de Cowork pour ce qui n'a pas de connecteur. Le terminal démystifié, le mode auto, ce qui a changé en 2026.",
 "kind": "Guide",
 "tags": "claude, claude code, cowork, terminal, infra, vulgarisation"
 },
@@ -317,7 +324,7 @@
 {
 "url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html",
 "title": "C'est quoi un « agent IA » ?",
-"excerpt": "Un assistant répond, un agent agit — en boucle, jusqu'au résultat. Les formes en 2026, les six agents en production chez moi, et le garde-fou sans lequel ça part en vrille.",
+"excerpt": "Un assistant répond, un agent agit — en boucle, jusqu'au résultat. Les cinq formes en 2026 (session, navigateur, sous-agents, routines, hébergés), les six agents en production chez moi, et le garde-fou sans lequel ça part en vrille.",
 "kind": "Guide",
 "tags": "agent, sous-agent, routine, automatisation, garde-fous, ia"
 },
@@ -337,8 +344,8 @@
 },
 {
 "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html",
-"title": "Écrire un bon CLAUDE.md (le fichier le plus rentable)",
-"excerpt": "Ton, conventions, interdits, pièges devenus règles. Court, versionné, relu. Et ce qu'il n'est pas : un Brain, un skill, un hook.",
+"title": "Écrire un bon CLAUDE.md (quand il en faut encore un)",
+"excerpt": "Plus de fichier de base : la mémoire retient ton ton et tes règles. Reste le règlement intérieur d'un dépôt — conventions, commandes, interdits — indispensable en mode auto. Ce qu'on y met, où il vit, ce qu'il n'est pas.",
 "kind": "Guide",
 "tags": "claude.md, contexte, méthode, doc, conventions"
 },
@@ -716,7 +723,7 @@
 {
 "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html",
 "title": "C'est quoi « le contexte », et pourquoi c'est tout",
-"excerpt": "La fenêtre de contexte, ce qui y entre par couches, la compaction, la mémoire, et les quatre réflexes du context engineering.",
+"excerpt": "La fenêtre de contexte, ce qui y entre par couches (mémoire, Brain, skills, outils), ce qui se passe quand ça déborde, pourquoi la mémoire a remplacé le fichier de base — et les quatre réflexes du context engineering.",
 "kind": "Guide",
 "tags": "contexte, context engineering, tokens, compaction, mémoire, méthode"
 },
@@ -751,7 +758,7 @@
 {
 "url": "/knowledge-hub/journal/refonte-knowledge-hub-fable-5-1.html",
 "title": "Fable 5.1 repasse tout le site : méthode v2, six guides, un lexique doublé",
-"excerpt": "Cinq mois après sa création, ce site décrivait une méthode qui n'était plus la mienne. Une repasse complète le jour de la sortie de Fable 5.1 : méthode réécrite, six guides nouveaux, vingt-trois mis à jour, lexique de 27 à 85 termes, sans rien inventer.",
+"excerpt": "Cinq mois après sa création, ce site décrivait une méthode qui n'était plus la mienne. Une repasse complète le jour de la sortie de Fable 5.1 : méthode réécrite, six guides nouveaux, vingt-trois mis à jour, lexique de 27 à 86 termes, sans rien inventer.",
 "kind": "Journal",
 "tags": "meta doc seo-gtm en-prod perso"
 },

@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "Le contexte est tout ce que le modèle voit au moment de répondre. La fenêtre de contexte (jusqu'à un million de tokens sur les modèles Claude 5) est relue à chaque réponse et l'attention se dilue quand elle se remplit. Les couches : règles (CLAUDE.md), connaissance (Brain), procédures (skills), outils (connecteurs), conversation. Compaction, brief de reprise, capture ; mémoire de l'outil vs mémoire choisie ; quatre réflexes de context engineering.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-09-01",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-le-contexte.html",
       "author": {
         "@type": "Person",
@@ -128,7 +129,7 @@
           "name": "Quelle différence entre la mémoire de Claude et un Brain ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La mémoire de l'outil retient implicitement tes préférences et tes projets d'une conversation à l'autre (partagée entre chat et Cowork depuis août 2026), mais elle ne se relit pas et reste dans un outil. Le Brain est la mémoire choisie : explicite, versionnée, corrigeable à la main, lue par tous les outils. Ce qui engage une décision va dans le Brain ; le confort peut rester dans la mémoire."
+            "text": "La mémoire de Claude retient tes préférences, tes règles de comportement et tes projets en cours d'une conversation à l'autre ; elle est unique entre le chat et Cowork depuis le 25 août 2026, activée par défaut, et tu peux la relire, la corriger ou l'effacer sujet par sujet dans les réglages. Claude Code tient sa propre mémoire automatique par projet. Le Brain est la mémoire choisie : explicite, versionnée, corrigée à la main, lue par tous les outils. Règle de partage : ce qui engage une décision ou décrit un projet va dans le Brain ; le confort et la façon de travailler restent en mémoire ; les règles d'un dépôt de code vont dans son CLAUDE.md."
           }
         }
       ]
@@ -178,6 +179,8 @@
       <span>·</span>
       <time datetime="2026-09-01">1er septembre 2026</time>
       <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
       <span>~6 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
@@ -202,7 +205,7 @@
       <ul>
         <li>Le <strong>contexte</strong>, c'est tout ce que le modèle « voit » à l'instant où il répond : ta consigne, les fichiers de contexte, les documents joints, l'historique de la conversation, les résultats de ses outils. Rien d'autre. Il n'a pas de mémoire cachée.</li>
         <li>Ça tient dans une <strong>fenêtre</strong> limitée (jusqu'à un million de tokens sur les modèles Claude 5). Plus elle se remplit, plus l'attention se dilue : une longue conversation devient moins bonne, pas meilleure.</li>
-        <li>Le métier s'appelle le <strong>context engineering</strong> : organiser ce que l'IA sait (CLAUDE.md, Brain, skills), découper (une conversation par sujet, des sous-agents pour les lectures lourdes), et savoir quand clore avec un brief de reprise.</li>
+        <li>Le métier s'appelle le <strong>context engineering</strong> : organiser ce que l'IA sait (mémoire, Brain, skills — et un CLAUDE.md par dépôt de code), découper (une conversation par sujet, des sous-agents pour les lectures lourdes), et savoir quand clore avec un brief de reprise.</li>
       </ul>
     </aside>
 
@@ -226,7 +229,7 @@
 
       <figure class="diagram">
         <div class="stack" role="img" aria-label="La fenêtre de contexte : consignes système et CLAUDE.md, skills et outils, documents joints, historique de la conversation, résultats d'outils.">
-          <div class="stack__block"><b>Les consignes de base</b><span>Le fonctionnement de l'outil, puis ton CLAUDE.md : ton, principes, règles. Toujours là, doit rester court.</span></div>
+          <div class="stack__block"><b>Les consignes de base</b><span>Le fonctionnement de l'outil, puis ce que Claude a en mémoire de toi : ton, principes, règles — et, dans un dépôt de code, son CLAUDE.md. Toujours là.</span></div>
           <div class="stack__block"><b>Ce qui est chargé à la demande</b><span>Un skill quand ta demande correspond, une fiche du Brain, un document joint, les outils branchés (connecteurs).</span></div>
           <div class="stack__block"><b>L'historique de la conversation</b><span>Tout ce qui a été dit, toi et lui. C'est ce qui grossit — et ce qui finit par déborder.</span></div>
           <div class="stack__block"><b>Les résultats d'outils</b><span>Une recherche web, un fichier lu, une commande exécutée. Souvent le plus volumineux, rarement le plus utile après coup.</span></div>
@@ -237,7 +240,7 @@
       <h2 id="couches">2. Ce qui entre dans le contexte (par couches)</h2>
       <p>La bonne façon d'y penser, c'est en couches, de la plus stable à la plus volatile :</p>
       <ol>
-        <li><strong>Les règles</strong> — le <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>. Comment travailler avec moi. Change peu, chargé à chaque fois : d'où l'obsession de le garder court.</li>
+        <li><strong>Les règles et préférences</strong> — la <strong>mémoire</strong> de Claude (ton, format, ce que je ne veux pas, mes projets en cours), et, pour un dépôt de code, son <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>. Comment travailler avec moi. Change peu, présent à chaque fois : d'où l'obsession de garder le fichier court — la mémoire, elle, se relit et s'élague dans les réglages.</li>
         <li><strong>La connaissance</strong> — le <a href="cest-quoi-un-brain-okf.html">Brain</a>. Ce qu'on sait. Change tout le temps, chargé à la demande : la fiche de l'entité concernée, pas tout le wiki.</li>
         <li><strong>Les procédures</strong> — les <a href="cest-quoi-un-skill.html">skills</a>. Chargés seulement quand la demande correspond, pour ne pas polluer les conversations qui n'en ont pas besoin.</li>
         <li><strong>Les outils</strong> — les connecteurs. Chaque outil branché ajoute sa description au contexte ; brancher quarante connecteurs « au cas où » coûte de la place à chaque réponse.</li>
@@ -254,8 +257,8 @@
       </ul>
 
       <h2 id="memoire">4. Et la « mémoire » ?</h2>
-      <p>Les assistants ont des fonctions de mémoire : Claude retient tes préférences et le contexte de tes projets d'une conversation à l'autre — et depuis août 2026, cette mémoire est partagée entre le chat et Cowork. C'est pratique pour ce qui est <em>implicite</em> (ton style, tes projets en cours). Mais c'est une mémoire que tu ne relis pas, que tu corriges difficilement, et qui reste dans un outil.</p>
-      <p>Le Brain, c'est la mémoire <strong>choisie</strong> : explicite, relisible, versionnée, corrigeable à la main, lue par tous mes outils. Les deux coexistent. La règle que j'applique : ce qui engage une décision ou décrit un projet va dans le Brain ; ce qui relève du confort (« il préfère les listes courtes ») peut rester dans la mémoire de l'outil.</p>
+      <p>C'est la couche qui a le plus bougé. Depuis le 25 août 2026, la mémoire de Claude est <strong>unique entre le chat et Cowork</strong>, activée par défaut, et tu la relis sujet par sujet dans les réglages : tu vois ce qu'il a retenu, tu corriges, tu effaces. Elle retient ton style, tes règles de comportement, tes projets en cours. Conséquence directe chez moi : <strong>je n'ai plus de fichier de consignes de base</strong>. Ce que je collais dans chaque projet — tutoiement, pas de préambule, une question à la fois, mon métier — Claude le sait en ouvrant la conversation. Claude Code n'est pas dans cette mémoire-là, mais il tient la sienne : une <strong>mémoire automatique par projet</strong>, où il note lui-même ce qu'il apprend d'une session (tes corrections, tes préférences, les pièges) et qu'il relit la fois suivante.</p>
+      <p>Le Brain, c'est la mémoire <strong>choisie</strong> : explicite, relisible, versionnée, corrigeable à la main, lue par tous mes outils. Les deux coexistent, et la règle de partage est simple : ce qui engage une décision ou décrit un projet va dans le Brain ; ce qui relève du confort et de la façon de travailler reste en mémoire ; ce qui règle un dépôt de code va dans son CLAUDE.md. Une mémoire aussi se périme : la relire de temps en temps fait partie du travail, comme relire une fiche du Brain.</p>
 
       <h2 id="reflexes">5. Les quatre réflexes</h2>
       <div class="card-grid" role="img" aria-label="Quatre réflexes : une conversation par sujet, charger le bon fichier, déléguer les lectures lourdes, clore avec un brief.">
@@ -266,7 +269,7 @@
       </div>
 
       <h2 id="evolution">6. Du prompt au système</h2>
-      <p>Il y a dix-huit mois, la compétence à la mode était le <em>prompt engineering</em> : trouver la formule. Elle n'a pas disparu — <a href="ecrire-un-bon-prompt.html">un bon prompt</a> compte toujours — mais elle est devenue la petite partie du travail. Ce qui fait la différence entre quelqu'un qui « utilise ChatGPT » et quelqu'un qui livre des choses en production avec l'IA, c'est ce qu'il a construit <em>autour</em> de la conversation : des règles stables, une connaissance à jour, des procédures rangées, des outils cadrés, et la discipline de débarrasser la table.</p>
+      <p>Il y a dix-huit mois, la compétence à la mode était le <em>prompt engineering</em> : trouver la formule. Elle n'a pas disparu — <a href="ecrire-un-bon-prompt.html">un bon prompt</a> compte toujours — mais elle est devenue la petite partie du travail. Ce qui fait la différence entre quelqu'un qui « utilise ChatGPT » et quelqu'un qui livre des choses en production avec l'IA, c'est ce qu'il a construit <em>autour</em> de la conversation : des règles stables (en mémoire, ou dans le CLAUDE.md d'un dépôt), une connaissance à jour, des procédures rangées, des outils cadrés, et la discipline de débarrasser la table.</p>
       <p>Le bon modèle mental : tu n'écris pas des prompts, tu <strong>gères l'attention</strong> d'un collaborateur très compétent et très distrait, qui ne sait que ce que tu as posé devant lui.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">

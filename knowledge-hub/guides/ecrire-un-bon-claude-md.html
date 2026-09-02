@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Écrire un bon CLAUDE.md (le fichier le plus rentable) — ce qu'on y met, où il vit, ce qu'il n'est pas — Guides · Hugo Lahutte</title>
-<meta name="description" content="Le CLAUDE.md, c'est le fichier de contexte que Claude lit au démarrage : ton, conventions, interdits, pièges devenus règles. Comment le rédiger (court, concret, une règle par vraie erreur), le faire grandir et le relire à date fixe, où le ranger (versionné dans le dépôt, convention CLAUDE-{domaine}-{projet}.md), et ce qu'il n'est pas : les faits vont dans le Brain, les procédures dans les skills, les réflexes obligatoires dans les hooks.">
+<title>Écrire un bon CLAUDE.md (quand il en faut encore un) — le fichier d'un dépôt, pas de ta personnalité — Guides · Hugo Lahutte</title>
+<meta name="description" content="En 2026, plus besoin d'un CLAUDE.md de base : la mémoire de Claude (unifiée chat + Cowork depuis août) retient ton, préférences et règles de comportement, et Claude Code note lui-même tes corrections par projet. Le fichier reste indispensable pour un dépôt : conventions, commandes, interdits, pièges devenus règles — lu par tout humain ou agent qui y travaille, surtout en mode auto. Ce qu'on y met, comment il grandit, où il vit, ce qu'il n'est pas (mémoire, Brain, skill, hook).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-claude-md.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-claude-md.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-claude-md.html">
@@ -15,14 +15,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Écrire un bon CLAUDE.md (le fichier le plus rentable)">
-<meta property="og:description" content="Ton, conventions, interdits, pièges devenus règles. Court, versionné, relu. Et ce qu'il n'est pas : un Brain, un skill, un hook.">
+<meta property="og:title" content="Écrire un bon CLAUDE.md (quand il en faut encore un)">
+<meta property="og:description" content="Plus de fichier de base : la mémoire s'en charge. Reste le règlement intérieur d'un dépôt : conventions, interdits, pièges. Court, versionné, relu.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-claude-md.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -46,11 +46,11 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "Écrire un bon CLAUDE.md (le fichier le plus rentable)",
+      "headline": "Écrire un bon CLAUDE.md (quand il en faut encore un)",
       "description": "Le fichier de contexte que Claude lit au démarrage : ton et format, conventions, interdits, pièges devenus règles, gestion du contexte. Bonnes pratiques (court, concret, une règle par vraie erreur, pas de faits qui bougent), faire grandir et relire, ranger dans le dépôt avec la convention CLAUDE-{domaine}-{projet}.md, et la frontière avec le Brain, les skills et les hooks.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-claude-md.html",
       "author": {
         "@type": "Person",
@@ -169,15 +169,15 @@
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Écrire un bon CLAUDE.md</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste → pratique</p>
-    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Écrire un bon CLAUDE.md (le fichier le plus rentable)</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Écrire un bon CLAUDE.md (quand il en faut encore un)</h1>
     <hr class="rule--accent">
-    <p class="lead">Le fichier qui dit à Claude comment travailler avec toi — ton, conventions, pièges à éviter. C'est le truc le plus rentable à mettre en place. Comment le rédiger, comment le faire grandir, où le ranger — et ce qu'il n'est pas (un skill, un Brain, un hook).</p>
+    <p class="lead">En 2026, tu n'as plus besoin d'un CLAUDE.md de base : la <strong>mémoire</strong> de Claude retient ton ton, tes règles et tes préférences. Il reste un cas où le fichier compte, et il compte beaucoup : le <strong>dépôt</strong> — un site, une app, un projet de code. Ce qu'on y met, comment il grandit, où il vit, et ce qu'il n'est pas.</p>
     <div class="meta-bar">
       <span>Par <strong>Hugo Lahutte</strong></span>
       <span>·</span>
       <time datetime="2026-05-31">31 mai 2026</time>
       <span>·</span>
-      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
       <span>·</span>
       <span>~6 min de lecture</span>
     </div>
@@ -201,28 +201,29 @@
     <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
       <p class="kicker">En 30 secondes</p>
       <ul>
-        <li>Un CLAUDE.md, c'est un <strong>fichier de contexte</strong> que Claude lit au démarrage et qui fixe ton ton, tes règles, tes pièges.</li>
-        <li>Effet immédiat : tu arrêtes de répéter les mêmes consignes, et les réponses collent à ta façon de bosser <strong>dès le premier coup</strong>.</li>
-        <li>La clé : court, concret, <strong>il grandit à chaque erreur corrigée</strong> — et il vit dans ton dépôt, versionné, relu à date fixe. Les faits vont ailleurs (le Brain), les procédures aussi (les skills).</li>
+        <li>Un CLAUDE.md, c'est un <strong>fichier de contexte</strong> que Claude lit au démarrage dans un dépôt : conventions, commandes, interdits, pièges devenus règles.</li>
+        <li>Ce qu'il n'est plus en 2026 : le fichier de personnalité qu'on collait partout. Ton, préférences et règles de comportement vivent dans la <strong>mémoire</strong> de Claude (unifiée chat + Cowork, activée par défaut) ; Claude Code note lui-même tes corrections dans une mémoire par projet.</li>
+        <li>Ce qu'il reste : le <strong>règlement intérieur d'un dépôt</strong>, lu par quiconque travaille dessus, humain ou agent — surtout en mode auto, où un interdit écrit vaut mieux qu'une consigne répétée. Court, versionné, relu à date fixe. Les faits vont ailleurs (le Brain), les procédures aussi (les skills).</li>
       </ul>
     </aside>
 
     <nav class="toc prose" aria-label="Sommaire">
       <p class="kicker">Sommaire</p>
       <ul>
-        <li><a href="#investissement">1. Pourquoi c'est le meilleur investissement</a></li>
+        <li><a href="#investissement">1. Ce qu'il n'est plus, et ce qu'il reste</a></li>
         <li><a href="#contenu">2. Ce qu'on y met</a></li>
         <li><a href="#pratiques">3. Les bonnes pratiques</a></li>
         <li><a href="#grandir">4. Comment le faire grandir</a></li>
         <li><a href="#ou">5. Où il vit, et comment le découper</a></li>
-        <li><a href="#pas">6. Ce qu'il n'est pas : Brain, skill, hook</a></li>
+        <li><a href="#pas">6. Ce qu'il n'est pas : mémoire, Brain, skill, hook</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
-      <h2 id="investissement">1. Pourquoi c'est le meilleur investissement</h2>
-      <p>Sans CLAUDE.md, tu re-briefes Claude à chaque conversation : « réponds en français, va droit au but, voici mon métier… ». Avec, c'est cadré <strong>une fois pour toutes</strong>. Le retour sur le temps passé est immédiat — c'est le premier truc que je conseille à quiconque démarre, et quinze mois plus tard, c'est toujours vrai.</p>
+      <h2 id="investissement">1. Ce qu'il n'est plus, et ce qu'il reste</h2>
+      <p>En mai, ce guide s'ouvrait sur « le meilleur investissement » : sans CLAUDE.md, tu re-briefes Claude à chaque conversation ; avec, c'est cadré une fois pour toutes. C'était vrai. Ce ne l'est plus tout à fait, et c'est une bonne nouvelle : <strong>tu n'as plus besoin d'un fichier de base</strong>. Depuis le 25 août 2026, la mémoire de Claude est unique entre le chat et Cowork et activée par défaut : le tutoiement, « va droit au but », ton métier, tes projets en cours, il les retient, et tu peux relire, corriger ou effacer ce qu'il a retenu, sujet par sujet. Claude Code, de son côté, tient une <strong>mémoire automatique par projet</strong> : il note lui-même ce qu'il apprend d'une session — tes corrections, tes préférences — et le relit la fois suivante.</p>
+      <p>Ce qui reste, et qui n'a jamais été aussi utile : le CLAUDE.md d'un <strong>dépôt</strong>. Un site, une app, un projet de code ont des conventions, des commandes, des interdits qui ne dépendent pas de toi mais du projet — et qui doivent être lus par quiconque y travaille, humain ou agent, sur n'importe quelle machine. Depuis que Claude Code enchaîne les commandes sans demander (le <a href="chat-cowork-code-terminal.html">mode auto</a>), un interdit écrit dans le dépôt vaut mieux que n'importe quelle consigne répétée : « jamais de force-push sur la branche de production » y est lu avant la première commande, et mes règles d'interdiction passent avant le classifieur. Le reste de ce guide parle de ce fichier-là.</p>
 
       <h2 id="contenu">2. Ce qu'on y met</h2>
       <p>Quatre familles de choses :</p>
@@ -283,22 +284,23 @@
       </figure>
 
       <h2 id="ou">5. Où il vit, et comment le découper</h2>
-      <p>Au début, mes fichiers vivaient dans les « Project Instructions » d'un chat. Aujourd'hui, ils vivent <strong>dans les dépôts</strong>, à côté du code, versionnés : Claude Code lit automatiquement le <code>CLAUDE.md</code> à la racine d'un projet, et les autres fichiers sont rangés dans un dossier <code>docs/</code> avec une convention de nommage simple :</p>
+      <p>Au début, mes fichiers vivaient dans les « Project Instructions » d'un chat, puis dans un dossier <code>docs/</code> avec un socle commun et des extensions par domaine (<code>CLAUDE-strat.md</code>, <code>CLAUDE-dev.md</code>, <code>CLAUDE-dev-cobra.md</code>). Le socle et l'extension stratégie ont disparu — c'est la mémoire qui les porte. Ce qui reste vit <strong>à la racine de chaque dépôt</strong>, à côté du code, versionné : Claude Code lit automatiquement le <code>CLAUDE.md</code> d'un projet en l'ouvrant.</p>
       <ul>
-        <li><code>CLAUDE.md</code> — le socle : ton, principes, règles de comportement. Commun à tout.</li>
-        <li><code>CLAUDE-{domaine}.md</code> — générique à un domaine : <code>CLAUDE-strat.md</code>, <code>CLAUDE-dev.md</code>.</li>
-        <li><code>CLAUDE-{domaine}-{projet}.md</code> — spécifique à un projet : <code>CLAUDE-dev-cobra.md</code>, avec ses règles dures de déploiement et ses sujets en cours.</li>
+        <li><code>CLAUDE.md</code> à la racine — les règles du dépôt : conventions, commandes, interdits, pièges, procédure de publication. Court.</li>
+        <li>Un fichier par sous-projet seulement quand un dépôt en contient plusieurs (<code>CLAUDE-dev-cobra.md</code> pour les règles dures de déploiement Odoo, à côté d'un socle technique générique).</li>
+        <li>Ce site en est l'exemple public : son <code>CLAUDE.md</code> décrit la stack, les règles de chaque page, les tags autorisés, la procédure pour ajouter une entrée de journal — rien sur mon ton, que Claude a en mémoire.</li>
       </ul>
-      <p>Le socle dit quand charger les extensions. Résultat : le contexte reste léger dans une conversation de stratégie, et complet dans une session de développement. Et un fichier versionné a un historique : on sait qui a ajouté quelle règle, quand, et après quel incident.</p>
+      <p>Un fichier versionné a un historique : on sait qui a ajouté quelle règle, quand, et après quel incident. Et une commande de Claude Code (<code>/checkup</code>, depuis juillet) range ce qui traîne : fichiers en doublon, skills et connecteurs inutilisés.</p>
 
-      <h2 id="pas">6. Ce qu'il n'est pas : Brain, skill, hook</h2>
-      <p>Le CLAUDE.md a beaucoup servi de fourre-tout. En 2026, trois choses en sont sorties, et il n'en va que mieux :</p>
+      <h2 id="pas">6. Ce qu'il n'est pas : mémoire, Brain, skill, hook</h2>
+      <p>Le CLAUDE.md a beaucoup servi de fourre-tout. En 2026, quatre choses en sont sorties, et il n'en va que mieux :</p>
       <ul>
+        <li><strong>La personnalité et les préférences</strong> → la <strong>mémoire</strong>. Ton, format, « une question à la fois », ce que tu ne veux pas : Claude le retient tout seul, partout. Le CLAUDE.md dit comment on travaille <em>sur ce dépôt</em>, pas comment on te parle.</li>
         <li><strong>Les faits</strong> → le <a href="cest-quoi-un-brain-okf.html">Brain</a>. Ce qu'on sait (entités, projets, décisions, état des chantiers) change tout le temps ; ça se range dans des fiches datées, chargées à la demande. Le CLAUDE.md dit <em>comment</em> travailler, pas <em>quoi</em>.</li>
         <li><strong>Les procédures</strong> → les <a href="cest-quoi-un-skill.html">skills</a>. Une procédure de vingt étapes n'a rien à faire dans un fichier relu à chaque réponse ; elle vit dans un dossier, chargée quand la demande correspond.</li>
         <li><strong>Les réflexes qui doivent toujours s'exécuter</strong> → les hooks. « Ne merge jamais la branche entière » est une règle qu'on lit ; un hook qui bloque la commande est une règle qu'on ne peut pas oublier.</li>
       </ul>
-      <p>Ce qui reste dans le CLAUDE.md est ce qui doit être là <em>à chaque fois</em> : ton, principes, interdits, pièges. C'est court. C'est fait exprès.</p>
+      <p>Ce qui reste dans le CLAUDE.md est ce qui doit être là <em>à chaque fois qu'on ouvre ce dépôt</em> : conventions, commandes, interdits, pièges. C'est court. C'est fait exprès.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>

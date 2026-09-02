@@ -22,7 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-06-10">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -50,7 +50,7 @@
       "description": "Une loop est un prompt relancé à intervalle régulier par un agent pour surveiller ou vérifier sans intervention. Trois outils : la loop de Claude Code (éphémère, expire seule), la routine (planifiée, cloud côté Claude), la tâche planifiée maison (cron, GitHub Actions). Usages côté marchand et cadre : lire et alerter, ne pas écrire seul.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-06-10",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html",
       "author": {
         "@type": "Person",
@@ -171,7 +171,7 @@
       <span>·</span>
       <time datetime="2026-06-10">10 juin 2026</time>
       <span>·</span>
-      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
       <span>·</span>
       <span>~5 min de lecture</span>
     </div>
@@ -234,6 +234,7 @@
 
       <h2 id="claude-code">2. La loop dans Claude Code</h2>
       <p>Claude Code (voir <a href="chat-cowork-code-terminal.html">Chat, Cowork ou Code</a>) embarque une commande <code>/loop</code> : tu donnes un <strong>prompt</strong> et un <strong>intervalle</strong>, et il relance ce prompt à chaque échéance, dans ta session. Sans intervalle, il décide lui-même du rythme selon ce qu'il attend — un déploiement de huit minutes mérite une vérification, pas huit.</p>
+      <p>Depuis que le mode auto est le défaut (14 août 2026), une loop tourne <strong>sans me poser de question</strong> à chaque itération : c'est ce qui la rend vraiment utile — une surveillance qui demanderait une permission toutes les dix minutes n'en serait pas une. Le classifieur du mode auto relit chaque action, et mes interdits écrits dans le dépôt passent avant lui.</p>
       <p>Le détail qui m'a fait adopter le truc : le <strong>garde-fou est intégré</strong>. Une loop expire automatiquement après quelques jours — elle tourne une dernière fois, puis se supprime. Une loop oubliée ne peut pas tourner indéfiniment ni cramer un budget en silence. C'est exactement le genre de cadre que je réclame pour tout agent (objectif, budget, fréquence, critère de succès) — sauf qu'ici, la borne est posée par l'outil lui-même.</p>
 
       <h2 id="trois">3. Loop, routine ou tâche planifiée ?</h2>

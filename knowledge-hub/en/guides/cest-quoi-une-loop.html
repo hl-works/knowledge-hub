@@ -6,7 +6,7 @@
 
 <!-- ===== SEO ===== -->
 <title>What is a “loop”? Agent loops, routines, and scheduled tasks — Guides · Hugo Lahutte</title>
-<meta name="description" content="A loop is a prompt re-run at a regular interval by an agent, to monitor or check something without you. Three tools depending on how long you need it: the Claude Code loop (ephemeral, expires on its own), the routine (scheduled, run in the cloud on Claude's side, without your machine), and the homemade scheduled task (cron, GitHub Actions). The concept, how to choose, the uses for a merchant, and the framing: a recurring task reads and alerts, it doesn't write on its own.">
+<meta name="description" content="A loop is a prompt re-run at a regular interval by an agent, to monitor or check something without you. Three tools depending on how long you need it: the Claude Code loop (ephemeral, expires on its own), the routine (scheduled, run in the cloud on Claude's side, without your machine), and the home-made scheduled task (cron, GitHub Actions). The concept, how to choose, the uses for a merchant, and the frame: a recurring task reads and alerts, it doesn't write on its own.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-une-loop.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-une-loop.html">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="What is a “loop”? Loops, routines, and scheduled tasks">
-<meta property="og:description" content="The same task re-run at a regular interval, without you. Loop, routine, or scheduled task: which to choose, and the framing.">
+<meta property="og:description" content="The same task re-run at a regular interval, without you. Loop, routine, or scheduled task: which to choose, and the frame.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/cest-quoi-une-loop.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-06-10">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
@@ -47,10 +47,10 @@
     {
       "@type": "TechArticle",
       "headline": "What is a “loop”? Loops, routines, and scheduled tasks",
-      "description": "A loop is a prompt re-run at a regular interval by an agent to monitor or check something without intervention. Three tools: the Claude Code loop (ephemeral, expires on its own), the routine (scheduled, cloud on Claude's side), the homemade scheduled task (cron, GitHub Actions). Uses for a merchant and the framing: read and alert, don't write on your own.",
+      "description": "A loop is a prompt re-run at a regular interval by an agent to monitor or check something without intervention. Three tools: the Claude Code loop (ephemeral, expires on its own), the routine (scheduled, cloud on Claude's side), the home-made scheduled task (cron, GitHub Actions). Uses for a merchant and the frame: read and alert, don't write on your own.",
       "inLanguage": "en-US",
       "datePublished": "2026-06-10",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-une-loop.html",
       "author": {
         "@type": "Person",
@@ -113,7 +113,7 @@
           "name": "What's the difference between a loop, a routine, and a scheduled task?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The loop is ephemeral and tied to your Claude Code session (a few hours). The routine is scheduled and run in the cloud on Claude's side — Claude Code on the web, Cowork, or a hosted agent — without your machine (a weekly report, a seven-day watch). The homemade scheduled task (cron, GitHub Actions, a server) is real production infrastructure for what has to run every day, forever."
+            "text": "The loop is ephemeral and tied to your Claude Code session (a few hours). The routine is scheduled and run in the cloud on Claude's side — Claude Code on the web, Cowork, or a hosted agent — without your machine (a weekly report, a seven-day watch). The home-made scheduled task (cron, GitHub Actions, a server) is real production infrastructure for what has to run every day, forever."
           }
         },
         {
@@ -121,7 +121,7 @@
           "name": "What is a loop good for, for a merchant?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Checking that the morning's orders go out to fulfillment, verifying that a production release didn't break anything, monitoring that a stock import has arrived, recalculating target prices with each delivery of competitor prices, alerting when a watch source stops responding. Rule: a recurring task reads and alerts, it doesn't write on its own into a production tool."
+            "text": "Checking that the morning's orders go out to fulfillment, verifying that a production release didn't break anything, monitoring that a stock import has arrived, recomputing target prices with every delivery of competitor prices, alerting when a watch source stops responding. Rule: a recurring task reads and alerts, it doesn't write on its own into a production tool."
           }
         }
       ]
@@ -164,15 +164,15 @@
   <div class="container">
     <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › What is a loop?</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Setting up</p>
-    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">What is a "loop"? Loops, routines, and scheduled tasks</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">What is a “loop”? Loops, routines, and scheduled tasks</h1>
     <hr class="rule--accent">
-    <p class="lead">A classic agent works toward a goal and then stops. A loop is the level above: the same task re-run at a regular interval — monitor, check, alert — without you. Since summer 2026, there are three ways to do that, from the most ephemeral to the most durable. The concept, the three tools, and the framing.</p>
+    <p class="lead">A classic agent works toward a goal and then stops. A loop is the level above: the same task re-run at a regular interval — monitor, check, alert — without you. Since summer 2026, there are three ways to do that, from the most ephemeral to the most durable. The concept, the three tools, and the frame.</p>
     <div class="meta-bar">
       <span>By <strong>Hugo Lahutte</strong></span>
       <span>·</span>
       <time datetime="2026-06-10">June 10, 2026</time>
       <span>·</span>
-      <span>Updated <time datetime="2026-09-01">September 1, 2026</time></span>
+      <span>Updated <time datetime="2026-09-02">September 2, 2026</time></span>
       <span>·</span>
       <span>~5 min read</span>
     </div>
@@ -182,7 +182,7 @@
       <a class="tag" data-tag="claude-code" data-tagsearch="Claude Code" href="/knowledge-hub/en/guides/">Claude Code</a>
     </div>
     <ul class="levels" aria-label="Reading levels">
-      <li class="level-pill"><b>1</b> 30-second take</li>
+      <li class="level-pill"><b>1</b> In 30 seconds</li>
       <li class="level-pill"><b>2</b> The body, visual</li>
       <li class="level-pill"><b>3</b> Go deeper</li>
     </ul>
@@ -193,10 +193,10 @@
   <div class="container">
 
     <aside class="callout callout--tldr prose" aria-label="30-second summary">
-      <p class="kicker">30-second take</p>
+      <p class="kicker">In 30 seconds</p>
       <ul>
         <li>A loop = a <strong>prompt re-run at a regular interval</strong> by an agent (every 5 min, every hour…), to monitor or check something without you.</li>
-        <li>Three tools depending on how long you need it: the <strong>loop</strong> (ephemeral, inside your Claude Code session, expires on its own), the <strong>routine</strong> (scheduled, runs in the cloud on Claude's side, without your machine), the <strong>homemade scheduled task</strong> (cron, GitHub Actions, a server — for what has to run forever).</li>
+        <li>Three tools depending on how long you need it: the <strong>loop</strong> (ephemeral, inside your Claude Code session, expires on its own), the <strong>routine</strong> (scheduled, runs in the cloud on Claude's side, without your machine), the <strong>home-made scheduled task</strong> (cron, GitHub Actions, a server — for what has to run forever).</li>
         <li>Simple rule: need it for a few hours → loop; recurring need that can live at Claude's → routine; production infrastructure → scheduled task. And always a frame: goal, budget, frequency, criterion.</li>
       </ul>
     </aside>
@@ -214,8 +214,8 @@
     <div class="prose">
 
       <h2 id="definition">1. The loop, the level above the agent</h2>
-      <p>In <a href="cest-quoi-un-agent-ia.html">What is an AI agent</a>, I explained the assistant/agent difference: the assistant answers, the agent <strong>acts in a loop until the result</strong> — then stops. The loop adds the <strong>time</strong> dimension: the entire task is re-run at a regular interval. The agent no longer works <em>once toward</em> a goal, it <em>comes back to check</em> — again and again.</p>
-      <p>It's the natural pattern for everything that is <strong>monitoring</strong>: you never "finish" monitoring a deployment or an order flow; you look, you compare with the expected state, you alert if it drifts, and you come back later.</p>
+      <p>In <a href="cest-quoi-un-agent-ia.html">What's an “AI agent”</a>, I explained the assistant/agent difference: the assistant answers, the agent <strong>acts in a loop until the result</strong> — then stops. The loop adds the <strong>time</strong> dimension: the entire task is re-run at a regular interval. The agent no longer works <em>once toward</em> a goal, it <em>comes back to check</em> — again and again.</p>
+      <p>It's the natural pattern for everything that is <strong>monitoring</strong>: you never “finish” monitoring a deployment or an order flow; you look, you compare with the expected state, you alert if it drifts, and you come back later.</p>
 
       <figure class="diagram">
         <div class="loop" role="img" aria-label="Loop: check, compare, alert if needed, wait for the interval, start again — until expiry.">
@@ -235,21 +235,22 @@
 
       <h2 id="claude-code">2. The loop in Claude Code</h2>
       <p>Claude Code (see <a href="chat-cowork-code-terminal.html">Chat, Cowork, or Code</a>) ships with a <code>/loop</code> command: you give it a <strong>prompt</strong> and an <strong>interval</strong>, and it re-runs that prompt at every due time, inside your session. Without an interval, it sets the pace itself based on what it's waiting for — an eight-minute deployment deserves one check, not eight.</p>
+      <p>Since auto mode became the default (August 14, 2026), a loop runs <strong>without asking me anything</strong> at each iteration: that's what makes it genuinely useful — a watch that asked for permission every ten minutes wouldn't be one. Auto mode's classifier reviews every action, and the prohibitions written in my repository come before it.</p>
       <p>The detail that made me adopt it: the <strong>guardrail is built in</strong>. A loop expires automatically after a few days — it runs one last time, then deletes itself. A forgotten loop can't run indefinitely or silently burn a budget. It's exactly the kind of frame I demand for any agent (goal, budget, frequency, success criterion) — except here, the boundary is set by the tool itself.</p>
 
       <h2 id="trois">3. Loop, routine, or scheduled task?</h2>
       <p>All three re-run a task at a regular interval; what differs is the lifespan and where it runs.</p>
 
       <figure class="diagram">
-        <div class="card-grid" role="img" aria-label="Three tools: the ephemeral loop in the session, the scheduled routine in the cloud on Claude's side, the homemade scheduled task on infrastructure.">
+        <div class="card-grid" role="img" aria-label="Three tools: the ephemeral loop in the session, the scheduled routine in the cloud on Claude's side, the home-made scheduled task on infrastructure.">
           <div class="card" style="min-height:auto;"><span class="card__kicker">A few hours</span><span class="card__title">Loop</span><span class="card__desc">Tied to your work session. Created in one line, expires on its own. To watch a deployment this afternoon.</span></div>
           <div class="card" style="min-height:auto;"><span class="card__kicker">Recurring, no infra</span><span class="card__title">Routine</span><span class="card__desc">Scheduled (every morning, every Monday) and run in the cloud on Claude's side — Claude Code on the web, Cowork, or a hosted agent — without your machine. For a weekly report, a seven-day watch.</span></div>
-          <div class="card" style="min-height:auto;"><span class="card__kicker">Forever</span><span class="card__title">Homemade scheduled task</span><span class="card__desc">Cron, GitHub Actions, a small server. Real production infrastructure, logged, with its secrets on the server side. For what has to run every day, without depending on a subscription.</span></div>
+          <div class="card" style="min-height:auto;"><span class="card__kicker">Forever</span><span class="card__title">Home-made scheduled task</span><span class="card__desc">Cron, GitHub Actions, a small server. Real production infrastructure, logged, with its secrets on the server side. For what has to run every day, without depending on a subscription.</span></div>
         </div>
-        <figcaption class="caption">From ephemeral to durable. Routines are the new thing in 2026: the missing link between "I'm watching for three hours" and "I'm setting up infrastructure."</figcaption>
+        <figcaption class="caption">From ephemeral to durable. Routines are the new thing in 2026: the missing link between “I'm watching for three hours” and “I'm setting up infrastructure.”</figcaption>
       </figure>
 
-      <p>In my setup, all three coexist. My two daily briefs (hi-fi and AI) are <strong>scheduled tasks</strong>: they have to run every morning, forever, with their secrets on a server. The seven-day watch on my audience measurement — comparing each morning the real orders, the web flow, and the analytics, read-only, without changing anything — is a <strong>routine</strong>. Checking that an Odoo deployment goes well this afternoon is a <strong>loop</strong>: useful for three hours, forgettable afterwards.</p>
+      <p>In my setup, all three coexist. My two daily watches (hi-fi and AI) are <strong>scheduled tasks</strong>: they have to run every morning, forever, with their secrets on a server. The seven-day watch on my audience measurement — comparing each morning the real orders, the web flow, and the analytics, read-only, without changing anything — is a <strong>routine</strong>. Checking that an Odoo deployment goes well this afternoon is a <strong>loop</strong>: useful for three hours, forgettable afterwards.</p>
 
       <h2 id="usages">4. What it's good for, for a merchant</h2>
       <p>Everything that gets checked at a regular interval:</p>
@@ -258,18 +259,18 @@
         <li><strong>Production release</strong>: after a deployment, check every 10 minutes that the key pages respond and that nothing breaks.</li>
         <li><strong>Supplier feeds</strong>: monitor that an expected stock import has arrived and integrated properly.</li>
         <li><strong>Prices</strong>: my alignment engine recalculates target prices with each new delivery of competitor prices, several times a day — in observation mode first, then live, family by family.</li>
-        <li><strong>Sources</strong>: my daily brief alerts me when a source has stopped responding for three days. Monitoring of the monitoring.</li>
+        <li><strong>Sources</strong>: my watch alerts me when a source has stopped responding for three days. Monitoring of the monitoring.</li>
       </ul>
       <p>One cross-cutting rule, whatever the form: <strong>a recurring task reads and alerts; it doesn't write on its own</strong> into a production tool without a human having validated the action. Details in <a href="lia-propose-lhumain-valide.html">AI proposes, the human validates</a>.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
-        <p class="kicker">Go deeper</p>
+        <p class="kicker">Going further</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>What is an AI agent</strong></a> — the basic loop, and the four guardrails.</li>
+          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>What's an “AI agent”</strong></a> — the basic loop, and the four guardrails.</li>
           <li>→ <a href="chat-cowork-code-terminal.html"><strong>Chat, Cowork, or Code</strong></a> — where loops and routines live.</li>
-          <li>→ <a href="etude-de-cas-veille-ia.html"><strong>Case study: the AI watch bot</strong></a> — a real, durable scheduled task, from A to Z.</li>
+          <li>→ <a href="etude-de-cas-veille-ia.html"><strong>Case study: the AI Watch</strong></a> — a real, durable scheduled task, from A to Z.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Real cases.</strong> A daily brief that monitors its own sources → <a href="../journal/veille-hifi-bot-repare-elargi.html">HiFi watch: 64 sources, alert when a source dies</a> · an engine re-run with every price delivery → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">Automatic competitive alignment</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Real-world cases.</strong> A watch that monitors its own sources → <a href="../journal/veille-hifi-bot-repare-elargi.html">HiFi watch: 64 sources, alert if a source dies</a> · an engine re-run with every price delivery → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">Automatic competitive alignment</a>.</p>
       </aside>
 
     </div>

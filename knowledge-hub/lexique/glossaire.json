@@ -541,10 +541,10 @@
       "CLAUDE.md",
       "fichier de contexte"
     ],
-    "definition": "Un fichier que Claude lit au démarrage : ton, conventions, pièges devenus règles. Il évite de tout réexpliquer à chaque conversation. Versionné dans le dépôt (convention CLAUDE-{domaine}-{projet}.md), court, relu à date fixe. Les faits vont dans le Brain, les procédures dans les skills.",
+    "definition": "Le fichier que Claude Code lit en ouvrant un dépôt : conventions, commandes, interdits, pièges devenus règles. En 2026 ce n'est plus un fichier de personnalité — le ton et les préférences vivent dans la mémoire — mais le règlement intérieur d'un projet de code, court, versionné, lu par tout humain ou agent qui y travaille. Indispensable en mode auto : un interdit écrit vaut mieux qu'une consigne répétée.",
     "guides": [
       {
-        "label": "Écrire un bon CLAUDE.md",
+        "label": "Écrire un bon CLAUDE.md (quand il en faut encore un)",
         "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html"
       },
       {
@@ -794,7 +794,7 @@
     "aliases": [
       "mémoire"
     ],
-    "definition": "La fonction qui permet à Claude de retenir tes préférences et le contexte de tes projets d'une conversation à l'autre (partagée entre le chat et Cowork depuis août 2026). Implicite et attachée à un outil, à la différence du Brain — la mémoire choisie, relisible et partagée.",
+    "definition": "Ce que Claude retient de toi d'une conversation à l'autre : ton, préférences, règles de comportement, projets en cours. Unique entre le chat et Cowork depuis le 25 août 2026, activée par défaut, relisible et corrigeable sujet par sujet dans les réglages. Claude Code n'en fait pas partie mais tient une mémoire automatique par projet, où il note lui-même tes corrections. Elle a remplacé le fichier de consignes de base ; le Brain reste la mémoire choisie (décisions, projets), et le CLAUDE.md celle d'un dépôt.",
     "guides": [
       {
         "label": "C'est quoi le contexte",
@@ -988,13 +988,43 @@
     "projets": []
   },
   {
+    "id": "navigation-web",
+    "terme": "Navigation web (Claude dans Chrome, navigateur Cowork)",
+    "aliases": [
+      "Claude dans Chrome",
+      "Claude in Chrome",
+      "navigateur intégré",
+      "navigateur de Cowork",
+      "navigation web",
+      "agent navigateur"
+    ],
+    "definition": "La capacité de Claude à utiliser un navigateur comme toi : lire une page, cliquer, remplir un formulaire, passer d'un onglet à l'autre. Deux façons depuis le 26 août 2026 : l'extension Claude dans Chrome, sur ton propre navigateur (tous les forfaits payants, Chrome de bureau), et le navigateur intégré de Cowork, séparé de tes onglets et mots de passe. La porte pour tout ce qui n'a pas de connecteur — portails fournisseurs, back-offices, démarches. Même règle que les connecteurs : Claude lit et remplit, le clic qui engage reste humain.",
+    "guides": [
+      {
+        "label": "Chat, Cowork ou Code (et le navigateur)",
+        "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html"
+      },
+      {
+        "label": "C'est quoi un agent IA",
+        "url": "/knowledge-hub/guides/cest-quoi-un-agent-ia.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Méthode v2.1 : la mémoire, le mode auto, les loops et le navigateur",
+        "url": "/knowledge-hub/journal/methode-v2-1-memoire-mode-auto-navigateur.html"
+      }
+    ]
+  },
+  {
     "id": "mode-auto",
     "terme": "Mode Auto",
     "aliases": [
-      "mode Auto",
-      "Auto mode"
+      "mode auto",
+      "mode automatique",
+      "auto mode"
     ],
-    "definition": "Dans Claude Code, le mode où Claude décide seul des permissions courantes, avec des protections contre les manipulations. Devenu le défaut en août 2026.",
+    "definition": "Dans Claude Code, le mode par défaut depuis le 14 août 2026 : Claude enchaîne les commandes d'un projet sans demander la permission à chaque étape, et un classifieur — un second modèle — relit chaque action pour bloquer ce qui dépasse la demande, touche une infrastructure inconnue ou semble dicté par un contenu piégé. Les règles d'interdiction écrites passent avant lui. En pratique : on valide le résultat, plus chaque commande ; les écritures dans les outils métier restent validées par un humain.",
     "guides": [
       {
         "label": "Chat, Cowork ou Code",

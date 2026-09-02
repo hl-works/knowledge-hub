@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "Skill: a procedure packaged in a folder with a SKILL.md, loaded on demand, portable between tools. Hook: a deterministic script triggered at a specific moment. Subagent: a delegated Claude with its own context, running in the background. Plugin: the versioned package of all of it. How to choose between a CLAUDE.md rule, a skill, a hook and an MCP connector.",
       "inLanguage": "en-US",
       "datePublished": "2026-09-01",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-skill.html",
       "author": {
         "@type": "Person",
@@ -179,6 +180,8 @@
       <span>·</span>
       <time datetime="2026-09-01">September 1, 2026</time>
       <span>·</span>
+      <span>Updated <time datetime="2026-09-02">September 2, 2026</time></span>
+      <span>·</span>
       <span>~6 min read</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
@@ -224,7 +227,7 @@
 
       <h2 id="probleme">1. The problem: the procedure you keep re-explaining</h2>
       <p>Publishing an entry on this site takes about twenty steps: the page, its English twin, the journal index, the homepage teaser, the sitemap, the <code>llms.txt</code>, the search index, the counters, a consistency check. The first six times, I explained it to Claude at the start of the session. The seventh time, I realized the problem wasn't Claude: it was me keeping the procedure in my head instead of writing it down.</p>
-      <p>The <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> takes care of general rules (tone, principles, pitfalls). But a twenty-step procedure has no business there: it would weigh down every conversation, including the ones that don't need it. I needed a place for procedures, loaded <em>only when useful</em>. That's the skill.</p>
+      <p>Claude's memory — and a repository's <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> — takes care of general rules (tone, principles, pitfalls). But a twenty-step procedure has no business there: it would weigh down every conversation, including the ones that don't need it. I needed a place for procedures, loaded <em>only when useful</em>. That's the skill.</p>
 
       <h2 id="skill">2. The skill: a procedure in a folder</h2>
       <p>A skill is a folder containing a <code>SKILL.md</code> file: at the top, a name and a description (that's what Claude reads to decide whether the skill applies to your request); below, the procedure in plain text, with its rules, its examples and its guardrails. Optionally, scripts or reference files alongside. Nothing else.</p>
@@ -266,13 +269,13 @@
 
       <h2 id="choisir">6. Instruction, skill, hook or connector: which to choose</h2>
       <figure class="diagram">
-        <div class="card-grid" role="img" aria-label="Four tools: instruction in CLAUDE.md, skill, hook, MCP connector — and when to use each.">
-          <div class="card" style="min-height:auto;"><span class="card__kicker">A general rule</span><span class="card__title">CLAUDE.md</span><span class="card__desc">Tone, principles, pitfalls turned into rules. Short, always loaded. "Keep it casual," "never a whole branch in prod."</span></div>
+        <div class="card-grid" role="img" aria-label="Four tools: rule in memory or in the repository's CLAUDE.md, skill, hook, MCP connector — and when to use each.">
+          <div class="card" style="min-height:auto;"><span class="card__kicker">A general rule</span><span class="card__title">Memory / CLAUDE.md</span><span class="card__desc">Tone, principles, pitfalls turned into rules: in memory (Claude retains them). A repository's rules: in its CLAUDE.md, short, always loaded. "Keep it casual," "never a whole branch in prod."</span></div>
           <div class="card" style="min-height:auto;"><span class="card__kicker">A procedure</span><span class="card__title">Skill</span><span class="card__desc">Steps, a template, guardrails. Loaded when the request matches. "Publish an entry," "capture the session."</span></div>
           <div class="card" style="min-height:auto;"><span class="card__kicker">A systematic check</span><span class="card__title">Hook</span><span class="card__desc">Has to happen every time, no judgment. "Block any push to main," "run the check after every change."</span></div>
           <div class="card" style="min-height:auto;"><span class="card__kicker">Access to a tool</span><span class="card__title">Connector (MCP)</span><span class="card__desc">Read or act in Shopify, Drive, Gmail, GitHub. The arms — to be framed by permissions.</span></div>
         </div>
-        <figcaption class="caption">The test: is it a rule (CLAUDE.md), a procedure (skill), a reflex that must always run (hook), or a tool to plug in (connector)?</figcaption>
+        <figcaption class="caption">The test: is it a rule (memory, or the repository's CLAUDE.md), a procedure (skill), a reflex that must always run (hook), or a tool to plug in (connector)?</figcaption>
       </figure>
 
       <h2 id="sans-terminal">7. And without a terminal?</h2>

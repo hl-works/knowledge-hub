@@ -6,7 +6,7 @@
 
 <!-- ===== SEO ===== -->
 <title>Hugo Lahutte — Knowledge Hub: how I build with Claude (method, guides, HL OS, journal)</title>
-<meta name="description" content="Hugo Lahutte's build log and method: how I use Claude (CLAUDE.md, OKF Brain, Chat/Cowork/Code, skills, guardrails) to drive my e-commerce, publishing and dev projects — HL OS, Growth, Content Machine. Evergreen guides, glossary, AI Watch, dated journal. Build in public, current as of September 2026.">
+<meta name="description" content="Hugo Lahutte's build log and method: how I use Claude (memory, OKF Brain, Chat/Cowork/Code, auto mode, browser, skills, guardrails) to drive my e-commerce, publishing and dev projects — HL OS, Growth, Content Machine. Evergreen guides, glossary, AI Watch, dated journal. Build in public, current as of September 2026.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/">
@@ -130,13 +130,13 @@
     <p class="kicker">Build in public · Method &amp; logbook</p>
     <h1>I build<br>with Claude.</h1>
     <hr class="rule--accent">
-    <p class="lead">More and more people ask me how I work with AI. Instead of repeating myself, I document everything here: my method (context files, Brain, agents, guardrails), simple guides, my systems — HL OS, Growth, the Content Machine — and the details of what I'm building, session after session. Fully reworked on September 1, 2026.</p>
+    <p class="lead">More and more people ask me how I work with AI. Instead of repeating myself, I document everything here: my method (memory, Brain, auto mode, agents, guardrails), simple guides, my systems — HL OS, Growth, the Content Machine — and the details of what I'm building, session after session. Fully reworked on September 1, 2026.</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="how-to/">Start with the method →</a>
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">69</b><span>Documented sessions</span></div>
+      <div class="stat"><b id="stat-sessions">70</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Verticals</span></div>
       <div class="stat"><b>5</b><span>HL OS building blocks</span></div>
       <div class="stat"><b>2</b><span>Claude agents</span></div>
@@ -197,7 +197,7 @@
           <figcaption class="caption">Five building blocks, one foundation. The full map is in the guide.</figcaption>
         </figure>
       </div>
-      <p class="caption" style="margin-top:var(--space-4);">+ the <a href="how-to/">rewritten method (v2)</a>, <a href="guides/">six new guides and fourteen rewritten</a> (Brain, context, skills, guardrails, HL OS, Content Machine — and, on September 2, the practice guides: prompt, principles, retailer, data, GEO…), a <a href="lexique/">glossary grown from 27 to 85 terms</a>, and <a href="journal/refonte-knowledge-hub-fable-5-1.html">the story of the overhaul</a> with Fable 5.1. The previous “new”: <a href="guides/etude-de-cas-dashboard-prix-concurrentiels.html">the price dashboard built in-house</a>, whose <a href="journal/suivi-prix-alignement-concurrentiel-auto.html">engine went live</a>.</p>
+      <p class="caption" style="margin-top:var(--space-4);">+ the <a href="how-to/">rewritten method (v2)</a>, <a href="guides/">six new guides and fourteen rewritten</a> (Brain, context, skills, guardrails, HL OS, Content Machine — and, on September 2, the practice guides: prompt, principles, retailer, data, GEO…), a <a href="lexique/">glossary grown from 27 to 86 terms</a>, and <a href="journal/refonte-knowledge-hub-fable-5-1.html">the story of the overhaul</a> with Fable 5.1. The previous “new”: <a href="guides/etude-de-cas-dashboard-prix-concurrentiels.html">the price dashboard built in-house</a>, whose <a href="journal/suivi-prix-alignement-concurrentiel-auto.html">engine went live</a>.</p>
     </aside>
     <aside class="callout veille-home" style="margin-block:var(--space-4) 0;" id="veille-home">
 <!-- veille-home:start (généré par scripts/build_veille_static.py) -->
@@ -226,7 +226,7 @@
     <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
     <div class="two-col">
       <div class="prose">
-        <p>Context is everything, not the prompt. My method organizes what Claude knows into two layers: the <strong>CLAUDE.md</strong> files, versioned in my repos (“how to work with me”: tone, principles, hard rules, per-domain extensions), and the <strong>Brain</strong>, a private wiki in OKF format (“what we know”: entities, projects, decisions, method, notes). Three doors — Chat writes, Cowork delegates, Code executes — two agents, skills for procedures, connectors for tools.</p>
+        <p>Context is everything, not the prompt. My method organizes what Claude knows in three layers: <strong>memory</strong> (“how to work with me” — no more base instruction file, Claude remembers it), the <strong>Brain</strong>, a private wiki in the OKF format (“what we know”: entities, projects, decisions, method, notes, sessions), and one <strong>CLAUDE.md</strong> per repository for the rules of the code. Three doors plus a browser — Chat writes, Cowork delegates, Code acts in auto mode, Claude browses where there is no connector —, skills, loops and routines for what runs without me, and one golden rule: AI proposes, the human validates.</p>
         <p>The loop that makes it all grow: <strong>every mistake becomes a rule, every session becomes a capture</strong>. And one golden rule, from the smallest script to my systems: AI proposes, the human validates. Fully rewritten in September 2026, starting prompt included.</p>
         <a class="btn btn--ghost" href="how-to/">See the method step by step</a>
       </div>
@@ -346,15 +346,24 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Search across 69 sessions (Odoo, Shopify, HL OS, Brain, agent…)" aria-label="Search the journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Search across 70 sessions (Odoo, Shopify, HL OS, Brain, agent…)" aria-label="Search the journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
       <li class="entry">
+        <time datetime="2026-09-02">2026-09-02</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/methode-v2-1-memoire-mode-auto-navigateur.html">Method v2.1: no more base file — memory, auto mode, loops and the browser</a></h3>
+          <p class="entry__excerpt">No more base instruction file: Claude's memory takes care of it, one CLAUDE.md per repository for the code. Auto mode by default, loops and routines for what runs without me, and the browser for everything that has no connector. The Method moves to v2.1.</p>
+          <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--hl">Claude · HL</span></div>
+      </li>
+<li class="entry">
         <time datetime="2026-09-01">2026-09-01</time>
         <div>
           <h3 class="entry__title"><a href="journal/refonte-knowledge-hub-fable-5-1.html">Fable 5.1 reworks the whole site: method v2, six guides, a doubled glossary</a></h3>
-          <p class="entry__excerpt">Five months after its creation, this site described a method that was no longer mine. On the day Fable 5.1 came out: the Method rewritten, six new guides, twenty-three updated, a glossary grown from 27 to 85 terms, the home page and projects brought up to date, three entries for the summer's projects — without inventing anything: the Brain first.</p>
+          <p class="entry__excerpt">Five months after its creation, this site described a method that was no longer mine. On the day Fable 5.1 came out: the Method rewritten, six new guides, twenty-three updated, a glossary grown from 27 to 86 terms, the home page and projects brought up to date, three entries for the summer's projects — without inventing anything: the Brain first.</p>
           <div class="tags"><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="seo-gtm" href="/knowledge-hub/en/journal/?tag=seo-gtm">seo-gtm</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--hl">Claude · HL</span></div>
@@ -414,17 +423,9 @@
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
       </li>
-      <li class="entry">
-        <time datetime="2026-08-07">2026-08-07</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/app-tarifs-fournisseurs-maj-produits.html">An app that reads supplier price lists for me</a></h3>
-          <p class="entry__excerpt">Every supplier price list (a PDF or a “new product” email) meant manual work: read it, find the product in Odoo, check EAN/SKU, key in purchase and sale prices. An internal app (“Product Update &amp; Creation”) automates the pipeline: PDF upload or watching a read-only mailbox, EAN/SKU/price extraction via a Claude model, matching against the Odoo database, duplicate detection before creation, systematic human validation and traceability. A deliberate guardrail: no created product is ever published online automatically.</p>
-          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
+      
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">69 entries in total — filter by tag in the journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">70 entries in total — filter by tag in the journal →</a></p>
   </div>
 </section>
 

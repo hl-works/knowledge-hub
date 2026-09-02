@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal ») — à jour septembre 2026 — Guides · Hugo Lahutte</title>
+<title>Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal », et le navigateur) — à jour septembre 2026 — Guides · Hugo Lahutte</title>
 <meta name="description" content="Trois façons d'utiliser Claude selon la tâche : Chat (discuter), Cowork (déléguer un travail de bureau, sur ordinateur, web et mobile) et Code (agir sur tes fichiers et ton site, dans le terminal, le navigateur ou le téléphone). La vérité sur le terminal, l'installation en une commande, pourquoi il ne faut pas un gros ordi, et ce qui a changé en 2026 : routines, navigateur intégré, sessions cloud, mode Auto.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html">
@@ -15,14 +15,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal »)">
+<meta property="og:title" content="Chat, Cowork ou Code : lequel utiliser (et le fameux « terminal ») — et le navigateur">
 <meta property="og:description" content="Discuter, déléguer, agir : trois portes vers le même Claude. Le terminal dédramatisé, l'installation en une commande, et ce qui a changé en 2026.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -50,7 +50,7 @@
       "description": "Trois façons d'utiliser Claude : Chat pour discuter, Cowork pour déléguer un travail de bureau sans terminal (ordinateur, web, mobile, navigateur intégré, routines), Code pour agir sur des fichiers et des projets (terminal, navigateur, application, mobile, sessions cloud). Installation en une commande, pas besoin de GPU, ce qui a changé en 2026.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/chat-cowork-code-terminal.html",
       "author": {
         "@type": "Person",
@@ -178,7 +178,7 @@
       <span>·</span>
       <time datetime="2026-05-31">31 mai 2026</time>
       <span>·</span>
-      <span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
       <span>·</span>
       <span>~7 min de lecture</span>
     </div>
@@ -204,7 +204,7 @@
       <ul>
         <li><strong>Chat</strong> : tu discutes, il produit du texte, des analyses, des idées — avec sa mémoire et tes outils connectés. L'interface que tu connais déjà.</li>
         <li><strong>Cowork</strong> : tu lui <strong>délègues un vrai travail de bureau</strong> (préparer un doc, dépouiller des fichiers, remplir un formulaire dans son navigateur intégré, exécuter une routine) — pensé pour les non-développeurs, sur ordinateur, web et mobile.</li>
-        <li><strong>Code</strong> : il <strong>agit directement</strong> sur tes fichiers, ton projet, ton site — l'option la plus puissante. Dans le « terminal » (une commande à coller), mais aussi dans le navigateur, l'application ou le téléphone, où la session tourne dans le cloud.</li>
+        <li><strong>Code</strong> : il <strong>agit directement</strong> sur tes fichiers, ton projet, ton site — l'option la plus puissante, en <strong>mode auto</strong> par défaut : il enchaîne sans demander, un classifieur relit chaque action. Dans le « terminal » (une commande à coller), mais aussi dans le navigateur, l'application ou le téléphone, où la session tourne dans le cloud.</li>
       </ul>
     </aside>
 
@@ -215,7 +215,8 @@
         <li><a href="#terminal">2. C'est quoi « le terminal »</a></li>
         <li><a href="#installer">3. Installer Claude Code, vraiment facilement</a></li>
         <li><a href="#ordi">4. Faut-il un gros ordi ? (Non.)</a></li>
-        <li><a href="#2026">5. Ce qui a changé en 2026</a></li>
+        <li><a href="#navigateur">5. Le navigateur : Claude dans Chrome, ou celui de Cowork</a></li>
+        <li><a href="#2026">6. Ce qui a changé en 2026</a></li>
       </ul>
     </nav>
 
@@ -312,11 +313,40 @@ claude</pre>
         <figcaption class="caption">Ta machine n'est qu'une télécommande : le moteur tourne ailleurs.</figcaption>
       </figure>
 
-      <h2 id="2026">5. Ce qui a changé en 2026</h2>
+            <h2 id="navigateur">5. Le navigateur : Claude dans Chrome, ou celui de Cowork</h2>
+      <p>Depuis le 26 août 2026, Claude sait <strong>naviguer</strong> : lire une page, cliquer, remplir un formulaire, passer d'un onglet à l'autre — comme un assistant à qui tu prêterais ta souris. C'est la quatrième porte, et elle sert à tout ce qui n'a pas de <a href="cest-quoi-mcp-connecter-claude.html">connecteur</a> : un portail fournisseur, un back-office sans API, une démarche administrative, un tableau de bord dont il faut extraire trois chiffres, une page à vérifier après une publication.</p>
+      <figure class="diagram">
+        <div class="compare" role="img" aria-label="Deux façons de faire naviguer Claude : l'extension Claude dans Chrome, sur ton propre navigateur ; le navigateur intégré de Cowork, séparé de tes onglets et mots de passe.">
+          <div class="compare__side">
+            <span class="compare__tag">Claude dans Chrome</span>
+            <h4>Sur ton navigateur</h4>
+            <ul>
+              <li>Une extension, Chrome de bureau, tous les forfaits payants</li>
+              <li>Voit tes onglets, tes sessions ouvertes</li>
+              <li>Pratique quand tu es déjà connecté partout</li>
+            </ul>
+          </div>
+          <div class="compare__arrow" aria-hidden="true">↔</div>
+          <div class="compare__side compare__side--after">
+            <span class="compare__tag">Le navigateur de Cowork</span>
+            <h4>Dans le panneau latéral</h4>
+            <ul>
+              <li>Rien à installer, s'ouvre quand la tâche le demande</li>
+              <li>Séparé de tes onglets et mots de passe : tu importes les identifiants site par site</li>
+              <li>Le choix sûr par défaut pour déléguer</li>
+            </ul>
+          </div>
+        </div>
+        <figcaption class="caption">Même Claude, deux navigateurs. Celui de Cowork ne voit que ce que tu lui donnes ; l'extension voit ce que tu vois.</figcaption>
+      </figure>
+      <p>Ma règle, la même que pour les connecteurs : Claude lit, remplit et prépare ; le clic qui engage — payer, envoyer, valider une commande — reste le mien. Et pas d'identifiants stockés au-delà du nécessaire : une page web piégée peut essayer de détourner un agent qui la lit, c'est pour ça que ses droits restent limités.</p>
+
+      <h2 id="2026">6. Ce qui a changé en 2026</h2>
       <p>Pour ceux qui avaient lu la première version de ce guide, en mai :</p>
       <ul>
-        <li><strong>Cowork est sorti du bureau.</strong> Ordinateur, web et mobile pour tous les forfaits payants (août) ; un navigateur intégré pour finir une démarche en ligne ; la possibilité d'<strong>apprendre une compétence à Claude en filmant son écran</strong> ; une mémoire partagée avec le chat ; des routines planifiées ; une place de marché de plugins.</li>
-        <li><strong>Code a quitté le terminal.</strong> Navigateur, application de bureau, mobile — la session tourne dans le cloud. Le mode <em>Auto</em> (Claude décide seul des permissions courantes, avec des protections contre les manipulations) est devenu le défaut en août. Les sous-agents travaillent en arrière-plan, les workflows orchestrent plusieurs agents, les Artifacts produisent des pages partageables depuis une session, et une commande de nettoyage range skills et fichiers de contexte inutilisés.</li>
+        <li><strong>Cowork est sorti du bureau.</strong> Ordinateur, web et mobile pour tous les forfaits payants (août) ; son propre navigateur pour finir une démarche en ligne ; la possibilité d'<strong>apprendre une compétence à Claude en filmant son écran</strong> ; une mémoire partagée avec le chat ; des routines planifiées ; une place de marché de plugins.</li>
+        <li><strong>Code a quitté le terminal.</strong> Navigateur, application de bureau, mobile — la session tourne dans le cloud. Le mode <em>Auto</em> est devenu le défaut le 14 août : Claude enchaîne les commandes sans demander, un classifieur relit chaque action et bloque ce qui dépasse la demande ou vient d'un contenu piégé — et tes interdits écrits passent avant lui. On ne valide plus chaque commande, on valide le résultat. Les sous-agents travaillent en arrière-plan, les workflows orchestrent plusieurs agents, les Artifacts produisent des pages partageables depuis une session, et une commande de nettoyage range skills et fichiers de contexte inutilisés.</li>
+        <li><strong>Claude navigue.</strong> Depuis le 26 août, l'extension Claude dans Chrome et le navigateur intégré de Cowork lui permettent de lire une page, cliquer et remplir un formulaire — pour tout ce qui n'a pas de connecteur (section 5).</li>
         <li><strong>Chat agit.</strong> Les connecteurs ne lisent plus seulement : Claude peut envoyer une réponse dans Gmail ou ranger un fichier dans Drive, avec validation sur les actions qui comptent.</li>
         <li><strong>Les modèles.</strong> La <a href="cest-quoi-claude.html">famille Claude 5</a> — Sonnet 5, Opus 5, Fable 5.1 — a rendu Code capable de tâches autonomes de plusieurs heures. Ce n'est plus « il écrit une fonction », c'est « il livre une fonctionnalité, testée ».</li>
       </ul>

@@ -15,7 +15,7 @@
 > `knowledge-hub/sitemap.xml`, `knowledge-hub/llms.txt`). Les scripts `scripts/*.py`
 > pointent déjà sur `knowledge-hub/` via leur `ROOT`. `landing-lab/` = prototypes de
 > la landing (noindex, exclus des workflows).
-> MAJ : 2026-09-02 (repasse complète du site : méthode v2, 31 guides dont 14 réécrits, lexique 85 termes).
+> MAJ : 2026-09-02 (repasse complète du site : méthode v2.1 — mémoire à la place des MD de base, mode auto, loops, navigateur —, 31 guides dont 14 réécrits, lexique 86 termes).
 
 ---
 

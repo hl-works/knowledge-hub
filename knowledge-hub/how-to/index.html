@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Comment j'utilise Claude : ma méthode, à jour septembre 2026 (CLAUDE.md, Brain OKF, Chat/Cowork/Code, skills) — Hugo Lahutte</title>
-<meta name="description" content="La méthode complète de Hugo Lahutte pour travailler avec Claude, mise à jour en septembre 2026 : fichiers CLAUDE.md versionnés, Brain privé au format OKF, répartition Chat / Cowork / Code, deux agents, skills et connecteurs MCP, Compound Engineering et capture de session, garde-fous. Guide pas à pas avec prompt à copier.">
+<title>Comment j'utilise Claude : ma méthode, à jour septembre 2026 (mémoire, Brain OKF, Chat/Cowork/Code, mode auto, loops, navigateur) — Hugo Lahutte</title>
+<meta name="description" content="La méthode complète de Hugo Lahutte pour travailler avec Claude, mise à jour le 2 septembre 2026 : plus de fichier de consignes de base (la mémoire s'en charge, un CLAUDE.md par dépôt pour le code), Brain privé au format OKF, répartition Chat / Cowork / Code et le navigateur (Claude dans Chrome, navigateur Cowork), mode auto, deux agents, skills et connecteurs MCP, loops et routines, Compound Engineering et capture de session, garde-fous. Guide pas à pas avec prompt à copier.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/how-to/">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/how-to/">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/how-to/">
@@ -15,14 +15,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Comment j'utilise Claude : ma méthode (v2, septembre 2026)">
-<meta property="og:description" content="CLAUDE.md, Brain OKF, Chat/Cowork/Code, skills, connecteurs, garde-fous. La méthode complète, pas à pas, avec le prompt à copier.">
+<meta property="og:title" content="Comment j'utilise Claude : ma méthode (v2.1, septembre 2026)">
+<meta property="og:description" content="Mémoire à la place du fichier de base, Brain OKF, Chat/Cowork/Code et navigateur, mode auto, skills, loops et routines, garde-fous. La méthode complète, pas à pas, avec le prompt à copier.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/how-to/">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-30">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -46,11 +46,11 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "Comment j'utilise Claude : ma méthode (v2, septembre 2026)",
-      "description": "Méthode pour travailler avec Claude : fichiers CLAUDE.md versionnés, Brain privé au format OKF, répartition Chat / Cowork / Code, deux agents, skills et connecteurs, Compound Engineering et capture de session, garde-fous.",
+      "headline": "Comment j'utilise Claude : ma méthode (v2.1, septembre 2026)",
+      "description": "Méthode pour travailler avec Claude : la mémoire à la place du fichier de consignes de base (plus un CLAUDE.md par dépôt de code), Brain privé au format OKF, répartition Chat / Cowork / Code et navigateur (Claude dans Chrome, navigateur Cowork), mode auto de Claude Code, deux agents, skills et connecteurs, loops et routines, Compound Engineering et capture de session, garde-fous.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-30",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/how-to/",
       "author": {
         "@type": "Person",
@@ -65,12 +65,17 @@
       },
       "about": [
         "Claude",
+        "mémoire",
         "CLAUDE.md",
         "Brain",
         "Open Knowledge Format",
         "Compound Engineering",
         "Claude Code",
+        "mode auto",
         "Claude Cowork",
+        "Claude dans Chrome",
+        "loops",
+        "routines",
         "context engineering",
         "skills",
         "MCP"
@@ -78,21 +83,21 @@
     },
     {
       "@type": "HowTo",
-      "name": "Mettre en place son système de contexte Claude : CLAUDE.md, fichier d'ADN, Brain",
-      "description": "Construire les deux couches de contexte (comment travailler avec moi / ce qu'on sait), puis passer à l'action avec Code ou Cowork en posant des garde-fous.",
+      "name": "Mettre en place son système de contexte Claude : mémoire, fichier d'ADN, Brain, garde-fous",
+      "description": "Poser ce que Claude doit retenir de soi (mémoire), écrire l'ADN de sa structure, ouvrir un Brain minimal, puis passer à l'action avec Cowork, Code ou le navigateur en posant des garde-fous, et faire tourner une première tâche sans soi.",
       "inLanguage": "fr-FR",
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Créer un Project et générer son CLAUDE.md",
-          "text": "Sur claude.ai, créer un Project et demander à Claude de générer le CLAUDE.md principal à partir du prompt fourni : ton, format, contexte pro, règles de comportement, interdits, gestion du contexte, logique d'appel des extensions."
+          "name": "Laisser la mémoire faire",
+          "text": "Vérifier que la mémoire de Claude est activée, puis passer une conversation à lui dire comment on travaille (ton, format, métier, règles, ce qu'on ne veut pas) avec le prompt fourni ; relire ce qu'il a retenu dans les réglages et corriger. Plus besoin d'un fichier de consignes de base."
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Écrire le fichier d'ADN de sa structure",
-          "text": "Créer un fichier dédié à l'histoire, au positionnement et au ton de sa boîte ou de sa marque, chargé dès que Claude produit du contenu lié."
+          "text": "Créer un fichier dédié à l'histoire, au positionnement et au ton de sa boîte ou de sa marque, rangé dans le Brain et chargé dès que Claude produit du contenu lié."
         },
         {
           "@type": "HowToStep",
@@ -103,14 +108,14 @@
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Passer à Claude Code ou Cowork avec des garde-fous",
-          "text": "Quand on veut que Claude agisse : objectif explicite, budget plafonné, fréquence bornée, critère de succès, et validation humaine avant toute écriture sensible."
+          "name": "Passer à Cowork, Claude Code ou le navigateur avec des garde-fous",
+          "text": "Quand on veut que Claude agisse : objectif explicite, budget plafonné, fréquence bornée, critère de succès, validation humaine avant toute écriture sensible. Le mode auto de Claude Code exécute les commandes sans demander, avec un classifieur ; les interdits sont écrits dans le CLAUDE.md du dépôt (uniquement si l'on a un dépôt de code)."
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Faire tourner la boucle",
-          "text": "Chaque erreur récurrente devient une règle du CLAUDE.md ; chaque session significative devient une capture dans le Brain, avec mise à jour des fiches de référence."
+          "name": "Faire tourner une première tâche sans soi",
+          "text": "Une loop pour surveiller quelque chose pendant quelques heures, puis une routine hebdomadaire en lecture seule ; chaque erreur récurrente devient une règle retenue, chaque session significative une capture dans le Brain."
         }
       ]
     },
@@ -119,18 +124,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Quelle est la différence entre le CLAUDE.md et le Brain ?",
+          "name": "Faut-il encore un fichier CLAUDE.md pour travailler avec Claude ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Le CLAUDE.md décrit comment travailler avec moi (ton, principes, règles dures, extensions par domaine) : il change peu. Le Brain décrit ce qu'on sait (entités, projets, décisions, méthode, notes, sessions) : il change tout le temps. Séparer les deux évite que les règles se noient dans les faits et que les faits se figent en règles."
+            "text": "Plus comme fichier de base. Depuis août 2026, la mémoire de Claude (unifiée entre le chat et Cowork, activée par défaut, relisible et corrigeable) retient le ton, les préférences et les règles de comportement ; Claude Code tient une mémoire automatique par projet. Ce qui reste écrit à la main, c'est le CLAUDE.md d'un dépôt de code : conventions, commandes, interdits, court et versionné."
           }
         },
         {
           "@type": "Question",
-          "name": "C'est quoi le format OKF ?",
+          "name": "Quelle est la différence entre la mémoire, le Brain et le CLAUDE.md ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "OKF (Open Knowledge Format) est une spécification ouverte publiée par Google Cloud en juin 2026 : des fichiers Markdown avec un en-tête YAML (un seul champ obligatoire, type), reliés par des liens, avec un index à la racine. Elle formalise le « wiki pour LLM » popularisé par Andrej Karpathy. Le Brain de Hugo Lahutte est un bundle OKF dans un dépôt git privé, lu par ses Claude via un connecteur GitHub."
+            "text": "La mémoire retient comment travailler avec moi (ton, préférences, projets en cours) ; elle est implicite et se relit après coup. Le Brain décrit ce qu'on sait (entités, projets, décisions, méthode, notes, sessions) : explicite, versionné, lu par tous les outils. Le CLAUDE.md règle un dépôt de code : conventions et interdits, partagés avec quiconque travaille dessus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "C'est quoi le mode auto de Claude Code ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le mode par défaut depuis le 14 août 2026 : Claude enchaîne les actions sans demander la permission à chaque commande, et un classifieur relit chaque action pour bloquer ce qui dépasse la demande, touche une infrastructure inconnue ou semble dicté par un contenu hostile. Les règles d'interdiction écrites passent avant lui. En pratique : on valide le résultat (le diff, le test), plus chaque commande ; les écritures dans les outils métier restent validées par un humain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment Claude navigue-t-il sur le web ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deux façons depuis le 26 août 2026 : l'extension Claude dans Chrome, qui lit les pages, clique, remplit les formulaires et passe d'un onglet à l'autre sur son propre navigateur (tous les forfaits payants, Chrome de bureau) ; et le navigateur intégré de Cowork, séparé des onglets et mots de passe personnels. Utile pour tout ce qui n'a pas de connecteur : portails fournisseurs, back-offices, démarches en ligne. Le clic final (payer, envoyer) reste humain."
           }
         },
         {
@@ -138,7 +159,7 @@
           "name": "Quand utiliser Claude Chat, Cowork ou Code ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Chat pour rédiger et réfléchir (on s'arrête au Markdown validé), Cowork pour déléguer un travail de bureau sans terminal (fichiers, tableurs, navigateur intégré, routines), Code pour agir dans les projets (modifier des fichiers, déployer, mettre à jour le maillage d'un site). Règle de frontière : Chat rédige, Code exécute."
+            "text": "Chat pour rédiger et réfléchir (on s'arrête au Markdown validé), Cowork pour déléguer un travail de bureau sans terminal (fichiers, tableurs, navigateur, routines), Code pour agir dans les projets (modifier des fichiers, déployer, mettre à jour le maillage d'un site). Règle de frontière : Chat rédige, Code exécute."
           }
         },
         {
@@ -146,7 +167,7 @@
           "name": "Quels garde-fous poser avant de laisser un agent IA agir ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Quatre choses avant de lancer un agent : un objectif explicite, un plafond de budget, une fréquence bornée, un critère de succès mesurable. Puis la règle « lecture automatique, écriture validée » : lire et proposer est automatique ; modifier un prix, un stock, une campagne ou une publication passe par une validation humaine, avec journal et mesure après action."
+            "text": "Quatre choses avant de lancer un agent : un objectif explicite, un plafond de budget, une fréquence bornée, un critère de succès mesurable. Puis la règle « lecture automatique, écriture validée » : lire et proposer est automatique ; modifier un prix, un stock, une campagne ou une publication passe par une validation humaine, avec journal et mesure après action. Le navigateur suit la même règle."
           }
         }
       ]
@@ -203,18 +224,18 @@
 <!-- ===== HERO article ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
-    <p class="kicker">Méthode · Le guide le plus demandé · v2, septembre 2026</p>
+    <p class="kicker">Méthode · Le guide le plus demandé · v2.1, septembre 2026</p>
     <h1>Comment j'utilise Claude</h1>
     <hr class="rule--accent">
-    <p class="lead">En quinze mois, ma façon de travailler avec Claude a changé de nature. Au départ, un fichier de consignes collé dans un chat. Aujourd'hui, un <strong>système</strong> : des fichiers versionnés, un cerveau privé, trois façons d'utiliser Claude, deux agents, des procédures packagées et des garde-fous. Voici le setup tel qu'il tourne réellement — et par où commencer si tu démarres.</p>
+    <p class="lead">En quinze mois, ma façon de travailler avec Claude a changé de nature. Au départ, un fichier de consignes collé dans un chat. Aujourd'hui, un <strong>système</strong> : une mémoire qui me connaît, un cerveau privé, trois façons d'utiliser Claude plus un navigateur, deux agents, des procédures packagées, des tâches qui tournent sans moi, et des garde-fous. Voici le setup tel qu'il tourne réellement — et par où commencer si tu démarres.</p>
     <div class="meta-bar">
       <span>Par <strong>Hugo Lahutte</strong></span>
       <span>·</span>
-      <time datetime="2026-09-01">1er septembre 2026</time>
+      <time datetime="2026-09-02">2 septembre 2026</time>
       <span>·</span>
       <span>Première version : 30 mai 2026</span>
       <span>·</span>
-      <span>~12 min de lecture</span>
+      <span>~14 min de lecture</span>
     </div>
   </div>
 </section>
@@ -226,8 +247,8 @@
       <p class="kicker">En 30 secondes</p>
       <ul>
         <li><strong>Le contexte fait tout, pas le prompt.</strong> Ce qui rend Claude bon chez moi, c'est ce qu'il sait de moi avant que je tape la première ligne.</li>
-        <li>Deux couches de contexte : les <strong>fichiers CLAUDE.md</strong> (comment travailler avec moi) et le <strong>Brain</strong> (ce qu'on sait : entités, projets, décisions, méthode), un wiki privé au format ouvert OKF que tous mes Claude lisent.</li>
-        <li>Trois portes : <strong>Chat</strong> rédige et réfléchit, <strong>Cowork</strong> exécute du travail de bureau, <strong>Code</strong> agit dans mes projets. Deux agents (HL et Cobra), des <strong>skills</strong> pour les procédures, des <strong>connecteurs</strong> pour les outils.</li>
+        <li>Trois couches : la <strong>mémoire</strong> (comment travailler avec moi — plus besoin d'un fichier de consignes de base, Claude le retient), le <strong>Brain</strong> (ce qu'on sait : entités, projets, décisions, méthode), et un <strong>CLAUDE.md par dépôt</strong> pour les règles du code.</li>
+        <li>Trois portes plus un navigateur : <strong>Chat</strong> rédige, <strong>Cowork</strong> exécute du travail de bureau, <strong>Code</strong> agit dans mes projets en <strong>mode auto</strong> ; Claude <strong>navigue</strong> dans Chrome ou dans son propre navigateur pour ce qui n'a pas de connecteur. Deux agents, des <strong>skills</strong>, des <strong>loops et routines</strong> pour ce qui tourne sans moi.</li>
         <li>La boucle qui fait grandir le tout : <strong>chaque erreur devient une règle, chaque session devient une capture</strong>. Et une règle d'or : l'IA propose, l'humain valide.</li>
       </ul>
     </aside>
@@ -237,15 +258,17 @@
       <p class="kicker">Sommaire</p>
       <ul>
         <li><a href="#principe">1. Le principe : le contexte fait tout</a></li>
-        <li><a href="#fichiers">2. Les fichiers CLAUDE.md : « comment travailler avec moi »</a></li>
+        <li><a href="#memoire">2. Ce que Claude sait de moi : la mémoire, plus un CLAUDE.md par dépôt</a></li>
         <li><a href="#brain">3. Le Brain : « ce qu'on sait »</a></li>
-        <li><a href="#portes">4. Chat, Cowork, Code : qui fait quoi</a></li>
-        <li><a href="#agents">5. Deux agents, deux comptes</a></li>
-        <li><a href="#skills">6. Skills et connecteurs : les procédures et les bras</a></li>
-        <li><a href="#boucle">7. La boucle : chaque erreur devient une règle, chaque session une capture</a></li>
-        <li><a href="#garde-fous">8. Les garde-fous : l'IA propose, l'humain valide</a></li>
-        <li><a href="#commencer">9. Par où commencer (avec le prompt)</a></li>
-        <li><a href="#changelog">10. Ce qui a changé depuis mai 2026</a></li>
+        <li><a href="#portes">4. Chat, Cowork, Code — et le navigateur</a></li>
+        <li><a href="#auto">5. Le mode auto : on ne valide plus chaque commande, on valide le résultat</a></li>
+        <li><a href="#agents">6. Deux agents, deux comptes</a></li>
+        <li><a href="#skills">7. Skills et connecteurs : les procédures et les bras</a></li>
+        <li><a href="#loops">8. Loops et routines : ce qui tourne sans moi</a></li>
+        <li><a href="#boucle">9. La boucle : chaque erreur devient une règle, chaque session une capture</a></li>
+        <li><a href="#garde-fous">10. Les garde-fous : l'IA propose, l'humain valide</a></li>
+        <li><a href="#commencer">11. Par où commencer (avec le prompt)</a></li>
+        <li><a href="#changelog">12. Ce qui a changé depuis mai 2026</a></li>
       </ul>
     </nav>
 
@@ -253,31 +276,28 @@
 
       <h2 id="principe">1. Le principe : le contexte fait tout</h2>
       <p>Quand on débute, on croit que la qualité vient du prompt — la bonne formule, la bonne phrase magique. C'est faux, ou plutôt c'est 20 % de l'histoire. Les 80 % restants, c'est le <strong>contexte</strong> : tout ce que Claude sait avant que tu écrives ta première ligne. Qui tu es, ce que tu fais, comment tu aimes qu'on te réponde, ce qui a déjà été décidé, ce qui a déjà cassé.</p>
-      <p>Le métier a un nom depuis 2025 : le <strong>context engineering</strong>. Ma méthode, c'est ça — organiser ce que Claude sait, en deux couches qui ne se mélangent pas :</p>
+      <p>Le métier a un nom depuis 2025 : le <strong>context engineering</strong>. Ma méthode, c'est ça — organiser ce que Claude sait, en trois couches qui ne se mélangent pas :</p>
       <ul>
-        <li><strong>Comment travailler avec moi</strong> → les fichiers <code>CLAUDE.md</code> (section 2).</li>
+        <li><strong>Comment travailler avec moi</strong> → la mémoire de Claude, et un <code>CLAUDE.md</code> par dépôt de code (section 2).</li>
         <li><strong>Ce qu'on sait</strong> → le Brain, mon wiki privé (section 3).</li>
+        <li><strong>Ce qu'on sait faire</strong> → les skills, et les outils branchés (section 7).</li>
       </ul>
       <p>La première couche change peu (ton, règles, principes). La seconde change tout le temps (projets, décisions, état des chantiers). Les séparer évite que les règles se noient dans les faits, et que les faits se figent dans des règles.</p>
 
-      <div class="stack" role="img" aria-label="Deux couches de contexte : les fichiers CLAUDE.md pour la façon de travailler, le Brain pour la connaissance ; et par-dessus, la conversation du jour.">
-        <div class="stack__block"><b>La conversation du jour</b><span>La demande, les fichiers joints, les résultats d'outils. Éphémère.</span></div>
-        <div class="stack__block"><b>Les fichiers CLAUDE.md — « comment travailler avec moi »</b><span>Ton, format, principes, règles dures, extensions par domaine. Stable, versionné.</span></div>
+      <div class="stack" role="img" aria-label="Quatre couches de contexte : la conversation du jour, la mémoire et les CLAUDE.md de dépôt pour la façon de travailler, le Brain pour la connaissance, les skills et connecteurs pour les procédures et les outils.">
+        <div class="stack__block"><b>La conversation du jour</b><span>La demande, les fichiers joints, les résultats d'outils, ce que Claude lit dans un navigateur. Éphémère.</span></div>
+        <div class="stack__block"><b>La mémoire + un CLAUDE.md par dépôt — « comment travailler avec moi »</b><span>Ton, format, principes, préférences : retenus par Claude. Règles dures d'un dépôt de code : dans un fichier court, versionné.</span></div>
         <div class="stack__block"><b>Le Brain — « ce qu'on sait »</b><span>Entités, briques, projets, méthode, notes, sessions. Vivant, daté, privé.</span></div>
         <div class="stack__block"><b>Les skills et connecteurs</b><span>Les procédures chargées à la demande, et les outils branchés (Shopify, Drive, GitHub…).</span></div>
       </div>
 
-      <h2 id="fichiers">2. Les fichiers CLAUDE.md : « comment travailler avec moi »</h2>
-      <p>Le cœur historique du système n'a pas bougé : des fichiers <code>.md</code> (Markdown, du texte brut) que Claude lit au démarrage. Un <strong><code>CLAUDE.md</code> principal</strong> qui fixe mon ton (tutoiement, direct, pas de préambule), mes quatre principes de travail (<a href="../guides/principes-facon-karpathy.html">façon Karpathy</a>), mes règles de comportement (honnêteté, web search sur tout ce qui a pu bouger, « je ne sais pas » plutôt qu'inventer) et la gestion du contexte.</p>
-      <p>Puis des <strong>extensions</strong>, chargées selon le domaine :</p>
-      <ul>
-        <li><code>CLAUDE-strat.md</code> — stratégie, marketing, com, business.</li>
-        <li><code>CLAUDE-dev.md</code> — les conventions de code génériques (discipline, livrables, boucles autonomes cadrées).</li>
-        <li><code>CLAUDE-dev-cobra.md</code> — les règles spécifiques à Cobra (déploiement Odoo chirurgical, synchro Shopify, sujets en cours).</li>
-      </ul>
-      <p>Ce qui a changé depuis mai : ces fichiers ne vivent plus seulement dans les « Project Instructions » d'un chat. Ils sont <strong>versionnés dans les dépôts</strong> (un dossier <code>docs/</code>, une convention <code>CLAUDE-{domaine}-{projet}.md</code>), lus automatiquement par Claude Code, et relus à date fixe — parce qu'un fichier de contexte faux est pire qu'un fichier absent. J'ai raconté <a href="../journal/cobra-docs-contexte-claude.html">la remise à jour qui a révélé des points critiques périmés</a> (hébergement, workflow de déploiement, nombre de modules) : Claude démarrait chaque session avec un modèle mental faux de l'infra.</p>
-      <p>Chaque marque a aussi son <strong>fichier d'ADN</strong> : histoire, positionnement, ce qu'on dit et ce qu'on ne dit pas. Une heure à écrire avec Claude, et tout ce qu'il produit sur la marque change de niveau.</p>
-      <p>→ Le guide dédié : <a href="../guides/ecrire-un-bon-claude-md.html">Écrire un bon CLAUDE.md</a>.</p>
+      <h2 id="memoire">2. Ce que Claude sait de moi : la mémoire, plus un CLAUDE.md par dépôt</h2>
+      <p>C'est le changement le plus récent, et le plus contre-intuitif pour qui a lu la première version de cette page : <strong>je n'ai plus de fichier de consignes de base</strong>. Pendant quinze mois, un <code>CLAUDE.md</code> principal (ton, principes, règles de comportement) et ses extensions par domaine ouvraient chaque conversation. Ils ne sont plus nécessaires.</p>
+      <p>Ce qui les a remplacés : la <strong>mémoire</strong> de Claude. Depuis le 25 août 2026, elle est unique entre le chat et Cowork, activée par défaut, et je peux la relire sujet par sujet, la corriger ou l'effacer. Le tutoiement, « pas de préambule », « une seule question à la fois », mon métier, mes projets en cours : Claude le sait en ouvrant la conversation, sans fichier. Claude Code, lui, tient une <strong>mémoire automatique par projet</strong> : il note lui-même ce qu'il apprend d'une session — mes corrections, mes préférences, les pièges rencontrés — et le relit la fois suivante. Une correction récurrente ne se recopie plus dans un fichier : elle est retenue.</p>
+      <p>Ce qui reste écrit à la main, c'est le <strong><code>CLAUDE.md</code> d'un dépôt</strong> : les conventions d'un projet de code, les commandes, les interdits, les pièges qui ont déjà cassé quelque chose. Il est court, versionné avec le code, et lu par quiconque travaille sur le dépôt — humain ou agent. Ce site en a un ; Cobra en a un par dépôt, avec ses règles dures de déploiement. Ce n'est plus un fichier de personnalité : c'est un règlement intérieur.</p>
+      <p>Chaque marque garde aussi son <strong>fichier d'ADN</strong> : histoire, positionnement, ce qu'on dit et ce qu'on ne dit pas. Il vit dans le Brain, chargé quand Claude produit du contenu sur la marque. Une heure à écrire, et tout ce qu'il produit change de niveau.</p>
+      <p>La règle de répartition, qui vaut pour tout : <strong>ce qui relève de la préférence va en mémoire ; ce qui engage un projet va dans le Brain ; ce qui règle un dépôt va dans son CLAUDE.md.</strong></p>
+      <p>→ Les guides : <a href="../guides/cest-quoi-le-contexte.html">C'est quoi le contexte</a> · <a href="../guides/ecrire-un-bon-claude-md.html">Écrire un bon CLAUDE.md (quand il en faut encore un)</a>.</p>
 
       <h2 id="brain">3. Le Brain : « ce qu'on sait »</h2>
       <p>C'est la vraie nouveauté de l'été 2026. Jusque-là, ce que je savais de mes projets vivait dans des documents de projet Claude, non partageables entre outils, et dans ma tête. Depuis août, tout ça vit dans un <strong>Brain</strong> : un dépôt git privé de fichiers Markdown avec un petit en-tête (type, titre, description, tags, date, confidentialité), organisé en sept dossiers :</p>
@@ -291,53 +311,74 @@
         <li><strong>perso</strong> — toujours privé.</li>
       </ul>
       <p>Le format s'appelle <strong>OKF</strong> (Open Knowledge Format), une spécification ouverte publiée par Google Cloud en juin 2026 qui formalise le « wiki pour LLM » popularisé par Andrej Karpathy. Rien à installer : du Markdown, des liens entre fichiers, un index à la racine. Mes Claude le lisent via un simple connecteur GitHub, en partant de l'index et en suivant les liens. Pas de base vectorielle, pas de serveur — tant que la navigation suffit. Le jour où « retrouve-moi ce qu'on avait dit sur la dédup des commandes » ne remonte plus le bon document, ce sera le signal pour construire l'index. Pas avant.</p>
+      <p>La mémoire et le Brain ne font pas le même travail. La mémoire est implicite : Claude retient ce qu'il juge utile, et je relis après coup. Le Brain est <strong>choisi</strong> : explicite, relisible, versionné, corrigeable à la main, lu par tous mes outils. Ce qui engage une décision ou décrit un projet va dans le Brain ; ce qui relève du confort reste en mémoire.</p>
       <p>Deux règles font tenir le Brain :</p>
       <ol>
-        <li><strong>Un brain périmé est pire qu'un brain vide.</strong> Un document absent déclenche une recherche ; un document faux déclenche une décision. D'où le rituel de capture (section 7), qui met à jour les fiches de référence et pas seulement le journal.</li>
+        <li><strong>Un brain périmé est pire qu'un brain vide.</strong> Un document absent déclenche une recherche ; un document faux déclenche une décision. D'où le rituel de capture (section 9), qui met à jour les fiches de référence et pas seulement le journal.</li>
         <li><strong>On n'invente jamais le contenu d'une coquille.</strong> Un doc vide qui s'annonce vide est honnête. Un doc rempli au jugé est un piège qui se déclenche six mois plus tard, exactement quand on lui fait confiance.</li>
       </ol>
       <p>Le Brain reste privé. Ce Knowledge Hub en est la version curatée, réécrite pour être lue par des humains et citée par les IA. Le passage de l'un à l'autre est un acte éditorial, jamais une synchro.</p>
       <p>→ Le guide dédié : <a href="../guides/cest-quoi-un-brain-okf.html">C'est quoi un Brain (et le format OKF)</a> · l'entrée de journal : <a href="../journal/brain-okf-wiki-prive.html">Le Brain, mon wiki privé lu par tous mes Claude</a>.</p>
 
-      <h2 id="portes">4. Chat, Cowork, Code : qui fait quoi</h2>
+      <h2 id="portes">4. Chat, Cowork, Code — et le navigateur</h2>
       <p>Trois portes d'entrée vers le même Claude, et une répartition qui structure tout mon travail :</p>
       <div class="modes" role="img" aria-label="Chat rédige et réfléchit, Cowork exécute du travail de bureau, Code agit dans les projets.">
-        <div class="mode mode--chat"><div class="mode__head"><b>Chat</b><span>Rédiger, réfléchir</span></div><dl><dt>Chez moi</dt><dd>Angle, texte, ton, stratégie. Il a ma voix. On s'arrête au Markdown : pas de HTML, pas de git.</dd><dt>Exemple</dt><dd>Écrire cette page, cadrer un cahier des charges, trancher un positionnement.</dd></dl></div>
-        <div class="mode mode--cowork"><div class="mode__head"><b>Cowork</b><span>Déléguer du bureau</span></div><dl><dt>Chez moi</dt><dd>Fichiers, tableurs, présentations, navigateur intégré, tâches planifiées — sans terminal. Sur ordinateur, web et mobile depuis l'été 2026.</dd><dt>Exemple</dt><dd>Préparer un support, dépouiller un dossier, exécuter une routine du lundi.</dd></dl></div>
-        <div class="mode mode--code"><div class="mode__head"><b>Code</b><span>Agir dans les projets</span></div><dl><dt>Chez moi</dt><dd>Lit et modifie les fichiers, lance les commandes, déploie, met à jour le maillage. Dans le terminal, sur le web ou depuis le téléphone.</dd><dt>Exemple</dt><dd>Un module Odoo, cette page en ligne une minute après le push, une app interne.</dd></dl></div>
+        <div class="mode mode--chat"><div class="mode__head"><b>Chat</b><span>Rédiger, réfléchir</span></div><dl><dt>Chez moi</dt><dd>Angle, texte, ton, stratégie. Il a ma voix, et ma mémoire. On s'arrête au Markdown : pas de HTML, pas de git.</dd><dt>Exemple</dt><dd>Écrire cette page, cadrer un cahier des charges, trancher un positionnement.</dd></dl></div>
+        <div class="mode mode--cowork"><div class="mode__head"><b>Cowork</b><span>Déléguer du bureau</span></div><dl><dt>Chez moi</dt><dd>Fichiers, tableurs, présentations, routines — sans terminal. Et son propre navigateur, dans le panneau latéral, pour finir une démarche en ligne. Sur ordinateur, web et mobile.</dd><dt>Exemple</dt><dd>Préparer un support, dépouiller un dossier, remplir un portail fournisseur sans connecteur.</dd></dl></div>
+        <div class="mode mode--code"><div class="mode__head"><b>Code</b><span>Agir dans les projets</span></div><dl><dt>Chez moi</dt><dd>Lit et modifie les fichiers, lance les commandes, déploie, met à jour le maillage — en mode auto. Dans le terminal, sur le web ou depuis le téléphone.</dd><dt>Exemple</dt><dd>Un module Odoo, cette page en ligne une minute après le push, une app interne.</dd></dl></div>
       </div>
       <p>La règle de frontière est simple et je m'y tiens : <strong>Chat rédige, Code exécute</strong>. Une session Chat produit un Markdown validé ; Code le transforme en livrable (page HTML, JSON-LD, sitemap, <code>llms.txt</code>, commit, push). Les deux moitiés ont des critères de succès différents — la justesse du propos d'un côté, la conformité au gabarit de l'autre. Les mélanger dans une session, c'est perdre les deux.</p>
-      <p>→ Le guide dédié : <a href="../guides/chat-cowork-code-terminal.html">Chat, Cowork ou Code : lequel utiliser</a>.</p>
+      <p><strong>Et le navigateur.</strong> Depuis le 26 août 2026, Claude sait <em>naviguer</em> : lire une page, cliquer, remplir un formulaire, passer d'un onglet à l'autre. Deux façons : l'extension <strong>Claude dans Chrome</strong>, sur mon propre navigateur (tous les forfaits payants, Chrome de bureau), et le <strong>navigateur intégré de Cowork</strong>, séparé de mes onglets et de mes mots de passe — rien n'est partagé, sauf les identifiants que j'importe site par site. C'est la porte pour tout ce qui n'a pas de connecteur : un portail fournisseur, un back-office sans API, une démarche administrative, vérifier une page en ligne après une publication. Même règle que pour les connecteurs : Claude lit et prépare ; le clic final — payer, envoyer, valider — reste le mien.</p>
+      <p>→ Le guide dédié : <a href="../guides/chat-cowork-code-terminal.html">Chat, Cowork ou Code : lequel utiliser (et le navigateur)</a>.</p>
 
-      <h2 id="agents">5. Deux agents, deux comptes</h2>
+      <h2 id="auto">5. Le mode auto : on ne valide plus chaque commande, on valide le résultat</h2>
+      <p>Jusqu'à l'été, Claude Code demandait la permission avant chaque commande, chaque fichier modifié. Depuis le 14 août 2026, le <strong>mode auto</strong> est le défaut : Claude enchaîne les actions sans demander, et un <strong>classifieur</strong> — un second modèle — relit chaque action avant qu'elle parte. Il bloque ce qui dépasse la demande, ce qui touche une infrastructure qu'il ne reconnaît pas comme la mienne, et ce qui semble dicté par un contenu hostile que Claude a lu (une injection de prompt). Mes règles d'interdiction passent avant lui : ce que j'ai interdit reste interdit, quoi qu'en pense le classifieur.</p>
+      <p>Repère septembre 2026, chiffré par Anthropic sur un millier de testeurs : les humains interceptaient 13,6 % des commandes dangereuses en relisant chaque demande, contre 89 % pour le mode auto — et la vigilance humaine tombait à 5 % après cinquante validations. Autrement dit : cliquer « oui » cinquante fois de suite ne protégeait rien. Ce que ça change dans ma pratique :</p>
+      <ul>
+        <li><strong>Je ne valide plus les commandes, je valide le résultat</strong> : le diff, le script de santé qui passe, la page en ligne. C'est le principe « piloté par l'objectif » appliqué à l'exécution.</li>
+        <li><strong>Les interdits sont écrits, pas rappelés</strong> : jamais de force-push sur la branche de production, jamais de secret dans un fichier, jamais de branche entière déployée. Une règle d'interdiction dans le dépôt vaut mieux qu'une consigne que je répète.</li>
+        <li><strong>La validation métier ne bouge pas</strong> : le mode auto porte sur les commandes d'un projet, pas sur les écritures dans mes outils. Modifier un prix, envoyer un mail, publier : toujours un aperçu et un bouton (section 10). Anthropic dit la même chose : relecture humaine pour tout ce qui touche la production.</li>
+      </ul>
+
+      <h2 id="agents">6. Deux agents, deux comptes</h2>
       <p>Je fais tourner deux Claude, volontairement séparés :</p>
       <ul>
-        <li><strong>Claude · HL</strong> — mon compte perso : pilotage, stratégie, éditorial, méthode, ce site, les briques du groupe. Extension <code>CLAUDE-strat.md</code>.</li>
-        <li><strong>Claude · Cobra</strong> — le compte d'entreprise : dev Odoo et Shopify, purement technique. Extension <code>CLAUDE-dev.md</code> + Cobra. Il connaît la codebase par cœur et ne parle jamais de mes projets perso.</li>
+        <li><strong>Claude · HL</strong> — mon compte perso : pilotage, stratégie, éditorial, méthode, ce site, les briques du groupe. Sa mémoire, ses connecteurs, ses projets.</li>
+        <li><strong>Claude · Cobra</strong> — le compte d'entreprise : dev Odoo et Shopify, purement technique. Il connaît la codebase par cœur, lit les CLAUDE.md des dépôts Cobra, et ne parle jamais de mes projets perso.</li>
       </ul>
-      <p>Les deux écrivent dans le même journal (les badges <span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:2px;">Claude · HL</span> et <span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:2px;">Claude · Cobra</span> de chaque entrée) et lisent le même Brain — mais le Claude Cobra n'écrit que dans les fiches Cobra, les sessions et les briques techniques. Pas une permission technique : une règle de gouvernance, pour ne pas mélanger deux périmètres dans une base lue des deux côtés.</p>
+      <p>Les deux écrivent dans le même journal (les badges <span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:2px;">Claude · HL</span> et <span class="author--cobra" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:2px;">Claude · Cobra</span> de chaque entrée) et lisent le même Brain — mais le Claude Cobra n'écrit que dans les fiches Cobra, les sessions et les briques techniques. Pas une permission technique : une règle de gouvernance, pour ne pas mélanger deux périmètres dans une base lue des deux côtés. Et quand un chantier est mené ailleurs — Growth, construit avec ChatGPT et Codex — il porte son propre badge.</p>
 
-      <h2 id="skills">6. Skills et connecteurs : les procédures et les bras</h2>
+      <h2 id="skills">7. Skills et connecteurs : les procédures et les bras</h2>
       <p>Deux briques ont pris beaucoup de place cette année.</p>
       <p><strong>Les skills.</strong> Un skill, c'est une procédure packagée dans un dossier (un fichier <code>SKILL.md</code>, parfois des scripts), que Claude charge quand la situation le demande. Chez moi, trois font le gros du travail :</p>
       <ul>
         <li><code>kh-post-brief</code> — en fin de session, avec n'importe quelle IA, produire le brief d'une entrée de journal : titre, verticale, tags de la liste blanche, sections, garde-fous de sanitisation. Je colle le brief à Claude Code, qui publie l'entrée FR + EN et tout le maillage.</li>
         <li><code>brain</code> — lire, chercher et mettre à jour le Brain, avec une porte d'écriture stricte : jamais une écriture sans instruction explicite.</li>
-        <li><code>wiki-capture</code> — le rituel de fin de session (section 7).</li>
+        <li><code>wiki-capture</code> — le rituel de fin de session (section 9).</li>
       </ul>
-      <p>La force d'un skill : il est <strong>portable</strong>. Le texte de <code>kh-post-brief</code> fonctionne collé dans ChatGPT ou Gemini. C'est de la méthode écrite, pas de la magie.</p>
-      <p><strong>Les connecteurs.</strong> Claude branché à mes outils par le standard MCP : Shopify (les deux boutiques), Google Drive, Gmail, GitHub, Qonto, l'hébergeur de mes apps, Odoo via le code. Résultat : il travaille sur mes vrais outils, pas sur une démo — et il peut désormais envoyer un mail ou déplacer un fichier, sous validation. Une règle non négociable : <strong>l'assistant n'a jamais plus de droits que la personne qui lui parle</strong>.</p>
+      <p>La force d'un skill : il est <strong>portable</strong>. Le texte de <code>kh-post-brief</code> fonctionne collé dans ChatGPT ou Gemini. C'est de la méthode écrite, pas de la magie. Et Cowork sait en fabriquer un en me regardant faire : je filme mon écran en commentant, il en fait une compétence réutilisable.</p>
+      <p><strong>Les connecteurs.</strong> Claude branché à mes outils par le standard MCP : Shopify (les deux boutiques), Google Drive, Gmail, GitHub, Qonto, l'hébergeur de mes apps, Odoo via le code. Résultat : il travaille sur mes vrais outils, pas sur une démo — et il peut désormais envoyer un mail ou déplacer un fichier, sous validation. Ce qui n'a pas de connecteur passe par le navigateur (section 4). Une règle non négociable : <strong>l'assistant n'a jamais plus de droits que la personne qui lui parle</strong>.</p>
       <p>→ Les guides : <a href="../guides/cest-quoi-un-skill.html">C'est quoi un skill (et un hook, un sous-agent)</a> · <a href="../guides/cest-quoi-mcp-connecter-claude.html">C'est quoi un MCP</a>.</p>
 
-      <h2 id="boucle">7. La boucle : chaque erreur devient une règle, chaque session une capture</h2>
-      <p>Le principe directeur reste le <strong>Compound Engineering</strong> : quand Claude se plante sur un point récurrent, je ne râle pas, j'ajoute la règle. Le fichier s'améliore avec l'usage, et tout le travail futur en profite. Une mise en prod Odoo qui a cassé plusieurs choses est devenue une règle dure dans <code>CLAUDE-dev-cobra.md</code> ; un agent qui cramait son budget en boucle est devenu un garde-fou standard.</p>
-      <p>Depuis août, la boucle a un deuxième étage. En fin de session, le skill de capture fait quatre choses, dans cet ordre : relire la session et identifier l'entité et le sujet ; écrire l'entrée <code>sessions/</code> au format OKF ; <strong>proposer les modifications ciblées des fiches de référence touchées</strong> (briques, entités) ; passer le filtre de confidentialité et proposer le commit. Le troisième point est celui qu'on est tenté de zapper — c'est donc lui qui est en tête de la procédure. Sans ça, le journal grossit pendant que les fiches se périment en silence.</p>
-      <p>Le déclenchement n'est pas automatique, et c'est assumé : aucun mécanisme ne se déclenche sur « la conversation devient longue » de façon fiable sur tous les clients. À la place, une règle du <code>CLAUDE.md</code> : quand la conversation s'allonge, Claude <strong>propose de clore avec un brief de reprise — et de capturer dans le Brain</strong>. Ça marche partout, y compris sur mobile, sans infra.</p>
+      <h2 id="loops">8. Loops et routines : ce qui tourne sans moi</h2>
+      <p>Une part croissante de mon travail avec Claude ne se passe plus dans une conversation : elle <em>tourne</em>. Trois formes, selon la durée du besoin :</p>
+      <ul>
+        <li><strong>La loop</strong> — dans Claude Code, une commande relance un prompt à intervalle régulier pendant ma session : surveiller un déploiement cet après-midi, vérifier toutes les dix minutes que les pages clés répondent. Elle vit avec la session et expire seule. En mode auto, elle tourne sans me poser de question.</li>
+        <li><strong>La routine</strong> — planifiée (chaque matin, chaque lundi) et exécutée dans le cloud côté Claude, sans ma machine : le contrôle hebdomadaire de cohérence de ce site, une surveillance de sept jours de ma mesure d'audience, en lecture seule.</li>
+        <li><strong>La tâche planifiée maison</strong> — cron, GitHub Actions, un petit serveur, pour ce qui doit tourner tous les jours, pour toujours, avec ses secrets côté serveur : mes deux veilles quotidiennes, la régénération du site à chaque publication.</li>
+      </ul>
+      <p>La règle qui vaut pour les trois : <strong>une tâche récurrente lit et alerte, elle n'écrit pas seule</strong> dans un outil de production. Et chacune a son cadre avant d'être lancée : objectif, budget plafonné, fréquence bornée, critère d'arrêt.</p>
+      <p>→ Le guide dédié : <a href="../guides/cest-quoi-une-loop.html">C'est quoi une loop ? Loops, routines et tâches planifiées</a>.</p>
 
-      <div class="loop" role="img" aria-label="La boucle : faire, corriger, transformer en règle ou en capture, recommencer plus haut.">
+      <h2 id="boucle">9. La boucle : chaque erreur devient une règle, chaque session une capture</h2>
+      <p>Le principe directeur reste le <strong>Compound Engineering</strong> : quand Claude se plante sur un point récurrent, je ne râle pas, la leçon est retenue — en mémoire, où Claude Code la note souvent lui-même, ou dans le <code>CLAUDE.md</code> du dépôt quand c'est une règle du code. Une mise en prod Odoo qui a cassé plusieurs choses est devenue une règle dure du dépôt Cobra ; un agent qui cramait son budget en boucle est devenu un garde-fou standard.</p>
+      <p>Depuis août, la boucle a un deuxième étage. En fin de session, le skill de capture fait quatre choses, dans cet ordre : relire la session et identifier l'entité et le sujet ; écrire l'entrée <code>sessions/</code> au format OKF ; <strong>proposer les modifications ciblées des fiches de référence touchées</strong> (briques, entités) ; passer le filtre de confidentialité et proposer le commit. Le troisième point est celui qu'on est tenté de zapper — c'est donc lui qui est en tête de la procédure. Sans ça, le journal grossit pendant que les fiches se périment en silence.</p>
+      <p>Le déclenchement n'est pas automatique, et c'est assumé : aucun mécanisme ne se déclenche sur « la conversation devient longue » de façon fiable sur tous les clients. À la place, une règle que Claude a en mémoire : quand la conversation s'allonge, il <strong>propose de clore avec un brief de reprise — et de capturer dans le Brain</strong>. Ça marche partout, y compris sur mobile, sans infra.</p>
+
+      <div class="loop" role="img" aria-label="La boucle : faire, repérer l'erreur ou la leçon, la retenir en mémoire ou dans le CLAUDE.md du dépôt, capturer dans le Brain, recommencer plus haut.">
         <span class="loop__step">Faire</span><span class="loop__arrow">→</span>
         <span class="loop__step">Repérer l'erreur ou la leçon</span><span class="loop__arrow">→</span>
-        <span class="loop__step loop__step--done">Règle dans CLAUDE.md</span><span class="loop__arrow">+</span>
+        <span class="loop__step loop__step--done">Règle retenue (mémoire, CLAUDE.md du dépôt)</span><span class="loop__arrow">+</span>
         <span class="loop__step loop__step--done">Capture dans le Brain</span><span class="loop__arrow">→</span>
         <span class="loop__step loop__step--goal">Session suivante, plus haut</span>
         <span class="loop__again">à chaque session</span>
@@ -345,65 +386,67 @@
 
       <p>→ Le guide : <a href="../guides/compound-engineering.html">Compound Engineering</a>.</p>
 
-      <h2 id="garde-fous">8. Les garde-fous : l'IA propose, l'humain valide</h2>
+      <h2 id="garde-fous">10. Les garde-fous : l'IA propose, l'humain valide</h2>
       <p>Plus Claude agit, plus le cadre compte. Les règles que j'applique partout, du plus petit script à mes systèmes internes :</p>
       <ul>
         <li><strong>Un agent a quatre choses avant d'être lancé</strong> : un objectif explicite (« on saura que c'est bon quand… »), un plafond de budget, une fréquence bornée, un critère de succès mesurable.</li>
-        <li><strong>Lecture automatique, écriture validée.</strong> Lire, rafraîchir, proposer : automatique. Modifier un prix, un stock, une campagne, un e-mail, une publication : validation humaine. Le flux standard : demande → analyse → aperçu du changement → validation → exécution → journal → mesure.</li>
+        <li><strong>Lecture automatique, écriture validée.</strong> Lire, rafraîchir, proposer : automatique. Modifier un prix, un stock, une campagne, un e-mail, une publication : validation humaine. Le flux standard : demande → analyse → aperçu du changement → validation → exécution → journal → mesure. Le mode auto de Claude Code ne change rien à cette règle : il porte sur les commandes d'un projet, pas sur mes outils.</li>
         <li><strong>Trois régimes selon la nature du geste</strong> : mécanique = automatique ; réponse factuelle = générée puis validée d'un bouton ; jugement = brouillon humain, toujours.</li>
         <li><strong>Vérifier avant de coder.</strong> Ma chaîne de demandes d'évolution Odoo fait relire chaque demande par l'IA en deux passes : elle pose des questions structurées, le serveur les vérifie dans la vraie base en lecture seule, l'IA conclut. Elle a déjà requalifié une demande de développement en dix minutes de paramétrage.</li>
+        <li><strong>Le navigateur a les mêmes règles que les connecteurs</strong> : Claude lit et remplit ; il ne paie pas, n'envoie pas, ne valide pas à ma place. Pas d'identifiants stockés au-delà du nécessaire, et une page web piégée ne peut pas lui faire faire ce que je n'ai pas demandé — c'est exactement ce que le classifieur du mode auto et les droits limités sont là pour bloquer.</li>
         <li><strong>Aucun secret dans le code ni dans le Brain</strong>, déploiements chirurgicaux (jamais une branche entière, toujours le commit précis), aucun cron qui publie seul.</li>
       </ul>
       <p>→ Le guide : <a href="../guides/lia-propose-lhumain-valide.html">L'IA propose, l'humain valide : les garde-fous qui tiennent</a>.</p>
 
-      <h2 id="commencer">9. Par où commencer</h2>
-      <p>Regarde des fichiers existants pour t'inspirer, mais ne les copie pas — ils sont calés sur un contexte qui n'est pas le tien. Ma recommandation, dans l'ordre :</p>
+      <h2 id="commencer">11. Par où commencer</h2>
+      <p>Il y a quatre mois, je conseillais d'écrire un fichier de consignes avant tout. Plus maintenant. Ma recommandation, dans l'ordre :</p>
       <ol>
-        <li><strong>Crée un Project</strong> sur claude.ai et <strong>demande à Claude de construire ton <code>CLAUDE.md</code></strong> avec le prompt ci-dessous. Une heure, et tu arrêtes de te réexpliquer.</li>
+        <li><strong>Laisse la mémoire faire.</strong> Ouvre Claude, vérifie que la mémoire est activée, et passe une conversation à lui dire comment tu travailles avec le prompt ci-dessous : ton, format, métier, ce que tu ne veux pas. Puis relis ce qu'il a retenu dans les réglages, et corrige. Une heure, et tu arrêtes de te réexpliquer — sans fichier.</li>
         <li><strong>Écris le fichier d'ADN</strong> de ta boîte ou de ta marque. C'est là que la com et le contenu changent de niveau.</li>
         <li><strong>Ouvre un Brain minimal</strong> : un dossier avec un <code>index.md</code>, une fiche par structure (« c'est quoi, où c'est, ma position, ce qui tourne dessus ») et une fiche <em>méthode</em>. Du Markdown, un dépôt privé, un connecteur. Le reste se remplit session après session — et n'invente jamais une fiche que tu ne sais pas remplir.</li>
-        <li><strong>Passe à Code ou à Cowork</strong> quand tu veux que Claude fasse, pas seulement qu'il réponde. Et pose les quatre garde-fous avant le premier agent.</li>
+        <li><strong>Passe à Cowork ou à Code</strong> quand tu veux que Claude fasse, pas seulement qu'il réponde — et à son navigateur pour ce qui n'a pas de connecteur. Pose les quatre garde-fous avant le premier agent. Un <code>CLAUDE.md</code> seulement si tu as un dépôt de code : ses règles, ses interdits, en dix lignes.</li>
+        <li><strong>Fais tourner une première corvée sans toi</strong> : une loop pour surveiller quelque chose cet après-midi, puis une routine hebdomadaire, en lecture seule.</li>
       </ol>
 
-      <p>Le prompt à copier-coller pour générer tes fichiers :</p>
+      <p>Le prompt à copier-coller pour poser ton contexte de départ :</p>
 
       <div class="promptbox">
-<span class="lbl">Prompt — générer ton CLAUDE.md et ton Brain de départ</span>Je veux construire mon système de contexte pour Claude : un fichier CLAUDE.md, un fichier d'ADN de ma structure, et un Brain minimal.
+<span class="lbl">Prompt — poser ton contexte de départ (mémoire, ADN, Brain)</span>Je veux que tu me connaisses avant qu'on travaille ensemble, et poser mon système de contexte : ce que tu dois retenir de moi, un fichier d'ADN de ma structure, et un Brain minimal.
 
-Je te joins en référence des fichiers CLAUDE.md, CLAUDE-strat.md et CLAUDE-dev.md. Lis-les pour comprendre la structure, le niveau de détail attendu et la logique d'ensemble — mais ne les copie pas : ils sont calés sur un autre contexte, pas le mien.
+Méthode : pose-moi UNE question à la fois. On avance section par section. Ne devine rien : si je ne réponds pas, la section reste vide.
 
-Ce que je veux construire :
-
-1. Un CLAUDE.md principal qui couvre :
+1. Ce que tu dois retenir de moi (à garder en mémoire, sans fichier) :
    - Mon ton et mon format préféré (tutoiement ? vouvoiement ? prose ou listes ? longueur des réponses ?)
    - Mon contexte pro : ce que je fais, ma boîte, mon secteur, mon rôle
-   - Les règles de comportement à imposer (web search sur tout ce qui a pu bouger, honnêteté, pas de flatterie, « je ne sais pas » plutôt qu'inventer, pousser en arrière si mon idée est mauvaise)
+   - Mes règles : web search sur tout ce qui a pu bouger, honnêteté, pas de flatterie, « je ne sais pas » plutôt qu'inventer, pousser en arrière si mon idée est mauvaise
    - Ce que je ne veux PAS (préambules, résumés en fin de réponse, frameworks non demandés, sur-complexification)
-   - La gestion du contexte : quand la conversation s'allonge, me proposer de clore avec un brief de reprise
-   - La logique d'appel des fichiers d'extension : ce fichier doit savoir quand charger les autres selon le contexte
+   - Quand la conversation s'allonge : me proposer de clore avec un brief de reprise
+   À la fin, résume en dix lignes ce que tu as retenu, pour que je vérifie ta mémoire.
 
 2. Un fichier [NomDeMaStructure].md qui décrit son ADN :
    - Histoire et contexte
    - Ce qu'on fait, pour qui, pourquoi
    - Positionnement et valeurs
    - Ton de marque : ce qu'on dit, ce qu'on ne dit pas
-   - Ce fichier sera chargé dès que Claude produit du contenu lié à cette structure
 
 3. Un Brain minimal : un index.md et, pour chaque structure importante de ma vie pro, une fiche en Markdown avec un en-tête (type, title, description, tags, timestamp, confidentialite) qui répond à quatre questions — c'est quoi, où c'est en ligne, quelle est ma position, quels systèmes tournent dessus. Si tu ne sais pas remplir une section, laisse-la vide et pose-moi la question : n'invente rien.
 
-4. Si j'ai des besoins techniques ou métier récurrents, on créera les extensions appropriées (équivalent de CLAUDE-dev.md ou CLAUDE-strat.md) une fois le socle posé.
+4. Seulement si j'ai un dépôt de code : un CLAUDE.md de dix lignes pour ce dépôt — conventions, commandes, interdits. Pas de personnalité dedans : tu me connais déjà.
 
-Méthode : pose-moi UNE question à la fois. On construit section par section. Quand on a tout couvert, tu génères chaque fichier complet en Markdown, séparément.
+Quand on a tout couvert, génère chaque fichier complet en Markdown, séparément.
       </div>
 
-      <p style="margin-top:var(--space-8);">C'est tout ce qu'il faut pour démarrer. Le reste se construit à l'usage : chaque friction devient une règle, chaque session devient une capture, et ton système se bonifie tout seul.</p>
+      <p style="margin-top:var(--space-8);">C'est tout ce qu'il faut pour démarrer. Le reste se construit à l'usage : chaque friction devient une règle retenue, chaque session devient une capture, et ton système se bonifie tout seul.</p>
 
-      <h2 id="changelog">10. Ce qui a changé depuis mai 2026</h2>
+      <h2 id="changelog">12. Ce qui a changé depuis mai 2026</h2>
       <p>Pour ceux qui avaient lu la première version de cette page — ou qui veulent mesurer la vitesse à laquelle les façons de faire bougent :</p>
       <ul>
-        <li><strong>Les fichiers CLAUDE.md sont versionnés dans les dépôts</strong> et découpés par convention (générique / spécifique), au lieu de vivre dans un chat.</li>
+        <li><strong>Plus de fichier de consignes de base</strong> (septembre) : la mémoire, unifiée entre le chat et Cowork depuis le 25 août, et la mémoire automatique de Claude Code, portent « comment travailler avec moi ». Il ne reste qu'un <code>CLAUDE.md</code> par dépôt de code, court, pour ses règles.</li>
+        <li><strong>Le mode auto est le défaut</strong> (14 août) : on ne valide plus chaque commande, on valide le résultat ; un classifieur bloque l'escalade et les injections ; les interdits sont écrits dans le dépôt.</li>
+        <li><strong>Claude navigue</strong> (26 août) : l'extension Claude dans Chrome sur mon navigateur, ou le navigateur intégré de Cowork, pour tout ce qui n'a pas de connecteur — avec les mêmes garde-fous.</li>
+        <li><strong>Des loops et des routines</strong> pour ce qui tourne sans moi : surveiller cet après-midi, contrôler chaque semaine, en lecture seule.</li>
         <li><strong>Le Brain existe</strong> (août 2026) : la connaissance est sortie des documents de projet pour devenir un wiki privé, lisible par tous mes outils.</li>
-        <li><strong>Cowork est devenu une vraie troisième porte</strong> : ordinateur, web, mobile, navigateur intégré, mémoire unifiée avec le chat, routines planifiées.</li>
+        <li><strong>Cowork est devenu une vraie troisième porte</strong> : ordinateur, web, mobile, navigateur, mémoire unifiée avec le chat, routines planifiées, compétences apprises en filmant l'écran.</li>
         <li><strong>Les skills ont remplacé les prompts réutilisables.</strong> Une procédure vit dans un dossier, pas dans un bloc-notes.</li>
         <li><strong>Les connecteurs agissent</strong>, plus seulement lire : envoyer un mail, gérer un fichier — sous validation.</li>
         <li><strong>La famille Claude 5</strong> (Sonnet 5 en juin, Opus 5 en juillet, Fable 5.1 le 1er septembre) a changé le calcul : le bon modèle est toujours le moins cher qui fait le travail, mais « le travail » est devenu beaucoup plus long et autonome.</li>
@@ -418,7 +461,7 @@ Méthode : pose-moi UNE question à la fois. On construit section par section. Q
 
       <aside class="callout" style="margin-top:var(--space-8);">
         <h3>Mon système, en détail et daté</h3>
-        <p style="margin-top:var(--space-3);">Le journal raconte chaque étape : <a href="../journal/systeme-instructions-claude-md.html">la naissance du système CLAUDE.md</a> (mai), <a href="../journal/cobra-docs-contexte-claude.html">sa remise à jour et son découpage</a> (juin), <a href="../journal/brain-okf-wiki-prive.html">l'adoption du Brain au format OKF</a> (août) et <a href="../journal/hl-os-cinq-briques-un-socle.html">HL OS, le système qui s'appuie sur tout ça</a> (septembre).</p>
+        <p style="margin-top:var(--space-3);">Le journal raconte chaque étape : <a href="../journal/systeme-instructions-claude-md.html">la naissance du système CLAUDE.md</a> (mai), <a href="../journal/cobra-docs-contexte-claude.html">sa remise à jour et son découpage</a> (juin), <a href="../journal/brain-okf-wiki-prive.html">l'adoption du Brain au format OKF</a> (août), <a href="../journal/hl-os-cinq-briques-un-socle.html">HL OS, le système qui s'appuie sur tout ça</a> (septembre) et <a href="../journal/methode-v2-1-memoire-mode-auto-navigateur.html">la fin du fichier de base : mémoire, mode auto, loops, navigateur</a> (2 septembre).</p>
       </aside>
 
     </div>

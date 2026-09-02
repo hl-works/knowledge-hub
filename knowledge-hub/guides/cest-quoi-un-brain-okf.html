@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "Un Brain est un dépôt privé de fichiers Markdown au format OKF (Open Knowledge Format) qui décrit entités, projets, décisions, méthode et notes, lu par toutes les IA via un connecteur GitHub. Sept dossiers, un rituel de capture, et deux règles : un brain périmé est pire qu'un brain vide ; on n'invente jamais une fiche qu'on ne sait pas remplir.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-09-01",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-un-brain-okf.html",
       "author": {
         "@type": "Person",
@@ -178,6 +179,8 @@
       <span>·</span>
       <time datetime="2026-09-01">1er septembre 2026</time>
       <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
       <span>~7 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
@@ -214,7 +217,7 @@
         <li><a href="#quoi">2. C'est quoi, concrètement</a></li>
         <li><a href="#lecture">3. Comment mes IA le lisent</a></li>
         <li><a href="#remplir">4. Comment il se remplit (et ne se périme pas)</a></li>
-        <li><a href="#vs">5. Brain, CLAUDE.md, Knowledge Hub : qui fait quoi</a></li>
+        <li><a href="#vs">5. Brain, mémoire, CLAUDE.md, Knowledge Hub : qui fait quoi</a></li>
         <li><a href="#commencer">6. Par où commencer</a></li>
       </ul>
     </nav>
@@ -222,7 +225,7 @@
     <div class="prose">
 
       <h2 id="probleme">1. Le problème : l'IA a la mémoire courte, et cloisonnée</h2>
-      <p>Un assistant IA ne « retient » que ce qui tient dans sa <a href="cest-quoi-le-contexte.html">fenêtre de contexte</a> — la conversation en cours, plus ce que tu lui as donné à lire. Ferme la conversation, tout repart de zéro. Les fonctions de mémoire des assistants aident pour tes préférences, mais elles sont attachées à <em>un</em> outil, opaques, et impossibles à relire ou corriger à la main.</p>
+      <p>Un assistant IA ne « retient » que ce qui tient dans sa <a href="cest-quoi-le-contexte.html">fenêtre de contexte</a> — la conversation en cours, plus ce que tu lui as donné à lire. Ferme la conversation, tout repart de zéro. La mémoire de Claude aide pour tes préférences et ta façon de travailler — partagée entre le chat et Cowork depuis août 2026, relisible dans les réglages — mais elle est implicite : Claude décide ce qu'il garde, et elle ne décrit ni tes projets, ni tes décisions, ni l'état de tes systèmes.</p>
       <p>Chez moi, le symptôme était net : ce que je savais de Cobra, de Haute Fidélité, des briques en construction vivait dans des documents de projet Claude (non partageables entre outils), dans des fils de conversation, et dans ma tête. Deux Claude, un compte perso et un compte pro, qui ne savaient pas la même chose. Et à chaque nouveau chantier, dix minutes à réexpliquer.</p>
 
       <h2 id="quoi">2. C'est quoi, concrètement</h2>
@@ -290,10 +293,10 @@ auteur: claude-hl        <span class="cb-c"># hugo | claude-hl | claude-cobra</s
         <li><strong>Un document qu'on ne pense plus n'est jamais supprimé</strong> : il passe au statut <em>abandonné</em>. Savoir pourquoi on s'est trompé est réutilisable ; un trou dans la base ne l'est pas.</li>
       </ul>
 
-      <h2 id="vs">5. Brain, CLAUDE.md, Knowledge Hub : qui fait quoi</h2>
+      <h2 id="vs">5. Brain, mémoire, CLAUDE.md, Knowledge Hub : qui fait quoi</h2>
       <p>Trois choses qui se ressemblent et qu'il ne faut pas confondre :</p>
-      <div class="compare" role="img" aria-label="CLAUDE.md dit comment travailler ; le Brain dit ce qu'on sait ; le Knowledge Hub est la version publique et curatée.">
-        <div class="compare__side"><span class="compare__tag">CLAUDE.md</span><h4>Comment travailler avec moi</h4><ul><li>Ton, principes, règles dures</li><li>Change peu</li><li>Chargé à chaque session</li><li>Privé, versionné avec le code</li></ul></div>
+      <div class="compare" role="img" aria-label="La mémoire et le CLAUDE.md d'un dépôt disent comment travailler ; le Brain dit ce qu'on sait ; le Knowledge Hub est la version publique et curatée.">
+        <div class="compare__side"><span class="compare__tag">Mémoire · CLAUDE.md</span><h4>Comment travailler avec moi</h4><ul><li>Ton, principes, préférences : en mémoire</li><li>Règles dures d'un dépôt : CLAUDE.md</li><li>Change peu, présent à chaque session</li><li>Implicite (mémoire) ou versionné avec le code</li></ul></div>
         <div class="compare__arrow" aria-hidden="true">+</div>
         <div class="compare__side compare__side--after"><span class="compare__tag">Brain (OKF)</span><h4>Ce qu'on sait</h4><ul><li>Entités, projets, décisions, méthode, notes</li><li>Change tout le temps</li><li>Lu à la demande, par navigation</li><li>Privé — un connecteur, pas une synchro</li></ul></div>
       </div>
@@ -306,8 +309,7 @@ auteur: claude-hl        <span class="cb-c"># hugo | claude-hl | claude-cobra</s
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="cest-quoi-le-contexte.html"><strong>C'est quoi le contexte (et pourquoi c'est tout)</strong></a> — la fenêtre de contexte, ce qui y entre, et pourquoi le Brain est une mémoire choisie.</li>
-          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Écrire un bon CLAUDE.md</strong></a> — l'autre couche de contexte, celle qui change peu.</li>
+          <li>→ <a href="cest-quoi-le-contexte.html"><strong>C'est quoi le contexte</strong></a> — la mémoire, le CLAUDE.md d'un dépôt : l'autre couche, celle qui change peu.</li>
           <li>→ <a href="compound-engineering.html"><strong>Compound Engineering</strong></a> — la boucle qui remplit le Brain au lieu de le laisser se périmer.</li>
         </ul>
         <p style="margin-top:var(--space-4);"><strong>Cas réel.</strong> L'adoption du format et les décisions prises ce jour-là → <a href="../journal/brain-okf-wiki-prive.html">Le Brain : mon wiki privé au format OKF, lu par tous mes Claude</a>. La spec OKF, chez Google Cloud → <a href="https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing" rel="external noopener" target="_blank">How the Open Knowledge Format can improve data sharing</a>.</p>

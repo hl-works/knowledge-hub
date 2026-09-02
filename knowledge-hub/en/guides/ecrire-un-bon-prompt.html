@@ -6,7 +6,7 @@
 
 <!-- ===== SEO ===== -->
 <title>How to talk to AI properly in 2026: from prompt to brief — Guides · Hugo Lahutte</title>
-<meta name="description" content="The recipe for a good prompt (context, task, format, constraints) still holds. But when the AI works on its own, the prompt becomes a brief: a goal, a success criterion, context provided rather than described, checkpoints. The reflexes of 2026, a real brief, and the three places an instruction lives (prompt, CLAUDE.md, skill).">
+<meta name="description" content="The recipe for a good prompt (context, task, format, constraints) still holds. But when the AI works on its own, the prompt becomes a brief: a goal, a success criterion, context provided rather than described, checkpoints. The reflexes of 2026, a real brief, and the three places an instruction lives (prompt, memory or a repo's CLAUDE.md, skill).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-prompt.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-prompt.html">
@@ -47,7 +47,7 @@
     {
       "@type": "TechArticle",
       "headline": "How to talk to AI properly in 2026: from prompt to brief",
-      "description": "The basic recipe for a prompt (context, task, format, constraints, example), then the brief for an AI that acts on its own: goal and success criterion, context provided, task broken into steps, checkpoints. 2026 reflexes (plan before execution, one question at a time, iterate on the result, say what must not be touched, handoff brief) and the three levels of an instruction: prompt, CLAUDE.md, skill.",
+      "description": "The basic recipe for a prompt (context, task, format, constraints, example), then the brief for an AI that acts on its own: goal and success criterion, context provided, task broken into steps, checkpoints. 2026 reflexes (plan before execution, one question at a time, iterate on the result, say what must not be touched, handoff brief) and the three levels of an instruction: prompt, memory (or a repo's CLAUDE.md), skill.",
       "inLanguage": "en-US",
       "datePublished": "2026-05-31",
       "dateModified": "2026-09-02",
@@ -71,7 +71,7 @@
         "CLAUDE.md",
         "skills"
       ],
-      "keywords": "prompt, brief, prompt engineering, success criterion, context, CLAUDE.md, skill, handoff brief"
+      "keywords": "prompt, brief, prompt engineering, success criterion, context, memory, CLAUDE.md, skill, handoff brief"
     },
     {
       "@type": "BreadcrumbList",
@@ -120,7 +120,7 @@
           "name": "Do you have to retype the same instructions in every conversation?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. What's true all the time (tone, rules, tools) goes into a CLAUDE.md file that is read automatically; a procedure you repeat becomes a skill. The prompt then only contains what's specific to today's request."
+            "text": "No. What's true all the time (tone, rules, preferences) is retained by Claude's memory, unified between Chat and Cowork since August 2026; the rules of a code repository go into its CLAUDE.md; a procedure you repeat becomes a skill. The prompt then only contains what's specific to today's request."
           }
         },
         {
@@ -239,7 +239,7 @@
       <p>In May, a request to the AI produced <em>an answer</em>. In September 2026, it often triggers <em>a piece of work</em>: Claude reads a folder, fixes twenty files, sends an email pending your approval, runs for an hour in the background. Claude Code's default mode chains actions without asking your permission at every step; Cowork does the same on your desktop. A one-line instruction that was enough for an answer becomes dangerous for a mission.</p>
       <p>Hence the shift from prompt to <strong>brief</strong>. Two more building blocks, and a change of nature for the first one:</p>
       <ul>
-        <li><strong>Context is provided, no longer described.</strong> Instead of explaining your business, you hand over the files, the folder, the connector. “Here's the sales spreadsheet” beats three paragraphs about your sales. What's permanent (tone, rules, tools) no longer even belongs in the prompt: it lives in a <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>.</li>
+        <li><strong>Context is provided, no longer described.</strong> Instead of explaining your business, you hand over the files, the folder, the connector. “Here's the sales spreadsheet” beats three paragraphs about your sales. What's permanent (tone, rules, tools) no longer even belongs in the prompt: Claude has it in <strong>memory</strong> — and, for a code repository, in its <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>.</li>
         <li><strong>The goal and the success criterion.</strong> “We'll know it's done when…”: all 175 pages share a consistent tone, the script runs without errors, the email fits in 120 words. An AI acting on its own needs to know when to stop — otherwise it keeps going, or stops too early.</li>
         <li><strong>The checkpoints.</strong> For a long mission: “propose a plan before you start,” “show me the diff before pushing,” “one question at a time if something's ambiguous.” You keep control at the moments that matter, not on every line.</li>
       </ul>
@@ -298,7 +298,7 @@ Rules: change nothing in Odoo; never guess an amount.
 Steps: 1) read the folder and propose a 5-line plan, wait for my OK;
 2) process the invoices; 3) deliver the table + the list of doubtful cases.
 If something is ambiguous, ask ONE question, then continue.</code></pre>
-      <p>Notice what's missing: no explanation of what an invoice is, no instruction about tone, no naming rule. All of that is already in the permanent context. The brief only contains what's <em>specific to this mission</em>.</p>
+      <p>Notice what's missing: no explanation of what an invoice is, no instruction about tone, no naming rule. All of that is already known: in memory, in the Brain, in the repo's CLAUDE.md. The brief only contains what's <em>specific to this mission</em>.</p>
 
       <h2 id="reflexes">4. The reflexes of 2026</h2>
       <ul>
@@ -315,22 +315,22 @@ If something is ambiguous, ask ONE question, then continue.</code></pre>
       <p>The question to ask about every instruction: am I going to write it again? If so, it's not in the right place.</p>
 
       <figure class="diagram">
-        <div class="stairs" role="img" aria-label="Three levels: the prompt for what's specific to one request, the CLAUDE.md for what's permanent, the skill for a procedure you repeat.">
+        <div class="stairs" role="img" aria-label="Three levels: the prompt for what's specific to one request, memory (or a repo's CLAUDE.md) for what's permanent, the skill for a procedure you repeat.">
           <div class="stairs__step"><b>The prompt</b><span>what's specific to this request</span></div>
-          <div class="stairs__step"><b>The CLAUDE.md</b><span>what's true all the time: tone, rules, tools</span></div>
+          <div class="stairs__step"><b>Memory (or the repo's CLAUDE.md)</b><span>what's true all the time: tone, rules, tools</span></div>
           <div class="stairs__step"><b>The skill</b><span>a procedure you repeat: steps, template, checks</span></div>
         </div>
         <div class="stairs__axes"><span>← one-off</span><span>reused ↑</span></div>
         <figcaption class="caption">The more an instruction comes back, the higher it climbs: from prompt to rule, from rule to procedure.</figcaption>
       </figure>
 
-      <p>In my setup, the casual tone (“tu” in French), “no preamble,” “one question at a time” or “flag it, don't change it on your own” are never typed anymore: they're in the <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>. Publishing a journal entry (page, index, sitemap, feeds, translation) is no longer explained: it's a skill. This very guide was born from a two-line brief, because everything else was already known. That's the central idea of the guide <a href="cest-quoi-le-contexte.html">What is “context”, and why it's everything</a>: the prompt is 20%; the context is the rest.</p>
+      <p>In my setup, the casual tone (“tu” in French), “no preamble,” “one question at a time” or “flag it, don't change it on your own” are never typed anymore: Claude has them in memory, and every repo's <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> carries the rules for the code. I haven't had a base instruction file since memory became unified (August 2026). Publishing a journal entry (page, index, sitemap, feeds, translation) is no longer explained: it's a skill. This very guide was born from a two-line brief, because everything else was already known. That's the central idea of the guide <a href="cest-quoi-le-contexte.html">What is “context”, and why it's everything</a>: the prompt is 20%; the context is the rest.</p>
 
       <h2 id="outils">6. Depending on the tool: Chat, Cowork, Code</h2>
       <ul>
-        <li><strong>In Claude Chat</strong> — the basic recipe is enough. For a recurring topic, create a project with its instructions and documents: the context is provided once and for all.</li>
+        <li><strong>In Claude Chat</strong> — the basic recipe is enough, and memory does the rest: tell it once how you work, and it remembers. For a recurring topic, a project with its documents: the context is provided once and for all.</li>
         <li><strong>In Cowork</strong> — point to the folder or the connector (Gmail, Drive, Shopify…) rather than describing what it contains, and say explicitly what must be <em>validated</em> before being sent or changed. The guide <a href="lia-propose-lhumain-valide.html">AI proposes, the human validates</a> spells out the rule.</li>
-        <li><strong>In Claude Code</strong> — write a brief (goal, criterion, steps, checkpoints), ask for the plan, let it run, review the diff. For a task that comes back every day, it's no longer a prompt: it's a <a href="cest-quoi-une-loop.html">routine</a>.</li>
+        <li><strong>In Claude Code</strong> — write a brief (goal, criterion, steps, checkpoints), ask for the plan, let it run in auto mode, review the diff. For a task that comes back every day, it's no longer a prompt: it's a <a href="cest-quoi-une-loop.html">routine</a>.</li>
       </ul>
       <p>Choosing the tool itself is covered in <a href="chat-cowork-code-terminal.html">Chat, Cowork, or Code</a>.</p>
 

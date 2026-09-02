@@ -29,8 +29,8 @@ knowledge-hub/
 ├── README.md
 ├── llms.txt / llms-full.txt← pointeurs GEO pour les LLMs
 ├── robots.txt / sitemap.xml
-├── how-to/index.html       ← LA méthode (« Comment j'utilise Claude », v2 sept. 2026)
-├── guides/                 ← ~30 guides evergreen (7 clusters), lexique/ (85 termes), veille-ia/
+├── how-to/index.html       ← LA méthode (« Comment j'utilise Claude », v2.1 sept. 2026)
+├── guides/                 ← ~30 guides evergreen (7 clusters), lexique/ (86 termes), veille-ia/
 ├── a-propos/index.html     ← parcours / qui je suis (GEO authorship)
 ├── journal/
 │   ├── index.html          ← liste chronologique

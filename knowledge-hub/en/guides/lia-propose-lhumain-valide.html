@@ -22,6 +22,7 @@
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
@@ -49,7 +50,7 @@
       "description": "Guardrails for letting an AI act on its tools: automatic reads and validated writes, three autonomy regimes depending on the nature of the action, a standard flow with preview, validation, idempotent execution, log and measurement, four prerequisites before an agent (objective, budget, frequency, criterion), AI verification of a request before coding, non-negotiable locks.",
       "inLanguage": "en-US",
       "datePublished": "2026-09-01",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/lia-propose-lhumain-valide.html",
       "author": {
         "@type": "Person",
@@ -179,6 +180,8 @@
       <span>·</span>
       <time datetime="2026-09-01">September 1, 2026</time>
       <span>·</span>
+      <span>Updated <time datetime="2026-09-02">September 2, 2026</time></span>
+      <span>·</span>
       <span>~7 min read</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
@@ -217,6 +220,7 @@
         <li><a href="#verifier">5. Have it checked before coding</a></li>
         <li><a href="#non-negociables">6. The non-negotiable locks</a></li>
         <li><a href="#liberent">7. Why guardrails set you free</a></li>
+        <li><a href="#mode-auto">What about Claude Code's auto mode?</a></li>
       </ul>
     </nav>
 
@@ -284,6 +288,10 @@
       <h2 id="liberent">7. Why guardrails set you free</h2>
       <p>Guardrails are often presented as a brake. It's the opposite. Because the pricing engine can't sell at a loss and ignores absurd offers, I can let it run on six product families without watching it. Because the invoice agent can only attach an invoice to an order that exists, I can let it read my emails every fifteen minutes. Because Growth changes nothing without validation, I can plug all my tools into it.</p>
       <p>The framework isn't what keeps you from automating. It's what lets you automate <em>more</em> — while you sleep.</p>
+
+      <h2 id="mode-auto">What about Claude Code's auto mode?</h2>
+      <p>Since August 14, 2026, Claude Code runs a project's commands back to back <strong>without asking for permission</strong> at every step: that's auto mode, the default. It doesn't contradict the rule, it sharpens it. Auto mode covers a <em>repository's commands</em> — reading, modifying files, running a test, deploying this site — and a classifier reviews every action to block whatever goes beyond the request, touches unknown infrastructure, or looks dictated by poisoned content. My prohibitions written in the repository take precedence over it. What it doesn't touch: <strong>writes into my business tools</strong>. Changing a price, sending an email, publishing: always a preview and a button.</p>
+      <p>The number that convinced me, measured by Anthropic on a thousand testers: reviewing every request, humans intercepted 13.6% of dangerous commands; auto mode, 89%. And human vigilance dropped to 5% after fifty validations. Clicking "yes" fifty times protects nothing. The useful control is elsewhere: in the written prohibitions, the diff you re-read, the health script that passes — and the final button on anything that commits you.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Going further</p>
