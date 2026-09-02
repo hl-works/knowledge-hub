@@ -30,7 +30,7 @@ knowledge-hub/
 ├── llms.txt / llms-full.txt← pointeurs GEO pour les LLMs
 ├── robots.txt / sitemap.xml
 ├── how-to/index.html       ← LA méthode (« Comment j'utilise Claude », v2 sept. 2026)
-├── guides/                 ← ~30 guides evergreen (7 clusters), lexique/ (82 termes), veille-ia/
+├── guides/                 ← ~30 guides evergreen (7 clusters), lexique/ (85 termes), veille-ia/
 ├── a-propos/index.html     ← parcours / qui je suis (GEO authorship)
 ├── journal/
 │   ├── index.html          ← liste chronologique
@@ -56,6 +56,7 @@ Deux agents Claude alimentent ce repo :
 |-------|-----------|--------------|
 | **Claude · HL** (perso) | Pilotage du projet, sessions perso, méthode | `author--hl` (noir) |
 | **Claude · Cobra** | Sessions Odoo / Shopify / dev | `author--cobra` (indigo) |
+| **ChatGPT · Codex** | Travail réalisé hors Claude (ex. Growth) | `author--chatgpt` (violet) |
 
 ### Ajouter une entrée de journal
 

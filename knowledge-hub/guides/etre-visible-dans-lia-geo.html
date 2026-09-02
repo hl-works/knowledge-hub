@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Être visible dans l'IA : le GEO expliqué (et comment être cité) — Guides · Hugo Lahutte</title>
-<meta name="description" content="Le GEO, c'est le SEO de l'ère des IA : être cité dans les réponses de ChatGPT, Perplexity ou Claude. Pourquoi ça devient vital, et les réflexes concrets pour y arriver.">
+<title>Être visible dans l'IA : le GEO expliqué, et la règle qui change tout — Guides · Hugo Lahutte</title>
+<meta name="description" content="Le GEO, c'est le SEO de l'ère des IA : être cité dans les réponses de ChatGPT, Perplexity, Claude ou des résumés de Google. Pourquoi ça devient vital, comment être cité (questions/réponses, affirmations citables, données structurées, llms.txt, fraîcheur), la règle apprise sur ce site — ce qui n'est pas dans le HTML n'existe pas pour une IA —, la provenance comme produit, et comment mesurer honnêtement.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/etre-visible-dans-lia-geo.html">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="Être visible dans l'IA : le GEO expliqué">
-<meta property="og:description" content="Être cité dans les réponses des IA (ChatGPT, Perplexity, Claude) : pourquoi c'est vital et comment s'y prendre.">
+<meta property="og:description" content="Être cité par ChatGPT, Perplexity, Claude ou Google. Les réflexes, la règle du HTML statique, la provenance, la mesure.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -37,41 +37,100 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../style.css?v=20260622a">
+<link rel="stylesheet" href="../style.css?v=20260902a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "Être visible dans l'IA : le GEO expliqué (et comment être cité)",
-      "description": "Le GEO, le SEO de l'ère des IA : être cité dans les réponses de ChatGPT, Perplexity ou Claude. Pourquoi c'est vital et comment s'y prendre.",
+      "headline": "Être visible dans l'IA : le GEO expliqué",
+      "description": "SEO (être trouvé) vs GEO (être cité dans la réponse d'une IA). Pourquoi c'est vital en 2026 (résumés IA de Google, visibilité IA dans Shopify, achat par agents). Comment être cité : structure questions/réponses, affirmations citables, données structurées schema.org, entité identifiable, llms.txt et llms-full.txt, fraîcheur datée, flux RSS. Règle : les robots des IA n'exécutent pas le JavaScript, ce qui n'est pas dans le HTML n'existe pas. La provenance comme produit (observation attestée). Mesurer : lisibilité machine, citations, trafic référé.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["GEO", "Generative Engine Optimization", "SEO", "AI Overviews", "Perplexity", "visibilité IA", "schema.org", "llms.txt"],
-      "keywords": "GEO, être cité par l'IA, SEO IA, visibilité ChatGPT, Generative Engine Optimization"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "GEO",
+        "Generative Engine Optimization",
+        "SEO",
+        "llms.txt",
+        "données structurées",
+        "HTML statique"
+      ],
+      "keywords": "GEO, SEO, generative engine optimization, llms.txt, llms-full.txt, JSON-LD, schema.org, HTML statique, robots IA, provenance, citation"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "Être visible dans l'IA (GEO)", "item": "https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Être visible dans l'IA (GEO)",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/etre-visible-dans-lia-geo.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Quelle différence entre SEO et GEO ?", "acceptedAnswer": {"@type": "Answer", "text": "Le SEO vise à être trouvé sur un moteur de recherche (apparaître dans la liste de liens Google). Le GEO (Generative Engine Optimization) vise à être cité dans la réponse rédigée par une IA — ChatGPT, Perplexity, Claude, ou les AI Overviews de Google. Dans un cas on veut un clic, dans l'autre on veut être la source de la réponse."}},
-        {"@type": "Question", "name": "Pourquoi le GEO devient-il important ?", "acceptedAnswer": {"@type": "Answer", "text": "De plus en plus de gens posent leur question directement à une IA au lieu de chercher sur Google. Si l'IA ne te cite pas dans sa réponse, tu n'existes pas pour cet utilisateur — même si tu es bien classé sur Google. Être la source citée devient un canal de visibilité à part entière."}},
-        {"@type": "Question", "name": "Comment être cité par les IA ?", "acceptedAnswer": {"@type": "Answer", "text": "Les réflexes : une structure claire en questions/réponses, des affirmations factuelles et « citables », des données structurées (schema.org, FAQPage), une entité cohérente et identifiable (qui parle, son autorité), et des fichiers comme llms.txt qui exposent ton contenu aux modèles. En clair : du contenu clair, sourcé et bien balisé."}},
-        {"@type": "Question", "name": "Le GEO est-il une science exacte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, c'est un domaine émergent et les mécanismes des moteurs génératifs sont opaques et changeants. Il n'y a pas de recette garantie : on applique des principes solides (clarté, structure, autorité, balisage) qui recoupent largement le bon SEO, et on observe."}}
+        {
+          "@type": "Question",
+          "name": "C'est quoi le GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le GEO (Generative Engine Optimization) vise à être cité comme source dans les réponses rédigées par une IA (ChatGPT, Perplexity, Claude, résumés de Google), là où le SEO vise le clic depuis une liste de liens. Les deux se recoupent largement : clarté, structure, autorité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment être cité par les IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Des pages structurées en questions/réponses avec un résumé en tête, des affirmations citables et datées, des données structurées schema.org, un auteur identifiable, un fichier llms.txt (et llms-full.txt) qui présente le site aux modèles, une fraîcheur visible avec un flux RSS — et du HTML statique, lisible sans JavaScript."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi le JavaScript est-il un problème pour le GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce que les robots des assistants (GPTBot, ClaudeBot, PerplexityBot) n'exécutent pas le JavaScript : ils lisent le HTML brut. Un contenu affiché par script est invisible pour eux. Le test : ouvrir sa page avec le JavaScript désactivé ; ce qui disparaît n'existe pas pour une IA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment mesurer sa visibilité dans les IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trois niveaux : la lisibilité machine (page sans JavaScript, données structurées valides, llms.txt accessible), les citations (interroger régulièrement ChatGPT, Perplexity et Google sur ses sujets et relever qui est cité, ou utiliser un outil dédié) et le trafic référé par les assistants dans ses statistiques."
+          }
+        }
       ]
     }
   ]
@@ -81,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -105,16 +165,22 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Être visible dans l'IA (GEO)</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste → stratégie</p>
-    <h1 style="font-size:clamp(2.1rem,5vw,3.8rem);">Être visible dans l'IA : le GEO expliqué</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Être visible dans l'IA : le GEO expliqué</h1>
     <hr class="rule--accent">
-    <p class="lead">Le <strong>GEO</strong>, c'est le SEO de l'ère des IA : être <strong>cité dans les réponses</strong> de ChatGPT, Perplexity ou Claude. Pourquoi ça devient vital, et les réflexes concrets pour y arriver — appliqués sur ce site même.</p>
+    <p class="lead">Le <strong>GEO</strong>, c'est le SEO de l'ère des IA : être <strong>cité dans les réponses</strong> de ChatGPT, Perplexity, Claude ou des résumés de Google. Pourquoi ça devient vital, ce que trois mois de pratique sur ce site ont appris — dont une règle qui change tout : ce qui n'est pas dans le HTML n'existe pas pour une IA.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span><span>·</span><span>~6 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
+      <span>~8 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="geo" data-tagsearch="geo" href="/knowledge-hub/guides/">GEO</a>
@@ -136,9 +202,9 @@
     <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
       <p class="kicker">En 30 secondes</p>
       <ul>
-        <li><strong>SEO</strong> = être trouvé sur Google (la liste de liens). <strong>GEO</strong> = être <strong>cité dans la réponse rédigée par une IA</strong> (ChatGPT, Perplexity, Claude, AI Overviews).</li>
-        <li>De plus en plus de gens posent leur question à une IA plutôt que de googler. Si elle ne te cite pas, <strong>tu n'existes pas</strong> dans cette réponse.</li>
-        <li>Les réflexes : contenu clair en <strong>questions/réponses</strong>, affirmations <strong>citables</strong>, <strong>données structurées</strong>, entité identifiable, <code>llms.txt</code>. C'est exactement ce que fait ce site.</li>
+        <li><strong>SEO</strong> = être trouvé sur Google (la liste de liens). <strong>GEO</strong> = être <strong>cité dans la réponse rédigée par une IA</strong>. De plus en plus de gens posent leur question à une IA : si elle ne te cite pas, tu n'existes pas dans cette réponse.</li>
+        <li>Les réflexes : des pages en <strong>questions/réponses</strong>, des affirmations <strong>citables</strong>, des <strong>données structurées</strong>, une entité identifiable, un <code>llms.txt</code> — et surtout du <strong>HTML statique</strong>, parce que les robots des IA n'exécutent pas le JavaScript.</li>
+        <li>Ce qui pèse le plus en 2026 : la <strong>provenance</strong>. Une expérience de première main, datée, signée, bat le contenu généré à la chaîne — pour les moteurs comme pour les lecteurs.</li>
       </ul>
     </aside>
 
@@ -148,14 +214,17 @@
         <li><a href="#seo-vs-geo">1. SEO, GEO : quelle différence</a></li>
         <li><a href="#pourquoi">2. Pourquoi ça devient vital</a></li>
         <li><a href="#comment">3. Comment être cité par les IA</a></li>
-        <li><a href="#exemple">4. Ce site comme cas d'école</a></li>
+        <li><a href="#html">4. La règle qui change tout : ce qui n'est pas dans le HTML n'existe pas</a></li>
+        <li><a href="#provenance">5. La provenance est le produit</a></li>
+        <li><a href="#mesurer">6. Mesurer (honnêtement)</a></li>
+        <li><a href="#exemple">7. Ce site comme cas d'école</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="seo-vs-geo">1. SEO, GEO : quelle différence</h2>
-      <p>Le <strong>SEO</strong> (référencement naturel) cherche à te faire apparaître dans la <strong>liste de liens</strong> d'un moteur — l'objectif, c'est le clic vers ton site. Le <strong>GEO</strong> (<em>Generative Engine Optimization</em>) vise autre chose : être <strong>la source que l'IA cite</strong> quand elle rédige sa réponse. Pas un clic dans une liste — une mention dans le texte généré.</p>
+      <p>Le <strong>SEO</strong> (référencement naturel) cherche à te faire apparaître dans la <strong>liste de liens</strong> d'un moteur — l'objectif, c'est le clic vers ton site. Le <strong>GEO</strong> (<em>Generative Engine Optimization</em>) vise autre chose : être <strong>la source que l'IA cite</strong> quand elle rédige sa réponse. Pas un clic dans une liste — une mention dans le texte généré, avec ou sans lien.</p>
 
       <figure class="diagram">
         <div class="compare" role="img" aria-label="SEO : une liste de liens bleus sur Google, on vise le clic. GEO : une réponse rédigée par une IA, on vise la citation comme source.">
@@ -175,7 +244,7 @@
             <ul>
               <li>Une réponse rédigée par l'IA</li>
               <li>Objectif : être la source citée</li>
-              <li>Clarté, structure, autorité, balisage</li>
+              <li>Clarté, structure, provenance, lisibilité machine</li>
             </ul>
           </div>
         </div>
@@ -183,51 +252,71 @@
       </figure>
 
       <h2 id="pourquoi">2. Pourquoi ça devient vital</h2>
-      <p>Le comportement change vite : beaucoup de gens <strong>posent leur question directement à une IA</strong> (ChatGPT, Perplexity…) au lieu d'ouvrir Google et de comparer dix liens. Dans ce monde-là, la bataille n'est plus « être premier sur la liste » mais <strong>« être la marque/source que l'IA mentionne »</strong>.</p>
-      <p>La conséquence est brutale : tu peux être très bien classé sur Google et <strong>totalement absent</strong> de la réponse d'une IA sur le même sujet. Le GEO, c'est s'assurer d'exister aussi dans ce nouveau canal — celui qui grignote une part croissante des recherches.</p>
+      <p>Le comportement change vite : beaucoup de gens <strong>posent leur question directement à une IA</strong> au lieu d'ouvrir Google et de comparer dix liens — et Google lui-même répond par un résumé généré au-dessus de sa liste. Repères septembre 2026 : ces résumés pèsent déjà sur le trafic de sites de référence ; Shopify a ajouté une section « visibilité dans les IA » à ses boutiques et ouvert l'achat aux agents ; des outils mesurent si ta marque est citée dans les réponses de ChatGPT, Perplexity et Google, et quels concurrents le sont à ta place.</p>
+      <p>La conséquence est brutale : tu peux être très bien classé sur Google et <strong>totalement absent</strong> de la réponse d'une IA sur le même sujet. Le GEO, c'est s'assurer d'exister aussi dans ce canal — celui qui grignote une part croissante des recherches, et bientôt des achats.</p>
 
       <h2 id="comment">3. Comment être cité par les IA</h2>
-      <p>Les moteurs génératifs sont opaques, mais quelques principes reviennent — et ils sont de bon sens :</p>
+      <p>Les moteurs génératifs sont opaques, mais quelques principes reviennent — et ils sont de bon sens, parce qu'ils servent aussi tes lecteurs humains :</p>
 
       <figure class="diagram">
-        <div class="stack" role="img" aria-label="Réflexes GEO : structure questions-réponses, affirmations citables, données structurées, entité identifiable, llms.txt.">
-          <div class="stack__block"><b>Structure en questions/réponses</b><span>Des intertitres qui sont des questions, des réponses nettes juste en dessous : c'est ce que les IA aiment extraire.</span></div>
-          <div class="stack__block"><b>Affirmations « citables »</b><span>Des phrases claires, factuelles, autoportantes (compréhensibles hors contexte). Sourcées quand c'est un chiffre.</span></div>
-          <div class="stack__block"><b>Données structurées</b><span>Le balisage schema.org (Article, FAQPage, Person…) aide les machines à comprendre qui dit quoi.</span></div>
-          <div class="stack__block"><b>Entité claire + llms.txt</b><span>Qui parle et son autorité (auteur identifié, cohérent), plus un fichier <code>llms.txt</code> qui expose proprement ton contenu aux modèles.</span></div>
+        <div class="stack" role="img" aria-label="Réflexes GEO : structure questions-réponses, affirmations citables, données structurées, entité identifiable, llms.txt et llms-full.txt, fraîcheur datée.">
+          <div class="stack__block"><b>Structure en questions/réponses</b><span>Des intertitres qui sont des questions, des réponses nettes juste en dessous, un résumé en tête de page : c'est ce que les IA extraient.</span></div>
+          <div class="stack__block"><b>Affirmations citables</b><span>Des phrases claires, factuelles, autoportantes — compréhensibles hors contexte. Sourcées quand c'est un chiffre, datées quand ça peut bouger.</span></div>
+          <div class="stack__block"><b>Données structurées</b><span>Le balisage schema.org (Article, FAQPage, Person, BreadcrumbList) dit aux machines qui dit quoi, quand, et de quoi ça parle.</span></div>
+          <div class="stack__block"><b>Entité claire + llms.txt</b><span>Un auteur identifié et cohérent d'une page à l'autre ; un fichier <code>llms.txt</code> qui présente le site aux modèles, et un <code>llms-full.txt</code> qui en donne le contenu complet en texte brut.</span></div>
+          <div class="stack__block"><b>Fraîcheur visible</b><span>Une date de publication et de mise à jour sur chaque page, dans le texte et dans les données structurées, un flux RSS. Une IA préfère citer ce qu'elle sait récent.</span></div>
         </div>
-        <figcaption class="caption">En une phrase : du contenu <strong>clair, citable et bien balisé</strong>, signé par une entité identifiable.</figcaption>
+        <figcaption class="caption">En une phrase : du contenu <strong>clair, citable, daté et bien balisé</strong>, signé par une entité identifiable.</figcaption>
       </figure>
 
-      <p>Honnêteté de praticien : le GEO est un <strong>domaine émergent</strong>. Personne ne vend de garantie sérieuse d'être cité — les mécanismes changent. Mais ces principes ne se périment pas, parce qu'ils servent aussi tes lecteurs humains.</p>
+      <h2 id="html">4. La règle qui change tout : ce qui n'est pas dans le HTML n'existe pas</h2>
+      <p>La leçon la plus utile de mes trois mois de pratique, apprise à mes dépens. La veille IA de ce site — mon contenu le plus frais, mis à jour chaque jour — était affichée par du JavaScript. Or les robots des assistants (GPTBot, ClaudeBot, PerplexityBot) <strong>n'exécutent pas le JavaScript</strong> : ils lisent le HTML brut, et rien d'autre. Pour eux, ma veille était une page vide.</p>
+      <p>Depuis juin, un script injecte les dix derniers jours en HTML statique dans la page à chaque publication, deux flux RSS existent, et le fichier <code>llms-full.txt</code> est régénéré automatiquement. Le test à faire sur ton propre site : ouvre une page avec le JavaScript désactivé. Ce que tu vois, c'est ce qu'une IA voit. Si ton catalogue, tes avis ou tes prix disparaissent, ils n'existent pas pour elle.</p>
 
-      <h2 id="exemple">4. Ce site comme cas d'école</h2>
-      <p>Je ne théorise pas dans le vide : ce Knowledge Hub <strong>est</strong> mon terrain d'essai GEO. Une page par question, des intertitres en questions, du JSON-LD (<code>TechArticle</code>, <code>FAQPage</code>, <code>Person</code>) sur chaque page, un <code>llms.txt</code> et un <code>llms-full.txt</code> qui résument tout le site pour les modèles. C'est précisément pour ça qu'il est construit en HTML statique, propre et léger : la lisibilité machine est une feature, pas un détail.</p>
+      <figure class="diagram">
+        <div class="pipeline" role="img" aria-label="Chaîne de lisibilité machine : contenu, rendu en HTML statique, données structurées, llms.txt et flux, lecture par les robots des IA, citation dans une réponse.">
+          <div class="pipeline__step"><b>Contenu</b><span>daté, signé, en Q/R</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>HTML statique</b><span>sans JavaScript requis</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>Balisage + llms.txt</b><span>schema.org, flux RSS</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>Robots des IA</b><span>GPTBot, ClaudeBot…</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>Citation</b><span>dans la réponse</span></div>
+        </div>
+        <figcaption class="caption">Chaque maillon peut casser la chaîne. Le plus souvent, c'est le deuxième.</figcaption>
+      </figure>
 
-      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
-        <p class="kicker" style="color:var(--c-gold);">Mise à jour · 1er septembre 2026</p>
-        <h3 style="margin-top:var(--space-2);">Ce que trois mois de pratique ont appris</h3>
-                <ul style="margin-top:var(--space-3);">
-          <li><strong>Mon contenu le plus frais était invisible pour les IA.</strong> La veille IA de ce site était rendue par JavaScript ; or les robots des assistants (GPTBot, ClaudeBot, PerplexityBot) n'exécutent pas le JavaScript. Depuis juin, un script injecte les dix derniers jours en HTML statique dans la page, deux flux RSS existent, et le fichier <code>llms-full.txt</code> est régénéré automatiquement à chaque publication. Règle : <strong>ce qui n'est pas dans le HTML n'existe pas pour une IA</strong>.</li>
-          <li><strong>La provenance est le produit.</strong> Ce que les moteurs et les IA valorisent, c'est le signal d'expérience de première main : qui, où, quand. C'est le principe de ma <a href="content-machine-une-capture-n-destinations.html">Content Machine</a> — une page par entité, des données structurées, une observation attestée derrière chaque rendu — et l'exact opposé du contenu généré à la chaîne.</li>
-          <li><strong>Le canal grossit, et il se mesure.</strong> Les résumés IA de Google pèsent déjà sur le trafic de sites de référence ; Shopify a ajouté une section « visibilité dans les IA » à ses boutiques et ouvert l'achat aux agents ; des outils testent si ta marque est citée dans les réponses de ChatGPT, Perplexity et Google — et quels concurrents le sont à ta place. Le GEO n'est plus un pari : c'est un poste de la file d'actions de <a href="cest-quoi-hl-os.html">Growth</a>.</li>
-        </ul>
-      </aside>
+      <h2 id="provenance">5. La provenance est le produit</h2>
+      <p>Le web se remplit de textes générés à la chaîne, et les moteurs comme les IA apprennent à les ignorer. Ce qu'ils valorisent, c'est le signal d'<strong>expérience de première main</strong> : qui a vu quoi, où, quand. Un test d'écoute réalisé, une photo prise, un chiffre mesuré dans son propre magasin. C'est le principe de ma <a href="content-machine-une-capture-n-destinations.html">Content Machine</a> : une page par entité, des données structurées, une <strong>observation attestée</strong> derrière chaque rendu — et l'exact opposé du contenu produit au kilomètre. Paradoxe utile : l'IA sert à publier vite, mais ce qu'elle cite, c'est ce que seul un humain a pu constater.</p>
 
+      <h2 id="mesurer">6. Mesurer (honnêtement)</h2>
+      <p>Le GEO reste un domaine émergent : personne ne vend de garantie sérieuse d'être cité, et je ne prétends pas mesurer précisément combien de réponses d'IA citent ce site. Ce que je peux mesurer, et ce que je te conseille de mesurer :</p>
+      <ul>
+        <li><strong>La lisibilité machine</strong> : ta page sans JavaScript, tes données structurées validées, ton <code>llms.txt</code> accessible. C'est binaire, et c'est le préalable.</li>
+        <li><strong>Les citations</strong> : les outils qui interrogent ChatGPT, Perplexity et Google sur tes sujets et relèvent qui est cité — toi, ou tes concurrents. Poser dix questions clientes à trois assistants une fois par mois fait déjà un bon tableau de bord.</li>
+        <li><strong>Le trafic venu des IA</strong> : les visites référées par les assistants apparaissent dans tes statistiques ; peu nombreuses, mais très qualifiées.</li>
+      </ul>
+      <p>Chez Cobra, ce suivi est devenu un poste de la file d'actions de <a href="cest-quoi-hl-os.html">Growth</a> : la question « sommes-nous cités ? » se traite comme une ligne de plus, avec ses preuves, pas comme une croyance.</p>
+
+      <h2 id="exemple">7. Ce site comme cas d'école</h2>
+      <p>Je ne théorise pas dans le vide : ce Knowledge Hub <strong>est</strong> mon terrain d'essai GEO. Une page par question, des intertitres en questions, un résumé en tête de chaque guide, du JSON-LD (<code>TechArticle</code>, <code>FAQPage</code>, <code>Person</code>) sur chaque page, des dates de mise à jour visibles, un <code>llms.txt</code> et un <code>llms-full.txt</code> régénérés à chaque publication, deux flux RSS, et une version anglaise miroir. C'est précisément pour ça qu'il est construit en HTML statique, propre et léger : la lisibilité machine est une fonctionnalité, pas un détail.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="content-machine-une-capture-n-destinations.html"><strong>Content Machine</strong></a> — publier vite sans perdre la provenance.</li>
           <li>→ <a href="cest-quoi-ia-llm.html"><strong>C'est quoi l'IA et un LLM</strong></a> — pour comprendre comment l'IA « choisit » ce qu'elle cite.</li>
-          <li>→ <a href="cest-quoi-claude.html"><strong>C'est quoi Claude</strong></a> — l'un des moteurs qui rédigent ces réponses.</li>
+          <li>→ <a href="etude-de-cas-knowledge-hub.html"><strong>Knowledge Hub : de l'idée à la prod</strong></a> — comment ce site est pensé GEO de bout en bout.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réel.</strong> Comment ce site est pensé GEO de bout en bout → <a href="../journal/knowledge-hub.html">Ce Knowledge Hub lui-même</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> La veille rendue visible aux IA → <a href="../journal/fable-5-revue-site-geo.html">Fable 5 passe le site en revue</a> · la refonte de septembre → <a href="../journal/refonte-knowledge-hub-fable-5-1.html">Fable 5.1 repasse tout le site</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
@@ -241,7 +330,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -303,7 +391,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

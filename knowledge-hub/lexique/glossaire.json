@@ -121,12 +121,59 @@
     "definition": "La consigne qu'on donne à l'IA. Un bon prompt — clair, avec le contexte et l'objectif — change le résultat d'une réponse. Mais ce qui pèse sur toutes les réponses, c'est le contexte (CLAUDE.md, Brain, skills).",
     "guides": [
       {
-        "label": "Écrire un bon prompt",
+        "label": "Bien parler à l'IA en 2026 : du prompt au brief",
         "url": "/knowledge-hub/guides/ecrire-un-bon-prompt.html"
       },
       {
         "label": "C'est quoi le contexte",
         "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "brief",
+    "terme": "Brief (de mission)",
+    "aliases": [
+      "brief",
+      "briefs",
+      "brief de mission"
+    ],
+    "definition": "Ce qu'on écrit à une IA qui va travailler seule, par opposition au prompt qui vise une réponse : un objectif avec son critère de succès, le contexte fourni (fichiers, dossier, connecteur) plutôt que décrit, la tâche découpée en étapes, le format et les contraintes, et des points de contrôle (plan avant exécution, aperçu avant envoi). Ne contient que ce qui est propre à la mission : le permanent vit dans le CLAUDE.md, le répétable dans un skill.",
+    "guides": [
+      {
+        "label": "Bien parler à l'IA en 2026 : du prompt au brief",
+        "url": "/knowledge-hub/guides/ecrire-un-bon-prompt.html"
+      },
+      {
+        "label": "C'est quoi le contexte",
+        "url": "/knowledge-hub/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Brief mission : vérification factures",
+        "url": "/knowledge-hub/journal/mission-dm-france.html"
+      }
+    ]
+  },
+  {
+    "id": "critere-de-succes",
+    "terme": "Critère de succès",
+    "aliases": [
+      "critère de succès",
+      "critères de succès",
+      "on saura que c'est bon quand"
+    ],
+    "definition": "La phrase « on saura que c'est bon quand… » formulée avant d'agir : le compteur juste, le script qui passe, le mail en 120 mots. Quatrième des principes façon Karpathy, et indispensable dès qu'une IA agit seule — sans critère, elle ne sait pas quand s'arrêter, et « c'est fait » ne veut rien dire. Le mieux : un critère qui se vérifie tout seul (test, script de santé).",
+    "guides": [
+      {
+        "label": "Les 4 principes (façon Karpathy)",
+        "url": "/knowledge-hub/guides/principes-facon-karpathy.html"
+      },
+      {
+        "label": "Bien parler à l'IA en 2026 : du prompt au brief",
+        "url": "/knowledge-hub/guides/ecrire-un-bon-prompt.html"
       }
     ],
     "projets": []
@@ -706,6 +753,25 @@
         "url": "/knowledge-hub/journal/seo-collections-shopify.html"
       }
     ]
+  },
+  {
+    "id": "dette-de-contexte",
+    "terme": "Dette de contexte",
+    "aliases": [
+      "dette de contexte"
+    ],
+    "definition": "Ce qui s'accumule quand les fichiers que l'IA lit (CLAUDE.md, Brain, fiches de référence) ne sont plus tenus à jour : l'IA décide avec assurance sur des bases fausses. Le pendant, côté contexte, de la dette technique. Se rembourse par la capture de session et la mise à jour des fiches touchées — un brain périmé est pire qu'un brain vide.",
+    "guides": [
+      {
+        "label": "Compound Engineering",
+        "url": "/knowledge-hub/guides/compound-engineering.html"
+      },
+      {
+        "label": "Pourquoi l'IA change vraiment la façon de travailler",
+        "url": "/knowledge-hub/guides/pourquoi-lia-change-le-travail.html"
+      }
+    ],
+    "projets": []
   },
   {
     "id": "brief-de-reprise",

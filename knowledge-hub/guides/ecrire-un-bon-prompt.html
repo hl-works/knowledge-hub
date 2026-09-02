@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Comment bien parler à l'IA : écrire un bon prompt — Guides · Hugo Lahutte</title>
-<meta name="description" content="Un bon prompt, c'est 80 % du résultat. La recette simple (contexte, tâche, format, contraintes), les réflexes qui changent tout, et pourquoi itérer bat « trouver la phrase magique ».">
+<title>Bien parler à l'IA en 2026 : du prompt au brief — Guides · Hugo Lahutte</title>
+<meta name="description" content="La recette d'un bon prompt (contexte, tâche, format, contraintes) tient toujours. Mais quand l'IA travaille seule, le prompt devient un brief : objectif, critère de succès, contexte fourni plutôt que décrit, points de contrôle. Les réflexes de 2026, un brief réel, et les trois endroits où vit une consigne (prompt, CLAUDE.md, skill).">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/ecrire-un-bon-prompt.html">
@@ -15,14 +15,14 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Comment bien parler à l'IA : écrire un bon prompt">
-<meta property="og:description" content="La recette d'un bon prompt (contexte, tâche, format, contraintes) et les réflexes qui changent le résultat.">
+<meta property="og:title" content="Bien parler à l'IA en 2026 : du prompt au brief">
+<meta property="og:description" content="Un bon prompt fait une bonne réponse. Un bon brief fait un bon travail. La recette, ce qui a changé, et ce qu'il ne faut plus retaper.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -37,41 +37,100 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../style.css?v=20260622a">
+<link rel="stylesheet" href="../style.css?v=20260902a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "Comment bien parler à l'IA : écrire un bon prompt",
-      "description": "La recette d'un bon prompt (contexte, tâche, format, contraintes), les réflexes qui changent le résultat, et pourquoi itérer bat la « phrase magique ».",
+      "headline": "Bien parler à l'IA en 2026 : du prompt au brief",
+      "description": "Recette de base d'un prompt (contexte, tâche, format, contraintes, exemple), puis le brief pour une IA qui agit seule : objectif et critère de succès, contexte fourni, tâche découpée, points de contrôle. Réflexes 2026 (plan avant exécution, une question à la fois, itérer sur le résultat, dire ce qu'on ne touche pas, brief de reprise) et les trois niveaux d'une consigne : prompt, CLAUDE.md, skill.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["prompt", "prompt engineering", "consigne IA", "Claude", "ChatGPT"],
-      "keywords": "prompt, écrire un bon prompt, prompt engineering, consigne IA"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "prompt",
+        "brief",
+        "prompt engineering",
+        "context engineering",
+        "CLAUDE.md",
+        "skills"
+      ],
+      "keywords": "prompt, brief, prompt engineering, critère de succès, contexte, CLAUDE.md, skill, brief de reprise"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "Écrire un bon prompt", "item": "https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Écrire un bon prompt",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/ecrire-un-bon-prompt.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "C'est quoi un prompt ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prompt est la consigne que tu donnes à l'IA. C'est l'élément qui pèse le plus sur le résultat : un bon prompt vaut largement mieux qu'une « phrase magique » secrète."}},
-        {"@type": "Question", "name": "Que doit contenir un bon prompt ?", "acceptedAnswer": {"@type": "Answer", "text": "Quatre ingrédients : le contexte (qui tu es, la situation), la tâche précise (ce que tu veux exactement), le format de sortie attendu (liste, tableau, mail prêt à envoyer…) et les contraintes (longueur, ton, ce qu'il faut éviter). Donner un exemple du résultat voulu aide énormément."}},
-        {"@type": "Question", "name": "Comment améliorer ses prompts ?", "acceptedAnswer": {"@type": "Answer", "text": "En itérant : le premier jet est rarement parfait, on ajuste en disant ce qui ne va pas. Autres réflexes : donner un exemple, demander à l'IA de poser ses questions avant de répondre, lui faire jouer un rôle, et découper une grosse demande en étapes."}},
-        {"@type": "Question", "name": "Faut-il connaître des formules secrètes de prompt ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il n'y a pas de formule magique : la clarté bat l'astuce. Un prompt clair, contextualisé et précis donne de meilleurs résultats que n'importe quelle « technique » recopiée."}}
+        {
+          "@type": "Question",
+          "name": "C'est quoi un bon prompt ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une consigne claire en quatre briques : le contexte (qui tu es, la situation), la tâche (un verbe d'action précis), le format voulu et les contraintes (longueur, ton, ce qu'il faut éviter). Un exemple du résultat attendu améliore encore la réponse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre un prompt et un brief ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un prompt vise une réponse ; un brief vise un travail que l'IA mène seule. Il ajoute un objectif avec un critère de succès (« on saura que c'est bon quand… »), un contexte fourni plutôt que décrit (fichiers, dossier, connecteur), une tâche découpée en étapes et des points de contrôle (plan avant exécution, aperçu avant envoi)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il retaper les mêmes consignes à chaque conversation ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Ce qui est vrai tout le temps (ton, règles, outils) va dans un fichier CLAUDE.md lu automatiquement ; une procédure que l'on refait devient un skill. Le prompt ne contient plus que ce qui est propre à la demande du jour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment éviter qu'une IA qui agit seule dérape ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En écrivant les contraintes négatives (ce qu'on ne touche pas, lecture seule, rien n'est envoyé sans aperçu), en demandant un plan avant l'exécution, en autorisant une seule question à la fois en cas d'ambiguïté et en relisant le résultat avant de valider."
+          }
+        }
       ]
     }
   ]
@@ -81,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -105,16 +165,22 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Écrire un bon prompt</p>
     <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste → pratique</p>
-    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Comment bien parler à l'IA : écrire un bon prompt</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Bien parler à l'IA en 2026 : du prompt au brief</h1>
     <hr class="rule--accent">
-    <p class="lead">Un bon prompt, c'est <strong>80 % du résultat</strong>. La recette simple (contexte, tâche, format, contraintes), les réflexes qui changent tout, et pourquoi <strong>itérer</strong> bat « trouver la phrase magique ».</p>
+    <p class="lead">Un bon prompt fait une bonne réponse. Un bon <strong>brief</strong> fait un bon travail — quand l'IA enchaîne les étapes toute seule, ce que tu écris avant compte plus que jamais. La recette qui tient, ce qui a changé, et ce qu'il ne faut plus retaper.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span><span>·</span><span>~5 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
+      <span>~7 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="prompt" data-tagsearch="prompt" href="/knowledge-hub/guides/">prompt</a>
@@ -135,43 +201,65 @@
     <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
       <p class="kicker">En 30 secondes</p>
       <ul>
-        <li>Un <strong>prompt</strong>, c'est la consigne que tu donnes à l'IA. C'est l'élément qui pèse le plus sur le résultat.</li>
-        <li>La recette : <strong>contexte + tâche précise + format voulu + contraintes</strong> — et un <strong>exemple</strong> du résultat attendu quand tu peux.</li>
-        <li>Le secret pas glamour : <strong>itérer</strong>. Le premier jet est rarement parfait ; tu dis ce qui cloche, ça s'affine. Pas de « phrase magique ».</li>
+        <li>La recette de base n'a pas bougé : <strong>contexte + tâche + format + contraintes</strong>, et un exemple du résultat voulu.</li>
+        <li>Ce qui a changé : l'IA ne répond plus seulement, elle <strong>travaille</strong> (lit tes fichiers, agit dans tes outils, enchaîne des étapes). Le prompt devient un <strong>brief</strong> : un objectif, un critère de succès, des points de vérification.</li>
+        <li>Le vrai levier n'est plus la phrase magique : c'est ce que l'IA sait <em>avant</em> ta demande. Une consigne que tu retapes est une règle qui s'ignore ; une procédure que tu réexpliques est un <a href="cest-quoi-un-skill.html">skill</a> qui s'ignore.</li>
       </ul>
     </aside>
 
     <nav class="toc prose" aria-label="Sommaire">
       <p class="kicker">Sommaire</p>
       <ul>
-        <li><a href="#cest-quoi">1. C'est quoi un prompt, au fond</a></li>
-        <li><a href="#ingredients">2. Les ingrédients d'un bon prompt</a></li>
-        <li><a href="#exemple">3. Mauvais vs bon prompt : un exemple</a></li>
-        <li><a href="#reflexes">4. Les réflexes qui changent tout</a></li>
+        <li><a href="#base">1. La recette de base (toujours vraie)</a></li>
+        <li><a href="#brief">2. Du prompt au brief : ce qui a changé</a></li>
+        <li><a href="#exemple">3. Prompt vague, prompt précis, brief</a></li>
+        <li><a href="#reflexes">4. Les réflexes de 2026</a></li>
+        <li><a href="#niveaux">5. Les trois endroits où vit une consigne</a></li>
+        <li><a href="#outils">6. Selon l'outil : Chat, Cowork, Code</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
-      <h2 id="cest-quoi">1. C'est quoi un prompt, au fond</h2>
-      <p>Un <strong>prompt</strong>, c'est juste la <strong>consigne</strong> que tu écris à l'IA. Rien de technique. Mais c'est l'élément qui change le plus le résultat : la même IA peut te rendre une bouillie générique ou un livrable nickel, selon la façon dont tu demandes.</p>
-      <p>Oublie tout de suite l'idée d'une « formule secrète ». Ce qui marche, c'est la <strong>clarté</strong> : dire précisément ce que tu veux, à qui ça s'adresse, et sous quelle forme. Comme avec un bon stagiaire — sauf qu'il répond en dix secondes.</p>
-
-      <h2 id="ingredients">2. Les ingrédients d'un bon prompt</h2>
-      <p>Un prompt solide tient en quatre briques. Tu n'as pas toujours besoin des quatre, mais plus c'est précis, meilleur c'est :</p>
+      <h2 id="base">1. La recette de base (toujours vraie)</h2>
+      <p>Un <strong>prompt</strong>, c'est la consigne que tu écris à l'IA. Rien de technique, mais c'est ce qui change le plus une réponse : la même IA rend une bouillie générique ou un livrable propre selon la façon dont tu demandes. Pas de formule secrète — de la <strong>clarté</strong>. Quatre briques suffisent pour une demande simple :</p>
 
       <figure class="diagram">
         <div class="stack" role="img" aria-label="Anatomie d'un bon prompt en quatre briques : contexte, tâche, format, contraintes.">
           <div class="stack__block"><b>Contexte</b><span>Qui tu es, la situation, pour qui c'est. « Je suis commerçant en hi-fi, j'écris à un client mécontent… »</span></div>
-          <div class="stack__block"><b>Tâche</b><span>Ce que tu veux exactement, en un verbe d'action. « Rédige une réponse », « résume en 5 points », « compare ces deux options ».</span></div>
-          <div class="stack__block"><b>Format</b><span>La forme de sortie. Liste à puces, tableau, mail prêt à envoyer, 3 paragraphes max.</span></div>
+          <div class="stack__block"><b>Tâche</b><span>Ce que tu veux, en un verbe d'action : « rédige », « résume en cinq points », « compare ces deux options ».</span></div>
+          <div class="stack__block"><b>Format</b><span>La forme de sortie : liste, tableau, mail prêt à envoyer, trois paragraphes maximum.</span></div>
           <div class="stack__block"><b>Contraintes</b><span>Le cadre : longueur, ton, langue, ce qu'il faut éviter. « Ton chaleureux, pas de jargon, 120 mots. »</span></div>
         </div>
         <figcaption class="caption">Contexte + tâche + format + contraintes. Ajoute un <strong>exemple</strong> du résultat voulu et tu montes encore d'un cran.</figcaption>
       </figure>
 
-      <h2 id="exemple">3. Mauvais vs bon prompt : un exemple</h2>
-      <p>Le même besoin, demandé deux façons. La différence de résultat est énorme :</p>
+      <h2 id="brief">2. Du prompt au brief : ce qui a changé</h2>
+      <p>En mai, une demande à l'IA produisait <em>une réponse</em>. En septembre 2026, elle déclenche souvent <em>un travail</em> : Claude lit un dossier, corrige vingt fichiers, envoie un mail sous validation, tourne une heure en arrière-plan. Le mode par défaut de Claude Code enchaîne les actions sans te demander la permission à chaque étape ; Cowork fait pareil sur ton bureau. Une consigne d'une ligne qui suffisait pour une réponse devient dangereuse pour une mission.</p>
+      <p>D'où le passage du prompt au <strong>brief</strong>. Deux briques de plus, et un changement de nature pour la première :</p>
+      <ul>
+        <li><strong>Le contexte se fournit, il ne se décrit plus.</strong> Au lieu d'expliquer ton métier, tu donnes les fichiers, le dossier, le connecteur. « Voici le tableau de ventes » vaut mieux que trois paragraphes sur tes ventes. Ce qui est permanent (ton, règles, outils) n'a même plus sa place dans le prompt : il vit dans un <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>.</li>
+        <li><strong>L'objectif et le critère de succès.</strong> « On saura que c'est bon quand… » : les 175 fiches ont un ton homogène, le script tourne sans erreur, le mail tient en 120 mots. Une IA qui agit seule a besoin de savoir quand s'arrêter — sinon elle continue, ou s'arrête trop tôt.</li>
+        <li><strong>Les points de vérification.</strong> Pour une mission longue : « propose un plan avant de commencer », « montre-moi le diff avant de pousser », « une seule question à la fois si c'est ambigu ». Tu gardes la main aux moments qui comptent, pas à chaque ligne.</li>
+      </ul>
+
+      <figure class="diagram">
+        <div class="pipeline" role="img" aria-label="Anatomie d'un brief en 2026 : objectif et critère de succès, contexte fourni, tâche découpée, format et contraintes, points de vérification.">
+          <div class="pipeline__step"><b>Objectif</b><span>+ « c'est bon quand… »</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>Contexte fourni</b><span>fichiers, dossier, connecteur</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>Tâche découpée</b><span>étapes, ordre</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>Format &amp; contraintes</b><span>ce qu'on ne touche pas</span></div>
+          <span class="pipeline__arrow">→</span>
+          <div class="pipeline__step"><b>Points de contrôle</b><span>plan, aperçu, validation</span></div>
+        </div>
+        <figcaption class="caption">Le brief de 2026 : les quatre briques du prompt, plus un objectif mesurable au début et des points de contrôle à la fin.</figcaption>
+      </figure>
+
+      <h2 id="exemple">3. Prompt vague, prompt précis, brief</h2>
+      <p>Le même besoin, trois niveaux. Le deuxième suffit pour une réponse ; le troisième est ce que j'écris quand l'IA doit livrer seule.</p>
 
       <figure class="diagram">
         <div class="compare" role="img" aria-label="Prompt vague (« écris-moi un mail pour un client ») versus prompt précis (contexte, tâche, format, ton, longueur).">
@@ -195,46 +283,76 @@
             </ul>
           </div>
         </div>
-        <figcaption class="caption">Même IA, même sujet : c'est le prompt qui fait toute la différence.</figcaption>
+        <figcaption class="caption">Même IA, même sujet : la précision fait toute la différence sur une réponse.</figcaption>
       </figure>
 
-      <h2 id="reflexes">4. Les réflexes qui changent tout</h2>
-      <p>Au-delà de la recette, quelques habitudes qui font gagner un temps fou :</p>
+      <p>Et le brief, pour une mission — ici, réel, celui d'une vérification de factures confiée à Claude Code :</p>
+      <pre class="codeblock" aria-label="Exemple de brief de mission"><code>Objectif : vérifier que chaque facture du dossier /factures-aout correspond
+à une commande Odoo. On saura que c'est bon quand : un tableau liste chaque
+facture avec le n° de commande trouvé, ou « à vérifier » avec la raison.
+
+Contexte : les factures sont des PDF ; l'accès Odoo est en lecture seule.
+Règles : ne modifie rien dans Odoo ; ne devine jamais un montant.
+
+Étapes : 1) lis le dossier et propose un plan en 5 lignes, attends mon OK ;
+2) traite les factures ; 3) livre le tableau + la liste des cas douteux.
+Si un point est ambigu, pose UNE question, puis continue.</code></pre>
+      <p>Remarque ce qui manque : aucune explication de ce qu'est une facture, aucune consigne de ton, aucune règle de nommage. Tout ça est déjà dans le contexte permanent. Le brief ne contient que ce qui est <em>propre à cette mission</em>.</p>
+
+      <h2 id="reflexes">4. Les réflexes de 2026</h2>
       <ul>
-        <li><strong>Donne un exemple.</strong> Montrer un modèle de ce que tu veux vaut mieux que dix lignes d'explications.</li>
-        <li><strong>Itère sans complexe.</strong> « Trop long », « plus direct », « garde le 2ᵉ mais raccourcis » : l'aller-retour est normal, c'est là que ça devient bon.</li>
-        <li><strong>Demande-lui de poser ses questions</strong> avant de répondre, quand le sujet est flou. Tu évites les réponses à côté.</li>
-        <li><strong>Fais-lui jouer un rôle.</strong> « Tu es un expert SEO », « agis comme mon directeur financier » oriente utilement le ton et le fond.</li>
-        <li><strong>Découpe.</strong> Une grosse demande en plusieurs étapes donne de meilleurs résultats qu'un pavé unique.</li>
+        <li><strong>Donne un exemple.</strong> Montrer un modèle du résultat vaut dix lignes d'explications. Pour un livrable récurrent, l'exemple finit dans un skill.</li>
+        <li><strong>Demande le plan avant l'exécution.</strong> Sur tout ce qui dépasse dix minutes de travail : « propose un plan, attends mon OK ». Claude Code a un mode dédié pour ça ; ailleurs, la phrase suffit. C'est le principe « réfléchir avant d'agir » des <a href="principes-facon-karpathy.html">quatre principes</a>.</li>
+        <li><strong>Une question à la fois.</strong> Autorise l'IA à te poser <em>une</em> question quand c'est ambigu — et interdis-lui la rafale de dix. Tu évites les réponses à côté sans te faire interroger comme au commissariat.</li>
+        <li><strong>Itère sur le résultat, pas sur la phrase.</strong> « Trop long », « garde le deuxième paragraphe, coupe le reste », « montre-moi ce que tu as changé ». L'aller-retour est normal ; chercher la formulation parfaite du premier coup ne l'est pas.</li>
+        <li><strong>Découpe.</strong> Une grosse mission en étapes avec un point de contrôle entre chaque. Pour un projet long, un fichier de plan que l'IA coche au fur et à mesure.</li>
+        <li><strong>Dis ce qu'on ne touche pas.</strong> « Ne modifie que ce fichier », « lecture seule sur Odoo », « ne pousse rien sans me montrer ». Avec une IA qui agit, la contrainte négative compte autant que la consigne positive.</li>
+        <li><strong>Ferme proprement.</strong> Quand une conversation s'allonge, demande un <strong>brief de reprise</strong> : où on en est, ce qui reste, les décisions prises. La session suivante repart de là au lieu de tout réexpliquer.</li>
       </ul>
-      <p>Et quand tu retapes <em>les mêmes consignes</em> à chaque conversation (ton, métier, règles), il est temps de les figer une fois pour toutes dans un fichier — c'est tout l'objet du guide CLAUDE.md.</p>
 
-      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
-        <p class="kicker" style="color:var(--c-gold);">Mise à jour · 1er septembre 2026</p>
-        <h3 style="margin-top:var(--space-2);">Le prompt, c'est 20 % ; le contexte, c'est le reste</h3>
-                <p style="margin-top:var(--space-3);">Ce guide reste vrai, et j'ai revu la proportion : un bon prompt pèse lourd sur <em>une</em> réponse, mais ce qui pèse sur <em>toutes</em> les réponses, c'est ce que l'IA sait avant que tu écrives — ton <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>, ton <a href="cest-quoi-un-brain-okf.html">Brain</a>, tes <a href="cest-quoi-un-skill.html">skills</a>. Une consigne que tu retapes à chaque conversation est une règle qui s'ignore ; une procédure que tu réexpliques est un skill qui s'ignore. Le guide qui explique tout ça : <a href="cest-quoi-le-contexte.html">C'est quoi le contexte, et pourquoi c'est tout</a>.</p>
-      </aside>
+      <h2 id="niveaux">5. Les trois endroits où vit une consigne</h2>
+      <p>La question à se poser devant chaque consigne : est-ce que je vais la réécrire ? Si oui, elle n'est pas au bon endroit.</p>
 
+      <figure class="diagram">
+        <div class="stairs" role="img" aria-label="Trois niveaux : le prompt pour ce qui est propre à une demande, le CLAUDE.md pour ce qui est permanent, le skill pour une procédure qu'on refait.">
+          <div class="stairs__step"><b>Le prompt</b><span>ce qui est propre à cette demande</span></div>
+          <div class="stairs__step"><b>Le CLAUDE.md</b><span>ce qui est vrai tout le temps : ton, règles, outils</span></div>
+          <div class="stairs__step"><b>Le skill</b><span>une procédure qu'on refait : étapes, gabarit, vérifications</span></div>
+        </div>
+        <div class="stairs__axes"><span>← une fois</span><span>réutilisé ↑</span></div>
+        <figcaption class="caption">Plus une consigne revient, plus elle monte : du prompt à la règle, de la règle à la procédure.</figcaption>
+      </figure>
+
+      <p>Chez moi, le tutoiement, « pas de préambule », « une seule question à la fois » ou « signale sans modifier d'office » ne sont plus jamais tapés : ils sont dans le <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>. Publier une entrée de journal (page, index, sitemap, flux, traduction) n'est plus expliqué : c'est un skill. Ce guide même est né d'un brief de deux lignes, parce que tout le reste était déjà su. C'est l'idée centrale du guide <a href="cest-quoi-le-contexte.html">C'est quoi le contexte</a> : le prompt, c'est 20 % ; le contexte, c'est le reste.</p>
+
+      <h2 id="outils">6. Selon l'outil : Chat, Cowork, Code</h2>
+      <ul>
+        <li><strong>Dans Claude Chat</strong> — la recette de base suffit. Pour un sujet récurrent, crée un projet avec ses instructions et ses documents : le contexte est fourni une fois pour toutes.</li>
+        <li><strong>Dans Cowork</strong> — désigne le dossier ou le connecteur (Gmail, Drive, Shopify…) plutôt que de décrire ce qu'il contient, et dis explicitement ce qui doit être <em>validé</em> avant d'être envoyé ou modifié. Le guide <a href="lia-propose-lhumain-valide.html">L'IA propose, l'humain valide</a> détaille la règle.</li>
+        <li><strong>Dans Claude Code</strong> — écris un brief (objectif, critère, étapes, points de contrôle), demande le plan, laisse tourner, relis le diff. Pour une tâche qui revient chaque jour, ce n'est plus un prompt : c'est une <a href="cest-quoi-une-loop.html">routine</a>.</li>
+      </ul>
+      <p>Le choix de l'outil lui-même est traité dans <a href="chat-cowork-code-terminal.html">Chat, Cowork ou Code</a>.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="cest-quoi-le-contexte.html"><strong>C'est quoi le contexte</strong></a> — pourquoi ce que l'IA sait avant compte plus que la phrase.</li>
           <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Écrire un bon CLAUDE.md</strong></a> — quand tes consignes deviennent permanentes.</li>
-          <li>→ <a href="principes-facon-karpathy.html"><strong>Les principes (façon Karpathy)</strong></a> — réfléchir avant, piloter par l'objectif.</li>
+          <li>→ <a href="cest-quoi-un-skill.html"><strong>C'est quoi un skill</strong></a> — quand une procédure mérite mieux qu'un prompt.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réel.</strong> Un brief structuré pour que Claude travaille en autonomie → <a href="../journal/mission-dm-france.html">Brief mission Claude Code : vérification factures</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Un brief pour que Claude travaille seul → <a href="../journal/mission-dm-france.html">Brief mission : vérification factures</a> · une chaîne qui reformule chaque demande avant de coder → <a href="../journal/cdc-odoo-ia-verifie-avant-de-coder.html">L'IA ne code pas ma demande, elle vérifie ce qu'elle suppose</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
       <h2>Tes prompts coincent ?</h2>
-      <p class="prose">Si tu n'obtiens jamais ce que tu veux de l'IA, c'est presque toujours une question de prompt. Montre-moi un cas, on l'améliore ensemble. Je documente tout en public.</p>
+      <p class="prose">Si tu n'obtiens jamais ce que tu veux de l'IA, c'est presque toujours une question de brief — ou de contexte qui manque. Montre-moi un cas, on l'améliore ensemble. Je documente tout en public.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Prompt%20—%20échange">M'écrire</a>
@@ -242,7 +360,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -304,7 +421,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

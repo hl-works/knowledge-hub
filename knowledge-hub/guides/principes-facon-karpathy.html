@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Les 4 principes que j'applique avec l'IA (façon Karpathy) — Guides · Hugo Lahutte</title>
-<meta name="description" content="Qui est Andrej Karpathy (et pourquoi son arrivée chez Anthropic fait du bruit), et les 4 principes que j'en ai tirés pour que l'IA me fasse gagner du temps au lieu d'en perdre.">
+<title>Les 4 principes que j'applique avec l'IA (façon Karpathy), et ce qu'ils deviennent quand l'IA agit seule — Guides · Hugo Lahutte</title>
+<meta name="description" content="Réfléchir avant d'agir, simplicité d'abord, modifications chirurgicales, exécution pilotée par l'objectif : quatre principes tirés de la façon dont Andrej Karpathy enseigne le travail avec les modèles, gravés dans mon CLAUDE.md. Ce qu'ils deviennent en 2026 quand Claude agit seul : plan avant exécution, outil le plus simple, diff avant de pousser, critère de succès vérifiable — et le cinquième réflexe, capitaliser.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/principes-facon-karpathy.html">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="Les 4 principes que j'applique avec l'IA (façon Karpathy)">
-<meta property="og:description" content="Qui est Karpathy, et les 4 principes pour que l'IA fasse gagner du temps : réfléchir avant, faire simple, rester chirurgical, piloter par l'objectif.">
+<meta property="og:description" content="Réfléchir avant, faire simple, toucher au strict nécessaire, piloter par l'objectif — et ce que ça devient quand l'IA agit à ta place.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -37,9 +37,9 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../style.css?v=20260622a">
+<link rel="stylesheet" href="../style.css?v=20260902a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,30 +47,90 @@
     {
       "@type": "TechArticle",
       "headline": "Les 4 principes que j'applique avec l'IA (façon Karpathy)",
-      "description": "Qui est Andrej Karpathy et les 4 principes pour que l'IA fasse gagner du temps : réfléchir avant, faire simple, rester chirurgical, piloter par l'objectif.",
+      "description": "Quatre principes de travail avec l'IA, inspirés d'Andrej Karpathy : réfléchir avant d'agir (hypothèses, une question à la fois), simplicité d'abord, modifications chirurgicales, exécution pilotée par l'objectif. Leur traduction en 2026 quand l'IA agit seule : plan avant exécution, outil le plus simple, diff et déploiement chirurgical, critère de succès vérifiable. Cinquième réflexe : capitaliser (une erreur devient une règle). Du vibe coding au wiki pour LLM (OKF).",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["Andrej Karpathy", "Anthropic", "méthode IA", "vibe coding", "prompt"],
-      "keywords": "Karpathy, principes IA, bien travailler avec l'IA, Anthropic"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "Andrej Karpathy",
+        "méthode",
+        "CLAUDE.md",
+        "agents",
+        "vibe coding",
+        "context engineering"
+      ],
+      "keywords": "Karpathy, principes, méthode, CLAUDE.md, vibe coding, context engineering, plan, déploiement chirurgical, critère de succès"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "Les principes (façon Karpathy)", "item": "https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Les principes (façon Karpathy)",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Qui est Andrej Karpathy ?", "acceptedAnswer": {"@type": "Answer", "text": "Co-fondateur d'OpenAI, ancien patron de l'IA chez Tesla, et l'un des meilleurs vulgarisateurs du domaine (ses cours ont formé une génération). Il a popularisé l'expression « vibe coding ». En mai 2026, il a rejoint Anthropic, la maison de Claude."}},
-        {"@type": "Question", "name": "Quels sont les 4 principes pour bien travailler avec l'IA ?", "acceptedAnswer": {"@type": "Answer", "text": "1) Réfléchir avant de répondre (énoncer ses hypothèses, lever l'ambiguïté). 2) Simplicité d'abord (le minimum qui résout, rien de spéculatif). 3) Modifications chirurgicales (ne toucher qu'au demandé, ne pas refactorer ce qui marche). 4) Exécution pilotée par l'objectif (définir « on saura que c'est bon quand… » avant d'agir). C'est une synthèse personnelle, inspirée de la façon d'enseigner de Karpathy."}},
-        {"@type": "Question", "name": "Pourquoi ces principes changent-ils tout ?", "acceptedAnswer": {"@type": "Answer", "text": "Ils font gagner des tokens, du temps et de la qualité : des réponses qui collent au lieu de pavés bavards, des chantiers qui ne dérapent pas. Le principe « chirurgical » est né d'une mise en production qui avait tout cassé parce qu'on avait poussé trop de choses d'un coup."}}
+        {
+          "@type": "Question",
+          "name": "Quels sont les 4 principes pour travailler avec l'IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Réfléchir avant d'agir (énoncer ses hypothèses, poser une seule question à la fois), simplicité d'abord (le minimum qui résout, rien de spéculatif), modifications chirurgicales (toucher uniquement à ce qui est demandé, signaler le reste sans le modifier) et exécution pilotée par l'objectif (formuler le critère de succès avant d'agir)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ces principes viennent-ils vraiment de Karpathy ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, pas mot pour mot : c'est une synthèse personnelle inspirée de sa façon d'enseigner le travail avec les agents. Andrej Karpathy, co-fondateur d'OpenAI et ex-responsable de l'IA chez Tesla, a rejoint Anthropic en mai 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment appliquer ces principes quand l'IA agit seule ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un plan avant l'exécution pour toute mission longue ; l'outil le plus simple qui résout (Chat, Cowork ou Code, un script avant une app) ; relire le diff avant de pousser et déployer par petites étapes réversibles ; un critère de succès vérifiable automatiquement (test, script de santé) que l'IA lance avant de déclarer le travail terminé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "C'est quoi le vibe coding et le wiki pour LLM ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le vibe coding, expression de Karpathy, consiste à décrire son intention et laisser l'IA écrire le code ; c'est devenu banal en 2026. Le wiki pour LLM est une base de connaissance en fichiers texte que l'IA lit et entretient ; formalisé en juin 2026 dans l'Open Knowledge Format, c'est le format du Brain de Hugo Lahutte."
+          }
+        }
       ]
     }
   ]
@@ -80,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -104,16 +165,22 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Les principes (façon Karpathy)</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste → méthode</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Les 4 principes que j'applique avec l'IA (façon Karpathy)</h1>
     <hr class="rule--accent">
-    <p class="lead">Qui est Andrej Karpathy (et pourquoi son arrivée chez Anthropic fait du bruit), et les <strong>4 principes</strong> que j'en ai tirés pour que l'IA me fasse gagner du temps au lieu d'en perdre.</p>
+    <p class="lead">Réfléchir avant d'agir, faire simple, toucher au strict nécessaire, piloter par l'objectif. Quatre réflexes tirés de la façon dont Andrej Karpathy enseigne le travail avec les modèles — et ce qu'ils deviennent quand l'IA n'écrit plus seulement du texte mais <strong>agit à ta place</strong>.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span><span>·</span><span>~5 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
+      <span>~7 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="methode" data-tagsearch="methode" href="/knowledge-hub/guides/">méthode</a>
@@ -135,9 +202,9 @@
     <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
       <p class="kicker">En 30 secondes</p>
       <ul>
-        <li>Andrej Karpathy = co-fondateur d'OpenAI, ex-patron de l'IA chez Tesla, l'un des plus grands pédagogues du domaine. Il a <strong>rejoint Anthropic</strong> (la maison de Claude) en mai 2026.</li>
-        <li>De sa façon d'enseigner le travail avec les LLM, j'ai tiré <strong>4 principes</strong> que j'applique partout.</li>
-        <li>En clair : <strong>réfléchir avant, faire simple, toucher au strict nécessaire, piloter par un objectif clair.</strong></li>
+        <li>Andrej Karpathy = co-fondateur d'OpenAI, ex-patron de l'IA chez Tesla, l'un des meilleurs pédagogues du domaine, chez Anthropic depuis mai 2026. J'ai tiré de sa façon d'enseigner <strong>quatre principes</strong> que j'applique partout.</li>
+        <li><strong>Réfléchir avant d'agir · simplicité d'abord · modifications chirurgicales · exécution pilotée par l'objectif.</strong> Ils sont gravés dans mon CLAUDE.md, donc lus par chaque Claude avant chaque session.</li>
+        <li>Depuis que l'IA agit seule (Claude Code en mode automatique, Cowork, agents), ces principes ne sont plus des conseils de rédaction : ce sont des <strong>garde-fous d'exécution</strong>. Un plan avant d'agir, un diff avant de pousser, un critère de succès avant de lancer.</li>
       </ul>
     </aside>
 
@@ -146,14 +213,16 @@
       <ul>
         <li><a href="#qui">1. Qui est Karpathy (et pourquoi ça compte)</a></li>
         <li><a href="#principes">2. Les 4 principes (ma synthèse)</a></li>
-        <li><a href="#pourquoi">3. Pourquoi ça change tout</a></li>
+        <li><a href="#agit">3. Ce qu'ils deviennent quand l'IA agit seule</a></li>
+        <li><a href="#cinquieme">4. Le cinquième réflexe : capitaliser</a></li>
+        <li><a href="#vibe">5. Du « vibe coding » au « wiki pour LLM »</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="qui">1. Qui est Karpathy (et pourquoi ça compte)</h2>
-      <p>Difficile de faire plus crédible sur le sujet. Karpathy a co-fondé OpenAI, dirigé l'IA de Tesla, et il est surtout l'un des <strong>meilleurs vulgarisateurs</strong> de l'IA (ses cours et vidéos ont formé une génération). C'est aussi lui qui a popularisé l'expression « vibe coding ». En mai 2026, il a rejoint Anthropic — quand quelqu'un de ce calibre choisit une maison, on écoute.</p>
+      <p>Difficile de faire plus crédible sur le sujet. Karpathy a co-fondé OpenAI, dirigé l'IA de Tesla, et il est surtout l'un des <strong>meilleurs vulgarisateurs</strong> de l'IA : ses cours et ses vidéos ont formé une génération. C'est lui qui a lancé l'expression « vibe coding » et, plus tard, l'idée qu'un LLM travaille mieux avec un <em>wiki</em> qu'avec une pile de conversations. En mai 2026, il a rejoint Anthropic — quand quelqu'un de ce calibre choisit une maison, on écoute.</p>
 
       <figure class="diagram">
         <ol class="timeline" role="img" aria-label="Parcours d'Andrej Karpathy : OpenAI, Tesla, retour à OpenAI, Eureka Labs, puis Anthropic en mai 2026." style="grid-template-columns:repeat(5,1fr);">
@@ -167,63 +236,76 @@
       </figure>
 
       <h2 id="principes">2. Les 4 principes (ma synthèse, dans son esprit)</h2>
-      <p>Honnêteté d'abord : ce ne sont <strong>pas</strong> « les 4 règles officielles de Karpathy ». C'est <strong>ma</strong> synthèse, inspirée de sa façon d'enseigner le travail avec les agents. L'idée vaut plus que l'étiquette :</p>
+      <p>Honnêteté d'abord : ce ne sont <strong>pas</strong> « les quatre règles officielles de Karpathy ». C'est <strong>ma</strong> synthèse, inspirée de sa façon d'enseigner le travail avec les agents. Elle ouvre mon <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> depuis mai, mot pour mot :</p>
 
       <figure class="diagram">
-        <div class="card-grid" role="img" aria-label="Quatre principes : réfléchir avant de répondre, simplicité d'abord, modifications chirurgicales, exécution pilotée par l'objectif.">
+        <div class="card-grid" role="img" aria-label="Quatre principes : réfléchir avant d'agir, simplicité d'abord, modifications chirurgicales, exécution pilotée par l'objectif.">
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principe 1</span>
-            <span class="card__title">Réfléchir avant de répondre</span>
-            <span class="card__desc">Énoncer ses hypothèses, demander si c'est ambigu, plutôt que foncer.</span>
+            <span class="card__title">Réfléchir avant d'agir</span>
+            <span class="card__desc">Énoncer ses hypothèses ; si c'est ambigu, poser une seule question à la fois ; dire quand une approche plus simple existe.</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principe 2</span>
             <span class="card__title">Simplicité d'abord</span>
-            <span class="card__desc">Le minimum qui résout le problème, rien de spéculatif.</span>
+            <span class="card__desc">Le minimum qui résout. Rien de spéculatif, pas de « flexibilité » non demandée. Test : un senior dirait-il « sur-complexifié » ?</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principe 3</span>
             <span class="card__title">Modifications chirurgicales</span>
-            <span class="card__desc">Toucher uniquement à ce qui est demandé, ne pas refactorer ce qui marche.</span>
+            <span class="card__desc">Toucher uniquement à ce qui est demandé, respecter le style existant. Autre chose à corriger ? Le signaler, pas le modifier d'office.</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principe 4</span>
             <span class="card__title">Piloté par l'objectif</span>
-            <span class="card__desc">Définir « on saura que c'est bon quand… » avant d'agir.</span>
+            <span class="card__desc">Formuler « on saura que c'est bon quand… » avant d'agir. Un plan court avec des points de vérification pour tout ce qui a plusieurs étapes.</span>
           </div>
         </div>
         <figcaption class="caption">Quatre réflexes simples — c'est leur application constante qui fait la différence.</figcaption>
       </figure>
 
-      <h2 id="pourquoi">3. Pourquoi ça change tout</h2>
-      <p>Concrètement, ces principes te font <strong>gagner des tokens, du temps, et de la qualité</strong> : des réponses qui collent au lieu de pavés bavards, des chantiers qui ne dérapent pas. Mon principe n°3 (« chirurgical ») n'est pas théorique : il est né d'une mise en production qui a <strong>tout cassé</strong> parce qu'on avait poussé trop de choses d'un coup. Depuis, chaque changement trace à une demande précise. Une erreur, une règle.</p>
+      <h2 id="agit">3. Ce qu'ils deviennent quand l'IA agit seule</h2>
+      <p>En mai, ces principes réglaient surtout la qualité d'une <em>réponse</em> : moins de pavés, moins de hors-sujet. Depuis, Claude Code enchaîne les actions sans demander la permission à chaque étape, Cowork agit dans les outils du bureau, des agents tournent la nuit. Les mêmes principes changent de rôle : ils deviennent la <strong>discipline d'exécution</strong> d'une IA qui fait à ta place.</p>
 
-      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
-        <p class="kicker" style="color:var(--c-gold);">Mise à jour · 1er septembre 2026</p>
-        <h3 style="margin-top:var(--space-2);">Du « vibe coding » au wiki pour LLM</h3>
-                <p style="margin-top:var(--space-3);">Deux idées de Karpathy ont encore fait leur chemin depuis mai. Le <strong>« vibe coding »</strong> — décrire son intention et laisser l'IA frapper le code — est devenu banal ; ce qui distingue maintenant, c'est le <a href="cest-quoi-le-contexte.html">context engineering</a>, l'organisation de ce que l'IA sait. Et son pattern du <strong>« wiki pour LLM »</strong> — une base de connaissance en fichiers texte que l'IA lit et entretient — a été formalisé en juin 2026 par Google Cloud dans un standard ouvert, l'Open Knowledge Format. C'est le format de mon <a href="cest-quoi-un-brain-okf.html">Brain</a>. Les quatre principes n'ont pas bougé ; ils ont juste plus de surface à s'appliquer.</p>
-      </aside>
+      <figure class="diagram">
+        <div class="stack" role="img" aria-label="Les quatre principes traduits en pratiques d'exécution : plan avant action, choix de l'outil le plus simple, diff et déploiement chirurgical, critère de succès et vérification automatique.">
+          <div class="stack__block"><b>1 · Réfléchir avant d'agir → un plan avant l'exécution</b><span>Sur toute mission de plus de dix minutes : « propose un plan, attends mon OK ». Claude Code a un mode dédié ; ailleurs, la phrase suffit. Et une seule question à la fois — pas la rafale.</span></div>
+          <div class="stack__block"><b>2 · Simplicité d'abord → l'outil le plus simple qui résout</b><span>Une réponse ? Chat. Un travail de bureau ? Cowork. Du code ? Code. Un script avant une app, une règle avant un agent. Le « cœur agentique » n'est pas la solution à tout.</span></div>
+          <div class="stack__block"><b>3 · Chirurgical → le diff avant de pousser</b><span>Chaque changement trace à une demande. On relit ce qui a changé, pas le résultat final. En prod : un déploiement à la fois, réversible — la règle née d'une mise en production qui avait tout cassé.</span></div>
+          <div class="stack__block"><b>4 · Piloté par l'objectif → un critère qui se vérifie tout seul</b><span>« C'est bon quand le check passe » : un script de santé, un test, un compteur. L'IA le lance elle-même avant de dire « c'est fait ». Sans critère, « c'est fait » ne veut rien dire.</span></div>
+        </div>
+        <figcaption class="caption">Même principe, nouvelle surface : ce qui réglait une réponse règle maintenant une exécution.</figcaption>
+      </figure>
 
+      <p>Un exemple concret de chaque, chez moi. Le plan avant l'exécution : la <a href="../journal/refonte-knowledge-hub-fable-5-1.html">refonte de ce site</a> a commencé par un audit et un plan validé, pas par des fichiers modifiés. L'outil le plus simple : la <a href="cest-quoi-hl-os.html">brique Growth</a> a été cadrée un week-end parce qu'on a construit une file d'actions, pas une plateforme. Le chirurgical : la <a href="../journal/cdc18-form-view.html">mise en production d'un module Odoo</a> découpée en déploiements réversibles. L'objectif vérifiable : ce site a un script de santé qui compte les entrées, vérifie les index et les flux, et qu'un Claude lance avant chaque publication.</p>
+
+      <h2 id="cinquieme">4. Le cinquième réflexe : capitaliser</h2>
+      <p>Il n'est pas de Karpathy, mais il fait tenir les quatre autres dans le temps : <strong>une erreur devient une règle, une session devient une capture</strong>. Mon principe n°3 n'est pas théorique — il est né d'une mise en production qui a tout cassé parce qu'on avait poussé trop de choses d'un coup. Depuis, chaque correction récurrente remonte dans le CLAUDE.md, et chaque session significative dans mon <a href="cest-quoi-un-brain-okf.html">Brain</a>. C'est le sujet du guide <a href="compound-engineering.html">Compound Engineering</a>.</p>
+
+      <h2 id="vibe">5. Du « vibe coding » au « wiki pour LLM »</h2>
+      <p>Deux idées de Karpathy ont fait leur chemin depuis le printemps. Le <strong>« vibe coding »</strong> — décrire son intention et laisser l'IA frapper le code — est devenu banal : la brique Growth a été cadrée et livrée en un week-end sans cahier des charges. Ce qui distingue maintenant, ce n'est plus de savoir demander, c'est le <a href="cest-quoi-le-contexte.html">context engineering</a> : organiser ce que l'IA sait avant qu'on lui demande quoi que ce soit.</p>
+      <p>Et son pattern du <strong>« wiki pour LLM »</strong> — une base de connaissance en fichiers texte que l'IA lit et entretient, plutôt qu'une pile de conversations — a été formalisé en juin 2026 par Google Cloud dans un standard ouvert, l'Open Knowledge Format. C'est le format de mon Brain. Les quatre principes n'ont pas bougé ; ils ont juste beaucoup plus de surface à s'appliquer.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Écrire un bon CLAUDE.md</strong></a> — où ces principes s'inscrivent.</li>
+          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Écrire un bon CLAUDE.md</strong></a> — où ces principes s'inscrivent, mot pour mot.</li>
+          <li>→ <a href="lia-propose-lhumain-valide.html"><strong>L'IA propose, l'humain valide</strong></a> — les garde-fous quand l'IA agit dans les outils.</li>
           <li>→ <a href="compound-engineering.html"><strong>Compound Engineering</strong></a> — comment une erreur devient une règle.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Le déploiement chirurgical né de l'incident → <a href="../journal/systeme-instructions-claude-md.html">Système d'instructions Claude</a> · <a href="../journal/cdc18-form-view.html">CDC-18 : déploiement chirurgical en prod</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Le déploiement chirurgical né de l'incident → <a href="../journal/systeme-instructions-claude-md.html">Système d'instructions Claude</a> · <a href="../journal/cdc18-form-view.html">CDC-18 : déploiement chirurgical en prod</a> · un plan validé avant de toucher au site → <a href="../journal/refonte-knowledge-hub-fable-5-1.html">La refonte du Knowledge Hub</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
       <h2>Ces principes te parlent ?</h2>
-      <p class="prose">Si tu veux comparer ta façon de cadrer l'IA avec la mienne, ou débattre du « vibe coding », écris-moi. Je documente tout en public.</p>
+      <p class="prose">Si tu veux comparer ta façon de cadrer l'IA avec la mienne — surtout maintenant qu'elle agit seule — écris-moi. Je documente tout en public.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Principes%20—%20échange">M'écrire</a>
@@ -231,7 +313,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -293,7 +374,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

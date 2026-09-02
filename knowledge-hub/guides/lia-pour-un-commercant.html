@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>L'IA concrètement, pour un commerçant ou une PME — Guides · Hugo Lahutte</title>
-<meta name="description" content="Qu'est-ce qu'un commerçant ou une PME peut vraiment faire avec l'IA aujourd'hui, sans équipe technique. Les usages qui rapportent, vus depuis mon magasin.">
+<title>L'IA concrètement, pour un commerçant ou une PME (2026) : usages, trois marches, par où commencer — Guides · Hugo Lahutte</title>
+<meta name="description" content="Ce qu'un commerçant ou une PME peut faire avec l'IA en 2026 sans équipe technique : fiches produit, mails, tarifs fournisseurs, factures, prix concurrents, veille. Trois marches d'outillage (rédiger avec Claude Chat, agir sous validation avec Cowork et les connecteurs, automatiser avec un agent), ce qui tourne dans mon magasin, par où commencer, combien ça coûte, les pièges.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/lia-pour-un-commercant.html">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="L'IA concrètement, pour un commerçant ou une PME">
-<meta property="og:description" content="Les usages de l'IA qui rapportent vite à un commerçant, sans équipe technique — vus depuis mon magasin.">
+<meta property="og:description" content="Les corvées qui rapportent, trois marches d'outillage sans équipe technique, ce qui tourne dans mon magasin, et par où commencer.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
 
@@ -37,9 +37,9 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../style.css?v=20260622a">
+<link rel="stylesheet" href="../style.css?v=20260902a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,31 +47,90 @@
     {
       "@type": "TechArticle",
       "headline": "L'IA concrètement, pour un commerçant ou une PME",
-      "description": "Ce qu'un commerçant ou une PME peut vraiment faire avec l'IA aujourd'hui, sans équipe technique : les usages qui rapportent, vus depuis un vrai magasin.",
+      "description": "Usages qui rapportent vite pour un commerçant (fiches produit, SEO, mails, tarifs fournisseurs, factures, prix concurrents, veille, file d'actions). Trois marches d'outillage sans équipe technique : rédiger (Claude Chat), agir sous validation (Cowork + connecteurs Gmail, Drive, Shopify), automatiser (agent, routine). Ce qui tourne en production chez Cobra. Par où commencer : une corvée, lecture seule, contexte écrit, mesure. Coût et pièges.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["IA pour le commerce", "PME", "e-commerce", "productivité", "fiches produit", "SEO"],
-      "keywords": "IA commerçant, IA PME, e-commerce, usages concrets, sans équipe technique"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "commerce",
+        "PME",
+        "automatisation",
+        "Cowork",
+        "connecteurs",
+        "agents IA"
+      ],
+      "keywords": "IA, commerçant, PME, fiches produit, tarifs fournisseurs, factures, prix concurrents, Cowork, connecteurs, agent, validation humaine"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "L'IA pour un commerçant", "item": "https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "L'IA pour un commerçant",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Que peut faire un commerçant ou une PME avec l'IA aujourd'hui ?", "acceptedAnswer": {"@type": "Answer", "text": "L'IA attaque d'abord les corvées récurrentes : rédiger et homogénéiser les fiches produit en masse, le SEO (métadonnées, contenus, structure), croiser les ventes entre la boutique en ligne et l'outil de gestion, trier et répondre aux mails, et une veille automatique sur son marché."}},
-        {"@type": "Question", "name": "Faut-il une équipe technique pour utiliser l'IA dans son commerce ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Sans être développeur, on peut livrer des automatisations qui demandaient hier une agence. La barrière « il faut savoir coder » est tombée en grande partie ; ce qui compte est de savoir quoi demander et comment vérifier."}},
-        {"@type": "Question", "name": "Par où commencer ?", "acceptedAnswer": {"@type": "Answer", "text": "Par une corvée précise, mesurable et récurrente. On prouve le gain sur celle-là, puis on élargit. Le « big bang » qui veut tout automatiser d'un coup échoue presque toujours."}},
-        {"@type": "Question", "name": "Quels sont les pièges ?", "acceptedAnswer": {"@type": "Answer", "text": "L'IA se trompe : on vérifie les chiffres avant de s'en servir. On garde l'humain sur la relation client (l'IA prépare, elle ne remplace pas le contact). Et on ne sur-automatise pas ce qui n'est pas cassé."}}
+        {
+          "@type": "Question",
+          "name": "Que peut faire un commerçant avec l'IA sans équipe technique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Attaquer les corvées récurrentes : rédiger et homogénéiser les fiches produit et le SEO, trier et préparer les réponses aux mails, lire les tarifs fournisseurs et préparer les mises à jour de produits, rapprocher les factures des commandes, suivre les prix concurrents, croiser les ventes et automatiser une veille."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Par quel outil commencer ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trois marches : rédiger avec Claude Chat (un projet par sujet récurrent) ; agir sous validation avec Cowork et les connecteurs (Gmail, Drive, Shopify), où rien ne part sans un aperçu et un bouton ; puis automatiser une corvée quotidienne avec un agent ou une routine, en lecture seule d'abord."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Par où commencer concrètement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une corvée précise, mesurable et récurrente ; l'IA en lecture seule tant qu'elle n'a pas produit dix propositions justes d'affilée ; le contexte (catalogue, ton, règles) écrit une fois pour toutes ; puis mesurer le temps gagné avant d'élargir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte l'IA pour un commerçant ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une vingtaine d'euros par mois d'abonnement suffit pour rédiger et agir sous validation ; un agent en production coûte quelques dizaines d'euros par mois à l'usage, bien moins qu'une heure de saisie quotidienne."
+          }
+        }
       ]
     }
   ]
@@ -81,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Principale">
@@ -105,16 +165,22 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › L'IA pour un commerçant</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Généraliste → pratique</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">L'IA concrètement, pour un commerçant ou une PME</h1>
     <hr class="rule--accent">
-    <p class="lead">Qu'est-ce qu'un commerçant ou une PME peut vraiment faire avec l'IA aujourd'hui, <strong>sans équipe technique</strong>. Les usages qui rapportent, vus depuis mon magasin.</p>
+    <p class="lead">Ce qu'un commerçant ou une PME peut vraiment faire avec l'IA en 2026, <strong>sans équipe technique</strong> : les usages qui rapportent, les trois marches d'outillage (rédiger, agir sous validation, automatiser), ce qui tourne dans mon magasin, et par où commencer.</p>
     <div class="meta-bar">
-      <span>Par <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">31 mai 2026</time><span>·</span><span>Mis à jour le <time datetime="2026-09-01">1er septembre 2026</time></span><span>·</span><span>~5 min de lecture</span>
+      <span>Par <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">31 mai 2026</time>
+      <span>·</span>
+      <span>Mis à jour le <time datetime="2026-09-02">2 septembre 2026</time></span>
+      <span>·</span>
+      <span>~8 min de lecture</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="ia" data-tagsearch="ia" href="/knowledge-hub/guides/">IA</a>
@@ -136,9 +202,9 @@
     <aside class="callout callout--tldr prose" aria-label="Résumé en 30 secondes">
       <p class="kicker">En 30 secondes</p>
       <ul>
-        <li>Pas besoin d'être une <em>tech company</em> : l'IA attaque d'abord les <strong>corvées</strong> (catalogue, fiches produit, mails, reporting, SEO).</li>
-        <li>Le gain n'est pas « remplacer des gens », c'est faire <strong>en heures</strong> ce qui prenait des jours, à effectif constant.</li>
-        <li>On commence par <strong>une corvée précise et récurrente</strong>, pas par « l'IA partout ».</li>
+        <li>Pas besoin d'être une <em>tech company</em> : l'IA attaque d'abord les <strong>corvées</strong> — fiches produit, mails, tarifs fournisseurs, factures, prix concurrents, reporting.</li>
+        <li>Trois marches d'outillage en 2026 : <strong>rédiger</strong> (Claude Chat), <strong>agir sous validation</strong> dans tes outils (Cowork + connecteurs Gmail, Drive, Shopify), <strong>automatiser</strong> une corvée récurrente (un agent, une routine).</li>
+        <li>On commence par <strong>une corvée précise et récurrente</strong>, en lecture seule d'abord, et on mesure. Le « big bang » échoue presque toujours.</li>
       </ul>
     </aside>
 
@@ -146,48 +212,70 @@
       <p class="kicker">Sommaire</p>
       <ul>
         <li><a href="#usages">1. Les usages qui rapportent vite</a></li>
-        <li><a href="#sans-equipe">2. Pourquoi c'est jouable sans équipe technique</a></li>
-        <li><a href="#commencer">3. Par où commencer (honnêtement)</a></li>
-        <li><a href="#pieges">4. Les pièges</a></li>
+        <li><a href="#marches">2. Trois marches d'outillage, sans équipe technique</a></li>
+        <li><a href="#magasin">3. Ce qui tourne dans mon magasin</a></li>
+        <li><a href="#commencer">4. Par où commencer (honnêtement)</a></li>
+        <li><a href="#cout">5. Combien ça coûte</a></li>
+        <li><a href="#pieges">6. Les pièges</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="usages">1. Les usages qui rapportent vite</h2>
-      <p>Vus de mon magasin, les premiers gains ne sont pas spectaculaires — ils sont <strong>récurrents</strong> :</p>
+      <p>Vus de mon magasin, les premiers gains ne sont pas spectaculaires — ils sont <strong>récurrents</strong>. Ce qui rapporte, c'est la corvée qui revient chaque semaine :</p>
       <ul>
-        <li>rédiger et homogénéiser les <strong>fiches produit</strong> et descriptions en masse ;</li>
-        <li>le <strong>SEO</strong> (métadonnées, contenus, structure) sans agence ;</li>
-        <li><strong>croiser les ventes</strong> entre la boutique en ligne et l'outil de gestion pour voir clair ;</li>
-        <li><strong>trier et répondre aux mails</strong> ;</li>
-        <li>une <strong>veille</strong> automatique sur ton marché.</li>
+        <li>rédiger et homogénéiser les <strong>fiches produit</strong> en masse, et le <strong>SEO</strong> qui va avec ;</li>
+        <li><strong>trier et préparer les réponses</strong> aux mails ;</li>
+        <li>lire les <strong>tarifs fournisseurs</strong> (PDF, mail) et préparer les créations et mises à jour de produits ;</li>
+        <li>rapprocher les <strong>factures fournisseurs</strong> des commandes ;</li>
+        <li>suivre les <strong>prix concurrents</strong> et proposer des alignements ;</li>
+        <li><strong>croiser les ventes</strong> entre la boutique en ligne et l'outil de gestion, et une <strong>veille</strong> automatique sur ton marché.</li>
       </ul>
 
       <figure class="diagram">
-        <div class="matrix" role="img" aria-label="Matrice effort / impact : les fiches produit sont le meilleur point de départ (fort impact, effort modéré) ; SEO et croisement des ventes sont à fort impact ; tri des mails et veille sont des gains rapides à effort faible.">
+        <div class="matrix" role="img" aria-label="Matrice effort / impact : fiches produit et tri des mails sont les meilleurs points de départ ; tarifs fournisseurs, factures et prix concurrents ont un fort impact pour un effort moyen ; la file d'actions demande le plus d'effort.">
           <span class="matrix__axis matrix__axis--y">Impact ↑</span>
           <span class="matrix__axis matrix__axis--x">Effort →</span>
-          <span class="matrix__item matrix__item--star" style="left:27%; top:24%;">Fiches produit</span>
-          <span class="matrix__item" style="left:51%; top:33%;">SEO</span>
-          <span class="matrix__item" style="left:74%; top:29%;">Croiser les ventes</span>
-          <span class="matrix__item" style="left:25%; top:61%;">Trier les mails</span>
-          <span class="matrix__item" style="left:47%; top:67%;">Veille marché</span>
+          <span class="matrix__item matrix__item--star" style="left:22%; top:24%;">Fiches produit + SEO</span>
+          <span class="matrix__item" style="left:54%; top:14%;">Tarifs fournisseurs</span>
+          <span class="matrix__item" style="left:74%; top:32%;">Prix concurrents</span>
+          <span class="matrix__item" style="left:50%; top:46%;">Factures</span>
+          <span class="matrix__item" style="left:20%; top:62%;">Trier les mails</span>
+          <span class="matrix__item" style="left:44%; top:72%;">Veille marché</span>
+          <span class="matrix__item" style="left:78%; top:58%;">File d'actions</span>
         </div>
-        <figcaption class="caption">Par où commencer : en haut à gauche (fort impact, peu d'effort). Les fiches produit sont souvent le meilleur premier chantier.</figcaption>
+        <figcaption class="caption">Par où commencer : en haut à gauche (fort impact, peu d'effort). Les fiches produit restent le meilleur premier chantier ; les corvées d'achat sont la marche d'après.</figcaption>
       </figure>
 
-      <h2 id="sans-equipe">2. Pourquoi c'est jouable sans équipe technique</h2>
-      <p>Je ne suis pas développeur — mon métier, c'est la stratégie, le marketing, les achats. Et pourtant, avec Claude, j'ai livré des automatisations qui demandaient hier une agence. La barrière « il faut savoir coder » est tombée en grande partie. Ce qui compte, c'est de savoir <strong>quoi demander et comment vérifier</strong>.</p>
+      <h2 id="marches">2. Trois marches d'outillage, sans équipe technique</h2>
+      <p>Je ne suis pas développeur — mon métier, c'est la stratégie, le marketing, les achats. La barrière « il faut savoir coder » est tombée en grande partie ; ce qui compte, c'est de savoir <strong>quoi demander et comment vérifier</strong>. En 2026, ça se fait en trois marches, et les deux premières ne demandent rien d'autre qu'un abonnement :</p>
 
-      <h2 id="commencer">3. Par où commencer (honnêtement)</h2>
-      <p>Une <strong>corvée précise, mesurable, récurrente</strong>. Tu prouves le gain sur celle-là, puis tu élargis. Le « big bang » qui veut tout automatiser d'un coup échoue presque toujours.</p>
+      <figure class="diagram">
+        <div class="stairs" role="img" aria-label="Trois marches : rédiger avec Claude Chat, agir sous validation avec Cowork et les connecteurs, automatiser une corvée avec un agent ou une routine.">
+          <div class="stairs__step"><b>Rédiger</b><span>Claude Chat : fiches, mails, analyses d'un tableau collé. Un projet par sujet récurrent.</span></div>
+          <div class="stairs__step"><b>Agir sous validation</b><span>Cowork + connecteurs : l'IA lit Gmail, Drive, la boutique ; prépare ; tu valides avant tout envoi ou modification.</span></div>
+          <div class="stairs__step"><b>Automatiser</b><span>Un agent ou une routine pour une corvée récurrente : veille, tarifs, factures. Lecture seule d'abord.</span></div>
+        </div>
+        <div class="stairs__axes"><span>← le premier jour</span><span>quelques semaines ↑</span></div>
+        <figcaption class="caption">Chaque marche se prouve avant de monter la suivante. La plupart des commerçants gagnent déjà beaucoup sur les deux premières.</figcaption>
+      </figure>
 
-      <h2 id="pieges">4. Les pièges</h2>
       <ul>
-        <li>L'IA <strong>se trompe</strong> : vérifie les chiffres avant de t'en servir.</li>
-        <li>Garde l'<strong>humain sur la relation client</strong> — l'IA prépare, elle ne remplace pas le contact.</li>
-        <li>Ne <strong>sur-automatise pas</strong> ce qui n'est pas cassé.</li>
+        <li><strong>Marche 1 — rédiger.</strong> Claude Chat, avec un projet par sujet (ton, catalogue, règles de la maison). Tu colles un tableau de ventes, il te dit ce qui se passe ; tu lui donnes dix fiches, il en homogénéise cent.</li>
+        <li><strong>Marche 2 — agir sous validation.</strong> <a href="chat-cowork-code-terminal.html">Cowork</a> travaille sur ton ordinateur et dans tes outils via des <a href="cest-quoi-mcp-connecter-claude.html">connecteurs</a> : Gmail, Drive, Shopify, la compta. Il trie, prépare les réponses, remplit les fiches — et <strong>rien ne part sans un aperçu et un bouton</strong>. C'est la marche qui a le plus changé depuis le printemps, et celle qui vaut le plus pour un commerçant.</li>
+        <li><strong>Marche 3 — automatiser.</strong> Une corvée qui revient tous les jours mérite un <a href="cest-quoi-un-agent-ia.html">agent</a> ou une <a href="cest-quoi-une-loop.html">routine</a> : elle tourne sans toi, te remonte le résultat, et te demande avant d'écrire quoi que ce soit.</li>
+      </ul>
+
+      <h2 id="magasin">3. Ce qui tourne dans mon magasin</h2>
+      <p>Chez Cobra, en production, sans équipe technique — construit avec Claude et, pour la dernière brique, avec ChatGPT et Codex :</p>
+      <ul>
+        <li><strong>Les tarifs fournisseurs.</strong> Une app lit les tarifs (PDF ou mail), retrouve les produits, détecte les doublons et prépare la création ou la mise à jour — validation humaine avant toute écriture. → <a href="../journal/app-tarifs-fournisseurs-maj-produits.html">Une app qui lit les tarifs à ma place</a></li>
+        <li><strong>Les factures fournisseurs.</strong> Un agent lit les mails, extrait chaque facture, la rattache à la bonne commande et la pousse dans Teams pour validation. → <a href="etude-de-cas-agent-facturation.html">L'étude de cas</a></li>
+        <li><strong>Les prix face à la concurrence.</strong> Un moteur de règles recalcule des prix cibles à chaque livraison des prix concurrents, jamais à perte, en observation d'abord puis en live famille par famille. → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">L'alignement automatique</a></li>
+        <li><strong>Les fiches produit.</strong> Un agent prépare les créations de produits à partir des données fournisseur, à valider en lot. → <a href="../journal/agent-creation-produits.html">L'agent création produits</a></li>
+        <li><strong>La veille.</strong> Un bot lit chaque jour des dizaines de sources et publie un résumé sur Telegram. → <a href="etude-de-cas-veille-ia.html">Le bot de veille</a></li>
+        <li><strong>La décision.</strong> Plutôt qu'un tableau de bord de plus, une file d'actions qui rapproche ventes, acquisition, visibilité, e-mail et réseaux, et dit quoi traiter aujourd'hui, avec les preuves. → <a href="../journal/growth-centre-actions.html">Growth</a></li>
       </ul>
 
       <figure class="diagram">
@@ -215,24 +303,31 @@
         <figcaption class="caption">Le gain est là : pas « zéro humain », mais des jours qui deviennent des heures — toi sur la relecture et la décision.</figcaption>
       </figure>
 
-      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
-        <p class="kicker" style="color:var(--c-gold);">Mise à jour · 1er septembre 2026</p>
-        <h3 style="margin-top:var(--space-2);">Ce qui a changé pour un commerçant depuis le printemps</h3>
-                <p style="margin-top:var(--space-3);">Les usages ci-dessus restent le bon point de départ. Trois marches de plus, franchies chez moi entre juin et septembre 2026 — toutes sans équipe technique :</p>
-        <ul style="margin-top:var(--space-3);">
-          <li><strong>Les corvées d'achat.</strong> Une app lit les tarifs fournisseurs (PDF ou mail), retrouve les produits, détecte les doublons et prépare la création ou la mise à jour — validation humaine avant toute écriture. Un agent traite les factures fournisseurs et les rattache à la bonne commande. → <a href="../journal/app-tarifs-fournisseurs-maj-produits.html">les tarifs</a> · <a href="../journal/agent-factures-prod-scaleway.html">les factures</a></li>
-          <li><strong>Les prix face à la concurrence.</strong> Un moteur de règles recalcule des prix cibles à chaque livraison des prix concurrents, jamais à perte, en observation d'abord puis en live famille par famille. Des centaines de références alignées automatiquement. → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">l'alignement automatique</a></li>
-          <li><strong>La décision.</strong> Plutôt qu'un tableau de bord de plus, une file d'actions qui rapproche ventes, acquisition, visibilité, e-mail et réseaux, et dit quoi traiter aujourd'hui, avec les preuves. → <a href="../journal/growth-centre-actions.html">Growth</a></li>
-        </ul>
-        <p style="margin-top:var(--space-3);">Et deux outils qui abaissent encore la marche : <a href="chat-cowork-code-terminal.html">Cowork</a>, qui exécute un travail de bureau sans terminal, et les <a href="cest-quoi-mcp-connecter-claude.html">connecteurs</a> Shopify, Gmail et Drive, qui laissent l'IA lire — et agir sous validation — dans les outils que tu as déjà.</p>
-      </aside>
+      <h2 id="commencer">4. Par où commencer (honnêtement)</h2>
+      <ol>
+        <li><strong>Une corvée précise, mesurable, récurrente.</strong> Pas « l'IA partout » : les fiches produit, ou le tri des mails du matin.</li>
+        <li><strong>En lecture seule d'abord.</strong> L'IA regarde, propose, prépare. Elle ne modifie rien tant que tu n'as pas vu dix propositions justes d'affilée.</li>
+        <li><strong>Écris ce qu'elle doit savoir</strong> — ton catalogue, ton ton, tes règles — dans un projet ou un fichier, une fois pour toutes. C'est le <a href="cest-quoi-le-contexte.html">contexte</a>, et c'est 80 % du résultat.</li>
+        <li><strong>Mesure</strong> : le temps gagné sur la corvée, les erreurs évitées. Puis seulement, élargis.</li>
+      </ol>
 
+      <h2 id="cout">5. Combien ça coûte</h2>
+      <p>Pour les deux premières marches, un abonnement à une vingtaine d'euros par mois suffit ; les offres supérieures servent quand on fait tourner des agents toute la journée. Un agent en production coûte quelques dizaines d'euros par mois à l'usage — bien moins qu'une heure de saisie par jour. Le détail, avec des repères datés, dans <a href="combien-coute-lia.html">Combien coûte l'IA</a>.</p>
+
+      <h2 id="pieges">6. Les pièges</h2>
+      <ul>
+        <li>L'IA <strong>se trompe</strong> : vérifie les chiffres avant de t'en servir, surtout ceux qu'elle a lus dans un document.</li>
+        <li>Garde l'<strong>humain sur la relation client</strong> — l'IA prépare, elle ne remplace pas le contact ni le conseil.</li>
+        <li><strong>Un connecteur, c'est un accès.</strong> Donne à l'IA les droits de la personne qui lui parle, pas ceux de l'administrateur, et garde l'écriture derrière une validation. → <a href="mes-donnees-sont-elles-en-securite.html">Mes données sont-elles en sécurité</a></li>
+        <li>Ne <strong>sur-automatise pas</strong> ce qui n'est pas cassé, et ne lance pas un deuxième agent avant d'avoir prouvé le premier.</li>
+      </ul>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Pour aller plus loin</p>
         <ul style="margin-top:var(--space-3);">
           <li>→ <a href="pourquoi-lia-change-le-travail.html"><strong>Pourquoi l'IA change vraiment la façon de travailler</strong></a> — le cadre général.</li>
-          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>C'est quoi un agent IA</strong></a> — pour automatiser une corvée récurrente.</li>
+          <li>→ <a href="chat-cowork-code-terminal.html"><strong>Chat, Cowork ou Code</strong></a> — quel outil pour quelle marche.</li>
+          <li>→ <a href="lia-propose-lhumain-valide.html"><strong>L'IA propose, l'humain valide</strong></a> — la règle qui rend tout ça sûr.</li>
         </ul>
         <p style="margin-top:var(--space-4);"><strong>Cas réels.</strong> Audit de 803 produits → <a href="../journal/audit-shopify-odoo-803.html">Shopify/Odoo 803 produits</a> · analyse de ventes → <a href="../journal/dynaudio-analyse-ventes.html">Dynaudio</a> · prix en masse → <a href="../journal/sony-bravia-prix-marge.html">Sony Bravia</a>.</p>
       </aside>
@@ -240,13 +335,13 @@
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Échangeons</p>
       <h2>Une corvée en tête ?</h2>
-      <p class="prose">Si tu as une tâche récurrente qui te bouffe du temps en magasin ou en ligne, parlons-en — on identifiera par où commencer. Je documente tout en public, sans rien à vendre.</p>
+      <p class="prose">Si tu as une tâche récurrente qui te bouffe du temps en magasin ou en ligne, parlons-en — on identifiera la marche par laquelle commencer. Je documente tout en public, sans rien à vendre.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M'ajouter sur LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20IA%20commerçant%20—%20échange">M'écrire</a>
@@ -254,7 +349,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -316,7 +410,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="../search.js?v=20260601d" defer></script>
 <script src="../lexique.js?v=20260601d" defer></script>
 <script src="../theme.js?v=20260601d" defer></script>

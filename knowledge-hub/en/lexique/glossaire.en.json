@@ -121,12 +121,59 @@
     "definition": "The instruction you give the AI. A good prompt — clear, with the context and the goal — changes the result of one answer. But what weighs on every answer is the context (CLAUDE.md, Brain, skills).",
     "guides": [
       {
-        "label": "Writing a good prompt",
+        "label": "How to talk to AI properly in 2026: from prompt to brief",
         "url": "/knowledge-hub/en/guides/ecrire-un-bon-prompt.html"
       },
       {
         "label": "What's the context",
         "url": "/knowledge-hub/en/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": []
+  },
+  {
+    "id": "brief",
+    "terme": "Brief (mission brief)",
+    "aliases": [
+      "brief",
+      "briefs",
+      "mission brief"
+    ],
+    "definition": "What you write for an AI that will work on its own, as opposed to a prompt that aims for a single answer: a goal with its success criterion, context that is provided (files, folder, connector) rather than described, the task split into steps, the format and constraints, and checkpoints (a plan before execution, a preview before sending). It only contains what is specific to the mission: the permanent lives in the CLAUDE.md, the repeatable in a skill.",
+    "guides": [
+      {
+        "label": "How to talk to AI properly in 2026: from prompt to brief",
+        "url": "/knowledge-hub/en/guides/ecrire-un-bon-prompt.html"
+      },
+      {
+        "label": "What is context",
+        "url": "/knowledge-hub/en/guides/cest-quoi-le-contexte.html"
+      }
+    ],
+    "projets": [
+      {
+        "label": "Mission brief: invoice verification",
+        "url": "/knowledge-hub/en/journal/mission-dm-france.html"
+      }
+    ]
+  },
+  {
+    "id": "critere-de-succes",
+    "terme": "Success criterion",
+    "aliases": [
+      "success criterion",
+      "success criteria",
+      "we'll know it's good when"
+    ],
+    "definition": "The sentence \"we'll know it's good when…\" written before acting: the counter is right, the script passes, the email fits in 120 words. The fourth of the Karpathy-style principles, and indispensable as soon as an AI acts on its own — without a criterion it doesn't know when to stop, and \"done\" means nothing. Best of all: a criterion that checks itself (a test, a health-check script).",
+    "guides": [
+      {
+        "label": "The 4 principles (Karpathy-style)",
+        "url": "/knowledge-hub/en/guides/principes-facon-karpathy.html"
+      },
+      {
+        "label": "How to talk to AI properly in 2026: from prompt to brief",
+        "url": "/knowledge-hub/en/guides/ecrire-un-bon-prompt.html"
       }
     ],
     "projets": []
@@ -711,6 +758,25 @@
         "url": "/knowledge-hub/en/journal/seo-collections-shopify.html"
       }
     ]
+  },
+  {
+    "id": "dette-de-contexte",
+    "terme": "Context debt",
+    "aliases": [
+      "context debt"
+    ],
+    "definition": "What piles up when the files the AI reads (CLAUDE.md, Brain, reference pages) are no longer kept up to date: the AI decides confidently on false premises. The context-side counterpart of technical debt. Paid back through session capture and updating the pages affected — a stale brain is worse than an empty brain.",
+    "guides": [
+      {
+        "label": "Compound Engineering",
+        "url": "/knowledge-hub/en/guides/compound-engineering.html"
+      },
+      {
+        "label": "Why AI really changes the way we work",
+        "url": "/knowledge-hub/en/guides/pourquoi-lia-change-le-travail.html"
+      }
+    ],
+    "projets": []
   },
   {
     "id": "brief-de-reprise",

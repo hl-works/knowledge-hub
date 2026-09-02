@@ -15,7 +15,7 @@
 > `knowledge-hub/sitemap.xml`, `knowledge-hub/llms.txt`). Les scripts `scripts/*.py`
 > pointent déjà sur `knowledge-hub/` via leur `ROOT`. `landing-lab/` = prototypes de
 > la landing (noindex, exclus des workflows).
-> MAJ : 2026-09-01 (repasse complète du site : méthode v2, 31 guides, lexique 82 termes).
+> MAJ : 2026-09-02 (repasse complète du site : méthode v2, 31 guides dont 14 réécrits, lexique 85 termes).
 
 ---
 
@@ -65,19 +65,20 @@
   ça déborde/colle : élargir la boîte (réduire les espaces entre boîtes) **avant** de
   rapetisser le texte ; sous-titres min ~10px.
 - **Cache-busting** : `style.css` + `.js` portent `?v=AAAAMMJJ[lettre]`. Bumper sur
-  **toutes** les pages **uniquement** si on touche au CSS/JS. Actuel : css `20260622a`,
+  **toutes** les pages **uniquement** si on touche au CSS/JS. Actuel : css `20260902a`,
   js `20260601d`.
 - **Coffre** (`coffre/`) : espace privé chiffré. **Ne jamais toucher** `coffre.js` /
   `vault.json` / le mécanisme. Reste volontairement en mode clair.
 
-## IV. Deux agents (badge auteur)
+## IV. Badges auteur (deux agents Claude + un badge tiers)
 
-| Agent | Périmètre | Badge |
+| Auteur | Périmètre | Badge |
 |-------|-----------|-------|
 | Claude · HL | pilotage, perso, méthode, stratégie, marketing, éditorial, admin | `author--hl` |
 | Claude · Cobra | dev Odoo/Shopify purement technique | `author--cobra` |
+| ChatGPT · Codex | travail réalisé hors Claude, dans ChatGPT/Codex (ex. Growth) | `author--chatgpt` |
 
-Doute → HL.
+Doute → HL. Les trois classes vivent dans `style.css` (`.author--…`) : jamais de couleur inline.
 
 ## V. Tags du journal (liste blanche — ne pas inventer)
 

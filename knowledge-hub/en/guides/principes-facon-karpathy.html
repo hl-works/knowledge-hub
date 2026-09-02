@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>The 4 principles I apply with AI (Karpathy-style) — Guides · Hugo Lahutte</title>
-<meta name="description" content="Who Andrej Karpathy is (and why his move to Anthropic is making noise), and the 4 principles I've drawn from him so that AI saves me time instead of wasting it.">
+<title>The 4 principles I apply with AI (Karpathy-style), and what they become when the AI acts on its own — Guides · Hugo Lahutte</title>
+<meta name="description" content="Think before acting, simplicity first, surgical changes, goal-driven execution: four principles drawn from the way Andrej Karpathy teaches working with models, carved into my CLAUDE.md. What they become in 2026 when Claude acts on its own: a plan before execution, the simplest tool, the diff before pushing, a verifiable success criterion — and the fifth reflex, compounding.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/principes-facon-karpathy.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/principes-facon-karpathy.html">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="The 4 principles I apply with AI (Karpathy-style)">
-<meta property="og:description" content="Who Karpathy is, and the 4 principles for AI that saves time: think first, keep it simple, stay surgical, steer by the objective.">
+<meta property="og:description" content="Think first, keep it simple, touch only what's strictly necessary, steer by the goal — and what that becomes when the AI acts on your behalf.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/principes-facon-karpathy.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
@@ -37,9 +37,9 @@
 <link rel="manifest" href="/knowledge-hub/site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260902a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,10 +47,10 @@
     {
       "@type": "TechArticle",
       "headline": "The 4 principles I apply with AI (Karpathy-style)",
-      "description": "Who Andrej Karpathy is and the 4 principles for AI that saves time: think first, keep it simple, stay surgical, steer by the objective.",
+      "description": "Four principles for working with AI, inspired by Andrej Karpathy: think before acting (assumptions, one question at a time), simplicity first, surgical changes, goal-driven execution. What they translate to in 2026 when the AI acts on its own: a plan before execution, the simplest tool, diff and surgical deploy, a verifiable success criterion. Fifth reflex: compounding (a mistake becomes a rule). From vibe coding to the LLM wiki (OKF).",
       "inLanguage": "en-US",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/principes-facon-karpathy.html",
       "author": {
         "@type": "Person",
@@ -65,12 +65,13 @@
       },
       "about": [
         "Andrej Karpathy",
-        "Anthropic",
-        "AI method",
+        "method",
+        "CLAUDE.md",
+        "agents",
         "vibe coding",
-        "prompt"
+        "context engineering"
       ],
-      "keywords": "Karpathy, AI principles, working well with AI, Anthropic"
+      "keywords": "Karpathy, principles, method, CLAUDE.md, vibe coding, context engineering, plan, surgical deploy, success criterion"
     },
     {
       "@type": "BreadcrumbList",
@@ -100,26 +101,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Who is Andrej Karpathy?",
+          "name": "What are the 4 principles for working with AI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Co-founder of OpenAI, former head of AI at Tesla, and one of the best educators in the field (his courses have trained a generation). He popularized the phrase “vibe coding”. In May 2026, he joined Anthropic, the home of Claude."
+            "text": "Think before acting (state your assumptions, ask a single question at a time), simplicity first (the minimum that solves the problem, nothing speculative), surgical changes (touch only what was asked, flag the rest without changing it) and goal-driven execution (state the success criterion before acting)."
           }
         },
         {
           "@type": "Question",
-          "name": "What are the 4 principles for working well with AI?",
+          "name": "Do these principles really come from Karpathy?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "1) Think before answering (state your assumptions, clear up ambiguity). 2) Simplicity first (the minimum that solves it, nothing speculative). 3) Surgical changes (touch only what was asked, don't refactor what works). 4) Objective-driven execution (define “we'll know it's right when…” before acting). It's a personal synthesis, inspired by the way Karpathy teaches."
+            "text": "No, not word for word: it's a personal synthesis inspired by the way he teaches working with agents. Andrej Karpathy, co-founder of OpenAI and former head of AI at Tesla, joined Anthropic in May 2026."
           }
         },
         {
           "@type": "Question",
-          "name": "Why do these principles change everything?",
+          "name": "How do you apply these principles when the AI acts on its own?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "They save tokens, time and quality: answers that fit instead of chatty walls of text, projects that don't go off the rails. The “surgical” principle was born from a deployment that broke everything because too much had been pushed at once."
+            "text": "A plan before execution for any long mission; the simplest tool that solves the problem (Chat, Cowork or Code, a script before an app); reviewing the diff before pushing and deploying in small, reversible steps; a success criterion that can be checked automatically (a test, a health-check script) that the AI runs before declaring the work done."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are vibe coding and the LLM wiki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vibe coding, a term coined by Karpathy, means describing your intent and letting the AI write the code; it became commonplace in 2026. The LLM wiki is a knowledge base made of text files that the AI reads and maintains; formalized in June 2026 in the Open Knowledge Format, it's the format of Hugo Lahutte's Brain."
           }
         }
       ]
@@ -131,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Main">
@@ -156,16 +166,22 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › The principles (Karpathy-style)</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Guides · General</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · General → method</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">The 4 principles I apply with AI (Karpathy-style)</h1>
     <hr class="rule--accent">
-    <p class="lead">Who Andrej Karpathy is (and why his move to Anthropic is making noise), and the <strong>4 principles</strong> I've drawn from him so that AI saves me time instead of wasting it.</p>
+    <p class="lead">Think before acting, keep it simple, touch only what's strictly necessary, steer by the goal. Four reflexes drawn from the way Andrej Karpathy teaches working with models — and what they become when the AI no longer just writes text but <strong>acts on your behalf</strong>.</p>
     <div class="meta-bar">
-      <span>By <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">May 31, 2026</time><span>·</span><span>Updated <time datetime="2026-09-01">September 1, 2026</time></span><span>·</span><span>~5 min read</span>
+      <span>By <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">May 31, 2026</time>
+      <span>·</span>
+      <span>Updated <time datetime="2026-09-02">September 2, 2026</time></span>
+      <span>·</span>
+      <span>~7 min read</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="methode" data-tagsearch="methode" href="/knowledge-hub/en/guides/">méthode</a>
@@ -187,9 +203,9 @@
     <aside class="callout callout--tldr prose" aria-label="30-second summary">
       <p class="kicker">In 30 seconds</p>
       <ul>
-        <li>Andrej Karpathy = co-founder of OpenAI, former head of AI at Tesla, one of the greatest educators in the field. He <strong>joined Anthropic</strong> (the home of Claude) in May 2026.</li>
-        <li>From the way he teaches working with LLMs, I've drawn <strong>4 principles</strong> I apply everywhere.</li>
-        <li>In plain terms: <strong>think first, keep it simple, touch only what's strictly necessary, steer by a clear objective.</strong></li>
+        <li>Andrej Karpathy = co-founder of OpenAI, former head of AI at Tesla, one of the best teachers in the field, at Anthropic since May 2026. From the way he teaches, I drew <strong>four principles</strong> that I apply everywhere.</li>
+        <li><strong>Think before acting · simplicity first · surgical changes · goal-driven execution.</strong> They're carved into my CLAUDE.md, so every Claude reads them before every session.</li>
+        <li>Since the AI started acting on its own (Claude Code in auto mode, Cowork, agents), these principles are no longer writing tips: they're <strong>execution guardrails</strong>. A plan before acting, a diff before pushing, a success criterion before launching.</li>
       </ul>
     </aside>
 
@@ -198,84 +214,99 @@
       <ul>
         <li><a href="#qui">1. Who Karpathy is (and why it matters)</a></li>
         <li><a href="#principes">2. The 4 principles (my synthesis)</a></li>
-        <li><a href="#pourquoi">3. Why it changes everything</a></li>
+        <li><a href="#agit">3. What they become when the AI acts on its own</a></li>
+        <li><a href="#cinquieme">4. The fifth reflex: compounding</a></li>
+        <li><a href="#vibe">5. From “vibe coding” to the “LLM wiki”</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="qui">1. Who Karpathy is (and why it matters)</h2>
-      <p>Hard to find more credibility on the subject. Karpathy co-founded OpenAI, led AI at Tesla, and above all he's one of the <strong>best educators</strong> in AI (his courses and videos have trained a generation). He's also the one who popularized the phrase “vibe coding”. In May 2026, he joined Anthropic — when someone of that caliber picks a house, you listen.</p>
+      <p>Hard to find anyone more credible on the subject. Karpathy co-founded OpenAI, ran AI at Tesla, and above all he's one of the <strong>best explainers</strong> of AI out there: his courses and videos trained a generation. He's the one who coined the phrase “vibe coding” and, later, the idea that an LLM works better with a <em>wiki</em> than with a pile of conversations. In May 2026, he joined Anthropic — when someone of that caliber picks a house, you listen.</p>
 
       <figure class="diagram">
-        <ol class="timeline" role="img" aria-label="Andrej Karpathy's career: OpenAI, Tesla, back to OpenAI, Eureka Labs, then Anthropic in May 2026." style="grid-template-columns:repeat(5,1fr);">
+        <ol class="timeline" role="img" aria-label="Andrej Karpathy's path: OpenAI, Tesla, back to OpenAI, Eureka Labs, then Anthropic in May 2026." style="grid-template-columns:repeat(5,1fr);">
           <li><b>OpenAI</b><span>co-founder</span></li>
           <li><b>Tesla</b><span>head of AI</span></li>
           <li><b>OpenAI</b><span>return</span></li>
           <li><b>Eureka Labs</b><span>AI education</span></li>
           <li class="is-now"><b>Anthropic</b><span>May 2026</span></li>
         </ol>
-        <figcaption class="caption">A career that sums up the recent history of AI — and a move that says a lot about Anthropic.</figcaption>
+        <figcaption class="caption">A path that sums up the recent history of AI — and an arrival that says a lot about Anthropic.</figcaption>
       </figure>
 
       <h2 id="principes">2. The 4 principles (my synthesis, in his spirit)</h2>
-      <p>Honesty first: these are <strong>not</strong> “Karpathy's official 4 rules”. This is <strong>my</strong> synthesis, inspired by the way he teaches working with agents. The idea is worth more than the label:</p>
+      <p>Honesty first: these are <strong>not</strong> “Karpathy's four official rules.” It's <strong>my</strong> synthesis, inspired by the way he teaches working with agents. It has opened my <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a> since May, word for word:</p>
 
       <figure class="diagram">
-        <div class="card-grid" role="img" aria-label="Four principles: think before answering, simplicity first, surgical changes, objective-driven execution.">
+        <div class="card-grid" role="img" aria-label="Four principles: think before acting, simplicity first, surgical changes, goal-driven execution.">
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principle 1</span>
-            <span class="card__title">Think before answering</span>
-            <span class="card__desc">State your assumptions, ask if it's ambiguous, rather than charging ahead.</span>
+            <span class="card__title">Think before acting</span>
+            <span class="card__desc">State your assumptions; if it's ambiguous, ask a single question at a time; say so when a simpler approach exists.</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principle 2</span>
             <span class="card__title">Simplicity first</span>
-            <span class="card__desc">The minimum that solves the problem, nothing speculative.</span>
+            <span class="card__desc">The minimum that solves it. Nothing speculative, no “flexibility” nobody asked for. The test: would a senior call it “over-engineered”?</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principle 3</span>
             <span class="card__title">Surgical changes</span>
-            <span class="card__desc">Touch only what was asked; don't refactor what works.</span>
+            <span class="card__desc">Touch only what was asked, respect the existing style. Something else to fix? Flag it, don't change it on your own.</span>
           </div>
           <div class="card" style="min-height:auto;">
             <span class="card__kicker">Principle 4</span>
-            <span class="card__title">Objective-driven</span>
-            <span class="card__desc">Define “we'll know it's right when…” before acting.</span>
+            <span class="card__title">Goal-driven</span>
+            <span class="card__desc">State “we'll know it's done when…” before acting. A short plan with checkpoints for anything that has several steps.</span>
           </div>
         </div>
         <figcaption class="caption">Four simple reflexes — it's applying them consistently that makes the difference.</figcaption>
       </figure>
 
-      <h2 id="pourquoi">3. Why it changes everything</h2>
-      <p>Concretely, these principles save you <strong>tokens, time, and quality</strong>: answers that fit instead of chatty walls of text, projects that don't go off the rails. My principle #3 (“surgical”) isn't theoretical: it was born from a deployment that <strong>broke everything</strong> because too much had been pushed at once. Since then, every change traces back to one precise request. One mistake, one rule.</p>
+      <h2 id="agit">3. What they become when the AI acts on its own</h2>
+      <p>In May, these principles mostly governed the quality of an <em>answer</em>: fewer walls of text, less off-topic. Since then, Claude Code chains actions without asking permission at every step, Cowork acts inside desktop tools, agents run overnight. The same principles change roles: they become the <strong>execution discipline</strong> of an AI that does things on your behalf.</p>
 
-      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
-        <p class="kicker" style="color:var(--c-gold);">Update · September 1, 2026</p>
-        <h3 style="margin-top:var(--space-2);">From “vibe coding” to the wiki for LLMs</h3>
-                <p style="margin-top:var(--space-3);">Two of Karpathy's ideas have kept traveling since May. <strong>“Vibe coding”</strong> — describing your intent and letting the AI type the code — has become ordinary; what sets you apart now is <a href="cest-quoi-le-contexte.html">context engineering</a>, organizing what the AI knows. And his <strong>“wiki for LLMs”</strong> pattern — a knowledge base in text files that the AI reads and maintains — was formalized in June 2026 by Google Cloud as an open standard, the Open Knowledge Format. It's the format of my <a href="cest-quoi-un-brain-okf.html">Brain</a>. The four principles haven't moved; they just have more surface to apply to.</p>
-      </aside>
+      <figure class="diagram">
+        <div class="stack" role="img" aria-label="The four principles translated into execution practices: plan before action, choice of the simplest tool, diff and surgical deploy, success criterion and automatic verification.">
+          <div class="stack__block"><b>1 · Think before acting → a plan before execution</b><span>On any mission longer than ten minutes: “propose a plan, wait for my OK.” Claude Code has a dedicated mode; elsewhere, the sentence is enough. And one question at a time — not the burst.</span></div>
+          <div class="stack__block"><b>2 · Simplicity first → the simplest tool that solves it</b><span>An answer? Chat. Desk work? Cowork. Code? Code. A script before an app, a rule before an agent. The “agentic core” isn't the answer to everything.</span></div>
+          <div class="stack__block"><b>3 · Surgical → the diff before pushing</b><span>Every change traces back to a request. You review what changed, not the final result. In production: one deploy at a time, reversible — the rule born from a production release that broke everything.</span></div>
+          <div class="stack__block"><b>4 · Goal-driven → a criterion that checks itself</b><span>“It's done when the check passes”: a health-check script, a test, a counter. The AI runs it itself before saying “done.” Without a criterion, “done” means nothing.</span></div>
+        </div>
+        <figcaption class="caption">Same principle, new surface: what used to govern an answer now governs an execution.</figcaption>
+      </figure>
 
+      <p>A concrete example of each, from my own setup. The plan before execution: the <a href="../journal/refonte-knowledge-hub-fable-5-1.html">redesign of this site</a> started with an audit and a validated plan, not with modified files. The simplest tool: the <a href="cest-quoi-hl-os.html">Growth building block</a> was scoped in a weekend because we built a queue of actions, not a platform. The surgical part: the <a href="../journal/cdc18-form-view.html">production release of an Odoo module</a> split into reversible deploys. The verifiable goal: this site has a health-check script that counts entries, checks the indexes and the feeds, and that a Claude runs before every publication.</p>
+
+      <h2 id="cinquieme">4. The fifth reflex: compounding</h2>
+      <p>It isn't Karpathy's, but it's what makes the other four hold up over time: <strong>a mistake becomes a rule, a session becomes a capture</strong>. My principle #3 isn't theoretical — it was born from a production release that broke everything because we had pushed too much at once. Since then, every recurring correction goes up into the CLAUDE.md, and every significant session into my <a href="cest-quoi-un-brain-okf.html">Brain</a>. That's the subject of the <a href="compound-engineering.html">Compound Engineering</a> guide.</p>
+
+      <h2 id="vibe">5. From “vibe coding” to the “LLM wiki”</h2>
+      <p>Two of Karpathy's ideas have made their way since spring. <strong>“Vibe coding”</strong> — describing your intent and letting the AI type the code — has become commonplace: the Growth building block was scoped and delivered in a weekend with no spec. What sets people apart now is no longer knowing how to ask, it's <a href="cest-quoi-le-contexte.html">context engineering</a>: organizing what the AI knows before you ask it anything.</p>
+      <p>And his <strong>“LLM wiki”</strong> pattern — a knowledge base made of text files that the AI reads and maintains, rather than a pile of conversations — was formalized in June 2026 by Google Cloud in an open standard, the Open Knowledge Format. It's the format of my Brain. The four principles haven't moved; they just have a lot more surface to apply to.</p>
 
       <aside class="callout" style="margin-top:var(--space-16);">
-        <p class="kicker">Go deeper</p>
+        <p class="kicker">Going further</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Writing a good CLAUDE.md</strong></a> — where these principles live.</li>
+          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Writing a good CLAUDE.md</strong></a> — where these principles are written down, word for word.</li>
+          <li>→ <a href="lia-propose-lhumain-valide.html"><strong>AI proposes, the human validates</strong></a> — the guardrails when the AI acts inside your tools.</li>
           <li>→ <a href="compound-engineering.html"><strong>Compound Engineering</strong></a> — how a mistake becomes a rule.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Real-world cases.</strong> The surgical deploy born from the incident → <a href="../journal/systeme-instructions-claude-md.html">Claude instructions system</a> · <a href="../journal/cdc18-form-view.html">CDC-18: surgical deploy in prod</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Real-world cases.</strong> The surgical deploy born from the incident → <a href="../journal/systeme-instructions-claude-md.html">Claude instruction system</a> · <a href="../journal/cdc18-form-view.html">CDC-18: surgical deploy to production</a> · a plan validated before touching the site → <a href="../journal/refonte-knowledge-hub-fable-5-1.html">The Knowledge Hub redesign</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
       <h2>Do these principles speak to you?</h2>
-      <p class="prose">If you want to compare how you frame AI with how I do it, or debate “vibe coding”, write to me. I document everything in public.</p>
+      <p class="prose">If you want to compare the way you frame AI with mine — especially now that it acts on its own — drop me a line. I document everything in public.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Add me on LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Principes%20—%20échange">Email me</a>
@@ -283,7 +314,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -345,7 +375,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="/knowledge-hub/search.js?v=20260601d" defer></script>
 <script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
 <script src="/knowledge-hub/theme.js?v=20260601d" defer></script>

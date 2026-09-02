@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Compound Engineering: your method improves on its own — Guides · Hugo Lahutte</title>
-<meta name="description" content="The principle that makes your AI usage improve on its own over time: every lesson is captured and reused, and your system starts higher and higher with each session.">
+<title>Compound Engineering: your method improves on its own (rule, skill, Brain) — Guides · Hugo Lahutte</title>
+<meta name="description" content="Every unit of work should make the next one easier: a mistake becomes a rule, a procedure becomes a skill, a session becomes a capture in the Brain. The three stages of Compound Engineering in 2026, my concrete examples, and the new rule: a stale brain is worse than an empty brain.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/compound-engineering.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/compound-engineering.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/compound-engineering.html">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="Compound Engineering: your method improves on its own">
-<meta property="og:description" content="Every lesson becomes a reusable rule: the compound-interest effect applied to the way you work with AI.">
+<meta property="og:description" content="A mistake → a rule. A procedure → a skill. A session → a capture. And the 2026 requirement: keep what you know up to date.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/compound-engineering.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
@@ -37,9 +37,9 @@
 <link rel="manifest" href="/knowledge-hub/site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260902a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,10 +47,10 @@
     {
       "@type": "TechArticle",
       "headline": "Compound Engineering: your method improves on its own",
-      "description": "The principle that makes your AI usage improve on its own: every lesson is captured and reused, and the system starts higher and higher with each session.",
+      "description": "Principle (Every, Boris Cherny): every unit of work makes the next one easier. Three stages in 2026: the rule in the CLAUDE.md, the procedure in a skill or a hook, the session in the Brain with reference-page updates. Real examples (surgical deploy, budget guardrail, health-check script, publishing skill). Rule: a stale brain is worse than an empty brain.",
       "inLanguage": "en-US",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/compound-engineering.html",
       "author": {
         "@type": "Person",
@@ -65,12 +65,13 @@
       },
       "about": [
         "Compound Engineering",
-        "continuous improvement",
         "CLAUDE.md",
-        "AI method",
-        "compound interest"
+        "skills",
+        "hooks",
+        "Brain",
+        "session capture"
       ],
-      "keywords": "compound engineering, self-improving system, every mistake a rule, AI method"
+      "keywords": "compound engineering, method, CLAUDE.md, skill, hook, Brain, session capture, stale brain"
     },
     {
       "@type": "BreadcrumbList",
@@ -103,31 +104,23 @@
           "name": "What is Compound Engineering?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It's turning every lesson into a reusable rule or tool, so you never lose the same time twice. Concretely, your CLAUDE.md and your briefs grow from corrected mistakes, and the AI starts each time better equipped. It's the compound-interest effect applied to the way you work."
+            "text": "A way of working with AI where every unit of work makes the next one easier: a corrected mistake becomes a rule, a repeated procedure becomes a tool, a finished session becomes a capture. The term was popularized by Kieran Klaassen and Dan Shipper (Every); Boris Cherny, creator of Claude Code, gives the minimal version: every correction goes up into the CLAUDE.md."
           }
         },
         {
           "@type": "Question",
-          "name": "Where does the term Compound Engineering come from?",
+          "name": "Where does a lesson go in 2026?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It was popularized by Kieran Klaassen and Dan Shipper, at Every, while building their email assistant. The idea fits in one sentence: every unit of work should make the next one easier."
+            "text": "It depends on its nature: a rule that keeps coming back goes into the CLAUDE.md; a procedure you keep re-explaining becomes a skill, and a check you keep forgetting becomes a hook or a routine; what happened in a session (decisions, project status) goes into the Brain, along with updates to the reference pages concerned."
           }
         },
         {
           "@type": "Question",
-          "name": "How do you apply it concretely?",
+          "name": "Why is a stale brain worse than an empty brain?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The loop: do, review, capture the lesson (bring it into the context), start again higher up. Examples: a deployment that breaks everything becomes a hard rule; an agent that burns its budget becomes a standard budget guardrail. The incident doesn't just get fixed, it hardens the system."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the cumulative effect?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "After a few dozen sessions, your context is worth a team that knows you: your tone, your tools, your pitfalls, your past decisions. That's exactly what this Knowledge Hub is for — building up, in public."
+            "text": "Because an agent that reads a dated, structured, authoritative — but wrong — page decides based on it. An empty brain makes you ask questions; a stale brain makes you take bad decisions with confidence. Hence the rule: a capture must also update the pages it affects, and what you no longer believe moves to abandoned status, never deleted."
           }
         }
       ]
@@ -139,6 +132,7 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Main">
@@ -164,16 +158,22 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Compound Engineering</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Guides · General</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · General → method</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Compound Engineering: your method improves on its own</h1>
     <hr class="rule--accent">
-    <p class="lead">The principle that makes your AI usage improve on its own over time: every lesson is <strong>captured and reused</strong>, and your system starts higher and higher with each session.</p>
+    <p class="lead">The principle that makes your use of AI improve over time instead of starting from scratch: every lesson is <strong>captured and reused</strong>. In 2026, the loop has three stages — the rule, the skill, the Brain — and a new requirement: keeping what you know up to date.</p>
     <div class="meta-bar">
-      <span>By <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">May 31, 2026</time><span>·</span><span>Updated <time datetime="2026-09-01">September 1, 2026</time></span><span>·</span><span>~5 min read</span>
+      <span>By <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">May 31, 2026</time>
+      <span>·</span>
+      <span>Updated <time datetime="2026-09-02">September 2, 2026</time></span>
+      <span>·</span>
+      <span>~7 min read</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="methode" data-tagsearch="methode" href="/knowledge-hub/en/guides/">méthode</a>
@@ -195,9 +195,9 @@
     <aside class="callout callout--tldr prose" aria-label="30-second summary">
       <p class="kicker">In 30 seconds</p>
       <ul>
-        <li>Compound Engineering = <strong>turning every lesson into a reusable rule or tool</strong>, so you never lose the same time twice.</li>
-        <li>Concretely: your CLAUDE.md and your briefs <strong>grow</strong> from corrected mistakes, and the AI starts each time better equipped.</li>
-        <li>It's the <strong>compound-interest</strong> effect applied to the way you work.</li>
+        <li>Compound Engineering = <strong>every unit of work makes the next one easier</strong>. A corrected mistake becomes a rule; a repeated procedure becomes a tool; a finished session becomes a capture.</li>
+        <li>Three stages in my setup in 2026: the <strong>rule</strong> (in the CLAUDE.md), the <strong>skill or hook</strong> (the procedure, the automatic check), the <strong>Brain</strong> (the session, and the update of the pages it made wrong).</li>
+        <li>This summer's new lesson: compounding is no longer just adding. It's <strong>keeping things up to date</strong> — a stale brain is worse than an empty brain, because you trust it.</li>
       </ul>
     </aside>
 
@@ -206,75 +206,93 @@
       <ul>
         <li><a href="#probleme">1. The problem without it</a></li>
         <li><a href="#principe">2. The principle</a></li>
-        <li><a href="#applique">3. How I apply it</a></li>
-        <li><a href="#effet">4. The cumulative effect</a></li>
+        <li><a href="#etages">3. The three stages in 2026</a></li>
+        <li><a href="#applique">4. How I apply it, concretely</a></li>
+        <li><a href="#perime">5. The new rule: a stale brain is worse than an empty brain</a></li>
+        <li><a href="#effet">6. The cumulative effect</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="probleme">1. The problem without it</h2>
-      <p>Without a method, every session starts from scratch: you re-explain, you make the same mistakes, you rediscover the same pitfalls. You might go faster today, but you're not <strong>building</strong> anything.</p>
+      <p>Without a method, every session starts from scratch: you re-explain, you make the same mistakes, you rediscover the same traps. Maybe you're faster today, but you're not <strong>building</strong> anything. And with an AI that acts on its own, it's worse: the mistake you didn't turn into a rule, it will make again — fast, and without asking you.</p>
 
       <h2 id="principe">2. The principle</h2>
-      <p>The term was popularized by <strong>Kieran Klaassen and Dan Shipper, at Every</strong>, while building their email assistant. The idea fits in one sentence: <strong>every unit of work should make the next one easier</strong>. You do a task twice → you turn it into a tool or a rule. The loop: do → review → <strong>capture the lesson</strong> → start again, higher up.</p>
+      <p>The term was popularized by <strong>Kieran Klaassen and Dan Shipper, at Every</strong>, while building their email assistant. On the Claude Code side, <strong>Boris Cherny</strong>, its creator, gives the minimal version: when you correct Claude, the correction must not stay in the conversation — it goes up into the CLAUDE.md. The idea fits in one sentence: <strong>every unit of work should make the next one easier</strong>. You do a task twice → you turn it into a tool or a rule. The loop: do → review → <strong>bank the lesson</strong> → start again, higher up.</p>
 
       <figure class="diagram">
-        <div class="loop" role="img" aria-label="Compound Engineering loop: do, review, capture the lesson into the context, start again higher up.">
+        <div class="loop" role="img" aria-label="The Compound Engineering loop: do, review, bank the lesson in the context, start again higher up.">
           <span class="loop__step loop__step--goal">Do</span>
           <span class="loop__arrow">→</span>
           <span class="loop__step">Review</span>
           <span class="loop__arrow">→</span>
-          <span class="loop__step loop__step--done">Capture the lesson</span>
+          <span class="loop__step loop__step--done">Bank the lesson</span>
           <span class="loop__again">start again, but higher up</span>
         </div>
-        <figcaption class="caption">The lesson enters the context (CLAUDE.md, briefs): next time starts above where this one did.</figcaption>
+        <figcaption class="caption">The lesson goes into the context: the next time starts higher.</figcaption>
       </figure>
 
-      <h2 id="applique">3. How I apply it</h2>
-      <p>My concrete examples: a deployment that breaks everything → a <strong>hard rule</strong> engraved in my dev file. An agent that burns its budget → a <strong>budget guardrail</strong> that's now standard. Each time, the incident doesn't just get fixed: it <strong>hardens the system</strong> so it never happens again.</p>
-
-      <h2 id="effet">4. The cumulative effect</h2>
-      <p>After a few dozen sessions, your context is worth a team that knows you: your tone, your tools, your pitfalls, your past decisions. That's exactly what this Knowledge Hub is for — building up, in public.</p>
+      <h2 id="etages">3. The three stages in 2026</h2>
+      <p>In May, “banking a lesson” meant one thing: adding a line to the CLAUDE.md. Three months of new tools have produced three destinations, depending on the nature of the lesson:</p>
 
       <figure class="diagram">
-        <div class="stairs" role="img" aria-label="Compound-interest curve: at each step, a captured lesson raises the starting point of the next session.">
-          <div class="stairs__step"><b>Session 1</b><span>first rule</span></div>
-          <div class="stairs__step"><b>Session 5</b><span>incident → hard rule</span></div>
-          <div class="stairs__step"><b>Session 20</b><span>guardrails, extensions</span></div>
-          <div class="stairs__step"><b>Session 60+</b><span>a context that knows you</span></div>
+        <div class="stack" role="img" aria-label="Three stages of compounding: the rule in the CLAUDE.md, the procedure in a skill or a hook, the session in the Brain with page updates.">
+          <div class="stack__block"><b>Stage 1 · The rule → CLAUDE.md</b><span>A correction that keeps coming back (“no preamble,” “flag it, don't change it on your own,” “never force-push”). One line, read by every Claude before every session. <a href="ecrire-un-bon-claude-md.html">The guide</a>.</span></div>
+          <div class="stack__block"><b>Stage 2 · The procedure → skill, the check → hook</b><span>A sequence of steps you keep re-explaining (publishing an entry: page, index, sitemap, feeds, translation) becomes a <a href="cest-quoi-un-skill.html">skill</a>. A check you keep forgetting (the site health check, the format of a commit) becomes a hook or a routine.</span></div>
+          <div class="stack__block"><b>Stage 3 · The session → Brain</b><span>What happened, what was decided, what's still open: a session entry in my <a href="cest-quoi-un-brain-okf.html">Brain</a> — <em>and</em> the update of the reference pages it made wrong.</span></div>
         </div>
-        <div class="stairs__axes"><span>← time / sessions</span><span>starting point ↑</span></div>
-        <figcaption class="caption">Each step annotated with a captured lesson: the system starts higher and higher.</figcaption>
+        <figcaption class="caption">One lesson, three possible destinations. The deciding question: is it a rule, a procedure, or a fact about the state of the world?</figcaption>
       </figure>
 
-      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
-        <p class="kicker" style="color:var(--c-gold);">Update · September 1, 2026</p>
-        <h3 style="margin-top:var(--space-2);">The second stage: capture in the Brain</h3>
-                <p style="margin-top:var(--space-3);">Since August 2026, the loop has two stages. The first hasn't changed: a recurring mistake becomes a rule in the <a href="ecrire-un-bon-claude-md.html">CLAUDE.md</a>. The second is new: <strong>a significant session becomes a capture in my <a href="cest-quoi-un-brain-okf.html">Brain</a></strong> — the session entry, <em>and</em> the update of the reference pages it touched (building blocks, entities). The second part is the one you're tempted to skip, so it sits at the top of the capture procedure.</p>
-        <p style="margin-top:var(--space-3);">The reason fits in one sentence, now a written conviction: <strong>a stale brain is worse than an empty brain</strong>. The journal grows on its own; the reference pages go stale in silence; and an agent that reads a dated, structured, authoritative — but wrong — page decides with it. Building up is no longer just adding rules: it's keeping what we know up to date, and being able to say what we no longer think (a note moves to the <em>abandoned</em> status; it's never deleted).</p>
-      </aside>
+      <h2 id="applique">4. How I apply it, concretely</h2>
+      <ul>
+        <li><strong>A production release that breaks everything</strong> (June) → the hard rule of the surgical deploy, carved into the dev file. Since then, one deploy at a time, reversible.</li>
+        <li><strong>An agent that burns through its budget</strong> → the budget guardrail that became standard for every agent: a hard cap, limited frequency, a stop criterion.</li>
+        <li><strong>A wrong counter on this site</strong> (the number of entries displayed had stopped keeping up) → a health-check script that verifies every counter, run before every publication and every week by a routine. The mistake can no longer come back unseen.</li>
+        <li><strong>A procedure re-explained for every journal entry</strong> → a skill that publishes the entry and all its cross-links. The brief went from twenty lines to two.</li>
+        <li><strong>A session redesigning this site</strong> (September 1) → a new rule in the CLAUDE.md: how a guide gets updated (rewrite the substance, date the moving facts, update the glossary), so the next pass doesn't reinvent the method.</li>
+      </ul>
+      <p>Every time, the incident isn't just fixed: it <strong>hardens the system</strong> so it doesn't happen again. One mistake, one rule.</p>
 
+      <h2 id="perime">5. The new rule: a stale brain is worse than an empty brain</h2>
+      <p>It's this summer's lesson, and it changes what “banking a lesson” means. The journal grows on its own; the reference pages, on the other hand, go stale in silence. And an agent that reads a dated, structured, authoritative — but wrong — page <strong>decides based on it</strong>. An empty brain makes you ask questions; a stale brain makes you take bad decisions with confidence.</p>
+      <p>Hence the capture rule, written on August 21: a capture that only writes the session entry is <strong>incomplete</strong>. It must also propose targeted changes to the pages it affects (building blocks, entities). And what you no longer think is never deleted: the note moves to <em>abandoned</em> status, with the date. Compounding, in 2026, means adding <em>and</em> keeping up to date <em>and</em> being able to say what you no longer believe.</p>
+
+      <h2 id="effet">6. The cumulative effect</h2>
+      <p>After a few months, your context is worth a team that knows you: your tone, your tools, your traps, your past decisions — and the real state of your projects. That's exactly what this Knowledge Hub is for: compounding in public.</p>
+
+      <figure class="diagram">
+        <div class="stairs" role="img" aria-label="Steps from May to September 2026: first rules, surgical deploy and guardrails, Brain and capture, skills and update rules.">
+          <div class="stairs__step"><b>May</b><span>the first rules in the CLAUDE.md</span></div>
+          <div class="stairs__step"><b>June</b><span>incident → surgical deploy, agent guardrails</span></div>
+          <div class="stairs__step"><b>August</b><span>the Brain: session capture + up-to-date pages</span></div>
+          <div class="stairs__step"><b>September</b><span>skills, control routines, update rules</span></div>
+        </div>
+        <div class="stairs__axes"><span>← time</span><span>starting level ↑</span></div>
+        <figcaption class="caption">Each step annotated with a banked lesson: the system starts higher and higher.</figcaption>
+      </figure>
 
       <aside class="callout" style="margin-top:var(--space-16);">
-        <p class="kicker">Go deeper</p>
+        <p class="kicker">Going further</p>
         <ul style="margin-top:var(--space-3);">
-          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Writing a good CLAUDE.md</strong></a> — the vessel for your lessons.</li>
-          <li>→ <a href="principes-facon-karpathy.html"><strong>The principles (Karpathy-style)</strong></a> — the discipline that goes with it.</li>
+          <li>→ <a href="ecrire-un-bon-claude-md.html"><strong>Writing a good CLAUDE.md</strong></a> — where the rules live.</li>
+          <li>→ <a href="cest-quoi-un-skill.html"><strong>What is a “skill”</strong></a> — where the procedures live.</li>
+          <li>→ <a href="cest-quoi-un-brain-okf.html"><strong>What is a “Brain”</strong></a> — where what you know lives, and the capture.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Real-world case.</strong> The incident turned into a hard rule → <a href="../journal/systeme-instructions-claude-md.html">Claude custom instruction system</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Real-world cases.</strong> The incident turned into a hard rule → <a href="../journal/systeme-instructions-claude-md.html">Claude instruction system</a> · the capture that keeps the Brain up to date → <a href="../journal/brain-okf-wiki-prive.html">The Brain: my private wiki in OKF format</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
-      <h2>Want to build up, not start over?</h2>
-      <p class="prose">If the “compound interest” effect on your method interests you, or you want to see how I capture my lessons, write to me. I document everything in public — that's the principle.</p>
+      <h2>Want to compound, not start over?</h2>
+      <p class="prose">If the “compound interest” effect on your method interests you, or you want to see how I capture my lessons — and how I keep them up to date — drop me a line. I document everything in public; that's the whole point.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Add me on LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20Compound%20Engineering%20—%20échange">Email me</a>
@@ -282,7 +300,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -344,7 +361,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="/knowledge-hub/search.js?v=20260601d" defer></script>
 <script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
 <script src="/knowledge-hub/theme.js?v=20260601d" defer></script>

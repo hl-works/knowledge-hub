@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>AI in practice, for a retailer or a small business — Guides · Hugo Lahutte</title>
-<meta name="description" content="What a retailer or a small business can really do with AI today, without a tech team. The use cases that pay off, seen from my own store.">
+<title>AI in practice, for a retailer or a small business (2026): use cases, three steps, where to start — Guides · Hugo Lahutte</title>
+<meta name="description" content="What a retailer or a small business can do with AI in 2026 without a tech team: product pages, emails, supplier price lists, invoices, competitor prices, market watch. Three tooling steps (write with Claude Chat, act under validation with Cowork and connectors, automate with an agent), what runs in my store, where to start, what it costs, the pitfalls.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/lia-pour-un-commercant.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/lia-pour-un-commercant.html">
@@ -16,13 +16,13 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI in practice, for a retailer or a small business">
-<meta property="og:description" content="The AI use cases that pay off quickly for a retailer, without a tech team — seen from my own store.">
+<meta property="og:description" content="The chores that pay off, three tooling steps without a tech team, what runs in my store, and where to start.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/lia-pour-un-commercant.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="article:author" content="Hugo Lahutte">
 <meta property="article:published_time" content="2026-05-31">
-<meta property="article:modified_time" content="2026-09-01">
+<meta property="article:modified_time" content="2026-09-02">
 
 <link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/en/llms.txt">
 
@@ -37,9 +37,9 @@
 <link rel="manifest" href="/knowledge-hub/site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260902a">
 
-<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<!-- ===== JSON-LD (GEO) ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,31 +47,90 @@
     {
       "@type": "TechArticle",
       "headline": "AI in practice, for a retailer or a small business",
-      "description": "What a retailer or a small business can really do with AI today, without a tech team: the use cases that pay off, seen from a real store.",
+      "description": "Use cases that pay off quickly for a retailer (product pages, SEO, emails, supplier price lists, invoices, competitor prices, market watch, action queue). Three tooling steps without a tech team: write (Claude Chat), act under validation (Cowork + Gmail, Drive, Shopify connectors), automate (agent, routine). What runs in production at Cobra. Where to start: one chore, read-only, written context, measurement. Cost and pitfalls.",
       "inLanguage": "en-US",
       "datePublished": "2026-05-31",
-      "dateModified": "2026-09-01",
+      "dateModified": "2026-09-02",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html",
-      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
-      "publisher": {"@type": "Organization", "name": "HL Consulting"},
-      "about": ["AI for retail", "small business", "e-commerce", "productivity", "product listings", "SEO"],
-      "keywords": "AI for retailers, AI for small business, e-commerce, concrete use cases, no tech team"
+      "author": {
+        "@type": "Person",
+        "@id": "https://hl-consulting.tech/#hugo",
+        "name": "Hugo Lahutte",
+        "url": "https://hl-consulting.tech/knowledge-hub/",
+        "email": "mailto:hugo@hl-consulting.tech"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HL Consulting"
+      },
+      "about": [
+        "retail",
+        "small business",
+        "automation",
+        "Cowork",
+        "connectors",
+        "AI agents"
+      ],
+      "keywords": "AI, retailer, small business, product pages, supplier price lists, invoices, competitor prices, Cowork, connectors, agent, human validation"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
-        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
-        {"@type": "ListItem", "position": 3, "name": "AI for a retailer", "item": "https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Knowledge Hub",
+          "item": "https://hl-consulting.tech/knowledge-hub/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI for a retailer",
+          "item": "https://hl-consulting.tech/knowledge-hub/guides/lia-pour-un-commercant.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "What can a retailer or a small business do with AI today?", "acceptedAnswer": {"@type": "Answer", "text": "AI goes after the recurring chores first: writing and standardizing product listings in bulk, SEO (metadata, content, structure), cross-referencing sales between the online store and the back-office tool, sorting and replying to emails, and automated monitoring of your market."}},
-        {"@type": "Question", "name": "Do you need a tech team to use AI in your business?", "acceptedAnswer": {"@type": "Answer", "text": "No. Without being a developer, you can ship automations that used to require an agency. The “you need to know how to code” barrier has largely fallen; what matters is knowing what to ask and how to verify."}},
-        {"@type": "Question", "name": "Where do you start?", "acceptedAnswer": {"@type": "Answer", "text": "With one specific, measurable, recurring chore. Prove the gain on that one, then expand. The “big bang” that tries to automate everything at once almost always fails."}},
-        {"@type": "Question", "name": "What are the pitfalls?", "acceptedAnswer": {"@type": "Answer", "text": "AI makes mistakes: check the numbers before using them. Keep humans on the customer relationship (AI prepares, it doesn't replace the personal contact). And don't over-automate what isn't broken."}}
+        {
+          "@type": "Question",
+          "name": "What can a retailer do with AI without a tech team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go after the recurring chores: write and standardize product pages and SEO, sort emails and prepare replies, read supplier price lists and prepare product updates, match invoices to purchase orders, track competitor prices, cross-reference sales, and automate a market watch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which tool should you start with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three steps: write with Claude Chat (one project per recurring topic); act under validation with Cowork and the connectors (Gmail, Drive, Shopify), where nothing goes out without a preview and a button; then automate a daily chore with an agent or a routine, read-only first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do you start, concretely?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One specific, measurable, recurring chore; the AI in read-only mode until it has produced ten correct proposals in a row; the context (catalog, tone, rules) written down once and for all; then measure the time saved before expanding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does AI cost for a retailer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A subscription of around twenty euros a month is enough to write and act under validation; an agent in production costs a few dozen euros a month in usage, far less than an hour of daily data entry."
+          }
+        }
       ]
     }
   ]
@@ -81,6 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- ===== NAV ===== -->
 <header class="nav">
   <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
   <nav aria-label="Main">
@@ -106,16 +166,22 @@
 
 <main id="main">
 
+<!-- ===== HERO ===== -->
 <section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › AI for a retailer</p>
-    <p class="kicker" style="margin-top:var(--space-3);">Guides · General</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · General → practice</p>
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">AI in practice, for a retailer or a small business</h1>
     <hr class="rule--accent">
-    <p class="lead">What a retailer or a small business can really do with AI today, <strong>without a tech team</strong>. The use cases that pay off, seen from my own store.</p>
+    <p class="lead">What a retailer or a small business can really do with AI in 2026, <strong>without a tech team</strong>: the use cases that pay off, the three tooling steps (write, act under validation, automate), what runs in my store, and where to start.</p>
     <div class="meta-bar">
-      <span>By <strong>Hugo Lahutte</strong></span><span>·</span>
-      <time datetime="2026-05-31">May 31, 2026</time><span>·</span><span>Updated <time datetime="2026-09-01">September 1, 2026</time></span><span>·</span><span>~5 min read</span>
+      <span>By <strong>Hugo Lahutte</strong></span>
+      <span>·</span>
+      <time datetime="2026-05-31">May 31, 2026</time>
+      <span>·</span>
+      <span>Updated <time datetime="2026-09-02">September 2, 2026</time></span>
+      <span>·</span>
+      <span>~8 min read</span>
     </div>
     <div class="tags" style="margin-top:var(--space-4);">
       <a class="tag" data-tag="ia" data-tagsearch="ia" href="/knowledge-hub/en/guides/">IA</a>
@@ -126,7 +192,7 @@
     <ul class="levels" aria-label="Reading levels">
       <li class="level-pill"><b>1</b> In 30 seconds</li>
       <li class="level-pill"><b>2</b> The body, visual</li>
-      <li class="level-pill"><b>3</b> Going further</li>
+      <li class="level-pill"><b>3</b> Go deeper</li>
     </ul>
   </div>
 </section>
@@ -137,9 +203,9 @@
     <aside class="callout callout--tldr prose" aria-label="30-second summary">
       <p class="kicker">In 30 seconds</p>
       <ul>
-        <li>No need to be a <em>tech company</em>: AI goes after the <strong>chores</strong> first (catalog, product listings, emails, reporting, SEO).</li>
-        <li>The gain isn't "replacing people" — it's doing <strong>in hours</strong> what used to take days, with the same headcount.</li>
-        <li>You start with <strong>one specific, recurring chore</strong>, not with "AI everywhere."</li>
+        <li>No need to be a <em>tech company</em>: AI goes after the <strong>chores</strong> first — product pages, emails, supplier price lists, invoices, competitor prices, reporting.</li>
+        <li>Three tooling steps in 2026: <strong>write</strong> (Claude Chat), <strong>act under validation</strong> inside your tools (Cowork + Gmail, Drive, Shopify connectors), <strong>automate</strong> a recurring chore (an agent, a routine).</li>
+        <li>You start with <strong>one specific, recurring chore</strong>, read-only first, and you measure. The “big bang” almost always fails.</li>
       </ul>
     </aside>
 
@@ -147,55 +213,77 @@
       <p class="kicker">Contents</p>
       <ul>
         <li><a href="#usages">1. The use cases that pay off quickly</a></li>
-        <li><a href="#sans-equipe">2. Why it's doable without a tech team</a></li>
-        <li><a href="#commencer">3. Where to start (honestly)</a></li>
-        <li><a href="#pieges">4. The pitfalls</a></li>
+        <li><a href="#marches">2. Three tooling steps, without a tech team</a></li>
+        <li><a href="#magasin">3. What runs in my store</a></li>
+        <li><a href="#commencer">4. Where to start (honestly)</a></li>
+        <li><a href="#cout">5. What it costs</a></li>
+        <li><a href="#pieges">6. The pitfalls</a></li>
       </ul>
     </nav>
 
     <div class="prose">
 
       <h2 id="usages">1. The use cases that pay off quickly</h2>
-      <p>Seen from my store, the first wins aren't spectacular — they're <strong>recurring</strong>:</p>
+      <p>Seen from my store, the first wins aren't spectacular — they're <strong>recurring</strong>. What pays off is the chore that comes back every week:</p>
       <ul>
-        <li>writing and standardizing <strong>product listings</strong> and descriptions in bulk;</li>
-        <li><strong>SEO</strong> (metadata, content, structure) without an agency;</li>
-        <li><strong>cross-referencing sales</strong> between the online store and the back-office tool to see clearly;</li>
-        <li><strong>sorting and replying to emails</strong>;</li>
-        <li>automated <strong>monitoring</strong> of your market.</li>
+        <li>writing and standardizing <strong>product pages</strong> in bulk, and the <strong>SEO</strong> that goes with them;</li>
+        <li><strong>sorting emails and preparing replies</strong>;</li>
+        <li>reading <strong>supplier price lists</strong> (PDF, email) and preparing product creations and updates;</li>
+        <li>matching <strong>supplier invoices</strong> to purchase orders;</li>
+        <li>tracking <strong>competitor prices</strong> and proposing alignments;</li>
+        <li><strong>cross-referencing sales</strong> between the online store and the back-office tool, and an automatic <strong>market watch</strong>.</li>
       </ul>
 
       <figure class="diagram">
-        <div class="matrix" role="img" aria-label="Effort / impact matrix: product listings are the best starting point (high impact, moderate effort); SEO and cross-referencing sales are high impact; email sorting and market monitoring are quick wins at low effort.">
+        <div class="matrix" role="img" aria-label="Effort / impact matrix: product pages and email sorting are the best starting points; supplier price lists, invoices, and competitor prices have a high impact for a medium effort; the action queue takes the most effort.">
           <span class="matrix__axis matrix__axis--y">Impact ↑</span>
           <span class="matrix__axis matrix__axis--x">Effort →</span>
-          <span class="matrix__item matrix__item--star" style="left:27%; top:24%;">Product listings</span>
-          <span class="matrix__item" style="left:51%; top:33%;">SEO</span>
-          <span class="matrix__item" style="left:74%; top:29%;">Cross-referencing sales</span>
-          <span class="matrix__item" style="left:25%; top:61%;">Email sorting</span>
-          <span class="matrix__item" style="left:47%; top:67%;">Market monitoring</span>
+          <span class="matrix__item matrix__item--star" style="left:22%; top:24%;">Product pages + SEO</span>
+          <span class="matrix__item" style="left:54%; top:14%;">Supplier price lists</span>
+          <span class="matrix__item" style="left:74%; top:32%;">Competitor prices</span>
+          <span class="matrix__item" style="left:50%; top:46%;">Invoices</span>
+          <span class="matrix__item" style="left:20%; top:62%;">Email sorting</span>
+          <span class="matrix__item" style="left:44%; top:72%;">Market watch</span>
+          <span class="matrix__item" style="left:78%; top:58%;">Action queue</span>
         </div>
-        <figcaption class="caption">Where to start: top left (high impact, little effort). Product listings are often the best first project.</figcaption>
+        <figcaption class="caption">Where to start: top left (high impact, little effort). Product pages are still the best first project; the purchasing chores are the next step up.</figcaption>
       </figure>
 
-      <h2 id="sans-equipe">2. Why it's doable without a tech team</h2>
-      <p>I'm not a developer — my job is strategy, marketing, purchasing. And yet, with Claude, I've shipped automations that used to require an agency. The "you need to know how to code" barrier has largely fallen. What matters is knowing <strong>what to ask and how to verify</strong>.</p>
+      <h2 id="marches">2. Three tooling steps, without a tech team</h2>
+      <p>I'm not a developer — my job is strategy, marketing, purchasing. The “you need to know how to code” barrier has largely fallen; what matters is knowing <strong>what to ask and how to verify</strong>. In 2026, it happens in three steps, and the first two require nothing more than a subscription:</p>
 
-      <h2 id="commencer">3. Where to start (honestly)</h2>
-      <p>One <strong>specific, measurable, recurring chore</strong>. You prove the gain on that one, then you expand. The "big bang" that tries to automate everything at once almost always fails.</p>
+      <figure class="diagram">
+        <div class="stairs" role="img" aria-label="Three steps: write with Claude Chat, act under validation with Cowork and the connectors, automate a chore with an agent or a routine.">
+          <div class="stairs__step"><b>Write</b><span>Claude Chat: product pages, emails, analysis of a pasted spreadsheet. One project per recurring topic.</span></div>
+          <div class="stairs__step"><b>Act under validation</b><span>Cowork + connectors: the AI reads Gmail, Drive, the store; prepares; you validate before anything is sent or changed.</span></div>
+          <div class="stairs__step"><b>Automate</b><span>An agent or a routine for a recurring chore: market watch, price lists, invoices. Read-only first.</span></div>
+        </div>
+        <div class="stairs__axes"><span>← day one</span><span>a few weeks ↑</span></div>
+        <figcaption class="caption">Each step proves itself before you climb the next one. Most retailers already gain a lot on the first two.</figcaption>
+      </figure>
 
-      <h2 id="pieges">4. The pitfalls</h2>
       <ul>
-        <li>AI <strong>makes mistakes</strong>: check the numbers before using them.</li>
-        <li>Keep <strong>humans on the customer relationship</strong> — AI prepares, it doesn't replace the personal contact.</li>
-        <li>Don't <strong>over-automate</strong> what isn't broken.</li>
+        <li><strong>Step 1 — write.</strong> Claude Chat, with one project per topic (tone, catalog, house rules). You paste a sales spreadsheet, it tells you what's going on; you give it ten product pages, it standardizes a hundred.</li>
+        <li><strong>Step 2 — act under validation.</strong> <a href="chat-cowork-code-terminal.html">Cowork</a> works on your computer and inside your tools through <a href="cest-quoi-mcp-connecter-claude.html">connectors</a>: Gmail, Drive, Shopify, the accounting software. It sorts, prepares replies, fills in product pages — and <strong>nothing goes out without a preview and a button</strong>. It's the step that has changed the most since the spring, and the one worth the most to a retailer.</li>
+        <li><strong>Step 3 — automate.</strong> A chore that comes back every day deserves an <a href="cest-quoi-un-agent-ia.html">agent</a> or a <a href="cest-quoi-une-loop.html">routine</a>: it runs without you, reports the result back to you, and asks you before writing anything.</li>
+      </ul>
+
+      <h2 id="magasin">3. What runs in my store</h2>
+      <p>At Cobra, in production, without a tech team — built with Claude and, for the last building block, with ChatGPT and Codex:</p>
+      <ul>
+        <li><strong>Supplier price lists.</strong> An app reads the price lists (PDF or email), finds the matching products, detects duplicates, and prepares the creation or the update — human validation before any write. → <a href="../journal/app-tarifs-fournisseurs-maj-produits.html">An app that reads supplier price lists for me</a></li>
+        <li><strong>Supplier invoices.</strong> An agent reads the emails, extracts each invoice, attaches it to the right purchase order, and pushes it into Teams for validation. → <a href="etude-de-cas-agent-facturation.html">The case study</a></li>
+        <li><strong>Prices against the competition.</strong> A rules engine recalculates target prices with every delivery of competitor prices, never at a loss, in observation mode first and then live, product family by product family. → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">Automatic alignment</a></li>
+        <li><strong>Product pages.</strong> An agent prepares product creations from supplier data, to be validated in batches. → <a href="../journal/agent-creation-produits.html">The product creation agent</a></li>
+        <li><strong>AI Watch.</strong> A bot reads dozens of sources every day and publishes a summary on Telegram. → <a href="etude-de-cas-veille-ia.html">The AI Watch bot</a></li>
+        <li><strong>Decisions.</strong> Rather than one more dashboard, an action queue that brings together sales, acquisition, visibility, email, and social, and says what to handle today, with the evidence. → <a href="../journal/growth-centre-actions.html">Growth</a></li>
       </ul>
 
       <figure class="diagram">
-        <div class="compare" role="img" aria-label="Before: 175 product listings done by hand, over several days. After: the same listings with AI assistance, in a few hours.">
+        <div class="compare" role="img" aria-label="Before: 175 product pages done by hand, over several days. After: the same pages with AI assistance, in a few hours.">
           <div class="compare__side">
             <span class="compare__tag">Before</span>
-            <h4>175 listings by hand</h4>
+            <h4>175 product pages by hand</h4>
             <ul>
               <li>One by one</li>
               <li>Inconsistent tone</li>
@@ -213,41 +301,48 @@
             </ul>
           </div>
         </div>
-        <figcaption class="caption">That's the gain: not "zero humans," but days becoming hours — with you on the review and the decision.</figcaption>
+        <figcaption class="caption">That's the gain: not “zero humans,” but days becoming hours — with you on the review and the decision.</figcaption>
       </figure>
 
-      <aside class="callout" style="border-left:3px solid var(--c-gold);margin-top:var(--space-12);">
-        <p class="kicker" style="color:var(--c-gold);">Update · September 1, 2026</p>
-        <h3 style="margin-top:var(--space-2);">What has changed for a retailer since the spring</h3>
-                <p style="margin-top:var(--space-3);">The use cases above are still the right starting point. Three more steps up, taken at my place between June and September 2026 — all without a tech team:</p>
-        <ul style="margin-top:var(--space-3);">
-          <li><strong>Purchasing chores.</strong> An app reads supplier price lists (PDF or email), finds the matching products, detects duplicates, and prepares the creation or the update — human validation before any write. An agent processes supplier invoices and attaches them to the right purchase order. → <a href="../journal/app-tarifs-fournisseurs-maj-produits.html">price lists</a> · <a href="../journal/agent-factures-prod-scaleway.html">invoices</a></li>
-          <li><strong>Prices against the competition.</strong> A rules engine recalculates target prices with every delivery of competitor prices, never at a loss, in observation mode first and then live, product family by product family. Hundreds of SKUs aligned automatically. → <a href="../journal/suivi-prix-alignement-concurrentiel-auto.html">automatic alignment</a></li>
-          <li><strong>Decisions.</strong> Rather than one more dashboard, an action queue that brings together sales, acquisition, visibility, email, and social, and tells you what to handle today, with the evidence. → <a href="../journal/growth-centre-actions.html">Growth</a></li>
-        </ul>
-        <p style="margin-top:var(--space-3);">And two tools that lower the step even further: <a href="chat-cowork-code-terminal.html">Cowork</a>, which carries out office work without a terminal, and the Shopify, Gmail, and Drive <a href="cest-quoi-mcp-connecter-claude.html">connectors</a>, which let the AI read — and act under validation — inside the tools you already have.</p>
-      </aside>
+      <h2 id="commencer">4. Where to start (honestly)</h2>
+      <ol>
+        <li><strong>One specific, measurable, recurring chore.</strong> Not “AI everywhere”: product pages, or sorting the morning emails.</li>
+        <li><strong>Read-only first.</strong> The AI looks, proposes, prepares. It changes nothing until you've seen ten correct proposals in a row.</li>
+        <li><strong>Write down what it needs to know</strong> — your catalog, your tone, your rules — in a project or a file, once and for all. That's the <a href="cest-quoi-le-contexte.html">context</a>, and it's 80% of the result.</li>
+        <li><strong>Measure</strong>: the time saved on the chore, the mistakes avoided. Only then, expand.</li>
+      </ol>
 
+      <h2 id="cout">5. What it costs</h2>
+      <p>For the first two steps, a subscription of around twenty euros a month is enough; the higher tiers are for when you run agents all day long. An agent in production costs a few dozen euros a month in usage — far less than an hour of data entry a day. The details, with dated benchmarks, in <a href="combien-coute-lia.html">How much does AI cost</a>.</p>
+
+      <h2 id="pieges">6. The pitfalls</h2>
+      <ul>
+        <li>AI <strong>makes mistakes</strong>: check the numbers before using them, especially the ones it read in a document.</li>
+        <li>Keep <strong>humans on the customer relationship</strong> — the AI prepares, it doesn't replace the contact or the advice.</li>
+        <li><strong>A connector means access.</strong> Give the AI the permissions of the person talking to it, not the administrator's, and keep writes behind a validation. → <a href="mes-donnees-sont-elles-en-securite.html">Is my data safe with AI?</a></li>
+        <li>Don't <strong>over-automate</strong> what isn't broken, and don't launch a second agent before you've proven the first.</li>
+      </ul>
 
       <aside class="callout" style="margin-top:var(--space-16);">
         <p class="kicker">Going further</p>
         <ul style="margin-top:var(--space-3);">
           <li>→ <a href="pourquoi-lia-change-le-travail.html"><strong>Why AI really changes the way we work</strong></a> — the big picture.</li>
-          <li>→ <a href="cest-quoi-un-agent-ia.html"><strong>What is an AI agent</strong></a> — to automate a recurring chore.</li>
+          <li>→ <a href="chat-cowork-code-terminal.html"><strong>Chat, Cowork, or Code</strong></a> — which tool for which step.</li>
+          <li>→ <a href="lia-propose-lhumain-valide.html"><strong>AI proposes, the human validates</strong></a> — the rule that makes all of this safe.</li>
         </ul>
-        <p style="margin-top:var(--space-4);"><strong>Real cases.</strong> Audit of 803 products → <a href="../journal/audit-shopify-odoo-803.html">Shopify/Odoo 803 products</a> · sales analysis → <a href="../journal/dynaudio-analyse-ventes.html">Dynaudio</a> · bulk pricing → <a href="../journal/sony-bravia-prix-marge.html">Sony Bravia</a>.</p>
+        <p style="margin-top:var(--space-4);"><strong>Real-world cases.</strong> Audit of 803 products → <a href="../journal/audit-shopify-odoo-803.html">Shopify/Odoo 803 products</a> · sales analysis → <a href="../journal/dynaudio-analyse-ventes.html">Dynaudio</a> · bulk pricing → <a href="../journal/sony-bravia-prix-marge.html">Sony Bravia</a>.</p>
       </aside>
 
     </div>
   </div>
 </article>
-
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
       <h2>Got a chore in mind?</h2>
-      <p class="prose">If there's a recurring task eating up your time in the store or online, let's talk about it — we'll figure out where to start. I document everything in public, with nothing to sell.</p>
+      <p class="prose">If there's a recurring task eating up your time in the store or online, let's talk about it — we'll figure out which step to start on. I document everything in public, with nothing to sell.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Add me on LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Guides%20IA%20commerçant%20—%20échange">Email me</a>
@@ -255,7 +350,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <script type="application/ld+json">
@@ -317,7 +411,6 @@
     <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
   </div>
 </footer>
-
 <script src="/knowledge-hub/search.js?v=20260601d" defer></script>
 <script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
 <script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
