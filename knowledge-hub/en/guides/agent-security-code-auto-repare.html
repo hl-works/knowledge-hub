@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Security — building a multi-GitHub security cockpit — Guides · Hugo Lahutte</title>
+<meta name="description" content="Agent Security case study: open source audits, minimal permissions, red-green cockpit, multi-model validation, and PR-controlled fixes.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent Security — a multi-GitHub security cockpit">
+<meta property="og:description" content="How to monitor multiple repositories, prioritize risks, and prepare fixes without handing the keys to an AI.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-09-04">
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Agent Security — building a multi-GitHub security cockpit",
+      "description": "Case study of a cross-cutting security agent built on open source scanners, minimal permissions, and PR-controlled fixes.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-09-04",
+      "dateModified": "2026-09-04",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html",
+      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "about": ["cybersecurity", "GitHub", "AI agents", "DevSecOps", "OpenRouter", "self-healing codebase"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Agent Security", "item": "https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../veille-ia/">AI Watch</a></li><li><a href="../#projets">Projects</a></li><li><a href="../journal/">Journal</a></li><li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/en/guides/agent-security-code-auto-repare.html" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions"><button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button><button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div>
+  </nav>
+</header>
+<main id="main">
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Agent Security</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Case study · Enhanced security</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">An agent that monitors<br>the agents that code</h1>
+    <hr class="rule--accent">
+    <p class="lead">Generating alerts is easy. Building a system that knows which ones actually matter, keeps access under control, and prepares a verifiable fix — that's the interesting part.</p>
+    <div class="meta-bar"><span>By <strong>Hugo Lahutte</strong></span><span>·</span><time datetime="2026-09-04">September 4, 2026</time><span>·</span><span>~7 min read</span></div>
+  </div>
+</section>
+<article class="article" style="padding-top:0;"><div class="container">
+  <aside class="callout callout--tldr prose" aria-label="In 30 seconds"><p class="kicker">In 30 seconds</p><p><strong>Agent Security</strong> is a private control plane that audits multiple GitHub repositories using four open source scanners. It turns their results into a readable posture, remembers past findings, asks several AI models for input when a case is uncertain, and prepares fixes in separate PRs. <strong>The AI advises; technical evidence decides.</strong></p></aside>
+  <nav class="toc prose" aria-label="Contents"><p class="kicker">Contents</p><ul><li><a href="#probleme">1. The problem</a></li><li><a href="#capacites">2. What's working today</a></li><li><a href="#protection">3. The protections</a></li><li><a href="#inspirations">4. The inspirations</a></li><li><a href="#correction">5. The fix loop</a></li><li><a href="#limites">6. Acknowledged limits</a></li></ul></nav>
+  <div class="prose">
+    <h2 id="probleme">1. The problem: too many alerts, not enough attention</h2>
+    <p>A scanner can easily produce hundreds of lines. That doesn't mean each one deserves an interruption. The real product has to answer three questions: <strong>is this real, does it matter right now, and can we fix it without breaking something else?</strong></p>
+    <p>Agent Security was designed as a cross-cutting cockpit — a place independent of the applications it monitors, capable of covering multiple GitHub accounts and organizations without needing unlimited access.</p>
+
+    <h2 id="capacites">2. What's working today</h2>
+    <ul>
+      <li><strong>Four deterministic engines:</strong> Gitleaks for secrets, OSV-Scanner for dependencies, Trivy for vulnerabilities and configurations, Semgrep Community for dangerous patterns.</li>
+      <li><strong>Four scan depths:</strong> targeted PR checks, lightweight weekly audits, monthly deep scans, and quarterly adversarial reviews.</li>
+      <li><strong>Multi-GitHub:</strong> each account or organization is a distinct trust domain, with its own installation and an explicit list of repositories.</li>
+      <li><strong>Memory:</strong> each finding gets a stable fingerprint; the system knows whether it's new, recurring, resolved, or reopened.</li>
+      <li><strong>Explainable priority:</strong> severity, repository criticality, scanner confidence, sensitive area, and recurrence all feed into the score.</li>
+      <li><strong>Cockpit in HL-OS:</strong> global score, per-project dial, date, link to evidence, fix status, and a red → green readout.</li>
+      <li><strong>Controlled AI:</strong> OpenRouter analyzes only minimized metadata under Zero Data Retention. A second — and if needed, a third — model from a different family validates uncertain cases.</li>
+    </ul>
+    <aside class="callout"><p><strong>Fail closed:</strong> if a scanner crashes, the repository is never marked clean. A missing result is a state to investigate, not a green light.</p></aside>
+
+    <h2 id="protection">3. The protections don't rely on the AI's goodwill</h2>
+    <ul>
+      <li><strong>Minimal permissions:</strong> the audit agent reads metadata, content, PRs, and Actions — nothing more.</li>
+      <li><strong>Explicit allowlist:</strong> no automatic enrollment of all private repositories.</li>
+      <li><strong>Isolated credentials:</strong> compromising one GitHub domain must not open up the others.</li>
+      <li><strong>Secrets out of the code:</strong> keys and credentials live in GitHub Secrets, never in the repository.</li>
+      <li><strong>Reproducible chain:</strong> sensitive Actions are pinned to immutable SHAs; tools are verified and updated via PR.</li>
+      <li><strong>Deterministic verdict:</strong> no model can single-handedly flip a HIGH or CRITICAL finding to "OK."</li>
+    </ul>
+
+    <h2 id="inspirations">4. What we borrowed — and what we did differently</h2>
+    <p><strong>Blume</strong> inspired the experience: an immediately readable global posture, a per-project dial, and a before/after history. The goal isn't to replicate its product — which focuses on agent observability — but to apply that same clarity to repository security.</p>
+    <p><strong>Detail.dev</strong> inspired the product logic: finding bugs is easy, picking the ones that matter is hard. That's where finding memory, contextual priority, and — eventually — learning from accepted or rejected fixes come in.</p>
+    <p>Agent Security's structural differentiator comes down to its <strong>trust boundaries</strong>: reproducible open source scanners, isolated access, verdicts that are independent of LLMs, and a separate fix agent.</p>
+
+    <h2 id="correction">5. Spotting a vulnerability isn't enough — you need a fix loop</h2>
+    <p>The first agent observes. <strong>Agent Security Fix</strong>, installed separately, prepares a plan or a draft PR. The main branch is never modified directly. The fix has to bring its own evidence: tests, a new scan, and a limited diff.</p>
+    <p>When a fix is ambiguous, multiple models from different families review it. If they disagree, the system keeps the most cautious risk assessment and asks for more evidence. The long-term goal is to allow auto-merge only for low-risk, reversible, fully validated changes.</p>
+
+    <h2 id="limites">6. What isn't presented as done yet</h2>
+    <ul>
+      <li>Automated remediation doesn't cover all finding families yet.</li>
+      <li>Secrets, authentication, payments, permissions, infrastructure, and migrations remain off-limits for auto-merge.</li>
+      <li>Adversarial analysis still needs to be enriched with dynamic tests: authorization checks, webhook replay, SSRF, path traversal, and fuzzing.</li>
+      <li>Learning from fix turnaround times and team decisions is a product direction — not a capability being announced as ready.</li>
+    </ul>
+    <aside class="callout" style="margin-top:var(--space-12);"><p class="kicker">The guiding principle</p><p><strong>Automate attention before you automate power.</strong> The agent can search, rank, cross-check, and prepare. It earns the right to act on its own only as the evidence becomes sufficient.</p></aside>
+  </div>
+</div></article>
+<section id="contact"><div class="container"><div class="cta-band"><p class="kicker" style="color:var(--c-gold);">Let's talk</p><h2>Building with agents?</h2><p class="prose">I document how to make them more autonomous without giving them unchecked power.</p><div class="btn-row" style="justify-content:center;"><a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a><a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Agent%20Security%20—%20échange">Send me an email</a></div></div></div></section>
+</main>
+<footer class="footer"><div class="container footer__inner"><span>© 2026 Hugo Lahutte</span><nav aria-label="Footer"><a href="../">Knowledge Hub</a><a href="../mentions-legales.html">Legal notice</a></nav></div></footer>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script><script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+</body>
+</html>
