@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Security — construire un cockpit de sécurité multi-GitHub — Guides · Hugo Lahutte</title>
+<meta name="description" content="Étude de cas d’Agent Security : audits open source, permissions minimales, cockpit rouge-vert, validation multi-modèle et corrections contrôlées par PR.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent Security — un cockpit de sécurité multi-GitHub">
+<meta property="og:description" content="Comment surveiller plusieurs dépôts, hiérarchiser les risques et préparer des corrections sans donner les clés du système à une IA.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-09-04">
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../style.css?v=20260622a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Agent Security — construire un cockpit de sécurité multi-GitHub",
+      "description": "Étude de cas d’un agent de sécurité transverse fondé sur des scanners open source, des permissions minimales et une correction contrôlée par PR.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-04",
+      "dateModified": "2026-09-04",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html",
+      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "about": ["cybersécurité", "GitHub", "agents IA", "DevSecOps", "OpenRouter", "self-healing codebase"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Agent Security", "item": "https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li><li><a href="./" aria-current="page">Guides</a></li><li><a href="../veille-ia/">Veille IA</a></li><li><a href="../#projets">Projets</a></li><li><a href="../journal/">Journal</a></li><li><a href="../#contact">Échanger</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/en/guides/agent-security-code-auto-repare.html" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions"><button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button><button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div>
+  </nav>
+</header>
+<main id="main">
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Accueil</a> › <a href="./">Guides</a> › Agent Security</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Étude de cas · Sécurité augmentée</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Un agent qui surveille<br>les agents qui codent</h1>
+    <hr class="rule--accent">
+    <p class="lead">Trouver des alertes est facile. Construire un système qui sait lesquelles comptent, garde les accès sous contrôle et prépare une correction vérifiable est beaucoup plus intéressant.</p>
+    <div class="meta-bar"><span>Par <strong>Hugo Lahutte</strong></span><span>·</span><time datetime="2026-09-04">4 septembre 2026</time><span>·</span><span>~7 min de lecture</span></div>
+  </div>
+</section>
+<article class="article" style="padding-top:0;"><div class="container">
+  <aside class="callout callout--tldr prose" aria-label="En 30 secondes"><p class="kicker">En 30 secondes</p><p><strong>Agent Security</strong> est un control plane privé qui audite plusieurs dépôts GitHub avec quatre scanners open source. Il transforme leurs résultats en une posture lisible, mémorise les problèmes, demande plusieurs avis IA quand le cas est incertain et prépare les corrections dans des PR séparées. <strong>L’IA conseille ; les preuves techniques décident.</strong></p></aside>
+  <nav class="toc prose" aria-label="Sommaire"><p class="kicker">Sommaire</p><ul><li><a href="#probleme">1. Le problème</a></li><li><a href="#capacites">2. Ce qui fonctionne aujourd’hui</a></li><li><a href="#protection">3. Les protections</a></li><li><a href="#inspirations">4. Les inspirations</a></li><li><a href="#correction">5. La correction</a></li><li><a href="#limites">6. Les limites assumées</a></li></ul></nav>
+  <div class="prose">
+    <h2 id="probleme">1. Le problème : beaucoup d’alertes, peu d’attention</h2>
+    <p>Un scanner sait produire des centaines de lignes. Cela ne veut pas dire que chacune mérite une interruption. Le vrai produit doit répondre à trois questions : <strong>est-ce réel, est-ce important maintenant, et peut-on le corriger sans casser autre chose ?</strong></p>
+    <p>Agent Security a donc été conçu comme un cockpit transversal : un endroit indépendant des applications surveillées, capable de couvrir plusieurs comptes et organisations GitHub sans disposer d’un accès illimité.</p>
+
+    <h2 id="capacites">2. Ce qui fonctionne aujourd’hui</h2>
+    <ul>
+      <li><strong>Quatre moteurs déterministes :</strong> Gitleaks pour les secrets, OSV-Scanner pour les dépendances, Trivy pour les vulnérabilités et configurations, Semgrep Community pour les motifs dangereux.</li>
+      <li><strong>Quatre profondeurs :</strong> contrôle ciblé des PR, audit light hebdomadaire, deep mensuel et adversarial trimestriel.</li>
+      <li><strong>Multi-GitHub :</strong> chaque compte ou organisation est un domaine de confiance distinct, avec sa propre installation et une liste explicite de dépôts.</li>
+      <li><strong>Mémoire :</strong> chaque finding reçoit une empreinte stable ; le système sait s’il est nouveau, récurrent, résolu ou rouvert.</li>
+      <li><strong>Priorité explicable :</strong> sévérité, criticité du dépôt, confiance du scanner, zone sensible et récidive alimentent le score.</li>
+      <li><strong>Cockpit dans HL-OS :</strong> score global, cadran par projet, date, lien vers les preuves, état des corrections et lecture rouge → vert.</li>
+      <li><strong>IA maîtrisée :</strong> OpenRouter analyse uniquement des métadonnées minimisées en Zero Data Retention. Un second, puis si besoin un troisième modèle d’une autre famille valide les cas incertains.</li>
+    </ul>
+    <aside class="callout"><p><strong>Fail closed :</strong> si un scanner plante, le dépôt n’est jamais déclaré propre. Une absence de résultat est un état à vérifier, pas un feu vert.</p></aside>
+
+    <h2 id="protection">3. Les protections ne reposent pas sur la bonne volonté de l’IA</h2>
+    <ul>
+      <li><strong>Permissions minimales :</strong> l’agent d’audit lit les métadonnées, le contenu, les PR et les Actions — rien de plus.</li>
+      <li><strong>Allowlist explicite :</strong> aucun enrôlement automatique de tous les dépôts privés.</li>
+      <li><strong>Identifiants isolés :</strong> compromettre un domaine GitHub ne doit pas ouvrir les autres.</li>
+      <li><strong>Secrets hors du code :</strong> clés et identifiants restent dans les secrets GitHub, jamais dans le dépôt.</li>
+      <li><strong>Chaîne reproductible :</strong> Actions sensibles fixées sur des SHA immuables ; outils vérifiés et mises à jour par PR.</li>
+      <li><strong>Verdict déterministe :</strong> aucun modèle ne peut transformer seul un finding HIGH ou CRITICAL en « OK ».</li>
+    </ul>
+
+    <h2 id="inspirations">4. Ce qu’on a repris — et ce qu’on a fait autrement</h2>
+    <p><strong>Blume</strong> a inspiré l’expérience : une posture globale immédiatement lisible, un cadran par projet, l’historique et la trajectoire avant/après correction. L’objectif n’est pas de reproduire son produit, centré sur l’observation des agents, mais d’appliquer sa clarté à la sécurité des dépôts.</p>
+    <p><strong>Detail.dev</strong> a inspiré la logique produit : trouver des bugs est facile, sélectionner ceux qui comptent est difficile. D’où la mémoire des findings, la priorité contextuelle et, à terme, l’apprentissage à partir des corrections acceptées ou refusées.</p>
+    <p>La différence structurante d’Agent Security tient à ses <strong>frontières de confiance</strong> : scanners open source reproductibles, accès cloisonnés, verdict indépendant des LLM et agent de correction séparé.</p>
+
+    <h2 id="correction">5. Voir une faille ne suffit pas : il faut une boucle de correction</h2>
+    <p>Le premier agent observe. <strong>Agent Security Fix</strong>, installé séparément, prépare un plan ou une PR brouillon. La branche principale n’est pas modifiée directement. La correction doit apporter ses preuves : tests, nouveau scan et diff limité.</p>
+    <p>Lorsqu’une correction est ambiguë, plusieurs modèles de familles différentes la relisent. En cas de désaccord, le système conserve le risque le plus prudent et demande davantage de preuves. L’objectif futur est d’autoriser l’auto-merge uniquement pour des changements faibles en risque, réversibles et entièrement validés.</p>
+
+    <h2 id="limites">6. Ce qui n’est pas présenté comme terminé</h2>
+    <ul>
+      <li>La remédiation automatique ne couvre pas encore toutes les familles de findings.</li>
+      <li>Les secrets, l’authentification, les paiements, les permissions, l’infrastructure et les migrations restent hors auto-merge.</li>
+      <li>L’analyse adversariale doit encore être enrichie par des tests dynamiques : autorisations, rejeu de webhooks, SSRF, traversée de chemins et fuzzing.</li>
+      <li>L’apprentissage à partir du délai de correction et des décisions d’équipe est une direction produit, pas une capacité annoncée comme acquise.</li>
+    </ul>
+    <aside class="callout" style="margin-top:var(--space-12);"><p class="kicker">La ligne directrice</p><p><strong>Automatiser l’attention avant d’automatiser le pouvoir.</strong> L’agent peut chercher, classer, confronter et préparer. Il ne gagne le droit d’agir seul qu’à mesure que les preuves deviennent suffisantes.</p></aside>
+  </div>
+</div></article>
+<section id="contact"><div class="container"><div class="cta-band"><p class="kicker" style="color:var(--c-gold);">Échangeons</p><h2>Tu construis avec des agents ?</h2><p class="prose">Je documente comment les rendre plus autonomes sans leur donner un pouvoir aveugle.</p><div class="btn-row" style="justify-content:center;"><a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M’ajouter sur LinkedIn</a><a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Agent%20Security%20—%20échange">M’écrire</a></div></div></div></section>
+</main>
+<footer class="footer"><div class="container footer__inner"><span>© 2026 Hugo Lahutte</span><nav aria-label="Pied de page"><a href="../">Knowledge Hub</a><a href="../mentions-legales.html">Mentions légales</a></nav></div></footer>
+<script src="../theme.js?v=20260601d" defer></script><script src="../search.js?v=20260601d" defer></script>
+</body>
+</html>

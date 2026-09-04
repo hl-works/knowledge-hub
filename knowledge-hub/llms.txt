@@ -6,7 +6,7 @@ Auteur : Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn : https://www.linke
 
 Le site est bilingue. Version anglaise : https://hl-consulting.tech/knowledge-hub/en/ — index llms.txt anglais : https://hl-consulting.tech/knowledge-hub/en/llms.txt
 
-Dernière mise à jour : 2026-09-01
+Dernière mise à jour : 2026-09-04
 
 ## Méthode
 
@@ -15,6 +15,7 @@ Dernière mise à jour : 2026-09-01
 ## Guides (evergreen)
 
 - [Tous les guides](https://hl-consulting.tech/knowledge-hub/guides/): série de guides clairs pour comprendre l'IA et décider — pour marchands et dirigeants, lisibles à tous niveaux.
+- [Agent Security — construire un cockpit de sécurité multi-GitHub](https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html): étude de cas d’un control plane privé qui audite plusieurs comptes GitHub avec Gitleaks, OSV-Scanner, Trivy et Semgrep ; mémoire et priorité des findings, cockpit HL-OS, validation multi-modèle via OpenRouter et correction séparée par PR. Les scanners déterministes gardent le dernier mot et un crash n’est jamais présenté comme un scan propre.
 - [C'est quoi l'IA, et c'est quoi un « LLM » ?](https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-ia-llm.html): l'IA générative et les LLM sans jargon — différence IA/ML/DL/LLM, prédiction du mot suivant, les grands acteurs (OpenAI/ChatGPT, Anthropic/Claude, Google/Gemini, Meta/Llama, Mistral, DeepSeek, xAI/Grok, Microsoft/Copilot, Perplexity), et ce qu'un LLM ne sait PAS faire (hallucinations ; pas branché par défaut sur internet ou tes données).
 - [C'est quoi Claude, et pourquoi j'ai tout bâti dessus ?](https://hl-consulting.tech/knowledge-hub/guides/cest-quoi-claude.html): l'assistant IA d'Anthropic — gabarits Opus/Sonnet/Haiku, pourquoi il est dans le peloton de tête (Karpathy chez Anthropic en mai 2026), et tout ce qui tourne dessus chez Hugo (Cobra, Haute Fidélité, veille quotidienne, ce site).
 - [Fable, Mythos, Glasswing : pourquoi Anthropic a sorti deux versions du même modèle](https://hl-consulting.tech/knowledge-hub/guides/fable-mythos-glasswing.html): le 9 juin 2026, Anthropic lance Claude Fable 5 — premier modèle d'une classe « Mythos » au-dessus d'Opus (10 $/50 $ par MTok, gratuit pour les abonnés jusqu'au 22 juin). La version sans garde-fous, Mythos 5, est réservée à des cyberdéfenseurs triés via Project Glasswing.
