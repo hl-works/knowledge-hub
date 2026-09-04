@@ -6,7 +6,7 @@
 
 <!-- ===== SEO ===== -->
 <title>Hugo Lahutte — Knowledge Hub: how I build with Claude</title>
-<meta name="description" content="Hugo Lahutte's build log and method: how I use Claude (CLAUDE.md, Compound Engineering, Claude Code) to drive my e-commerce and dev projects. Build in public.">
+<meta name="description" content="Hugo Lahutte's logbook and method: how I use Claude (CLAUDE.md, Compound Engineering, Claude Code) to drive my e-commerce and dev projects. Build in public.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/">
@@ -17,7 +17,7 @@
 <!-- Open Graph / réseaux -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hugo Lahutte — Knowledge Hub">
-<meta property="og:description" content="How I build with Claude: method, projects, build log. Build in public.">
+<meta property="og:description" content="How I build with Claude: method, projects, logbook. Build in public.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -128,7 +128,7 @@
     <p class="kicker">Build in public · Method &amp; logbook</p>
     <h1>I build<br>with Claude.</h1>
     <hr class="rule--accent">
-    <p class="lead">More and more people ask me how I work with AI. Instead of repeating myself, I document everything here: my method, my config files, my projects, and the details of what I'm building — session by session.</p>
+    <p class="lead">More and more people ask me how I work with AI. Rather than repeating myself, I document everything here: my method, my config files, my projects, and the details of what I build — session by session.</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="how-to/">Start with the method →</a>
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
@@ -141,45 +141,46 @@
   </div>
 </section>
 
-<!-- ===== MÉTHODE (How-To) — mise en avant ===== -->
+<!-- ===== NOUVEAU — actualité du moment (à rafraîchir à chaque grosse nouveauté) ===== -->
 <section id="nouveau" style="padding-block:0;">
   <div class="container">
     <aside class="callout" style="margin-block:0;border-left:3px solid var(--c-red);">
       <p class="kicker">New · September 2026</p>
       <div class="two-col" style="margin-top:var(--space-3);align-items:center;">
         <div>
-          <p style="font-size:1.15rem;font-weight:700;line-height:1.3;margin:0;">Loose ideas at the end of the week. A Growth Hub running in production by Tuesday.</p>
-          <p style="margin-top:var(--space-2);">There was no specification. Just an intuition: stop stacking dashboards and build a tool that says <strong>what to do next</strong>, with the right evidence. I worked with <strong>ChatGPT and Codex over the weekend</strong>. By Tuesday, Growth was already running in production.</p>
-          <p style="margin-top:var(--space-2);">What started as an app produced much more: several repositories and components created or restructured, a reliable Data and BigQuery platform, a deployed application with tests and guardrails, and an <strong>agentic core ready to be instantiated for other projects</strong>. Not a mock-up: a system connected to real sources, designed to recommend and then measure actions.</p>
+          <p style="font-size:1.15rem;font-weight:700;line-height:1.3;margin:0;">Ideas tossed around on a Friday. A Growth Hub in production by Tuesday.</p>
+          <p style="margin-top:var(--space-2);">There was no spec. Just an intuition: stop stacking dashboards and build a tool that says <strong>what to do right now</strong>, backed by real evidence. I worked with <strong>ChatGPT and Codex over the weekend</strong>. By Tuesday, Growth was already running in production.</p>
+          <p style="margin-top:var(--space-2);">What was supposed to be one app produced much more: several repositories and components created or restructured, a Data and BigQuery platform made reliable, an application deployed with tests and guardrails, and an <strong>agentic core ready to be instantiated on other projects</strong>. Not a prototype — a system connected to real data sources, designed to suggest and then measure actions.</p>
           <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-4);">
-            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">one weekend</span>
-            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">idea → production</span>
+            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">un week-end</span>
+            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">idée → production</span>
             <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">Data + BigQuery + Growth</span>
             <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">ChatGPT · Codex</span>
           </div>
-          <p style="margin-top:var(--space-4);"><a class="btn btn--primary" href="journal/growth-centre-actions.html">Read the story and architecture →</a></p>
+          <p style="margin-top:var(--space-4);"><a class="btn btn--primary" href="journal/growth-centre-actions.html">Read the story and the architecture →</a></p>
         </div>
         <figure class="figure" style="margin:0;">
-          <img src="/knowledge-hub/assets/growth-proof-views-demo.png" alt="Preview of the Cobra Growth Hub showing priority actions and fictional business indicators" loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);background:#fff;">
-          <figcaption class="caption"><strong>Demonstration data.</strong> This preview illustrates the product without exposing any real Cobra data.</figcaption>
+          <img src="/knowledge-hub/assets/growth-proof-views-demo.png" alt="Preview of the Cobra Growth Hub showing prioritized actions and fictional business metrics" loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);background:#fff;">
+          <figcaption class="caption"><strong>Demo data.</strong> This screenshot illustrates the product without exposing any real Cobra data.</figcaption>
         </figure>
       </div>
-      <p class="caption" style="margin-top:var(--space-4);">The real gain is not only the delivered product: it is the compression of the <strong>idea → architecture → data → tests → production</strong> cycle, without removing human control.</p>
+      <p class="caption" style="margin-top:var(--space-4);">The real win isn't just the shipped product — it's the compression of the <strong>idea → architecture → data → tests → production</strong> cycle, without removing human controls.</p>
     </aside>
     <aside class="callout veille-home" style="margin-block:var(--space-4) 0;" id="veille-home">
 <!-- veille-home:start (généré par scripts/build_veille_static.py) -->
-<p class="kicker">AI Watch · fresh as of 2026-09-02</p>
+<p class="kicker">AI Watch · fresh from September 2, 2026</p>
 <ul style="margin:var(--space-3) 0 0;padding-left:1.1rem;">
-<li style="margin-top:var(--space-2);"><strong>Shopify adopte les Claude Commerce Agents</strong> — Anthropic a lancé ses Claude Commerce Agents et Shopify propose déjà une implémentation de référence. Les commerçants disposent d&#x27;outils prêts à l&#x27;emploi pou…</li>
-<li style="margin-top:var(--space-2);"><strong>Google lance Gemini 3.8 Flash</strong> — Google DeepMind présente Gemini 3.8 Flash, son modèle « workhorse » le plus performant, avec des gains sur le code, les tâches d&#x27;agents et le raisonnement mu…</li>
-<li style="margin-top:var(--space-2);"><strong>Claude peut utiliser votre ordinateur en arrière-plan</strong> — Anthropic ajoute à Claude Cowork et Claude Code la capacité de piloter votre ordinateur en tâche de fond : Claude clique, tape et ouvre des applications à vo…</li>
+<li style="margin-top:var(--space-2);"><strong>Shopify adopts Claude Commerce Agents</strong> — Anthropic launched its Claude Commerce Agents and Shopify is already offering a reference implementation. Merchants have ready-to-use tools for…</li>
+<li style="margin-top:var(--space-2);"><strong>Google launches Gemini 3.8 Flash</strong> — Google DeepMind introduces Gemini 3.8 Flash, its most capable "workhorse" model yet, with gains on code, agent tasks, and multi-step reasoning…</li>
+<li style="margin-top:var(--space-2);"><strong>Claude can use your computer in the background</strong> — Anthropic adds to Claude Cowork and Claude Code the ability to control your computer as a background task: Claude clicks, types, and opens applications for…</li>
 </ul>
-<p style="margin-top:var(--space-3);"><a href="veille-ia/">Full AI watch →</a></p>
+<p style="margin-top:var(--space-3);"><a href="veille-ia/">Full AI Watch →</a></p>
 <!-- veille-home:end -->
     </aside>
   </div>
 </section>
 
+<!-- ===== MÉTHODE (How-To) — mise en avant ===== -->
 <section id="methode">
   <div class="container">
     <div class="section-head">
@@ -192,8 +193,8 @@
     <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
     <div class="two-col">
       <div class="prose">
-        <p>My method comes down to a handful of <code>.md</code> files I drop into Claude's "Project Instructions." A main <strong>CLAUDE.md</strong> that defines my tone, my rules, and my context; <strong>extension files</strong> loaded on demand (strategy, dev…); and a dedicated file for each <strong>brand's DNA</strong>.</p>
-        <p>The guiding principle: <strong>Compound Engineering</strong>. Every time Claude gets my style wrong, I add a rule. The system improves with use — and all future work benefits from it.</p>
+        <p>The core of my method comes down to a few <code>.md</code> files I drop into Claude's "Project Instructions." A main <strong>CLAUDE.md</strong> that defines my tone, my rules, and my context — plus <strong>extension files</strong> loaded on demand (strategy, dev…) — and a dedicated file for each <strong>brand's DNA</strong>.</p>
+        <p>The guiding principle: <strong>Compound Engineering</strong>. Every time Claude gets my style wrong, I add a rule. The system gets better with use — and all future work benefits.</p>
         <a class="btn btn--ghost" href="how-to/">See the method step by step</a>
       </div>
       <!-- Emplacement photo : capture d'un Project Claude / setup -->
@@ -219,14 +220,14 @@
     <div class="two-col">
       <div class="prose">
         <p>Alongside the journal, I publish <strong>clear guides</strong> on AI and the tools I use: <em>what it is, what it's for, what it changes</em>. Written for busy merchants and decision-makers, but readable at any level — three reading depths on every page.</p>
-        <p>The first one lays the groundwork: <strong>generative AI and "LLMs"</strong>, jargon-free, covering the major players and — most importantly — what they <em>can't</em> do.</p>
-        <a class="btn btn--primary" href="guides/cest-quoi-ia-llm.html">What is AI and what's an LLM? →</a>
+        <p>The latest covers <strong>Agent Security</strong>: a private cockpit that monitors multiple GitHub repos, prioritizes risks, and prepares fixes — without letting an LLM silently dismiss a critical alert on its own.</p>
+        <a class="btn btn--primary" href="guides/agent-security-code-auto-repare.html">Discover Agent Security →</a>
       </div>
       <div class="guide-card" style="min-height:auto;">
-        <span class="guide-card__num">Guide 01 · May 31, 2026</span>
-        <span class="guide-card__title">What is AI, and what's an "LLM"?</span>
-        <span class="guide-card__desc">Generative AI explained for fast decisions: what it does, who builds it (OpenAI, Anthropic, Google, Mistral…), and its limits.</span>
-        <a class="guide-card__foot" href="guides/cest-quoi-ia-llm.html" style="text-decoration:none;">Read →</a>
+        <span class="guide-card__num">Case study · September 4, 2026</span>
+        <span class="guide-card__title">Agent Security: a multi-GitHub security cockpit</span>
+        <span class="guide-card__desc">Gitleaks, OSV, Trivy, and Semgrep — with scoped access, a risk memory, and multiple models to review uncertain cases.</span>
+        <a class="guide-card__foot" href="guides/agent-security-code-auto-repare.html" style="text-decoration:none;">Read the case study →</a>
       </div>
     </div>
   </div>
@@ -238,10 +239,10 @@
     <div class="section-head">
       <div>
         <p class="kicker">What I'm building</p>
-        <h2>Projects</h2>
+        <h2>The projects</h2>
       </div>
     </div>
-    <p class="prose" style="margin-top:var(--space-6);">It all fits together: one method (Claude + context files) applied to one territory — <strong>high-end audio/video retail</strong> and the tools that power it. Dev (Cobra) feeds the stores, the stores feed the community (HiFi Lovers), and the personal lab is where I experiment.</p>
+    <p class="prose" style="margin-top:var(--space-6);">It's all connected: the same method (Claude + context files) applied to the same territory — <strong>high-end audio/video retail</strong> and the tools that power it. The dev work (Cobra) feeds the stores, the stores feed the community (HiFi Lovers), and the personal side serves as a lab.</p>
     <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
     <div class="card-grid">
       <a class="card" href="cobra/">
@@ -265,7 +266,7 @@
       <a class="card" href="perso/">
         <span class="card__kicker">Personal · Lab</span>
         <span class="card__title">Perso</span>
-        <span class="card__desc">Side projects, scripts, experiments. Where I test things before scaling them up.</span>
+        <span class="card__desc">Side projects, scripts, experiments. Where I test things before scaling them.</span>
         <span class="card__foot">See the project →</span>
       </a>
     </div>
@@ -288,12 +289,20 @@
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
-      <li class="entry"><time datetime="2026-09-01">2026-09-01</time><div><h3 class="entry__title"><a href="journal/growth-centre-actions.html">Growth: replacing ten dashboards with an action queue</a></h3><p class="entry__excerpt">Loose ideas at the end of the week, a weekend with ChatGPT and Codex, then Growth running in production by Tuesday. Data, BigQuery, the application and a reusable agentic core were built to turn facts into approved actions.</p><div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="marketing" href="/knowledge-hub/en/journal/?tag=marketing">marketing</a><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div></div><div class="author"><span class="author--chatgpt" style="background:var(--c-violet);color:var(--c-white);">ChatGPT · Codex</span></div></li>
+      <li class="entry">
+        <time datetime="2026-09-01">2026-09-01</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/growth-centre-actions.html">Growth: replacing ten dashboards with an action queue</a></h3>
+          <p class="entry__excerpt">Ideas tossed around at the end of the week, a weekend with ChatGPT and Codex, then Growth in production by Tuesday. Data, BigQuery, the application, and a reusable agentic core were all built to turn facts into validated actions.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="marketing" href="/knowledge-hub/en/journal/?tag=marketing">marketing</a><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--chatgpt" style="background:var(--c-violet);color:var(--c-white);">ChatGPT · Codex</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-08-28">2026-08-28</time>
         <div>
-          <h3 class="entry__title"><a href="journal/cdc-odoo-ia-verifie-avant-de-coder.html">AI doesn't code my request — it verifies what it assumes</a></h3>
-          <p class="entry__excerpt">Odoo change requests used to arrive as a one-liner — no where, no what-on-click, no « what must not move ». An internal chain frames them: a guided form (8 fields, dictation possible), screenshot and auto-transcribed-video upload, then a two-pass AI review — it asks structured questions, the server checks them in the real Odoo database read-only, the AI concludes. It reclassified a dev request as ten minutes of configuration, and saw that a solution didn't remove the supplier calls it claimed to avoid. ~100 s and a few cents per review.</p>
+          <h3 class="entry__title"><a href="journal/cdc-odoo-ia-verifie-avant-de-coder.html">AI doesn't just code my request — it verifies its own assumptions</a></h3>
+          <p class="entry__excerpt">Odoo change requests were coming in as one-liners — no location, no click behavior, no "what must not change." An internal pipeline now frames them properly: a guided form (8 fields, voice input supported), a place to upload screenshots and an auto-transcribed video, then a two-pass AI review — it asks structured questions, the server checks them against the real Odoo database in read-only mode, and the AI concludes. It reclassified a dev request as ten minutes of configuration, and spotted that one proposed solution didn't actually eliminate the supplier calls it claimed to avoid. ~100 s and a few cents per review.</p>
           <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="doc" href="/knowledge-hub/en/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--hl">Claude · HL</span></div>
@@ -301,8 +310,8 @@
       <li class="entry">
         <time datetime="2026-08-10">2026-08-10</time>
         <div>
-          <h3 class="entry__title"><a href="journal/veille-hifi-bot-repare-elargi.html">HiFi watch: the daily bot repaired, expanded (30 → 64 sources) and hardened</a></h3>
-          <p class="entry__excerpt">The daily HiFi watch bot (Telegram) had been down since June 15 — the hard-coded AI model had reached end of life. Repaired (model now auto-selected, the watch can no longer break on an update), heavily expanded (30 → 64 sources: French specialist and mainstream press, Europe, Reddit, Head-Fi/diyAudio forums, YouTube) and hardened (HTML delivery, deduplication, alert if a source dies for 3 days, ~1-month memory, capped cost ~€3-4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages, error-free.</p>
+          <h3 class="entry__title"><a href="journal/veille-hifi-bot-repare-elargi.html">HiFi Watch: the daily bot repaired, expanded (30 → 64 sources), and made reliable</a></h3>
+          <p class="entry__excerpt">The daily HiFi watch bot (Telegram) had been broken since June 15 — the hardcoded AI model had reached end of life. Fixed (model now selected automatically, so a future update can't break the watch), significantly expanded (30 → 64 sources: FR specialist and mainstream press, Europe, Reddit, Head-Fi/diyAudio forums, YouTube), and made more reliable (HTML delivery, deduplication, alert if a source dies for 3 days, ~1-month memory, capped cost of ~€3–4/month). Validated in production: 125 articles → 123 topics → 4 Telegram messages with no errors.</p>
           <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--hl">Claude · HL</span></div>
@@ -310,8 +319,8 @@
       <li class="entry">
         <time datetime="2026-08-07">2026-08-07</time>
         <div>
-          <h3 class="entry__title"><a href="journal/suivi-prix-alignement-concurrentiel-auto.html">Price tracking &amp; automatic competitive alignment</a></h3>
-          <p class="entry__excerpt">We couldn't manually watch hundreds of references against Darty, Boulanger, Fnac or Son-Vidéo. A rules engine in Odoo (cobra_price_rules) reads competitor prices delivered by Wiser several times a day and computes a target price — best valid competitor, bounded by a minimum margin. Two modes: observation (simulates) then live (applies and pushes to Shopify), going live staying a human decision. Guardrails: never sell at a loss, outlier offers (< 60% of our price) ignored, pair/unit normalization. 6 families live, ~300 prices realigned; the rest adjusts on its own at each Wiser update.</p>
+          <h3 class="entry__title"><a href="journal/suivi-prix-alignement-concurrentiel-auto.html">Price tracking &amp; automated competitive alignment</a></h3>
+          <p class="entry__excerpt">Manually monitoring hundreds of SKUs against Darty, Boulanger, Fnac, or Son-Vidéo wasn't realistic. A rules engine inside Odoo (cobra_price_rules) reads competitor prices delivered by Wiser several times a day and calculates a target price — best valid competitor, bounded by a minimum margin. Two modes: observation (simulates) then live (applies and pushes to Shopify), with going live remaining a human decision. Guardrails: never sell at a loss, absurd offers (below 60% of our price) are ignored, pair/unit normalization. 6 product families live, ~300 prices realigned; the rest adjusts automatically on each Wiser update.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
@@ -319,8 +328,8 @@
       <li class="entry">
         <time datetime="2026-08-07">2026-08-07</time>
         <div>
-          <h3 class="entry__title"><a href="journal/app-tarifs-fournisseurs-maj-produits.html">An app that reads supplier price lists for me</a></h3>
-          <p class="entry__excerpt">Every supplier price update (a PDF or a ‘new product’ email) meant manual work: read it, find the product in Odoo, check EAN/SKU, key in buy and sell prices. An internal app (‘Product Update &amp; Creation’) automates the pipeline: PDF upload or watching a read-only mailbox, EAN/SKU/price extraction via a Claude model, matching against the Odoo base, duplicate detection before creation, systematic human validation and traceability. A deliberate guardrail: no created product is ever published online automatically.</p>
+          <h3 class="entry__title"><a href="journal/app-tarifs-fournisseurs-maj-produits.html">An app that reads supplier price lists so I don't have to</a></h3>
+          <p class="entry__excerpt">Every supplier price list (PDF or "new product" email) used to require manual handling: read it, find the product in Odoo, verify EAN/SKU, enter purchase and sale prices. An internal app ("Product Update &amp; Creation") automates the pipeline: upload a PDF or monitor a read-only mailbox, extract EAN/SKU/prices via a Claude model, match against the Odoo database, detect duplicates before creation, systematic human validation, and full traceability. Intentional guardrail: no newly created product is published online automatically.</p>
           <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
@@ -328,8 +337,8 @@
       <li class="entry">
         <time datetime="2026-08-07">2026-08-07</time>
         <div>
-          <h3 class="entry__title"><a href="journal/refonte-prix-variantes-decouverte-test.html">A pricing-system overhaul discovered by testing it</a></h3>
-          <p class="entry__excerpt">A per-variant pricing-system overhaul had been in preparation for weeks. While testing the price-update app, a gap between the price written in Odoo and the price synced on the merchant site revealed the overhaul was already in production — without formal confirmation. Each variant now has its own sale price, removing the cross-variant contamination risk. The app was fixed to write to the new field, and the matter escalated to the ERP integrator. Lesson: test in the real system rather than trust the docs.</p>
+          <h3 class="entry__title"><a href="journal/refonte-prix-variantes-decouverte-test.html">Discovering a pricing system overhaul by testing it</a></h3>
+          <p class="entry__excerpt">A per-variant pricing system overhaul had been in preparation for weeks. While testing the price update app, a discrepancy between the price written in Odoo and the price synced on the storefront revealed the overhaul was already live — without any formal confirmation. Each variant now has its own sale price, eliminating the risk of price contamination between variants. The app was updated to write to the new field, and the issue was escalated to the ERP vendor. Lesson: test in the real world rather than trusting the docs.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
@@ -338,7 +347,7 @@
         <time datetime="2026-07-13">2026-07-13</time>
         <div>
           <h3 class="entry__title"><a href="journal/statut-commandes-clients-facture-paye-livre.html">Customer order status: invoiced, paid, delivered — three badges instead of one</a></h3>
-          <p class="entry__excerpt">Nothing clearly separated the invoice is out, the customer has paid and the goods are delivered. Three independent badges (Invoicing / Payment / Delivery) replace the merged status: color coding, deposit rate shown, automatic switch from remaining-to-collect to remaining-to-deliver, delivered lines greyed out. Transposed from the existing supplier module; two latent calculation bugs fixed along the way.</p>
+          <p class="entry__excerpt">Nothing clearly distinguished "the invoice went out," "the customer paid," and "the goods were delivered." Three independent badges (Invoicing / Payment / Delivery) replace the merged status: color coding, deposit percentage displayed, automatic toggle from balance due → remaining to ship, delivered lines grayed out. Ported from the supplier module already in place; two latent calculation bugs fixed in the process.</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="design" href="/knowledge-hub/en/journal/?tag=design">design</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
@@ -346,8 +355,8 @@
       <li class="entry">
         <time datetime="2026-07-13">2026-07-13</time>
         <div>
-          <h3 class="entry__title"><a href="journal/cobra-app-store-industrialisation.html">The Cobra App Store keeps industrializing</a></h3>
-          <p class="entry__excerpt">A synthesis across 5 sessions: Cobra's internal app hub goes, in a few weeks, from a few isolated critical apps to a genuine small standardized ecosystem — identical header everywhere, shared Odoo connection, refresh on a common cron. Two incidents (an overwritten version, a cron missing its env vars) caught within minutes thanks to the backup/compare discipline before every deploy.</p>
+          <h3 class="entry__title"><a href="journal/cobra-app-store-industrialisation.html">The "Cobra App Store" keeps scaling up</a></h3>
+          <p class="entry__excerpt">A synthesis across 5 sessions: Cobra's internal app hub goes, in a matter of weeks, from "a few isolated critical apps" to a real standardized mini-ecosystem — identical header everywhere, shared Odoo connection, common cron refresh. Two incidents (an overwritten version, a cron missing its environment variables) caught in minutes thanks to a save/compare discipline before every deployment.</p>
           <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="meta" href="/knowledge-hub/en/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div>
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
@@ -355,8 +364,8 @@
       <li class="entry">
         <time datetime="2026-07-12">2026-07-12</time>
         <div>
-          <h3 class="entry__title"><a href="journal/refonte-systeme-prix-cobra-price.html">Odoo pricing-system overhaul (cobra_price): a single source of truth</a></h3>
-          <p class="entry__excerpt">The Odoo pricing model was stacked and fragile: an auto-computed web pricelist, overlapping lists, a hard-coded 20% VAT, margin dropping to 0 the moment a product went out of stock. A single cobra_price field becomes THE source of truth via a _price_compute override — cost and margin recomputed, Omnibus-compliant strikethrough prices, immediate Shopify sync. 6 modules touched, ~7,300 products migrated, with real post-deploy follow-up (a display bug fixed the same day, 492 promo products re-pushed).</p>
+          <h3 class="entry__title"><a href="journal/refonte-systeme-prix-cobra-price.html">Overhauling the Odoo pricing system (cobra_price): one single source of truth</a></h3>
+          <p class="entry__excerpt">The Odoo pricing model was layered and fragile: an auto-calculated web pricelist, stacked price lists, a hardcoded 20% VAT, and zero margin the moment a product went out of stock. A single cobra_price field becomes THE source of truth via a _price_compute override — cost and margin recalculated, Omnibus-compliant strikethrough prices, immediate Shopify sync. 6 modules touched, ~7,300 products migrated, with real post-production monitoring (a display bug fixed the same day, 492 products on promotion pushed back).</p>
           <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
@@ -372,7 +381,7 @@
     <div class="cta-band">
       <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
       <h2>Does this resonate?</h2>
-      <p class="prose">I document all of this in public, and I love talking about it. If you're building with Claude, if any of these projects intrigues you, or if you just want to compare approaches — reach out, let's chat.</p>
+      <p class="prose">I document all of this in public, and I love talking about it. If you're building with Claude, if one of these projects sparks your curiosity, or if you just want to compare approaches — reach out, let's chat.</p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a>
         <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">Send me an email</a>
