@@ -31,7 +31,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#FFFCF8">
 <script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../style.css?v=20260622a">
+<link rel="stylesheet" href="../style.css?v=20260907a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,7 +42,7 @@
       "description": "Étude de cas d’un agent de sécurité transverse fondé sur des scanners open source, des permissions minimales et une correction contrôlée par PR.",
       "inLanguage": "fr-FR",
       "datePublished": "2026-09-04",
-      "dateModified": "2026-09-04",
+      "dateModified": "2026-09-07",
       "url": "https://hl-consulting.tech/knowledge-hub/guides/agent-security-code-auto-repare.html",
       "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
       "publisher": {"@type": "Organization", "name": "HL Consulting"},
@@ -82,57 +82,69 @@
     <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Un agent qui surveille<br>les agents qui codent</h1>
     <hr class="rule--accent">
     <p class="lead">Trouver des alertes est facile. Construire un système qui sait lesquelles comptent, garde les accès sous contrôle et prépare une correction vérifiable est beaucoup plus intéressant.</p>
-    <div class="meta-bar"><span>Par <strong>Hugo Lahutte</strong></span><span>·</span><time datetime="2026-09-04">4 septembre 2026</time><span>·</span><span>~7 min de lecture</span></div>
+    <div class="meta-bar"><span>Par <strong>Hugo Lahutte</strong></span><span>·</span><time datetime="2026-09-04">4 septembre 2026</time><span>·</span><span>Mis à jour le 7 septembre</span><span>·</span><span>~14 min de lecture</span></div>
   </div>
 </section>
-<article class="article" style="padding-top:0;"><div class="container">
-  <aside class="callout callout--tldr prose" aria-label="En 30 secondes"><p class="kicker">En 30 secondes</p><p><strong>Agent Security</strong> est un control plane privé qui audite plusieurs dépôts GitHub avec quatre scanners open source. Il transforme leurs résultats en une posture lisible, mémorise les problèmes, demande plusieurs avis IA quand le cas est incertain et prépare les corrections dans des PR séparées. <strong>L’IA conseille ; les preuves techniques décident.</strong></p></aside>
-  <nav class="toc prose" aria-label="Sommaire"><p class="kicker">Sommaire</p><ul><li><a href="#probleme">1. Le problème</a></li><li><a href="#capacites">2. Ce qui fonctionne aujourd’hui</a></li><li><a href="#protection">3. Les protections</a></li><li><a href="#inspirations">4. Les inspirations</a></li><li><a href="#correction">5. La correction</a></li><li><a href="#limites">6. Les limites assumées</a></li></ul></nav>
-  <div class="prose">
-    <h2 id="probleme">1. Le problème : beaucoup d’alertes, peu d’attention</h2>
-    <p>Un scanner sait produire des centaines de lignes. Cela ne veut pas dire que chacune mérite une interruption. Le vrai produit doit répondre à trois questions : <strong>est-ce réel, est-ce important maintenant, et peut-on le corriger sans casser autre chose ?</strong></p>
-    <p>Agent Security a donc été conçu comme un cockpit transversal : un endroit indépendant des applications surveillées, capable de couvrir plusieurs comptes et organisations GitHub sans disposer d’un accès illimité.</p>
+<article class="article security-guide" style="padding-top:0;"><div class="container">
+  <aside class="callout callout--tldr prose" aria-label="En 30 secondes"><p class="kicker">En 30 secondes</p><p><strong>Agent Security</strong> surveille plusieurs GitHub avec des outils open source, garde une mémoire des problèmes et prépare des corrections dans une zone séparée. Le scanner ne peut pas écrire. Le correcteur ne reçoit qu’un accès ciblé. Plusieurs modèles peuvent se contredire, mais <strong>les scanners et les tests gardent le dernier mot.</strong></p></aside>
+  <nav class="toc prose" aria-label="Sommaire"><p class="kicker">Sommaire</p><ul><li><a href="#architecture">1. Le circuit complet</a></li><li><a href="#acces">2. Les accès et la passerelle</a></li><li><a href="#automatique">3. Ce qui tourne automatiquement</a></li><li><a href="#hlos">4. Le cockpit HL‑OS</a></li><li><a href="#preuves">5. La revérification</a></li><li><a href="#contre-verification">6. Claude, ChatGPT et Kimi se contredisent</a></li><li><a href="#technique">7. La version technique</a></li><li><a href="#etat">8. Ce qui existe et ce qui reste à brancher</a></li></ul></nav>
 
-    <h2 id="capacites">2. Ce qui fonctionne aujourd’hui</h2>
-    <ul>
-      <li><strong>Quatre moteurs déterministes :</strong> Gitleaks pour les secrets, OSV-Scanner pour les dépendances, Trivy pour les vulnérabilités et configurations, Semgrep Community pour les motifs dangereux.</li>
-      <li><strong>Quatre profondeurs :</strong> contrôle ciblé des PR, audit light hebdomadaire, deep mensuel et adversarial trimestriel.</li>
-      <li><strong>Multi-GitHub :</strong> chaque compte ou organisation est un domaine de confiance distinct, avec sa propre installation et une liste explicite de dépôts.</li>
-      <li><strong>Mémoire :</strong> chaque finding reçoit une empreinte stable ; le système sait s’il est nouveau, récurrent, résolu ou rouvert.</li>
-      <li><strong>Priorité explicable :</strong> sévérité, criticité du dépôt, confiance du scanner, zone sensible et récidive alimentent le score.</li>
-      <li><strong>Cockpit dans HL-OS :</strong> score global, cadran par projet, date, lien vers les preuves, état des corrections et lecture rouge → vert.</li>
-      <li><strong>IA maîtrisée :</strong> OpenRouter analyse uniquement des métadonnées minimisées en Zero Data Retention. Un second, puis si besoin un troisième modèle d’une autre famille valide les cas incertains.</li>
-    </ul>
-    <aside class="callout"><p><strong>Fail closed :</strong> si un scanner plante, le dépôt n’est jamais déclaré propre. Une absence de résultat est un état à vérifier, pas un feu vert.</p></aside>
-
-    <h2 id="protection">3. Les protections ne reposent pas sur la bonne volonté de l’IA</h2>
-    <ul>
-      <li><strong>Permissions minimales :</strong> l’agent d’audit lit les métadonnées, le contenu, les PR et les Actions — rien de plus.</li>
-      <li><strong>Allowlist explicite :</strong> aucun enrôlement automatique de tous les dépôts privés.</li>
-      <li><strong>Identifiants isolés :</strong> compromettre un domaine GitHub ne doit pas ouvrir les autres.</li>
-      <li><strong>Secrets hors du code :</strong> clés et identifiants restent dans les secrets GitHub, jamais dans le dépôt.</li>
-      <li><strong>Chaîne reproductible :</strong> Actions sensibles fixées sur des SHA immuables ; outils vérifiés et mises à jour par PR.</li>
-      <li><strong>Verdict déterministe :</strong> aucun modèle ne peut transformer seul un finding HIGH ou CRITICAL en « OK ».</li>
-    </ul>
-
-    <h2 id="inspirations">4. Ce qu’on a repris — et ce qu’on a fait autrement</h2>
-    <p><strong>Blume</strong> a inspiré l’expérience : une posture globale immédiatement lisible, un cadran par projet, l’historique et la trajectoire avant/après correction. L’objectif n’est pas de reproduire son produit, centré sur l’observation des agents, mais d’appliquer sa clarté à la sécurité des dépôts.</p>
-    <p><strong>Detail.dev</strong> a inspiré la logique produit : trouver des bugs est facile, sélectionner ceux qui comptent est difficile. D’où la mémoire des findings, la priorité contextuelle et, à terme, l’apprentissage à partir des corrections acceptées ou refusées.</p>
-    <p>La différence structurante d’Agent Security tient à ses <strong>frontières de confiance</strong> : scanners open source reproductibles, accès cloisonnés, verdict indépendant des LLM et agent de correction séparé.</p>
-
-    <h2 id="correction">5. Voir une faille ne suffit pas : il faut une boucle de correction</h2>
-    <p>Le premier agent observe. <strong>Agent Security Fix</strong>, installé séparément, prépare un plan ou une PR brouillon. La branche principale n’est pas modifiée directement. La correction doit apporter ses preuves : tests, nouveau scan et diff limité.</p>
-    <p>Lorsqu’une correction est ambiguë, plusieurs modèles de familles différentes la relisent. En cas de désaccord, le système conserve le risque le plus prudent et demande davantage de preuves. L’objectif futur est d’autoriser l’auto-merge uniquement pour des changements faibles en risque, réversibles et entièrement validés.</p>
-
-    <h2 id="limites">6. Ce qui n’est pas présenté comme terminé</h2>
-    <ul>
-      <li>La remédiation automatique ne couvre pas encore toutes les familles de findings.</li>
-      <li>Les secrets, l’authentification, les paiements, les permissions, l’infrastructure et les migrations restent hors auto-merge.</li>
-      <li>L’analyse adversariale doit encore être enrichie par des tests dynamiques : autorisations, rejeu de webhooks, SSRF, traversée de chemins et fuzzing.</li>
-      <li>L’apprentissage à partir du délai de correction et des décisions d’équipe est une direction produit, pas une capacité annoncée comme acquise.</li>
-    </ul>
-    <aside class="callout" style="margin-top:var(--space-12);"><p class="kicker">La ligne directrice</p><p><strong>Automatiser l’attention avant d’automatiser le pouvoir.</strong> L’agent peut chercher, classer, confronter et préparer. Il ne gagne le droit d’agir seul qu’à mesure que les preuves deviennent suffisantes.</p></aside>
+  <div class="prose"><h2 id="architecture">1. Le circuit complet</h2><p>Un seul agent qui peut lire, modifier et publier serait confortable — et dangereux. Le système est donc découpé en deux plans de confiance. <strong>Agent Security observe.</strong> <strong>Agent Security Fix répare.</strong> Aucun des deux ne décide seul de la production.</p></div>
+  <div class="security-flow" role="img" aria-label="Les dépôts autorisés passent par l’agent de scan en lecture seule, puis par un agent de correction limité, avant la contre-vérification, les tests et la production">
+    <div class="security-stage"><span class="security-stage__tag">Périmètre</span><strong>GitHub autorisés</strong><small>HL Works<br>tech-cobra<br>autre installation</small></div><div class="security-arrow"><b>→</b><small>jeton court</small></div>
+    <div class="security-stage security-stage--scan"><span class="security-stage__tag">Lecture seule</span><strong>Agent Security</strong><small>Scanne, normalise, note et mémorise. Il ne peut pas modifier le code.</small></div><div class="security-arrow"><b>→</b><small>finding + preuve</small></div>
+    <div class="security-stage security-stage--fix"><span class="security-stage__tag">Écriture limitée</span><strong>Agent Security Fix</strong><small>Reproduit le problème et prépare une branche ou une PR bornée.</small></div><div class="security-arrow"><b>→</b><small>diff + tests</small></div>
+    <div class="security-stage security-stage--gate"><span class="security-stage__tag">Contrôle</span><strong>Agents + CI</strong><small>Contre-vérification, scanner rejoué, tests, politique de risque.</small></div><div class="security-arrow"><b>→</b><small>si tout est vert</small></div>
+    <div class="security-stage security-stage--prod"><span class="security-stage__tag">Sortie</span><strong>Production</strong><small>Déploiement autorisé puis nouveau contrôle.</small></div>
   </div>
+  <p class="security-plain"><strong>Version très simple :</strong> le vigile peut regarder partout, mais il n’a pas les clés. Le réparateur reçoit une clé temporaire pour une seule porte. Il propose son intervention, plusieurs contrôles la vérifient, puis la porte de production s’ouvre — ou reste fermée.</p>
+
+  <div class="prose"><h2 id="acces">2. La passerelle : un accès précis, jamais un passe-partout</h2><p>Chaque organisation GitHub possède sa propre installation. Au moment du scan, la passerelle crée un jeton court, limité aux dépôts visibles et aux permissions nécessaires. Un propriétaire inconnu, un dépôt hors périmètre ou une réponse incohérente bloque l’opération.</p></div>
+  <div class="security-access" aria-label="Comparaison des accès du scanner et du correcteur">
+    <div class="security-access__head"><strong>Capacité</strong><strong>Agent Security</strong><strong>Security Fix</strong></div>
+    <div><span>Lire le code et les Actions</span><b class="is-yes">Oui</b><b class="is-limited">Ciblé</b></div>
+    <div><span>Créer une branche</span><b class="is-no">Non</b><b class="is-limited">Autorisé par recette</b></div>
+    <div><span>Ouvrir une PR</span><b class="is-no">Non</b><b class="is-limited">Brouillon ou PR contrôlée</b></div>
+    <div><span>Écrire directement sur main</span><b class="is-no">Jamais</b><b class="is-no">Jamais</b></div>
+    <div><span>Ignorer un scanner rouge</span><b class="is-no">Jamais</b><b class="is-no">Jamais</b></div>
+  </div>
+  <div class="security-principles"><article><b>01</b><strong>Installations isolées</strong><p>HL Works et tech-cobra ne partagent pas un identifiant universel.</p></article><article><b>02</b><strong>Jetons temporaires</strong><p>Créés au besoin, masqués et non conservés dans les rapports.</p></article><article><b>03</b><strong>Refus par défaut</strong><p>Ce qui n’est pas explicitement autorisé ne passe pas.</p></article><article><b>04</b><strong>Secrets minimisés</strong><p>Ni valeur brute ni dépôt complet ne part dans les prompts.</p></article></div>
+
+  <div class="prose"><h2 id="automatique">3. Ce qui tourne automatiquement</h2><p>La profondeur varie avec le risque. Inutile de refaire le contrôle le plus coûteux chaque nuit ; inutile aussi d’attendre trois mois pour découvrir un secret commité hier.</p></div>
+  <div class="security-cadence"><article><span>À chaque changement sensible</span><strong>Contrôle ciblé</strong><p>Authentification, permissions, secret, paiement, base, CI ou déploiement.</p></article><article><span>Chaque semaine</span><strong>Audit light</strong><p>Secrets, dépendances et nouvelles vulnérabilités connues.</p></article><article><span>Chaque mois</span><strong>Audit deep</strong><p>Analyse statique complète, conteneurs, IaC et configuration.</p></article><article><span>Chaque trimestre</span><strong>Revue adversariale</strong><p>Menaces, supply chain, architecture et surfaces exposées.</p></article></div>
+  <aside class="callout prose"><p><strong>Les outils se mettent également à jour par PR.</strong> Une nouvelle version est analysée, testée et reste traçable. La cible n’est pas « toujours le plus récent », mais « récent sans accepter aveuglément une compromission de la chaîne d’approvisionnement ».</p></aside>
+
+  <div class="prose"><h2 id="hlos">4. Dans HL‑OS : voir, comprendre, déclencher</h2><p>HL‑OS est le cockpit humain du système. Il ne remplace pas les scanners : il transforme leurs preuves en une lecture exploitable, avec un score global, les dépôts, les risques, les corrections disponibles et l’historique.</p></div>
+  <figure class="hlos-shot">
+    <div class="hlos-shot__bar"><span><i></i><i></i><i></i></span><strong>HL·OS / Sécurité</strong><small>Vue de pilotage</small></div>
+    <div class="hlos-shot__body"><aside><b>HL</b><span>Vue d’ensemble</span><span class="active">Sécurité</span><span>Agents</span><span>Projets</span><span>Historique</span><small>JARVIS · EN LIGNE</small></aside><div class="hlos-main"><header><div><small>SÉCURITÉ</small><strong>Posture globale</strong></div><button type="button" tabindex="-1">↻ Relancer un audit</button></header><div class="hlos-kpis"><article><span>Score global</span><b>—</b><small>Données privées</small></article><article><span>Dépôts suivis</span><b>—</b><small>HL Works + Cobra</small></article><article><span>À corriger</span><b>—</b><small>Priorité haute</small></article><article><span>PR en cours</span><b>—</b><small>Fix préparés</small></article></div><div class="hlos-grid"><div class="hlos-repos"><strong>Dépôts</strong><p><i class="dot-green"></i><b>agent-security</b><span>Contrôle central</span><small>Voir →</small></p><p><i class="dot-amber"></i><b>projet-cible</b><span>Finding à confirmer</span><small>Ouvrir →</small></p><p><i class="dot-green"></i><b>agent-cobra</b><span>Contrôlé</span><small>Voir →</small></p></div><div class="hlos-jarvis"><span>✦</span><b>Jarvis</b><p>« Je peux préparer un correctif borné, le faire relire par deux agents indépendants et lancer les tests. »</p><small>Préparer le plan →</small></div></div></div></div>
+    <figcaption><strong>Reconstitution de la vue HL‑OS.</strong> Les nombres et alertes internes sont volontairement masqués sur cette page publique. L’alimentation du cockpit est actuellement à reconnecter.</figcaption>
+  </figure>
+  <div class="security-principles"><article><b>1</b><strong>Collecter</strong><p>Lire les rapports privés sans afficher la valeur d’un secret.</p></article><article><b>2</b><strong>Décider</strong><p>Séparer finding confirmé, faux positif, panne d’outil et correction disponible.</p></article><article><b>3</b><strong>Déclencher</strong><p>Lancer un plan et suivre agents, PR, tests et revérification.</p></article><article><b>4</b><strong>Tracer</strong><p>Conserver modèles, commit, refus, résultats et passage en production.</p></article></div>
+
+  <div class="prose"><h2 id="preuves">5. Une correction n’est pas une promesse : c’est une preuve</h2><p>Le correcteur ne peut pas simplement répondre « c’est réglé ». Le finding d’origine est attaché à un commit précis. Après le changement, le même scanner doit être rejoué, puis les tests propres au projet.</p></div>
+  <div class="security-proof"><article><b>1</b><strong>Reproduire</strong><span>Le problème existe bien sur le commit audité.</span></article><i>→</i><article><b>2</b><strong>Limiter</strong><span>Le diff reste dans les fichiers et recettes autorisés.</span></article><i>→</i><article><b>3</b><strong>Rejouer</strong><span>Le scanner d’origine ne retrouve plus l’alerte.</span></article><i>→</i><article><b>4</b><strong>Valider</strong><span>CI, tests puis nouveau scan après déploiement.</span></article></div>
+  <aside class="callout prose"><p><strong>Fail closed :</strong> si un outil plante, si un rapport est illisible ou si un accès échoue, le dépôt n’est jamais déclaré propre. L’absence de preuve reste un état à contrôler.</p></aside>
+
+  <div class="prose"><h2 id="contre-verification">6. Claude propose. ChatGPT vérifie. Kimi essaie de casser.</h2><p>Les noms ci-dessous sont un exemple : les modèles restent configurables via OpenRouter. L’idée importante est d’utiliser des familles différentes, avec des rôles séparés, pour éviter qu’un agent valide simplement sa propre intuition.</p></div>
+  <div class="security-reality"><div><span>À DATE</span><p>La contre-analyse multi-modèles est disponible comme avis consultatif sur les audits manuels activés. Elle ne pilote pas encore automatiquement chaque fix jusqu’à la production.</p></div><div><span>CIBLE</span><p>Tout correctif éligible traverse obligatoirement cette chaîne. Une objection reboucle vers le correcteur ; l’accord ouvre seulement la porte aux tests.</p></div></div>
+  <div class="security-consensus" role="img" aria-label="Claude prépare un correctif, ChatGPT le contre-vérifie, Kimi cherche une régression et le contrôleur bloque ou poursuit selon les verdicts">
+    <header><span>EXEMPLE DE ROUTAGE OPENROUTER</span><strong>Un même paquet de preuves, trois regards indépendants</strong></header>
+    <div class="evidence"><b>PAQUET COMMUN</b><span>finding original</span><span>commit exact</span><span>diff proposé</span><span>tests attendus</span></div>
+    <div class="security-models"><article><span>01 · PROPOSER</span><b class="model-dot">C</b><h3>Claude</h3><p>Reproduit l’erreur et prépare le plus petit correctif possible.</p><small>diff + justification</small></article><i>→</i><article><span>02 · CONTRE-VÉRIFIER</span><b class="model-dot">G</b><h3>ChatGPT</h3><p>Relit depuis zéro : logique, oubli, périmètre et tests manquants.</p><small>accord ou objection</small></article><i>→</i><article><span>03 · ATTAQUER LE FIX</span><b class="model-dot">K</b><h3>Kimi</h3><p>Cherche régression, contournement et hypothèse fragile.</p><small>accord ou objection</small></article><i>→</i><article class="controller"><span>04 · DÉCIDER</span><b class="model-dot">HL</b><h3>Contrôleur</h3><p>Compare les verdicts aux scanners et à la politique de risque.</p><small>continuer ou reboucler</small></article></div>
+    <div class="security-outcomes"><div class="blocked"><b>× UNE OBJECTION</b><p>Retour au correcteur avec les objections structurées. Aucun merge.</p><span>↶ nouvelle proposition</span></div><div class="passed"><b>✓ AVIS CONVERGENTS</b><p>Le scanner et la CI doivent maintenant prouver le correctif.</p><span>tests → policy gate</span></div></div>
+  </div>
+  <p class="security-plain"><strong>Pourquoi ne pas seulement faire Claude → ChatGPT → Kimi en conversation libre ?</strong> Parce qu’une première erreur contaminerait les suivantes. Le contrôleur redonne à chacun la preuve originale et collecte un verdict structuré. Ils peuvent voir le diff, mais doivent refaire leur propre raisonnement.</p>
+
+  <div class="prose"><h2 id="technique">7. Sous le capot</h2><h3>Les quatre scanners</h3></div>
+  <div class="security-tools"><article><b>{ }</b><strong>Gitleaks</strong><span>Secrets dans le code et l’historique Git.</span></article><article><b>△</b><strong>Trivy</strong><span>Vulnérabilités, conteneurs, IaC et configuration.</span></article><article><b>◎</b><strong>OSV‑Scanner</strong><span>Failles connues des dépendances open source.</span></article><article><b>⌁</b><strong>Semgrep</strong><span>Analyse statique et motifs de code dangereux.</span></article></div>
+  <div class="prose"><h3>La règle de passage</h3><p>L’IA explique, corrèle et propose. Elle ne peut ni effacer une alerte technique ni transformer une panne de scanner en résultat propre.</p><div class="codeblock">PASS = consensus_agents<br>    ∧ scanner_origine_vert<br>    ∧ CI_cible_verte<br>    ∧ diff_dans_allowlist<br>    ∧ politique_risque_autorisee</div><h3>Mémoire et traçabilité</h3><p>Chaque finding reçoit une empreinte stable sans secret, sa date d’apparition, sa dernière observation et son état : nouveau, récurrent, résolu ou rouvert. Les décisions et exceptions restent séparées dans un registre versionné ; accepter temporairement un risque ne supprime pas techniquement l’alerte.</p><h3>Confidentialité des requêtes IA</h3><p>Les audits programmés n’envoient rien aux modèles par défaut. Lorsqu’une analyse OpenRouter est explicitement activée, seules les métadonnées nécessaires sont transmises : jamais le dépôt complet, la valeur d’un secret ou le match brut. Les réponses sont demandées en JSON strict avec le modèle concret, son rôle, sa confiance et les findings cités.</p></div>
+
+  <div class="prose"><h2 id="etat">8. Ce qui existe et ce qui reste à brancher</h2></div>
+  <div class="security-status"><article class="done"><span>OPÉRATIONNEL</span><strong>Audit multi-dépôts</strong><p>Lecture seule, scanners, score, mémoire et enrôlement contrôlé.</p></article><article class="done"><span>OPÉRATIONNEL</span><strong>Passerelles GitHub Apps</strong><p>Installations distinctes pour HL Works et tech-cobra.</p></article><article class="progress"><span>À RECONNECTER</span><strong>Cockpit HL‑OS</strong><p>L’interface existe ; sa liaison aux rapports privés doit être rétablie.</p></article><article class="progress"><span>PARTIEL</span><strong>Recettes de correction</strong><p>Cas bornés disponibles ; toutes les familles de findings ne sont pas encore actionnables.</p></article><article class="progress"><span>MANUEL À DATE</span><strong>Consensus OpenRouter</strong><p>Avis multi-modèles disponible sur demande, pas encore obligatoire sur chaque fix.</p></article><article class="target"><span>CIBLE</span><strong>« Va jusqu’au bout »</strong><p>Suivre la PR, les checks, fusionner et déployer seul uniquement sur risque faible autorisé.</p></article></div>
+  <div class="security-policy"><div><span>PEUT ALLER SEUL</span><p>Dépendance patch ou mineure, lint, configuration simple, petite modification réversible, diff strictement borné.</p></div><div><span>ARRÊT HUMAIN</span><p>Secret à faire tourner, authentification, autorisation, paiement, permission, infrastructure, migration, suppression ou mise à jour majeure.</p></div></div>
+  <div class="prose"><h3>Le code du projet</h3><ul><li><a href="https://github.com/hl-works/agent-security" target="_blank" rel="noopener"><strong>hl-works/agent-security</strong></a> — orchestration, scanners, mémoire et reporting.</li><li><a href="https://github.com/hl-works/agent-security-fix" target="_blank" rel="noopener"><strong>hl-works/agent-security-fix</strong></a> — validation, recettes bornées, branches et PR.</li><li><a href="https://github.com/hl-works/agent-security/actions/workflows/multi-repo-security.yml" target="_blank" rel="noopener"><strong>Historique des audits</strong></a> — exécutions et preuves privées, accessibles uniquement aux personnes autorisées.</li></ul></div>
+  <aside class="callout prose" style="margin-top:var(--space-12);"><p class="kicker">La ligne directrice</p><p><strong>Automatiser au maximum ne signifie pas supprimer les contrôles.</strong> Cela signifie remplacer les clics inutiles par des preuves, des agents indépendants et une politique explicite — tout en gardant un arrêt humain là où une erreur serait difficile à reprendre.</p></aside>
 </div></article>
 <section id="contact"><div class="container"><div class="cta-band"><p class="kicker" style="color:var(--c-gold);">Échangeons</p><h2>Tu construis avec des agents ?</h2><p class="prose">Je documente comment les rendre plus autonomes sans leur donner un pouvoir aveugle.</p><div class="btn-row" style="justify-content:center;"><a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">M’ajouter sur LinkedIn</a><a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Agent%20Security%20—%20échange">M’écrire</a></div></div></div></section>
 </main>
