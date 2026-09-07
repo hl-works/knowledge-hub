@@ -810,6 +810,7 @@ mark{background:var(--c-gold); color:var(--c-black);}
 /* ===== Guide Agent Security ===== */
 .security-guide>.container{max-width:var(--content-max)}
 .security-flow{display:grid;grid-template-columns:1fr auto 1.2fr auto 1.2fr auto 1.1fr auto .85fr;align-items:stretch;margin:var(--space-8) 0}
+.security-visual{margin:var(--space-8) 0 var(--space-10);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:0 18px 50px rgba(23,26,61,.09)}.security-visual img{display:block;width:100%;height:auto}.security-visual figcaption{padding:var(--space-3) var(--space-4);border-top:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:.76rem;line-height:1.5}.security-visual figcaption strong{color:var(--text)}.security-visual--dark{background:#0d110f}
 .security-stage{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--text-muted);padding:var(--space-5) var(--space-4);min-height:180px;display:flex;flex-direction:column}
 .security-stage--scan{border-top-color:var(--c-indigo)}.security-stage--fix{border-top-color:var(--c-gold)}.security-stage--gate,.security-stage--prod{border-top-color:var(--c-red)}
 .security-stage__tag{font-family:var(--font-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted)}
