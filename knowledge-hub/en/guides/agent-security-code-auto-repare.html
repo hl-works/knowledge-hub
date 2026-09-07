@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agent Security — building a multi-GitHub security cockpit — Guides · Hugo Lahutte</title>
-<meta name="description" content="Agent Security case study: open source audits, minimal permissions, red-green cockpit, multi-model validation, and PR-controlled fixes.">
+<meta name="description" content="Agent Security case study: open-source audits, minimal permissions, red-green cockpit, multi-model validation, and PR-controlled fixes.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
@@ -13,7 +13,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Agent Security — a multi-GitHub security cockpit">
-<meta property="og:description" content="How to monitor multiple repositories, prioritize risks, and prepare fixes without handing the keys to an AI.">
+<meta property="og:description" content="How to monitor multiple repositories, prioritize risks, and prepare fixes without handing the keys to your system over to an AI.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/agent-security-code-auto-repare.html">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -75,68 +75,63 @@
     <div class="nav__actions"><button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button><button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div>
   </nav>
 </header>
-<main id="main">
-<section class="hero" style="padding-bottom:var(--space-12);">
+<main id="main"><section class="hero" style="padding-bottom:var(--space-12);">
   <div class="container">
     <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Agent Security</p>
     <p class="kicker" style="margin-top:var(--space-3);">Case study · Enhanced security</p>
-    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">An agent that monitors<br>the agents that code</h1>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">An agent that watches<br>the agents that code</h1>
     <hr class="rule--accent">
-    <p class="lead">Generating alerts is easy. Building a system that knows which ones actually matter, keeps access under control, and prepares a verifiable fix — that's the interesting part.</p>
-    <div class="meta-bar"><span>By <strong>Hugo Lahutte</strong></span><span>·</span><time datetime="2026-09-04">September 4, 2026</time><span>·</span><span>~7 min read</span></div>
+    <p class="lead">Finding alerts is easy. Building a system that knows which ones matter, keeps access under control, and prepares a verifiable fix is far more interesting.</p>
+    <div class="meta-bar"><span>By <strong>Hugo Lahutte</strong></span><span>·</span><time datetime="2026-09-04">September 4, 2026</time><span>·</span><span>Updated September 7</span><span>·</span><span>~14 min read</span></div>
   </div>
 </section>
-<article class="article" style="padding-top:0;"><div class="container">
-  <aside class="callout callout--tldr prose" aria-label="In 30 seconds"><p class="kicker">In 30 seconds</p><p><strong>Agent Security</strong> is a private control plane that audits multiple GitHub repositories using four open source scanners. It turns their results into a readable posture, remembers past findings, asks several AI models for input when a case is uncertain, and prepares fixes in separate PRs. <strong>The AI advises; technical evidence decides.</strong></p></aside>
-  <nav class="toc prose" aria-label="Contents"><p class="kicker">Contents</p><ul><li><a href="#probleme">1. The problem</a></li><li><a href="#capacites">2. What's working today</a></li><li><a href="#protection">3. The protections</a></li><li><a href="#inspirations">4. The inspirations</a></li><li><a href="#correction">5. The fix loop</a></li><li><a href="#limites">6. Acknowledged limits</a></li></ul></nav>
-  <div class="prose">
-    <h2 id="probleme">1. The problem: too many alerts, not enough attention</h2>
-    <p>A scanner can easily produce hundreds of lines. That doesn't mean each one deserves an interruption. The real product has to answer three questions: <strong>is this real, does it matter right now, and can we fix it without breaking something else?</strong></p>
-    <p>Agent Security was designed as a cross-cutting cockpit — a place independent of the applications it monitors, capable of covering multiple GitHub accounts and organizations without needing unlimited access.</p>
+<article class="article security-guide" style="padding-top:0;"><div class="container">
+  <aside class="callout callout--tldr prose" aria-label="In 30 seconds"><p class="kicker">In 30 seconds</p><p><strong>Agent Security</strong> monitors multiple GitHub repos with open source tools, keeps a memory of issues, and prepares fixes in a sandboxed area. The scanner can't write. The fixer only gets targeted access. Multiple models can disagree with each other, but <strong>the scanners and tests have the final word.</strong></p></aside>
+  <nav class="toc prose" aria-label="Contents"><p class="kicker">Contents</p><ul><li><a href="#architecture">1. The full circuit</a></li><li><a href="#acces">2. Access and the gateway</a></li><li><a href="#automatique">3. What runs automatically</a></li><li><a href="#hlos">4. The HL‑OS cockpit</a></li><li><a href="#preuves">5. Re-verification</a></li><li><a href="#contre-verification">6. Claude, ChatGPT, and Kimi disagree</a></li><li><a href="#technique">7. The technical version</a></li><li><a href="#etat">8. What exists and what's still to wire up</a></li></ul></nav>
 
-    <h2 id="capacites">2. What's working today</h2>
-    <ul>
-      <li><strong>Four deterministic engines:</strong> Gitleaks for secrets, OSV-Scanner for dependencies, Trivy for vulnerabilities and configurations, Semgrep Community for dangerous patterns.</li>
-      <li><strong>Four scan depths:</strong> targeted PR checks, lightweight weekly audits, monthly deep scans, and quarterly adversarial reviews.</li>
-      <li><strong>Multi-GitHub:</strong> each account or organization is a distinct trust domain, with its own installation and an explicit list of repositories.</li>
-      <li><strong>Memory:</strong> each finding gets a stable fingerprint; the system knows whether it's new, recurring, resolved, or reopened.</li>
-      <li><strong>Explainable priority:</strong> severity, repository criticality, scanner confidence, sensitive area, and recurrence all feed into the score.</li>
-      <li><strong>Cockpit in HL-OS:</strong> global score, per-project dial, date, link to evidence, fix status, and a red → green readout.</li>
-      <li><strong>Controlled AI:</strong> OpenRouter analyzes only minimized metadata under Zero Data Retention. A second — and if needed, a third — model from a different family validates uncertain cases.</li>
-    </ul>
-    <aside class="callout"><p><strong>Fail closed:</strong> if a scanner crashes, the repository is never marked clean. A missing result is a state to investigate, not a green light.</p></aside>
+  <div class="prose"><h2 id="architecture">1. The full circuit</h2><p>A single agent that can read, modify, and publish would be convenient — and dangerous. The system is split into two trust planes. <strong>Agent Security observes.</strong> <strong>Agent Security Fix repairs.</strong> Neither one decides alone what goes to production.</p></div>
+  <figure class="security-visual"><img src="/knowledge-hub/assets/agent-security-architecture.svg" alt="Agent Security architecture: isolated GitHub repos, short-lived token gateway, read-only scanner, bounded fixer, and validation gates before production" width="1200" height="760" decoding="async"><figcaption>The scanner can look broadly. The fixer only acts within a defined perimeter. The controls keep the final decision.</figcaption></figure>
+  <p class="security-plain"><strong>Simple version:</strong> the guard can look anywhere, but doesn't have the keys. The repair tech gets a temporary key for one door only. They propose their fix, several checks verify it, then the production gate opens — or stays closed.</p>
 
-    <h2 id="protection">3. The protections don't rely on the AI's goodwill</h2>
-    <ul>
-      <li><strong>Minimal permissions:</strong> the audit agent reads metadata, content, PRs, and Actions — nothing more.</li>
-      <li><strong>Explicit allowlist:</strong> no automatic enrollment of all private repositories.</li>
-      <li><strong>Isolated credentials:</strong> compromising one GitHub domain must not open up the others.</li>
-      <li><strong>Secrets out of the code:</strong> keys and credentials live in GitHub Secrets, never in the repository.</li>
-      <li><strong>Reproducible chain:</strong> sensitive Actions are pinned to immutable SHAs; tools are verified and updated via PR.</li>
-      <li><strong>Deterministic verdict:</strong> no model can single-handedly flip a HIGH or CRITICAL finding to "OK."</li>
-    </ul>
-
-    <h2 id="inspirations">4. What we borrowed — and what we did differently</h2>
-    <p><strong>Blume</strong> inspired the experience: an immediately readable global posture, a per-project dial, and a before/after history. The goal isn't to replicate its product — which focuses on agent observability — but to apply that same clarity to repository security.</p>
-    <p><strong>Detail.dev</strong> inspired the product logic: finding bugs is easy, picking the ones that matter is hard. That's where finding memory, contextual priority, and — eventually — learning from accepted or rejected fixes come in.</p>
-    <p>Agent Security's structural differentiator comes down to its <strong>trust boundaries</strong>: reproducible open source scanners, isolated access, verdicts that are independent of LLMs, and a separate fix agent.</p>
-
-    <h2 id="correction">5. Spotting a vulnerability isn't enough — you need a fix loop</h2>
-    <p>The first agent observes. <strong>Agent Security Fix</strong>, installed separately, prepares a plan or a draft PR. The main branch is never modified directly. The fix has to bring its own evidence: tests, a new scan, and a limited diff.</p>
-    <p>When a fix is ambiguous, multiple models from different families review it. If they disagree, the system keeps the most cautious risk assessment and asks for more evidence. The long-term goal is to allow auto-merge only for low-risk, reversible, fully validated changes.</p>
-
-    <h2 id="limites">6. What isn't presented as done yet</h2>
-    <ul>
-      <li>Automated remediation doesn't cover all finding families yet.</li>
-      <li>Secrets, authentication, payments, permissions, infrastructure, and migrations remain off-limits for auto-merge.</li>
-      <li>Adversarial analysis still needs to be enriched with dynamic tests: authorization checks, webhook replay, SSRF, path traversal, and fuzzing.</li>
-      <li>Learning from fix turnaround times and team decisions is a product direction — not a capability being announced as ready.</li>
-    </ul>
-    <aside class="callout" style="margin-top:var(--space-12);"><p class="kicker">The guiding principle</p><p><strong>Automate attention before you automate power.</strong> The agent can search, rank, cross-check, and prepare. It earns the right to act on its own only as the evidence becomes sufficient.</p></aside>
+  <div class="prose"><h2 id="acces">2. The gateway: precise access, never a master key</h2><p>Each GitHub organization has its own installation. At scan time, the gateway creates a short-lived token, scoped to visible repositories and the necessary permissions. An unknown owner, an out-of-scope repo, or an inconsistent response blocks the operation.</p></div>
+  <div class="security-access" aria-label="Comparison of scanner and fixer access">
+    <div class="security-access__head"><strong>Capability</strong><strong>Agent Security</strong><strong>Security Fix</strong></div>
+    <div><span>Read code and Actions</span><b class="is-yes">Yes</b><b class="is-limited">Targeted</b></div>
+    <div><span>Create a branch</span><b class="is-no">No</b><b class="is-limited">Authorized by recipe</b></div>
+    <div><span>Open a PR</span><b class="is-no">No</b><b class="is-limited">Draft or controlled PR</b></div>
+    <div><span>Write directly to main</span><b class="is-no">Never</b><b class="is-no">Never</b></div>
+    <div><span>Override a red scanner</span><b class="is-no">Never</b><b class="is-no">Never</b></div>
   </div>
+  <div class="security-principles security-principles--icons"><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="7" height="14" rx="2"/><rect x="14" y="5" width="7" height="14" rx="2"/><path d="M10 12h4"/></svg></b><span>01</span><strong>Isolated installations</strong><p>HL Works and tech-cobra don't share a universal identifier.</p></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg></b><span>02</span><strong>Temporary tokens</strong><p>Created on demand, masked, and never stored in reports.</p></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M6 18 18 6"/></svg></b><span>03</span><strong>Deny by default</strong><p>Anything not explicitly authorized doesn't get through.</p></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3-5 9-5 9 5 9 5-3 5-9 5-9-5-9-5Z"/><path d="m4 4 16 16"/></svg></b><span>04</span><strong>Minimized secrets</strong><p>No raw values or full repos ever go into prompts.</p></article></div>
+
+  <div class="prose"><h2 id="automatique">3. What runs automatically</h2><p>Depth scales with risk. There's no need to re-run the most expensive check every night; but there's also no reason to wait three months to discover a secret committed yesterday.</p></div>
+  <div class="security-cadence"><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-8 12h7l-1 8 8-12h-7z"/></svg></b><span>On every sensitive change</span><strong>Targeted check</strong><p>Authentication, permissions, secrets, payments, database, CI, or deployment.</p></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/><path d="m9 15 2 2 4-5"/></svg></b><span>Every week</span><strong>Light audit</strong><p>Secrets, dependencies, and newly known vulnerabilities.</p></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5M8 11h6M11 8v6"/></svg></b><span>Every month</span><strong>Deep audit</strong><p>Full static analysis, containers, IaC, and configuration.</p></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/><path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/></svg></b><span>Every quarter</span><strong>Adversarial review</strong><p>Threat landscape, supply chain, architecture, and exposed surfaces.</p></article></div>
+  <aside class="callout prose"><p><strong>Tools also update themselves via PR.</strong> A new version is analyzed, tested, and stays traceable. The goal isn't "always the latest," but "recent without blindly accepting a supply chain compromise."</p></aside>
+
+  <div class="prose"><h2 id="hlos">4. In HL‑OS: see, understand, trigger</h2><p>HL‑OS is the human cockpit of the system. It doesn't replace the scanners — it turns their evidence into an actionable view, with an overall score, repos, risks, available fixes, and history.</p></div>
+  <figure class="security-visual security-visual--dark"><img src="/knowledge-hub/assets/agent-security-hlos-cockpit.svg" alt="Reconstruction of the HL‑OS Security cockpit with indicators, repository list, and Jarvis assistant" width="1200" height="760" loading="lazy" decoding="async"><figcaption><strong>Reconstruction of the HL‑OS view.</strong> Internal numbers and alerts are intentionally hidden on this public page. The cockpit feed currently needs to be reconnected.</figcaption></figure>
+  <div class="security-principles"><article><b>1</b><strong>Collect</strong><p>Read private reports without displaying the value of a secret.</p></article><article><b>2</b><strong>Decide</strong><p>Separate confirmed finding, false positive, tool failure, and available fix.</p></article><article><b>3</b><strong>Trigger</strong><p>Launch a plan and track agents, PRs, tests, and re-verification.</p></article><article><b>4</b><strong>Trace</strong><p>Retain models, commits, rejections, results, and production releases.</p></article></div>
+
+  <div class="prose"><h2 id="preuves">5. A fix isn't a promise — it's proof</h2><p>The fixer can't just reply "it's done." The original finding is tied to a specific commit. After the change, the same scanner must be replayed, then the project's own tests.</p></div>
+  <figure class="security-visual"><img src="/knowledge-hub/assets/agent-security-proof-loop.svg?v=20260907b" alt="Proof loop: reproduce the alert, scope the fix, replay the scanner, validate with tests or roll back" width="1200" height="700" loading="lazy" decoding="async"><figcaption>At every step, the system retains the commit, the finding, and the result. Any doubt loops back — it doesn't disappear from the report.</figcaption></figure>
+  <aside class="callout prose"><p><strong>Fail closed:</strong> if a tool crashes, a report is unreadable, or an access fails, the repo is never declared clean. Absence of proof remains a state to be checked.</p></aside>
+
+  <div class="prose"><h2 id="contre-verification">6. Claude proposes. ChatGPT verifies. Kimi tries to break it.</h2><p>The names below are an example — models remain configurable via OpenRouter. The key idea is to use different model families with separate roles, so no agent simply validates its own intuition.</p></div>
+  <div class="security-reality"><div><span>CURRENT STATE</span><p>Multi-model cross-analysis is available as advisory input on manually triggered audits. It doesn't yet automatically drive every fix all the way to production.</p></div><div><span>TARGET</span><p>Every eligible fix must go through this chain. An objection loops back to the fixer; agreement only opens the door to testing.</p></div></div>
+  <figure class="security-visual"><img src="/knowledge-hub/assets/agent-security-consensus.svg" alt="Multi-agent cross-verification: Claude proposes, ChatGPT reviews, Kimi attacks the fix, and a controller decides based on evidence" width="1200" height="820" loading="lazy" decoding="async"><figcaption>OpenRouter distributes the roles and the shared package. It replaces neither the scanners nor the final pass rule.</figcaption></figure>
+  <p class="security-plain"><strong>Why not just run Claude → ChatGPT → Kimi in free conversation?</strong> Because an early error would contaminate the rest. The controller gives each model the original evidence and collects a structured verdict. They can see the diff, but must reason through it independently.</p>
+
+  <div class="prose"><h2 id="technique">7. Under the hood</h2><h3>The four scanners</h3></div>
+  <div class="security-tools"><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15 12v2"/></svg></b><strong>Gitleaks</strong><span>Secrets in code and Git history.</span></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></b><strong>Trivy</strong><span>Vulnerabilities, containers, IaC, and configuration.</span></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></b><strong>OSV‑Scanner</strong><span>Known vulnerabilities in open source dependencies.</span></article><article><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M14 3l-4 18"/></svg></b><strong>Semgrep</strong><span>Static analysis and dangerous code patterns.</span></article></div>
+  <div class="prose"><h3>The pass rule</h3><p>The AI explains, correlates, and proposes. It cannot clear a technical alert or turn a scanner failure into a clean result.</p><div class="codeblock">PASS = consensus_agents<br>    ∧ scanner_origine_vert<br>    ∧ CI_cible_verte<br>    ∧ diff_dans_allowlist<br>    ∧ politique_risque_autorisee</div><h3>Memory and traceability</h3><p>Each finding gets a stable fingerprint without secrets, its first-seen date, its last-seen date, and its status: new, recurring, resolved, or reopened. Decisions and exceptions are kept separately in a versioned registry; temporarily accepting a risk doesn't technically suppress the alert.</p><h3>AI request confidentiality</h3><p>Scheduled audits send nothing to models by default. When an OpenRouter analysis is explicitly enabled, only the necessary metadata is transmitted — never the full repo, the value of a secret, or the raw match. Responses are requested as strict JSON with the specific model, its role, its confidence, and the cited findings.</p></div>
+
+  <div class="prose"><h2 id="etat">8. What exists and what's still to wire up</h2></div>
+  <div class="security-status"><article class="done"><span>OPERATIONAL</span><strong>Multi-repo audit</strong><p>Read-only, scanners, score, memory, and controlled enrollment.</p></article><article class="done"><span>OPERATIONAL</span><strong>GitHub Apps gateways</strong><p>Separate installations for HL Works and tech-cobra.</p></article><article class="progress"><span>TO RECONNECT</span><strong>HL‑OS cockpit</strong><p>The interface exists; its connection to private reports needs to be restored.</p></article><article class="progress"><span>PARTIAL</span><strong>Fix recipes</strong><p>Bounded cases available; not all finding families are actionable yet.</p></article><article class="progress"><span>MANUAL FOR NOW</span><strong>OpenRouter consensus</strong><p>Multi-model input available on request, not yet required on every fix.</p></article><article class="target"><span>TARGET</span><strong>"See it through"</strong><p>Track the PR, checks, merge, and deploy autonomously — only on authorized low-risk changes.</p></article></div>
+  <div class="security-policy"><div><span>CAN GO SOLO</span><p>Patch or minor dependency, lint, simple configuration, small reversible change, strictly bounded diff.</p></div><div><span>HUMAN STOP</span><p>Secret rotation, authentication, authorization, payment, permission, infrastructure, migration, deletion, or major update.</p></div></div>
+  <div class="prose"><h3>Project code</h3><ul><li><a href="https://github.com/hl-works/agent-security" target="_blank" rel="noopener"><strong>hl-works/agent-security</strong></a> — orchestration, scanners, memory, and reporting.</li><li><a href="https://github.com/hl-works/agent-security-fix" target="_blank" rel="noopener"><strong>hl-works/agent-security-fix</strong></a> — validation, bounded recipes, branches, and PRs.</li><li><a href="https://github.com/hl-works/agent-security/actions/workflows/multi-repo-security.yml" target="_blank" rel="noopener"><strong>Audit history</strong></a> — run logs and private evidence, accessible to authorized users only.</li></ul></div>
+  <aside class="callout prose" style="margin-top:var(--space-12);"><p class="kicker">The guiding principle</p><p><strong>Maximizing automation doesn't mean removing controls.</strong> It means replacing unnecessary clicks with evidence, independent agents, and an explicit policy — while keeping a human stop wherever a mistake would be hard to undo.</p></aside>
 </div></article>
-<section id="contact"><div class="container"><div class="cta-band"><p class="kicker" style="color:var(--c-gold);">Let's talk</p><h2>Building with agents?</h2><p class="prose">I document how to make them more autonomous without giving them unchecked power.</p><div class="btn-row" style="justify-content:center;"><a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a><a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Agent%20Security%20—%20échange">Send me an email</a></div></div></div></section>
-</main>
+<section id="contact"><div class="container"><div class="cta-band"><p class="kicker" style="color:var(--c-gold);">Let's talk</p><h2>Building with agents?</h2><p class="prose">I'm documenting how to make them more autonomous without giving them unchecked power.</p><div class="btn-row" style="justify-content:center;"><a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a><a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Agent%20Security%20—%20échange">Send me a message</a></div></div></div></section></main>
 <footer class="footer"><div class="container footer__inner"><span>© 2026 Hugo Lahutte</span><nav aria-label="Footer"><a href="../">Knowledge Hub</a><a href="../mentions-legales.html">Legal notice</a></nav></div></footer>
 <script src="/knowledge-hub/theme.js?v=20260601d" defer></script><script src="/knowledge-hub/search.js?v=20260601d" defer></script>
 </body>
