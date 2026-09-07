@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Cockpit de sécurité dans HL-OS</title>
+  <desc id="desc">Reconstitution visuelle du cockpit HL-OS avec score global, dépôts suivis, corrections prioritaires, journal d’activité et assistant Jarvis.</desc>
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111815"/><stop offset="1" stop-color="#080b0a"/></linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9af4c0"/><stop offset="1" stop-color="#54c98d"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dy="10" stdDeviation="18" flood-color="#050706" flood-opacity=".34"/></filter>
+  </defs>
+  <rect width="1200" height="760" rx="32" fill="#eef0ed"/>
+  <g filter="url(#shadow)"><rect x="32" y="32" width="1136" height="664" rx="22" fill="url(#shell)"/></g>
+  <rect x="32" y="32" width="1136" height="54" rx="22" fill="#151a17"/><rect x="32" y="64" width="1136" height="22" fill="#151a17"/>
+  <circle cx="64" cy="59" r="6" fill="#e76868"/><circle cx="84" cy="59" r="6" fill="#e9b758"/><circle cx="104" cy="59" r="6" fill="#65ca89"/>
+  <text x="600" y="65" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#8b948f">HL·OS / SECURITY CONTROL</text>
+  <text x="1135" y="65" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="12" fill="#748079">DONNÉES MASQUÉES</text>
+
+  <rect x="32" y="86" width="190" height="610" fill="#0d110f"/>
+  <rect x="58" y="116" width="42" height="42" rx="11" fill="none" stroke="#82e5ad"/><text x="79" y="143" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800" fill="#82e5ad">HL</text>
+  <text x="116" y="134" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700" fill="#f0f3f1">HL·OS</text><text x="116" y="153" font-family="Inter,Arial,sans-serif" font-size="11" fill="#657069">CONTROL PLANE</text>
+  <g font-family="Inter,Arial,sans-serif" font-size="14">
+    <text x="62" y="211" fill="#68736d">Vue d’ensemble</text>
+    <rect x="48" y="231" width="150" height="42" rx="10" fill="#16281e"/><rect x="48" y="231" width="3" height="42" rx="2" fill="#82e5ad"/><circle cx="68" cy="252" r="5" fill="#82e5ad"/><text x="84" y="257" font-weight="700" fill="#aaf4ca">Sécurité</text>
+    <text x="62" y="313" fill="#68736d">Agents</text><text x="62" y="356" fill="#68736d">Projets</text><text x="62" y="399" fill="#68736d">Historique</text><text x="62" y="442" fill="#68736d">Paramètres</text>
+  </g>
+  <rect x="52" y="624" width="145" height="44" rx="12" fill="#121b16" stroke="#23352a"/><circle cx="70" cy="646" r="5" fill="#82e5ad"/><text x="84" y="642" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#c8d1cc">JARVIS</text><text x="84" y="657" font-family="Inter,Arial,sans-serif" font-size="10" fill="#82e5ad">EN LIGNE</text>
+
+  <text x="258" y="132" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#82e5ad">SÉCURITÉ</text>
+  <text x="258" y="166" font-family="Inter,Arial,sans-serif" font-size="27" font-weight="700" fill="#f2f4f3">Posture globale</text>
+  <text x="258" y="191" font-family="Inter,Arial,sans-serif" font-size="13" fill="#7c8781">Dernière synchronisation privée · état du système et prochaines actions</text>
+  <rect x="974" y="124" width="158" height="42" rx="11" fill="url(#glow)"/><path d="M997 139a9 9 0 11-2 9" fill="none" stroke="#0b1710" stroke-width="2" stroke-linecap="round"/><path d="M994 136l5 3-4 5" fill="none" stroke="#0b1710" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><text x="1013" y="150" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="800" fill="#0b1710">RELANCER L’AUDIT</text>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="258" y="222" width="198" height="112" rx="16" fill="#131a16" stroke="#27312b"/><text x="280" y="249" font-size="12" fill="#7d8982">SCORE GLOBAL</text><text x="280" y="297" font-size="39" font-weight="700" fill="#f2f4f3">—</text><rect x="352" y="277" width="80" height="24" rx="12" fill="#17271e"/><text x="392" y="293" text-anchor="middle" font-size="10" font-weight="700" fill="#82e5ad">PRIVÉ</text>
+    <rect x="470" y="222" width="198" height="112" rx="16" fill="#131a16" stroke="#27312b"/><text x="492" y="249" font-size="12" fill="#7d8982">DÉPÔTS SUIVIS</text><text x="492" y="297" font-size="39" font-weight="700" fill="#f2f4f3">—</text><text x="553" y="294" font-size="12" fill="#7d8982">HL + COBRA</text>
+    <rect x="682" y="222" width="198" height="112" rx="16" fill="#131a16" stroke="#3d3025"/><text x="704" y="249" font-size="12" fill="#7d8982">À CORRIGER</text><text x="704" y="297" font-size="39" font-weight="700" fill="#f2f4f3">—</text><circle cx="849" cy="288" r="7" fill="#f3b357"/><text x="836" y="320" text-anchor="end" font-size="10" fill="#f3b357">PRIORITÉ HAUTE</text>
+    <rect x="894" y="222" width="238" height="112" rx="16" fill="#131a16" stroke="#27312b"/><text x="916" y="249" font-size="12" fill="#7d8982">PR EN COURS</text><text x="916" y="297" font-size="39" font-weight="700" fill="#f2f4f3">—</text><text x="984" y="294" font-size="12" fill="#7d8982">FIX PRÉPARÉS</text>
+  </g>
+
+  <rect x="258" y="352" width="590" height="290" rx="16" fill="#131a16" stroke="#27312b"/>
+  <text x="282" y="385" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#edf0ee">Dépôts</text><text x="818" y="385" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#82e5ad">VOIR TOUT →</text>
+  <line x1="282" y1="405" x2="824" y2="405" stroke="#27312b"/>
+  <g font-family="Inter,Arial,sans-serif">
+    <circle cx="294" cy="446" r="6" fill="#82e5ad"/><text x="314" y="444" font-size="14" font-weight="700" fill="#edf0ee">agent-security</text><text x="314" y="463" font-size="11" fill="#737f78">Contrôle central</text><rect x="690" y="431" width="82" height="28" rx="14" fill="#17271e"/><text x="731" y="449" text-anchor="middle" font-size="10" font-weight="700" fill="#82e5ad">CONTRÔLÉ</text><text x="813" y="449" text-anchor="end" font-size="12" fill="#82e5ad">Voir →</text>
+    <line x1="282" y1="484" x2="824" y2="484" stroke="#27312b"/>
+    <circle cx="294" cy="525" r="6" fill="#f3b357"/><text x="314" y="523" font-size="14" font-weight="700" fill="#edf0ee">projet-cible</text><text x="314" y="542" font-size="11" fill="#737f78">Finding à confirmer</text><rect x="672" y="510" width="100" height="28" rx="14" fill="#302519"/><text x="722" y="528" text-anchor="middle" font-size="10" font-weight="700" fill="#f3b357">À ANALYSER</text><text x="813" y="528" text-anchor="end" font-size="12" fill="#f3b357">Ouvrir →</text>
+    <line x1="282" y1="563" x2="824" y2="563" stroke="#27312b"/>
+    <circle cx="294" cy="604" r="6" fill="#82e5ad"/><text x="314" y="602" font-size="14" font-weight="700" fill="#edf0ee">agent-cobra</text><text x="314" y="621" font-size="11" fill="#737f78">Audit terminé</text><rect x="690" y="589" width="82" height="28" rx="14" fill="#17271e"/><text x="731" y="607" text-anchor="middle" font-size="10" font-weight="700" fill="#82e5ad">CONTRÔLÉ</text><text x="813" y="607" text-anchor="end" font-size="12" fill="#82e5ad">Voir →</text>
+  </g>
+
+  <rect x="866" y="352" width="266" height="290" rx="16" fill="#131a16" stroke="#27312b"/>
+  <circle cx="900" cy="389" r="18" fill="url(#glow)"/><text x="900" y="395" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="15" fill="#0b1710">✦</text><text x="928" y="386" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#edf0ee">Jarvis</text><text x="928" y="403" font-family="Inter,Arial,sans-serif" font-size="10" fill="#82e5ad">AGENT DE PILOTAGE</text>
+  <rect x="888" y="430" width="222" height="116" rx="14" fill="#18201c"/><text x="905" y="459" font-family="Inter,Arial,sans-serif" font-size="13" fill="#c4cdc8">Je peux préparer un correctif</text><text x="905" y="481" font-family="Inter,Arial,sans-serif" font-size="13" fill="#c4cdc8">borné, le faire relire par</text><text x="905" y="503" font-family="Inter,Arial,sans-serif" font-size="13" fill="#c4cdc8">deux agents indépendants</text><text x="905" y="525" font-family="Inter,Arial,sans-serif" font-size="13" fill="#c4cdc8">et lancer les tests.</text>
+  <rect x="888" y="566" width="222" height="48" rx="12" fill="none" stroke="#345241"/><text x="999" y="595" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#82e5ad">PRÉPARER LE PLAN →</text>
+  <rect x="188" y="718" width="824" height="24" rx="12" fill="#fff"/><circle cx="212" cy="730" r="5" fill="#f3b357"/><text x="226" y="735" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#323831">Reconstitution publique — les données réelles restent privées et la liaison du cockpit doit être rétablie.</text>
+</svg>
