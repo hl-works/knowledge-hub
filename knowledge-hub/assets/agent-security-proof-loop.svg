@@ -12,18 +12,21 @@
   <text x="60" y="68" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#171a3d">Un fix n’est validé que si le problème disparaît</text>
   <text x="60" y="104" font-family="Inter,Arial,sans-serif" font-size="19" fill="#666b82">La même preuve traverse toute la boucle. Une panne ne devient jamais un succès.</text>
 
-  <path d="M325 266H470M730 266H875M990 380V468M875 555H730M470 555H325M210 468V380" fill="none" stroke="#676c84" stroke-width="4" marker-end="url(#a)"/>
+  <path d="M325 266H455" fill="none" stroke="#676c84" stroke-width="4" marker-end="url(#a)"/>
+  <path d="M730 266H860" fill="none" stroke="#676c84" stroke-width="4" marker-end="url(#a)"/>
+  <path d="M995 380V420Q995 444 971 444H770Q746 444 746 468V555H742" fill="none" stroke="#676c84" stroke-width="4" marker-end="url(#a)"/>
   <g filter="url(#s)" font-family="Inter,Arial,sans-serif">
     <rect x="85" y="160" width="240" height="220" rx="24" fill="#fff"/><circle cx="125" cy="202" r="22" fill="#eceeff"/><text x="125" y="209" text-anchor="middle" font-size="18" font-weight="700" fill="#5965db">1</text><text x="160" y="209" font-size="20" font-weight="700" fill="#171a3d">Reproduire</text><text x="115" y="260" font-size="16" fill="#53586d">Le finding existe sur</text><text x="115" y="288" font-size="16" fill="#53586d">le commit exact audité.</text><rect x="115" y="320" width="180" height="34" rx="17" fill="#f1f2f8"/><text x="205" y="342" text-anchor="middle" font-size="13" font-weight="700" fill="#5965db">PREUVE ORIGINALE</text>
     <rect x="470" y="160" width="260" height="220" rx="24" fill="#fff"/><circle cx="510" cy="202" r="22" fill="#fff0e8"/><text x="510" y="209" text-anchor="middle" font-size="18" font-weight="700" fill="#d65b48">2</text><text x="545" y="209" font-size="20" font-weight="700" fill="#171a3d">Limiter</text><text x="500" y="260" font-size="16" fill="#53586d">Le diff reste dans les</text><text x="500" y="288" font-size="16" fill="#53586d">fichiers et règles autorisés.</text><rect x="500" y="320" width="200" height="34" rx="17" fill="#fff3e8"/><text x="600" y="342" text-anchor="middle" font-size="13" font-weight="700" fill="#d65b48">PLUS PETIT FIX</text>
     <rect x="875" y="160" width="240" height="220" rx="24" fill="url(#accent)"/><circle cx="915" cy="202" r="22" fill="#fff" fill-opacity=".18"/><text x="915" y="209" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">3</text><text x="950" y="209" font-size="20" font-weight="700" fill="#fff">Rejouer</text><text x="905" y="260" font-size="16" fill="#fff">Le scanner d’origine</text><text x="905" y="288" font-size="16" fill="#fff">cherche la même alerte.</text><rect x="905" y="320" width="180" height="34" rx="17" fill="#fff" fill-opacity=".16"/><text x="995" y="342" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">MÊME SCANNER</text>
     <rect x="470" y="468" width="260" height="178" rx="24" fill="#fff"/><circle cx="510" cy="510" r="22" fill="#e9f8f1"/><path d="M500 510l7 7 14-17" fill="none" stroke="#278a60" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="545" y="517" font-size="20" font-weight="700" fill="#171a3d">Valider</text><text x="500" y="566" font-size="16" fill="#53586d">CI, tests projet puis</text><text x="500" y="594" font-size="16" fill="#53586d">contrôle post-déploiement.</text><text x="600" y="624" text-anchor="middle" font-size="13" font-weight="700" fill="#278a60">PASSAGE POSSIBLE</text>
   </g>
-  <path d="M470 608H356C335 608 325 597 325 578V431C325 412 336 402 355 402H845C864 402 875 412 875 431V482" fill="none" stroke="#d94d76" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#ap)"/>
+  <path d="M875 398H370Q346 398 346 422V533Q346 555 325 555" fill="none" stroke="#d94d76" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#ap)"/>
+  <text x="600" y="389" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#d94d76">SI LE SCANNER, LA CI OU LA PREUVE ÉCHOUE</text>
   <rect x="85" y="468" width="240" height="178" rx="24" fill="#242947"/>
   <text x="115" y="510" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" fill="#ef7898">FAIL CLOSED</text>
   <text x="115" y="550" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700" fill="#fff">Doute, panne ou alerte</text>
   <text x="115" y="582" font-family="Inter,Arial,sans-serif" font-size="15" fill="#c9cce0">Le dépôt reste à contrôler.</text>
   <text x="115" y="610" font-family="Inter,Arial,sans-serif" font-size="15" fill="#c9cce0">Retour avec la preuve.</text>
-  <path d="M210 468V414C210 398 226 390 242 390H990C1006 390 1015 380 1015 364" fill="none" stroke="#d94d76" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#ap)"/>
+  <path d="M210 468V395" fill="none" stroke="#d94d76" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#ap)"/>
 </svg>
