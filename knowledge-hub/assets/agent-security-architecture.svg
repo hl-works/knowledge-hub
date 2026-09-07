@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Architecture complète d’Agent Security</title>
+  <desc id="desc">Les organisations GitHub autorisées passent par une passerelle à jetons temporaires. Le scanner observe en lecture seule, le correcteur prépare une branche isolée, puis les contrôles indépendants autorisent ou bloquent la production.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7f8ff"/><stop offset="1" stop-color="#fff7f1"/></linearGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5965db"/><stop offset="1" stop-color="#7b62df"/></linearGradient>
+    <linearGradient id="fix" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ef744f"/><stop offset="1" stop-color="#d94d76"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#171a3d" flood-opacity=".11"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0l12 6-12 6z" fill="#696e86"/></marker>
+    <marker id="arrowPink" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0l12 6-12 6z" fill="#d94d76"/></marker>
+  </defs>
+  <rect width="1200" height="760" rx="32" fill="url(#bg)"/>
+  <text x="60" y="68" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#171a3d">Deux agents, aucune confiance aveugle</text>
+  <text x="60" y="104" font-family="Inter,Arial,sans-serif" font-size="19" fill="#666b82">Chaque pouvoir est séparé. Chaque passage laisse une preuve.</text>
+
+  <g filter="url(#shadow)"><rect x="60" y="156" width="230" height="400" rx="24" fill="#fff"/></g>
+  <text x="88" y="194" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#777b90">PÉRIMÈTRE</text>
+  <text x="88" y="229" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="700" fill="#171a3d">GitHub autorisés</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="88" y="265" width="174" height="62" rx="14" fill="#f1f2f8"/><circle cx="112" cy="296" r="8" fill="#5965db"/><text x="132" y="302" font-size="17" font-weight="700" fill="#30354e">HL Works</text>
+    <rect x="88" y="341" width="174" height="62" rx="14" fill="#f1f2f8"/><circle cx="112" cy="372" r="8" fill="#d94d76"/><text x="132" y="378" font-size="17" font-weight="700" fill="#30354e">tech-cobra</text>
+    <rect x="88" y="417" width="174" height="62" rx="14" fill="#f1f2f8"/><circle cx="112" cy="448" r="8" fill="#9aa0b8"/><text x="132" y="454" font-size="17" font-weight="700" fill="#30354e">Autre client</text>
+    <text x="88" y="520" font-size="15" fill="#777b90">Installations isolées</text>
+  </g>
+
+  <path d="M290 356H350" stroke="#696e86" stroke-width="4" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)"><rect x="360" y="226" width="180" height="260" rx="90" fill="#242947"/></g>
+  <path d="M427 307v-22a23 23 0 0146 0v22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/><rect x="414" y="307" width="72" height="63" rx="13" fill="#fff"/><circle cx="450" cy="335" r="7" fill="#5965db"/><path d="M450 342v12" stroke="#5965db" stroke-width="5" stroke-linecap="round"/>
+  <text x="450" y="405" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700" fill="#fff">Passerelle</text>
+  <text x="450" y="432" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" fill="#c9cce0">jeton court · scope précis</text>
+  <text x="450" y="455" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" fill="#c9cce0">refus par défaut</text>
+
+  <path d="M540 356H600" stroke="#696e86" stroke-width="4" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)"><rect x="610" y="156" width="240" height="260" rx="24" fill="url(#scan)"/></g>
+  <circle cx="654" cy="202" r="23" fill="#fff" fill-opacity=".18"/><path d="M644 202l7 7 14-17" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="690" y="209" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" fill="#e9ebff">OBSERVER</text>
+  <text x="640" y="256" font-family="Inter,Arial,sans-serif" font-size="27" font-weight="700" fill="#fff">Agent Security</text>
+  <g font-family="Inter,Arial,sans-serif" font-size="16" fill="#fff"><text x="640" y="306">Scanne et normalise</text><text x="640" y="338">Note et mémorise</text><text x="640" y="370">N’écrit jamais le code</text></g>
+  <rect x="640" y="387" width="180" height="1" fill="#fff" fill-opacity=".28"/>
+  <text x="640" y="406" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#fff">LECTURE SEULE</text>
+
+  <path d="M730 416V468" stroke="#696e86" stroke-width="4" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)"><rect x="610" y="480" width="240" height="178" rx="24" fill="url(#fix)"/></g>
+  <text x="638" y="520" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" fill="#fff0ec">RÉPARER</text>
+  <text x="638" y="556" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">Security Fix</text>
+  <text x="638" y="590" font-family="Inter,Arial,sans-serif" font-size="15" fill="#fff">Branche isolée · diff borné</text>
+  <text x="638" y="618" font-family="Inter,Arial,sans-serif" font-size="15" fill="#fff">PR contrôlée · jamais main</text>
+
+  <path d="M850 568H910" stroke="#d94d76" stroke-width="4" marker-end="url(#arrowPink)"/>
+  <g filter="url(#shadow)"><rect x="920" y="156" width="220" height="502" rx="24" fill="#fff"/></g>
+  <text x="950" y="196" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#d94d76">PORTES DE SORTIE</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <circle cx="974" cy="254" r="25" fill="#eceeff"/><text x="974" y="261" text-anchor="middle" font-size="18" font-weight="700" fill="#5965db">1</text><text x="1015" y="250" font-size="18" font-weight="700" fill="#171a3d">Agents</text><text x="1015" y="274" font-size="14" fill="#666b82">avis indépendants</text>
+    <line x1="974" y1="279" x2="974" y2="318" stroke="#d8dae7" stroke-width="3"/>
+    <circle cx="974" cy="345" r="25" fill="#eceeff"/><text x="974" y="352" text-anchor="middle" font-size="18" font-weight="700" fill="#5965db">2</text><text x="1015" y="341" font-size="18" font-weight="700" fill="#171a3d">Scanners</text><text x="1015" y="365" font-size="14" fill="#666b82">alerte disparue</text>
+    <line x1="974" y1="370" x2="974" y2="409" stroke="#d8dae7" stroke-width="3"/>
+    <circle cx="974" cy="436" r="25" fill="#fff0e8"/><text x="974" y="443" text-anchor="middle" font-size="18" font-weight="700" fill="#d65b48">3</text><text x="1015" y="432" font-size="18" font-weight="700" fill="#171a3d">CI + policy</text><text x="1015" y="456" font-size="14" fill="#666b82">tests et risque</text>
+  </g>
+  <rect x="950" y="510" width="160" height="64" rx="16" fill="#e9f8f1"/><circle cx="978" cy="542" r="8" fill="#278a60"/><text x="997" y="548" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="700" fill="#206f4e">Production</text>
+  <path d="M950 608H1110" stroke="#e5e6ef"/><text x="1030" y="633" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" fill="#d94d76">UNE ALERTE = RETOUR</text>
+
+  <path d="M920 632H886C870 632 862 624 862 608V454C862 438 850 430 834 430H800" fill="none" stroke="#d94d76" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrowPink)"/>
+  <rect x="200" y="690" width="800" height="46" rx="23" fill="#242947"/><text x="600" y="719" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">Lire largement · corriger étroitement · prouver avant de publier</text>
+</svg>
