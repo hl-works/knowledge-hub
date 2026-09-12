@@ -101,7 +101,21 @@ HOME_ITEMS = 3
 
 
 def render_home(lang: str) -> str:
-    """Teaser « veille du jour » pour la home : les meilleurs items du dernier jour."""
+    """Teaser « veille » pour la home.
+
+    FR : les meilleurs items du dernier jour (rendu dynamique depuis feed.json).
+    EN : encart fixe en anglais. Les items de feed.json n'ont pas de traduction
+    (titre_en/resume_en), donc les injecter mettrait du français sur la home EN.
+    On sert plutôt une accroche anglaise pointant vers la veille complète.
+    """
+    if lang == "en":
+        return (
+            '<p class="kicker">AI Watch</p>\n'
+            '<p style="margin:var(--space-3) 0 0;">A daily watch on what\'s moving in AI'
+            ' — new models, agents, tooling — and what it changes for retail and dev.</p>\n'
+            '<p style="margin-top:var(--space-3);"><a href="veille-ia/">Full AI watch →</a>'
+            ' <span class="caption">(summaries in French)</span></p>'
+        )
     data = json.loads((ROOT / "veille-ia" / "feed.json").read_text(encoding="utf-8"))
     rows = data if isinstance(data, list) else data.get("items", [])
     rows = [e for e in rows if e.get("date")]
@@ -109,10 +123,7 @@ def render_home(lang: str) -> str:
         return ""
     last = max(e["date"] for e in rows)
     items = sorted((e for e in rows if e["date"] == last), key=score, reverse=True)[:HOME_ITEMS]
-    if lang == "fr":
-        kicker, more, base = f"Veille IA · fraîche du {fr_date(last)}", "Toute la veille →", "veille-ia/"
-    else:
-        kicker, more, base = f"AI Watch · fresh as of {last}", "Full AI watch →", "veille-ia/"
+    kicker, more, base = f"Veille IA · fraîche du {fr_date(last)}", "Toute la veille →", "veille-ia/"
     out = [f'<p class="kicker">{kicker}</p>', '<ul style="margin:var(--space-3) 0 0;padding-left:1.1rem;">']
     for e in items:
         resume = e.get("resume_fr", "")
