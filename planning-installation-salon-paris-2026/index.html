@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Planning de livraison et d'installation des exposants du Salon Haute Fidelite 2026 - Comet Coeur Defense, Courbevoie.">
+<meta name="robots" content="noindex">
+<title>Planning installation — Salon Haute Fidélité 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ink:        #0D1B2A;
+    --ink-soft:   #3D4E62;
+    --ground:     #F7F6F3;
+    --surface:    #FFFFFF;
+    --line:       #DCD9D2;
+    --line-soft:  #E9E6E0;
+    --brass:      #9A7430;
+    --brass-bg:   #F3EBD9;
+    --alert:      #A33B2A;
+    --alert-bg:   #F8EAE6;
+    --shadow:     0 1px 2px rgba(13,27,42,.06), 0 8px 24px -16px rgba(13,27,42,.30);
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body:    "Public Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:       #ECEAE4;
+      --ink-soft:  #A0AEBE;
+      --ground:    #0B1622;
+      --surface:   #12202F;
+      --line:      #24374B;
+      --line-soft: #1B2B3C;
+      --brass:     #DDB264;
+      --brass-bg:  #24303A;
+      --alert:     #F0A492;
+      --alert-bg:  #35231E;
+      --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:       #ECEAE4;
+    --ink-soft:  #A0AEBE;
+    --ground:    #0B1622;
+    --surface:   #12202F;
+    --line:      #24374B;
+    --line-soft: #1B2B3C;
+    --brass:     #DDB264;
+    --brass-bg:  #24303A;
+    --alert:     #F0A492;
+    --alert-bg:  #35231E;
+    --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding-inline: 20px; }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    background: #0D1B2A;
+    color: #F7F6F3;
+    padding-block: 40px 34px;
+    border-bottom: 3px solid #DDB264;
+  }
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+    color: #DDB264; margin: 0 0 14px;
+  }
+  .masthead h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(30px, 6vw, 50px); line-height: 1.04;
+    letter-spacing: -.02em; margin: 0 0 10px; text-wrap: balance;
+  }
+  .masthead p.lede { margin: 0; max-width: 60ch; color: #B9C4D0; font-size: 16.5px; }
+
+  .keys { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 28px; }
+  .key { background: rgba(255,255,255,.055); border: 1px solid rgba(221,178,100,.28); padding: 16px 18px; }
+  .key h2 { font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #DDB264; margin: 0 0 8px; font-weight: 500; }
+  .key strong { display: block; font-family: var(--f-display); font-size: 18px; color: #fff; font-weight: 600; }
+  .key span { display: block; font-size: 14px; color: #A9B6C4; margin-top: 3px; }
+
+  /* ---------- Bandeau camion ---------- */
+  .truck {
+    background: var(--alert-bg);
+    border-bottom: 1px solid var(--line);
+    padding-block: 22px;
+  }
+  .truck .wrap { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 22px; align-items: start; }
+  .truck h2 {
+    font-family: var(--f-display); font-size: 19px; margin: 0 0 8px;
+    letter-spacing: -.01em; color: var(--alert);
+  }
+  .truck p { margin: 0 0 10px; font-size: 15.5px; max-width: 62ch; }
+  .truck ul { margin: 0; padding-left: 18px; font-size: 15px; }
+  .truck li + li { margin-top: 3px; }
+  .contact {
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .contact h3 { font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; font-weight: 500; }
+  .contact .who { font-family: var(--f-display); font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+  .contact .role { font-size: 14px; color: var(--ink-soft); margin-bottom: 10px; }
+  .contact a { display: block; font-family: var(--f-mono); font-size: 15px; color: var(--brass); text-decoration: none; padding: 2px 0; }
+  .contact a:hover, .contact a:focus-visible { text-decoration: underline; }
+
+  /* ---------- Barre d'outils ---------- */
+  .toolbar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: color-mix(in srgb, var(--ground) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding-block: 12px;
+  }
+  .toolbar .wrap { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  #q {
+    flex: 1 1 240px; min-width: 0; font: inherit; font-size: 15px;
+    padding: 10px 13px; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 2px;
+  }
+  #q::placeholder { color: var(--ink-soft); }
+  #q:focus-visible, .chip:focus-visible { outline: 2px solid var(--brass); outline-offset: 1px; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--f-mono); font-size: 12.5px; letter-spacing: .04em;
+    padding: 8px 11px; cursor: pointer; background: transparent; color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 2px;
+  }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+  .count { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); margin-left: auto; }
+
+  /* ---------- Timeline ---------- */
+  main { padding-block: 34px 60px; }
+  .slot { margin-bottom: 30px; }
+  .slot-head {
+    display: flex; align-items: baseline; gap: 14px;
+    border-top: 2px solid var(--ink); padding-top: 10px; margin-bottom: 14px;
+  }
+  .slot-time { font-family: var(--f-display); font-weight: 700; font-size: 26px; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+  .slot-meta { font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--brass); box-shadow: var(--shadow);
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 9px;
+  }
+  .card.late { border-left-color: var(--alert); }
+  .card h3 { font-family: var(--f-display); font-weight: 600; font-size: 18px; margin: 0; letter-spacing: -.01em; line-height: 1.2; }
+  .facts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .fact {
+    font-family: var(--f-mono); font-size: 12.5px; font-variant-numeric: tabular-nums;
+    padding: 3px 8px; border-radius: 2px; background: var(--brass-bg); color: var(--brass);
+  }
+  .fact.dim { background: transparent; color: var(--ink-soft); border: 1px solid var(--line-soft); }
+  .fact.todo { background: var(--alert-bg); color: var(--alert); }
+  .brands { margin: 0; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .brands b { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 3px; font-weight: 500; }
+
+  .empty { display: none; padding: 40px 0; color: var(--ink-soft); font-style: italic; }
+
+  /* ---------- Rappels ---------- */
+  .notes { border-top: 1px solid var(--line); padding-block: 28px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .notes h2 { font-family: var(--f-display); font-size: 15px; margin: 0 0 8px; letter-spacing: -.01em; }
+  .notes ul { margin: 0; padding-left: 18px; font-size: 14.5px; color: var(--ink-soft); }
+  .notes li + li { margin-top: 5px; }
+  .notes a { color: var(--brass); }
+
+  footer { margin-top: 36px; font-family: var(--f-mono); font-size: 12px; color: var(--ink-soft); }
+
+  @media (max-width: 720px) { .truck .wrap { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .slot-head { flex-direction: column; gap: 2px; } }
+  @media print {
+    .toolbar, .keys { display: none; }
+    .masthead { background: #fff; color: #000; padding-block: 0 14px; }
+    .masthead h1, .masthead .eyebrow { color: #000; }
+    .card { break-inside: avoid; box-shadow: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Salon Haute Fidélité 2026 · Comet Cœur Défense, Courbevoie</p>
+    <h1>Planning de livraison<br>et d'installation</h1>
+    <p class="lede">Chaque exposant dispose d'un créneau d'arrivée sur le quai, le vendredi 25 septembre. Merci de le respecter&nbsp;: les accès sont mutualisés et un retard décale toute la file.</p>
+
+    <div class="keys">
+      <div class="key">
+        <h2>Livraisons</h2>
+        <strong>Vendredi 25 · dès 14h00</strong>
+        <span>Créneau individuel ci-dessous</span>
+      </div>
+      <div class="key">
+        <h2>Installation</h2>
+        <strong>Vendredi 25 · jusqu'à 23h00</strong>
+        <span>Salles accessibles jusqu'à la fermeture</span>
+      </div>
+      <div class="key">
+        <h2>Cas particuliers</h2>
+        <strong>Samedi 26 · dès 8h00</strong>
+        <span>L'Oasis et La Canopée uniquement</span>
+      </div>
+      <div class="key">
+        <h2>Démontage</h2>
+        <strong>Dimanche 27 · 18h00 → 23h00</strong>
+        <span>Aucun enlèvement avant 18h00</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="truck">
+  <div class="wrap">
+    <div>
+      <h2>Avant toute chose&nbsp;: transmettez vos informations camion à Yoann</h2>
+      <p>Aucun véhicule ne peut être annoncé au quai sans ces éléments. <strong>Si ce n'est pas encore fait, envoyez-les aujourd'hui</strong> — sans ces informations, votre créneau ne peut pas être garanti.</p>
+      <ul>
+        <li>Type et gabarit du véhicule (VL, 12&nbsp;t, semi…), hauteur et longueur</li>
+        <li>Plaque d'immatriculation</li>
+        <li>Nom et téléphone portable du chauffeur</li>
+        <li>Heure d'arrivée réelle prévue, et besoin éventuel de hayon ou de transpalette</li>
+      </ul>
+      <p style="margin-top:12px">Un exposant occupant plusieurs espaces n'a qu'un seul créneau et un seul camion&nbsp;: le planning ci-dessous les regroupe.</p>
+    </div>
+    <div class="contact">
+      <h3>Suivi logistique</h3>
+      <div class="who">Yoann</div>
+      <div class="role">Coordination livraisons &amp; installation</div>
+      <a href="mailto:yoann@hl-media.info">yoann@hl-media.info</a>
+      <a href="tel:+33660877087">06 60 87 70 87</a>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="wrap">
+    <input id="q" type="search" placeholder="Chercher un exposant, une salle, une marque…" autocomplete="off">
+    <div class="chips" role="group" aria-label="Filtrer par niveau">
+      <button class="chip" id="f-all" data-level="" aria-pressed="true">Tout</button>
+      <button class="chip" id="f-n1" data-level="1" aria-pressed="false">Niveau 1</button>
+      <button class="chip" id="f-n2" data-level="2" aria-pressed="false">Niveau 2</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="slots"></div>
+  <p class="empty" id="empty">Aucun exposant ne correspond à cette recherche.</p>
+
+  <section class="notes">
+    <div>
+      <h2>Sur le quai</h2>
+      <ul>
+        <li>Présentez-vous à l'heure indiquée, pas avant&nbsp;: les places de déchargement sont limitées.</li>
+        <li>Déchargement puis dégagement immédiat du véhicule. L'installation se poursuit ensuite librement jusqu'à 23h00.</li>
+        <li>Empêchement ou retard&nbsp;: prévenez Yoann plutôt que de décaler seul.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Démontage</h2>
+      <ul>
+        <li>Dimanche 27 septembre, de 18h00 à 23h00.</li>
+        <li>Aucun enlèvement anticipé&nbsp;: le salon reste ouvert au public jusqu'à 18h00.</li>
+        <li>Les mêmes informations véhicule sont attendues pour la reprise.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Infos salon</h2>
+      <ul>
+        <li>26 &amp; 27 septembre 2026, 10h00 – 18h00.</li>
+        <li>Comet Cœur Défense, Tour Cœur Défense, Courbevoie.</li>
+        <li><a href="https://www.hautefidelite-hifi.com/article/le-salon-haute-fidelite-donne-rendez-vous-aux-passionnes-en-septembre-2026">Page publique du salon</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Salon Haute Fidélité · 26 &amp; 27 septembre 2026 · Comet Cœur Défense, Courbevoie · Planning tenu à jour par HL Média</footer>
+</main>
+
+<script>
+const DATA = [
+  // --- Vendredi 25, 14h00 ---
+  { t:"14h00", n:"Audio Marketing Service", s:"L'Observatoire + 1.03 + 1.05", lvl:"1", grp:"3 espaces, 1 camion", b:"Pro-Ject, ELAC, Musical Fidelity, Verdier, Quad, Sumiko" },
+  { t:"14h00", n:"Yamaha", s:"1.02", lvl:"1", b:"Yamaha" },
+  { t:"14h00", n:"Jadis Electronics / Davis", s:"1.07", lvl:"1", b:"Jadis Electronics, Davis Acoustics, Audirvana, Absolue Créations" },
+  { t:"14h00", n:"Sound United / Audioquest", s:"1.08", lvl:"1", b:"Bowers &amp; Wilkins, Marantz, Audioquest" },
+  { t:"14h00", n:"Klipsch", s:"2.04", lvl:"2", b:"Klipsch, Onkyo, Jadis" },
+  { t:"14h00", n:"PPL", s:"2.05 + 2.06", lvl:"2", grp:"2 espaces, 1 camion", b:"Arcam, Monitor Audio, Roksan, Blok (avec France Major Diffusion)" },
+  { t:"14h00", n:"Europe Audio Diffusion", s:"2.07", lvl:"2", b:"Wilson Audio, Audiovector, Dan D'Agostino, Audio Research, Michi, Lumin, Esoteric" },
+  { t:"14h00", n:"Haute Fidélité", s:"L'Oasis", lvl:"1", grp:"Équipe HF, sans camion", b:"Haute Fidélité" },
+
+  // --- Vendredi 25, 15h00 ---
+  { t:"15h00", n:"Neodio", s:"1.09", lvl:"1", b:"Neodio, Kora" },
+  { t:"15h00", n:"Fusion", s:"1.12", lvl:"1", b:"Dual, Nagaoka, iFi Audio, Moonriver, Revival Audio, Velodyne" },
+  { t:"15h00", n:"Hamy Sound", s:"1.13 + 2.11 + L'Odyssée", lvl:"1", grp:"3 espaces, 1 camion", b:"EverSolo, Fyne Audio, Luxsin, Fostex, Wireworld, Siltech, Bel Canto Design, Clearaudio, YG Acoustics, EgglestonWorks, ATC, Chord Electronics, SPL, Bassocontinuo — + animation Putting Challenge" },
+  { t:"15h00", n:"Elecson", s:"2.02", lvl:"2", b:"Octave, Marten, Innuos, Accuphase" },
+  { t:"15h00", n:"Mulidine", s:"2.03", lvl:"2", b:"Mulidine, Kora, Centaure" },
+  { t:"15h00", n:"Hi-Fi Retro", s:"L'Odyssée", lvl:"2", b:"Matériel de collection, Klipschorn, Onkyo, NuPrime" },
+
+  // --- Vendredi 25, 16h00 ---
+  { t:"16h00", n:"Cabasse", s:"1.01", lvl:"1", b:"Cabasse" },
+  { t:"16h00", n:"Jefferson", s:"1.04", lvl:"1", b:"Goldmund, Plixir, Pink Faun, Genuin, Audionet, Grand Cru Audio" },
+  { t:"16h00", n:"Diptyque Audio", s:"1.06", lvl:"1", b:"Diptyque Audio, B.Audio" },
+  { t:"16h00", n:"Ana Mighty Sound", s:"1.10", lvl:"1", b:"Silent Pound, Lockwood, Aura, Thrax, Phasemation, Boulder, J.Sikora, AMG, Sforzato, Hemingway Audio" },
+  { t:"16h00", n:"Delta Audio", s:"1.14", lvl:"1", b:"Dali, Fezz, Soulines, Hana, Ferrum" },
+  { t:"16h00", n:"Elite Diffusion", s:"2.01", lvl:"2", b:"Matrix Audio, Silent Angel, Dr Feickert, Graham Slee, Miyajima, Dayens, Borresen, Ansuz" },
+  { t:"16h00", n:"Advance Paris", s:"2.12", lvl:"2", b:"Advance Paris, Canton, MoFi" },
+
+  // --- Vendredi 25, 17h00 ---
+  { t:"17h00", n:"Waterfall", s:"1.11", lvl:"1", b:"Waterfall, NAD" },
+  { t:"17h00", n:"La Maison du Haut-Parleur", s:"2.09", lvl:"2", b:"MHP, Opera, Unison Research, Melodika" },
+  { t:"17h00", n:"DEA International", s:"2.10", lvl:"2", b:"PMC, Bryston, Michell" },
+  { t:"17h00", n:"Triangle", s:"2.13", lvl:"2", b:"Triangle, Advance Paris" },
+  { t:"17h00", n:"Casques Headphones", s:"La Canopée", lvl:"2", b:"Hifiman, RAAL, STAX, Erzetich, ZMF, Final Audio, Meze, Kallyste, SAEQ, Viva, Trafomatic, HiBy, FIR Audio, Astell&amp;Kern, Effect Audio, Danacable, dCS, Merason, Métronome, Innuos" },
+  { t:"17h00", n:"Headonist", s:"La Canopée", lvl:"2", b:"Matrix Audio, Paltauf, Allnic, Found Sound, Soltanus, ArcTec, Mirph Design, Nur Headphones" },
+  { t:"17h00", n:"Meze", s:"La Canopée", lvl:"2", b:"Meze" },
+
+  // --- Créneau à confirmer ---
+  { t:"À confirmer", n:"People Like You", s:"L'Oasis", lvl:"1", todo:1, b:"Oracle, Rowen, Megadisc, Torqueo, Ikeda, Orpheus, HSE Swiss" },
+
+  // --- Samedi 26, dès 8h00 ---
+  { t:"Samedi 26 · 8h00", n:"Disquaire — Denis Wissocq", s:"L'Oasis", lvl:"1", b:"Disquaire / vinyles" },
+  { t:"Samedi 26 · 8h00", n:"Qobuz", s:"L'Oasis", lvl:"1", b:"Qobuz" },
+  { t:"Samedi 26 · 8h00", n:"Sonoro", s:"L'Oasis", lvl:"1", b:"Sonoro" },
+  { t:"Samedi 26 · 8h00", n:"Sennheiser", s:"La Canopée", lvl:"2", b:"Sennheiser" }
+];
+
+const LABELS = {
+  "14h00": "Vendredi 25 septembre",
+  "15h00": "Vendredi 25 septembre",
+  "16h00": "Vendredi 25 septembre",
+  "17h00": "Vendredi 25 septembre",
+  "À confirmer": "Contactez Yoann",
+  "Samedi 26 · 8h00": "Livraison le samedi matin, avant l'ouverture à 10h00"
+};
+
+const slotsEl = document.getElementById("slots");
+const emptyEl = document.getElementById("empty");
+const countEl = document.getElementById("count");
+const qEl = document.getElementById("q");
+let level = "";
+
+function strip(s){ return s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase(); }
+
+function render(){
+  const q = strip(qEl.value.trim());
+  const rows = DATA.filter(d =>
+    (!level || d.lvl === level) &&
+    (!q || strip(d.n + " " + d.s + " " + d.b + " " + d.t).includes(q))
+  );
+
+  const times = [...new Set(rows.map(r => r.t))];
+  slotsEl.innerHTML = times.map(t => {
+    const items = rows.filter(r => r.t === t);
+    return `<section class="slot">
+      <div class="slot-head">
+        <span class="slot-time">${t}</span>
+        <span class="slot-meta">${LABELS[t]} · ${items.length} exposant${items.length > 1 ? "s" : ""}</span>
+      </div>
+      <div class="grid">
+        ${items.map(d => `<article class="card${d.todo ? " late" : ""}">
+          <h3>${d.n}</h3>
+          <div class="facts">
+            <span class="fact">Salle ${d.s}</span>
+            <span class="fact dim">Niveau ${d.lvl}</span>
+            ${d.grp ? `<span class="fact dim">${d.grp}</span>` : ""}
+            ${d.todo ? `<span class="fact todo">Créneau à caler avec Yoann</span>` : ""}
+          </div>
+          <p class="brands"><b>Marques présentées</b>${d.b}</p>
+        </article>`).join("")}
+      </div>
+    </section>`;
+  }).join("");
+
+  emptyEl.style.display = rows.length ? "none" : "block";
+  countEl.textContent = rows.length + " / " + DATA.length + " exposants";
+}
+
+qEl.addEventListener("input", render);
+document.querySelectorAll(".chip").forEach(btn => {
+  btn.addEventListener("click", () => {
+    level = btn.dataset.level;
+    document.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    render();
+  });
+});
+render();
+</script>
+</body>
+</html>
