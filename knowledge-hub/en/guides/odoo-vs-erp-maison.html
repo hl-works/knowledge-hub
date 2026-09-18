@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Odoo or Custom ERP: Which Should You Choose in 2026? — Guides · Hugo Lahutte</title>
+<meta name="description" content="Odoo or a custom ERP built with AI? A criterion-by-criterion comparison (cost, timeline, flexibility, lock-in) from someone who does both: extended Odoo at Cobra, and an in-house ERP built in 5 days.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/guides/odoo-vs-erp-maison.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/en/guides/odoo-vs-erp-maison.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/guides/odoo-vs-erp-maison.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/en/guides/odoo-vs-erp-maison.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Odoo or Custom ERP: Which Should You Choose in 2026?">
+<meta property="og:description" content="A criterion-by-criterion comparison from someone who does both: extended Odoo at Cobra, and an in-house ERP (HF-OS) built in 5 days with Claude Code.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/guides/odoo-vs-erp-maison.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:author" content="Hugo Lahutte">
+<meta property="article:published_time" content="2026-06-16">
+
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/knowledge-hub/llms.txt">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+
+<!-- ===== JSON-LD : TechArticle + Breadcrumb + FAQ (GEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Odoo or Custom ERP: Which Should You Choose in 2026?",
+      "description": "A decision-making comparison of Odoo vs. a custom ERP built with AI, criterion by criterion (cost, timeline, flexibility, lock-in, risk), from someone who does both.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-06-16",
+      "dateModified": "2026-06-16",
+      "url": "https://hl-consulting.tech/knowledge-hub/guides/odoo-vs-erp-maison.html",
+      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/", "email": "mailto:hugo@hl-consulting.tech"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "about": ["Odoo", "custom ERP", "ERP", "Claude Code", "business software", "build vs buy"],
+      "keywords": "Odoo vs custom ERP, Odoo or custom, build vs buy ERP, AI custom ERP, ERP cost"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://hl-consulting.tech/knowledge-hub/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Odoo vs ERP maison", "item": "https://hl-consulting.tech/knowledge-hub/guides/odoo-vs-erp-maison.html"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Odoo or custom ERP: which should you choose?", "acceptedAnswer": {"@type": "Answer", "text": "Odoo (or any off-the-shelf ERP) when your business is standard and regulated — accounting, payroll, inventory, purchasing: you don't rewrite accounting logic, and a proven foundation covers 80% of your needs on day one. A custom ERP when your business is specific, when no software can model it without forcing awkward workarounds, or when you want your own UX and brand identity. Now that AI has collapsed the cost of customization, going custom becomes rational much sooner than it used to."}},
+        {"@type": "Question", "name": "How much does a custom ERP built with AI cost?", "acceptedAnswer": {"@type": "Answer", "text": "The cost that's collapsing is development: HF-OS, a fully functional press ERP (CRM, ad management, invoicing, follow-ups), was built in ~16 hours of actual work over 5 days and 96 pull requests, by one person driving Claude Code. Operating costs come to a few tens of euros per month (hosting + managed database + backups) plus the AI subscription. Compare that to per-user licensing and integration days for an off-the-shelf ERP. The real remaining cost of going custom isn't money — it's the time spent scoping and reviewing."}},
+        {"@type": "Question", "name": "Is Odoo really free?", "acceptedAnswer": {"@type": "Answer", "text": "Partly. Odoo Community is open source and free when self-hosted, but limited (no full accounting or certain apps). The Enterprise version is paid, billed per user per month, and the real bill is mostly integration, customization, and module maintenance. 'Free' doesn't mean 'no cost': you need to look at total cost of ownership, not just the license price."}},
+        {"@type": "Question", "name": "Do you need to know how to code to build your ERP with AI?", "acceptedAnswer": {"@type": "Answer", "text": "Not to write the code line by line — AI handles that. But you need to know how to decide and review: define the scope, make architecture calls, set guardrails (backups, access, personal data), and do the reading. It's steering work, not typing work. A founder who knows their business and learns to drive AI can produce the output of a small team; someone who doesn't want to review anything shouldn't risk it on a critical tool."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Method</a></li>
+      <li><a href="./" aria-current="page">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/en/guides/odoo-vs-erp-maison.html" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: automatic" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-bottom:var(--space-12);">
+  <div class="container">
+    <p class="caption"><a href="../">Home</a> › <a href="./">Guides</a> › Odoo vs custom ERP</p>
+    <p class="kicker" style="margin-top:var(--space-3);">Guides · Comparison</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);">Odoo or Custom ERP: Which Should You Choose in 2026?</h1>
+    <hr class="rule--accent">
+    <p class="lead">The question keeps coming up: go with an off-the-shelf ERP like <strong>Odoo</strong>, or <strong>build your own</strong> now that AI has made development costs collapse? I'm doing both in parallel — extending Odoo daily at Cobra, and an in-house ERP built from scratch in 5 days. Here's the verdict, criterion by criterion, no dogma.</p>
+    <div class="meta-bar">
+      <span>By <strong>Hugo Lahutte</strong></span><span>·</span>
+      <time datetime="2026-06-16">June 16, 2026</time><span>·</span><span>~7 min read</span>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);">
+      <a class="tag" data-tag="comparatif" data-tagsearch="comparatif" href="/knowledge-hub/en/guides/">comparatif</a>
+      <a class="tag" data-tag="erp" data-tagsearch="erp" href="/knowledge-hub/en/guides/">erp</a>
+      <a class="tag" data-tag="odoo" data-tagsearch="odoo" href="/knowledge-hub/en/guides/">odoo</a>
+      <a class="tag" data-tag="strat" data-tagsearch="strat" href="/knowledge-hub/en/guides/">strat</a>
+    </div>
+  </div>
+</section>
+
+<article class="article" style="padding-top:0;">
+  <div class="container">
+
+    <!-- ===== VERDICT EXPRESS ===== -->
+    <aside class="callout callout--tldr prose" aria-label="Verdict in 30 seconds">
+      <p class="kicker">The verdict in 30 seconds</p>
+      <ul>
+        <li><strong>Go with Odoo</strong> (or an off-the-shelf ERP) when your business is <strong>standard and regulated</strong> — accounting, payroll, inventory, purchasing. A proven foundation covers 80% of your needs on day one, and you don't rewrite accounting logic.</li>
+        <li><strong>Go custom</strong> when your business is <strong>specific</strong>, when no software can model it without forcing you into someone else's boxes, or when you want <strong>your</strong> UX and <strong>your</strong> brand. That's where AI changes everything.</li>
+        <li><strong>The trap to avoid:</strong> reasoning about <strong>license price</strong> instead of <strong>total cost</strong> (integration, customization, maintenance, lock-in). And falling into "everything custom" for generic functions that off-the-shelf software already handles really well.</li>
+      </ul>
+    </aside>
+
+    <nav class="toc prose" aria-label="Contents">
+      <p class="kicker">Contents</p>
+      <ul>
+        <li><a href="#tableau">1. The matchup at a glance</a></li>
+        <li><a href="#odoo">2. Odoo in detail</a></li>
+        <li><a href="#maison">3. Custom ERP in detail</a></li>
+        <li><a href="#profils">4. Who should choose what</a></li>
+        <li><a href="#retour">5. My experience (with numbers)</a></li>
+        <li><a href="#faq">6. Frequently asked questions</a></li>
+      </ul>
+    </nav>
+
+    <div class="prose">
+
+      <!-- ===== 1. TABLEAU DE CRITÈRES ===== -->
+      <h2 id="tableau">1. The matchup at a glance</h2>
+      <p>The decision isn't about which one is "better" in the abstract — it's about how much weight <em>you</em> put on each criterion. Here are the eight that actually matter.</p>
+
+      <div style="overflow-x:auto; margin:var(--space-8) 0;">
+        <table style="width:100%; border-collapse:collapse; font-size:.95rem; min-width:560px;">
+          <caption style="text-align:left; font-size:.8125rem; color:var(--text-muted); margin-bottom:var(--space-3);">Odoo vs. custom ERP — criterion-by-criterion comparison (2026).</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="text-align:left; padding:var(--space-3); border-bottom:2px solid var(--border-strong); width:30%;">Criterion</th>
+              <th scope="col" style="text-align:left; padding:var(--space-3); border-bottom:2px solid var(--border-strong);">Odoo (buy / extend)</th>
+              <th scope="col" style="text-align:left; padding:var(--space-3); border-bottom:2px solid var(--c-red); color:var(--c-red);">Custom ERP (build with AI)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">Upfront cost</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Per-user/month licensing (Enterprise) + integration days. Community is free but limited.</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Near zero on licensing. The cost = your scoping time + your AI subscription. Development costs have collapsed.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">3-year total cost (TCO)</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Grows with user count and customization. Custom module maintenance is an ongoing expense.</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Hosting + managed database = a few tens of euros/month, stable regardless of user count.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">Time to go live</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;"><strong>Fast</strong> on standard features: existing modules run right away (accounting, CRM, inventory).</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Everything needs to be built — but much faster than before: a functional core in days, not months.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">Business flexibility</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Good within Odoo's framework; beyond that, you're building modules and working around its imposed data model.</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;"><strong>Total.</strong> The software fits your exact business, not the other way around. No forced checkboxes.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">Maintenance &amp; updates</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Core maintained by the vendor, but every major version upgrade can break your custom modules.</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">100% your responsibility — but it's a smaller codebase, fully yours, and AI speeds up fixes too.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">Lock-in</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Vendor (roadmap, pricing, terms) + often a partner integrator.</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">You / your team. No license ransom, but the knowledge must stay documented and shared.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">Compliance (accounting, payroll)</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;"><strong>Covered</strong> and kept up to date by the vendor (standards, tax rules). A huge advantage for anything regulated.</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Not worth reinventing. The smart move: let an external source of truth handle the regulatory layer.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="text-align:left; padding:var(--space-3); border-top:1px solid var(--border); font-weight:700; vertical-align:top;">Risk / reversibility</th>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Low technically (proven product), but exiting is costly once you're deep in the ecosystem.</td>
+              <td style="padding:var(--space-3); border-top:1px solid var(--border); vertical-align:top;">Quality risk if nobody reviews; but you own your code and data, so you can always walk away.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===== 2. ODOO ===== -->
+      <h2 id="odoo">2. Odoo in detail</h2>
+      <p>Odoo is a very complete modular management suite (CRM, sales, purchasing, inventory, accounting, HR…), available as open source <strong>Community</strong> and paid <strong>Enterprise</strong>. It's an excellent default for the vast majority of SMBs: the standard is solid, the community is huge, and the essentials of a typical business are covered without writing a single line of code.</p>
+      <p><strong>Where Odoo wins:</strong> fast onboarding for generic functions, accounting and tax compliance maintained for you, a rich ecosystem of modules and integrators, and a clean exit path when you stay within the framework. At Cobra, that's exactly my choice: an Odoo I <strong>extend</strong> almost every day with Claude Code, rather than rewriting everything from scratch.</p>
+      <p><strong>Where it gets tricky:</strong> the moment your business goes outside the framework, you're building modules, working around Odoo's data model, and every version upgrade becomes a regression test for your customizations. Community's "free" label melts quickly into integration and maintenance costs.</p>
+
+      <!-- ===== 3. SUR MESURE ===== -->
+      <h2 id="maison">3. Custom ERP in detail</h2>
+      <p>Building your own isn't the six-figure, 18-month project it used to be. With AI doing the heavy lifting and a human at the wheel, a functional core comes together in days. The point isn't to "do what Odoo does but worse" — it's to model <strong>exactly</strong> your business, with <strong>your</strong> UX and <strong>your</strong> brand identity.</p>
+      <p><strong>Where custom wins:</strong> total flexibility, near-fixed operating costs (no per-user licensing), ownership of the code and data, and an experience tailored to your team — not a generic compromise. That's decisive for a business the market doesn't model well.</p>
+      <p><strong>Where it gets tricky:</strong> everything depends on your ability to <strong>decide and review</strong>. No vendor safety net — quality, backups, security, compliance are all on you. And you absolutely shouldn't rewrite generic, critical functionality (accounting) just for the pleasure of going custom.</p>
+
+      <!-- ===== 4. VERDICT PAR PROFIL ===== -->
+      <h2 id="profils">4. Who should choose what</h2>
+      <div class="compare" role="img" aria-label="Summary: who should go with Odoo, who should go custom.">
+        <div class="compare__side">
+          <span class="compare__tag">Lean toward Odoo</span>
+          <h4>Standard business, team needs to move fast</h4>
+          <ul>
+            <li>Accounting, payroll, inventory, purchasing at the core</li>
+            <li>Strong regulatory compliance requirements</li>
+            <li>Non-technical team, no in-house AI driver</li>
+            <li>Growth through existing modules</li>
+          </ul>
+        </div>
+        <div class="compare__arrow" aria-hidden="true">·</div>
+        <div class="compare__side compare__side--after">
+          <span class="compare__tag">Lean toward custom</span>
+          <h4>Specific business, strong UX requirements</h4>
+          <ul>
+            <li>Processes the market doesn't model (or models poorly)</li>
+            <li>You want your own interface and brand, not a vendor's</li>
+            <li>A founder / team that knows how to drive AI</li>
+            <li>Need for very specific dashboards and automations</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:var(--space-6);">And most of the time, the real answer is <strong>hybrid</strong>: an off-the-shelf foundation for generic and regulated needs, with custom-built pieces on top for what differentiates you. That's exactly what I do in practice.</p>
+
+      <!-- ===== 5. RETOUR D'EXPÉRIENCE CHIFFRÉ ===== -->
+      <aside class="callout" style="margin-top:var(--space-16); border-left:3px solid var(--c-red);">
+        <p class="kicker">My experience</p>
+        <p style="margin-top:var(--space-3);">I didn't pick a side: I'm living <strong>both paths</strong> in parallel, which makes the comparison concrete.</p>
+        <p style="margin-top:var(--space-3);"><strong>Custom —</strong> I built <strong>HF-OS</strong>, the internal ERP for my magazine <em>Haute Fidélité</em> (CRM, ad management, invoicing, follow-ups), in <strong>5 days, 96 pull requests, ~20,000 lines and ~16 hours of actual work</strong>, solo, driving Claude Code. Operating cost: a few tens of euros per month. The full story with the numbers: <a href="faut-il-encore-acheter-un-erp.html">Do you still need to buy an ERP?</a></p>
+        <p style="margin-top:var(--space-3);"><strong>Extending off-the-shelf —</strong> at <strong>Cobra</strong>, I start from an existing <strong>Odoo</strong> that I modify and extend almost daily, with in-house dashboards alongside it for what Odoo handles poorly. See the <a href="../journal/agent-produit-ia-cdc-dashboard.html">product creation agent</a> and <a href="../journal/davis-odoo-krypton-ariane.html">Odoo catalog integration</a> sessions.</p>
+        <p style="margin-top:var(--space-3);">My on-the-ground conclusion: <strong>the dial has moved</strong>. Going custom becomes rational much sooner than it used to — but extending an off-the-shelf standard is still the right call for anything generic and critical.</p>
+      </aside>
+
+      <!-- ===== 6. FAQ (alignée sur le JSON-LD FAQPage) ===== -->
+      <h2 id="faq">6. Frequently asked questions</h2>
+      <h3>Odoo or custom ERP: which should you choose?</h3>
+      <p>Odoo (or any off-the-shelf ERP) when your business is standard and regulated — accounting, payroll, inventory, purchasing: you don't rewrite accounting logic, and a proven foundation covers 80% of your needs right away. A custom ERP when your business is specific, when no software can model it without awkward workarounds, or when you want your own UX and brand identity. Now that AI has collapsed the cost of customization, going custom becomes rational much sooner than it used to.</p>
+      <h3>How much does a custom ERP built with AI cost?</h3>
+      <p>The cost that's collapsing is development: HF-OS, a fully functional press ERP (CRM, ad management, invoicing, follow-ups), was built in ~16 hours of actual work over 5 days and 96 pull requests, by one person driving Claude Code. Operating costs come to a few tens of euros per month (hosting + managed database + backups) plus the AI subscription. Compare that to per-user licensing and integration days for an off-the-shelf ERP. The real remaining cost of going custom isn't money — it's the time spent scoping and reviewing.</p>
+      <h3>Is Odoo really free?</h3>
+      <p>Partly. Odoo Community is open source and free when self-hosted, but limited (no full accounting or certain apps). The Enterprise version is paid, billed per user per month, and the real bill is mostly integration, customization, and module maintenance. "Free" doesn't mean "no cost": you need to look at total cost of ownership, not just the license price.</p>
+      <h3>Do you need to know how to code to build your ERP with AI?</h3>
+      <p>Not to write the code line by line — AI handles that. But you need to know how to decide and review: define the scope, make architecture calls, set guardrails (backups, access, personal data), and do the reading. It's steering work, not typing work. A founder who knows their business and learns to drive AI can produce the output of a small team; someone who doesn't want to review anything shouldn't risk it on a critical tool.</p>
+
+      <aside class="callout" style="margin-top:var(--space-16);">
+        <p class="kicker">Go further</p>
+        <ul style="margin-top:var(--space-3);">
+          <li>→ <a href="faut-il-encore-acheter-un-erp.html"><strong>Do you still need to buy an ERP?</strong></a> — the full write-up on HF-OS, built in 5 days (the hard evidence for "going custom").</li>
+          <li>→ <a href="lia-pour-un-commercant.html"><strong>AI in practice, for a retailer or SMB</strong></a> — where to start, no jargon.</li>
+          <li>→ <a href="../journal/davis-odoo-krypton-ariane.html"><strong>Extending Odoo at Cobra</strong></a> — the "start from off-the-shelf and build on top" path.</li>
+        </ul>
+        <p style="margin-top:var(--space-4);"><strong>Sources.</strong> My direct experience with both approaches (HF-OS and Odoo at Cobra), measured via the GitHub API and git. Odoo pricing figures are ballpark estimates — verify against the official pricing page when you're ready to decide.</p>
+      </aside>
+
+    </div>
+  </div>
+</article>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta-band">
+      <p class="kicker" style="color:var(--c-gold);">Let's talk</p>
+      <h2>Torn between Odoo and going custom?</h2>
+      <p class="prose">I've done both, for real, and I document everything in public — no sales pitch, just a genuine interest in the conversation. If you're working through this decision for your company, reach out.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:hugo@hl-consulting.tech?subject=Odoo%20vs%20ERP%20maison%20—%20échange">Send me an email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "Method", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependencies</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private area">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travels</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Connect on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>
