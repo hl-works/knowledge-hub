@@ -7,6 +7,13 @@
 "tags": "agent cybersécurité github devsecops openrouter"
 },
 {
+"url": "/knowledge-hub/journal/brain-central-acces-roles.html",
+"title": "Un « Brain » central pour arrêter de donner les clés du serveur à tout le monde",
+"excerpt": "Pour créer un produit dans Odoo via un agent, il fallait une clé SSH sur le serveur — donc soit Hugo faisait tout, soit on distribuait des accès larges et intraçables. Un service central (le « Brain ») détient désormais les secrets côté serveur et expose des capacités métier derrière un jeton → une identité → un rôle (lecture / préparation / écriture / mise en ligne), en journalisant qui a fait quoi. Deux surfaces, garde-fous repris de l'historique, 3 accès distribués.",
+"kind": "Journal",
+"tags": "infra agent en-prod cobra"
+},
+{
 "url": "/knowledge-hub/journal/growth-centre-actions.html",
 "title": "Growth : remplacer dix tableaux de bord par une file d'actions",
 "excerpt": "Des idées jetées en l'air en fin de semaine, un week-end avec ChatGPT et Codex, puis Growth en production le mardi. Data, BigQuery, application et cœur agentique réutilisable ont été construits pour transformer les faits en actions validées.",

@@ -136,7 +136,7 @@
       <a class="btn btn--ghost" href="a-propos/">Qui je suis</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">65</b><span>Sessions documentées</span></div>
+      <div class="stat"><b id="stat-sessions">66</b><span>Sessions documentées</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Projets actifs</span></div>
       <div class="stat"><b>2</b><span>Agents Claude</span></div>
     </div>
@@ -287,10 +287,19 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 65 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 66 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry">
+        <time datetime="2026-09-19">2026-09-19</time>
+        <div>
+          <h3 class="entry__title"><a href="journal/brain-central-acces-roles.html">Un « Brain » central pour arrêter de donner les clés du serveur à tout le monde</a></h3>
+          <p class="entry__excerpt">Pour créer un produit dans Odoo via un agent, il fallait une clé SSH sur le serveur — donc soit Hugo faisait tout, soit on distribuait des accès larges et intraçables. Un service central (le « Brain ») détient désormais les secrets côté serveur et expose des capacités métier derrière un jeton → une identité → un rôle (lecture / préparation / écriture / mise en ligne), en journalisant qui a fait quoi. Deux surfaces (skill en ligne de commande + page web interne protégée), garde-fous repris de l'historique (rapprochement anti-doublon avant création, jamais de publication automatique), 3 accès distribués : deux personnes ajoutent et déploient leurs propres capacités sans repasser par Hugo.</p>
+          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+        </div>
+        <div class="author"><span class="author--hl">Claude · HL</span></div>
+      </li>
       <li class="entry">
         <time datetime="2026-09-01">2026-09-01</time>
         <div>
@@ -373,7 +382,7 @@
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
       </li>
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">65 entrées au total — filtrer par tag dans le journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">66 entrées au total — filtrer par tag dans le journal →</a></p>
   </div>
 </section>
 

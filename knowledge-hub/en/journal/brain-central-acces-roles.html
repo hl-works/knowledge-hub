@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A central "Brain" so we stop handing out the server keys to everyone — Journal · Hugo Lahutte</title>
+<meta name="description" content="A central service (the 'Brain') holds the secrets server-side and exposes business capabilities behind a token → an identity → a role (read / prepare / write / publish), logging who did what. Two surfaces, guardrails carried over from the legacy tool, 3 accesses distributed: the team creates products without ever touching the server.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/en/journal/brain-central-acces-roles.html">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/journal/brain-central-acces-roles.html">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/journal/brain-central-acces-roles.html">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/journal/brain-central-acces-roles.html">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A central &quot;Brain&quot; so we stop handing out the server keys to everyone">
+<meta property="og:description" content="A single front door that holds the secrets, translates 'token → identity → role', logs everything and exposes reusable capabilities — so the team creates products without ever touching the server.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/en/journal/brain-central-acces-roles.html">
+<meta property="article:published_time" content="2026-09-19">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/knowledge-hub/favicon.ico" sizes="any">
+<link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/knowledge-hub/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/knowledge-hub/apple-touch-icon.png">
+<link rel="manifest" href="/knowledge-hub/site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "A central \"Brain\" so we stop handing out the server keys to everyone",
+      "description": "A central service (the 'Brain') holds the secrets server-side, translates every call into token → identity → role, logs who did what, and exposes reusable business capabilities on two surfaces — so the team can drive Odoo and Shopify without ever touching the server.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "url": "https://hl-consulting.tech/knowledge-hub/journal/brain-central-acces-roles.html",
+      "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
+      "publisher": {"@type": "Organization", "name": "HL Consulting"},
+      "keywords": "cobra, infra, agent, en-prod",
+      "isPartOf": {"@type": "Blog", "name": "Knowledge Hub — Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Knowledge Hub", "item": "https://hl-consulting.tech/knowledge-hub/"},
+        {"@type": "ListItem", "position": 2, "name": "Journal", "item": "https://hl-consulting.tech/knowledge-hub/journal/"},
+        {"@type": "ListItem", "position": 3, "name": "A central \"Brain\" so we stop handing out the server keys to everyone", "item": "https://hl-consulting.tech/knowledge-hub/journal/brain-central-acces-roles.html"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Main">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">How-to</a></li>
+      <li><a href="../guides/">Guides</a></li>
+      <li><a href="../veille-ia/">AI Watch</a></li>
+      <li><a href="../#projets">Projects</a></li>
+      <li><a href="./" aria-current="page">Journal</a></li>
+      <li><a href="../#contact">Connect</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/journal/brain-central-acces-roles.html" hreflang="fr" lang="fr" aria-label="Lire en français" title="Lire en français">FR</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Theme: auto" title="Theme"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+<main id="main">
+<article class="article">
+  <div class="container">
+    <p class="caption"><a href="./">← Journal</a></p>
+    <p class="kicker">Cobra · Infra</p>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);">A central &ldquo;Brain&rdquo; so we stop handing out the server keys to everyone</h1>
+    <hr class="rule--accent">
+    <div class="meta-bar">
+      <span><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></span>
+      <span>·</span>
+      <time datetime="2026-09-19">September 19, 2026</time>
+      <span>·</span>
+      <a href="../cobra/">Cobra</a>
+    </div>
+    <div class="tags" style="margin-top:var(--space-4);"><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/en/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
+
+    <div class="prose" style="margin-top:var(--space-8);">
+      <p>A central service — nicknamed the &ldquo;Brain&rdquo; — becomes the <strong>single front door</strong> to Odoo, Shopify and email. It holds the secrets server-side, translates every call into &ldquo;token → identity → role&rdquo;, logs who did what, and exposes reusable business capabilities. The goal fits in one sentence: let the team create products <strong>without ever touching the server</strong>.</p>
+
+      <h3>Context — the problem</h3>
+      <p>To create a product in Odoo through an agent, you used to need an SSH key on the server and the know-how to handle a code repository. The result: either Hugo did everything, or broad server access got handed out to several people — <strong>impossible to trace, hard to revoke</strong>, and a single mistake could hit production. The real need wasn't &ldquo;more access&rdquo;, it was &ldquo;the right capability, for the right person, with a trail&rdquo;.</p>
+
+      <h3>What was done</h3>
+      <p>A central service (the &ldquo;Brain&rdquo;) was put in place as a single front door:</p>
+      <ul>
+        <li>It <strong>holds the secrets</strong> server-side; no one else sees them.</li>
+        <li>Every call carries a <strong>personal token</strong> → an identity → a <strong>role</strong> (read / prepare / write / publish). You grant exactly the level that's useful, no more.</li>
+        <li>Every action is written to a <strong>durable log</strong> (&ldquo;who requested what, when&rdquo;).</li>
+        <li>One capability = one mold: a module + a route + an access scope, exposed on <strong>two surfaces</strong> — inside the command-line assistant <strong>and</strong> on an access-protected internal web page.</li>
+        <li>Guardrails carried over from the legacy tool: <strong>anti-duplicate reconciliation before any creation</strong>, and a created product is <strong>never published automatically</strong> (publishing is a separate, explicit step).</li>
+      </ul>
+      <p><strong>Result:</strong> the service is <strong>in production</strong>, <strong>3 accesses</strong> distributed to the team with distinct roles, <strong>2 surfaces</strong> of use, and the codebase merged onto the main branch so that two people can now <strong>add their own capabilities and deploy them themselves</strong>, without going back through Hugo.</p>
+
+      <h3>What was hard / what we learned</h3>
+      <p><strong>Separating two questions we always conflate.</strong> &ldquo;Who holds the secrets&rdquo; (the service, full stop) and &ldquo;who's allowed to call what&rdquo; (the token + the role) are two distinct problems. Once separated, granting access becomes reversible and traceable instead of a permanent gift.</p>
+      <p><strong>The boundary, not the catch-all.</strong> We wrote down in black and white what must live inside the Brain (anything shared, anything that writes to a system, anything that must be traced / permissioned) and what can stay outside (deterministic crons, personal prototypes, read-only analytics). Without that rule, a central service quickly becomes a bottleneck.</p>
+      <p><strong>Silly traps are expensive.</strong> The service wouldn't start because of a badly set working directory (an import error), and two components didn't &ldquo;talk&rdquo; because a single concept carried two different field names. The lesson: freeze a <strong>stable data contract</strong> between components early, and test the real startup, not just the code.</p>
+      <p><strong>Keep the human on sensitive gestures.</strong> The assistant doesn't perform production writes and doesn't grant itself rights — a human triggers those. It slowed things down at times, but that's exactly the guardrail we want.</p>
+
+      <h3>Stack</h3>
+      <p>A service in Python (standard library, no dependencies), token → role authentication, a log on an embedded database, an API listening locally behind a reverse proxy, deployed as a managed service (systemd). Two surfaces: a skill for the command-line assistant + an access-protected internal web page. Odoo and Shopify as target systems.</p>
+
+      <h3>What this illustrates</h3>
+      <p>When several people need to drive the same systems, the right instinct isn't to distribute access, it's to build <strong>a front door</strong>: it keeps the secrets, translates &ldquo;token → identity → role&rdquo;, logs everything, and exposes reusable capabilities from the same mold. You move from &ldquo;opening up access&rdquo; to <strong>&ldquo;exposing capabilities&rdquo;</strong> — and the team gains autonomy without anyone losing control.</p>
+    </div>
+
+    <aside class="callout" style="margin-top:var(--space-12);">
+      <h3>See also</h3>
+      <ul style="margin-top:var(--space-3);">
+        <li><a href="cdc-odoo-ia-verifie-avant-de-coder.html">AI doesn't code my request — it verifies what it assumes</a></li>
+        <li><a href="cobra-app-store-industrialisation.html">The Cobra App Store keeps industrializing</a></li>
+      </ul>
+    </aside>
+    <div class="btn-row">
+      <a class="btn btn--ghost" href="./">← All entries</a>
+      <a class="btn btn--primary" href="../cobra/">Cobra project →</a>
+    </div>
+  </div>
+</article>
+</main>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Main navigation — Knowledge Hub",
+  "itemListElement": [
+    {"@type": "SiteNavigationElement", "position": 1, "name": "How-to", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
+    {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "AI Watch", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 4, "name": "Glossary", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
+    {"@type": "SiteNavigationElement", "position": 5, "name": "About", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
+    {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
+  ]
+}
+</script>
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-12) var(--space-16); justify-content:space-between;">
+
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/en/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public with Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">Static HTML/CSS · GitHub Pages · zero dependency</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/en/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Private space">🔒</a></p>
+      </div>
+
+      <nav aria-label="Footer links">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explore</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/en/how-to/" style="text-decoration:none;">Method</a></li>
+          <li><a href="/knowledge-hub/en/guides/" style="text-decoration:none;">Guides</a></li>
+          <li><a href="/knowledge-hub/en/veille-ia/" style="text-decoration:none;">AI Watch</a></li>
+          <li><a href="/knowledge-hub/en/lexique/" style="text-decoration:none;">Glossary</a></li>
+          <li><a href="/knowledge-hub/en/journal/" style="text-decoration:none;">Journal</a></li>
+          <li><a href="/knowledge-hub/en/a-propos/" style="text-decoration:none;">About</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Follow me</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener" style="text-decoration:none;">LinkedIn</a></li>
+          <li><a href="https://x.com/hugolh_ai" target="_blank" rel="me noopener" style="text-decoration:none;">X · AI (@hugolh_ai)</a></li>
+          <li><a href="https://www.instagram.com/hlh31" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · personal</a></li>
+          <li><a href="https://www.instagram.com/amhe.tourdumonde" target="_blank" rel="me noopener" style="text-decoration:none;">Instagram · family travel</a></li>
+        </ul>
+      </div>
+
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Connect</p>
+        <p class="caption" style="margin-top:var(--space-3);">Best way: add me on LinkedIn and send me a message.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="https://www.linkedin.com/in/hugo-lahutte/" target="_blank" rel="me noopener">Add me on LinkedIn</a></div>
+        <p class="caption" style="margin-top:var(--space-3);">or by email:<br><a href="mailto:hugo@hl-consulting.tech?subject=Knowledge%20Hub%20—%20échange">hugo@hl-consulting.tech</a></p>
+      </div>
+
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">ナレッジ・ハブ</p>
+  </div>
+</footer>
+<script src="/knowledge-hub/search.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/lexique.js?v=20260601d" defer></script>
+<script src="/knowledge-hub/theme.js?v=20260601d" defer></script>
+</body>
+</html>

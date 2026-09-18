@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-09-04
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-09-18
 
 
 ================================================================
@@ -68,41 +68,67 @@ Accueil › Guides › Agent Security
 Étude de cas · Sécurité augmentée
 Un agent qui surveilleles agents qui codent
 Trouver des alertes est facile. Construire un système qui sait lesquelles comptent, garde les accès sous contrôle et prépare une correction vérifiable est beaucoup plus intéressant.
-Par Hugo Lahutte·4 septembre 2026·~7 min de lecture En 30 secondes
-Agent Security est un control plane privé qui audite plusieurs dépôts GitHub avec quatre scanners open source. Il transforme leurs résultats en une posture lisible, mémorise les problèmes, demande plusieurs avis IA quand le cas est incertain et prépare les corrections dans des PR séparées. L’IA conseille ; les preuves techniques décident.
-1. Le problème : beaucoup d’alertes, peu d’attention
-Un scanner sait produire des centaines de lignes. Cela ne veut pas dire que chacune mérite une interruption. Le vrai produit doit répondre à trois questions : est-ce réel, est-ce important maintenant, et peut-on le corriger sans casser autre chose ?
-Agent Security a donc été conçu comme un cockpit transversal : un endroit indépendant des applications surveillées, capable de couvrir plusieurs comptes et organisations GitHub sans disposer d’un accès illimité.
-2. Ce qui fonctionne aujourd’hui
-- Quatre moteurs déterministes : Gitleaks pour les secrets, OSV-Scanner pour les dépendances, Trivy pour les vulnérabilités et configurations, Semgrep Community pour les motifs dangereux.
-- Quatre profondeurs : contrôle ciblé des PR, audit light hebdomadaire, deep mensuel et adversarial trimestriel.
-- Multi-GitHub : chaque compte ou organisation est un domaine de confiance distinct, avec sa propre installation et une liste explicite de dépôts.
-- Mémoire : chaque finding reçoit une empreinte stable ; le système sait s’il est nouveau, récurrent, résolu ou rouvert.
-- Priorité explicable : sévérité, criticité du dépôt, confiance du scanner, zone sensible et récidive alimentent le score.
-- Cockpit dans HL-OS : score global, cadran par projet, date, lien vers les preuves, état des corrections et lecture rouge → vert.
-- IA maîtrisée : OpenRouter analyse uniquement des métadonnées minimisées en Zero Data Retention. Un second, puis si besoin un troisième modèle d’une autre famille valide les cas incertains.
-Fail closed : si un scanner plante, le dépôt n’est jamais déclaré propre. Une absence de résultat est un état à vérifier, pas un feu vert.
-3. Les protections ne reposent pas sur la bonne volonté de l’IA
-- Permissions minimales : l’agent d’audit lit les métadonnées, le contenu, les PR et les Actions — rien de plus.
-- Allowlist explicite : aucun enrôlement automatique de tous les dépôts privés.
-- Identifiants isolés : compromettre un domaine GitHub ne doit pas ouvrir les autres.
-- Secrets hors du code : clés et identifiants restent dans les secrets GitHub, jamais dans le dépôt.
-- Chaîne reproductible : Actions sensibles fixées sur des SHA immuables ; outils vérifiés et mises à jour par PR.
-- Verdict déterministe : aucun modèle ne peut transformer seul un finding HIGH ou CRITICAL en « OK ».
-4. Ce qu’on a repris — et ce qu’on a fait autrement
-Blume a inspiré l’expérience : une posture globale immédiatement lisible, un cadran par projet, l’historique et la trajectoire avant/après correction. L’objectif n’est pas de reproduire son produit, centré sur l’observation des agents, mais d’appliquer sa clarté à la sécurité des dépôts.
-Detail.dev a inspiré la logique produit : trouver des bugs est facile, sélectionner ceux qui comptent est difficile. D’où la mémoire des findings, la priorité contextuelle et, à terme, l’apprentissage à partir des corrections acceptées ou refusées.
-La différence structurante d’Agent Security tient à ses frontières de confiance : scanners open source reproductibles, accès cloisonnés, verdict indépendant des LLM et agent de correction séparé.
-5. Voir une faille ne suffit pas : il faut une boucle de correction
-Le premier agent observe. Agent Security Fix, installé séparément, prépare un plan ou une PR brouillon. La branche principale n’est pas modifiée directement. La correction doit apporter ses preuves : tests, nouveau scan et diff limité.
-Lorsqu’une correction est ambiguë, plusieurs modèles de familles différentes la relisent. En cas de désaccord, le système conserve le risque le plus prudent et demande davantage de preuves. L’objectif futur est d’autoriser l’auto-merge uniquement pour des changements faibles en risque, réversibles et entièrement validés.
-6. Ce qui n’est pas présenté comme terminé
-- La remédiation automatique ne couvre pas encore toutes les familles de findings.
-- Les secrets, l’authentification, les paiements, les permissions, l’infrastructure et les migrations restent hors auto-merge.
-- L’analyse adversariale doit encore être enrichie par des tests dynamiques : autorisations, rejeu de webhooks, SSRF, traversée de chemins et fuzzing.
-- L’apprentissage à partir du délai de correction et des décisions d’équipe est une direction produit, pas une capacité annoncée comme acquise.
+Par Hugo Lahutte·4 septembre 2026·Mis à jour le 7 septembre·~14 min de lecture En 30 secondes
+Agent Security surveille plusieurs GitHub avec des outils open source, garde une mémoire des problèmes et prépare des corrections dans une zone séparée. Le scanner ne peut pas écrire. Le correcteur ne reçoit qu’un accès ciblé. Plusieurs modèles peuvent se contredire, mais les scanners et les tests gardent le dernier mot.
+1. Le circuit complet
+Un seul agent qui peut lire, modifier et publier serait confortable — et dangereux. Le système est donc découpé en deux plans de confiance. Agent Security observe. Agent Security Fix répare. Aucun des deux ne décide seul de la production.
+Le scanner peut regarder largement. Le correcteur n’agit que dans un périmètre précis. Les contrôles gardent la dernière décision.
+Version très simple : le vigile peut regarder partout, mais il n’a pas les clés. Le réparateur reçoit une clé temporaire pour une seule porte. Il propose son intervention, plusieurs contrôles la vérifient, puis la porte de production s’ouvre — ou reste fermée.
+2. La passerelle : un accès précis, jamais un passe-partout
+Chaque organisation GitHub possède sa propre installation. Au moment du scan, la passerelle crée un jeton court, limité aux dépôts visibles et aux permissions nécessaires. Un propriétaire inconnu, un dépôt hors périmètre ou une réponse incohérente bloque l’opération.
+CapacitéAgent SecuritySecurity Fix Lire le code et les ActionsOuiCiblé Créer une brancheNonAutorisé par recette Ouvrir une PRNonBrouillon ou PR contrôlée Écrire directement sur mainJamaisJamais Ignorer un scanner rougeJamaisJamais 01Installations isoléesHL Works et tech-cobra ne partagent pas un identifiant universel.
+02Jetons temporairesCréés au besoin, masqués et non conservés dans les rapports.
+03Refus par défautCe qui n’est pas explicitement autorisé ne passe pas.
+04Secrets minimisésNi valeur brute ni dépôt complet ne part dans les prompts.
+3. Ce qui tourne automatiquement
+La profondeur varie avec le risque. Inutile de refaire le contrôle le plus coûteux chaque nuit ; inutile aussi d’attendre trois mois pour découvrir un secret commité hier.
+À chaque changement sensibleContrôle cibléAuthentification, permissions, secret, paiement, base, CI ou déploiement.
+Chaque semaineAudit lightSecrets, dépendances et nouvelles vulnérabilités connues.
+Chaque moisAudit deepAnalyse statique complète, conteneurs, IaC et configuration.
+Chaque trimestreRevue adversarialeMenaces, supply chain, architecture et surfaces exposées.
+Les outils se mettent également à jour par PR. Une nouvelle version est analysée, testée et reste traçable. La cible n’est pas « toujours le plus récent », mais « récent sans accepter aveuglément une compromission de la chaîne d’approvisionnement ».
+4. Dans HL‑OS : voir, comprendre, déclencher
+HL‑OS est le cockpit humain du système. Il ne remplace pas les scanners : il transforme leurs preuves en une lecture exploitable, avec un score global, les dépôts, les risques, les corrections disponibles et l’historique.
+Reconstitution de la vue HL‑OS. Les nombres et alertes internes sont volontairement masqués sur cette page publique. L’alimentation du cockpit est actuellement à reconnecter.
+1CollecterLire les rapports privés sans afficher la valeur d’un secret.
+2DéciderSéparer finding confirmé, faux positif, panne d’outil et correction disponible.
+3DéclencherLancer un plan et suivre agents, PR, tests et revérification.
+4TracerConserver modèles, commit, refus, résultats et passage en production.
+5. Une correction n’est pas une promesse : c’est une preuve
+Le correcteur ne peut pas simplement répondre « c’est réglé ». Le finding d’origine est attaché à un commit précis. Après le changement, le même scanner doit être rejoué, puis les tests propres au projet.
+À chaque étape, le système conserve le commit, le finding et le résultat. Un doute reboucle ; il ne disparaît pas du rapport.
+Fail closed : si un outil plante, si un rapport est illisible ou si un accès échoue, le dépôt n’est jamais déclaré propre. L’absence de preuve reste un état à contrôler.
+6. Claude propose. ChatGPT vérifie. Kimi essaie de casser.
+Les noms ci-dessous sont un exemple : les modèles restent configurables via OpenRouter. L’idée importante est d’utiliser des familles différentes, avec des rôles séparés, pour éviter qu’un agent valide simplement sa propre intuition.
+À DATELa contre-analyse multi-modèles est disponible comme avis consultatif sur les audits manuels activés. Elle ne pilote pas encore automatiquement chaque fix jusqu’à la production.
+CIBLETout correctif éligible traverse obligatoirement cette chaîne. Une objection reboucle vers le correcteur ; l’accord ouvre seulement la porte aux tests.
+OpenRouter distribue les rôles et le paquet commun. Il ne remplace ni les scanners ni la règle finale de passage.
+Pourquoi ne pas seulement faire Claude → ChatGPT → Kimi en conversation libre ? Parce qu’une première erreur contaminerait les suivantes. Le contrôleur redonne à chacun la preuve originale et collecte un verdict structuré. Ils peuvent voir le diff, mais doivent refaire leur propre raisonnement.
+7. Sous le capot
+Les quatre scanners
+GitleaksSecrets dans le code et l’historique Git.TrivyVulnérabilités, conteneurs, IaC et configuration.OSV‑ScannerFailles connues des dépendances open source.SemgrepAnalyse statique et motifs de code dangereux.
+La règle de passage
+L’IA explique, corrèle et propose. Elle ne peut ni effacer une alerte technique ni transformer une panne de scanner en résultat propre.
+PASS = consensus_agents ∧ scanner_origine_vert ∧ CI_cible_verte ∧ diff_dans_allowlist ∧ politique_risque_autorisee
+Mémoire et traçabilité
+Chaque finding reçoit une empreinte stable sans secret, sa date d’apparition, sa dernière observation et son état : nouveau, récurrent, résolu ou rouvert. Les décisions et exceptions restent séparées dans un registre versionné ; accepter temporairement un risque ne supprime pas techniquement l’alerte.
+Confidentialité des requêtes IA
+Les audits programmés n’envoient rien aux modèles par défaut. Lorsqu’une analyse OpenRouter est explicitement activée, seules les métadonnées nécessaires sont transmises : jamais le dépôt complet, la valeur d’un secret ou le match brut. Les réponses sont demandées en JSON strict avec le modèle concret, son rôle, sa confiance et les findings cités.
+8. Ce qui existe et ce qui reste à brancher
+OPÉRATIONNELAudit multi-dépôtsLecture seule, scanners, score, mémoire et enrôlement contrôlé.
+OPÉRATIONNELPasserelles GitHub AppsInstallations distinctes pour HL Works et tech-cobra.
+À RECONNECTERCockpit HL‑OSL’interface existe ; sa liaison aux rapports privés doit être rétablie.
+PARTIELRecettes de correctionCas bornés disponibles ; toutes les familles de findings ne sont pas encore actionnables.
+MANUEL À DATEConsensus OpenRouterAvis multi-modèles disponible sur demande, pas encore obligatoire sur chaque fix.
+CIBLE« Va jusqu’au bout »Suivre la PR, les checks, fusionner et déployer seul uniquement sur risque faible autorisé.
+PEUT ALLER SEULDépendance patch ou mineure, lint, configuration simple, petite modification réversible, diff strictement borné.
+ARRÊT HUMAINSecret à faire tourner, authentification, autorisation, paiement, permission, infrastructure, migration, suppression ou mise à jour majeure.
+Le code du projet
+- hl-works/agent-security — orchestration, scanners, mémoire et reporting.
+- hl-works/agent-security-fix — validation, recettes bornées, branches et PR.
+- Historique des audits — exécutions et preuves privées, accessibles uniquement aux personnes autorisées.
 La ligne directrice
-Automatiser l’attention avant d’automatiser le pouvoir. L’agent peut chercher, classer, confronter et préparer. Il ne gagne le droit d’agir seul qu’à mesure que les preuves deviennent suffisantes.
+Automatiser au maximum ne signifie pas supprimer les contrôles. Cela signifie remplacer les clics inutiles par des preuves, des agents indépendants et une politique explicite — tout en gardant un arrêt humain là où une erreur serait difficile à reprendre.
 
 
 ================================================================
@@ -1638,6 +1664,43 @@ URL : https://hl-consulting.tech/knowledge-hub/lexique/
 - Vibe coding : Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy.
 - SEO : L'art d'être bien classé par les moteurs de recherche (Google…).
 - GEO : L'équivalent du SEO pour les IA : optimiser ses contenus pour être **cité** par les assistants (ChatGPT, Claude, Perplexity). C'est l'objectif de ce site.
+
+
+================================================================
+UN « BRAIN » CENTRAL POUR ARRÊTER DE DONNER LES CLÉS DU SERVEUR À TOUT LE MONDE
+URL : https://hl-consulting.tech/knowledge-hub/journal/brain-central-acces-roles.html
+Publié : 2026-09-19
+================================================================
+
+Un service central (le « Brain ») détient les secrets côté serveur et expose des capacités métier derrière un jeton → une identité → un rôle (lecture / préparation / écriture / mise en ligne), en journalisant qui a fait quoi. Deux surfaces, garde-fous repris de l'historique, 3 accès distribués : l'équipe crée des produits sans jamais toucher au serveur.
+
+← Journal
+Cobra · Infra
+Un « Brain » central pour arrêter de donner les clés du serveur à tout le monde
+Claude · HL · 19 septembre 2026 · Cobra infraagenten-prodCobra Un service central — surnommé le « Brain » — devient la porte d'entrée unique vers Odoo, Shopify et le mail. Il détient les secrets côté serveur, traduit chaque appel en « jeton → identité → rôle », journalise qui a fait quoi, et expose des capacités métier réutilisables. L'objectif tient en une phrase : que l'équipe crée des produits sans jamais toucher au serveur.
+Contexte — le problème
+Pour créer un produit dans Odoo via un agent, il fallait jusque-là une clé SSH sur le serveur et savoir manier un dépôt de code. Résultat : soit Hugo faisait tout, soit on distribuait des accès serveur larges à plusieurs personnes — impossible à tracer, difficile à retirer, et une seule erreur pouvait toucher la prod. Le vrai besoin n'était pas « plus d'accès », mais « la bonne capacité, pour la bonne personne, avec une trace ».
+Ce qui a été fait
+Mise en place d'un service central (le « Brain ») qui sert de porte d'entrée unique :
+- Il détient les secrets côté serveur ; personne d'autre ne les voit.
+- Chaque appel porte un jeton personnel → une identité → un rôle (lecture / préparation / écriture / mise en ligne). On donne exactement le niveau utile, ni plus.
+- Chaque action est écrite dans un journal durable (« qui a demandé quoi, quand »).
+- Une capacité = un même moule : un module + une route + un périmètre d'accès, exposé sur deux surfaces — dans l'assistant en ligne de commande et sur une page web interne à accès protégé.
+- Garde-fous repris de l'outil historique : rapprochement anti-doublon avant toute création, et un produit créé n'est jamais publié automatiquement (étape de mise en ligne séparée et explicite).
+Résultat : service en production, 3 accès distribués à l'équipe avec des rôles distincts, 2 surfaces d'usage, et la base de code mergée sur la branche principale pour que deux personnes puissent désormais ajouter leurs propres capacités et les déployer elles-mêmes, sans repasser par Hugo.
+Ce qui était difficile / ce qu'on a appris
+Séparer deux questions qu'on confond toujours. « Qui détient les secrets » (le service, point) et « qui a le droit d'appeler quoi » (le jeton + le rôle) sont deux problèmes distincts. Une fois séparées, donner un accès devient réversible et traçable au lieu d'être un cadeau permanent.
+La frontière, pas le fourre-tout. On a écrit noir sur blanc ce qui doit vivre dans le Brain (tout ce qui est partagé, qui écrit dans un système, ou qui doit être tracé / permissionné) et ce qui peut rester dehors (crons déterministes, prototypes perso, analytique en lecture). Sans cette règle, un service central devient vite un goulet d'étranglement.
+Les pièges bêtes coûtent cher. Le service ne démarrait pas à cause d'un simple répertoire de travail mal réglé (erreur d'import), et deux briques ne « parlaient » pas parce qu'un même concept portait deux noms de champ différents. La leçon : figer un contrat de données stable entre les composants tôt, et tester le démarrage réel, pas seulement le code.
+Garder l'humain sur les gestes sensibles. L'assistant ne fait pas les écritures de prod ni ne s'auto-attribue de droits — c'est l'humain qui lance ces gestes-là. Ça a ralenti par moments, mais c'est exactement le garde-fou qu'on veut.
+Stack
+Service en Python (bibliothèque standard, sans dépendances), authentification par jeton → rôles, journal sur base embarquée, API en écoute locale derrière un reverse-proxy, déploiement en service géré (systemd). Deux surfaces : un skill pour l'assistant en ligne de commande + une page web interne à accès protégé. Odoo et Shopify comme systèmes cibles.
+Ce que ça illustre
+Quand plusieurs personnes doivent piloter les mêmes systèmes, le bon réflexe n'est pas de distribuer des accès, mais de construire une porte d'entrée : elle garde les secrets, traduit « jeton → identité → rôle », journalise tout, et expose des capacités réutilisables sur le même moule. On passe d'« ouvrir des accès » à « exposer des capacités » — et l'équipe gagne en autonomie sans que personne ne perde le contrôle.
+Voir aussi
+- L'IA ne code pas ma demande, elle vérifie ce qu'elle suppose
+- Le « Cobra App Store » continue de s'industrialiser
+← Toutes les entrées Projet Cobra →
 
 
 ================================================================
