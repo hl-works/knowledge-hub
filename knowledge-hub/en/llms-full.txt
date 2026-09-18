@@ -1179,6 +1179,68 @@ Read on
 
 
 ================================================================
+ODOO OR CUSTOM ERP: WHICH SHOULD YOU CHOOSE IN 2026?
+URL: https://hl-consulting.tech/knowledge-hub/en/guides/odoo-vs-erp-maison.html
+Published: 2026-06-16
+================================================================
+
+Odoo or a custom ERP built with AI? A criterion-by-criterion comparison (cost, timeline, flexibility, lock-in) from someone who does both: extended Odoo at Cobra, and an in-house ERP built in 5 days.
+
+Home › Guides › Odoo vs custom ERP
+Guides · Comparison
+Odoo or Custom ERP: Which Should You Choose in 2026?
+The question keeps coming up: go with an off-the-shelf ERP like Odoo, or build your own now that AI has made development costs collapse? I'm doing both in parallel — extending Odoo daily at Cobra, and an in-house ERP built from scratch in 5 days. Here's the verdict, criterion by criterion, no dogma.
+By Hugo Lahutte· June 16, 2026·~7 min read comparatif erp odoo strat The verdict in 30 seconds
+- Go with Odoo (or an off-the-shelf ERP) when your business is standard and regulated — accounting, payroll, inventory, purchasing. A proven foundation covers 80% of your needs on day one, and you don't rewrite accounting logic.
+- Go custom when your business is specific, when no software can model it without forcing you into someone else's boxes, or when you want your UX and your brand. That's where AI changes everything.
+- The trap to avoid: reasoning about license price instead of total cost (integration, customization, maintenance, lock-in). And falling into "everything custom" for generic functions that off-the-shelf software already handles really well.
+1. The matchup at a glance
+The decision isn't about which one is "better" in the abstract — it's about how much weight you put on each criterion. Here are the eight that actually matter.
+Odoo vs. custom ERP — criterion-by-criterion comparison (2026). Criterion Odoo (buy / extend) Custom ERP (build with AI) Upfront cost Per-user/month licensing (Enterprise) + integration days. Community is free but limited. Near zero on licensing. The cost = your scoping time + your AI subscription. Development costs have collapsed. 3-year total cost (TCO) Grows with user count and customization. Custom module maintenance is an ongoing expense. Hosting + managed database = a few tens of euros/month, stable regardless of user count. Time to go live Fast on standard features: existing modules run right away (accounting, CRM, inventory). Everything needs to be built — but much faster than before: a functional core in days, not months. Business flexibility Good within Odoo's framework; beyond that, you're building modules and working around its imposed data model. Total. The software fits your exact business, not the other way around. No forced checkboxes. Maintenance & updates Core maintained by the vendor, but every major version upgrade can break your custom modules. 100% your responsibility — but it's a smaller codebase, fully yours, and AI speeds up fixes too. Lock-in Vendor (roadmap, pricing, terms) + often a partner integrator. You / your team. No license ransom, but the knowledge must stay documented and shared. Compliance (accounting, payroll) Covered and kept up to date by the vendor (standards, tax rules). A huge advantage for anything regulated. Not worth reinventing. The smart move: let an external source of truth handle the regulatory layer. Risk / reversibility Low technically (proven product), but exiting is costly once you're deep in the ecosystem. Quality risk if nobody reviews; but you own your code and data, so you can always walk away.
+2. Odoo in detail
+Odoo is a very complete modular management suite (CRM, sales, purchasing, inventory, accounting, HR…), available as open source Community and paid Enterprise. It's an excellent default for the vast majority of SMBs: the standard is solid, the community is huge, and the essentials of a typical business are covered without writing a single line of code.
+Where Odoo wins: fast onboarding for generic functions, accounting and tax compliance maintained for you, a rich ecosystem of modules and integrators, and a clean exit path when you stay within the framework. At Cobra, that's exactly my choice: an Odoo I extend almost every day with Claude Code, rather than rewriting everything from scratch.
+Where it gets tricky: the moment your business goes outside the framework, you're building modules, working around Odoo's data model, and every version upgrade becomes a regression test for your customizations. Community's "free" label melts quickly into integration and maintenance costs.
+3. Custom ERP in detail
+Building your own isn't the six-figure, 18-month project it used to be. With AI doing the heavy lifting and a human at the wheel, a functional core comes together in days. The point isn't to "do what Odoo does but worse" — it's to model exactly your business, with your UX and your brand identity.
+Where custom wins: total flexibility, near-fixed operating costs (no per-user licensing), ownership of the code and data, and an experience tailored to your team — not a generic compromise. That's decisive for a business the market doesn't model well.
+Where it gets tricky: everything depends on your ability to decide and review. No vendor safety net — quality, backups, security, compliance are all on you. And you absolutely shouldn't rewrite generic, critical functionality (accounting) just for the pleasure of going custom.
+4. Who should choose what
+Lean toward Odoo
+Standard business, team needs to move fast
+- Accounting, payroll, inventory, purchasing at the core
+- Strong regulatory compliance requirements
+- Non-technical team, no in-house AI driver
+- Growth through existing modules
+· Lean toward custom
+Specific business, strong UX requirements
+- Processes the market doesn't model (or models poorly)
+- You want your own interface and brand, not a vendor's
+- A founder / team that knows how to drive AI
+- Need for very specific dashboards and automations
+And most of the time, the real answer is hybrid: an off-the-shelf foundation for generic and regulated needs, with custom-built pieces on top for what differentiates you. That's exactly what I do in practice.
+My experience
+I didn't pick a side: I'm living both paths in parallel, which makes the comparison concrete.
+Custom — I built HF-OS, the internal ERP for my magazine Haute Fidélité (CRM, ad management, invoicing, follow-ups), in 5 days, 96 pull requests, ~20,000 lines and ~16 hours of actual work, solo, driving Claude Code. Operating cost: a few tens of euros per month. The full story with the numbers: Do you still need to buy an ERP?
+Extending off-the-shelf — at Cobra, I start from an existing Odoo that I modify and extend almost daily, with in-house dashboards alongside it for what Odoo handles poorly. See the product creation agent and Odoo catalog integration sessions.
+My on-the-ground conclusion: the dial has moved. Going custom becomes rational much sooner than it used to — but extending an off-the-shelf standard is still the right call for anything generic and critical.
+6. Frequently asked questions
+Odoo or custom ERP: which should you choose?
+Odoo (or any off-the-shelf ERP) when your business is standard and regulated — accounting, payroll, inventory, purchasing: you don't rewrite accounting logic, and a proven foundation covers 80% of your needs right away. A custom ERP when your business is specific, when no software can model it without awkward workarounds, or when you want your own UX and brand identity. Now that AI has collapsed the cost of customization, going custom becomes rational much sooner than it used to.
+How much does a custom ERP built with AI cost?
+The cost that's collapsing is development: HF-OS, a fully functional press ERP (CRM, ad management, invoicing, follow-ups), was built in ~16 hours of actual work over 5 days and 96 pull requests, by one person driving Claude Code. Operating costs come to a few tens of euros per month (hosting + managed database + backups) plus the AI subscription. Compare that to per-user licensing and integration days for an off-the-shelf ERP. The real remaining cost of going custom isn't money — it's the time spent scoping and reviewing.
+Is Odoo really free?
+Partly. Odoo Community is open source and free when self-hosted, but limited (no full accounting or certain apps). The Enterprise version is paid, billed per user per month, and the real bill is mostly integration, customization, and module maintenance. "Free" doesn't mean "no cost": you need to look at total cost of ownership, not just the license price.
+Do you need to know how to code to build your ERP with AI?
+Not to write the code line by line — AI handles that. But you need to know how to decide and review: define the scope, make architecture calls, set guardrails (backups, access, personal data), and do the reading. It's steering work, not typing work. A founder who knows their business and learns to drive AI can produce the output of a small team; someone who doesn't want to review anything shouldn't risk it on a critical tool.
+Go further
+- → Do you still need to buy an ERP? — the full write-up on HF-OS, built in 5 days (the hard evidence for "going custom").
+- → AI in practice, for a retailer or SMB — where to start, no jargon.
+- → Extending Odoo at Cobra — the "start from off-the-shelf and build on top" path.
+Sources. My direct experience with both approaches (HF-OS and Odoo at Cobra), measured via the GitHub API and git. Odoo pricing figures are ballpark estimates — verify against the official pricing page when you're ready to decide.
+
+
+================================================================
 A SITE + AN AI BOT IN A WEEKEND?
 URL: https://hl-consulting.tech/knowledge-hub/en/guides/site-bot-ia-en-un-week-end.html
 Published: 2026-06-01

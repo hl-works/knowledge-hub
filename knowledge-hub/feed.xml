@@ -7,6 +7,13 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Un « Brain » central pour arrêter de donner les clés du serveur à tout le monde</title>
+<link>https://hl-consulting.tech/knowledge-hub/journal/brain-central-acces-roles.html</link>
+<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/brain-central-acces-roles.html</guid>
+<pubDate>Sat, 19 Sep 2026 08:00:00 +0000</pubDate>
+<description>Pour créer un produit dans Odoo via un agent, il fallait une clé SSH sur le serveur — donc soit Hugo faisait tout, soit on distribuait des accès larges et intraçables. Un service central (le « Brain ») détient désormais les secrets côté serveur et expose des capacités métier derrière un jeton → une identité → un rôle (lecture / préparation / écriture / mise en ligne), en journalisant qui a fait quoi. Deux surfaces (skill en ligne de commande + page web interne protégée), garde-fous repris de l&#x27;historique (rapprochement anti-doublon avant création, jamais de publication automatique), 3 accès distribués : deux personnes ajoutent et déploient leurs propres capacités sans repasser par Hugo.</description>
+</item>
+<item>
 <title>Growth : remplacer dix tableaux de bord par une file d&#x27;actions</title>
 <link>https://hl-consulting.tech/knowledge-hub/journal/growth-centre-actions.html</link>
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/growth-centre-actions.html</guid>
@@ -138,13 +145,6 @@
 <guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/shopify-archivage-produits-eol.html</guid>
 <pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
 <description>Le connecteur ne répercutait ni l&#x27;archivage ni la remise en ligne d&#x27;un produit. 3 bugs corrigés dans cobra_shopify + un script de rattrapage (~590 fiches fantômes nettoyées, 2 produits encore en vente rendus non-achetables).</description>
-</item>
-<item>
-<title>Fichiers de contexte Claude Cobra : mise à jour + split de CLAUDE-dev</title>
-<link>https://hl-consulting.tech/knowledge-hub/journal/cobra-docs-contexte-claude.html</link>
-<guid isPermaLink="true">https://hl-consulting.tech/knowledge-hub/journal/cobra-docs-contexte-claude.html</guid>
-<pubDate>Wed, 10 Jun 2026 08:00:00 +0000</pubDate>
-<description>Les fichiers de contexte du projet Claude dev Cobra étaient obsolètes. Mise à jour factuelle depuis le repo, split de CLAUDE-dev (core générique vs extension Cobra) et convention CLAUDE-*. PR #385 vers preprod.</description>
 </item>
 </channel>
 </rss>
