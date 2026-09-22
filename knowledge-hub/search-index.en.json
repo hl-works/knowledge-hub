@@ -1,5 +1,12 @@
 [
 {
+"url": "/knowledge-hub/en/journal/mail-central-cerveau-agents-mail.html",
+"title": "Mail Central: a brain on top of the mail agents",
+"excerpt": "Five mail agents (invoices, pricing, SOA, stock, triage) each read the inboxes on their own: the same message re-read several times, scattered rules. Mail Central reads the 5 inboxes once, deduplicates, applies the deterministic rules, then calls Jev only as a fallback, before routing to a single owner — a specialized agent, Hugo, or quarantine. Real-time wake-up via Graph notifications, shadow switchover, attachments treated as untrusted data.",
+"kind": "Journal",
+"tags": "agent email infra en-cours cobra"
+},
+{
 "url": "/knowledge-hub/en/journal/brain-central-acces-roles.html",
 "title": "A central \"Brain\" so we stop handing out the server keys to everyone",
 "excerpt": "To create a product in Odoo through an agent, you used to need an SSH key on the server — so either Hugo did everything, or broad, untraceable access got handed out. A central service (the \"Brain\") now holds the secrets server-side and exposes business capabilities behind a token → an identity → a role (read / prepare / write / publish), logging who did what. Two surfaces, guardrails carried over from the legacy tool, 3 accesses distributed.",
