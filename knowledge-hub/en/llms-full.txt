@@ -7,7 +7,7 @@ Location: Chennevières-sur-Marne, Île-de-France, France.
 Background: 17 years at Son-Vidéo.com (France's #1 HiFi/home cinema e-retailer) — purchasing, sales, commercial strategy, marketing/communications, partnerships; growth from €10M to €62M. Since 2024: CEO of Cobra (Oct. 2024), publisher & editorial director of Haute Fidélité (Jan. 2025, 30+ year reference magazine relaunched), founder of HL Consulting (Jul. 2024). Marketing lecturer at Creapole-ESDI. Passionate about music, cinema, and Japanese culture (Japan Expo 2004–2009).
 LinkedIn: https://www.linkedin.com/in/hugo-lahutte — X: https://x.com/hugolh_ai
 
-Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-09-21
+Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-09-22
 
 
 ================================================================
@@ -1638,6 +1638,45 @@ URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 - Vibe coding : Programming by describing your intent in plain language and letting AI generate the code. Term popularized by Andrej Karpathy.
 - SEO : The art of ranking well in search engines (Google…).
 - GEO : The SEO equivalent for AI: optimizing your content to be **cited** by assistants (ChatGPT, Claude, Perplexity). That's the goal of this site.
+
+
+================================================================
+MAIL CENTRAL: A BRAIN ON TOP OF THE MAIL AGENTS
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/mail-central-cerveau-agents-mail.html
+Published: 2026-09-22
+================================================================
+
+Five mail agents each read the inboxes on their own. Mail Central reads once, deduplicates, applies the known rules, then routes each message to a single owner — a specialized agent, Hugo, or quarantine.
+
+← Journal
+Cobra · Infra
+Mail Central: a brain on top of the mail agents
+Claude · HL · September 22, 2026 · Cobra agentemailinfraen-coursCobra Cobra ended up with a constellation of highly specialized mail agents — invoices, pricing, SOA, stock, daily triage — each built at its own moment, each reading the inboxes on its own. The result: several agents read the same message, understood it differently, or each processed a copy. Mail Central is the layer that sits on top: it reads the inboxes once, deduplicates, applies the known rules, then routes each message to a single owner — a specialized agent, Hugo, or quarantine.
+Before: independent readers re-reading the same inboxes. After: a single front door that reads once and routes once.
+Context — the problem
+Each agent answered a real need and brought its own expertise: purchasing-accounting for supplier invoices, pricing for price lists, SOA for supplier activations and operations, stock for dropship catalogs, plus a daily triage agent for attention, replies and follow-ups. But each had been built in isolation, with its own rules and sometimes its own connection to Microsoft Graph. Readers piling up, the same mail re-read several times, scattered rules — the opposite of a system.
+What was done
+We built Mail Central, a shared layer on top of the agents (not a replacement — they stay the best in their domain). Its cycle:
+- Read once across all inboxes, then deduplicate the messages.
+- Apply the known deterministic rules first — fast, cheap, predictable.
+- Only call Jev (the model) as a fallback, on the truly unknown residue.
+- Decide on one of three possible owners: a specialized agent, Hugo, or quarantine.
+Downstream, the agents stop being mail readers. They become executors that receive an already-routed event and only re-read the precise document they need. The switch happens in shadow: the consumers run in parallel with the legacy readers, we compare, fix the gaps, then retire the old pollers one by one.
+Status: Mail Central now reads the 5 Cobra inboxes, receives Graph notifications in real time (polling stays only as a backup), and routes in shadow mode. The purchasing-accounting, pricing, SOA and stock consumers run without triggering any business action — this phase measures routing quality before shutting down the legacy readers.
+What was hard / what we learned
+The instinct that fragments. With every new need, the temptation is to add a new mail reader. That's exactly what breaks an agent system. The non-trivial decision: don't touch the agents, but take away their responsibility to read. Separate routing (a single intelligence at the entrance) from execution (the specialists at the exit).
+Centralize the sensitive gestures. A bank-details (RIB) change, a suspicious message or an ambiguous case can no longer flow automatically to a business action: it goes through a single point that can quarantine it or send it back to Hugo.
+Mail data doesn't command the system. Attachments and mail bodies stay untrusted data: they can never change the rules, the rights or the thresholds. That boundary is what protects a central router from an injection via the content it reads.
+The switch isn't done in one go. Shadow mode alongside the old pollers lets us compare decisions and fix them before cutting anything — a legacy reader is unplugged only once its replacement is proven.
+Stack
+Microsoft Graph (real-time notifications + periodic polling as backup), a deterministic rules engine as the first level, Jev as a fallback on the unknown residue, and a downstream architecture of consumer agents. Modularity: adding a need = one route + one consumer agent + its guardrails, not a new mail reader. Designed and built with ChatGPT.
+What this illustrates
+An agent system shouldn't be a collection of independent readers: it needs a brain above the specialists. The right pattern is read once → deduplicate once → route once, then let each executor re-read only what it needs. You gain in security (sensitive decisions centralized), speed (real time rather than polling), simplicity (you add a route, not a poller) and flexibility: the same core can later host HL Media, HL Consulting, future projects and personal inboxes, each keeping its own rules and data boundaries.
+See also
+- A central "Brain" so we stop handing out the server keys to everyone
+- The architecture of the Cobra invoices agent
+- Auditing mail filtering at Cobra
+← All entries Cobra project →
 
 
 ================================================================

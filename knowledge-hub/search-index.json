@@ -1,5 +1,12 @@
 [
 {
+"url": "/knowledge-hub/journal/mail-central-cerveau-agents-mail.html",
+"title": "Mail Central : un cerveau au-dessus des agents mail",
+"excerpt": "Cinq agents mail (factures, tarifs, SOA, stock, tri) lisaient chacun les boîtes de leur côté : un même message relu plusieurs fois, des règles dispersées. Mail Central lit les 5 boîtes une seule fois, déduplique, applique les règles déterministes puis n'appelle Jev qu'en secours, avant de router vers un seul propriétaire — un agent spécialisé, Hugo, ou la quarantaine. Réveil temps réel par les notifications Graph, bascule en shadow, pièces jointes traitées comme des données non fiables.",
+"kind": "Journal",
+"tags": "agent email infra en-cours cobra"
+},
+{
 "url": "/knowledge-hub/guides/agent-security-code-auto-repare.html",
 "title": "Agent Security — construire un cockpit de sécurité multi-GitHub",
 "excerpt": "Quatre scanners open source, des accès GitHub cloisonnés, une mémoire des findings, un cockpit rouge-vert et plusieurs modèles pour relire les cas incertains sans remplacer les preuves techniques.",

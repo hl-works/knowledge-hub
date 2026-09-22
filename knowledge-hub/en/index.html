@@ -134,7 +134,7 @@
       <a class="btn btn--ghost" href="a-propos/">Who I am</a>
     </div>
     <div class="meta">
-      <div class="stat"><b id="stat-sessions">66</b><span>Documented sessions</span></div>
+      <div class="stat"><b id="stat-sessions">67</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Active projects</span></div>
       <div class="stat"><b>2</b><span>Claude agents</span></div>
     </div>
@@ -282,10 +282,11 @@
     </div>
     <form class="search-box" action="journal/" method="get" role="search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input id="journal-search-input" type="search" name="q" placeholder="Search across 66 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
+      <input id="journal-search-input" type="search" name="q" placeholder="Search across 67 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Search the journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
     <ul class="entry-list">
+      <li class="entry"><time datetime="2026-09-22">2026-09-22</time><div><h3 class="entry__title"><a href="journal/mail-central-cerveau-agents-mail.html">Mail Central: a brain on top of the mail agents</a></h3><p class="entry__excerpt">Five mail agents (invoices, pricing, SOA, stock, triage) each read the inboxes on their own: the same message re-read several times, scattered rules. Mail Central reads the 5 inboxes once, deduplicates, applies the deterministic rules, then calls Jev only as a fallback, before routing to a single owner — a specialized agent, Hugo, or quarantine. Real-time wake-up via Graph notifications, shadow switchover alongside the legacy readers, attachments treated as untrusted data.</p><div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="email" href="/knowledge-hub/en/journal/?tag=email">email</a><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/en/journal/?tag=en-cours">en-cours</a></div></div><div class="author"><span class="author--hl">Claude · HL</span></div></li>
       <li class="entry"><time datetime="2026-09-19">2026-09-19</time><div><h3 class="entry__title"><a href="journal/brain-central-acces-roles.html">A central &ldquo;Brain&rdquo; so we stop handing out the server keys to everyone</a></h3><p class="entry__excerpt">To create a product in Odoo through an agent, you used to need an SSH key on the server — so either Hugo did everything, or broad, untraceable access got handed out. A central service (the &ldquo;Brain&rdquo;) now holds the secrets server-side and exposes business capabilities behind a token → an identity → a role (read / prepare / write / publish), logging who did what. Two surfaces (a command-line skill + a protected internal web page), guardrails carried over from the legacy tool (anti-duplicate reconciliation before any creation, never auto-published), 3 accesses distributed: two people add and deploy their own capabilities without going back through Hugo.</p><div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/en/journal/?tag=infra">infra</a><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div></div><div class="author"><span class="author--hl">Claude · HL</span></div></li>
       <li class="entry"><time datetime="2026-09-01">2026-09-01</time><div><h3 class="entry__title"><a href="journal/growth-centre-actions.html">Growth: replacing ten dashboards with an action queue</a></h3><p class="entry__excerpt">Loose ideas at the end of the week, a weekend with ChatGPT and Codex, then Growth running in production by Tuesday. Data, BigQuery, the application and a reusable agentic core were built to turn facts into approved actions.</p><div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="marketing" href="/knowledge-hub/en/journal/?tag=marketing">marketing</a><a class="tag" data-tag="agent" href="/knowledge-hub/en/journal/?tag=agent">agent</a><a class="tag" data-tag="strat" href="/knowledge-hub/en/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div></div><div class="author"><span class="author--chatgpt" style="background:var(--c-violet);color:var(--c-white);">ChatGPT · Codex</span></div></li>
       <li class="entry">
@@ -351,17 +352,8 @@
         </div>
         <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
       </li>
-      <li class="entry">
-        <time datetime="2026-07-12">2026-07-12</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/refonte-systeme-prix-cobra-price.html">Odoo pricing-system overhaul (cobra_price): a single source of truth</a></h3>
-          <p class="entry__excerpt">The Odoo pricing model was stacked and fragile: an auto-computed web pricelist, overlapping lists, a hard-coded 20% VAT, margin dropping to 0 the moment a product went out of stock. A single cobra_price field becomes THE source of truth via a _price_compute override — cost and margin recomputed, Omnibus-compliant strikethrough prices, immediate Shopify sync. 6 modules touched, ~7,300 products migrated, with real post-deploy follow-up (a display bug fixed the same day, 492 promo products re-pushed).</p>
-          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/en/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="shopify" href="/knowledge-hub/en/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/en/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/en/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
     </ul>
-    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">66 entries total — filter by tag in the journal →</a></p>
+    <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">67 entries total — filter by tag in the journal →</a></p>
   </div>
 </section>
 
