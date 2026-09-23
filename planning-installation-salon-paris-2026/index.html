@@ -117,6 +117,23 @@
   .contact .role { font-size: 14px; color: var(--ink-soft); margin-bottom: 10px; }
   .contact a { display: block; font-family: var(--f-mono); font-size: 15px; color: var(--brass); text-decoration: none; padding: 2px 0; }
   .contact a:hover, .contact a:focus-visible { text-decoration: underline; }
+  .contact .sep { border-top: 1px solid var(--line-soft); margin: 12px 0; }
+
+  /* ---------- Accès & quai ---------- */
+  .access { border-bottom: 1px solid var(--line); padding-block: 26px; }
+  .access > .wrap > h2 { font-family: var(--f-display); font-size: 19px; margin: 0 0 14px; letter-spacing: -.01em; }
+  .access-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .access-card {
+    background: var(--surface); border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--brass); box-shadow: var(--shadow); padding: 14px 16px;
+  }
+  .access-card.key-point { border-left-color: var(--alert); background: var(--alert-bg); }
+  .access-card h3 { font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 6px; font-weight: 500; }
+  .access-card.key-point h3 { color: var(--alert); }
+  .access-card p { margin: 0; font-size: 15px; }
+  .access-card p + p { margin-top: 6px; }
+  .access-card a { color: var(--brass); }
+  .access-card .big { font-family: var(--f-display); font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
 
   /* ---------- Barre d'outils ---------- */
   .toolbar {
@@ -245,6 +262,56 @@
       <div class="role">Coordination livraisons &amp; installation</div>
       <a href="mailto:yoann@hl-media.info">yoann@hl-media.info</a>
       <a href="tel:+33660877087">06 60 87 70 87</a>
+      <div class="sep"></div>
+      <h3>Arrivée par la tour</h3>
+      <div class="who">Hugo</div>
+      <div class="role">À prévenir si vous n'arrivez pas par le parking</div>
+      <a href="tel:+33679717289">06 79 71 72 89</a>
+    </div>
+  </div>
+</section>
+
+<section class="access">
+  <div class="wrap">
+    <h2>Accès &amp; quai</h2>
+    <div class="access-grid">
+      <div class="access-card key-point">
+        <h3>Accès au sous-sol</h3>
+        <p class="big">Demandez « Comet »</p>
+        <p>C'est le nom du lieu qui accueille l'événement&nbsp;: ne demandez pas «&nbsp;Haute Fidélité&nbsp;». Votre véhicule doit figurer sur la liste d'accès&nbsp;: sans immatriculation transmise, pas d'accès.</p>
+      </div>
+      <div class="access-card">
+        <h3>Adresse de livraison</h3>
+        <p><strong>80, voie des Bâtisseurs, 92400 Courbevoie</strong></p>
+        <p>Accessible uniquement dans le sens <strong>Paris → Neuilly</strong>. <a href="https://www.coeurdefense.com/acces/acceder/">Plan d'accès</a></p>
+      </div>
+      <div class="access-card">
+        <h3>Accueil exposants</h3>
+        <p>L'accueil se fait <strong>par le parking</strong>.</p>
+        <p>Arrivée par la tour&nbsp;: prévenez Hugo au <a href="tel:+33679717289">06 79 71 72 89</a>.</p>
+      </div>
+      <div class="access-card">
+        <h3>Monte-charge</h3>
+        <p>Porte <strong>1,15&nbsp;m</strong> de large · hauteur <strong>2,00&nbsp;m</strong> · profondeur <strong>2,60&nbsp;m</strong>.</p>
+        <p>Vérifiez vos caisses et flight-cases avant le départ.</p>
+      </div>
+      <div class="access-card">
+        <h3>Emballages vides</h3>
+        <p>Ils repartent <strong>dans vos camions</strong>. Aucun stockage n'est prévu sur place.</p>
+      </div>
+      <div class="access-card">
+        <h3>Stationnement VL le week-end</h3>
+        <p>Le parking INDIGO de la tour est fermé le week-end. <a href="https://zenpark.com/parkings/parking-courbevoie-coeur-defense-grande-arche">Réserver sur Zenpark</a></p>
+        <p>Alternative&nbsp;: Q-PARK Les 4 Temps, 7 rue Jules Ferry, 92800 Puteaux.</p>
+      </div>
+      <div class="access-card">
+        <h3>Badges exposants</h3>
+        <p>Un badge par personne présente sur le stand, demandé à l'accueil. <a href="https://www.billetweb.fr/salon-haute-fidelite-paris-2026&amp;ticket=7080825">Récupérer mon badge</a></p>
+      </div>
+      <div class="access-card">
+        <h3>La nuit</h3>
+        <p>Comme l'an dernier, une équipe de sécurité est présente et les salles sont fermées.</p>
+      </div>
     </div>
   </div>
 </section>
