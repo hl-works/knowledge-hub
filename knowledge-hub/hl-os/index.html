@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HL·OS — état des lieux &amp; brief développement · HL Consulting</title>
+<meta name="description" content="État des lieux de HL·OS : architecture, briques en production, imports déjà réalisés, intégrations actives et feuille de route de développement.">
+<link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/hl-os/">
+<link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/hl-os/">
+<link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/hl-os/">
+<link rel="alternate" hreflang="x-default" href="https://hl-consulting.tech/knowledge-hub/hl-os/">
+<meta name="author" content="Hugo Lahutte">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HL·OS — état des lieux &amp; brief développement">
+<meta property="og:description" content="Le système d’exploitation interne de HL : briques existantes, données importées, connexions et prochaines étapes.">
+<meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/hl-os/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#FFFCF8">
+<script>(function(){try{var t=localStorage.getItem("kh-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../style.css?v=20260622a">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "HL·OS — état des lieux & brief développement",
+  "description": "Architecture, briques en production, imports réalisés, intégrations et feuille de route de HL·OS.",
+  "inLanguage": "fr-FR",
+  "datePublished": "2026-09-24",
+  "dateModified": "2026-09-24",
+  "url": "https://hl-consulting.tech/knowledge-hub/hl-os/",
+  "author": {"@type": "Person", "@id": "https://hl-consulting.tech/#hugo", "name": "Hugo Lahutte", "url": "https://hl-consulting.tech/knowledge-hub/"},
+  "publisher": {"@type": "Organization", "name": "HL Consulting", "url": "https://hl-consulting.tech/"},
+  "about": ["HL·OS", "intelligence artificielle", "automatisation", "Payload CMS", "Next.js"]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="nav">
+  <span class="nav__brand"><a class="nav__crumb-home" href="/">HL Consulting</a><span class="nav__crumb-sep" aria-hidden="true">›</span><a class="nav__wordmark" href="../"><b>KNOWLEDGE</b> <span>HUB</span></a></span>
+  <nav aria-label="Principale">
+    <ul class="nav__links" id="nav-links">
+      <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
+      <li><a href="../how-to/">Méthode</a></li>
+      <li><a href="../guides/">Guides</a></li>
+      <li><a href="../veille-ia/">Veille IA</a></li>
+      <li><a href="../#projets" aria-current="page">Projets</a></li>
+      <li><a href="../journal/">Journal</a></li>
+      <li><a href="../#contact">Échanger</a></li>
+      <li class="nav__search"><button type="button" class="nav__icon nav__theme" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button></li>
+      <li class="nav__lang"><a href="/knowledge-hub/en/hl-os/" hreflang="en" lang="en" aria-label="Read in English" title="Read in English">EN</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button type="button" class="nav__icon nav__search-mobile" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <button type="button" class="nav__icon nav__theme nav__theme-mobile" data-theme-toggle data-state="auto" aria-label="Thème : automatique" title="Thème"><svg class="ti-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg><svg class="ti-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line></svg><svg class="ti-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path></svg></button>
+      <button type="button" class="nav__icon nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" style="padding-block:var(--space-16) var(--space-8);">
+  <div class="container">
+    <p class="caption"><a href="../#projets">← Projets</a></p>
+    <p class="kicker">HL Consulting · Passation produit · 24 septembre 2026</p>
+    <h1>HL·OS</h1>
+    <hr class="rule--accent">
+    <p class="lead"><strong>Un système d’exploitation interne connecté, piloté par l’IA.</strong> Il rassemble le mail, l’éditorial Haute Fidélité, la régie, la comptabilité, le CRM et la sécurité derrière une même interface — avec Jarvis comme couche de recherche et d’action contrôlée.</p>
+    <div class="meta">
+      <div class="stat"><b>9</b><span>briques visibles</span></div>
+      <div class="stat"><b>28</b><span>collections métier</span></div>
+      <div class="stat"><b>7</b><span>jobs automatisés</span></div>
+      <div class="stat"><b>1</b><span>socle commun</span></div>
+    </div>
+    <div class="btn-row" style="margin-top:var(--space-8);">
+      <a class="btn btn--primary" href="https://hf-os.onrender.com/" rel="external">Ouvrir HL·OS ↗</a>
+      <a class="btn btn--ghost" href="https://github.com/hl-works/hl-os" rel="external">Voir le dépôt ↗</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="callout callout--tldr">
+      <p class="kicker">Lecture en 30 secondes</p>
+      <h3 style="margin-top:var(--space-2);">Ce qui est réellement en place</h3>
+      <ul>
+        <li><strong>Le socle est en production</strong> : authentification, droits, shell responsive, thèmes clair/sombre, admin Payload, base PostgreSQL et déploiement Render.</li>
+        <li><strong>Les briques les plus mûres</strong> sont le mail, le back-office éditorial HF, le CRM de base, le cockpit comptable Qonto et la sécurité.</li>
+        <li><strong>Jarvis sait chercher</strong> dans le corpus privé et le serveur MCP expose des outils mail et facture, mais l’orchestration conversationnelle complète reste à terminer.</li>
+        <li><strong>Les données Webflow ont été rapatriées</strong>, mais les images restent hébergées par Webflow. Le futur site public et la médiathèque ne sont pas encore construits.</li>
+        <li><strong>Aucun déploiement n’est en attente</strong> au moment de cet état des lieux : le dernier <code>main</code> audité est déployé et les sauvegardes automatiques sont vertes.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="architecture" style="padding-top:0;">
+  <div class="container">
+    <p class="kicker">01 · Architecture</p>
+    <h2>Un produit, plusieurs métiers</h2>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <div class="two-col" style="align-items:start;">
+      <div class="prose">
+        <h3>Le principe</h3>
+        <p>HL·OS n’est pas un nouvel ERP qui duplique tout. Il sert de <strong>cockpit et de couche d’orchestration</strong>. Qonto reste le registre comptable, Webflow reste provisoirement le site public, Shopify reste la boutique et GitHub reste la source des audits sécurité.</p>
+        <p>Le système centralise ce qui aide à décider : une interface commune, les droits, les connexions, la mémoire, les files de travail, les preuves et les actions sûres.</p>
+      </div>
+      <div class="callout" style="margin:0;">
+        <h3>Socle technique actuel</h3>
+        <ul>
+          <li>Next.js 16 + React 19 + Payload CMS 3.</li>
+          <li>PostgreSQL Scaleway + pgvector.</li>
+          <li>Application et cron externe sur Render.</li>
+          <li>Connexion Google, rôles et droits par section/boîte.</li>
+          <li>Secrets chiffrés en base ; aucune clé dans le dépôt.</li>
+          <li>CI GitHub, migrations versionnées et sauvegarde quotidienne.</li>
+        </ul>
+      </div>
+    </div>
+    <ol class="timeline timeline--wide" aria-label="Chaîne de valeur HL·OS">
+      <li><b>Sources</b><span>Mail · Qonto · Webflow · Shopify · GitHub</span></li>
+      <li><b>Ingestion</b><span>Syncs · imports · cron · déduplication</span></li>
+      <li class="is-now"><b>HL·OS</b><span>Payload · droits · workflows · cockpit</span></li>
+      <li><b>Jarvis</b><span>RAG · MCP · préparation d’actions</span></li>
+      <li><b>Validation</b><span>Humain si doute ou action sensible</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="briques" style="padding-top:0;">
+  <div class="container">
+    <p class="kicker">02 · Inventaire</p>
+    <h2>Les briques existantes</h2>
+    <p class="prose" style="margin-top:var(--space-4);">Les statuts ci-dessous décrivent le produit constaté dans <code>main</code>, pas seulement la documentation ou les intentions.</p>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <div class="card-grid">
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">En production · Socle</span>
+        <span class="card__title">Aujourd’hui &amp; navigation</span>
+        <span class="card__desc">Page d’accueil opérationnelle, alertes, raccourcis, navigation commune, composants réutilisables, thèmes clair/sombre et interface responsive. L’admin Payload reprend la même grammaire visuelle.</span>
+        <span class="card__foot">Stable · à enrichir par les vraies priorités métier</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">En production · À consolider</span>
+        <span class="card__title">Mail</span>
+        <span class="card__desc">Boîte unifiée, cockpit de tri, revue en masse, IMAP et Microsoft Graph, lecture, réponse, transfert, classement, spam, corbeille, pièces jointes, rattrapage et règles apprenantes.</span>
+        <span class="card__foot">Le cœur agit · l’autonomie et la qualité du tri restent à mesurer</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Back en production · Front à faire</span>
+        <span class="card__title">HF‑OS éditorial</span>
+        <span class="card__desc">Auteurs, marques, rubriques, catégories, pays, numéros, produits, articles, bancs d’essai, diffusion et préparation de commandes Shopify. Le back éditorial est alimenté depuis Webflow.</span>
+        <span class="card__foot">Bloquant futur : média local + nouveau site public</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Partiellement en production</span>
+        <span class="card__title">Régie publicitaire</span>
+        <span class="card__desc">Annonceurs, campagnes, insertions, suivi par numéro, factures, contacts à créer, relances Brevo et classement automatique des factures Qonto.</span>
+        <span class="card__foot">Données et écrans présents · boucle commerciale à fermer</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">P1 à P6 livrés · P7 en cours</span>
+        <span class="card__title">Comptabilité</span>
+        <span class="card__desc">Multi-entités HL, connexions Qonto séparées, détection des justificatifs manquants et factures à payer, rapprochement mail, pose sûre d’une pièce, brouillons de facture client et écran de validation des exceptions.</span>
+        <span class="card__foot">Aucun mouvement d’argent · portails fournisseurs encore incomplets</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">En production · Base métier</span>
+        <span class="card__title">CRM</span>
+        <span class="card__desc">Sociétés, contacts, activités, tags, timeline, enrichissement entreprise, import CSV, rapprochement Qonto et détection de doublons.</span>
+        <span class="card__foot">Prêt comme référentiel · usages commerciaux avancés à construire</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Lecture en production · Action contrôlée</span>
+        <span class="card__title">Sécurité</span>
+        <span class="card__desc">Cockpit global des dépôts suivis, score, findings, preuves GitHub, plan de correction et préparation de PR brouillon via un agent séparé. Aucun merge automatique.</span>
+        <span class="card__foot">Connecté · couverture et scénarios de correction à étendre</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Recherche active · Expérience partielle</span>
+        <span class="card__title">Jarvis &amp; Brain</span>
+        <span class="card__desc">Corpus pgvector, ingestion quotidienne, provenance des sources, recherche sémantique, serveur MCP OAuth et droits séparés pour recherche, mail et création de brouillons Qonto.</span>
+        <span class="card__foot">La page Agents &amp; exécutions est encore un écran d’attente</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">En production · Administration</span>
+        <span class="card__title">Connexions &amp; imports</span>
+        <span class="card__desc">État Qonto, Brevo et Shopify, boîtes mail, secrets masqués et chiffrés, imports CRM/Qonto/Webflow, nettoyage et déduplication.</span>
+        <span class="card__foot">À compléter par un historique lisible de chaque synchronisation</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="imports" style="padding-top:0;">
+  <div class="container">
+    <p class="kicker">03 · Données</p>
+    <h2>Les imports déjà faits</h2>
+    <p class="prose" style="margin-top:var(--space-4);">Le dépôt ne versionne pas les volumes de la base de production. Cette liste distingue donc ce qui a été <strong>effectivement rapatrié</strong>, ce qui est <strong>synchronisé en continu</strong> et ce qui est seulement <strong>lu à la demande</strong>.</p>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+
+    <div class="card-grid">
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Rapatrié · Webflow → Payload</span>
+        <span class="card__title">Corpus éditorial Haute Fidélité</span>
+        <span class="card__desc">Pays, auteurs, marques, rubriques, catégories produit, numéros, produits, articles et bancs d’essai. L’import est idempotent, conserve les slugs et IDs d’origine, reconstruit les relations et convertit le HTML riche en Lexical.</span>
+        <span class="card__foot">Limite : les images sont encore des URL du CDN Webflow</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Synchronisé · Mail → Payload</span>
+        <span class="card__title">Messages et historique</span>
+        <span class="card__desc">Ingestion des boîtes connectées par IMAP ou Graph, messages reçus et envoyés, corps, métadonnées, pièces jointes, expéditeurs, règles et timeline CRM. Un rattrapage historique est prévu pour combler les périodes manquantes.</span>
+        <span class="card__foot">Déduplication par Message‑Id · curseur par boîte</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Synchronisé · Qonto → Payload</span>
+        <span class="card__title">Clients, factures et comptabilité</span>
+        <span class="card__desc">Clients Qonto rapprochés avec les sociétés CRM, factures clients historiques et nouvelles, classification régie, factures fournisseurs et transactions utiles au rapprochement. Chaque société HL possède sa propre connexion.</span>
+        <span class="card__foot">Qonto reste la source de vérité</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Disponible · CSV → CRM</span>
+        <span class="card__title">Sociétés et contacts</span>
+        <span class="card__desc">Import CSV par lots, normalisation, tags, rattachement société/contact, complétion des champs vides et détection de doublons par nom, SIREN, TVA, email ou domaine.</span>
+        <span class="card__foot">Les volumes de chaque passage ne sont pas historisés</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Initialisé · Données régie</span>
+        <span class="card__title">Planning publicitaire 2026</span>
+        <span class="card__desc">Les insertions et dates de planning 2026 ont des migrations d’amorçage dédiées. Le suivi publicitaire peut ensuite être corrigé et enrichi dans HL·OS.</span>
+        <span class="card__foot">Seed unique, versionné dans les migrations</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Ingestion continue · Sources → Brain</span>
+        <span class="card__title">Knowledge Hub et mails</span>
+        <span class="card__desc">Le Knowledge Hub publié et les mails stockés sont découpés, dédupliqués, vectorisés puis indexés dans PostgreSQL/pgvector. Chaque extrait conserve sa provenance et les ACL mail sont réappliquées dans Jarvis.</span>
+        <span class="card__foot">Job quotidien · recherche sémantique disponible</span>
+      </article>
+    </div>
+
+    <div class="callout" style="margin-top:var(--space-8);">
+      <h3>Ce qui est connecté sans être « importé »</h3>
+      <p>Shopify (commandes et clients), Brevo (templates, campagnes et délivrabilité) et Agent Security (audits GitHub) sont consultés via leurs API. HL·OS affiche et utilise ces données, mais ne cherche pas à maintenir une copie complète de ces systèmes.</p>
+    </div>
+  </div>
+</section>
+
+<section id="automatisations" style="padding-top:0;">
+  <div class="container">
+    <p class="kicker">04 · Automatisation</p>
+    <h2>Ce qui tourne tout seul</h2>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <div class="two-col" style="align-items:start;">
+      <div class="prose">
+        <h3>Sept jobs métier</h3>
+        <ul>
+          <li>Synchronisation régulière des boîtes mail.</li>
+          <li>Rattrapage historique des messages.</li>
+          <li>Tri automatique et nettoyage du bruit.</li>
+          <li>Détection comptable et rapprochement mail/Qonto.</li>
+          <li>Synchronisation des nouvelles factures Qonto.</li>
+          <li>Relances automatiques via Brevo.</li>
+          <li>Ingestion du corpus de connaissance.</li>
+        </ul>
+      </div>
+      <div class="callout" style="margin:0;">
+        <h3>Exploitation</h3>
+        <p>Un cron Render externe réveille la file toutes les cinq minutes. Ce choix remplace le planificateur embarqué qui pouvait se figer silencieusement sous Next.js.</p>
+        <p>Le système possède une route protégée, une file visible dans l’admin, des migrations de base et des sauvegardes nocturnes. Il manque encore un écran métier unique qui raconte clairement : dernier passage, résultat, erreur, volume et action de reprise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reste" style="padding-top:0;">
+  <div class="container">
+    <p class="kicker">05 · Écarts</p>
+    <h2>Ce qui n’est pas fini</h2>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <div class="card-grid">
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Priorité produit</span>
+        <span class="card__title">Agents &amp; exécutions</span>
+        <span class="card__desc">La route existe mais reste une page « à venir ». Il faut un journal compréhensible des agents : action proposée, preuve, niveau de confiance, validation, exécution, résultat et possibilité de reprise.</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Priorité data</span>
+        <span class="card__title">Registre des imports</span>
+        <span class="card__desc">Les outils fonctionnent mais l’historique n’est pas centralisé. Bertrand ne doit pas avoir à lire les logs pour savoir quelle source a été importée, quand, avec combien de créations, mises à jour, doublons et erreurs.</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Bloquant Webflow</span>
+        <span class="card__title">Médiathèque</span>
+        <span class="card__desc">Les images éditoriales restent chez Webflow. Avant toute coupure, il faut un stockage objet, une collection Media, la conversion WebP/AVIF, les variantes responsive, les métadonnées et un re-rattachement aux contenus.</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Phase 2</span>
+        <span class="card__title">Site public Haute Fidélité</span>
+        <span class="card__desc">Le répertoire <code>apps/web</code> est encore un squelette. L’identité, les gabarits, le rendu statique, la recherche, les données structurées et le plan de redirection Webflow restent à développer.</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Compta P7</span>
+        <span class="card__title">Portails fournisseurs</span>
+        <span class="card__desc">Le registre et le moteur de collecte existent, avec un premier adaptateur Meta. Il reste à stabiliser Meta, ajouter Google Ads et industrialiser la récolte mensuelle sans exposer les identifiants.</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Qualité opérationnelle</span>
+        <span class="card__title">Mesure &amp; alertes</span>
+        <span class="card__desc">Il faut des indicateurs de confiance : précision du tri mail, taux d’auto-rapprochement, anomalies, synchronisations en retard et qualité du corpus. Aujourd’hui, la capacité existe davantage que sa mesure.</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="brief" style="padding-top:0;">
+  <div class="container">
+    <p class="kicker">06 · Passation Bertrand</p>
+    <h2>Le brief développement</h2>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <div class="callout callout--tldr">
+      <h3>Mission recommandée</h3>
+      <p><strong>Fiabiliser et rendre observable l’existant avant d’ajouter une nouvelle grosse brique.</strong> Le socle, les modèles et la plupart des connecteurs existent déjà. La meilleure contribution n’est pas de refaire les écrans : c’est de transformer les fonctions éparses en workflows compréhensibles, mesurables et reprenables.</p>
+    </div>
+
+    <div class="card-grid">
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Lot 1 · Cartographie</span>
+        <span class="card__title">Faire tourner le projet</span>
+        <span class="card__desc">Installer localement, jouer les migrations sur une base vide, se connecter, parcourir les routes, lire les rôles et identifier les services externes simulables. Documenter uniquement les écarts constatés.</span>
+        <span class="card__foot">Livrable : environnement reproductible + matrice des routes</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Lot 2 · Observabilité</span>
+        <span class="card__title">Créer le centre d’exécution</span>
+        <span class="card__desc">Remplacer la page d’attente <code>/ia</code> par une vue des jobs et agents : état, source, début/fin, compteurs, erreur lisible, logs utiles, relance manuelle et lien vers l’objet métier concerné.</span>
+        <span class="card__foot">Livrable : une exécution se comprend sans ouvrir Render</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Lot 3 · Imports</span>
+        <span class="card__title">Unifier les synchronisations</span>
+        <span class="card__desc">Créer un registre commun Webflow, Qonto, mail, CRM et Knowledge : dernier succès, prochain passage, volumes, curseur, échecs, reprise et caractère idempotent. Ne pas déplacer les moteurs existants.</span>
+        <span class="card__foot">Livrable : source de vérité de l’état des données</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Lot 4 · Média</span>
+        <span class="card__title">Sortir les images de Webflow</span>
+        <span class="card__desc">Mettre en place le stockage objet, Media Payload, variantes, métadonnées, migration idempotente et contrôle des liens cassés. Aucun cutover public avant validation complète de ce lot.</span>
+        <span class="card__foot">Livrable : contenu autonome de Webflow</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Lot 5 · Compta</span>
+        <span class="card__title">Fermer les exceptions</span>
+        <span class="card__desc">Stabiliser les portails fournisseurs, enrichir les preuves de rapprochement et mesurer ce qui passe automatiquement. Conserver la règle : visuel seulement en cas de doute, aucune capacité de paiement.</span>
+        <span class="card__foot">Livrable : autonomie mesurée, exceptions actionnables</span>
+      </article>
+      <article class="card" style="cursor:default;">
+        <span class="card__kicker">Lot 6 · Jarvis</span>
+        <span class="card__title">Passer de chercher à agir</span>
+        <span class="card__desc">Brancher les capacités existantes dans une expérience unique : retrouver les preuves, préparer l’action, afficher les droits et demander une validation explicite quand elle est requise. Conserver les journaux et l’idempotence.</span>
+        <span class="card__foot">Livrable : une action traçable de bout en bout</span>
+      </article>
+    </div>
+
+    <div class="two-col" style="margin-top:var(--space-8);align-items:start;">
+      <div class="prose">
+        <h3>Garde-fous non négociables</h3>
+        <ul>
+          <li>Ne jamais mélanger Cobra et les entités HL dans la comptabilité.</li>
+          <li>Qonto reste le registre ; HL·OS supervise et prépare.</li>
+          <li>Aucun paiement ni merge de sécurité automatique.</li>
+          <li>Toute action externe doit être journalisée et rejouable sans doublon.</li>
+          <li>Les ACL sont réappliquées côté serveur, jamais seulement masquées dans l’UI.</li>
+          <li>Les secrets restent chiffrés et ne transitent ni dans les logs ni dans le front.</li>
+        </ul>
+      </div>
+      <div class="prose">
+        <h3>Définition de « fini »</h3>
+        <ul>
+          <li>Typecheck, lint, tests et build de production verts.</li>
+          <li>Test responsive clair/sombre sur les routes modifiées.</li>
+          <li>Cas nominal, absence de configuration et panne API couverts.</li>
+          <li>État d’exécution visible sans accès technique à Render.</li>
+          <li>Aucun changement silencieux de données ou de permissions.</li>
+          <li>Documentation mise à jour au même endroit que le code.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sources" style="padding-top:0;">
+  <div class="container">
+    <p class="kicker">07 · Références</p>
+    <h2>Où regarder</h2>
+    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
+    <ul class="linklist">
+      <li><a href="https://github.com/hl-works/hl-os" data-primary rel="external">Dépôt HL·OS ↗</a></li>
+      <li><a href="https://hf-os.onrender.com/" rel="external">Production Render ↗</a></li>
+      <li><a href="https://github.com/hl-works/hl-os/blob/main/docs/agent-comptable.md" rel="external">Architecture de l’agent comptable ↗</a></li>
+      <li><a href="https://github.com/hl-works/hl-os/blob/main/docs/mail-technique.md" rel="external">Dossier technique mail ↗</a></li>
+      <li><a href="https://github.com/hl-works/hl-os/blob/main/apps/api/docs/phase-2.md" rel="external">Phase 2 du site public ↗</a></li>
+      <li><a href="../journal/hf-os-socle-deploiement.html">Naissance du socle HF‑OS</a></li>
+    </ul>
+    <p class="caption" style="margin-top:var(--space-6);">État vérifié sur <code>main</code> au commit <code>e1d7bf5</code>. La production Render correspond à ce commit au moment de l’audit. Les anciennes PR encore ouvertes doivent être réévaluées avant toute fusion : elles ne représentent pas nécessairement le produit actuel.</p>
+  </div>
+</section>
+</main>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"Navigation principale — Knowledge Hub","itemListElement":[{"@type":"SiteNavigationElement","position":1,"name":"Méthode","url":"https://hl-consulting.tech/knowledge-hub/how-to/"},{"@type":"SiteNavigationElement","position":2,"name":"Guides","url":"https://hl-consulting.tech/knowledge-hub/guides/"},{"@type":"SiteNavigationElement","position":3,"name":"Veille IA","url":"https://hl-consulting.tech/knowledge-hub/veille-ia/"},{"@type":"SiteNavigationElement","position":4,"name":"Projets","url":"https://hl-consulting.tech/knowledge-hub/#projets"},{"@type":"SiteNavigationElement","position":5,"name":"Journal","url":"https://hl-consulting.tech/knowledge-hub/journal/"}]}
+</script>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;gap:var(--space-12) var(--space-16);justify-content:space-between;">
+      <div style="max-width:300px;">
+        <a class="nav__wordmark" href="/knowledge-hub/" style="font-size:1.4rem;"><b>KNOWLEDGE</b> <span>HUB</span></a>
+        <p class="caption" style="margin-top:var(--space-3);">Hugo Lahutte · Build in public avec Claude · © 2026</p>
+        <p class="caption" style="margin-top:var(--space-2);">HTML/CSS statique · GitHub Pages · zéro dépendance</p>
+        <p class="caption" style="margin-top:var(--space-2);"><a href="/knowledge-hub/llms.txt" style="color:var(--text-muted);">llms.txt</a> · <a href="/knowledge-hub/coffre/" style="color:var(--text-muted);text-decoration:none;" title="Espace privé">🔒</a></p>
+      </div>
+      <nav aria-label="Explorer">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Explorer</p>
+        <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
+          <li><a href="/knowledge-hub/how-to/">Méthode</a></li><li><a href="/knowledge-hub/guides/">Guides</a></li><li><a href="/knowledge-hub/veille-ia/">Veille IA</a></li><li><a href="/knowledge-hub/journal/">Journal</a></li><li><a href="/knowledge-hub/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <div style="max-width:260px;">
+        <p class="caption" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);margin:0;">Échanger</p>
+        <p class="caption" style="margin-top:var(--space-3);">Pour reprendre le projet : le dépôt, cet état des lieux et une liste de lots bornés suffisent pour démarrer.</p>
+        <div style="margin-top:var(--space-3);"><a class="btn btn--primary" href="mailto:hugo@hl-consulting.tech?subject=HL%C2%B7OS%20%E2%80%94%20brief%20d%C3%A9veloppement">Contacter Hugo</a></div>
+      </div>
+    </div>
+    <p class="footer__kata" style="margin-top:var(--space-12);">オペレーティング・システム</p>
+  </div>
+</footer>
+<script src="../search.js?v=20260601d" defer></script>
+<script src="../lexique.js?v=20260601d" defer></script>
+<script src="../theme.js?v=20260601d" defer></script>
+</body>
+</html>
