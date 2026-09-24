@@ -9,7 +9,7 @@
 <title>Planning installation — Salon Haute Fidélité 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500..700;1,6..96,500..700&family=Public+Sans:wght@400;500;600;700;800&display=swap">
 <style>
   :root {
     --paper:      #F5F1E8;
@@ -25,7 +25,6 @@
 
     --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
     --f-body:    "Public Sans", "Segoe UI", system-ui, sans-serif;
-    --f-mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -69,8 +68,7 @@
   a { color: inherit; }
   .wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
   .label {
-    font-family: var(--f-mono); font-size: 11px; font-weight: 500;
-    letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft);
+    font-size: 13px; font-weight: 600; color: var(--ink-soft);
     margin: 0;
   }
 
@@ -86,13 +84,13 @@
   }
   .double-rule { border: 0; height: 5px; margin: 0; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); }
 
-  .title-block { padding-block: 30px 26px; }
+  .title-block { padding-block: 28px 24px; }
   .title-block h1 {
     font-family: var(--f-display); font-weight: 500;
     font-size: clamp(40px, 8.4vw, 92px); line-height: .98; letter-spacing: -.025em;
-    margin: 12px 0 18px; text-wrap: balance;
+    margin: 8px 0 0; text-wrap: balance;
   }
-  .title-block h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .title-block h1 em { font-style: italic; color: var(--accent); }
   .lede { margin: 0; max-width: 62ch; font-size: 17px; color: var(--ink-soft); }
 
   /* ---------- Adresse (info phare) ---------- */
@@ -103,21 +101,21 @@
   .address .label { color: color-mix(in srgb, var(--invert-fg) 62%, transparent); }
   .address-grid { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 28px; align-items: end; }
   .address-street {
-    font-family: var(--f-display); font-weight: 600;
-    font-size: clamp(34px, 6.2vw, 64px); line-height: 1; letter-spacing: -.02em;
-    margin: 12px 0 8px;
+    font-weight: 800;
+    font-size: clamp(32px, 5.6vw, 58px); line-height: 1.05; letter-spacing: -.02em;
+    margin: 10px 0 6px;
   }
-  .address-city { font-family: var(--f-display); font-style: italic; font-size: clamp(20px, 2.8vw, 28px); line-height: 1.2; margin: 0; }
+  .address-city { font-weight: 700; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; margin: 0; }
   .address-venue { margin: 8px 0 0; font-size: 15px; color: color-mix(in srgb, var(--invert-fg) 72%, transparent); }
   .musts { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in srgb, var(--invert-fg) 30%, transparent); }
   .musts li { padding: 12px 0; border-bottom: 1px solid color-mix(in srgb, var(--invert-fg) 30%, transparent); }
   .musts .label { display: block; margin-bottom: 3px; }
-  .musts strong { font-family: var(--f-display); font-size: 21px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+  .musts strong { font-size: 20px; font-weight: 700; line-height: 1.25; }
   .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--f-mono); font-size: 13px; font-weight: 500; letter-spacing: .04em;
-    padding: 11px 16px; text-decoration: none; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    padding: 12px 16px; text-decoration: none; cursor: pointer;
     border: 1px solid color-mix(in srgb, var(--invert-fg) 45%, transparent);
     background: transparent; color: var(--invert-fg); border-radius: 0;
   }
@@ -133,27 +131,25 @@
   .key { padding: 16px 18px 18px; border-left: 1px solid var(--line); }
   .key:first-child { border-left: 0; padding-left: 0; }
   .key h2 { margin: 0 0 6px; }
-  .key strong { display: block; font-family: var(--f-display); font-size: 21px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+  .key strong { display: block; font-size: 18px; font-weight: 700; line-height: 1.25; }
   .key span { display: block; font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
 
   /* ---------- Sections ---------- */
   .section { padding-block: 44px 8px; }
   .section-head { display: flex; align-items: baseline; gap: 16px; border-top: 1px solid var(--ink); padding-top: 12px; margin-bottom: 22px; }
-  .section-num { font-family: var(--f-display); font-style: italic; font-size: 20px; color: var(--accent); }
-  .section-head h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(26px, 3.6vw, 36px); line-height: 1.1; letter-spacing: -.02em; margin: 0; }
+  .section-head h2 { font-weight: 800; font-size: clamp(22px, 3vw, 28px); line-height: 1.15; letter-spacing: -.01em; margin: 0; }
 
   /* ---------- Camion ---------- */
   .truck-grid { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 32px; align-items: start; }
   .truck-grid p { margin: 0 0 12px; font-size: 16px; max-width: 62ch; }
   .truck-grid .warn { color: var(--accent); }
   .truck-grid ul { margin: 0; padding: 0; list-style: none; font-size: 15.5px; border-top: 1px solid var(--line); }
-  .truck-grid li { padding: 9px 0 9px 26px; border-bottom: 1px solid var(--line-soft); position: relative; }
-  .truck-grid li::before { content: counter(i, decimal-leading-zero); counter-increment: i; position: absolute; left: 0; top: 11px; font-family: var(--f-mono); font-size: 11px; color: var(--accent); }
-  .truck-grid ul { counter-reset: i; }
+  .truck-grid li { padding: 9px 0 9px 18px; border-bottom: 1px solid var(--line-soft); position: relative; }
+  .truck-grid li::before { content: ""; position: absolute; left: 0; top: 18px; width: 7px; height: 7px; background: var(--accent); }
   .contact { background: var(--surface); border: 1px solid var(--line); padding: 18px 20px; }
-  .contact .who { font-family: var(--f-display); font-size: 26px; font-weight: 600; letter-spacing: -.01em; line-height: 1.1; margin-top: 6px; }
+  .contact .who { font-size: 22px; font-weight: 800; line-height: 1.2; margin-top: 4px; }
   .contact .role { font-size: 14px; color: var(--ink-soft); margin: 2px 0 10px; }
-  .contact a { display: block; font-family: var(--f-mono); font-size: 15px; text-decoration: none; padding: 3px 0; border-bottom: 1px solid transparent; width: fit-content; }
+  .contact a { display: block; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; text-decoration: none; padding: 3px 0; border-bottom: 1px solid transparent; width: fit-content; }
   .contact a:hover, .contact a:focus-visible { border-bottom-color: var(--ink); }
   .contact .sep { border-top: 1px solid var(--line); margin: 16px 0 12px; }
 
@@ -165,7 +161,7 @@
   .info p { margin: 0; font-size: 15px; }
   .info p + p { margin-top: 6px; }
   .info a { text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  .info .big { font-family: var(--f-display); font-size: 22px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+  .info .big { font-size: 20px; font-weight: 700; line-height: 1.25; }
 
   /* ---------- Barre d'outils ---------- */
   .toolbar {
@@ -185,12 +181,12 @@
   #q:focus-visible, .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .chips { display: flex; gap: 6px; flex-wrap: wrap; }
   .chip {
-    font-family: var(--f-mono); font-size: 12.5px; letter-spacing: .04em;
+    font-size: 14px; font-weight: 600;
     padding: 9px 12px; cursor: pointer; background: transparent; color: var(--ink-soft);
     border: 1px solid var(--line); border-radius: 0;
   }
   .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .count { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); margin-left: auto; }
+  .count { font-size: 14px; color: var(--ink-soft); margin-left: auto; }
 
   /* ---------- Timeline ---------- */
   main { padding-block: 36px 60px; }
@@ -199,8 +195,8 @@
     display: flex; align-items: baseline; gap: 16px;
     border-top: 3px solid var(--ink); padding-top: 10px; margin-bottom: 16px;
   }
-  .slot-time { font-family: var(--f-display); font-weight: 600; font-size: 38px; line-height: 1; letter-spacing: -.02em; font-variant-numeric: lining-nums; }
-  .slot-meta { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+  .slot-time { font-weight: 800; font-size: 34px; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .slot-meta { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
   .card {
@@ -208,27 +204,27 @@
     padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px;
   }
   .card.late { border-top: 2px solid var(--accent); }
-  .card h3 { font-family: var(--f-display); font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.015em; line-height: 1.15; }
+  .card h3 { font-weight: 800; font-size: 19px; margin: 0; line-height: 1.2; }
   .facts { display: flex; flex-wrap: wrap; gap: 6px; }
   .fact {
-    font-family: var(--f-mono); font-size: 12px; font-variant-numeric: tabular-nums;
+    font-size: 13.5px; font-weight: 600; font-variant-numeric: tabular-nums;
     padding: 3px 8px; background: var(--ink); color: var(--paper);
   }
   .fact.dim { background: transparent; color: var(--ink-soft); border: 1px solid var(--line); }
   .fact.todo { background: var(--accent-bg); color: var(--accent); }
   .brands { margin: 0; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
-  .brands b { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; display: block; margin-bottom: 3px; font-weight: 500; }
+  .brands b { font-size: 12.5px; display: block; margin-bottom: 2px; font-weight: 600; }
 
-  .empty { display: none; padding: 40px 0; color: var(--ink-soft); font-family: var(--f-display); font-style: italic; font-size: 20px; }
+  .empty { display: none; padding: 40px 0; color: var(--ink-soft); font-size: 17px; }
 
   /* ---------- Rappels ---------- */
   .notes { border-top: 3px solid var(--ink); padding-block: 22px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-  .notes h2 { font-family: var(--f-display); font-weight: 600; font-size: 20px; margin: 0 0 8px; letter-spacing: -.01em; }
+  .notes h2 { font-weight: 800; font-size: 18px; margin: 0 0 8px; letter-spacing: -.01em; }
   .notes ul { margin: 0; padding-left: 18px; font-size: 14.5px; color: var(--ink-soft); }
   .notes li + li { margin-top: 5px; }
   .notes a { color: var(--ink); text-underline-offset: 3px; }
 
-  footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .06em; color: var(--ink-soft); }
+  footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-soft); }
 
   @media (max-width: 820px) {
     .address-grid, .truck-grid { grid-template-columns: 1fr; }
@@ -260,14 +256,13 @@
 <header class="wrap nameplate">
   <div class="nameplate-bar">
     <span class="brand">Haute Fidélité</span>
-    <span class="label">Salon Paris 2026 · 26 &amp; 27 septembre · Espace exposants</span>
+    <span class="label">Salon Paris 2026 · 26 &amp; 27 septembre</span>
   </div>
   <hr class="double-rule">
 
   <div class="title-block">
-    <p class="label">Logistique exposants · Vendredi 25 septembre</p>
+    <p class="label">Exposants · vendredi 25 septembre</p>
     <h1>Livraison <em>&amp;</em> installation</h1>
-    <p class="lede">Toutes les infos pour arriver, décharger et vous installer — l'adresse d'abord.</p>
   </div>
 
   <section class="address" aria-labelledby="addr-label">
@@ -276,7 +271,7 @@
         <p class="label" id="addr-label">Adresse de livraison</p>
         <p class="address-street">80, voie des Bâtisseurs</p>
         <p class="address-city">92400 Courbevoie</p>
-        <p class="address-venue">Comet · Tour Cœur Défense, niveau sous-sol (quai &amp; monte-charge)</p>
+        <p class="address-venue">Comet · Tour Cœur Défense · quai au sous-sol</p>
       </div>
       <ul class="musts">
         <li><span class="label">Sens de circulation</span><strong>Paris → Neuilly uniquement</strong></li>
@@ -317,7 +312,7 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">01</span><h2>Avant toute chose&nbsp;: vos informations camion à Yoann</h2></div>
+    <div class="section-head"><h2>Infos camion à envoyer à Yoann</h2></div>
     <div class="truck-grid">
       <div>
         <p>Aucun véhicule ne peut être annoncé au quai sans ces éléments. <strong class="warn">Si ce n'est pas encore fait, envoyez-les aujourd'hui</strong> — sans ces informations, votre créneau ne peut pas être garanti.</p>
@@ -347,7 +342,7 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">02</span><h2>Accès &amp; quai</h2></div>
+    <div class="section-head"><h2>Accès &amp; quai</h2></div>
     <div class="info-grid">
       <div class="info hot">
         <h3 class="label">Accès au sous-sol</h3>
@@ -387,7 +382,7 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">03</span><h2>Pendant le week-end</h2></div>
+    <div class="section-head"><h2>Pendant le week-end</h2></div>
     <div class="info-grid">
       <div class="info">
         <h3 class="label">Ouverture au public</h3>
@@ -413,7 +408,7 @@
 
 <section class="section" style="padding-bottom:0">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">04</span><h2>Planning des arrivées au quai</h2></div>
+    <div class="section-head"><h2>Créneaux d'arrivée au quai</h2></div>
     <p class="lede" style="margin:0">Chaque exposant dispose d'un créneau d'arrivée sur le quai, le vendredi 25 septembre. Merci de le respecter&nbsp;: les accès sont mutualisés et un retard décale toute la file.</p>
   </div>
 </section>
