@@ -111,6 +111,8 @@
   .musts li { padding: 12px 0; border-bottom: 1px solid color-mix(in srgb, var(--invert-fg) 30%, transparent); }
   .musts .label { display: block; margin-bottom: 3px; }
   .musts strong { font-size: 20px; font-weight: 700; line-height: 1.25; }
+  .musts a { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--invert-fg) 45%, transparent); }
+  .musts-sub { display: block; font-size: 15px; margin-top: 2px; color: color-mix(in srgb, var(--invert-fg) 75%, transparent); }
   .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
@@ -290,7 +292,8 @@
       </div>
       <ul class="musts">
         <li><span class="label">Sens de circulation</span><strong>Paris → Neuilly uniquement</strong></li>
-        <li><span class="label">Au contrôle du sous-sol</span><strong>Demandez «&nbsp;Comet&nbsp;» ou «&nbsp;HL Média&nbsp;»</strong></li>
+        <li><span class="label">Au contrôle du sous-sol</span><strong>Demandez «&nbsp;Comet&nbsp;» ou «&nbsp;HL&nbsp;Média&nbsp;»</strong></li>
+        <li><span class="label">Arrivé au quai</span><strong>Appelez Yoann · <a href="tel:+33660877087">06 60 87 70 87</a></strong><span class="musts-sub">Pas de réponse&nbsp;: Hugo · <a href="tel:+33679717289">06 79 71 72 89</a></span></li>
       </ul>
     </div>
     <div class="actions">
@@ -361,8 +364,17 @@
     <div class="info-grid">
       <div class="info hot">
         <h3 class="label">Accès au sous-sol</h3>
-        <p class="big">Demandez « Comet » ou « HL Média »</p>
+        <p class="big">Demandez « Comet » ou «&nbsp;HL&nbsp;Média&nbsp;»</p>
         <p>Comet est le lieu, HL Média l'organisateur&nbsp;: ne demandez pas «&nbsp;Haute Fidélité&nbsp;». Votre véhicule doit figurer sur la liste d'accès&nbsp;: sans immatriculation transmise, pas d'accès.</p>
+      </div>
+      <div class="info hot">
+        <h3 class="label">Présence de la marque obligatoire</h3>
+        <p class="big">Pas de déchargement sans la marque</p>
+        <p>Un représentant de la marque doit être présent. Yoann est en bas, au quai&nbsp;: appelez-le au <a href="tel:+33660877087">06 60 87 70 87</a>. S'il ne décroche pas, appelez Hugo au <a href="tel:+33679717289">06 79 71 72 89</a> pour valider le déchargement.</p>
+      </div>
+      <div class="info">
+        <h3 class="label">Manutention</h3>
+        <p>Quelques chariots sur place, mais <strong>rien n'est fourni par l'organisation</strong>&nbsp;: prévoyez votre diable ou votre transpalette.</p>
       </div>
       <div class="info">
         <h3 class="label">Accueil exposants</h3>
@@ -372,7 +384,7 @@
       <div class="info">
         <h3 class="label">Monte-charge</h3>
         <p class="big">1,15 × 2,00 × 2,60&nbsp;m</p>
-        <p>Porte <strong>1,15&nbsp;m</strong> de large · hauteur <strong>2,00&nbsp;m</strong> · profondeur <strong>2,60&nbsp;m</strong>. Vérifiez vos caisses et flight-cases avant le départ.</p>
+        <p>Porte <strong>1,15&nbsp;m</strong> de large · hauteur <strong>2,00&nbsp;m</strong> · profondeur <strong>2,60&nbsp;m</strong>. Monte-charge logistique, utilisé sans souci l'an dernier. Vérifiez vos caisses et flight-cases avant le départ.</p>
       </div>
       <div class="info">
         <h3 class="label">Emballages vides</h3>
@@ -408,6 +420,14 @@
         <h3 class="label">Samedi soir</h3>
         <p class="big">Moment d'échange entre pros</p>
         <p>Samedi 26, en fin de journée, après la fermeture au public&nbsp;: exposants, distributeurs, marques et revendeurs invités se retrouvent. Détails communiqués sur place.</p>
+      </div>
+      <div class="info">
+        <h3 class="label">Acoustique</h3>
+        <p>Attention, <strong>le sol est creux</strong>. L'an dernier, certains stands l'ont traité avec des tapis&nbsp;: prévoyez-en si besoin.</p>
+      </div>
+      <div class="info">
+        <h3 class="label">Réseau</h3>
+        <p>Un wifi est prévu, mais comme sur tout salon, <strong>comptez sur votre 5G</strong> et prévoyez des sources en local&nbsp;: fichiers, et pourquoi pas des CD.</p>
       </div>
       <div class="info">
         <h3 class="label">Espace exposant</h3>
@@ -447,8 +467,8 @@
     <input id="q" type="search" placeholder="Chercher un exposant, une salle, une marque…" autocomplete="off">
     <div class="chips" role="group" aria-label="Filtrer par niveau">
       <button class="chip" id="f-all" data-level="" aria-pressed="true">Tout</button>
-      <button class="chip" id="f-n1" data-level="1" aria-pressed="false">Niveau 1</button>
-      <button class="chip" id="f-n2" data-level="2" aria-pressed="false">Niveau 2</button>
+      <button class="chip" id="f-n1" data-level="1" aria-pressed="false">Niveau 1 · étage 23</button>
+      <button class="chip" id="f-n2" data-level="2" aria-pressed="false">Niveau 2 · étage 24</button>
     </div>
     <span class="count" id="count"></span>
   </div>
@@ -463,7 +483,7 @@
       <h2>Sur le quai</h2>
       <ul>
         <li>Présentez-vous à l'heure indiquée, pas avant&nbsp;: les places de déchargement sont limitées.</li>
-        <li>Déchargement puis dégagement immédiat du véhicule. L'installation se poursuit ensuite librement jusqu'à 23h00.</li>
+        <li>Déchargement puis dégagement immédiat du véhicule. La durée dépend du matériel, mais soyez efficaces&nbsp;: d'autres camions attendent. L'installation se poursuit ensuite librement jusqu'à 23h00.</li>
         <li>Empêchement ou retard&nbsp;: prévenez Yoann plutôt que de décaler seul.</li>
       </ul>
     </div>
@@ -570,7 +590,7 @@ function render(){
           <h3>${d.n}</h3>
           <div class="facts">
             <span class="fact">Salle ${d.s}</span>
-            <span class="fact dim">Niveau ${d.lvl}</span>
+            <span class="fact dim">Niveau ${d.lvl} · étage ${d.lvl === "1" ? "23" : "24"}</span>
             ${d.grp ? `<span class="fact dim">${d.grp}</span>` : ""}
             ${d.todo ? `<span class="fact todo">Créneau à caler avec Yoann</span>` : ""}
           </div>
