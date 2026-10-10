@@ -35,7 +35,7 @@
     let endpoint;
     try { endpoint = new URL(form.dataset.endpoint); if (endpoint.protocol !== 'https:') throw new Error(); }
     catch (_) { status.textContent = text.error; return; }
-    const body = { email: email.value.toLowerCase(), language: lang, subscribe: form.elements.subscribe.checked, company_site: form.elements.company_site.value, consent_version: 'whitepaper-2026-10-v1' };
+    const body = { email: email.value.toLowerCase(), language: lang, subscribe: form.elements.subscribe.checked, company_site: form.elements.company_site.value, consent_version: 'whitepaper-2026-10-v2' };
     const fingerprint = JSON.stringify(body);
     // Conserver le même identifiant après une réponse perdue, sans stockage du courriel.
     if (!pendingRequest || pendingRequest.fingerprint !== fingerprint) pendingRequest = { fingerprint, id: crypto.randomUUID() };
