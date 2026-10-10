@@ -20,7 +20,19 @@
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (busy) return;
-    email.value = email.value.trim();
+    const firstName = form.elements.first_name, lastName = form.elements.last_name, phone = form.elements.phone;
+    const fields = [firstName, lastName, email, phone];
+    for (const field of fields) { field.value = field.value.trim(); field.removeAttribute('aria-invalid'); }
+    const nameOK = field => field.value.length <= 80 && /^[\p{L}\p{M} .'’\-]+$/u.test(field.value) && /\p{L}/u.test(field.value);
+    const digits = phone.value.replace(/\D/g, '');
+    const badName = [firstName, lastName].find(field => !nameOK(field));
+    const badPhone = phone.value && (!/^\+?[0-9 ().\-]+$/.test(phone.value) || phone.value.length > 40 || digits.length < 7 || digits.length > 15);
+    if (badName || badPhone) {
+      const field = badName || phone;
+      field.setAttribute('aria-invalid', 'true'); field.focus();
+      status.textContent = badName ? (lang === 'fr' ? 'Indique ton prénom et ton nom.' : 'Please enter your first and last name.') : (lang === 'fr' ? 'Vérifie ton téléphone, ou laisse ce champ vide.' : 'Check your phone number, or leave this field empty.');
+      return;
+    }
     email.removeAttribute('aria-invalid');
     if (!email.checkValidity()) {
       email.setAttribute('aria-invalid', 'true');
@@ -33,7 +45,7 @@
     let endpoint;
     try { endpoint = new URL(form.dataset.endpoint); if (endpoint.protocol !== 'https:') throw new Error(); }
     catch (_) { status.textContent = text.error; return; }
-    const body = { email: email.value.toLowerCase(), language: lang, subscribe: form.elements.subscribe.checked, company_site: form.elements.company_site.value, consent_version: 'whitepaper-2026-10-v3' };
+    const body = { email: email.value.toLowerCase(), language: lang, subscribe: form.elements.subscribe.checked, company_site: form.elements.company_site.value, consent_version: 'whitepaper-2026-10-v4', first_name: form.elements.first_name.value, last_name: form.elements.last_name.value, phone: form.elements.phone.value };
     const fingerprint = JSON.stringify(body);
     // Conserver le même identifiant après une réponse perdue, sans stockage du courriel.
     if (!pendingRequest || pendingRequest.fingerprint !== fingerprint) pendingRequest = { fingerprint, id: crypto.randomUUID() };
