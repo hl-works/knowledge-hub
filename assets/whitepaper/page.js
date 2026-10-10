@@ -17,6 +17,7 @@
   const submit = form.querySelector('[type=submit]');
   const link = document.querySelector('#download-link');
   let busy = false;
+  let pendingRequest = null;
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (busy) return;
@@ -34,16 +35,21 @@
     let endpoint;
     try { endpoint = new URL(form.dataset.endpoint); if (endpoint.protocol !== 'https:') throw new Error(); }
     catch (_) { status.textContent = text.error; return; }
+    const body = { email: email.value.toLowerCase(), language: lang, subscribe: form.elements.subscribe.checked, company_site: form.elements.company_site.value, consent_version: 'whitepaper-2026-10-v2' };
+    const fingerprint = JSON.stringify(body);
+    // Conserver le même identifiant après une réponse perdue, sans stockage du courriel.
+    if (!pendingRequest || pendingRequest.fingerprint !== fingerprint) pendingRequest = { fingerprint, id: crypto.randomUUID() };
+    body.request_id = pendingRequest.id;
     busy = true;
     submit.setAttribute('aria-disabled', 'true');
     status.textContent = text.pending;
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
+    const timeout = setTimeout(() => controller.abort(), 30000);
     try {
       const response = await fetch(endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         credentials: 'omit', signal: controller.signal, referrerPolicy: 'no-referrer',
-        body: JSON.stringify({ email: email.value, language: lang, subscribe: form.elements.subscribe.checked, company_site: form.elements.company_site.value, consent_version: 'whitepaper-2026-10-v1' })
+        body: JSON.stringify(body)
       });
       if (!response.ok) throw new Error('Request failed');
       const data = await response.json();
@@ -54,6 +60,7 @@
       link.hidden = false;
       status.textContent = text.success;
       email.value = '';
+      pendingRequest = null;
       link.focus();
     } catch (_) { status.textContent = text.error; }
     finally { clearTimeout(timeout); busy = false; submit.removeAttribute('aria-disabled'); }
