@@ -1,0 +1,80 @@
+/* Shared landing-page hierarchy, French and English. */
+:root { --field:#f7f4ef; --text:#171717; --bar-text:#fff; --line:#171717; --soft:#f0ece5; --section-paper:#fff; }
+[data-theme=dark] { --field:#141414; --text:#f8f5ef; --panel:#202020; --panel-text:#f8f5ef; --line:#77716a; --soft:#242220; --section-paper:#1b1b1b; --muted:#c6c2be; }
+.wrap { width:min(1180px,calc(100% - 64px)); }
+.nav { min-height:86px; border-bottom:1px solid var(--line); }
+.nav nav { gap:24px; }
+.nav-cta { display:inline-flex; align-items:center; min-height:44px; padding:10px 18px; border:2px solid #171717; background:#171717; color:#fff; font:700 15px/1.3 'Space Grotesk',sans-serif; }
+.theme { color:var(--text); }
+.hero { grid-template-columns:1.15fr .85fr; gap:64px; padding-block:64px 76px; }
+h1 { font-size:clamp(42px,4.6vw,64px); line-height:1.04; letter-spacing:-2.5px; margin-bottom:24px; }
+.hero .eyebrow { font-size:12px; margin-bottom:20px; }
+.hero-logos { display:flex; align-items:center; gap:10px; margin-bottom:22px; }
+.hero-logos .official-logo { width:136px; height:64px; padding:0 8px; border:1px solid #d2cdc6; }
+.hero-logos .official-logo[href*="shopify.com"] img { width:112px; }
+.intro { font-size:19px; line-height:1.65; }
+.hero .intro { max-width:580px; }
+.button, .cta-row .button { min-height:56px; padding:16px 23px; gap:22px; font:700 17px/1.35 'Space Grotesk',Arial,sans-serif; letter-spacing:0; border:2px solid #171717; box-shadow:4px 4px 0 #b7afa4; text-align:left; }
+.button.dark { background:#171717; color:#fff; }
+.button.dark:hover { background:#343434; color:#fff; }
+.button:focus-visible, .nav-cta:focus-visible { outline:3px solid #fff; outline-offset:2px; box-shadow:0 0 0 6px #171717; }
+[data-theme=dark] .button.dark, [data-theme=dark] .nav-cta { background:#ff8c7a; color:#171717; border-color:#ff8c7a; }
+[data-theme=dark] .button.dark:hover { background:#ffb5a8; color:#171717; }
+.button span[aria-hidden] { font-size:23px; line-height:1; }
+.text-link, .cta-row .text-link { font-size:16px; line-height:1.5; text-decoration-thickness:1.5px; }
+.actions { gap:22px; margin-top:28px; }
+.micro { font:13px/1.6 'Space Grotesk',sans-serif; color:var(--muted); margin-top:18px; }
+.hero-proof { font-size:14px; line-height:1.6; border-left:3px solid #d15946; padding-left:15px; margin:25px 0 0; max-width:510px; }
+.book-scene { background:#ff8c7a; border:1px solid #171717; padding:34px 30px; }
+.book { max-width:340px; padding:24px; box-shadow:8px 8px 0 #171717; border-width:2px; border-left-width:9px; }
+.book-title { font-size:54px; line-height:1.02; }
+.book .book-top { margin-bottom:25px; }
+.sticker { transform:none; position:static; margin:24px auto 0; width:fit-content; border:0; padding:8px 15px; font-size:12px; color:#fff; }
+.band { padding:20px; background:#171717; color:#fff; font:600 14px/1.5 'Space Grotesk',sans-serif; letter-spacing:.08em; }
+.tone-paper { background:var(--section-paper); }
+.tone-soft { background:var(--soft); }
+.section { padding-block:72px; }
+h2 { font-size:clamp(32px,3.4vw,46px); line-height:1.12; letter-spacing:-1.5px; }
+h3 { line-height:1.25; }
+.eyebrow { font-size:12px; }
+.section-head { gap:48px; }
+.pillars { gap:30px; }
+.pillars article, .pillars article+article { padding:24px 0 0; border-left:0; border-top:2px solid var(--line); }
+.pillars p, .contents p { font-size:17px; line-height:1.65; }
+.pillar-logo { width:148px; height:76px; border:1px solid #d2cdc6; }
+.contents-grid { gap:70px; }
+.contents li { border-top:1px solid var(--line); padding:23px 0 8px; }
+.contents h3 { font-size:23px; }
+.num { color:var(--muted); }
+.cta-row { border-top:1px solid var(--line); padding-top:28px; }
+.map-note { font-size:14px; line-height:1.7; }
+.fde-example { font-size:18px; border-left:3px solid #d15946; }
+.author-section { background:var(--soft); border-block:0; }
+.author { grid-template-columns:.7fr 1.3fr; padding-block:72px; }
+.author img { border-width:2px; }
+.map-section { background:var(--section-paper); border:0; }
+.download-section { background:#171717; color:#fff; scroll-margin-top:24px; }
+.download-grid { gap:70px; }
+.download-grid>.form-panel { background:#fff; color:#171717; --panel:#fff; --panel-text:#171717; --line:#68625c; --muted:#56514d; border:1px solid #b5aea7; box-shadow:7px 7px 0 #ff8c7a; }
+.download-section .micro { color:#d4cec6; }
+.download-section .eyebrow { color:#ffb5a8; }
+.form-panel label { font-size:15px; font-weight:600; }
+.form-panel input[type=text], .form-panel input[type=email], .form-panel input[type=tel] { border:1px solid #77716a; font-size:17px; padding:14px; margin-bottom:22px; }
+.form-panel .check { font-size:14px; font-weight:400; }
+.form-help, .privacy, .privacy summary { font-size:13px; line-height:1.65; }
+.form-panel .button.dark { background:#171717; color:#fff; border-color:#171717; justify-content:center; }
+#form-status { font-size:15px; }
+.privacy { overflow-wrap:anywhere; }
+.faq { padding-block:56px; }
+.faq details { border-top:1px solid var(--line); }
+.faq summary { font-weight:600; }
+footer { background:#171717; color:#fff; }
+@media(min-width:1550px) { .hero{padding-block:64px 76px} h1{font-size:64px} }
+@media(max-width:980px) { .hero{gap:32px}.book-scene{padding:26px 22px}.book{padding:20px}.book-title{font-size:44px}.pillars{gap:22px}.contents-grid{gap:35px} }
+@media(max-width:700px) {
+ .wrap{width:calc(100% - 40px)}.nav{min-height:76px}.nav nav{gap:12px}.nav-cta{font-size:14px;padding:9px 12px}.nav .brand b{display:none}.theme{width:34px;height:38px}
+ .hero{grid-template-columns:1fr;padding-block:34px 46px;gap:32px}.hero .eyebrow{font-size:11px}h1{font-size:44px;letter-spacing:-1.6px}.hero-logos .official-logo{width:124px;height:60px}.intro{font-size:18px}.hero .actions{display:grid;gap:20px}.hero .button{justify-content:space-between}.text-link{width:fit-content}
+ .book-scene{max-width:360px;padding:26px;margin:auto}.book-title{font-size:48px}.book{padding:22px}.sticker{max-width:none;font-size:12px}
+ .section,.author{padding-block:48px}.section-head,.contents-grid,.download-grid{gap:22px}.pillars{gap:8px}.pillars article,.pillars article+article{padding:23px 0 10px}.pillars p{font-size:16px}.contents h3{font-size:21px}.contents li{gap:18px}
+ .button,.cta-row .button{font-size:17px;max-width:100%;gap:16px}.download-grid{gap:28px}.form-panel{padding:23px 20px}.author img{max-width:240px}.band{font-size:12px;letter-spacing:.04em}.form-help{margin-left:0}.faq{padding-block:42px}
+}
