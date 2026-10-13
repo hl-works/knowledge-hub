@@ -603,6 +603,25 @@
   .e-podcast-track audio { width:100%; display:block; height:42px; }
   .e-watch-shortcut { display:inline-block; margin-top:17px; font-size:13px; text-underline-offset:4px; }
   @media(max-width:760px){ .e-watch-grid{grid-template-columns:1fr;gap:24px}.e-podcast-panel{padding:20px} }
+  /* Contrasting reading surfaces; preserve the coral hero and hover effects. */
+  :root { --e-reading:#faf8f4; --e-reading-ink:#171717; --e-alt:#eeeae3; }
+  html[data-theme="dark"] { --e-reading:#191919; --e-reading-ink:#f5f2ec; --e-alt:#252321; }
+  .e-book-section, #savoir-faire, #kiosque { background:var(--e-reading); color:var(--e-reading-ink); --e-border:var(--e-reading-ink); --e-shadow:var(--e-reading-ink); }
+  #worlds, #voyage { background:var(--e-alt); color:var(--e-reading-ink); --e-border:var(--e-reading-ink); --e-shadow:var(--e-reading-ink); }
+  .e-watch { background:#191919; color:#f8f5ef; --e-border:#f8f5ef; --e-shadow:#ff8c7a; }
+  .e-watch .e-podcast-panel { background:#fff; color:#171717; border-color:#171717; }
+  .e-watch .e-watch-note { color:#d2ccc4; }
+  .e-btn, .e-hero-actions .e-btn, .e-book-copy .e-btn, .e-watch .e-btn { font-family:"Space Grotesk",system-ui,sans-serif; font-size:17px; line-height:1.4; letter-spacing:0; text-transform:none; min-height:54px; padding:15px 21px; }
+  .e-btn.e-btn-primary { background:#171717; color:#fff; border-color:#171717; box-shadow:5px 5px 0 #a69c91; }
+  .e-btn.e-btn-primary:hover, .e-btn.e-btn-primary:focus-visible { background:#343434; color:#fff; }
+  html[data-theme="dark"] .e-btn.e-btn-primary, .e-watch .e-btn.e-btn-primary { background:#ff8c7a; color:#171717; border-color:#ff8c7a; box-shadow:5px 5px 0 #65524a; }
+  html[data-theme="dark"] .e-btn.e-btn-primary:hover, .e-watch .e-btn.e-btn-primary:hover { background:#ffb5a8; color:#171717; }
+  .e-btn:focus-visible { outline:3px solid #fff; outline-offset:2px; box-shadow:0 0 0 6px #171717; }
+  .e-book-copy .e-book-note, .e-watch-note { font-size:14px; line-height:1.6; }
+  .e-watch-shortcut { font-size:15px; }
+  .e-book-copy>p, .e-watch-copy>p { line-height:1.65; }
+  .e-section { border-bottom:1px solid var(--e-border); }
+  @media(max-width:700px) { .e-btn,.e-hero-actions .e-btn,.e-book-copy .e-btn,.e-watch .e-btn{font-size:16px;padding:15px 18px}.e-book-copy .e-book-note,.e-watch-note{font-size:13px} }
 </style>
 </head>
 <body>
