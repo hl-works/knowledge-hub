@@ -648,7 +648,6 @@
     </a>
     <button class="e-btn-mini e-burger" id="e-burger" aria-expanded="false" aria-controls="e-nav" aria-label="Menu">≡</button>
     <nav class="e-nav" id="e-nav" aria-label="Worlds">
-      <a href="#livre"><span class="e-fr">Le livre</span><span class="e-en">The guide</span></a>
       <a href="#hub">Hub</a>
       <a href="#cobra">Cobra</a>
       <a href="#hifi">HiFi Lovers</a>
@@ -692,8 +691,7 @@
         <span class="e-en">Managing director of Cobra, publisher of Haute Fidélité. I share my projects, my tools and what I learn by running them.</span>
       </p>
       <div class="e-cta-row e-hero-actions">
-        <a class="e-btn e-btn-primary" href="#livre"><span class="e-fr">Découvrir le livre gratuit ↓</span><span class="e-en">Explore the free guide ↓</span></a>
-        <a class="e-book-link" href="/knowledge-hub/"><span class="e-fr">Ouvrir le Knowledge Hub ↗</span><span class="e-en">Open the Knowledge Hub ↗</span></a>
+        <a class="e-btn e-btn-primary" href="/knowledge-hub/"><span class="e-fr">Ouvrir le Knowledge Hub ↗</span><span class="e-en">Open the Knowledge Hub ↗</span></a>
       </div>
       <a class="e-watch-shortcut" href="#veille"><span class="e-fr">Ma veille IA, à lire ou à écouter ↓</span><span class="e-en">My AI brief: read or listen ↓</span></a>
       <ul class="e-tags" aria-label="Rôles / Roles">
@@ -723,29 +721,7 @@
     </div>
   </div>
 
-  <!-- ============ LIVRE BLANC ============ -->
-  <section class="e-section e-book-section" id="livre" aria-labelledby="book-title">
-    <div class="e-wrap e-book-grid">
-      <div class="e-book-cover" aria-hidden="true">
-        <p class="e-mono">HL CONSULTING ↗</p>
-        <strong><span class="e-fr">VENDRE.<br>PILOTER.<br>RELIER.</span><span class="e-en">SELL.<br>MANAGE.<br>CONNECT.</span></strong>
-        <div class="e-book-pair e-book-logos"><img src="/assets/whitepaper/odoo-logo.svg" alt="Odoo" width="919" height="495"><span>+</span><img src="/assets/whitepaper/shopify-logo.svg" alt="Shopify" width="304" height="87"></div>
-        <p class="e-mono" style="margin-top:28px">HUGO LAHUTTE / 2026</p>
-      </div>
-      <div class="e-book-copy">
-        <p class="e-mono"><span class="e-fr">LIVRE BLANC GRATUIT · 68 PAGES</span><span class="e-en">FREE WHITE PAPER · 20 PAGES</span></p>
-        <h2 id="book-title"><span class="e-fr">Odoo + Shopify.<br>Des idées pour ton commerce.</span><span class="e-en">Odoo + Shopify.<br>Ideas for your business.</span></h2>
-        <p><span class="e-fr">Shopify pour vendre, Odoo pour gérer. Je montre comment les faire travailler ensemble et comment l’IA m’aide à construire les automatismes utiles.</span><span class="e-en">Shopify to sell, Odoo to manage operations. I show how to make them work together and how AI helps me build useful automations.</span></p>
-        <p><span class="e-fr">Voir où en est une commande, ajuster les prix, automatiser les achats : je partage des captures réelles, mes choix et les contrôles à garder. À toi d’y piocher ce qui peut servir à ton entreprise.</span><span class="e-en">Track an order, adjust prices, automate purchasing: I share real screenshots, my decisions and the checks to keep. Pick the ideas that can help your business.</span></p>
-        <p class="e-book-proof"><span class="e-fr">En production chez Cobra depuis mars 2025. Je fais évoluer le système au quotidien depuis avril 2026.</span><span class="e-en">Live at Cobra since March 2025. I’ve been developing the system daily since April 2026.</span></p>
-        <div class="e-cta-row">
-          <a class="e-btn e-btn-primary" href="/odoo-shopify/#telecharger"><span class="e-fr">Recevoir le livre gratuit ↗</span><span class="e-en">Get the free guide ↗</span></a>
-          <a class="e-book-link" href="/odoo-shopify/"><span class="e-fr">Feuilleter les sujets</span><span class="e-en">Explore the topics</span></a>
-        </div>
-        <p class="e-book-note"><span class="e-fr">PDF après confirmation de ton email. Abonnement facultatif.</span><span class="e-en">PDF after confirming your email. Newsletter subscription is optional.</span></p>
-      </div>
-    </div>
-  </section>
+  <!-- Livre blanc retiré temporairement de l’accueil. -->
 
   <!-- ============ VEILLE IA ET PODCAST ============ -->
   <section class="e-section e-watch" id="veille" aria-labelledby="watch-title">
@@ -1048,20 +1024,12 @@
   (function () {
     var root = document.documentElement;
 
-    function syncBookLinks() {
-      var prefix = root.getAttribute("data-lang") === "en" ? "/en" : "";
-      document.querySelectorAll(".e-book-copy a").forEach(function (a) {
-        a.href = prefix + "/odoo-shopify/" + (a.classList.contains("e-btn") ? "#telecharger" : "");
-      });
-    }
-    syncBookLinks();
 
     // Lang toggle
     document.getElementById("e-lang").addEventListener("click", function () {
       var next = root.getAttribute("data-lang") === "fr" ? "en" : "fr";
       root.setAttribute("data-lang", next);
       root.setAttribute("lang", next);
-      syncBookLinks();
       try { localStorage.setItem("hl-lang", next); } catch (e) {}
     });
 
