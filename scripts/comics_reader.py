@@ -4,6 +4,14 @@ from datetime import date
 
 def e(v):return html.escape(str(v),quote=True)
 
+BRANDS={
+    'openai':('OpenAI','openai.png'),
+    'anthropic':('Anthropic','anthropic.png'),
+    'mistral':('Mistral','mistral.svg'),
+    'google':('Google DeepMind','google.png'),
+}
+
+
 CSS='''
 main:has(.comic-reader)>section{padding-block:20px}
 .comic-reader{max-width:560px;margin:0 auto;color:var(--text)}
@@ -20,6 +28,10 @@ main:has(.comic-reader)>section{padding-block:20px}
 .comic-reader .comic-card{width:100%;min-width:0;margin-bottom:40px;scroll-margin-top:90px;border:1px solid var(--border-strong);background:var(--surface);border-radius:12px;overflow:hidden}
 .comic-reader .panel-label{font-size:.78rem;font-weight:700;margin:0;padding:12px 14px 4px;color:var(--text-muted)}
 .comic-reader .panel-title{font-size:1.2rem;line-height:1.25;margin:0;padding:0 14px 12px}
+.comic-reader .brand-label{display:flex;align-items:center;gap:8px;margin:0;padding:0 14px 12px;font-size:.85rem;line-height:1.35;overflow-wrap:anywhere}
+.comic-reader .brand-icon{display:flex;align-items:center;justify-content:center;flex:0 0 32px;height:32px;padding:4px;border-radius:6px;background:#fff}
+.comic-reader .brand-icon img{display:block;width:24px;height:24px;object-fit:contain}
+.comic-reader .brand-icon.wordmark{flex-basis:80px}.comic-reader .brand-icon.wordmark img{width:72px;height:24px}
 .comic-reader .art-window{position:relative;overflow:hidden;width:100%;background:var(--bg)}
 .comic-reader .art-window img{position:absolute;max-width:none;display:block;object-fit:fill}
 .comic-reader .dialogue{padding:16px;display:grid;gap:12px}.comic-reader .bubble{font-size:1.125rem;line-height:1.5;margin:0;overflow-wrap:anywhere}
@@ -63,7 +75,12 @@ def render(ep,base,dimensions,preview=False):
         style=f'width:{100/crop["w"]:.8f}%;height:{100/crop["h"]:.8f}%;left:{-100*crop["x"]/crop["w"]:.8f}%;top:{-100*crop["y"]/crop["h"]:.8f}%'
         art=f'<div class="art-window" style="aspect-ratio:{width*crop["w"]}/{height*crop["h"]}"><img src="{e(base+p["image"])}" width="{width}" height="{height}" alt="{e(p["alt"])}" style="{style}" loading="{"eager" if i==0 else "lazy"}"></div>'
         dialogue=''.join(f'<p class="bubble"><strong>{e(d["speaker"])}{e({"fiction":" — scène imaginée","paraphrase":" — reformulation","quote":" — citation"}.get(d.get("attribution"),""))}</strong>{e(d["text"])}</p>' for d in p['dialogue'])
-        cards.append(f'<article id="case-{i+1}" class="comic-card" aria-label="Histoire {chapter}, case {seen[nid]} sur {count}"><p class="panel-label">HISTOIRE {chapter} / {len(chapters)} · CASE {seen[nid]} / {count}</p><h3 class="panel-title">{e(n["title"])}</h3>{art}<div class="dialogue">{dialogue}</div></article>')
+        brand=''
+        if n.get('brand_id') in BRANDS:
+            name,filename=BRANDS[n['brand_id']]
+            logo_class=' wordmark' if n['brand_id']=='mistral' else ''
+            brand=f'<p class="brand-label"><span class="brand-icon{logo_class}"><img src="{e(base+"brands/"+filename)}" alt="" width="{72 if logo_class else 24}" height="24"></span><span>{e(name)} · {e(n.get("model_label", ""))}</span></p>'
+        cards.append(f'<article id="case-{i+1}" class="comic-card" aria-label="Histoire {chapter}, case {seen[nid]} sur {count}"><p class="panel-label">HISTOIRE {chapter} / {len(chapters)} · CASE {seen[nid]} / {count}</p><h3 class="panel-title">{e(n["title"])}</h3>{brand}{art}<div class="dialogue">{dialogue}</div></article>')
     sources=''.join('<li><strong>'+e(n['title'])+'</strong><br>'+ ' · '.join(f'<a href="{e(s["url"])}">{e(s["publisher"])} — {e(s["published_at"])}</a>' for s in n['sources'])+'</li>' for n in ep['news'])
     start,end=[date.fromisoformat(ep[k]) for k in ('period_start','period_end')]
     month=['','janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.']

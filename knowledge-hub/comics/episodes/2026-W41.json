@@ -31,7 +31,9 @@
           "published_at": "2026-10-07",
           "consulted_at": "2026-10-16"
         }
-      ]
+      ],
+      "brand_id": "openai",
+      "model_label": "GPT‑6"
     },
     {
       "id": "haiku",
@@ -45,7 +47,9 @@
           "published_at": "2026-10-07",
           "consulted_at": "2026-10-16"
         }
-      ]
+      ],
+      "brand_id": "anthropic",
+      "model_label": "Haiku 5.5"
     },
     {
       "id": "mistral",
@@ -59,7 +63,9 @@
           "published_at": "2026-10-06",
           "consulted_at": "2026-10-16"
         }
-      ]
+      ],
+      "brand_id": "mistral",
+      "model_label": "Large 4"
     },
     {
       "id": "synthid",
@@ -73,7 +79,9 @@
           "published_at": "2026-10-07",
           "consulted_at": "2026-10-16"
         }
-      ]
+      ],
+      "brand_id": "google",
+      "model_label": "SynthID"
     }
   ],
   "panels": [
@@ -196,7 +204,7 @@
         },
         {
           "speaker": "Iastro",
-          "text": "Oui. Il s’appelle Hugo."
+          "text": "Pour ça, il reste le balai !"
         }
       ],
       "crop": {
@@ -326,7 +334,7 @@
         },
         {
           "speaker": "Iastro",
-          "text": "Et la grue pour ton mug ?"
+          "text": "Garde la grue : ton mug en a besoin !"
         }
       ],
       "crop": {
@@ -456,7 +464,7 @@
         },
         {
           "speaker": "Iastro",
-          "text": "Et la salle des machines."
+          "text": "Il va falloir pousser les murs !"
         }
       ],
       "crop": {
@@ -586,7 +594,7 @@
         },
         {
           "speaker": "Iastro",
-          "text": "L’enquête garde son utilité."
+          "text": "On aurait dû commencer par lever la tête !"
         }
       ],
       "crop": {

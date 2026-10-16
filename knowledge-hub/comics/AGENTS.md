@@ -27,3 +27,9 @@ Pour les invités, vérifier le look récent en plus du rôle actuel. Le Wang de
 99 % de lecture prévue sur téléphone. Une info = une histoire de 5 ou 6 cases, et une case affichée à la fois en swipe, avec lecture verticale disponible. Cette consigne remplace le format initial d’une ou deux cases par nouvelle. Dialogues courts en HTML à au moins 18 px ; ne pas réduire une planche entière pour la faire tenir dans la largeur mobile. Conserver le dessin de L’atelier des possibles, les variations de cadrage et les tenues du mois.
 
 Valider d’abord le pilote de la semaine du 5 au 11 octobre. Le rattrapage des semaines d’août/septembre vient après ce retour ; l’inventaire ne vaut ni validation ni automatisation.
+
+## Humour et repères de marque — retour de Hugo du 16 octobre 2026
+
+L’approche du pilote est approuvée. Cela ne vaut pas validation de publication. Les blagues doivent se comprendre immédiatement avec la scène : une chute concrète, des répliques courtes, sans détour technique ni référence obscure. Le dessin et le dialogue doivent raconter la même blague.
+
+Ajouter de petits logos officiels quand une entreprise, un modèle ou un outil est évoqué (OpenAI, Anthropic, etc.). Accompagner le logo du nom de la marque et du modèle : un symbole seul n’est pas assez explicite. Utiliser les fichiers locaux de brands/ et documenter leur source ; conserver proportions et couleurs. Garder ces repères discrets et lisibles sur téléphone, séparés des illustrations pour permettre les corrections.
