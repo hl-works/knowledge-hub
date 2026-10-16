@@ -56,3 +56,6 @@ Les podcasts archivés dans `assets/podcast/episodes.json` couvrent le 12–16 o
 
 
 Retour de Hugo sur les noms : employer **Le Radar iA** pour le texte, **Le Podcast iA** pour la voix et **iAstro Sunday** pour le comic. « Radio Iastro » est abandonné. Iastro reste le nom du personnage. La publication automatique en podcast est à étudier ; cette question ne crée pas de programmation ni d’inscription aux plateformes.
+
+
+Publication autorisée par Hugo le 16 octobre 2026 : « OK, tu passes en prod, s’il te plaît, sur HL Consulting ». Cet accord concerne le Kiosque, les podcasts existants et le premier numéro W41 présentés. L’accord est enregistré dans le manifeste W41 ; il ne vaut pas publication des rétrospectives ou automatisation des prochains numéros.

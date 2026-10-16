@@ -75,3 +75,10 @@ Le pilote comprend désormais 28 écrans : 4 ouvertures explicatives et 24 cases
 La rubrique Immersion IA (`../immersion-ia/`) rassemble veille, podcasts et IA immersion BD. Elle est préparée dans la branche, non déployée. La sélection des huit semaines est dans `editorial-plan.json` et sa vue de relecture dans `drafts/planning/` : 32 pistes d’après les archives, non encore vérifiées au niveau des sources primaires et non dessinées sauf le pilote W41.
 
 Recette locale : 28 écrans parcourus, quatre accès directs à 320 px sans débordement, retour navigateur et trois bascules vertical/swipe conservant la case 8. Les 10 MP3 des cinq éditions du 12 au 16 octobre sont décodables et leurs durées concordent avec les manifestes. 12 tests du générateur et contrôle de cohérence du site passent. La validation éditoriale des rétrospectives et la publication restent à faire.
+
+
+## Mise en production autorisée — 16 octobre 2026
+
+Hugo demande explicitement la mise en production de la version présentée. Le numéro 2026-W41 est approuvé et publié sous `/knowledge-hub/comics/2026-W41/`, référencé par `latest.json`, le sommaire, le moteur de recherche et le sitemap. Les anciennes adresses du pilote redirigent vers ce numéro. Le Kiosque IA réunit Le Radar iA, Le Podcast iA et iAstro Sunday. Les paragraphes de préparation ci-dessus décrivent l’historique ; ils ne remplacent pas cet état. Les rétrospectives restent des pistes non publiées.
+
+Apple Podcasts, Spotify et le flux RSS podcast constituent le prochain lot : aucun compte ouvert ni distribution activée ici.

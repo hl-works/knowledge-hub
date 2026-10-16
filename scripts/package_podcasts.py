@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Package cover exports and MP3 copies, keeping original audio files untouched."""
-import argparse,json,subprocess,shutil,zipfile
+import argparse,json,subprocess,shutil,zipfile,struct
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -12,6 +12,8 @@ def package(out):
         for kind in ('short','full'):
             name=f'{ep["date"]}-{kind}';cover=ROOT/f'assets/podcast/covers/{name}.png';thumb=out/f'thumbnails-png/{name}.png'
             assert cover.is_file() and thumb.is_file()
+            raw=cover.read_bytes()
+            assert raw[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',raw[16:24])==(1080,1080), 'Expected a real 1080px PNG cover'
             shutil.copy2(cover,out/'covers'/cover.name)
             jpeg=out/f'thumbnails/{name}.jpg'
             subprocess.run(['ffmpeg','-y','-v','error','-i',str(thumb),'-frames:v','1','-q:v','2',str(jpeg)],check=True)

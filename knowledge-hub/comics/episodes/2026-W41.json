@@ -1,6 +1,6 @@
 {
   "id": "2026-W41",
-  "status": "draft",
+  "status": "approved",
   "title": "L’atelier passe à la vitesse supérieure",
   "period_start": "2026-10-05",
   "period_end": "2026-10-11",
@@ -8,11 +8,11 @@
   "wardrobe_month": 10,
   "format": "webtoon",
   "approval": {
-    "editorial": false,
-    "art": false,
-    "publish": false,
-    "by": null,
-    "reference": null
+    "editorial": true,
+    "art": true,
+    "publish": true,
+    "by": "Hugo",
+    "reference": "Accord explicite dans cette conversation le 16 octobre 2026 : « OK, tu passes en prod, s’il te plaît, sur HL Consulting, en reprenant bien tout ce qui va bien et en faisant ça comme il faut. On regardera après. »"
   },
   "cast_ids": [
     "hugo",
