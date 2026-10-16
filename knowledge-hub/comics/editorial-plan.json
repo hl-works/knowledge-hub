@@ -1,0 +1,362 @@
+{
+  "prepared_on": "2026-10-16",
+  "scope": "Eight completed weeks: 2026-08-17 to 2026-10-11",
+  "archive_entries": 416,
+  "archive_file": "../veille-ia/feed.json",
+  "archive_sha256": "b185d51501eaf2266b98f66aa1d4c94f4df770293f1438e6a23d3e111ac041b5",
+  "status": "selection_for_review_not_verified_scripts",
+  "weeks": [
+    {
+      "week": "2026-W34",
+      "start": "2026-08-17",
+      "end": "2026-08-23",
+      "entry_count": 51,
+      "proposed_title": "La rentrée des assistants",
+      "status": "selection_prepared",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "Claude peut désormais envoyer des e-mails Gmail et gérer Google Drive",
+          "summary": "Anthropic permet à Claude de rédiger et envoyer des réponses dans Gmail et de gérer des fichiers dans Google Drive, avec un contrôle sur les actions nécessitant validation. Disponible sur tous les forfaits payants via le menu connecteurs.",
+          "archive_date": "2026-08-18",
+          "archive_source_url": "https://x.com/claudeai/status/2089806039088517356",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "OpenAI baisse le prix de GPT-5.6 Sol de plus de 20%",
+          "summary": "OpenAI réduit temporairement (3 mois) le tarif API et des crédits de son modèle GPT-5.6 Sol de plus de 20%. Une baisse directement utile pour les PME qui bâtissent sur l'API.",
+          "archive_date": "2026-08-21",
+          "archive_source_url": "https://x.com/OpenAI/status/2090885187634905500",
+          "archive_author": "@OpenAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "OpenAI présente ChatGPT pour la navigation web",
+          "summary": "OpenAI a évoqué une fonctionnalité de ChatGPT dédiée à l'utilisation du navigateur, permettant à l'assistant d'agir directement sur le web. Peu de détails ont été communiqués à ce stade.",
+          "archive_date": "2026-08-17",
+          "archive_source_url": "https://x.com/gdb/status/2089181834580250870",
+          "archive_author": "@gdb",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Gemini 3.7 : lancement le plus rapide de Google",
+          "summary": "Selon Logan Kilpatrick, Gemini 3.7 est le modèle de Google connaissant l'adoption la plus rapide depuis un lancement. Le détail des nouveautés reste limité, mais la traction évoquée est notable.",
+          "archive_date": "2026-08-22",
+          "archive_source_url": "https://x.com/OfficialLoganK/status/2091007303285887091",
+          "archive_author": "@OfficialLoganK",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    },
+    {
+      "week": "2026-W35",
+      "start": "2026-08-24",
+      "end": "2026-08-30",
+      "entry_count": 45,
+      "proposed_title": "Une IA qui écoute et qui navigue",
+      "status": "selection_prepared",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "Google déploie de nouveaux modèles Gemini et une expérience Live enrichie",
+          "summary": "Google a annoncé plusieurs nouveautés cette semaine : Gemini 3.5 Transcribe (transcription vocale plus précise), Gemini Omni 1.1 Flash pour la génération et l'édition vidéo, et une expérience Gemini Live capable de gérer des tâches complexes, dont la gestion de la boîte Gmail.",
+          "archive_date": "2026-08-28",
+          "archive_source_url": "https://x.com/GoogleAI/status/2093356767992279503",
+          "archive_author": "@GoogleAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Google lance Gemini 3.5 Transcribe",
+          "summary": "Google présente Gemini 3.5 Transcribe, un modèle de reconnaissance vocale prenant en charge plus de 85 langues, avec identification multi-locuteurs, vocabulaire personnalisé, suppression automatique des mots parasites, appel de fonctions et transcription en temps réel.",
+          "archive_date": "2026-08-26",
+          "archive_source_url": "https://x.com/OfficialLoganK/status/2092660925509890397",
+          "archive_author": "@OfficialLoganK",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Claude intègre un navigateur dans Cowork",
+          "summary": "Anthropic ajoute un navigateur intégré à Cowork : quand une tâche nécessite un site web, Claude ouvre un navigateur dans le panneau latéral, remplit les formulaires et effectue la navigation pour terminer le travail.",
+          "archive_date": "2026-08-26",
+          "archive_source_url": "https://x.com/claudeai/status/2092755571455758427",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "HubSpot lance YouSpot, un CRM \"solo\" nativement IA",
+          "summary": "Dharmesh Shah (HubSpot) présente YouSpot, un CRM conçu uniquement pour les entreprises d'une personne (consultants, créateurs, indépendants). L'outil se connecte à Gmail, Calendar, LinkedIn et X pour construire un \"second cerveau\" et suggérer relances et opportunités, à un prix d'appel de 1 $/mois.",
+          "archive_date": "2026-08-27",
+          "archive_source_url": "https://x.com/dharmesh/status/2093071931188597042",
+          "archive_author": "@dharmesh",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    },
+    {
+      "week": "2026-W36",
+      "start": "2026-08-31",
+      "end": "2026-09-06",
+      "entry_count": 57,
+      "proposed_title": "Les assistants passent à l’action",
+      "status": "selection_prepared",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "OpenAI lance GPT-6 Astra, axé sur l'usage autonome de l'ordinateur",
+          "summary": "OpenAI présente GPT-6 Astra, présenté comme son meilleur modèle pour l'utilisation d'ordinateur, le travail professionnel, la science, le code et la cybersécurité. L'entreprise met en avant des scores très élevés sur plusieurs benchmarks et un déploiement progressif, d'abord pour les abonnés Pro et les clients API. Le lancement a connu des ratés que Sam Altman a reconnus.",
+          "archive_date": "2026-09-03",
+          "archive_source_url": "https://x.com/sama/status/2095600005772104059",
+          "archive_author": "@sama",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Anthropic lance Claude Fable 5.1 et Mythos 5.1",
+          "summary": "Anthropic présente deux nouveaux modèles, Claude Fable 5.1 et Mythos 5.1, positionnés comme ses plus avancés pour le code et le travail intellectuel. Les premiers retours saluent surtout les progrès sur les tâches longues et agentiques nécessitant du jugement, et le modèle est déjà disponible dans plusieurs plateformes (Cursor, Perplexity, Vercel).",
+          "archive_date": "2026-09-01",
+          "archive_source_url": "https://x.com/claudeai/status/2094848572143407483",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Shopify adopte les Claude Commerce Agents",
+          "summary": "Anthropic a lancé ses Claude Commerce Agents et Shopify propose déjà une implémentation de référence. Les commerçants disposent d'outils prêts à l'emploi pour le commerce agentique, ainsi que de briques flexibles pour construire leurs propres agents.",
+          "archive_date": "2026-09-02",
+          "archive_source_url": "https://x.com/harleyf/status/2095245362172944430",
+          "archive_author": "@harleyf",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Google lance Gemini 3.8 Flash",
+          "summary": "Google DeepMind présente Gemini 3.8 Flash, son modèle « workhorse » le plus performant, avec des gains sur le code, les tâches d'agents et le raisonnement multi-étapes. C'est déjà la troisième mise à jour de la gamme Flash en six semaines, avec des contrôles d'effort pour ajuster le coût selon la difficulté de la tâche.",
+          "archive_date": "2026-09-02",
+          "archive_source_url": "https://x.com/OfficialLoganK/status/2095175881690173885",
+          "archive_author": "@OfficialLoganK",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    },
+    {
+      "week": "2026-W37",
+      "start": "2026-09-07",
+      "end": "2026-09-13",
+      "entry_count": 49,
+      "proposed_title": "L’atelier s’agrandit",
+      "status": "selection_prepared",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "Mistral lève 3 milliards d'euros en série D",
+          "summary": "La startup française Mistral AI annonce une levée de fonds de 3 milliards d'euros, présentée comme le plus gros tour de financement en capital jamais réalisé par une entreprise technologique européenne, trois ans après sa création.",
+          "archive_date": "2026-09-08",
+          "archive_source_url": "https://x.com/MistralAI/status/2097188835897586083",
+          "archive_author": "@MistralAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "OpenAI lance ChatGPT Images 2.5",
+          "summary": "OpenAI déploie une nouvelle version de son générateur d'images dans ChatGPT : génération plus rapide, meilleure fidélité, cohérence des détails sur plusieurs retouches et modifications ciblées via commentaires. Plusieurs utilisateurs l'exploitent déjà pour produire en masse des visuels publicitaires et de mode.",
+          "archive_date": "2026-09-08",
+          "archive_source_url": "https://x.com/OpenAI/status/2097394956457623964",
+          "archive_author": "@OpenAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "OpenAI lance son Agents API",
+          "summary": "OpenAI a publié une API dédiée aux agents qui prend en charge les parties les plus difficiles : maintien d'un agent actif sur plusieurs jours, mémoire, usage d'outils et reprise après erreur. Ce qu'il fallait construire soi-même devient un simple appel d'API, ouvrant la voie aux logiciels verticaux spécialisés par métier.",
+          "archive_date": "2026-09-11",
+          "archive_source_url": "https://x.com/gregisenberg/status/2098396069583319070",
+          "archive_author": "@gregisenberg",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Meta lance Muse, une app où les marchands Shopify sont déjà présents",
+          "summary": "Meta a lancé une nouvelle application, Muse. Les marchands dont les produits figurent dans le catalogue Shopify et qui expédient aux États-Unis y seraient déjà découvrables et vendables, sans démarche supplémentaire, illustrant l'intérêt d'une présence e-commerce prête pour l'ère agentique.",
+          "archive_date": "2026-09-08",
+          "archive_source_url": "https://x.com/harleyf/status/2097409855716032592",
+          "archive_author": "@harleyf",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    },
+    {
+      "week": "2026-W38",
+      "start": "2026-09-14",
+      "end": "2026-09-20",
+      "entry_count": 46,
+      "proposed_title": "Une équipe dans la poche",
+      "status": "selection_prepared",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "ChatGPT Ads pour Shopify : OpenAI ouvre la publicité aux marchands",
+          "summary": "OpenAI lance la publicité de produits dans ChatGPT avec Shopify comme premier partenaire commerce. Les produits des marchands, déjà présents via le catalogue Shopify, peuvent être promus par des campagnes que le marchand paramètre lui-même, avec un suivi depuis l'admin Shopify. Installation gratuite.",
+          "archive_date": "2026-09-16",
+          "archive_source_url": "https://x.com/harleyf/status/2100300851705450965",
+          "archive_author": "@harleyf",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Google lance Gemini 3.8 Live, ses modèles audio temps réel",
+          "summary": "Google DeepMind présente Gemini 3.8 Live et sa variante Extended Thinking, des modèles conversationnels audio capables de parler, réfléchir et exécuter des tâches en arrière-plan. Ils gèrent 97 langues, les interruptions en pleine phrase, le contexte visuel et les appels d'outils asynchrones.",
+          "archive_date": "2026-09-15",
+          "archive_source_url": "https://x.com/GoogleDeepMind/status/2099907440422830269",
+          "archive_author": "@GoogleDeepMind",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Anthropic fusionne Claude Cowork et le chat en un seul Claude",
+          "summary": "Anthropic réunit son assistant conversationnel et Cowork en une seule expérience : Claude peut mener une tâche à terme même après fermeture de l'ordinateur et demande des précisions si besoin. S'y ajoutent la création de documents, présentations (exportables en PowerPoint/PDF) et designs directement dans la conversation. Déploiement progressif pour les abonnés Pro et Max.",
+          "archive_date": "2026-09-16",
+          "archive_source_url": "https://x.com/claudeai/status/2100258490740539730",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Anthropic lance Claude Projects avec orchestration d'agents",
+          "summary": "Claude introduit « Projects », une nouvelle expérience où un agent principal gère la mémoire d'un projet et lance des sous-agents en parallèle pour accomplir des tâches, même après la fermeture de l'ordinateur. En bêta pour certains utilisateurs Pro et Max, avec un déploiement plus large à venir.",
+          "archive_date": "2026-09-17",
+          "archive_source_url": "https://x.com/claudeai/status/2100632677904744716",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    },
+    {
+      "week": "2026-W39",
+      "start": "2026-09-21",
+      "end": "2026-09-27",
+      "entry_count": 59,
+      "proposed_title": "Les agents font leurs courses",
+      "status": "selection_prepared",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "Shopify intègre le paiement agentique avec Muse via Shop Pay",
+          "summary": "Shopify annonce un partenariat approfondi avec l'assistant Muse (Meta) pour permettre un checkout agentique avec Shop Pay sur toutes les boutiques Shopify. Les clients pourront acheter et payer directement via l'agent.",
+          "archive_date": "2026-09-21",
+          "archive_source_url": "https://x.com/tobi/status/2102090718546198790",
+          "archive_author": "@tobi",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Anthropic lance Claude Opus 5.5",
+          "summary": "Anthropic présente Claude Opus 5.5, premier modèle de sa nouvelle famille 5.5. Il atteindrait le niveau de performance de Claude Fable 5.1 sur la plupart des tâches tout en coûtant environ 40% de moins à faire tourner qu'Opus 5.",
+          "archive_date": "2026-09-22",
+          "archive_source_url": "https://x.com/claudeai/status/2102435511222890900",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "OpenAI dévoile GPT-6 Sol et GPT-6 Luna",
+          "summary": "OpenAI ajoute deux modèles plus rapides et plus abordables à sa famille GPT-6, reprenant une partie des capacités de GPT-6 Astra. Les prix d'API sont réduits de 50% par rapport à la génération 5.6, avec Luna à 0,10$/0,50$ par million de tokens.",
+          "archive_date": "2026-09-22",
+          "archive_source_url": "https://x.com/OpenAI/status/2102460975790137662",
+          "archive_author": "@OpenAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "ChatGPT Voice sait désormais utiliser des outils",
+          "summary": "OpenAI déploie mondialement une mise à jour de ChatGPT Voice : la voix peut maintenant se connecter à l'e-mail, l'agenda et Slack, s'appuyer sur les nouveaux modèles GPT-6 et fonctionner dans ChatGPT Work pour créer documents, présentations, sites et tableurs à la voix.",
+          "archive_date": "2026-09-23",
+          "archive_source_url": "https://x.com/OpenAI/status/2102808325742322002",
+          "archive_author": "@OpenAI",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    },
+    {
+      "week": "2026-W40",
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "entry_count": 63,
+      "proposed_title": "Des assistants qui restent de garde",
+      "status": "selection_prepared",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "Google lance Gemini 4 Argon, son nouveau modèle de pointe",
+          "summary": "Google DeepMind présente Gemini 4 Argon, un modèle frontière conçu pour le raisonnement long et les tâches complexes (ingénierie logicielle, travail juridique et financier, cyberdéfense). Il porte la limite de sortie à 1 million de tokens et débute en accès restreint via le programme Fairwind, à un tarif d'introduction de 2$/10$ par million de tokens.",
+          "archive_date": "2026-09-30",
+          "archive_source_url": "https://x.com/GoogleAI/status/2105388478683119904",
+          "archive_author": "@GoogleAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Anthropic lance Claude Sonnet 5.5",
+          "summary": "Anthropic met à disposition Claude Sonnet 5.5, deuxième modèle de la famille 5.5. Selon l'entreprise, il est plus de 30 % plus rapide et jusqu'à 30 % moins cher que Sonnet 5, avec un net gain de capacités, notamment pour le code. Il est déjà intégré dans Cursor et alimente le niveau gratuit de Claude.",
+          "archive_date": "2026-09-28",
+          "archive_source_url": "https://x.com/claudeai/status/2104633115620823187",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "OpenAI lance « Dots », des agents personnels permanents",
+          "summary": "Lors de sa DevDay, OpenAI a présenté Dots, des agents « toujours actifs » propulsés par GPT-6 Astra, censés gérer des tâches à votre place 24h/24. Un exemple partagé : l'agent aurait négocié seul avec un service client par messages pour économiser environ 500 $/an.",
+          "archive_date": "2026-09-29",
+          "archive_source_url": "https://x.com/OpenAI/status/2104984504133918973",
+          "archive_author": "@OpenAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "ElevenLabs présente Eleven v4",
+          "summary": "ElevenLabs annonce Eleven v4, un modèle de synthèse vocale à nouvelle architecture offrant une voix plus réaliste et contrôlable. Il permet de diriger la performance du personnage et l'ambiance sonore, avec des effets de voix comme le « micro bon marché ».",
+          "archive_date": "2026-09-28",
+          "archive_source_url": "https://x.com/venturetwins/status/2104608895637536911",
+          "archive_author": "@venturetwins",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    },
+    {
+      "week": "2026-W41",
+      "start": "2026-10-05",
+      "end": "2026-10-11",
+      "entry_count": 46,
+      "proposed_title": "L’atelier passe à la vitesse supérieure",
+      "status": "pilot_pending_review",
+      "editorial_approved": false,
+      "publication_approved": false,
+      "topics": [
+        {
+          "title": "OpenAI lance GPT-6 et l'« Intelligent UI » dans ChatGPT",
+          "summary": "OpenAI déploie GPT-6 ainsi qu'une nouvelle capacité baptisée Intelligent UI : au lieu de longs blocs de texte, ChatGPT peut générer à la volée des interfaces interactives et visuelles adaptées à la question posée. La fonctionnalité est en cours de déploiement pour tous les utilisateurs.",
+          "archive_date": "2026-10-07",
+          "archive_source_url": "https://x.com/OpenAI/status/2107894997538525580",
+          "archive_author": "@OpenAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Anthropic sort Claude Haiku 5.5, son petit modèle le plus rapide et économique",
+          "summary": "Anthropic lance Claude Haiku 5.5, présenté comme son modèle compact le plus performant à ce jour. Il coûterait environ 75 % de moins que Haiku 4.5 (jusqu'à 10x moins cher sous 100k tokens) et est déjà disponible dans Cursor, l'API et d'autres outils.",
+          "archive_date": "2026-10-07",
+          "archive_source_url": "https://x.com/claudeai/status/2107894039626277339",
+          "archive_author": "@claudeai",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Mistral présente Mistral Large 4",
+          "summary": "Mistral annonce Mistral Large 4, un modèle destiné à faire tourner des agents polyvalents capables de collecter des informations et de produire des livrables finis sur des workflows complexes.",
+          "archive_date": "2026-10-07",
+          "archive_source_url": "https://x.com/MistralAI/status/2107834891844899292",
+          "archive_author": "@MistralAI",
+          "verification": "archive_only_primary_source_check_required"
+        },
+        {
+          "title": "Google ouvre SynthID Detector à tout le monde",
+          "summary": "Google DeepMind rend son outil SynthID Detector accessible à tous : il permet de vérifier si une image, une vidéo ou un fichier audio porte un filigrane SynthID, y compris pour des contenus générés par des partenaires comme OpenAI, Nvidia, Kakao et bientôt Apple.",
+          "archive_date": "2026-10-07",
+          "archive_source_url": "https://x.com/GoogleDeepMind/status/2107834249680499136",
+          "archive_author": "@GoogleDeepMind",
+          "verification": "archive_only_primary_source_check_required"
+        }
+      ]
+    }
+  ]
+}

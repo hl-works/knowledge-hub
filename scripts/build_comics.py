@@ -98,10 +98,10 @@ def image(asset_id, **kwargs):
     alt = kwargs.get('alt', a['title'])
     return f'<img src="{BASE}kit/{a["path"]}" width="{a["width"]}" height="{a["height"]}" alt="{esc(alt)}" loading="lazy" style="width:100%;height:auto;object-fit:contain">'
 
-def shell(title, description, content, language='fr', suffix=''):
+def shell(title, description, content, language='fr', suffix='', root_path=BASE):
     en = language == 'en'
-    fr = BASE + suffix
-    enurl = '/knowledge-hub/en/comics/' + suffix
+    fr = root_path + suffix
+    enurl = root_path.replace('/knowledge-hub/', '/knowledge-hub/en/', 1) + suffix
     url = enurl if en else fr
     schema = {'@context':'https://schema.org', '@type':'CollectionPage', 'name':title, 'url':ORIGIN+url, 'inLanguage':language, 'author':{'@type':'Person','@id':ORIGIN+'/#hugo','name':'Hugo Lahutte'}}
     return f'''<!doctype html>
@@ -113,7 +113,7 @@ def shell(title, description, content, language='fr', suffix=''):
 <link rel="stylesheet" href="/knowledge-hub/style.css?v=20260622a"><link rel="icon" href="/knowledge-hub/favicon.svg" type="image/svg+xml">
 <script src="/knowledge-hub/theme.js?v=20260601d" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','&lt;')}</script>
 </head><body><a class="skip-link" href="#main">{'Skip to content' if en else 'Aller au contenu'}</a>
-<header style="border-bottom:1px solid var(--border-strong);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px"><a class="nav__wordmark" href="/knowledge-hub/">Knowledge Hub</a><nav aria-label="{'Navigation' if en else 'Navigation principale'}" style="display:flex;gap:20px;flex-wrap:wrap;align-items:center"><a href="/knowledge-hub/{'en/' if en else ''}veille-ia/">{'AI watch' if en else 'La veille IA'}</a><a href="{fr if en else enurl}" lang="{'fr' if en else 'en'}">{'FR' if en else 'EN'}</a><button class="btn" data-theme-toggle type="button" style="color:var(--text);background:var(--surface);border-color:var(--border)">{'Auto / Light / Dark' if en else 'Auto / Clair / Sombre'}</button></nav></header>
+<header style="border-bottom:1px solid var(--border-strong);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px"><a class="nav__wordmark" href="/knowledge-hub/">Knowledge Hub</a><nav aria-label="{'Navigation' if en else 'Navigation principale'}" style="display:flex;gap:20px;flex-wrap:wrap;align-items:center"><a href="/knowledge-hub/{'en/' if en else ''}immersion-ia/">Immersion IA</a><a href="/knowledge-hub/{'en/' if en else ''}veille-ia/">{'AI watch' if en else 'La veille IA'}</a><a href="{fr if en else enurl}" lang="{'fr' if en else 'en'}">{'FR' if en else 'EN'}</a><button class="btn" data-theme-toggle type="button" style="color:var(--text);background:var(--surface);border-color:var(--border)">{'Auto / Light / Dark' if en else 'Auto / Clair / Sombre'}</button></nav></header>
 <main id="main" class="container">{content}</main><footer class="container" style="border-top:1px solid var(--border-strong);padding-block:24px"><p class="caption">Hugo × Iastro · {'AI-generated artwork. Editorial direction: Hugo Lahutte.' if en else 'Dessins générés par IA. Direction éditoriale : Hugo Lahutte.'}</p></footer></body></html>'''
 
 GRID = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px'
@@ -150,7 +150,7 @@ def render_episode(ep, preview=False):
     return f'<p class="kicker">{esc(ep["id"])} · {esc(ep["period_start"])} → {esc(ep["period_end"])}</p><h2>{esc(ep["title"])}</h2><p>{esc(ep.get("correction_note", ""))}</p><div style="{GRID}">{"".join(panels)}</div><section><h2>Sources</h2><ol>{sources}</ol>{downloads}</section>'
 
 def home(episodes, en=False):
-    heading = 'The week in AI.<br>A comic to unwind with.' if en else 'La semaine IA.<br>En bande dessinée.'
+    heading = 'The week in AI.<br>A comic to unwind with.' if en else 'IA immersion BD.<br>La semaine en histoires.'
     desc = 'Four to seven big stories, a little perspective, and our recurring duo.' if en else 'Quatre à sept grandes infos, un peu de recul et notre duo pour raconter la semaine.'
     content = f'<section style="padding-block:48px 32px;border-bottom:3px solid var(--border-strong)"><p class="kicker">Hugo × Iastro · {"Weekly comic" if en else "Le rendez-vous hebdo"}</p><h1 style="font-size:clamp(2.6rem,6vw,5.3rem);margin-top:16px;max-width:18ch">{heading}</h1><p class="lead" style="font-size:1.25rem;max-width:48ch">{desc}</p><a class="btn btn--primary" href="#episode">{"Read the comic" if en else "Lire la BD"} ↓</a></section><section id="episode">'
     if episodes:

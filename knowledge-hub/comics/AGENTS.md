@@ -43,3 +43,11 @@ Hugo valide fortement le traitement de Mistral et du Chonk : conserver ce person
 ## Sommaire visuel — demande de Hugo du 16 octobre 2026
 
 Prévoir un niveau d’accueil au-dessus des histoires : cartes visibles avec logo, marque/modèle, titre de l’histoire et accès direct à sa case d’ouverture. Le sommaire doit être disponible sans ouvrir un menu replié. Garder un retour « Sommaire » accessible pendant la lecture pour changer de news. Conserver le swipe et le défilement vertical, les liens directs et la navigation clavier.
+
+## Navigation et intégration — recette du 16 octobre 2026
+
+Séparer l’accueil/sommaire et la lecture en deux vues. Garder un retour Sommaire compact, une progression par histoire et une position stable entre swipe et lecture verticale. Tester les vrais clics sur téléphone, le retour navigateur et plusieurs bascules de mode : les seuls tests de génération HTML ne suffisent pas.
+
+Point d’entrée prévu : `/knowledge-hub/immersion-ia/`, relié à la home HL Consulting, à l’accueil du Knowledge Hub et à la veille. Nom de la série : « IA immersion BD », avec Hugo × Iastro. Le plan `editorial-plan.json` couvre huit semaines, du 17 août au 11 octobre : 416 entrées disponibles, 32 pistes sélectionnées, sources primaires à contrôler avant les scénarios rétrospectifs. Cela n’approuve pas automatiquement les épisodes.
+
+Les podcasts archivés dans `assets/podcast/episodes.json` couvrent le 12–16 octobre. Ils sont quotidiens et ne constituent pas un récapitulatif de la semaine du 5–11 octobre. Les MP3 sont des éditions existantes récupérées dans l’historique Git ; aucune voix ni nouveau podcast n’a été généré. Reconstruire la rubrique avec `python3 scripts/build_immersion.py` après une modification des archives audio.

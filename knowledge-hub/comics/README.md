@@ -67,3 +67,11 @@ Cette commande vérifie le contenu et les images, puis rend seulement `drafts/20
 `format: "webtoon"` active le lecteur mobile. Chaque sujet regroupe 5 ou 6 cases contiguës. Les fichiers maîtres illustrés contiennent une grille de six cases ; `crop` décrit la fenêtre normalisée `{x,y,w,h}` de chaque case. Le navigateur affiche la fenêtre sans modifier les pixels du maître. Le texte est HTML, jamais gravé dans l’image. Revoir les séparations après chaque nouvelle génération. Le lecteur reste entièrement vertical sans JavaScript.
 
 `backlog.json` inventorie huit semaines à partir du 17 août, avec des candidats issus de la veille. Ce sont des pistes non vérifiées, pas des comics publiés ou programmés. Attendre le retour de Hugo sur le pilote avant de produire la rétrospective.
+
+## Reprise du 16 octobre — navigation et archives
+
+Le pilote comprend désormais 28 écrans : 4 ouvertures explicatives et 24 cases dessinées. Le sommaire et la lecture sont deux vues distinctes, avec liens directs, retour navigateur, progression par histoire et mode vertical.
+
+La rubrique Immersion IA (`../immersion-ia/`) rassemble veille, podcasts et IA immersion BD. Elle est préparée dans la branche, non déployée. La sélection des huit semaines est dans `editorial-plan.json` et sa vue de relecture dans `drafts/planning/` : 32 pistes d’après les archives, non encore vérifiées au niveau des sources primaires et non dessinées sauf le pilote W41.
+
+Recette locale : 28 écrans parcourus, quatre accès directs à 320 px sans débordement, retour navigateur et trois bascules vertical/swipe conservant la case 8. Les 10 MP3 des cinq éditions du 12 au 16 octobre sont décodables et leurs durées concordent avec les manifestes. 12 tests du générateur et contrôle de cohérence du site passent. La validation éditoriale des rétrospectives et la publication restent à faire.

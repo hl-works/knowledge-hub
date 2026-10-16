@@ -68,22 +68,74 @@ main:has(.comic-reader)>section{padding-block:20px}
 @media(prefers-reduced-motion:reduce){.comic-reader *{scroll-behavior:auto!important}}
 '''
 
-JS='''
+CSS += '''
+/* Separate the story chooser from the reading surface. */
+.comic-reader{overflow-anchor:none;scroll-margin-top:12px}
+.comic-reader .chapter-menu{padding:0;margin:24px 0}
+.comic-reader[data-view=menu] .reading-stage{display:none}
+.comic-reader[data-view=reading] .issue-overview,.comic-reader[data-view=reading] .chapter-menu{display:none}
+.comic-reader .reader-controls{display:grid;grid-template-columns:auto 44px minmax(32px,1fr) 44px 44px;gap:6px;padding:8px 0;align-items:center}
+.comic-reader .reader-home{font-size:.82rem;min-height:44px;white-space:nowrap;text-decoration:none;padding-right:4px}
+.comic-reader .reader-controls button{padding:8px;min-width:44px}
+.comic-reader .reader-mode{margin:0;font-size:1.1rem}
+.comic-reader .reader-progress{font-size:.85rem;margin:0;text-align:center;white-space:nowrap}
+.comic-reader .story-position{grid-column:1/-1;margin:0;font-size:.8rem;line-height:1.3;color:var(--text-muted)}
+.comic-reader .comic-track{scroll-margin-top:95px;overflow-anchor:none}
+.comic-reader[data-mode=swipe] .comic-track{transition:none;overflow-y:hidden}
+.comic-reader .comic-card{scroll-margin-top:95px}
+.comic-reader .reading-end{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+.comic-reader .reading-end a{color:var(--text);padding:12px 0;min-height:44px}
+@media print{.comic-reader[data-view] .reading-stage{display:block}.comic-reader .reading-end,.comic-reader .chapter-menu{display:none!important}.comic-reader[data-mode] .comic-track{height:auto!important}.comic-reader .comic-card{visibility:visible!important}}
+'''
+
+JS=r'''
 (()=>{document.querySelectorAll('.comic-reader').forEach(root=>{
- const track=root.querySelector('.comic-track'),cards=[...root.querySelectorAll('.comic-card')],status=root.querySelector('.reader-progress');
+ const track=root.querySelector('.comic-track'),cards=[...root.querySelectorAll('.comic-card')];
+ const chapters=[...root.querySelectorAll('[data-panel]')],menu=root.querySelector('.chapter-menu');
+ const status=root.querySelector('.reader-progress'),position=root.querySelector('.story-position');
  const previous=root.querySelector('[data-step="-1"]'),next=root.querySelector('[data-step="1"]'),mode=root.querySelector('.reader-mode');
- let current=0,frame=0;
- function update(i){current=Math.max(0,Math.min(cards.length-1,i));status.textContent=`${current+1} / ${cards.length}`;previous.disabled=current===0;next.disabled=current===cards.length-1;cards.forEach((c,j)=>c.classList.toggle('is-current',j===current));const chapters=[...root.querySelectorAll('[data-panel]')];chapters.forEach((link,j)=>{const active=current>=Number(link.dataset.panel)&&(j===chapters.length-1||current<Number(chapters[j+1].dataset.panel));if(active)link.setAttribute('aria-current','step');else link.removeAttribute('aria-current');});}
- function go(i){i=Math.max(0,Math.min(cards.length-1,i));update(i);const behavior='instant';if(root.dataset.mode==='swipe'){track.scrollTo({left:cards[i].offsetLeft-cards[0].offsetLeft,behavior});}else{cards[i].scrollIntoView({behavior,block:'start'});}}
- root.querySelectorAll('.js-only').forEach(x=>x.hidden=false);root.dataset.mode='swipe';track.tabIndex=0;
+ let current=0,frame=0,chapter=0,navigating=false,navigationToken=0,verticalUserScroll=false;
+ const fit=()=>{track.style.height=root.dataset.mode==='swipe'?`${cards[current].offsetHeight+24}px`:'';};
+ const sizeObserver=new ResizeObserver(fit);
+ function update(i){
+  current=Math.max(0,Math.min(cards.length-1,i));
+  chapter=chapters.findLastIndex(link=>Number(link.dataset.panel)<=current);
+  const start=Number(chapters[chapter].dataset.panel),end=chapter+1<chapters.length?Number(chapters[chapter+1].dataset.panel):cards.length;
+  status.textContent=`${current-start+1} / ${end-start}`;
+  position.textContent=`Histoire ${chapter+1} / ${chapters.length} · ${chapters[chapter].querySelector('.chapter-model').textContent}`;
+  previous.disabled=current===0;next.disabled=current===cards.length-1;
+  next.setAttribute('aria-label',current===end-1?'Histoire suivante':'Case suivante');
+  cards.forEach((c,j)=>{c.classList.toggle('is-current',j===current);c.inert=root.dataset.mode==='swipe'&&j!==current;});
+  chapters.forEach((link,j)=>{if(j===chapter)link.setAttribute('aria-current','step');else link.removeAttribute('aria-current');});
+  sizeObserver.disconnect();sizeObserver.observe(cards[current]);fit();
+ }
+ function setHash(value,push){if(location.hash!==value)history[push?'pushState':'replaceState'](null,'',value);}
+ function go(i,{open=false,push=false,focus=false}={}){
+  const token=++navigationToken;navigating=true;verticalUserScroll=false;cancelAnimationFrame(frame);track.style.scrollSnapType='none';root.dataset.view='reading';update(i);
+  if(root.dataset.mode==='swipe')track.scrollTo({left:cards[current].offsetLeft-cards[0].offsetLeft,behavior:'instant'});
+  if(open||root.dataset.mode==='swipe'){root.scrollIntoView({block:'start',behavior:'instant'});requestAnimationFrame(()=>root.scrollIntoView({block:'start',behavior:'instant'}));}
+  else if(root.dataset.mode==='vertical')cards[current].scrollIntoView({block:'start',behavior:'instant'});
+  setHash('#'+cards[current].id,push);
+  if(focus)(root.dataset.mode==='swipe'?track:cards[current]).focus({preventScroll:true});
+  requestAnimationFrame(()=>{if(token!==navigationToken)return;if(root.dataset.mode==='swipe')track.scrollTo({left:cards[current].offsetLeft-cards[0].offsetLeft,behavior:'instant'});requestAnimationFrame(()=>{if(token===navigationToken){track.style.scrollSnapType='';navigating=false;}});});
+ }
+ function home(push=true){root.dataset.view='menu';setHash('#sommaire',push);root.scrollIntoView({block:'start',behavior:'instant'});chapters[chapter].focus({preventScroll:true});}
+ function route(){const index=cards.findIndex(c=>'#'+c.id===location.hash);if(index>=0)go(index,{open:true});else home(false);}
+ root.querySelectorAll('.js-only').forEach(x=>x.hidden=false);root.dataset.mode='swipe';root.dataset.view='menu';track.tabIndex=0;cards.forEach(c=>c.tabIndex=-1);
  previous.addEventListener('click',()=>go(current-1));next.addEventListener('click',()=>go(current+1));
- track.addEventListener('keydown',ev=>{if(ev.target!==track)return;if(ev.key==='ArrowRight'){ev.preventDefault();go(current+1);}if(ev.key==='ArrowLeft'){ev.preventDefault();go(current-1);}});
- track.addEventListener('scroll',()=>{if(root.dataset.mode!=='swipe')return;cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const first=cards[0].offsetLeft;let nearest=0,distance=Infinity;cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft-first-track.scrollLeft);if(d<distance){distance=d;nearest=i;}});update(nearest);});},{passive:true});
- mode.addEventListener('click',()=>{const keep=current,vertical=root.dataset.mode==='swipe';root.dataset.mode=vertical?'vertical':'swipe';mode.textContent=vertical?'Swipe':'Vertical';mode.setAttribute('aria-pressed',String(vertical));requestAnimationFrame(()=>go(keep));});
- root.querySelectorAll('[data-panel]').forEach(link=>link.addEventListener('click',ev=>{ev.preventDefault();go(Number(link.dataset.panel));if(root.dataset.mode==='swipe'){track.scrollIntoView({block:'start'});track.focus({preventScroll:true});}else{cards[Number(link.dataset.panel)].focus({preventScroll:true});}}));
- root.querySelector('.reader-home').addEventListener('click',ev=>{ev.preventDefault();const menu=root.querySelector('.chapter-menu');menu.scrollIntoView({block:'start'});menu.focus({preventScroll:true});});
- cards.forEach(c=>c.tabIndex=-1);
- const observer=new IntersectionObserver(entries=>{if(root.dataset.mode==='swipe')return;const best=entries.filter(x=>x.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(best)update(cards.indexOf(best.target));},{threshold:[.3,.6]});cards.forEach(c=>observer.observe(c));update(0);
+ track.addEventListener('keydown',ev=>{if(ev.target!==track)return;if(ev.key==='ArrowRight'){ev.preventDefault();go(current+1);}if(ev.key==='ArrowLeft'){ev.preventDefault();go(current-1);}if(ev.key==='Escape'){ev.preventDefault();home();}});
+ track.addEventListener('scroll',()=>{if(navigating||root.dataset.mode!=='swipe'||root.dataset.view!=='reading')return;cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const first=cards[0].offsetLeft;let nearest=current,distance=Infinity;cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft-first-track.scrollLeft);if(d<distance){distance=d;nearest=i;}});if(nearest!==current){update(nearest);setHash('#'+cards[current].id,false);}});},{passive:true});
+ mode.addEventListener('click',()=>{const keep=current,vertical=root.dataset.mode==='swipe';navigating=true;cancelAnimationFrame(frame);track.style.scrollSnapType='none';root.dataset.mode=vertical?'vertical':'swipe';mode.textContent=vertical?'↔':'↕';mode.setAttribute('aria-pressed',String(vertical));mode.setAttribute('aria-label',vertical?'Passer en lecture par swipe':'Passer en lecture verticale');update(keep);requestAnimationFrame(()=>go(keep));});
+ chapters.forEach(link=>link.addEventListener('click',ev=>{ev.preventDefault();go(Number(link.dataset.panel),{open:true,push:true,focus:true});}));
+ root.querySelectorAll('[href="#sommaire"]').forEach(link=>link.addEventListener('click',ev=>{ev.preventDefault();home();}));
+ // Track vertical progress only after a reader scroll gesture, not layout/focus changes.
+ addEventListener('wheel',()=>{verticalUserScroll=true;},{passive:true});
+ addEventListener('touchmove',()=>{verticalUserScroll=true;},{passive:true});
+ addEventListener('keydown',ev=>{if(['PageDown','PageUp','Home','End',' '].includes(ev.key))verticalUserScroll=true;});
+ addEventListener('scroll',()=>{if(!verticalUserScroll||navigating||root.dataset.mode!=='vertical'||root.dataset.view!=='reading')return;const top=root.querySelector('.reader-controls').getBoundingClientRect().bottom;let best=current,area=0;cards.forEach((card,i)=>{const rect=card.getBoundingClientRect(),visible=Math.max(0,Math.min(innerHeight,rect.bottom)-Math.max(top,rect.top));if(visible>area){area=visible;best=i;}});if(best!==current)update(best);},{passive:true});
+ addEventListener('popstate',route);addEventListener('hashchange',route);
+ addEventListener('resize',()=>{if(root.dataset.view==='reading'&&root.dataset.mode==='swipe')go(current);});
+ update(0);if(/^#case-\d+$/.test(location.hash))route();
 });})();
 '''
 
@@ -124,4 +176,4 @@ def render(ep,base,dimensions,preview=False):
     month=['','janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.']
     period=f'{start.day}–{end.day} {month[end.month]} {end.year}' if start.month==end.month and start.year==end.year else f'{start:%d/%m/%Y} → {end:%d/%m/%Y}'
     draft='<p class="draft-label">Pilote à valider · non publié</p>' if preview else ''
-    return f'''<style>{CSS}</style><div class="comic-reader" data-mode="vertical">{draft}<p class="issue-meta">HUGO × IASTRO · {e(period)}</p><h2 class="issue-title">{e(ep['title'])}</h2><p class="reader-help">{len(chapters)} histoires · {total} cases · environ 3 minutes. Glisse vers la gauche pour avancer, ou choisis le défilement vertical.</p><section id="sommaire" class="chapter-menu" tabindex="-1" aria-labelledby="sommaire-titre"><h3 id="sommaire-titre" class="chapter-heading">Choisis ton histoire</h3><p class="chapter-hint">{len(chapters)} portes d’entrée dans l’atelier. Commence par la news qui te tente.</p><nav class="chapter-links" aria-label="Sommaire des histoires">{''.join(links)}</nav></section><div class="reader-controls js-only" hidden><a class="reader-home" href="#sommaire"><span aria-hidden="true">▦</span> Sommaire · changer de news</a><button type="button" data-step="-1" aria-label="Case précédente">←</button><p class="reader-progress" role="status" aria-live="polite">1 / {total}</p><button type="button" data-step="1" aria-label="Case suivante">→</button><button type="button" class="reader-mode" aria-pressed="false" aria-label="Changer entre lecture verticale et swipe">Vertical</button></div><div class="comic-track" role="region" aria-label="Cases du comic, flèches gauche et droite pour naviguer">{''.join(cards)}</div><p class="fiction-note">Actualités sourcées, scènes et dialogues imaginés. Les machines illustrent les idées ; elles ne représentent pas les produits réels.</p><details class="sources"><summary>Les {len(chapters)} annonces et leurs sources</summary><ol>{sources}</ol><p>Récit de la période {e(ep["period_start"])} au {e(ep["period_end"])}. Préparation : {e(ep["publication_date"])}.</p></details><noscript><p>JavaScript est désactivé : toutes les cases restent lisibles verticalement.</p></noscript></div><script>{JS}</script>'''
+    return f'''<style>{CSS}</style><div class="comic-reader" data-mode="vertical"><div class="issue-overview">{draft}<p class="issue-meta">HUGO × IASTRO · {e(period)}</p><h2 class="issue-title">{e(ep['title'])}</h2><p class="reader-help">{len(chapters)} histoires · {total} cases · environ 3 minutes. Glisse vers la gauche pour avancer, ou choisis le défilement vertical.</p></div><section id="sommaire" class="chapter-menu" tabindex="-1" aria-labelledby="sommaire-titre"><h3 id="sommaire-titre" class="chapter-heading">Choisis ton histoire</h3><p class="chapter-hint">{len(chapters)} portes d’entrée dans l’atelier. Commence par la news qui te tente.</p><nav class="chapter-links" aria-label="Sommaire des histoires">{''.join(links)}</nav></section><div class="reading-stage"><div class="reader-controls js-only" hidden><p class="story-position"></p><a class="reader-home" href="#sommaire">☷ Sommaire</a><button type="button" data-step="-1" aria-label="Case précédente">←</button><p class="reader-progress" role="status" aria-live="polite">1 / {total}</p><button type="button" data-step="1" aria-label="Case suivante">→</button><button type="button" class="reader-mode" aria-pressed="false" aria-label="Passer en lecture verticale" title="Changer le mode de lecture">↕</button></div><div class="comic-track" role="region" aria-label="Cases du comic, flèches gauche et droite pour naviguer">{''.join(cards)}</div><div class="reading-end"><a href="#sommaire">Choisir une autre histoire →</a></div><p class="fiction-note">Actualités sourcées, scènes et dialogues imaginés. Les machines illustrent les idées ; elles ne représentent pas les produits réels.</p><details class="sources"><summary>Les {len(chapters)} annonces et leurs sources</summary><ol>{sources}</ol><p>Récit de la période {e(ep["period_start"])} au {e(ep["period_end"])}. Préparation : {e(ep["publication_date"])}.</p></details><noscript><p>JavaScript est désactivé : toutes les cases restent lisibles verticalement.</p></noscript></div></div><script>{JS}</script>'''
