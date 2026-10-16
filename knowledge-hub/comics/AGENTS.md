@@ -33,3 +33,9 @@ Valider d’abord le pilote de la semaine du 5 au 11 octobre. Le rattrapage des 
 L’approche du pilote est approuvée. Cela ne vaut pas validation de publication. Les blagues doivent se comprendre immédiatement avec la scène : une chute concrète, des répliques courtes, sans détour technique ni référence obscure. Le dessin et le dialogue doivent raconter la même blague.
 
 Ajouter de petits logos officiels quand une entreprise, un modèle ou un outil est évoqué (OpenAI, Anthropic, etc.). Accompagner le logo du nom de la marque et du modèle : un symbole seul n’est pas assez explicite. Utiliser les fichiers locaux de brands/ et documenter leur source ; conserver proportions et couleurs. Garder ces repères discrets et lisibles sur téléphone, séparés des illustrations pour permettre les corrections.
+
+## Une ouverture explicative par histoire — retour de Hugo du 16 octobre 2026
+
+Commencer chaque sujet par une case numéro 1 : logo officiel plus grand, nom de la marque et du modèle, titre explicite et résumé très court en français simple. Le lecteur doit comprendre l’annonce avant les métaphores et les blagues. Conserver les limites essentielles de l’annonce. Puis dérouler les cases dessinées, avec petits repères de marque. Cette ouverture s’ajoute aux 5 ou 6 cases dessinées ; le sommaire pointe vers elle et la numérotation l’inclut.
+
+Hugo valide fortement le traitement de Mistral et du Chonk : conserver ce personnage et cette scène. Ce retour valide cette direction créative, pas la publication automatique du numéro.

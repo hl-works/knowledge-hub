@@ -33,7 +33,11 @@
         }
       ],
       "brand_id": "openai",
-      "model_label": "GPT‑6"
+      "model_label": "GPT‑6",
+      "intro": {
+        "title": "ChatGPT répond aussi avec des outils",
+        "summary": "Avec GPT‑6 et Intelligent UI, ChatGPT peut mêler texte, images et outils interactifs dans ses réponses."
+      }
     },
     {
       "id": "haiku",
@@ -49,7 +53,11 @@
         }
       ],
       "brand_id": "anthropic",
-      "model_label": "Haiku 5.5"
+      "model_label": "Haiku 5.5",
+      "intro": {
+        "title": "Une petite IA pour les tâches du quotidien",
+        "summary": "Anthropic lance Haiku 5.5, un modèle rapide et moins coûteux pour les tâches courtes et répétitives."
+      }
     },
     {
       "id": "mistral",
@@ -65,7 +73,11 @@
         }
       ],
       "brand_id": "mistral",
-      "model_label": "Large 4"
+      "model_label": "Large 4",
+      "intro": {
+        "title": "Le Chonk arrive chez Mistral",
+        "summary": "Mistral présente Large 4 : on peut déjà l’essayer à distance, tandis que les fichiers pour le faire tourner soi-même sont annoncés pour fin octobre."
+      }
     },
     {
       "id": "synthid",
@@ -81,7 +93,11 @@
         }
       ],
       "brand_id": "google",
-      "model_label": "SynthID"
+      "model_label": "SynthID",
+      "intro": {
+        "title": "Repérer la signature d’une création IA",
+        "summary": "Google ouvre SynthID Detector à tous : il repère une marque invisible ajoutée par certains outils d’IA, sans détecter toutes les images artificielles."
+      }
     }
   ],
   "panels": [
