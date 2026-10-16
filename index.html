@@ -623,7 +623,20 @@
   .e-section { border-bottom:1px solid var(--e-border); }
   @media(max-width:700px) { .e-btn,.e-hero-actions .e-btn,.e-book-copy .e-btn,.e-watch .e-btn{font-size:16px;padding:15px 18px}.e-book-copy .e-book-note,.e-watch-note{font-size:13px} }
 </style>
-</head>
+<style>
+.podcast-cover{--cover-accent:var(--c-red,#C6121F);container-type:inline-size;position:relative;aspect-ratio:1;width:100%;overflow:hidden;background:#FFFCF8;color:#0C0C0C;border:1px solid #0C0C0C;isolation:isolate}
+.podcast-cover.full{--cover-accent:#39359E}
+.cover-masthead{position:absolute;inset:0 0 auto;height:17%;padding:5% 6% 2%;display:flex;align-items:center;justify-content:space-between;gap:3%;z-index:2;border-bottom:1px solid #0C0C0C}
+.cover-brand{font-family:var(--font-display,Arial),sans-serif;font-weight:900;letter-spacing:-.055em;font-size:8cqw;line-height:1;text-transform:uppercase;white-space:nowrap}
+.cover-brand span{color:var(--cover-accent)}
+.cover-signal{font-family:monospace;font-size:4cqw;color:var(--cover-accent)}
+.cover-portrait{position:absolute;top:17%;left:0;width:100%;height:68%;object-fit:contain;background:#FFFCF8}
+.cover-format{position:absolute;top:21%;left:5%;z-index:2;padding:1.5% 2.6%;background:var(--cover-accent);color:#fff;font-weight:800;font-size:3.7cqw;letter-spacing:.04em;text-transform:uppercase}
+.cover-footer{position:absolute;inset:auto 0 0;height:17%;padding:3% 5%;display:flex;align-items:center;justify-content:space-between;gap:4%;border-top:1px solid #0C0C0C;background:#FFFCF8;z-index:2}
+.cover-date{font-family:var(--font-mono,monospace);font-size:3.7cqw;line-height:1.45;text-transform:uppercase}
+.cover-date strong{display:block;font-size:4.2cqw}
+.cover-time{background:var(--cover-accent);color:white;font-family:var(--font-display,Arial);font-weight:900;font-size:9cqw;line-height:1;padding:4% 5%;min-width:30%;text-align:center}
+.e-podcast-track [data-radio-cover]{width:92px;float:left;margin:0 16px 12px 0}.e-podcast-track audio{clear:both}</style></head>
 <body>
 <a href="#top" class="e-skip"><span class="e-fr">Aller au contenu</span><span class="e-en">Skip to content</span></a>
 
@@ -732,20 +745,20 @@
         <p><span class="e-fr">Je partage chaque matin les nouvelles de l’IA à retenir. À lire, ou à écouter : l’essentiel en version courte, le détail en version complète.</span><span class="e-en">Every morning, I share the AI news worth following. Read the digest, listen to the highlights or play the full briefing.</span></p>
         <div class="e-cta-row">
           <a class="e-btn e-btn-primary" href="https://t.me/VeilleIA_HL" target="_blank" rel="noopener"><span class="e-fr">Je m’abonne sur Telegram ↗</span><span class="e-en">Subscribe on Telegram ↗</span></a>
-          <a class="e-book-link" href="/knowledge-hub/veille-ia/"><span class="e-fr">Lire la veille</span><span class="e-en">Read the brief</span></a>
-          <a class="e-book-link" href="/knowledge-hub/immersion-ia/"><span class="e-fr">Podcasts &amp; IA immersion BD →</span><span class="e-en">Podcasts &amp; AI comics →</span></a>
+          <a class="e-book-link" href="/knowledge-hub/veille-ia/"><span class="e-fr">Le Radar IA</span><span class="e-en">Read the brief</span></a>
+          <a class="e-book-link" href="/knowledge-hub/immersion-ia/"><span class="e-fr">Podcasts &amp; Iastro Sunday →</span><span class="e-en">Podcasts &amp; AI comics →</span></a>
         </div>
         <p class="e-watch-note"><span class="e-fr">Le résumé et les deux audios, chaque matin. Gratuit. Audio en français, avec une voix de synthèse.</span><span class="e-en">The digest and both audio versions, every morning. Free. Audio in French, with a synthetic voice.</span></p>
       </div>
-      <div class="e-podcast-panel" id="daily-podcast" aria-label="Podcasts IA">
+      <div class="e-podcast-panel" id="daily-podcast" aria-label="Radio Iastro"><h3 style="margin:0 0 16px">Radio Iastro</h3>
         <p class="e-podcast-date e-mono"><span class="e-fr">DERNIÈRE ÉDITION</span><span class="e-en">LATEST EDITION</span> · <time id="podcast-date"></time></p>
         <div id="podcast-tracks" hidden>
           <div class="e-podcast-track">
-            <h3 id="podcast-short-title"><span><span class="e-fr">L’essentiel</span><span class="e-en">The highlights</span></span><small id="podcast-short-duration" class="e-mono"></small></h3>
+            <div data-radio-cover="short"><div class="podcast-cover short" role="img" aria-label="Radio Iastro, Le Flash, 16.10.2026, durée 1:22"><div class="cover-masthead"><span class="cover-brand">Radio <span>Iastro</span></span><span class="cover-signal" aria-hidden="true">)))</span></div><img class="cover-portrait" src="/assets/podcast/art/iastro-10-v1.png" alt="" width="1024" height="1024"><span class="cover-format">Le Flash</span><div class="cover-footer"><span class="cover-date">L’actualité IA<strong>16.10.2026</strong></span><span class="cover-time">1:22</span></div></div></div><h3 id="podcast-short-title"><span><span class="e-fr">Le Flash</span><span class="e-en">The highlights</span></span><small id="podcast-short-duration" class="e-mono"></small></h3>
             <audio id="podcast-short" controls preload="none" aria-labelledby="podcast-short-title"></audio>
           </div>
           <div class="e-podcast-track">
-            <h3 id="podcast-full-title"><span><span class="e-fr">Le tour complet</span><span class="e-en">The full briefing</span></span><small id="podcast-full-duration" class="e-mono"></small></h3>
+            <div data-radio-cover="full"><div class="podcast-cover full" role="img" aria-label="Radio Iastro, Le Débrief, 16.10.2026, durée 6:54"><div class="cover-masthead"><span class="cover-brand">Radio <span>Iastro</span></span><span class="cover-signal" aria-hidden="true">)))</span></div><img class="cover-portrait" src="/assets/podcast/art/iastro-10-v1.png" alt="" width="1024" height="1024"><span class="cover-format">Le Débrief</span><div class="cover-footer"><span class="cover-date">L’actualité IA<strong>16.10.2026</strong></span><span class="cover-time">6:54</span></div></div></div><h3 id="podcast-full-title"><span><span class="e-fr">Le Débrief</span><span class="e-en">The full briefing</span></span><small id="podcast-full-duration" class="e-mono"></small></h3>
             <audio id="podcast-full" controls preload="none" aria-labelledby="podcast-full-title"></audio>
           </div>
         </div>
@@ -1157,6 +1170,6 @@
     });
   })();
 </script>
-<script src="/assets/podcast/player.js" defer></script>
+<script src="/assets/podcast/player.js?v=20261016b" defer></script>
 </body>
 </html>
