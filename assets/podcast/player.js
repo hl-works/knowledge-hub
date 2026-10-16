@@ -29,6 +29,17 @@
         const track = data[name];
         players[index].src = `${track.src}?v=${encodeURIComponent(data.version || data.date)}`;
         document.getElementById(`podcast-${name}-duration`).textContent = `${Math.floor(track.seconds / 60)} min ${String(track.seconds % 60).padStart(2, '0')}`;
+        const cover = document.querySelector(`[data-radio-cover="${name}"]`);
+        if (cover) {
+          const timing = `${Math.floor(track.seconds / 60)}:${String(track.seconds % 60).padStart(2, '0')}`;
+          cover.querySelector('.cover-time').textContent = timing;
+          cover.querySelector('.cover-date strong').textContent = data.date.split('-').reverse().join('.');
+          cover.querySelector('.podcast-cover').setAttribute('aria-label', `Le Podcast iA, ${name === 'short' ? 'Le Flash' : 'Le Débrief'}, ${data.date}, ${timing}`);
+          const portrait = cover.querySelector('.cover-portrait');
+          portrait.onload = () => { portrait.hidden = false; };
+          portrait.onerror = () => { portrait.hidden = true; };
+          portrait.src = `/assets/podcast/art/iastro-${data.date.slice(5, 7)}-v1.png`;
+        }
       });
       document.getElementById('podcast-tracks').hidden = false;
       fallback.hidden = true;

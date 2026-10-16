@@ -1,0 +1,42 @@
+{
+  "method": "built-in Imagegen",
+  "created": "2026-10-16",
+  "prompts": "prompts.json",
+  "portraits": [
+    {
+      "path": "iastro-10-v1.png",
+      "month": 10,
+      "width": 1254,
+      "height": 1254,
+      "sha256": "f6422d9f1d9262c9c10c5b7b3285d9115c6f072deda392d1869d48a80b29c7fb",
+      "status": "proposed"
+    },
+    {
+      "path": "iastro-11-v1.png",
+      "month": 11,
+      "width": 1254,
+      "height": 1254,
+      "sha256": "208b0c712e08ec8eb7bb30886514410d35bd6d75f324986bfbf9138e8a920cbe",
+      "status": "proposed"
+    },
+    {
+      "path": "iastro-12-v1.png",
+      "month": 12,
+      "width": 1254,
+      "height": 1254,
+      "sha256": "21ee55571d73c97cbb970921a5f515fbba8581e7dec2718e4d5e0448788fd32f",
+      "status": "proposed"
+    }
+  ],
+  "pending_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

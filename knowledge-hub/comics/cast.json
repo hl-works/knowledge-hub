@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-16",
+  "characters": [
+    {
+      "id": "hugo",
+      "name": "Hugo",
+      "kind": "host",
+      "reference_asset_ids": [
+        "duo-reference-v2",
+        "hugo-poses-v1"
+      ]
+    },
+    {
+      "id": "iastro",
+      "name": "Iastro",
+      "kind": "fictional",
+      "legacy_names": [
+        "Astro AI"
+      ],
+      "reference_asset_ids": [
+        "duo-reference-v2",
+        "ia-poses-v1"
+      ]
+    },
+    {
+      "id": "alexandr-wang",
+      "name": "Alexandr Wang",
+      "kind": "public_figure",
+      "status": "proposed",
+      "role": "Chief AI Officer",
+      "organization": "Meta",
+      "role_checked_at": "2026-10-16",
+      "role_source": "https://about.fb.com/news/2025/10/teen-ai-safety-approach/",
+      "photo_source": "https://i.insider.com/6ab537b2eb7225411267a1d0?width=1400",
+      "reference_asset_ids": [
+        "alexandr-wang-v2-connect"
+      ],
+      "note": "Look Meta Connect 2026 : cheveux longs bouclés, lunettes fines, tee-shirt camouflage à cerf, pantalon noir, Crocs camouflage. Fiche V2 proposée ; V1 historique en chemise bleue.",
+      "historical_reference_asset_ids": [
+        "alexandr-wang-v1"
+      ],
+      "wardrobe_source": "https://www.fashiontimes.co.uk/alexandr-wang-camouflage-crocs-meta-connect-2026-1764621",
+      "appearance_checked_at": "2026-10-16"
+    }
+  ],
+  "next_cast_candidates": [
+    {
+      "name": "Sam Altman",
+      "status": "not_drawn",
+      "note": "Vérifier rôle et photos à la première utilisation."
+    },
+    {
+      "name": "Dario Amodei",
+      "status": "not_drawn",
+      "note": "Vérifier rôle et photos à la première utilisation."
+    },
+    {
+      "name": "Mark Zuckerberg",
+      "status": "not_drawn",
+      "note": "Vérifier rôle et photos à la première utilisation."
+    },
+    {
+      "name": "Demis Hassabis",
+      "status": "not_drawn",
+      "note": "Vérifier rôle et photos à la première utilisation."
+    },
+    {
+      "name": "Arthur Mensch",
+      "status": "not_drawn",
+      "note": "Vérifier rôle et photos à la première utilisation."
+    },
+    {
+      "name": "Jensen Huang",
+      "status": "not_drawn",
+      "note": "Vérifier rôle et photos à la première utilisation."
+    }
+  ],
+  "rules": [
+    "Créer la fiche avant la première apparition, puis réutiliser son identité.",
+    "Les rôles changent : vérifier à la date de chaque épisode.",
+    "Préparer les invités selon les actualités sélectionnées ; aucune de ces fiches futures n’est présentée comme déjà dessinée."
+  ]
+}

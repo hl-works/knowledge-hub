@@ -1,5 +1,19 @@
 [
 {
+  "url": "/knowledge-hub/en/immersion-ia/",
+  "title": "Le Kiosque IA — Read, listen, explore",
+  "excerpt": "Le Radar iA, Le Podcast iA and iAstro Sunday. Audio and comics currently in French.",
+  "kind": "Projet",
+  "tags": "agent podcast comics veille"
+},
+{
+  "url": "/knowledge-hub/en/comics/2026-W41/",
+  "title": "iAstro Sunday — L’atelier passe à la vitesse supérieure",
+  "excerpt": "5–11 octobre 2026 : GPT-6, Haiku 5.5, Mistral Large 4 et SynthID. Quatre histoires en français.",
+  "kind": "Projet",
+  "tags": "agent comics veille"
+},
+{
 "url": "/knowledge-hub/en/journal/brain-central-acces-roles.html",
 "title": "A central \"Brain\" so we stop handing out the server keys to everyone",
 "excerpt": "To create a product in Odoo through an agent, you used to need an SSH key on the server — so either Hugo did everything, or broad, untraceable access got handed out. A central service (the \"Brain\") now holds the secrets server-side and exposes business capabilities behind a token → an identity → a role (read / prepare / write / publish), logging who did what. Two surfaces, guardrails carried over from the legacy tool, 3 accesses distributed.",
