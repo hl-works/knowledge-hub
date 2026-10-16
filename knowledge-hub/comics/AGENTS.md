@@ -21,3 +21,9 @@ Le nom choisi est **Iastro**. Lire la direction graphique `kit/docs/DIRECTION.md
 La tête droite est une base, pas une immobilité : exploiter bouches largement ouvertes, profils, pleines faces, trois-quarts, gros plans, vues lointaines et silhouettes en action. Les références sont un modèle d’identité ; ne pas assembler systématiquement les vignettes anciennes comme un diaporama. Préférer des scènes nouvelles et une mise en page dont le rythme sert le scénario.
 
 Pour les invités, vérifier le look récent en plus du rôle actuel. Le Wang de référence doit désormais suivre Meta Connect 2026 (camouflage avec cerf, lunettes fines, cheveux bouclés longs à la nuque, Crocs camouflage), pas le look chemise bleue de Scale. Conserver les versions anciennes sans les présenter comme actuelles.
+
+## Priorité mobile — demande du 16 octobre 2026
+
+99 % de lecture prévue sur téléphone. Une info = une histoire de 5 ou 6 cases, et une case affichée à la fois en swipe, avec lecture verticale disponible. Cette consigne remplace le format initial d’une ou deux cases par nouvelle. Dialogues courts en HTML à au moins 18 px ; ne pas réduire une planche entière pour la faire tenir dans la largeur mobile. Conserver le dessin de L’atelier des possibles, les variations de cadrage et les tenues du mois.
+
+Valider d’abord le pilote de la semaine du 5 au 11 octobre. Le rattrapage des semaines d’août/septembre vient après ce retour ; l’inventaire ne vaut ni validation ni automatisation.

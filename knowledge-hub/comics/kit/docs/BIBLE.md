@@ -54,3 +54,9 @@ La tête droite n’interdit pas l’exagération : grandes bouches ouvertes, ye
 Proposition d’univers : **L’atelier des possibles**, un atelier chaleureux ouvert sur un jardin et une ville imaginaire des technologies. Les annonces deviennent des objets et des actions : machine qui déborde de papier, pont entre deux outils, chantier, salle des essais. Les lieux sont des métaphores clairement présentées, pas des représentations documentaires des bureaux réels. Le décor et la météo suivent les saisons.
 
 Hugo peut comprendre, agir, se tromper, s’emballer ou faire une bonne remarque ; Iastro peut douter, expérimenter et faire une bêtise. Leur relation doit produire une histoire, pas une série de questions suivies de réponses professorales.
+
+## Priorité mobile — demande du 16 octobre 2026
+
+99 % de lecture prévue sur téléphone. Une info = une histoire de 5 ou 6 cases, et une case affichée à la fois en swipe, avec lecture verticale disponible. Cette consigne remplace le format initial d’une ou deux cases par nouvelle. Dialogues courts en HTML à au moins 18 px ; ne pas réduire une planche entière pour la faire tenir dans la largeur mobile. Conserver le dessin de L’atelier des possibles, les variations de cadrage et les tenues du mois.
+
+Valider d’abord le pilote de la semaine du 5 au 11 octobre. Le rattrapage des semaines d’août/septembre vient après ce retour ; l’inventaire ne vaut ni validation ni automatisation.

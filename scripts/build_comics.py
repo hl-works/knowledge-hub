@@ -6,6 +6,8 @@ import argparse
 import html
 import json
 import re
+import math
+import comics_reader
 
 REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO / 'knowledge-hub/comics'
@@ -26,15 +28,18 @@ def local_file(value):
         raise ValueError(f'Missing or unsafe local file: {value}')
     return p
 
-def validate(ep):
+def validate(ep, preview=False):
     assert re.fullmatch(r'\d{4}-W\d{2}(?:-r\d+)?', ep['id']), 'Use YYYY-Www, optionally -r2 for a correction'
     start, end, pub = [date.fromisoformat(ep[k]) for k in ('period_start', 'period_end', 'publication_date')]
     assert start <= end <= pub, 'Invalid editorial period'
-    assert ep['wardrobe_month'] == pub.month, 'Wardrobe must match publication date'
-    assert ep['status'] == 'approved', 'Only explicitly approved episodes enter the reader'
-    approval = ep['approval']
-    assert all(approval.get(k) is True for k in ('editorial', 'art', 'publish')), 'Approval incomplete'
-    assert approval.get('by') == 'Hugo' and approval.get('reference'), 'Record Hugo’s explicit approval reference'
+    assert ep['wardrobe_month'] == end.month, 'Wardrobe must match the week being told, including retrospective issues'
+    if preview:
+        assert ep['status'] == 'draft', 'Only drafts use preview mode'
+    else:
+        assert ep['status'] == 'approved', 'Only explicitly approved episodes enter the reader'
+        approval = ep['approval']
+        assert all(approval.get(k) is True for k in ('editorial', 'art', 'publish')), 'Approval incomplete'
+        assert approval.get('by') == 'Hugo' and approval.get('reference'), 'Record Hugo’s explicit approval reference'
     assert 4 <= len(ep['news']) <= 7, 'Select 4 to 7 news items'
     news_ids = {n['id'] for n in ep['news']}
     assert len(news_ids) == len(ep['news']), 'Duplicate news ID'
@@ -53,11 +58,18 @@ def validate(ep):
         assert all(a in ASSETS for a in character['reference_asset_ids']), 'Missing cast asset'
     covered = set()
     assert ep['panels'], 'An episode needs artwork and dialogue'
+    assert ep.get('format', 'standard') in ('standard', 'webtoon'), 'Unknown reading format'
     for panel in ep['panels']:
         assert panel['alt'].strip(), 'Artwork needs descriptive alternative text'
         art = local_file(panel['image']).read_bytes()
         assert art[:8] == b'\x89PNG\r\n\x1a\n', 'Panel illustrations must be PNG'
         assert int.from_bytes(art[16:20], 'big') > 0 and int.from_bytes(art[20:24], 'big') > 0, 'Invalid PNG dimensions'
+        if 'crop' in panel:
+            crop = panel['crop']
+            assert set(crop) == {'x','y','w','h'}, 'Invalid crop fields'
+            assert all(type(v) in (int,float) and math.isfinite(v) for v in crop.values()), 'Invalid crop values'
+            assert 0 <= crop['x'] < 1 and 0 <= crop['y'] < 1 and crop['w'] > 0 and crop['h'] > 0, 'Invalid crop extent'
+            assert crop['x']+crop['w'] <= 1.00000001 and crop['y']+crop['h'] <= 1.00000001, 'Crop outside image'
         for nid in panel['news_ids']:
             assert nid in news_ids, 'Unknown news ID'
             covered.add(nid)
@@ -70,6 +82,12 @@ def validate(ep):
                     urls = {source['url'] for news in ep['news'] for source in news['sources']}
                     assert line.get('source_url') in urls, 'Public-figure speech needs a consulted source'
     assert covered == news_ids, 'Each news item must appear in the comic'
+    if ep.get('format') == 'webtoon':
+        assert all(len(p['news_ids']) == 1 for p in ep['panels']), 'One story per mobile panel'
+        for nid in news_ids:
+            indexes = [i for i,p in enumerate(ep['panels']) if nid in p['news_ids']]
+            assert 5 <= len(indexes) <= 6, 'A mobile story needs 5 or 6 panels'
+            assert indexes == list(range(indexes[0],indexes[-1]+1)), 'Keep each story contiguous'
     for value in ep.get('downloads', {}).values():
         if value:
             local_file(value)
@@ -111,7 +129,12 @@ def intro(en=False):
     return f'<figure style="margin:0;max-width:980px">{art}<figcaption style="padding-block:16px">{caption}</figcaption></figure><details><summary>{"Scene description" if en else "Description de la scène"}</summary><p>{transcript}</p></details>'
 
 
-def render_episode(ep):
+def render_episode(ep, preview=False):
+    if ep.get('format') == 'webtoon':
+        def dimensions(path):
+            data = local_file(path).read_bytes()
+            return int.from_bytes(data[16:20], 'big'), int.from_bytes(data[20:24], 'big')
+        return comics_reader.render(ep, BASE, dimensions, preview)
     panels = []
     for i,p in enumerate(ep['panels']):
         data = local_file(p['image']).read_bytes()
@@ -140,6 +163,8 @@ def home(episodes, en=False):
         content += '<ul>'+''.join(f'<li><a href="{BASE+e["id"]}/">{esc(e["id"])} — {esc(e["title"])}</a></li>' for e in reversed(episodes))+'</ul>'
     else:
         content += '<p>'+('The first weekly issue is being prepared.' if en else 'Le premier numéro hebdomadaire est en préparation.')+'</p>'
+    if not any(ep['id'] == '2026-W41' for ep in episodes) and (ROOT/'drafts/2026-W41/index.html').exists():
+        content += '<p><a href="'+BASE+'drafts/2026-W41/">'+('Preview the October 5–11 pilot (French, not published)' if en else 'Lire le pilote du 5–11 octobre — à valider, non publié')+'</a></p>'
     content += f'</section><aside style="padding:24px 0;border-top:1px solid var(--border)"><p class="caption"><a href="{BASE}kit/">{"Character studio: poses, expressions and twelve outfits" if en else "L’atelier : poses, expressions et douze tenues"}</a></p></aside>'
     return shell('Hugo × Iastro — '+('The week in AI comics' if en else 'La semaine IA en BD'),desc,content,'en' if en else 'fr')
 
@@ -168,6 +193,23 @@ def build(check=False):
         (ROOT/'latest.json').write_text(json.dumps(latest,indent=2)+'\n')
     print(f'OK: {len(episodes)} approved episodes; 12 monthly references; FR/EN reader.' + (' Validation only.' if check else ' Files prepared locally.'))
 
+def build_preview(episode_id):
+    assert re.fullmatch(r'\d{4}-W\d{2}(?:-r\d+)?', episode_id), 'Invalid preview ID'
+    ep = validate(json.loads((ROOT/'episodes'/f'{episode_id}.json').read_text()), preview=True)
+    for lang in ('fr','en'):
+        content = render_episode(ep, preview=True)
+        if lang == 'en': content = '<p>This draft comic is available in French.</p>'+content
+        page = shell('Pilote — '+ep['title'], 'Brouillon du comic hebdomadaire à relire.', '<section>'+content+'</section>', lang, f'drafts/{episode_id}/')
+        page = page.replace('</head>', '<meta name="robots" content="noindex,nofollow"></head>')
+        dest = ROOT/'drafts'/episode_id/'index.html' if lang == 'fr' else REPO/'knowledge-hub/en/comics/drafts'/episode_id/'index.html'
+        dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
+    print(f'OK: draft preview {episode_id}; latest and published archives unchanged.')
+
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--check',action='store_true')
-    build(parser.parse_args().check)
+    parser.add_argument('--preview', metavar='YYYY-Www', help='Render a draft without publishing it')
+    args=parser.parse_args()
+    if args.preview:
+        if args.check: parser.error('--preview and --check are separate operations')
+        build_preview(args.preview)
+    else: build(args.check)

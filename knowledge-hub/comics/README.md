@@ -6,16 +6,16 @@
 - Un strip de présentation clairement identifié : **aucune actualité fictive**.
 - Deux kits : `kit/kits/hugo.json` et `kit/kits/iastro.json`.
 - 47 PNG : 7 planches initiales, 12 expressions, 12 poses, 12 références mensuelles, 2 études de mise en scène et 2 fiches de Wang.
-- Une lecture en deux colonnes sur grand écran et une colonne sur téléphone ; textes HTML accessibles, mode clair/sombre du Hub.
+- Un lecteur mobile : une case par swipe, boutons précédent/suivant et mode vertical ; textes HTML agrandissables et mode clair/sombre. Le format historique reste disponible.
 - Un générateur local de pages d’archives et du dernier épisode. Aucun service supplémentaire, secret ni automatisation.
 
 ## Préparer une semaine
 
 1. Dupliquer `episodes/template.json` vers `episodes/YYYY-Www.json`, statut `draft`.
-2. Choisir **4 à 7 nouvelles**, 5 par défaut. Une ouverture + 1 à 2 cases par sujet + une chute : typiquement 6 à 16 cases. Ne pas forcer 7 sujets dans 5 cases. Une semaine s’étend du lundi au dimanche, fuseau Europe/Paris.
+2. Choisir **4 à 7 nouvelles**, 5 par défaut. Chaque info devient une histoire de 5 ou 6 cases. Le pilote comporte 4 histoires × 6 cases, soit 24 cases. Une semaine s’étend du lundi au dimanche, fuseau Europe/Paris.
 3. Consulter les sources primaires et renseigner fait exact, titre, éditeur, URL, dates de publication et consultation. Le générateur contrôle leur présence, pas leur véracité : la vérification humaine/éditoriale reste nécessaire. Ne pas recopier les affirmations du prototype du 15 octobre sans vérification.
-4. Choisir les références du mois de publication dans `kit/manifest.json`. Dessiner avec V2 + tenue, sans texte ; enregistrer dans `art/YYYY-Www/`. Les images actuelles sont opaques : ne pas les coller comme des sprites détourés.
-5. Remplir les cases dans l’ordre de lecture. Les chemins `image` et `downloads` sont relatifs à `comics/`. Pour le lecteur, dimensionner les images de façon cohérente et prévoir de l’espace pour le dialogue, qui est composé séparément au-dessus de l’art.
+4. Choisir les références du mois de fin de la semaine racontée dans `kit/manifest.json`. Dessiner avec V2 + tenue, sans texte ; enregistrer dans `art/YYYY-Www/`. Les images actuelles sont opaques : ne pas les coller comme des sprites détourés.
+5. Remplir les cases dans l’ordre de lecture. Les chemins `image` et `downloads` sont relatifs à `comics/`. Pour le lecteur, dimensionner les images de façon cohérente et prévoir de l’espace pour le dialogue, qui est composé séparément sous l’art à 18 px minimum.
 6. Faire valider à Hugo le scénario et le dessin, puis la publication. Consigner son accord explicite dans `approval.reference` et les trois booléens. Passer à `approved` uniquement après ces accords.
 7. Exécuter à la racine du dépôt :
 
@@ -40,7 +40,7 @@ Les costumes changent ; les visages restent ceux des références validées. Le 
 
 ## Limites du premier lot
 
-Le strip d’accueil est une étude originale de mise en scène sans dialogue, explicitement fictive. Aucun numéro d’actualité, export PDF/PNG d’épisode, cron ou envoi Telegram n’a été produit. Les 12 tenues sont des références en duo, pas une bibliothèque de toutes les poses dans chaque tenue. Produire les scènes nouvelles selon le scénario pour éviter les répétitions.
+Le strip d’accueil est une étude originale de mise en scène sans dialogue, explicitement fictive. Un pilote rétrospectif du 5–11 octobre est préparé en brouillon : quatre histoires et 24 cases. Aucun épisode n’est approuvé pour publication ; aucun cron ni envoi Telegram. Les 12 tenues sont des références en duo, pas une bibliothèque de toutes les poses dans chaque tenue. Produire les scènes nouvelles selon le scénario pour éviter les répétitions.
 
 ## Direction narrative et casting
 
@@ -53,3 +53,17 @@ Le registre `cast.json` au niveau comics/ contient les invités dessinés et les
 `cast_ids` liste les identifiants de `cast.json` utilisés dans l’épisode (par défaut : `hugo`, `iastro`). Chaque invité doit avoir une référence graphique enregistrée. Pour un invité réel, chaque ligne de dialogue porte `attribution: "fiction"`, `"paraphrase"` ou `"quote"`. Les deux derniers exigent `source_url`, présente parmi les sources consultées de l’épisode ; le rendu affiche la nature de la réplique. Le contrôle vérifie la présence de la source, pas la fidélité de la citation : la relecture éditoriale reste nécessaire.
 
 Chaque case accepte `layout: "standard"` ou `"wide"`. `wide` occupe toute la largeur disponible. Les variations de cadrage et d’expression sont produites dans les dessins ; le kit ne se limite pas à assembler des poses prédécoupées.
+
+## Pilote mobile — semaine du 5 au 11 octobre 2026
+
+Source : `episodes/2026-W41.json`. Quatre histoires de six cases : GPT-6/Intelligent UI, Haiku 5.5, Mistral Large 4 et SynthID. Sources primaires et arbitrages : `drafts/2026-W41/SOURCES.md`. La date de préparation est le 16 octobre ; la période racontée reste le 5–11 octobre.
+
+```sh
+python3 scripts/build_comics.py --preview 2026-W41
+```
+
+Cette commande vérifie le contenu et les images, puis rend seulement `drafts/2026-W41/` (FR et accueil EN signalant que la BD est en français), avec `noindex,nofollow`. Elle ne touche pas `latest.json` ni les archives publiées. Le générateur normal ignore les brouillons.
+
+`format: "webtoon"` active le lecteur mobile. Chaque sujet regroupe 5 ou 6 cases contiguës. Les fichiers maîtres illustrés contiennent une grille de six cases ; `crop` décrit la fenêtre normalisée `{x,y,w,h}` de chaque case. Le navigateur affiche la fenêtre sans modifier les pixels du maître. Le texte est HTML, jamais gravé dans l’image. Revoir les séparations après chaque nouvelle génération. Le lecteur reste entièrement vertical sans JavaScript.
+
+`backlog.json` inventorie huit semaines à partir du 17 août, avec des candidats issus de la veille. Ce sont des pistes non vérifiées, pas des comics publiés ou programmés. Attendre le retour de Hugo sur le pilote avant de produire la rétrospective.

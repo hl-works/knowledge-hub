@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-10-16",
+  "method": "built-in imagegen",
+  "status": "proposed",
+  "reference_ids": [
+    "atelier-des-possibles-v2-camouflage",
+    "duo-reference-v2",
+    "month-10-octobre-v1"
+  ],
+  "layout": "3 columns × 2 rows; mobile reader displays one normalized crop per case",
+  "assets": [
+    {
+      "file": "gpt6-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "f57e902bb3ecd617c93c8962246a43d374aa7468c10e42626cb9fd1e80d8718a",
+      "prompt": "prompts/gpt6.txt"
+    },
+    {
+      "file": "haiku-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "fa721b970f30e4d6c0453550254827af7cf44e63a85ddd51baf4f65923596bd7",
+      "prompt": "prompts/haiku.txt"
+    },
+    {
+      "file": "mistral-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "370cfe601552be9025c1a300539eccb377b941ebf50e933aabf2970ac1f79277",
+      "prompt": "prompts/mistral.txt"
+    },
+    {
+      "file": "synthid-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "329cc9da329c3e348fa6fe1760781e99d72ab703cde2032f263a3d479e8be0d0",
+      "prompt": "prompts/synthid.txt"
+    }
+  ]
+}

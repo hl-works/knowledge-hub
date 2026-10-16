@@ -34,6 +34,11 @@ class ComicsTests(unittest.TestCase):
     def test_wrong_month(self):
         ep=self.fixture();ep['wardrobe_month']=12
         with self.assertRaises(AssertionError):b.validate(ep)
+    def test_retrospective_uses_original_season(self):
+        ep=self.fixture();ep.update(id='2026-W36',period_start='2026-08-31',period_end='2026-09-06',publication_date='2026-10-16',wardrobe_month=9)
+        b.validate(ep)
+        ep['wardrobe_month']=10
+        with self.assertRaises(AssertionError):b.validate(ep)
     def test_archives_latest_and_draft(self):
         oldroot,oldrepo=b.ROOT,b.REPO
         with tempfile.TemporaryDirectory() as tmp:
@@ -64,6 +69,37 @@ class ComicsTests(unittest.TestCase):
         self.assertIn('grid-column:1 / -1',b.render_episode(ep))
         ep['panels'][0]['layout']='unknown'
         with self.assertRaises(AssertionError):b.validate(ep)
+    def test_mobile_story_structure_and_crop(self):
+        ep=self.fixture(4);ep['format']='webtoon';base=ep['panels'][0]
+        ep['panels']=[]
+        for news in ep['news']:
+            for _ in range(6):
+                p=copy.deepcopy(base);p['news_ids']=[news['id']];p['crop']={'x':0,'y':0,'w':1/3,'h':1/2};ep['panels'].append(p)
+        b.validate(ep)
+        out=b.render_episode(ep);self.assertEqual(out.count('class="comic-card"'),24)
+        self.assertIn('aria-label="Case suivante"',out)
+        ep['panels'][0]['crop']['x']=.9
+        with self.assertRaises(AssertionError):b.validate(ep)
+        ep['panels'][0]['crop']['x']=float('nan')
+        with self.assertRaises(AssertionError):b.validate(ep)
+        ep['panels'][0]['crop']['x']=0
+        del ep['panels'][:2]
+        with self.assertRaises(AssertionError):b.validate(ep)
+    def test_draft_preview_cannot_publish(self):
+        oldroot,oldrepo=b.ROOT,b.REPO
+        with tempfile.TemporaryDirectory() as tmp:
+            b.REPO=Path(tmp);b.ROOT=b.REPO/'knowledge-hub/comics';(b.ROOT/'episodes').mkdir(parents=True)
+            art=b.ROOT/'kit/assets/characters/duo-reference-v2.png';art.parent.mkdir(parents=True);art.write_bytes((oldroot/'kit/assets/characters/duo-reference-v2.png').read_bytes())
+            try:
+                ep=self.fixture();ep['status']='draft';ep['approval']={'editorial':False,'art':False,'publish':False}
+                (b.ROOT/'episodes/2026-W42.json').write_text(json.dumps(ep))
+                b.build();before=(b.ROOT/'latest.json').read_bytes();b.build_preview('2026-W42')
+                self.assertEqual(before,(b.ROOT/'latest.json').read_bytes())
+                self.assertFalse((b.ROOT/'2026-W42').exists())
+                self.assertIn('noindex,nofollow',(b.ROOT/'drafts/2026-W42/index.html').read_text())
+                with self.assertRaises(AssertionError):b.validate(ep)
+                with self.assertRaises(AssertionError):b.build_preview('../../bad')
+            finally:b.ROOT,b.REPO=oldroot,oldrepo
     def test_escape_dialogue(self):
         out=b.panel(1,'Test','',[('Hugo','<script>alert(1)</script>')]);self.assertNotIn('<script>',out)
 
