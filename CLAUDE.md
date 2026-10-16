@@ -147,3 +147,5 @@ Après chaque maj de `veille-ia/feed.json` : `python3 scripts/build_veille_stati
 ## Comics hebdomadaire
 
 Les kits Hugo et **Iastro**, les douze tenues et le lecteur vivent dans `knowledge-hub/comics/`. Lire son `AGENTS.md` et son `README.md` avant toute contribution. Format retenu : 4 à 7 actualités par semaine, validation de Hugo avant publication.
+
+Correction de nom par Hugo, 16 octobre 2026 : écrire **iAstro** (i minuscule, A majuscule), y compris dans les titres. Préserver cette casse avec `text-transform: none` lorsque le design applique des capitales automatiquement.
