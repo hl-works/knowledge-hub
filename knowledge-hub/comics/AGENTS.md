@@ -39,3 +39,7 @@ Ajouter de petits logos officiels quand une entreprise, un modèle ou un outil e
 Commencer chaque sujet par une case numéro 1 : logo officiel plus grand, nom de la marque et du modèle, titre explicite et résumé très court en français simple. Le lecteur doit comprendre l’annonce avant les métaphores et les blagues. Conserver les limites essentielles de l’annonce. Puis dérouler les cases dessinées, avec petits repères de marque. Cette ouverture s’ajoute aux 5 ou 6 cases dessinées ; le sommaire pointe vers elle et la numérotation l’inclut.
 
 Hugo valide fortement le traitement de Mistral et du Chonk : conserver ce personnage et cette scène. Ce retour valide cette direction créative, pas la publication automatique du numéro.
+
+## Sommaire visuel — demande de Hugo du 16 octobre 2026
+
+Prévoir un niveau d’accueil au-dessus des histoires : cartes visibles avec logo, marque/modèle, titre de l’histoire et accès direct à sa case d’ouverture. Le sommaire doit être disponible sans ouvrir un menu replié. Garder un retour « Sommaire » accessible pendant la lecture pour changer de news. Conserver le swipe et le défilement vertical, les liens directs et la navigation clavier.
