@@ -38,3 +38,9 @@ Un rendez-vous hebdomadaire, pensé comme une petite BD du dimanche : une ouvert
 Hugo pose des questions, réagit et apporte le point de vue du lecteur. Astro AI clarifie sans ton professoral. Une séquence peut sortir du face-à-face explicatif pour montrer une situation ou une métaphore. Ne pas inventer de chiffres ni de citations pour produire une chute.
 
 Les personnes réelles autres que Hugo et les logos de marques restent absents des scènes du comics conformément au brief initial, sauf demande nouvelle explicite. Les bannières LinkedIn répondent à un autre usage et ne modifient pas cette règle éditoriale du comics.
+
+### Orientation des têtes et des regards — correction de Hugo, 16 octobre 2026
+
+La tête droite est la pose de référence pour Hugo et Astro AI : axe du visage vertical, ligne des yeux horizontale et cou naturel. Prévoir des vues franchement de face, avec regard direct vers le lecteur, ainsi que des trois-quarts tête droite et des regards vers l’interlocuteur. Varier la direction du regard indépendamment de l’inclinaison de la tête.
+
+Réserver une tête penchée à une intention précise (doute, écoute, surprise), occasionnellement. Ne pas recopier systématiquement l’inclinaison des anciennes fiches : elles fixent l’identité, pas une posture obligatoire. Vérifier la diversité des orientations sur l’ensemble de la planche. Cette correction concerne les prochaines illustrations ; elle ne signifie pas que les PNG déjà livrés ont été redessinés.

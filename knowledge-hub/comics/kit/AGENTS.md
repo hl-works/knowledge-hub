@@ -27,3 +27,9 @@ Une vignette opaque peut être réutilisée telle quelle si la case s’y prête
 Ne jamais écraser une référence approuvée : créer un fichier versionné et mettre à jour le manifeste seulement après contrôle. Conserver la provenance et les prompts. Ne pas changer silencieusement de modèle ou de style pour contourner une panne ; limiter les relances et signaler le blocage.
 
 Rédiger, assembler et prévisualiser dans le périmètre demandé. Conformément au brief, publier un épisode uniquement après accord de Hugo. Une demande de pack ou de recommandation ne crée ni automatisation ni publication. Ne pas envoyer de messages ni d’emails sans instruction ; les emails exigent la validation intégrale prévue par Hugo.
+
+### Orientation des têtes et des regards — correction de Hugo, 16 octobre 2026
+
+La tête droite est la pose de référence pour Hugo et Astro AI : axe du visage vertical, ligne des yeux horizontale et cou naturel. Prévoir des vues franchement de face, avec regard direct vers le lecteur, ainsi que des trois-quarts tête droite et des regards vers l’interlocuteur. Varier la direction du regard indépendamment de l’inclinaison de la tête.
+
+Réserver une tête penchée à une intention précise (doute, écoute, surprise), occasionnellement. Ne pas recopier systématiquement l’inclinaison des anciennes fiches : elles fixent l’identité, pas une posture obligatoire. Vérifier la diversité des orientations sur l’ensemble de la planche. Cette correction concerne les prochaines illustrations ; elle ne signifie pas que les PNG déjà livrés ont été redessinés.
