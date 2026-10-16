@@ -150,7 +150,7 @@ def render_episode(ep, preview=False):
     return f'<p class="kicker">{esc(ep["id"])} · {esc(ep["period_start"])} → {esc(ep["period_end"])}</p><h2>{esc(ep["title"])}</h2><p>{esc(ep.get("correction_note", ""))}</p><div style="{GRID}">{"".join(panels)}</div><section><h2>Sources</h2><ol>{sources}</ol>{downloads}</section>'
 
 def home(episodes, en=False):
-    heading = 'Iastro Sunday.<br>Your Sunday comic.' if en else 'Iastro Sunday.<br>Le comic du dimanche.'
+    heading = 'iAstro Sunday.<br>Your Sunday comic.' if en else 'iAstro Sunday.<br>Le comic du dimanche.'
     desc = 'Four to seven big stories, a little perspective, and our recurring duo.' if en else 'Quatre à sept grandes infos, un peu de recul et notre duo pour raconter la semaine.'
     content = f'<section style="padding-block:48px 32px;border-bottom:3px solid var(--border-strong)"><p class="kicker">Hugo × Iastro · {"Weekly comic" if en else "Le rendez-vous hebdo"}</p><h1 style="font-size:clamp(2.6rem,6vw,5.3rem);margin-top:16px;max-width:18ch">{heading}</h1><p class="lead" style="font-size:1.25rem;max-width:48ch">{desc}</p><a class="btn btn--primary" href="#episode">{"Read the comic" if en else "Lire la BD"} ↓</a></section><section id="episode">'
     if episodes:
@@ -166,7 +166,7 @@ def home(episodes, en=False):
     if not any(ep['id'] == '2026-W41' for ep in episodes) and (ROOT/'drafts/2026-W41/index.html').exists():
         content += '<p><a href="'+BASE+'drafts/2026-W41/">'+('Preview the October 5–11 pilot (French, not published)' if en else 'Lire le pilote du 5–11 octobre — à valider, non publié')+'</a></p>'
     content += f'</section><aside style="padding:24px 0;border-top:1px solid var(--border)"><p class="caption"><a href="{BASE}kit/">{"Character studio: poses, expressions and twelve outfits" if en else "L’atelier : poses, expressions et douze tenues"}</a></p></aside>'
-    return shell('Iastro Sunday — Hugo × Iastro — '+('The week in AI comics' if en else 'La semaine IA en BD'),desc,content,'en' if en else 'fr')
+    return shell('iAstro Sunday — Hugo × Iastro — '+('The week in AI comics' if en else 'La semaine IA en BD'),desc,content,'en' if en else 'fr')
 
 def build(check=False):
     episodes=[]

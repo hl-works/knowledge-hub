@@ -34,7 +34,7 @@
           const timing = `${Math.floor(track.seconds / 60)}:${String(track.seconds % 60).padStart(2, '0')}`;
           cover.querySelector('.cover-time').textContent = timing;
           cover.querySelector('.cover-date strong').textContent = data.date.split('-').reverse().join('.');
-          cover.querySelector('.podcast-cover').setAttribute('aria-label', `Radio Iastro, ${name === 'short' ? 'Le Flash' : 'Le Débrief'}, ${data.date}, ${timing}`);
+          cover.querySelector('.podcast-cover').setAttribute('aria-label', `Le Podcast iA, ${name === 'short' ? 'Le Flash' : 'Le Débrief'}, ${data.date}, ${timing}`);
           const portrait = cover.querySelector('.cover-portrait');
           portrait.onload = () => { portrait.hidden = false; };
           portrait.onerror = () => { portrait.hidden = true; };
