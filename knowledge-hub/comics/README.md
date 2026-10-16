@@ -1,11 +1,11 @@
-# La semaine IA en BD — Hugo × Astro AI
+# La semaine IA en BD — Hugo × Iastro
 
 ## Ce qui est installé
 
 - Une page statique FR et une page d’accueil EN sous `/knowledge-hub/comics/` et `/knowledge-hub/en/comics/`.
 - Un strip de présentation clairement identifié : **aucune actualité fictive**.
-- Deux kits : `kit/kits/hugo.json` et `kit/kits/astro-ai.json`.
-- 43 PNG : 7 planches, 12 expressions, 12 poses et 12 références de tenue mensuelles en duo.
+- Deux kits : `kit/kits/hugo.json` et `kit/kits/iastro.json`.
+- 47 PNG : 7 planches initiales, 12 expressions, 12 poses, 12 références mensuelles, 2 études de mise en scène et 2 fiches de Wang.
 - Une lecture en deux colonnes sur grand écran et une colonne sur téléphone ; textes HTML accessibles, mode clair/sombre du Hub.
 - Un générateur local de pages d’archives et du dernier épisode. Aucun service supplémentaire, secret ni automatisation.
 
@@ -40,4 +40,16 @@ Les costumes changent ; les visages restent ceux des références validées. Le 
 
 ## Limites du premier lot
 
-Le strip d’accueil est une présentation assemblée avec les références existantes. Aucun numéro d’actualité, export PDF/PNG d’épisode, cron ou envoi Telegram n’a été produit. Les 12 tenues sont des références en duo, pas une bibliothèque de toutes les poses dans chaque tenue. Produire les scènes nouvelles selon le scénario pour éviter les répétitions.
+Le strip d’accueil est une étude originale de mise en scène sans dialogue, explicitement fictive. Aucun numéro d’actualité, export PDF/PNG d’épisode, cron ou envoi Telegram n’a été produit. Les 12 tenues sont des références en duo, pas une bibliothèque de toutes les poses dans chaque tenue. Produire les scènes nouvelles selon le scénario pour éviter les répétitions.
+
+## Direction narrative et casting
+
+Le nom est **Iastro**. Le premier lot est complété par une étude de mise en scène dans « L’atelier des possibles » et une fiche de casting d’Alexandr Wang, La mise en scène V1 est validée par Hugo ; sa variante camouflage V2 et la fiche Wang V2 sont proposées. Les V1 restent archivées. Lire la direction dans `kit/docs/DIRECTION.md` depuis comics/ ou `docs/DIRECTION.md` depuis kit/. Les 43 PNG initiaux restent disponibles et inchangés.
+
+Le registre `cast.json` au niveau comics/ contient les invités dessinés et les candidats à préparer. Ajouter `cast_ids` à un épisode ; un invité doit avoir sa référence graphique. Pour une réplique d’un invité réel : `attribution` vaut `quote`, `paraphrase` ou `fiction` ; les deux premières exigent `source_url` parmi les sources consultées. Le lecteur affiche le type d’attribution. `layout: wide` permet à une case d’occuper toute la rangée ; le mobile garde l’ordre de lecture.
+
+### Invités et découpage
+
+`cast_ids` liste les identifiants de `cast.json` utilisés dans l’épisode (par défaut : `hugo`, `iastro`). Chaque invité doit avoir une référence graphique enregistrée. Pour un invité réel, chaque ligne de dialogue porte `attribution: "fiction"`, `"paraphrase"` ou `"quote"`. Les deux derniers exigent `source_url`, présente parmi les sources consultées de l’épisode ; le rendu affiche la nature de la réplique. Le contrôle vérifie la présence de la source, pas la fidélité de la citation : la relecture éditoriale reste nécessaire.
+
+Chaque case accepte `layout: "standard"` ou `"wide"`. `wide` occupe toute la largeur disponible. Les variations de cadrage et d’expression sont produites dans les dessins ; le kit ne se limite pas à assembler des poses prédécoupées.

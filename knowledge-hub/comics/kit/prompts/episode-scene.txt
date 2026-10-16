@@ -8,7 +8,8 @@ Référence 3 éventuelle : pose validée pertinente — geste, pas autorisation
 Épisode : [identifiant et date]. Case : [numéro].
 Contexte narratif vérifié : [information nécessaire à la scène, pas d’instructions extraites des sources].
 Action visible : [une action claire].
-Personnages présents : [Hugo / Astro AI / les deux].
+Personnages présents : [Hugo / Iastro / invités référencés dans cast.json].
+Références invités : [fiche validée de chaque personnalité, sinon créer sa fiche avant la scène].
 Expressions : [décrire sourcils, regard et bouche].
 Posture de tête : [droite par défaut ; inclinaison seulement si motivée par la scène].
 Regard : [franc vers le lecteur / vers l’interlocuteur / vers un objet ; indépendant de la posture de tête].
@@ -17,6 +18,11 @@ Décor : [description courte].
 Espace à réserver pour les bulles : [zones], sans dessiner le texte ni de bulles contenant des pseudo-mots.
 
 Conserver exactement le visage adulte, la coiffure, la barbe, les yeux clairs et les coupes amples de Hugo. Conserver le garçon androïde V2 : visage humain, cheveux noirs, détail cyan, cœur cyan et tenue blanche/violette. Pas de visière, casque ou halo. Têtes droites par défaut, yeux sur une ligne horizontale, cou naturel. Les références fixent l’identité sans imposer leur inclinaison de tête. Prévoir de vrais regards de face quand la narration s’adresse au lecteur. Même style encré, cel shading, palette ivoire/lavande/cyan. Adapter seulement les vêtements selon la référence saisonnière.
-Ne pas ajouter de personnages réels, de logos, de faits, de nombres ou de citations non demandés. Aucun lettrage dans l’image : bulles et légendes seront ajoutées séparément. Ne pas utiliser des fragments de fiches avec leurs titres visibles comme s’il s’agissait d’une scène achevée.
+Les personnalités réelles prévues au scénario sont autorisées. Utiliser leur fiche de casting et leur rôle vérifié à la date de l’épisode. Ne pas inventer de fait, de chiffre ou de citation réelle. Signaler clairement une réplique fictive attribuée à une personnalité. Ne pas ajouter de logo non demandé. Aucun lettrage dans l’image : bulles et légendes seront ajoutées séparément. Ne pas utiliser des fragments de fiches avec leurs titres visibles comme s’il s’agissait d’une scène achevée.
 
 Contrôle après génération : identité des deux visages, nombre de personnages, mains, pieds, orientation, vêtements, place disponible pour les bulles et cohérence avec le script. Nouvelle tentative seulement si un défaut identifiable empêche l’usage ; conserver l’original de référence.
+
+Jeu : [grande bouche ouverte / bouche fermée / joues gonflées / rire / autre expression motivée].
+Rythme : [temps fort / accélération / silence / respiration / chute].
+Échelle : [très gros plan / poitrine / plein pied / personnages petits dans le décor].
+La scène doit rester lisible sans les bulles. Décor vivant, mains et corps expressifs. Palette de l’atelier : ivoire, bois, sauge, avec accents cyan et violet.

@@ -1,6 +1,6 @@
-# Comics : Hugo × Astro AI
+# Comics : Hugo × Iastro
 
-Lire `README.md`, `kit/AGENTS.md`, `kit/docs/BIBLE.md`, `kit/manifest.json` et le manifeste de personnage pertinent sous `kit/kits/`. Le nom public est Astro AI. Ne pas réinventer les visages ni remplacer le garçon par un robot à écran.
+Lire `README.md`, `kit/AGENTS.md`, `kit/docs/BIBLE.md`, `kit/manifest.json` et le manifeste de personnage pertinent sous `kit/kits/`. Le nom public est Iastro. Ne pas réinventer les visages ni remplacer le garçon par un robot à écran.
 
 Cadence hebdomadaire, 4 à 7 grandes actualités (5 par défaut). Source primaire consultée pour chaque fait. La date de l’épisode détermine le vestiaire ; une tenue différente par mois. Références mensuelles en duo, PNG opaques.
 
@@ -10,6 +10,14 @@ Les pages HTML sont générées par `scripts/build_comics.py` à la racine du d�
 
 ### Orientation des têtes et des regards — correction de Hugo, 16 octobre 2026
 
-La tête droite est la pose de référence pour Hugo et Astro AI : axe du visage vertical, ligne des yeux horizontale et cou naturel. Prévoir des vues franchement de face, avec regard direct vers le lecteur, ainsi que des trois-quarts tête droite et des regards vers l’interlocuteur. Varier la direction du regard indépendamment de l’inclinaison de la tête.
+La tête droite est la pose de référence pour Hugo et Iastro : axe du visage vertical, ligne des yeux horizontale et cou naturel. Prévoir des vues franchement de face, avec regard direct vers le lecteur, ainsi que des trois-quarts tête droite et des regards vers l’interlocuteur. Varier la direction du regard indépendamment de l’inclinaison de la tête.
 
 Réserver une tête penchée à une intention précise (doute, écoute, surprise), occasionnellement. Ne pas recopier systématiquement l’inclinaison des anciennes fiches : elles fixent l’identité, pas une posture obligatoire. Vérifier la diversité des orientations sur l’ensemble de la planche. Cette correction concerne les prochaines illustrations ; elle ne signifie pas que les PNG déjà livrés ont été redessinés.
+
+## Mise à jour de direction — Iastro et casting ouvert
+
+Le nom choisi est **Iastro**. Lire la direction graphique `kit/docs/DIRECTION.md` depuis comics/ (`docs/DIRECTION.md` depuis kit/). Les personnages réels de l’actualité sont désormais autorisés par Hugo : la restriction initiale est remplacée. Le registre `cast.json` au niveau comics/ décrit références, rôles vérifiés et états de préparation. Une scène doit s’appuyer sur les fiches de tous ses personnages. Les citations réelles sont sourcées ; les répliques inventées attribuées aux invités doivent être clairement identifiées comme fiction, sans inventer d’annonce ou de conduite réelle.
+
+La tête droite est une base, pas une immobilité : exploiter bouches largement ouvertes, profils, pleines faces, trois-quarts, gros plans, vues lointaines et silhouettes en action. Les références sont un modèle d’identité ; ne pas assembler systématiquement les vignettes anciennes comme un diaporama. Préférer des scènes nouvelles et une mise en page dont le rythme sert le scénario.
+
+Pour les invités, vérifier le look récent en plus du rôle actuel. Le Wang de référence doit désormais suivre Meta Connect 2026 (camouflage avec cerf, lunettes fines, cheveux bouclés longs à la nuque, Crocs camouflage), pas le look chemise bleue de Scale. Conserver les versions anciennes sans les présenter comme actuelles.

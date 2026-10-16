@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packVersion": "1.1.0",
+  "packVersion": "1.3.0",
   "created": "2026-10-16",
   "identityReference": "duo-reference-v2",
   "notes": [
@@ -314,7 +314,7 @@
     {
       "id": "ia-poses-v1",
       "path": "assets/characters/ia-expressions-poses-v1.png",
-      "title": "Astro AI — expressions et poses",
+      "title": "Iastro — expressions et poses",
       "width": 1448,
       "height": 1086,
       "bytes": 2493662,
@@ -323,12 +323,12 @@
       "kind": "acting_reference",
       "character": "ia",
       "reviewStatus": "proposed",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-expression-curieux-v1",
       "path": "assets/tiles/ia-expression-curieux-v1.png",
-      "title": "Astro AI · curieux",
+      "title": "Iastro · curieux",
       "width": 234,
       "height": 218,
       "bytes": 95622,
@@ -347,12 +347,12 @@
       "character": "ia",
       "expression": "curieux",
       "use": "portrait_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-expression-etonne-v1",
       "path": "assets/tiles/ia-expression-etonne-v1.png",
-      "title": "Astro AI · etonne",
+      "title": "Iastro · etonne",
       "width": 234,
       "height": 218,
       "bytes": 100984,
@@ -371,12 +371,12 @@
       "character": "ia",
       "expression": "etonne",
       "use": "portrait_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-expression-dubitatif-v1",
       "path": "assets/tiles/ia-expression-dubitatif-v1.png",
-      "title": "Astro AI · dubitatif",
+      "title": "Iastro · dubitatif",
       "width": 234,
       "height": 218,
       "bytes": 95866,
@@ -395,12 +395,12 @@
       "character": "ia",
       "expression": "dubitatif",
       "use": "portrait_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-expression-inquiet-v1",
       "path": "assets/tiles/ia-expression-inquiet-v1.png",
-      "title": "Astro AI · inquiet",
+      "title": "Iastro · inquiet",
       "width": 234,
       "height": 218,
       "bytes": 96323,
@@ -419,12 +419,12 @@
       "character": "ia",
       "expression": "inquiet",
       "use": "portrait_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-expression-amuse-v1",
       "path": "assets/tiles/ia-expression-amuse-v1.png",
-      "title": "Astro AI · amuse",
+      "title": "Iastro · amuse",
       "width": 234,
       "height": 218,
       "bytes": 95622,
@@ -443,12 +443,12 @@
       "character": "ia",
       "expression": "amuse",
       "use": "portrait_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-expression-enthousiaste-v1",
       "path": "assets/tiles/ia-expression-enthousiaste-v1.png",
-      "title": "Astro AI · enthousiaste",
+      "title": "Iastro · enthousiaste",
       "width": 234,
       "height": 218,
       "bytes": 97414,
@@ -467,12 +467,12 @@
       "character": "ia",
       "expression": "enthousiaste",
       "use": "portrait_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-pose-explique-v1",
       "path": "assets/tiles/ia-pose-explique-v1.png",
-      "title": "Astro AI · explique",
+      "title": "Iastro · explique",
       "width": 466,
       "height": 291,
       "bytes": 249777,
@@ -491,12 +491,12 @@
       "character": "ia",
       "pose": "explique",
       "use": "illustration_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-pose-ecoute-v1",
       "path": "assets/tiles/ia-pose-ecoute-v1.png",
-      "title": "Astro AI · ecoute",
+      "title": "Iastro · ecoute",
       "width": 466,
       "height": 291,
       "bytes": 248851,
@@ -515,12 +515,12 @@
       "character": "ia",
       "pose": "ecoute",
       "use": "illustration_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-pose-montre-v1",
       "path": "assets/tiles/ia-pose-montre-v1.png",
-      "title": "Astro AI · montre",
+      "title": "Iastro · montre",
       "width": 466,
       "height": 291,
       "bytes": 241111,
@@ -539,12 +539,12 @@
       "character": "ia",
       "pose": "montre",
       "use": "illustration_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-pose-reflechit-v1",
       "path": "assets/tiles/ia-pose-reflechit-v1.png",
-      "title": "Astro AI · reflechit",
+      "title": "Iastro · reflechit",
       "width": 466,
       "height": 291,
       "bytes": 255722,
@@ -563,12 +563,12 @@
       "character": "ia",
       "pose": "reflechit",
       "use": "illustration_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-pose-se-rejouit-v1",
       "path": "assets/tiles/ia-pose-se-rejouit-v1.png",
-      "title": "Astro AI · se-rejouit",
+      "title": "Iastro · se-rejouit",
       "width": 466,
       "height": 291,
       "bytes": 248992,
@@ -587,12 +587,12 @@
       "character": "ia",
       "pose": "se-rejouit",
       "use": "illustration_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "ia-pose-assis-v1",
       "path": "assets/tiles/ia-pose-assis-v1.png",
-      "title": "Astro AI · assis",
+      "title": "Iastro · assis",
       "width": 466,
       "height": 291,
       "bytes": 252868,
@@ -611,7 +611,7 @@
       "character": "ia",
       "pose": "assis",
       "use": "illustration_inset",
-      "displayName": "Astro AI"
+      "displayName": "Iastro"
     },
     {
       "id": "season-hiver-v1",
@@ -972,6 +972,75 @@
       "season": "automne",
       "character": "duo",
       "use": "wardrobe_reference_only"
+    },
+    {
+      "id": "alexandr-wang-v1",
+      "path": "assets/cast/alexandr-wang-v1.png",
+      "title": "Alexandr Wang — angles et expressions",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 2539344,
+      "sha256": "a048a1905b1a1e8c25e15f7eac555502f3bfad1af74689aba2f2e4ce9b50fbdd",
+      "background": "opaque",
+      "kind": "cast_reference",
+      "reviewStatus": "proposed",
+      "authoritativeIdentity": false,
+      "character": "alexandr-wang"
+    },
+    {
+      "id": "atelier-des-possibles-v1",
+      "path": "assets/direction/atelier-des-possibles-v1.png",
+      "title": "L’atelier des possibles — étude de rythme",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3169376,
+      "sha256": "2d8a3754a8ffd41724ef9a5051ad0f523013d8ea00e8e2e4619abaae2b69d79a",
+      "background": "opaque",
+      "kind": "direction_reference",
+      "reviewStatus": "approved",
+      "authoritativeIdentity": false,
+      "characters": [
+        "hugo",
+        "ia",
+        "alexandr-wang"
+      ],
+      "fictional_scene": true,
+      "approvalNote": "Hugo, 16 octobre 2026 : « le strip est exceptionnel, j’adore » ; direction et mise en scène validées, tenue de Wang à actualiser."
+    },
+    {
+      "id": "alexandr-wang-v2-connect",
+      "path": "assets/cast/alexandr-wang-v2-connect.png",
+      "title": "Alexandr Wang — look Meta Connect 2026",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 2636257,
+      "sha256": "fb38d465b39ef9fd13215a2e781a6ddd0d1bfac770635db1fc3ada4ee1a3cc0f",
+      "background": "opaque",
+      "kind": "cast_reference",
+      "reviewStatus": "proposed",
+      "authoritativeIdentity": false,
+      "sourceId": "alexandr-wang-v1",
+      "character": "alexandr-wang"
+    },
+    {
+      "id": "atelier-des-possibles-v2-camouflage",
+      "path": "assets/direction/atelier-des-possibles-v2-camouflage.png",
+      "title": "L’atelier des possibles — Wang en camouflage",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2889823,
+      "sha256": "7539a3d21e997feabe3760c00fac93028f25719a22b2357c0613a9b3d8c581e1",
+      "background": "opaque",
+      "kind": "direction_reference",
+      "reviewStatus": "proposed",
+      "authoritativeIdentity": false,
+      "sourceId": "atelier-des-possibles-v1",
+      "characters": [
+        "hugo",
+        "ia",
+        "alexandr-wang"
+      ],
+      "fictional_scene": true
     }
   ],
   "characters": {
@@ -979,8 +1048,12 @@
       "name": "Hugo"
     },
     "ia": {
-      "name": "Astro AI",
-      "alias": "astro-ai"
+      "name": "Iastro",
+      "alias": "iastro",
+      "legacyAliases": [
+        "astro-ai",
+        "Astro AI"
+      ]
     }
   }
 }

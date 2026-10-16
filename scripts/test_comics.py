@@ -12,7 +12,7 @@ b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
 class ComicsTests(unittest.TestCase):
     def fixture(self,count=5):
         news=[{'id':f'n{i}','title':'Test fixture','fact':'Synthetic test only','sources':[{'title':'Test source','publisher':'Test','url':'https://example.com/test','published_at':'2026-10-12','consulted_at':'2026-10-16'}]} for i in range(count)]
-        return {'id':'2026-W42','status':'approved','title':'Test fixture, never publish','period_start':'2026-10-12','period_end':'2026-10-18','publication_date':'2026-10-18','wardrobe_month':10,'approval':{'editorial':True,'art':True,'publish':True,'by':'Hugo','reference':'Synthetic test only'},'news':news,'panels':[{'title':'Test','image':'kit/assets/characters/duo-reference-v2.png','alt':'Test illustration','news_ids':[n['id'] for n in news],'dialogue':[{'speaker':'Astro AI','text':'Test only'}]}],'downloads':{}}
+        return {'id':'2026-W42','status':'approved','title':'Test fixture, never publish','period_start':'2026-10-12','period_end':'2026-10-18','publication_date':'2026-10-18','wardrobe_month':10,'approval':{'editorial':True,'art':True,'publish':True,'by':'Hugo','reference':'Synthetic test only'},'news':news,'panels':[{'title':'Test','image':'kit/assets/characters/duo-reference-v2.png','alt':'Test illustration','news_ids':[n['id'] for n in news],'dialogue':[{'speaker':'Iastro','text':'Test only'}]}],'downloads':{}}
     def test_four_and_seven(self):
         for n in (4,7):b.validate(self.fixture(n))
         for n in (3,8):
@@ -48,6 +48,22 @@ class ComicsTests(unittest.TestCase):
                 ep['title']='Changed';f.write_text(json.dumps(ep))
                 with self.assertRaises(ValueError):b.build()
             finally:b.ROOT,b.REPO=oldroot,oldrepo
+    def test_public_figure_attribution(self):
+        ep=self.fixture();ep['cast_ids']=['hugo','iastro','alexandr-wang']
+        line={'speaker':'Alexandr Wang','text':'Synthetic test only'};ep['panels'][0]['dialogue']=[line]
+        with self.assertRaises(AssertionError):b.validate(ep)
+        line['attribution']='fiction';b.validate(ep)
+        self.assertIn('scène imaginée',b.render_episode(ep))
+        line['attribution']='quote'
+        with self.assertRaises(AssertionError):b.validate(ep)
+        line['source_url']='https://example.com/test';b.validate(ep)
+        ep['cast_ids']=['hugo','iastro']
+        with self.assertRaises(AssertionError):b.validate(ep)
+    def test_wide_panel(self):
+        ep=self.fixture();ep['panels'][0]['layout']='wide';b.validate(ep)
+        self.assertIn('grid-column:1 / -1',b.render_episode(ep))
+        ep['panels'][0]['layout']='unknown'
+        with self.assertRaises(AssertionError):b.validate(ep)
     def test_escape_dialogue(self):
         out=b.panel(1,'Test','',[('Hugo','<script>alert(1)</script>')]);self.assertNotIn('<script>',out)
 

@@ -1,6 +1,6 @@
 {
-  "id": "astro-ai",
-  "name": "Astro AI",
+  "id": "iastro",
+  "name": "Iastro",
   "manifest": "../manifest.json",
   "identityAssetId": "duo-reference-v2",
   "assetIds": [
@@ -45,5 +45,9 @@
     "10": "month-10-octobre-v1",
     "11": "month-11-novembre-v1"
   },
-  "note": "Les références mensuelles montrent le duo. PNG opaques."
+  "note": "Les références mensuelles montrent le duo. PNG opaques.",
+  "legacyIds": [
+    "astro-ai"
+  ],
+  "compatibilityAliasFor": "iastro.json"
 }

@@ -146,4 +146,4 @@ Après chaque maj de `veille-ia/feed.json` : `python3 scripts/build_veille_stati
 
 ## Comics hebdomadaire
 
-Les kits Hugo et **Astro AI**, les douze tenues et le lecteur vivent dans `knowledge-hub/comics/`. Lire son `AGENTS.md` et son `README.md` avant toute contribution. Format retenu : 4 à 7 actualités par semaine, validation de Hugo avant publication.
+Les kits Hugo et **Iastro**, les douze tenues et le lecteur vivent dans `knowledge-hub/comics/`. Lire son `AGENTS.md` et son `README.md` avant toute contribution. Format retenu : 4 à 7 actualités par semaine, validation de Hugo avant publication.

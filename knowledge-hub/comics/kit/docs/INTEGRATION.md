@@ -1,6 +1,6 @@
 # Intégration Knowledge Hub
 
-Le kit partagé vit dans `knowledge-hub/comics/kit/`. Le nom du personnage est **Astro AI** ; les identifiants historiques `ia-*` restent stables pour ne pas casser les références.
+Le kit partagé vit dans `knowledge-hub/comics/kit/`. Le nom du personnage est **Iastro** ; les identifiants historiques `ia-*` restent stables pour ne pas casser les références.
 
 Lire `AGENTS.md`, `docs/BIBLE.md`, `manifest.json`, puis le manifeste de personnage dans `kits/`. Ouvrir les images retenues avant de générer une scène. Les douze références mensuelles montrent les deux personnages ensemble. Les PNG sont opaques, sans calques séparés.
 

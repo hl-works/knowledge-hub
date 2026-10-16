@@ -11,6 +11,7 @@ REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO / 'knowledge-hub/comics'
 MANIFEST = json.loads((ROOT / 'kit/manifest.json').read_text())
 ASSETS = {a['id']: a for a in MANIFEST['assets']}
+CAST = {c['id']: c for c in json.loads((ROOT / 'cast.json').read_text())['characters']}
 BASE = '/knowledge-hub/comics/'
 ORIGIN = 'https://hl-consulting.tech'
 
@@ -44,6 +45,12 @@ def validate(ep):
             assert s['title'].strip() and s['publisher'].strip(), 'Source attribution required'
             date.fromisoformat(s['consulted_at'])
             date.fromisoformat(s['published_at'])
+    cast_ids = ep.get('cast_ids', ['hugo', 'iastro'])
+    assert set(cast_ids) <= set(CAST), 'Unknown cast member'
+    speakers = {CAST[c]['name']: CAST[c] for c in cast_ids}
+    for character in speakers.values():
+        assert character['reference_asset_ids'], 'A cast member needs a visual reference before appearing'
+        assert all(a in ASSETS for a in character['reference_asset_ids']), 'Missing cast asset'
     covered = set()
     assert ep['panels'], 'An episode needs artwork and dialogue'
     for panel in ep['panels']:
@@ -54,8 +61,14 @@ def validate(ep):
         for nid in panel['news_ids']:
             assert nid in news_ids, 'Unknown news ID'
             covered.add(nid)
+        assert panel.get('layout', 'standard') in ('standard', 'wide'), 'Invalid panel layout'
         for line in panel['dialogue']:
-            assert line['speaker'] in ('Hugo', 'Astro AI', 'Narration') and line['text'].strip(), 'Invalid dialogue'
+            assert line['speaker'] in (*speakers, 'Narration') and line['text'].strip(), 'Invalid dialogue'
+            if line['speaker'] in speakers and speakers[line['speaker']]['kind'] == 'public_figure':
+                assert line.get('attribution') in ('quote', 'paraphrase', 'fiction'), 'Label public-figure speech'
+                if line['attribution'] != 'fiction':
+                    urls = {source['url'] for news in ep['news'] for source in news['sources']}
+                    assert line.get('source_url') in urls, 'Public-figure speech needs a consulted source'
     assert covered == news_ids, 'Each news item must appear in the comic'
     for value in ep.get('downloads', {}).values():
         if value:
@@ -83,22 +96,20 @@ def shell(title, description, content, language='fr', suffix=''):
 <script src="/knowledge-hub/theme.js?v=20260601d" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','&lt;')}</script>
 </head><body><a class="skip-link" href="#main">{'Skip to content' if en else 'Aller au contenu'}</a>
 <header style="border-bottom:1px solid var(--border-strong);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px"><a class="nav__wordmark" href="/knowledge-hub/">Knowledge Hub</a><nav aria-label="{'Navigation' if en else 'Navigation principale'}" style="display:flex;gap:20px;flex-wrap:wrap;align-items:center"><a href="/knowledge-hub/{'en/' if en else ''}veille-ia/">{'AI watch' if en else 'La veille IA'}</a><a href="{fr if en else enurl}" lang="{'fr' if en else 'en'}">{'FR' if en else 'EN'}</a><button class="btn" data-theme-toggle type="button" style="color:var(--text);background:var(--surface);border-color:var(--border)">{'Auto / Light / Dark' if en else 'Auto / Clair / Sombre'}</button></nav></header>
-<main id="main" class="container">{content}</main><footer class="container" style="border-top:1px solid var(--border-strong);padding-block:24px"><p class="caption">Hugo × Astro AI · {'AI-generated artwork. Editorial direction: Hugo Lahutte.' if en else 'Dessins générés par IA. Direction éditoriale : Hugo Lahutte.'}</p></footer></body></html>'''
+<main id="main" class="container">{content}</main><footer class="container" style="border-top:1px solid var(--border-strong);padding-block:24px"><p class="caption">Hugo × Iastro · {'AI-generated artwork. Editorial direction: Hugo Lahutte.' if en else 'Dessins générés par IA. Direction éditoriale : Hugo Lahutte.'}</p></footer></body></html>'''
 
 GRID = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px'
 
-def panel(number, title, art, dialogue):
+def panel(number, title, art, dialogue, wide=False):
     lines = ''.join(f'<p style="padding:14px 18px;margin:0;border:2px solid var(--border-strong);border-radius:20px;background:var(--surface);color:var(--text);line-height:1.5"><strong style="display:block;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase">{esc(speaker)}</strong>{esc(text)}</p>' for speaker,text in dialogue)
-    return f'<article style="border:2px solid var(--border-strong);padding:20px;background:var(--surface);display:flex;flex-direction:column;gap:18px"><h3 style="font-size:1rem">{number:02d} / {esc(title)}</h3><div style="display:grid;gap:12px">{lines}</div><div style="margin-top:auto">{art}</div></article>'
+    return f'<article style="grid-column:{"1 / -1" if wide else "auto"};border:2px solid var(--border-strong);padding:20px;background:var(--surface);display:flex;flex-direction:column;gap:18px"><h3 style="font-size:1rem">{number:02d} / {esc(title)}</h3><div style="display:grid;gap:12px">{lines}</div><div style="margin-top:auto">{art}</div></article>'
 
 def intro(en=False):
-    titles = ['A week moves fast.', 'Let’s take a step back.', 'Same duo. New season.', 'See you next week.'] if en else ['Ça va vite, une semaine.', 'On prend du recul.', 'Même duo. Nouvelle saison.', 'À la semaine prochaine.']
-    dialogue = [ [('Hugo','Every week there’s another wave of AI news. Where do we start?')], [('Astro AI','Four to seven stories that matter. What happened, what it changes, and what’s still uncertain.')], [('Hugo','One outfit a month. In October, we’re ready for Halloween!')], [('Astro AI','A comic to read at your own pace. And sources to explore further.')] ] if en else [ [('Hugo','Toutes les semaines, une nouvelle avalanche d’annonces IA. On commence par quoi ?')], [('Astro AI','Quatre à sept infos qui comptent. Ce qui se passe, ce que ça change et ce qui reste incertain.')], [('Hugo','Une tenue par mois. En octobre, on est prêts pour Halloween !')], [('Astro AI','Une BD à lire tranquillement. Et les sources pour aller plus loin.')] ]
-    ids=['hugo-pose-reflechit-v1','ia-pose-explique-v1','month-10-octobre-v1','ia-pose-se-rejouit-v1']
-    # The monthly card is a wardrobe reference, intentionally presented whole.
-    arts=[image(a) for a in ids]
-    arts[2]=f'<div style="max-width:250px;margin:auto">{arts[2]}</div>'
-    return '<div style="'+GRID+'">'+''.join(panel(i+1,t,arts[i],dialogue[i]) for i,t in enumerate(titles))+'</div>'
+    caption = ('Visual study: a fictional scene with Hugo, Iastro and Alexandr Wang. It depicts no real event or announcement.' if en else 'Étude de mise en scène : scène fictive avec Hugo, Iastro et Alexandr Wang. Aucun événement réel ni aucune annonce ne sont représentés.')
+    transcript = ('In a workshop, a machine starts producing far too much paper. Hugo panics, Iastro watches calmly, then they rush to catch the sheets while Wang stops the machine. They finally sit outside with one selected page.' if en else 'Dans l’atelier, une machine produit beaucoup trop de feuilles. Hugo s’affole, Iastro observe impassiblement, puis tous deux essaient de rattraper les papiers pendant que Wang arrête la machine. Ils finissent assis dehors, autour d’une seule feuille choisie.')
+    art = image('atelier-des-possibles-v2-camouflage', alt=transcript)
+    return f'<figure style="margin:0;max-width:980px">{art}<figcaption style="padding-block:16px">{caption}</figcaption></figure><details><summary>{"Scene description" if en else "Description de la scène"}</summary><p>{transcript}</p></details>'
+
 
 def render_episode(ep):
     panels = []
@@ -106,7 +117,11 @@ def render_episode(ep):
         data = local_file(p['image']).read_bytes()
         width, height = int.from_bytes(data[16:20], 'big'), int.from_bytes(data[20:24], 'big')
         art = f'<img width="{width}" height="{height}" src="{BASE+esc(p["image"])}" alt="{esc(p["alt"])}" style="width:100%;height:auto" loading="lazy">'
-        panels.append(panel(i+1,p['title'],art,[(d['speaker'],d['text']) for d in p['dialogue']]))
+        dialogue = []
+        for d in p['dialogue']:
+            label = {'fiction':' — scène imaginée', 'paraphrase':' — reformulation', 'quote':' — citation'}.get(d.get('attribution'), '')
+            dialogue.append((d['speaker'] + label, d['text']))
+        panels.append(panel(i+1,p['title'],art,dialogue,p.get('layout') == 'wide'))
     sources = ''.join('<li><strong>'+esc(n['title'])+'</strong><ul>'+''.join(f'<li><a href="{esc(s["url"])}">{esc(s["title"])}</a> — {esc(s["publisher"])}, {esc(s["published_at"])}</li>' for s in n['sources'])+'</ul></li>' for n in ep['news'])
     downloads = ' · '.join(f'<a download href="{BASE+esc(p)}">{esc(fmt.upper())}</a>' for fmt,p in ep.get('downloads',{}).items() if p)
     return f'<p class="kicker">{esc(ep["id"])} · {esc(ep["period_start"])} → {esc(ep["period_end"])}</p><h2>{esc(ep["title"])}</h2><p>{esc(ep.get("correction_note", ""))}</p><div style="{GRID}">{"".join(panels)}</div><section><h2>Sources</h2><ol>{sources}</ol>{downloads}</section>'
@@ -114,7 +129,7 @@ def render_episode(ep):
 def home(episodes, en=False):
     heading = 'The week in AI.<br>A comic to unwind with.' if en else 'La semaine IA.<br>En bande dessinée.'
     desc = 'Four to seven big stories, a little perspective, and our recurring duo.' if en else 'Quatre à sept grandes infos, un peu de recul et notre duo pour raconter la semaine.'
-    content = f'<section style="padding-block:48px 32px;border-bottom:3px solid var(--border-strong)"><p class="kicker">Hugo × Astro AI · {"Weekly comic" if en else "Le rendez-vous hebdo"}</p><h1 style="font-size:clamp(2.6rem,6vw,5.3rem);margin-top:16px;max-width:18ch">{heading}</h1><p class="lead" style="font-size:1.25rem;max-width:48ch">{desc}</p><a class="btn btn--primary" href="#episode">{"Read the comic" if en else "Lire la BD"} ↓</a></section><section id="episode">'
+    content = f'<section style="padding-block:48px 32px;border-bottom:3px solid var(--border-strong)"><p class="kicker">Hugo × Iastro · {"Weekly comic" if en else "Le rendez-vous hebdo"}</p><h1 style="font-size:clamp(2.6rem,6vw,5.3rem);margin-top:16px;max-width:18ch">{heading}</h1><p class="lead" style="font-size:1.25rem;max-width:48ch">{desc}</p><a class="btn btn--primary" href="#episode">{"Read the comic" if en else "Lire la BD"} ↓</a></section><section id="episode">'
     if episodes:
         content += render_episode(episodes[-1])
         if en: content = content.replace('<section id="episode">','<section id="episode"><p lang="en">This episode is available in French.</p>')
@@ -126,7 +141,7 @@ def home(episodes, en=False):
     else:
         content += '<p>'+('The first weekly issue is being prepared.' if en else 'Le premier numéro hebdomadaire est en préparation.')+'</p>'
     content += f'</section><aside style="padding:24px 0;border-top:1px solid var(--border)"><p class="caption"><a href="{BASE}kit/">{"Character studio: poses, expressions and twelve outfits" if en else "L’atelier : poses, expressions et douze tenues"}</a></p></aside>'
-    return shell('Hugo × Astro AI — '+('The week in AI comics' if en else 'La semaine IA en BD'),desc,content,'en' if en else 'fr')
+    return shell('Hugo × Iastro — '+('The week in AI comics' if en else 'La semaine IA en BD'),desc,content,'en' if en else 'fr')
 
 def build(check=False):
     episodes=[]
