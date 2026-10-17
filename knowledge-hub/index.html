@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ===== SEO ===== -->
-<title>Hugo Lahutte — Knowledge Hub : comment je construis avec Claude</title>
-<meta name="description" content="Journal de bord et méthode de Hugo Lahutte : comment j'utilise Claude (CLAUDE.md, Compound Engineering, Claude Code) pour piloter mes projets e-commerce et dev. Build in public.">
+<title>Knowledge Hub — Méthode, guides et projets avec l’IA · Hugo Lahutte</title>
+<meta name="description" content="La méthode, les guides et les projets de Hugo Lahutte : des retours de terrain pour construire avec l’IA. Retrouvez aussi la Veille IA, ses podcasts et ses comics.">
 <link rel="canonical" href="https://hl-consulting.tech/knowledge-hub/">
 <link rel="alternate" hreflang="fr" href="https://hl-consulting.tech/knowledge-hub/">
 <link rel="alternate" hreflang="en" href="https://hl-consulting.tech/knowledge-hub/en/">
@@ -17,7 +17,7 @@
 <!-- Open Graph / réseaux -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hugo Lahutte — Knowledge Hub">
-<meta property="og:description" content="Comment je construis avec Claude : méthode, projets, journal de bord. Build in public.">
+<meta property="og:description" content="La méthode, les guides et les projets de Hugo Lahutte : des retours de terrain pour construire avec l’IA. Retrouvez aussi la Veille IA, ses podcasts et ses comics.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
@@ -96,21 +96,12 @@
 }
 </script>
 <style id="home-media-style">
-.home-intro{padding:40px 0 24px}.home-intro .container{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;align-items:center}
-.home-intro .kicker{grid-column:1/-1;margin-bottom:16px}.home-intro h1{grid-column:1;grid-row:2/4;font-size:clamp(2.5rem,4.5vw,4rem);margin:0;line-height:1.02}.home-intro .rule--accent{display:none}
-.home-intro .lead{grid-column:2;font-size:1rem;margin:0;line-height:1.55}.home-intro .btn-row{grid-column:2;margin-top:16px;gap:16px}.home-intro .btn{padding:10px 14px;font-size:.7rem}
-.home-intro .meta{grid-column:1/-1;margin-top:24px;padding-top:16px;border-top:1px solid var(--border);gap:24px}.home-intro .stat{display:flex;gap:8px;align-items:baseline}.home-intro .stat b{font-size:1.25rem}.home-intro .stat span{font-size:.62rem}
-.home-media{padding:12px 0 48px;scroll-margin-top:100px}.home-media-head{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:20px}.home-media-head .kicker{margin:0 0 6px}.home-media-head h2{font-size:clamp(1.4rem,2.5vw,2.2rem);letter-spacing:-.035em;line-height:1.1;text-transform:none}.home-media-head>a{font-size:.8rem;white-space:nowrap}
-.home-media-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.home-media-card{min-width:0;border:1px solid var(--border-strong);background:var(--bg);box-shadow:5px 5px 0 var(--border-strong);padding:24px;display:flex;flex-direction:column;scroll-margin-top:100px}
-.home-media-card h3{font-size:clamp(1.6rem,2.8vw,2.3rem);line-height:1.1;text-transform:none;letter-spacing:-.035em;margin:6px 0 12px}.home-media-card p{font-size:.9rem;margin:0;line-height:1.45}.home-media-card .kicker{font-size:.65rem;color:var(--c-red)}
-.home-radio-top{display:grid;grid-template-columns:112px 1fr;gap:20px;align-items:center;margin-bottom:18px}.home-radio-top img{width:112px;height:112px;object-fit:contain;background:var(--c-white);border:1px solid var(--border)}
-.home-media-date{font-family:var(--font-mono);font-size:.7rem!important;color:var(--text-muted)}.home-media-tracks{display:grid;gap:14px;margin-top:12px}.home-media-track label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:.85rem;font-weight:700;margin-bottom:6px}.home-media-track label span{font-family:var(--font-mono);font-size:.72rem;color:var(--text-muted);font-weight:400}.home-media-track audio{display:block;width:100%;height:36px}.home-media-card .home-media-links{margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem}
-.home-comic-top{display:flex;justify-content:space-between;gap:16px;align-items:baseline}.home-comic-art{display:block;position:relative;overflow:hidden;aspect-ratio:2.2;border:1px solid var(--border);background:var(--surface);margin:4px 0 14px}.home-comic-art img{position:absolute;max-width:none}.home-comic-title{font-weight:700}.home-media-card .btn{padding:10px 14px;font-size:.72rem}
-.home-media-foot{margin:20px 0 0;font-size:.75rem;display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap;color:var(--text-muted)}.home-media :focus-visible,.home-news-nav :focus-visible{outline:3px solid var(--c-red);outline-offset:4px}
-.home-news-nav{display:flex;align-items:center;gap:2px;position:relative}.home-news-nav>a{color:var(--c-red)}.home-news-nav details>summary{display:flex;align-items:center;justify-content:center;cursor:pointer;list-style:none;width:28px;height:36px;font-size:.85rem}.home-news-nav summary::-webkit-details-marker{display:none}.home-news-nav details[open]>summary{color:var(--c-red)}
-.home-news-menu{position:absolute;top:calc(100% + 12px);left:-16px;min-width:275px;padding:12px;background:var(--bg);border:1px solid var(--border-strong);box-shadow:4px 4px 0 var(--border-strong);z-index:60}.nav__links .home-news-menu a{display:block;padding:12px;font-size:.8rem;letter-spacing:0;text-transform:none}.home-news-menu small{display:block;color:var(--text-muted);font-weight:400;font-family:var(--font-body);margin-top:3px}.home-news-menu a:hover{background:var(--surface)}
+.kh-intro{padding:52px 0 28px}.kh-intro-top{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}.kh-intro h1{font-size:clamp(2.6rem,4.8vw,4.2rem);line-height:1.04;letter-spacing:-.045em;text-transform:none;margin:16px 0 0}.kh-intro h1 em{font-style:normal;color:var(--c-red)}.kh-intro .lead{font-size:1.1rem;line-height:1.6;margin:0}.kh-intro .btn-row{margin-top:22px}.kh-intro .btn{font-size:.75rem;padding:12px 18px}.kh-intro .caption{margin:18px 0 0}
+.kh-paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:32px}.kh-path{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid var(--border);text-decoration:none;min-width:0;background:var(--bg)}.kh-path:hover{border-color:var(--c-red);background:var(--surface)}.kh-path small{font:11px var(--font-mono);color:var(--c-red)}.kh-path strong{font:800 1.25rem var(--font-display)}.kh-path span{font-size:.85rem;line-height:1.45;color:var(--text-muted)}
+.kh-veille-push{padding:12px 0 40px;scroll-margin-top:100px}.kh-veille-banner{border:1px solid var(--border-strong);border-left:5px solid var(--c-red);background:var(--surface);padding:24px;display:grid;grid-template-columns:76px 1fr;gap:20px}.kh-veille-banner>img{width:76px;height:76px;object-fit:contain;background:var(--c-white)}.kh-veille-heading{display:flex;justify-content:space-between;gap:20px;align-items:center}.kh-veille-heading h2{font-size:1.65rem;line-height:1.15;text-transform:none;margin:0}.kh-veille-heading .kicker{font-size:.65rem;margin-bottom:6px}.kh-veille-heading>a{font-size:.8rem;white-space:nowrap}.kh-veille-formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;grid-column:1/-1;border-top:1px solid var(--border);padding-top:16px}.kh-veille-formats a{font-size:.9rem;text-decoration:none;font-weight:700;display:block}.kh-veille-formats a:hover{color:var(--c-red)}.kh-veille-formats small{display:block;font-size:.75rem;line-height:1.5;font-weight:400;color:var(--text-muted);margin-top:4px}.kh-veille-banner .caption{grid-column:1/-1;margin:0;font-size:.75rem}.kh-growth{padding:24px 0 40px}.kh-growth .container{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}.kh-growth h2{font-size:clamp(1.7rem,3vw,2.5rem);text-transform:none;line-height:1.1;margin:12px 0 16px}.kh-growth img{width:100%;height:auto;border:1px solid var(--border)}.kh-growth p{font-size:1rem;line-height:1.6}.kh-growth .caption{font-size:.75rem}.kh-growth .btn{margin-top:16px}
+.kh-path:focus-visible,.kh-veille-banner a:focus-visible{outline:3px solid var(--c-red);outline-offset:4px}
 @media(min-width:761px) and (max-width:1100px){.nav{flex-wrap:wrap;gap:12px}.nav>nav{width:100%}.nav__links{justify-content:space-between;gap:12px}}
-@media(max-width:760px){.home-intro{padding:28px 0 20px}.home-intro .container{display:block}.home-intro h1{font-size:2.8rem}.home-intro .lead{margin-top:16px}.home-intro .meta{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:20px}.home-intro .stat{gap:6px}.home-intro .stat span{font-size:.6rem}.home-media-head{display:block}.home-media-head>a{display:inline-block;margin-top:10px}.home-media-grid{grid-template-columns:1fr;gap:20px}.home-media-card{padding:20px}.home-radio-top{grid-template-columns:88px 1fr;gap:16px}.home-radio-top img{width:88px;height:88px}.home-media-card h3{font-size:1.8rem}.home-comic-top{display:block}.home-comic-art{margin-top:14px}.home-news-nav{flex-wrap:wrap;gap:8px;width:100%}.home-news-nav details>summary{width:44px;height:44px}.home-news-menu{position:static;margin-top:10px;box-shadow:none;min-width:0;width:100%;padding:4px}.home-news-nav details[open]{width:100%}.home-news-nav details[open]>summary{position:absolute;top:0;right:0}.nav__links .home-news-menu a{font-size:1rem}}
+@media(max-width:760px){.kh-intro{padding:28px 0 16px}.kh-intro-top{grid-template-columns:1fr;gap:24px}.kh-intro h1{font-size:2.65rem}.kh-intro .lead{font-size:1rem}.kh-paths{grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.kh-path{padding:16px;gap:8px}.kh-path strong{font-size:1.05rem}.kh-path span{font-size:.8rem}.kh-veille-banner{padding:18px;grid-template-columns:54px 1fr;gap:14px}.kh-veille-banner>img{width:54px;height:54px}.kh-veille-heading{display:block}.kh-veille-heading h2{font-size:1.35rem}.kh-veille-heading>a{display:inline-block;margin-top:10px;white-space:normal}.kh-veille-formats{grid-template-columns:1fr;gap:14px}.kh-veille-formats a{min-height:44px}.kh-growth .container{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -124,7 +115,7 @@
       <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
       <li><a href="how-to/">Méthode</a></li>
       <li><a href="guides/">Guides</a></li>
-      <li class="home-news-nav"><a href="/knowledge-hub/#a-la-une">Veille IA</a><details><summary aria-label="Accès directs à la veille IA">⌄</summary><div class="home-news-menu"><a href="/knowledge-hub/#podcasts">Le Podcast iA<small>Écouter le Flash ou le Débrief</small></a><a href="/knowledge-hub/comics/2026-W41-r2/">iAstro Sunday<small>Ouvrir le dernier comic</small></a><a href="/knowledge-hub/veille-ia/">La veille écrite<small>Les nouvelles et leurs sources</small></a></div></details></li>
+      <li><a href="/knowledge-hub/immersion-ia/">Veille IA</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="journal/">Journal</a></li>
       <li><a href="#contact">Échanger</a></li>
@@ -142,131 +133,19 @@
 <main id="main">
 
 <!-- ===== HERO ===== -->
-<section class="hero home-intro">
-  <div class="container">
-    <p class="kicker">Build in public · Méthode &amp; journal de bord</p>
-    <h1>Je construis<br>avec Claude.</h1>
-    <hr class="rule--accent">
-    <p class="lead">Ma méthode, mes projets et ce que je construis avec l’IA. Et pour garder le fil : un podcast chaque jour, un comic le dimanche.</p>
-    <div class="btn-row"><a class="btn btn--primary" href="#podcasts">Écouter le podcast ↓</a><a class="btn btn--ghost" href="/knowledge-hub/comics/2026-W41-r2/">Lire le comic →</a></div>
-    <div class="meta">
-      <div class="stat"><b id="stat-sessions">66</b><span>Sessions documentées</span></div>
-      <div class="stat"><b id="stat-projects">4</b><span>Projets actifs</span></div>
-      <div class="stat"><b>2</b><span>Agents Claude</span></div>
-    </div>
-  </div>
-</section>
+<section class="kh-intro"><div class="container"><div class="kh-intro-top"><div><p class="kicker">Knowledge Hub · Hugo Lahutte</p><h1>Construire avec l’IA.<br><em>Partager ce qui marche.</em></h1></div><div><p class="lead">Un carnet de terrain pour passer des outils aux projets. Je partage ma méthode, des guides et les coulisses de ce que je construis : ce qui fonctionne, ce qui coince et ce que j’en retiens.</p><div class="btn-row"><a class="btn btn--primary" href="how-to/">Découvrir ma méthode →</a><a class="btn btn--ghost" href="#projets">Voir les projets</a></div><p class="caption"><b id="stat-sessions">66</b> sessions documentées · des projets réels, des retours concrets.</p></div></div><nav class="kh-paths" aria-label="Explorer le Knowledge Hub"><a class="kh-path" href="how-to/"><small>01 / La méthode</small><strong>Commencer ↗</strong><span>Mon organisation, mes outils et mes fichiers de contexte.</span></a><a class="kh-path" href="guides/"><small>02 / Les guides</small><strong>Comprendre ↗</strong><span>Des explications claires, du premier repère au cas concret.</span></a><a class="kh-path" href="#projets"><small>03 / Les projets</small><strong>Voir le terrain ↗</strong><span>Commerce, audio, outils métier : ce que je construis vraiment.</span></a><a class="kh-path" href="journal/"><small>04 / Le journal</small><strong>Suivre les chantiers ↗</strong><span>Les décisions, les essais et les leçons, session après session.</span></a></nav></div></section>
 
 <!-- home-media:start -->
-<section id="a-la-une" class="home-media" aria-labelledby="home-media-title"><div class="container">
-  <div class="home-media-head"><div><p class="kicker">Les rendez-vous IA de Hugo</p><h2 id="home-media-title">Une voix pour suivre. Des histoires pour comprendre.</h2></div><a href="/knowledge-hub/veille-ia/">Toute la veille écrite →</a></div>
-  <div class="home-media-grid">
-    <article class="home-media-card" id="podcasts" aria-labelledby="home-podcast-title"><div id="daily-podcast">
-      <div class="home-radio-top"><img src="/assets/podcast/art/iastro-10-v1.png" width="112" height="112" alt="iAstro"><div><p class="kicker">À écouter · tous les jours</p><h3 id="home-podcast-title">Le Podcast iA</h3><p>Le Flash pour l’essentiel. Le Débrief pour prendre du recul.</p></div></div>
-      <p class="home-media-date">Dernière édition · <time id="podcast-date" datetime="2026-10-17">17 octobre 2026</time></p>
-      <div id="podcast-tracks" class="home-media-tracks"><div class="home-media-track"><label id="podcast-short-title" for="podcast-short">Le Flash<span id="podcast-short-duration">1′ 31″</span></label><audio id="podcast-short" controls preload="none" src="/assets/podcast/short.mp3?v=2dc1af66d71e3f2f" aria-labelledby="podcast-short-title"></audio></div><div class="home-media-track"><label id="podcast-full-title" for="podcast-full">Le Débrief<span id="podcast-full-duration">7′ 23″</span></label><audio id="podcast-full" controls preload="none" src="/assets/podcast/full.mp3?v=2dc1af66d71e3f2f" aria-labelledby="podcast-full-title"></audio></div></div>
-      <p id="podcast-fallback" hidden><a href="https://t.me/VeilleIA_HL">Retrouver les audios sur Telegram →</a></p>
-    </div><div class="home-media-links"><a href="/knowledge-hub/immersion-ia/#podcasts">Tous les épisodes →</a><a href="/assets/podcast/feed.xml">S’abonner au podcast ↗</a></div></article>
-    <article class="home-media-card" id="comic" aria-labelledby="home-comic-title">
-      <div class="home-comic-top"><div><p class="kicker">À lire · le comic du dimanche</p><h3 id="home-comic-title">iAstro Sunday</h3></div><span class="home-media-date">Hugo × iAstro</span></div>
-      <a class="home-comic-art" href="/knowledge-hub/comics/2026-W41-r2/" aria-label="Lire le dernier comic"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" width="1536" height="1024" style="width:300.0%;height:auto;left:-0.0%;top:-60.000000000000014%" alt="Un énorme moteur orange dans une caisse attend devant la porte de l’atelier ; Hugo est stupéfait."></a>
-      <p class="home-media-date">5–11 octobre 2026</p><p class="home-comic-title" lang="fr">L’atelier passe à la vitesse supérieure</p>
-      <div class="home-media-links"><a class="btn btn--primary" href="/knowledge-hub/comics/2026-W41-r2/">Lire le dernier numéro →</a><a href="/knowledge-hub/comics/">Tous les numéros →</a></div>
-    </article>
-  </div>
-  <div class="home-media-foot"><span>Podcasts et comics en français · voix de synthèse, dessins générés par IA.</span><a href="https://t.me/VeilleIA_HL">Le Radar iA sur Telegram ↗</a></div>
-</div></section>
+<section id="a-la-une" class="kh-veille-push" aria-labelledby="kh-veille-title"><div class="container"><aside class="kh-veille-banner"><img src="/assets/podcast/art/iastro-10-v1.png" alt="iAstro" width="76" height="76"><div class="kh-veille-heading"><div><p class="kicker">À suivre aussi · la Veille IA</p><h2 id="kh-veille-title">L’actualité IA, en trois rendez-vous.</h2></div><a href="/knowledge-hub/immersion-ia/">Découvrir la Veille IA →</a></div><nav class="kh-veille-formats" aria-label="Les trois formats de la Veille IA"><a href="https://t.me/VeilleIA_HL">Les news sur Telegram ↗<small>Le Radar iA · les nouvelles à retenir.</small></a><a href="/knowledge-hub/immersion-ia/#podcasts">Écouter le podcast →<small>Le Flash et le Débrief · chaque jour.</small></a><a href="/knowledge-hub/comics/2026-W41-r2/">Lire le comic du dimanche →<small>iAstro Sunday · Hugo × iAstro.</small></a></nav><p class="caption">Un abonnement commun sur Telegram pour suivre les trois rendez-vous.</p></aside></div></section>
 <!-- home-media:end -->
 
 <!-- ===== NOUVEAU — actualité du moment (à rafraîchir à chaque grosse nouveauté) ===== -->
-<section id="nouveau" style="padding-block:0;">
-  <div class="container">
-    <aside class="callout" style="margin-block:0;border-left:3px solid var(--c-red);">
-      <p class="kicker">Nouveau · septembre 2026</p>
-      <div class="two-col" style="margin-top:var(--space-3);align-items:center;">
-        <div>
-          <p style="font-size:1.15rem;font-weight:700;line-height:1.3;margin:0;">Des idées jetées en l'air en fin de semaine. Un Growth Hub en production le mardi.</p>
-          <p style="margin-top:var(--space-2);">Il n'y avait pas de cahier des charges. Seulement une intuition : arrêter d'empiler les tableaux de bord et construire un outil qui dise <strong>quoi faire maintenant</strong>, avec les bonnes preuves. J'ai travaillé avec <strong>ChatGPT et Codex pendant le week-end</strong>. Le mardi, Growth tournait déjà en production.</p>
-          <p style="margin-top:var(--space-2);">Ce qui devait être une app a produit beaucoup plus : plusieurs dépôts et briques créés ou restructurés, une plateforme Data et BigQuery fiabilisée, une application déployée avec ses tests et ses garde-fous, et un <strong>cœur agentique prêt à être instancié sur d'autres projets</strong>. Pas une maquette : un système connecté aux vraies sources, conçu pour proposer puis mesurer des actions.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-4);">
-            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">un week-end</span>
-            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">idée → production</span>
-            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">Data + BigQuery + Growth</span>
-            <span style="display:inline-block;font-family:var(--font-mono);font-size:.78rem;font-weight:500;border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:var(--text);background:var(--surface);">ChatGPT · Codex</span>
-          </div>
-          <p style="margin-top:var(--space-4);"><a class="btn btn--primary" href="journal/growth-centre-actions.html">Lire l'histoire et l'architecture →</a></p>
-        </div>
-        <figure class="figure" style="margin:0;">
-          <img src="assets/growth-proof-views-demo.png" alt="Aperçu du Growth Hub Cobra présentant des actions prioritaires et des indicateurs commerciaux fictifs" loading="lazy" decoding="async" style="width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius);background:#fff;">
-          <figcaption class="caption"><strong>Données de démonstration.</strong> La capture illustre le produit sans exposer les données réelles de Cobra.</figcaption>
-        </figure>
-      </div>
-      <p class="caption" style="margin-top:var(--space-4);">Le vrai gain n'est pas seulement le produit livré : c'est la compression du cycle <strong>idée → architecture → données → tests → production</strong>, sans retirer les contrôles humains.</p>
-    </aside>
-    <aside class="callout veille-home" style="margin-block:var(--space-4) 0;" id="veille-home">
-<!-- veille-home:start (généré par scripts/build_veille_static.py) -->
-<p class="kicker">Veille IA · fraîche du 17 octobre 2026</p>
-<ul style="margin:var(--space-3) 0 0;padding-left:1.1rem;">
-<li style="margin-top:var(--space-2);"><strong>Un projet de loi IA attribué à Anthropic fuite et fait débat</strong> — Un brouillon de texte législatif présenté comme émanant d&#x27;Anthropic a fuité, suscitant des critiques : transparence renforcée mais mécanismes d&#x27;application a…</li>
-</ul>
-<p style="margin-top:var(--space-3);"><a href="veille-ia/">Toute la veille →</a></p>
-<!-- veille-home:end -->
-    </aside>
-  </div>
-</section>
+<section id="nouveau" class="kh-growth"><div class="container"><div><p class="kicker">Dans les coulisses · une étude de cas</p><h2>D’une idée à un outil en production.</h2><p>Growth est né d’un besoin concret : transformer les données du commerce en actions. Le récit du projet, de l’intuition de départ à l’architecture, aux tests et à la mise en production.</p><a class="btn btn--primary" href="journal/growth-centre-actions.html">Lire le retour d’expérience →</a></div><figure><img src="/knowledge-hub/assets/growth-proof-views-demo.png" alt="Aperçu du Growth Hub avec des données de démonstration" loading="lazy" decoding="async"><figcaption class="caption">Données de démonstration.</figcaption></figure></div></section>
 
-<!-- ===== MÉTHODE (How-To) — mise en avant ===== -->
-<section id="methode">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Le plus demandé</p>
-        <h2>Comment j'utilise Claude</h2>
-      </div>
-      <a href="how-to/">Lire le guide complet →</a>
-    </div>
-    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
-    <div class="two-col">
-      <div class="prose">
-        <p>Le cœur de ma méthode tient en quelques fichiers <code>.md</code> que je colle dans les « Project Instructions » de Claude. Un <strong>CLAUDE.md</strong> principal qui définit mon ton, mes règles et mon contexte, des <strong>fichiers d'extension</strong> chargés à la demande (stratégie, dev…), et un fichier dédié à l'<strong>ADN de chaque marque</strong>.</p>
-        <p>Le principe directeur : le <strong>Compound Engineering</strong>. Chaque fois que Claude se trompe sur mon style, j'ajoute une règle. Le système s'améliore avec l'usage — et tout le travail futur en profite.</p>
-        <a class="btn btn--ghost" href="how-to/">Voir la méthode pas à pas</a>
-      </div>
-      <!-- Emplacement photo : capture d'un Project Claude / setup -->
-      <figure class="figure">
-        <img src="assets/img/stage-panel-wide.webp" alt="Hugo Lahutte sur scène lors d'un panel, expliquant à des équipes e-commerce comment utiliser Claude" width="1200" height="800" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius);">
-        <figcaption class="caption">Panel du 19 mai : expliquer aux équipes e-commerce comment utiliser Claude.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
+
 
 <!-- ===== GUIDES — série evergreen ===== -->
-<section id="guides">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Comprendre pour décider</p>
-        <h2>Guides</h2>
-      </div>
-      <a href="guides/">Tous les guides →</a>
-    </div>
-    <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
-    <div class="two-col">
-      <div class="prose">
-        <p>En parallèle du journal, je publie des <strong>guides clairs</strong> sur l'IA et les outils que j'utilise : <em>c'est quoi, à quoi ça sert, ce que ça change</em>. Pensés pour des marchands et des dirigeants pressés, mais lisibles à tous les niveaux — trois profondeurs de lecture dans chaque page.</p>
-        <p>Le dernier raconte <strong>Agent Security</strong> : un cockpit privé qui surveille plusieurs GitHub, hiérarchise les risques et prépare des corrections sans laisser un LLM effacer seul une alerte critique.</p>
-        <a class="btn btn--primary" href="guides/agent-security-code-auto-repare.html">Découvrir Agent Security →</a>
-      </div>
-      <div class="guide-card" style="min-height:auto;">
-        <span class="guide-card__num">Étude de cas · 4 septembre 2026</span>
-        <span class="guide-card__title">Agent Security : un cockpit de sécurité multi-GitHub</span>
-        <span class="guide-card__desc">Gitleaks, OSV, Trivy et Semgrep, des accès cloisonnés, une mémoire des risques et plusieurs modèles pour relire les cas incertains.</span>
-        <a class="guide-card__foot" href="guides/agent-security-code-auto-repare.html" style="text-decoration:none;">Lire l'étude de cas →</a>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ===== PROJETS + cohérence ===== -->
 <section id="projets">
@@ -474,7 +353,7 @@
         <ul style="list-style:none;margin:var(--space-3) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);font-size:.8125rem;">
           <li><a href="/knowledge-hub/how-to/" style="text-decoration:none;">Méthode</a></li>
           <li><a href="/knowledge-hub/guides/" style="text-decoration:none;">Guides</a></li>
-          <li><a href="/knowledge-hub/veille-ia/" style="text-decoration:none;">Veille IA</a></li>
+          <li><a href="/knowledge-hub/immersion-ia/" style="text-decoration:none;">Veille IA</a></li>
           <li><a href="/knowledge-hub/lexique/" style="text-decoration:none;">Lexique</a></li>
           <li><a href="/knowledge-hub/journal/" style="text-decoration:none;">Journal</a></li>
           <li><a href="/knowledge-hub/a-propos/" style="text-decoration:none;">À propos</a></li>
@@ -524,13 +403,6 @@
     });
 })();
 </script>
-<script id="home-media-behavior">
-document.querySelectorAll('.home-news-nav details').forEach(menu=>{
-  document.addEventListener('click',event=>{if(!menu.parentElement.contains(event.target))menu.open=false;});
-  menu.addEventListener('keydown',event=>{if(event.key==='Escape'){menu.open=false;menu.querySelector('summary').focus();}});
-  menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.open=false;}));
-});
-</script>
-<script src="/assets/podcast/player.js?v=20261017c" defer></script>
+
 </body>
 </html>

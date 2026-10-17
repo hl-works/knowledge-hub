@@ -52,6 +52,7 @@ jobs:
         run: |
           python3 scripts/build_veille_static.py
           python3 scripts/build_home_media.py
+          python3 scripts/build_immersion.py
           python3 scripts/build_llms_full.py
           python3 scripts/build_feeds.py
           python3 scripts/build_atlas_static.py
