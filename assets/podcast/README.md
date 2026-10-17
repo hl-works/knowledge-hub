@@ -129,3 +129,18 @@ des aperçus de test en artefacts, sans publier ni envoyer de message.
 17 octobre testée ; Apple Connect affiche les six épisodes disponibles, visibilité
 publique encore à confirmer lors du dernier contrôle. Le prochain nouvel épisode
 reste à observer de bout en bout avant d’affirmer la propagation quotidienne.
+
+
+## Maquette validée par Hugo — date et durée
+
+La date complète reste sur **une seule ligne**, en grands chiffres : 17.10.2026.
+La mention « L’actualité IA » disparaît du pied. La durée utilise les symboles
+minutes et secondes **7′ 23″**, sans horloge. Le Flash et Le Débrief utilisent
+le même pied ; les portraits mensuels et les couleurs restent inchangés.
+
+Les nouvelles images RSS portent le suffixe `-cover-v2.jpg`, y compris pour
+les éditions existantes : l’URL changée permet aux plateformes de récupérer
+la correction. Les anciens JPEG v1 restent accessibles. Le générateur vérifie
+leur empreinte avant migration ; les MP3, GUID et dates de publication restent
+identiques. Les exports PNG 1080 et les mises en page HTML sont également mis
+à jour. Le lecteur dynamique conserve les symboles lorsqu’il actualise la durée.

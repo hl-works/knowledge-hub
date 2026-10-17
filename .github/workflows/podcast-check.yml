@@ -32,7 +32,8 @@ jobs:
         with:
           name: podcast-covers-validated
           path: |
-            assets/podcast/archive/*/*-cover-v1.jpg
+            assets/podcast/archive/*/*-cover-v2.jpg
+            assets/podcast/covers/*.png
             assets/podcast/episodes.json
             assets/podcast/feed.xml
       - uses: actions/upload-artifact@v4

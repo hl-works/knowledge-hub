@@ -32,7 +32,8 @@
         const cover = document.querySelector(`[data-radio-cover="${name}"]`);
         if (cover) {
           const timing = `${Math.floor(track.seconds / 60)}:${String(track.seconds % 60).padStart(2, '0')}`;
-          cover.querySelector('.cover-time').textContent = timing;
+          cover.querySelector('.duration-minutes').textContent = Math.floor(track.seconds / 60);
+          cover.querySelector('.duration-seconds').textContent = String(track.seconds % 60).padStart(2, '0');
           cover.querySelector('.cover-date strong').textContent = data.date.split('-').reverse().join('.');
           cover.querySelector('.podcast-cover').setAttribute('aria-label', `Le Podcast iA, ${name === 'short' ? 'Le Flash' : 'Le Débrief'}, ${data.date}, ${timing}`);
           const portrait = cover.querySelector('.cover-portrait');

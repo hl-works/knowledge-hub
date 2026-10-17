@@ -166,9 +166,10 @@ def build(root=ROOT, archive=False, render_covers=False):
         tag(item, f'{{{ITUNES}}}explicit', 'false')
         tag(item, f'{{{ITUNES}}}episodeType', 'full')
         if track.get('image'):
-            expected_image = f'/assets/podcast/archive/{day.isoformat()}/full-cover-v1.jpg'
+            expected_image = track['image']
+            allowed_images = [f'/assets/podcast/archive/{day.isoformat()}/full-cover-v{v}.jpg' for v in (1, 2)]
             picture = root / expected_image.lstrip('/')
-            if (track['image'] != expected_image or not picture.is_file()
+            if (expected_image not in allowed_images or not picture.is_file()
                     or hashlib.sha256(picture.read_bytes()).hexdigest() != track.get('image_sha256')):
                 raise ValueError(f'Published cover missing or changed: {expected_image}')
             probe = json.loads(subprocess.check_output([

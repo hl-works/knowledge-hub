@@ -17,7 +17,10 @@ class ArtworkTests(unittest.TestCase):
     def test_date_duration_and_missing_month(self):
         html = artwork.layout(ROOT, '2026-11-01', 'full', 442)
         self.assertIn('01.11.2026', html)
-        self.assertIn('7:22', html)
+        self.assertIn('7:22', html)  # accessible label
+        self.assertIn('<small>′</small>', html)
+        self.assertIn('<small>″</small>', html)
+        self.assertNotIn('L’actualité IA', html)
         self.assertIn('Le Débrief', html)
         self.assertNotIn('https://', html)
         with self.assertRaisesRegex(ValueError, 'Monthly iAstro portrait missing'):
@@ -30,7 +33,16 @@ class ArtworkTests(unittest.TestCase):
             shutil.copytree(ROOT / 'assets/podcast/art', root / 'assets/podcast/art')
             episodes = [dict(date=day, short={'seconds': 63}, full={'seconds': 442})
                         for day in ('2026-10-31', '2026-11-01', '2026-12-01')]
+            old = root / 'assets/podcast/archive/2026-10-31/full-cover-v1.jpg'
+            old.parent.mkdir(parents=True)
+            source = ROOT / 'assets/podcast/archive/2026-10-17/full-cover-v1.jpg'
+            shutil.copyfile(source, old)
+            original_bytes = old.read_bytes()
+            episodes[0]['full'].update(image='/' + str(old.relative_to(root)),
+                                      image_sha256=hashlib.sha256(original_bytes).hexdigest())
             artwork.render(root, episodes)
+            self.assertEqual(old.read_bytes(), original_bytes)
+            self.assertTrue(episodes[0]['full']['image'].endswith('full-cover-v2.jpg'))
             hashes = []
             for episode in episodes:
                 path = root / episode['full']['image'].lstrip('/')

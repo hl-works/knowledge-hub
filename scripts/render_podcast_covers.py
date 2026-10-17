@@ -12,6 +12,8 @@ from pathlib import Path
 
 from podcast_design import COVER_CSS, cover
 
+COVER_VERSION = 2
+
 
 def layout(root, day, kind, seconds):
     day = date.fromisoformat(day).isoformat()
@@ -39,14 +41,19 @@ def render(root, episodes):
     for episode in episodes:
         for kind in ('short', 'full'):
             track = episode[kind]
-            relative = f'/assets/podcast/archive/{episode["date"]}/{kind}-cover-v1.jpg'
+            relative = f'/assets/podcast/archive/{episode["date"]}/{kind}-cover-v{COVER_VERSION}.jpg'
             target = root / relative.lstrip('/')
             if track.get('image'):
-                if track['image'] != relative or not target.is_file():
-                    raise ValueError(f'Invalid permanent cover: {relative}')
-                if hashlib.sha256(target.read_bytes()).hexdigest() != track.get('image_sha256'):
-                    raise ValueError(f'Published cover has changed: {relative}')
-                continue
+                previous = root / track['image'].lstrip('/')
+                allowed = [f'/assets/podcast/archive/{episode["date"]}/{kind}-cover-v{v}.jpg'
+                           for v in (1, COVER_VERSION)]
+                if track['image'] not in allowed or not previous.is_file():
+                    raise ValueError(f'Invalid permanent cover: {track["image"]}')
+                if hashlib.sha256(previous.read_bytes()).hexdigest() != track.get('image_sha256'):
+                    raise ValueError(f'Published cover has changed: {track["image"]}')
+                if track['image'] == relative:
+                    continue
+                # A new layout gets a new URL. Keep the old JPEG untouched.
             if target.exists():
                 raise ValueError(f'Untracked cover already exists: {relative}')
             # Validate all monthly sources before writing anything.
@@ -71,6 +78,11 @@ def render(root, episodes):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(result)
                 track.update(image=relative, image_sha256=hashlib.sha256(result).hexdigest())
+                # Update the downloadable 1080px PNGs from the same layout.
+                export = root / 'assets/podcast/covers' / (target.parent.name + '-' + target.name.split('-')[0] + '.png')
+                export.parent.mkdir(parents=True, exist_ok=True)
+                page.add_style_tag(content='.podcast-cover{width:1080px;height:1080px}')
+                page.locator('.podcast-cover').screenshot(path=str(export), type='png')
         finally:
             browser.close()
 
