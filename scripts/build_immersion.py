@@ -5,6 +5,7 @@ from pathlib import Path
 from html import escape as e
 from urllib.parse import urljoin
 from build_comics import shell
+from comics_catalog import current_editions, period
 from podcast_design import cover,COVER_CSS,duration
 from telegram_design import phone, PHONE_CSS
 ROOT=Path(__file__).resolve().parents[1]
@@ -78,6 +79,11 @@ def build():
     archive=json.loads((ROOT/'assets/podcast/episodes.json').read_text())['episodes']
     latest=json.loads((ROOT/'assets/podcast/latest.json').read_text())
     feed=json.loads((ROOT/'knowledge-hub/veille-ia/feed.json').read_text());last=max(x['date'] for x in feed);news=sorted([x for x in feed if x['date']==last],key=lambda x:-x.get('score',0))[:3]
+    comic_root = ROOT/'knowledge-hub/comics'
+    comic_editions = current_editions([ep for path in (comic_root/'episodes').glob('*.json') if (ep := json.loads(path.read_text())).get('status') == 'approved'])
+    comic_latest = comic_editions[-1]
+    comic_panel = next((p for p in comic_latest['panels'] if 'mistral' in p['news_ids']), comic_latest['panels'][0])
+    comic_image = '/knowledge-hub/comics/' + comic_panel['image']
     for lang in ('fr','en'):
         en=lang=='en';prefix='/knowledge-hub/'+('en/' if en else '')
         intro='The daily signal. A voice to follow. A comic on Sunday.' if en else 'Le signal du jour. Une voix pour suivre. Un comic le dimanche.'
@@ -88,7 +94,9 @@ def build():
         comic_preview='<span class="format-preview" aria-hidden="true"><span class="format-comic"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" alt="" width="1536" height="1024"></span></span>'
         formats=[('https://t.me/VeilleIA_HL','01 / SUR TELEGRAM','Le Radar iA','La veille quotidienne, directement sur Telegram.','Rejoindre la chaîne ↗',radar_preview),('#podcasts','02 / À ÉCOUTER','Le Podcast iA','Le Flash ou Le Débrief, à ton rythme.','Écouter les épisodes ↓',podcast_preview),('#sunday','03 / LE DIMANCHE','iAstro Sunday','La semaine IA en comic, avec Hugo et iAstro.','Découvrir le comic ↓',comic_preview)]
         content+='<nav class="kiosk-formats" aria-label="Les trois rendez-vous">'+''.join(f'<a class="format-card" href="{anchor}" aria-label="{e(title)} — {e(action)}">{preview}<span class="format-copy"><span class="format-eyebrow">{eyebrow}</span><strong class="format-title">{title}</strong><span class="format-description">{description}</span><span class="format-action">{action}</span></span></a>' for anchor,eyebrow,title,description,action,preview in formats)+'</nav>'
-        content+=f'<section id="sunday" class="kiosk-feature"><div><p class="kicker">03 / Le comic du dimanche</p><h2>iAstro<br>Sunday<span style="color:var(--c-red)">.</span></h2><span class="kiosk-tag">Hugo × iAstro · 5–11 octobre</span><p class="lead">Les grandes nouvelles de l’IA prennent vie dans l’atelier. Un peu de recul, des surprises et un Chonk qui ne passe pas la porte.</p><a class="btn btn--primary" href="{prefix}comics/2026-W41/">Lire le premier numéro →</a><p class="kiosk-note">Numéro 01 · en français · 4 histoires · environ 3 minutes</p><a href="{prefix}comics/">Tous les comics →</a></div><a class="kiosk-comic" href="{prefix}comics/2026-W41/" aria-label="Lire iAstro Sunday, le premier numéro"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" width="1536" height="1024" alt="Hugo et iAstro découvrent un énorme moteur orange devant leur atelier."><span class="kiosk-comic-caption">DANS CE NUMÉRO / UN CHONK À LA PORTE</span></a></section>'
+        comic_url = prefix + 'comics/' + comic_latest['id'] + '/'
+        week_links = ''.join(f'<a href="{prefix}comics/{ep["id"]}/" style="display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--border-strong);font-size:14px">{e(period(ep))}</a>' for ep in reversed(comic_editions))
+        content+=f'<section id="sunday" class="kiosk-feature"><div><p class="kicker">03 / Le comic du dimanche</p><h2>iAstro<br>Sunday<span style="color:var(--c-red)">.</span></h2><span class="kiosk-tag">Hugo × iAstro · {e(period(comic_latest))}</span><p class="lead">Les grandes nouvelles de l’IA prennent vie dans l’atelier. Une histoire à la fois, avec ses dessins, ses explications et ses sources.</p><a class="btn btn--primary" href="{comic_url}">Lire le dernier numéro →</a><p class="kiosk-note">Chaque semaine · en français · {len(comic_latest["news"])} histoires · lecture mobile</p><a href="{prefix}comics/">Tous les numéros et les archives →</a><nav aria-label="Choisir une semaine de comics" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">{week_links}</nav></div><a class="kiosk-comic" href="{comic_url}" aria-label="Lire iAstro Sunday du {e(period(comic_latest))}"><img src="{comic_image}" width="1536" height="1024" alt="{e(comic_panel["alt"].replace("Iastro","iAstro"))}"><span class="kiosk-comic-caption">{e(comic_latest["title"])}</span></a></section>'
         content+='<section id="podcasts" class="radio-section"><div class="kiosk-section-head"><div><p class="kicker">02 / L’actualité IA à écouter</p><h2>Le Podcast iA<span style="color:var(--c-red)">.</span></h2></div><p>Deux formats. Le même regard curieux.</p></div><div id="daily-podcast"><p class="kiosk-meta">Dernière édition · <time id="podcast-date">'+latest['date']+'</time></p><div id="podcast-tracks" class="radio-latest">'+''.join(episode_card(latest,k,True) for k in ('short','full'))+'</div><p id="podcast-fallback" hidden><a href="https://t.me/VeilleIA_HL">Retrouver les audios sur Telegram →</a></p></div><p class="kiosk-note">Audio en français, avec une voix de synthèse. iAstro change de tenue au fil des mois.</p><div class="radio-archive"><h3>À réécouter</h3>'
         for ep in archive:
             content+=f'<details><summary><span>{ep["date"][8:10]}.{ep["date"][5:7]}.{ep["date"][:4]}</span><span class="radio-duration">Flash {duration(ep["short"]["seconds"])} / Débrief {duration(ep["full"]["seconds"])}</span></summary><div class="radio-latest">'+''.join(episode_card(ep,k) for k in ('short','full'))+'</div></details>'

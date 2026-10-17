@@ -1,6 +1,6 @@
 {
   "id": "2026-W41-r2",
-  "status": "draft",
+  "status": "approved",
   "title": "L’atelier passe à la vitesse supérieure",
   "period_start": "2026-10-05",
   "period_end": "2026-10-11",
@@ -8,9 +8,11 @@
   "wardrobe_month": 10,
   "format": "webtoon",
   "approval": {
-    "editorial": false,
-    "art": false,
-    "publish": false
+    "editorial": true,
+    "art": true,
+    "publish": true,
+    "by": "Hugo",
+    "reference": "Accord explicite dans cette conversation le 17 octobre 2026 : « Et publie-moi les différents strips sur la page HLH Consulting. Passe-les-moi directement en prod pour que je puisse voir comment tu navigues d’une journée à une autre, avec les dates, et comment je peux facilement les revoir. »"
   },
   "cast_ids": [
     "hugo",
@@ -760,7 +762,7 @@
     }
   ],
   "downloads": {},
-  "correction_note": "Nouvelle lecture du numéro du 5–11 octobre : bulles, explications et navigation mobile. À relire avant publication.",
+  "correction_note": "Nouvelle version du numéro du 5–11 octobre : dialogues sans bulles, explications sous les cases et navigation mobile.",
   "reader_variant": "story",
   "reader_description": "Quatre nouvelles de l’IA, racontées dans l’atelier. Un peu de pagaille, des explications et un Chonk qui ne passe pas la porte."
 }

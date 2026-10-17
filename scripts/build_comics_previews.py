@@ -12,6 +12,16 @@ def build():
         if ep.get('status') == 'draft' and ep.get('reader_variant') == 'story':
             episodes.append(validate(ep, preview=True))
     episodes.sort(key=lambda ep: ep['period_start'], reverse=True)
+    if not episodes:
+        for lang in ('fr', 'en'):
+            base = BASE if lang == 'fr' else BASE.replace('/knowledge-hub/', '/knowledge-hub/en/')
+            page = shell('iAstro Sunday — Les numéros publiés', 'Retrouve les comics dans les archives.', f'<section><a href="{base}">Voir tous les numéros →</a></section>', lang)
+            page = page.replace('</head>', f'<meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url={base}"></head>')
+            dest = ROOT/'drafts/index.html' if lang == 'fr' else REPO/'knowledge-hub/en/comics/drafts/index.html'
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_text(page)
+        print('OK: no story drafts; review shelf points to the public archive.')
+        return
     cards = []
     months = ('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre')
     def dimensions(path):

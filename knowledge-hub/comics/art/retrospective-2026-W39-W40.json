@@ -20,5 +20,16 @@
     "All eight new art grids visually reviewed, full sources/prompts and image hashes recorded in each week’s production.json.",
     "Reader validated at 320 and 390 CSS pixels; desktop collection at 1440 pixels.",
     "13 existing comic tests and site health check pass."
-  ]
+  ],
+  "publication_authorization": {
+    "by": "Hugo",
+    "date": "2026-10-17",
+    "scope": [
+      "2026-W39",
+      "2026-W40",
+      "2026-W41-r2"
+    ],
+    "reference": "Passe-les-moi directement en prod",
+    "note": "The earlier draft notes record the state at generation. Approval is now recorded in the episode manifests."
+  }
 }

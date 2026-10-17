@@ -88,3 +88,13 @@ Apple Podcasts, Spotify et le flux RSS podcast constituent le prochain lot : auc
 Le lecteur conserve le swipe et la lecture verticale. Son sommaire utilise des cartes sur une colonne, un départ explicite et une reprise de la case en cours (pendant la visite). Les commandes précédent/suivant restent en bas de l’écran, avec une progression par histoire. Le changement d’histoire et la fin du numéro sont annoncés explicitement. Le mode vertical conserve la position et met à jour le lien de la case.
 
 Une mise à jour technique du lecteur peut désormais utiliser `python3 scripts/build_comics.py --refresh-reader`. Elle exige que l’empreinte SHA-256 des données éditoriales soit identique à celle de l’archive publiée. Toute modification du scénario, des sources, des images référencées ou de l’approbation exige toujours une nouvelle révision. Pour le numéro W41 existant, l’empreinte a été ajoutée après vérification de l’identité entre le HTML publié et son générateur d’origine. Aucun dessin ni dialogue n’a changé.
+
+## Publication des trois semaines — 17 octobre 2026
+
+Hugo autorise explicitement la production des trois numéros W39, W40 et W41-r2 après leur présentation. Les manifestes portent son accord éditorial, graphique et de publication. La collection publique `/knowledge-hub/comics/` présente une seule version par semaine, la révision approuvée la plus récente, classée par période couverte. Le dernier numéro est W41-r2, même si des rétrospectives sont préparées après lui.
+
+Chaque numéro propose « Tous les numéros », un choix de semaine par dates et des liens semaine précédente/suivante. Le Kiosque affiche aussi les trois périodes. W41 original conserve ses dessins et textes ; seule sa navigation est actualisée, avec un lien vers W41-r2. Les anciennes adresses de prévisualisation redirigent vers les éditions publiées.
+
+Reconstruction : `python3 scripts/build_comics.py --refresh-reader`, puis `python3 scripts/build_immersion.py`. La première commande ne peut modifier l’éditorial d’une archive : son empreinte doit rester identique. Les archives, le catalogue et les liens sont générés par `scripts/comics_catalog.py`. Vérifications : `python3 scripts/test_comics.py`, `python3 scripts/build_comics.py --check`, `python3 scripts/check_site_health.py`.
+
+Retour arrière : rétablir le précédent commit de déploiement par un revert Git, sans force-push. Ne pas écraser les anciens dessins ni les épisodes. Les liens permanents déjà partagés doivent rester utilisables.

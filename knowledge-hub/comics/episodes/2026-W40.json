@@ -1,6 +1,6 @@
 {
   "id": "2026-W40",
-  "status": "draft",
+  "status": "approved",
   "title": "L’atelier ne dort plus",
   "period_start": "2026-09-28",
   "period_end": "2026-10-04",
@@ -9,16 +9,18 @@
   "format": "webtoon",
   "reader_variant": "story",
   "approval": {
-    "editorial": false,
-    "art": false,
-    "publish": false
+    "editorial": true,
+    "art": true,
+    "publish": true,
+    "by": "Hugo",
+    "reference": "Accord explicite dans cette conversation le 17 octobre 2026 : « Et publie-moi les différents strips sur la page HLH Consulting. Passe-les-moi directement en prod pour que je puisse voir comment tu navigues d’une journée à une autre, avec les dates, et comment je peux facilement les revoir. »"
   },
   "cast_ids": [
     "hugo",
     "iastro"
   ],
   "reader_description": "Un laboratoire fermé, une affiche à retoucher, un assistant qui veille et une voix trop théâtrale. Quatre nouvelles de l’IA vues depuis l’atelier.",
-  "correction_note": "Numéro rétrospectif · scènes et textes à relire avant publication.",
+  "correction_note": "Édition rétrospective préparée le 17 octobre 2026.",
   "downloads": {},
   "news": [
     {

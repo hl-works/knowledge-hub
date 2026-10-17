@@ -101,12 +101,15 @@ def render(ep,base,dimensions,preview=False):
         if ni<len(ep['news'])-1:
             nxt=ep['news'][ni+1]; nextlink=f'<a class="next" href="#info-{e(nxt["id"])}">Info suivante · {e(nxt["model_label"])} →</a>'
         else:
-            nextlink = '<a class="next" href="/knowledge-hub/comics/drafts/">Les autres numéros →</a>' if preview else '<a class="next" href="/knowledge-hub/immersion-ia/">Fin du numéro · Le Kiosque IA →</a>'
+            nextlink = '<a class="next" href="/knowledge-hub/comics/drafts/">Les autres numéros →</a>' if preview else '<a class="next" href="/knowledge-hub/comics/">Fin du numéro · Tous les numéros →</a>'
         stories.append(f'<section class="story" id="info-{e(nid)}" tabindex="-1" aria-labelledby="title-{e(nid)}"><header class="story-heading"><span class="brand-logo {"wordmark" if n["brand_id"] in ("mistral", "shopify") else ""}"><img src="{base}brands/{logo}" alt="{e(brand)}" width="72" height="72"></span><div><p class="eyebrow">{ni+1:02d} / {count:02d} · {e(brand)} · {e(n["model_label"])}</p><h2 id="title-{e(nid)}">{e(n["intro"]["title"])}</h2></div><p class="story-summary">{e(n["intro"]["summary"])}</p></header><div class="scenes">{"".join(scenes)}</div><p class="source">Pour vérifier l’annonce : {src}<br>Les scènes sont imaginées. Les paragraphes sous les cases expliquent les faits et notre lecture de leurs usages.</p><nav class="story-end" aria-label="Après {e(n["model_label"])}"><a href="#sommaire">↑ Les {count} infos</a>{nextlink}</nav></section>')
     note=f'<p class="preview-note">Version de travail · {e(ep.get("correction_note","À relire avant publication."))}</p><p><a href="/knowledge-hub/comics/drafts/" style="display:inline-flex;align-items:center;min-height:44px">← Les numéros à relire</a></p>' if preview else ''
+    if not preview and ep.get('correction_note'):
+        note = f'<p class="preview-note">{e(ep["correction_note"])}</p>'
+    issue_link = '' if preview else '<a href="/knowledge-hub/comics/">Numéros</a>'
     return f'''<style>{CSS}</style><article class="sunday" aria-label="iAstro Sunday, {e(period)}">
 <div class="edition"><span>HUGO × iAstro</span><span>{e(period.upper())}</span></div>
 <h1 class="masthead">iAstro <em>Sunday.</em></h1><p class="dek">{e(ep.get("reader_description", "Les nouvelles de l’IA, racontées dans l’atelier. Des scènes, des explications et un peu de recul."))}</p>{note}
 <nav class="contents" id="sommaire" tabindex="-1" aria-labelledby="contents-title"><h2 id="contents-title">Cette semaine, dans l’atelier</h2><div class="contents-grid">{''.join(menu)}</div></nav>
-<nav class="readbar" aria-label="Navigation du comic" hidden><a href="#sommaire">↑ Sommaire</a><span class="bar-label">Fais défiler pour lire</span><select aria-label="Aller à une info">{''.join(options)}</select></nav>
+<nav class="readbar" aria-label="Navigation du comic" hidden><a href="#sommaire">↑ Sommaire</a>{issue_link}<span class="bar-label">Fais défiler pour lire</span><select aria-label="Aller à une info">{''.join(options)}</select></nav>
 {''.join(stories)}<p class="endnote">Hugo × iAstro · Dessins générés par IA, sélection et direction éditoriale : Hugo Lahutte. Cette édition revient sur la semaine du {e(period)} ; les disponibilités indiquées sont celles annoncées à cette date.</p></article><script>{JS}</script>'''
