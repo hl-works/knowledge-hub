@@ -91,3 +91,41 @@ plateforme n'est pas annulée en restaurant simplement un commit.
 Sources : [RSS Apple](https://podcasters.apple.com/support/823-podcast-requirements),
 [épisodes via RSS](https://podcasters.apple.com/support/825-how-to-create-an-episode),
 [rattachement Spotify](https://support.spotify.com/uk/creators/article/claiming-your-podcast-on-spotify-for-creators/).
+
+## Pochettes d’épisodes automatiques — 17 octobre 2026
+
+Chaque piste archivée reçoit `archive/YYYY-MM-DD/{short,full}-cover-v1.jpg` :
+JPEG opaque de 3000 × 3000, composé à partir du même layout que le site,
+du portrait `art/iastro-MM-v1.png`, de la date de l’épisode et de sa durée
+vérifiée dans le MP3. Le RSS référence le JPEG du Débrief dans chaque
+`item/itunes:image`. La couverture générale de l’émission reste distincte.
+Les dates et durées restent du texte composé ; aucun dessin n’est régénéré
+pendant le job quotidien. Les polices système évitent une dépendance à un CDN.
+
+```sh
+python3 -m pip install -r scripts/requirements-podcast-covers.txt
+python3 -m playwright install --with-deps chromium
+python3 scripts/build_podcast_feed.py --archive-latest --render-covers
+```
+
+Le bridge de `veille-ia` effectue ces opérations dans son clone temporaire et
+publie images, archives, manifeste et RSS ensemble. Les images déjà référencées
+sont conservées et leur SHA-256 est contrôlé. Ajouter une image ne modifie ni
+les MP3, ni les GUID, ni les URLs audio des épisodes existants.
+
+Octobre, novembre et décembre sont prêts. **Les portraits de janvier à septembre
+restent à produire avant leur première utilisation.** Un portrait manquant ou
+un échec du rendu arrête le bridge avant son commit : le flux précédent reste
+intact ; le job affiche l’erreur. Cela ne supprime pas l’audio déjà envoyé sur
+Telegram. Ne pas prétendre à une autonomie annuelle tant que ces neuf portraits
+ne sont pas disponibles. Les anciens exports PNG 1080 sont conservés, mais ne
+sont pas les images RSS (minimum Apple : 1400 px).
+
+Le workflow `podcast-check.yml` teste le passage octobre → novembre → décembre,
+le rendu réel 3000 px, les empreintes et le rejeu sans modification. Il produit
+des aperçus de test en artefacts, sans publier ni envoyer de message.
+
+État plateformes au 17 octobre : Spotify public avec six épisodes, lecture du
+17 octobre testée ; Apple Connect affiche les six épisodes disponibles, visibilité
+publique encore à confirmer lors du dernier contrôle. Le prochain nouvel épisode
+reste à observer de bout en bout avant d’affirmer la propagation quotidienne.

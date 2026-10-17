@@ -77,7 +77,9 @@ def archive_latest(root):
             raise ValueError(f'Archive is immutable: {relative}')
         if existing and existing[kind].get('sha256', info['sha256']) != info['sha256']:
             raise ValueError(f'Archive hash changed: {relative}')
-        entry[kind] = {'src': relative, 'seconds': latest[kind]['seconds'], **info}
+        # Keep already published artwork metadata on an idempotent daily retry.
+        entry[kind] = {**(existing[kind] if existing else {}),
+                       'src': relative, 'seconds': latest[kind]['seconds'], **info}
         copies.append((source, target))
     if digest.hexdigest()[:16] != latest['version']:
         raise ValueError('Latest manifest does not match the audio pair')
@@ -95,7 +97,7 @@ def archive_latest(root):
     write_json(folder / 'episodes.json', manifest)
 
 
-def build(root=ROOT, archive=False):
+def build(root=ROOT, archive=False, render_covers=False):
     folder = root / 'assets/podcast'
     show = read_json(folder / 'show.json')
     if not isinstance(show.get('email'), str) or not re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+', show['email']):
@@ -104,9 +106,14 @@ def build(root=ROOT, archive=False):
         raise ValueError('Show artwork is missing')
     if archive:
         archive_latest(root)
-    episodes = read_json(folder / 'episodes.json')['episodes']
+    manifest = read_json(folder / 'episodes.json')
+    episodes = manifest['episodes']
     if not episodes or len({e['date'] for e in episodes}) != len(episodes):
         raise ValueError('Empty archive or duplicate episode date')
+    if render_covers:
+        from render_podcast_covers import render
+        render(root, episodes)
+        write_json(folder / 'episodes.json', manifest)
     rss = ET.Element('rss', {'version': '2.0'})
     channel = ET.SubElement(rss, 'channel')
 
@@ -158,6 +165,18 @@ def build(root=ROOT, archive=False):
         tag(item, f'{{{ITUNES}}}duration', track['seconds'])
         tag(item, f'{{{ITUNES}}}explicit', 'false')
         tag(item, f'{{{ITUNES}}}episodeType', 'full')
+        if track.get('image'):
+            expected_image = f'/assets/podcast/archive/{day.isoformat()}/full-cover-v1.jpg'
+            picture = root / expected_image.lstrip('/')
+            if (track['image'] != expected_image or not picture.is_file()
+                    or hashlib.sha256(picture.read_bytes()).hexdigest() != track.get('image_sha256')):
+                raise ValueError(f'Published cover missing or changed: {expected_image}')
+            probe = json.loads(subprocess.check_output([
+                'ffprobe', '-v', 'error', '-show_entries', 'stream=codec_name,width,height',
+                '-of', 'json', str(picture)], text=True, timeout=30))['streams']
+            if not probe or probe[0] != {'codec_name': 'mjpeg', 'width': 3000, 'height': 3000}:
+                raise ValueError(f'Expected a 3000px JPEG: {expected_image}')
+            tag(item, f'{{{ITUNES}}}image', href=BASE + expected_image)
     ET.indent(rss, space='  ')
     xml = ET.tostring(rss, encoding='utf-8', xml_declaration=True) + b'\n'
     output = folder / 'feed.xml'
@@ -170,5 +189,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--archive-latest', action='store_true')
+    parser.add_argument('--render-covers', action='store_true')
     args = parser.parse_args()
-    print(f'{build(args.root, args.archive_latest)} épisodes complets dans assets/podcast/feed.xml')
+    print(f'{build(args.root, args.archive_latest, args.render_covers)} épisodes complets dans assets/podcast/feed.xml')
