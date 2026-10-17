@@ -59,6 +59,26 @@ class PodcastFeedTests(unittest.TestCase):
         self.assertEqual(items[1].find('enclosure').attrib, enclosure)
         self.assertEqual(self.xml().findtext('./channel/title'), show['title'])
 
+    def test_prepared_artwork_preserved_and_mismatch_rejected(self):
+        for kind in ('short', 'full'):
+            relative = f'/assets/podcast/archive/2026-10-17/{kind}-cover-v2.jpg'
+            target = self.root / relative.lstrip('/')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((feed.ROOT / relative.lstrip('/')).read_bytes())
+            self.latest[kind].update(image=relative, image_sha256=hashlib.sha256(target.read_bytes()).hexdigest())
+        feed.write_json(self.folder / 'latest.json', self.latest)
+        feed.build(self.root, archive=True)
+        before = (self.folder / 'feed.xml').read_bytes()
+        self.assertEqual(self.xml().find('./channel/item/{' + feed.ITUNES + '}image').get('href'),
+                         feed.BASE + self.latest['full']['image'])
+        feed.build(self.root, archive=True)
+        self.assertEqual((self.folder / 'feed.xml').read_bytes(), before)
+        self.latest['short']['image_sha256'] = 'incorrect'
+        feed.write_json(self.folder / 'latest.json', self.latest)
+        with self.assertRaisesRegex(ValueError, 'Prepared artwork'):
+            feed.build(self.root, archive=True)
+        self.assertEqual((self.folder / 'feed.xml').read_bytes(), before)
+
     def test_same_day_regeneration_cannot_overwrite_archive(self):
         feed.build(self.root, archive=True)
         before = (self.folder / 'feed.xml').read_bytes()

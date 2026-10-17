@@ -80,6 +80,17 @@ def archive_latest(root):
         # Keep already published artwork metadata on an idempotent daily retry.
         entry[kind] = {**(existing[kind] if existing else {}),
                        'src': relative, 'seconds': latest[kind]['seconds'], **info}
+        if latest[kind].get('image'):
+            image = latest[kind]['image']
+            expected_image = f'/assets/podcast/archive/{day}/{kind}-cover-v2.jpg'
+            picture = root / image.lstrip('/')
+            checksum = latest[kind].get('image_sha256')
+            if (image != expected_image or not picture.is_file()
+                    or hashlib.sha256(picture.read_bytes()).hexdigest() != checksum):
+                raise ValueError('Prepared artwork missing or changed')
+            if existing and existing[kind].get('image_sha256') not in (None, checksum):
+                raise ValueError('Published artwork is immutable')
+            entry[kind].update(image=image, image_sha256=checksum)
         copies.append((source, target))
     if digest.hexdigest()[:16] != latest['version']:
         raise ValueError('Latest manifest does not match the audio pair')

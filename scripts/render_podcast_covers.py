@@ -40,6 +40,8 @@ def render(root, episodes):
     plans = []
     for episode in episodes:
         for kind in ('short', 'full'):
+            if kind not in episode:
+                continue
             track = episode[kind]
             relative = f'/assets/podcast/archive/{episode["date"]}/{kind}-cover-v{COVER_VERSION}.jpg'
             target = root / relative.lstrip('/')
@@ -87,12 +89,46 @@ def render(root, episodes):
             browser.close()
 
 
+def render_daily(root, output, day, short_seconds, full_seconds):
+    """Prepare one unpublished pair using exactly the archive renderer."""
+    import shutil
+    import tempfile
+    day = date.fromisoformat(day).isoformat()
+    episode = dict(date=day, full={'seconds': full_seconds})
+    if short_seconds != 0:
+        episode['short'] = {'seconds': short_seconds}
+    # A fresh staging root avoids touching any previously published episode.
+    with tempfile.TemporaryDirectory() as directory:
+        stage = Path(directory)
+        art = stage / 'assets/podcast/art'
+        art.parent.mkdir(parents=True)
+        art.symlink_to((root / 'assets/podcast/art').resolve(), target_is_directory=True)
+        render(stage, [episode])
+        output.mkdir(parents=True, exist_ok=True)
+        for kind in ('short', 'full'):
+            if kind not in episode:
+                continue
+            track = episode[kind]
+            shutil.copyfile(stage / track['image'].lstrip('/'), output / f'{kind}-cover.jpg')
+            shutil.copyfile(stage / f'assets/podcast/covers/{day}-{kind}.png', output / f'{kind}-cover.png')
+        (output / 'artwork.json').write_text(json.dumps(episode, indent=2) + '\n')
+
+
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument('--daily', help='Prepare unpublished artwork for YYYY-MM-DD')
+    parser.add_argument('--short-seconds', type=int)
+    parser.add_argument('--full-seconds', type=int)
+    parser.add_argument('--output', type=Path)
     args = parser.parse_args()
-    path = args.root / 'assets/podcast/episodes.json'
-    manifest = json.loads(path.read_text())
-    render(args.root, manifest['episodes'])
-    path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
+    if args.daily:
+        if args.output is None:
+            parser.error('--output is required with --daily')
+        render_daily(args.root, args.output, args.daily, args.short_seconds, args.full_seconds)
+    else:
+        path = args.root / 'assets/podcast/episodes.json'
+        manifest = json.loads(path.read_text())
+        render(args.root, manifest['episodes'])
+        path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')

@@ -144,3 +144,20 @@ la correction. Les anciens JPEG v1 restent accessibles. Le générateur vérifie
 leur empreinte avant migration ; les MP3, GUID et dates de publication restent
 identiques. Les exports PNG 1080 et les mises en page HTML sont également mis
 à jour. Le lecteur dynamique conserve les symboles lorsqu’il actualise la durée.
+
+
+## Pochette préparée avant Telegram — 17 octobre 2026
+
+Le producteur appelle maintenant le même renderer avec `--daily YYYY-MM-DD
+--short-seconds N --full-seconds N --output DOSSIER` avant les envois.
+Le rendu isolé fournit les JPEG 3000, PNG 1080 et leur manifeste sans modifier
+les épisodes publiés. Une version complète seule reste possible si le Flash
+échoue ; le bridge public exige toujours les deux envois confirmés.
+
+Le producteur intègre une déclinaison JPEG 1080 dans le MP3 sans réencoder le
+son et joint une miniature JPEG 320 de moins de 200 ko à `sendAudio`. Le bridge
+copie les fichiers préparés et transmet leurs empreintes dans `latest.json` ;
+le générateur de RSS conserve ces images exactes sans les redessiner.
+Les archives déjà distribuées ne sont pas réécrites. Le changement concerne
+les prochains audios. La réception effective de la miniature Telegram doit
+être distinguée des tests de préparation et des réponses de l’API.
