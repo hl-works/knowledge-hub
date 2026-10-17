@@ -1,0 +1,41 @@
+name: Podcast feed and artwork
+on:
+  pull_request:
+    paths: ['scripts/*podcast*', 'assets/podcast/**', '.github/workflows/podcast-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          pip install -r scripts/requirements-podcast-covers.txt
+          python -m playwright install --with-deps chromium
+      - run: python -m unittest discover -s scripts -p 'test_podcast*.py' -v
+        env:
+          PODCAST_RENDER_TEST: '1'
+          PODCAST_PREVIEW_DIR: podcast-month-previews
+      - name: Render and verify the real archived episodes without publishing
+        run: |
+          python scripts/build_podcast_feed.py --archive-latest --render-covers
+          sha256sum assets/podcast/feed.xml assets/podcast/episodes.json > /tmp/podcast-sha
+          python scripts/build_podcast_feed.py --archive-latest --render-covers
+          sha256sum --check /tmp/podcast-sha
+      - uses: actions/upload-artifact@v4
+        with:
+          name: podcast-covers-validated
+          path: |
+            assets/podcast/archive/*/*-cover-v1.jpg
+            assets/podcast/episodes.json
+            assets/podcast/feed.xml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: podcast-month-previews-tests-only
+          path: podcast-month-previews/

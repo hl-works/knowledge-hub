@@ -1,0 +1,86 @@
+"""Render the shared cover layout to permanent, opaque episode JPEGs.
+
+Only composes existing monthly artwork and factual typography; no image or
+audio generation service, external font, Telegram or platform API is called.
+Chromium is used by the publishing job, not by visitors to the static site.
+"""
+import base64
+from datetime import date
+import hashlib
+import json
+from pathlib import Path
+
+from podcast_design import COVER_CSS, cover
+
+
+def layout(root, day, kind, seconds):
+    day = date.fromisoformat(day).isoformat()
+    if kind not in ('short', 'full') or type(seconds) is not int or not 0 < seconds < 1800:
+        raise ValueError('Invalid cover format or duration')
+    portrait = root / f'assets/podcast/art/iastro-{day[5:7]}-v1.png'
+    if not portrait.is_file():
+        raise ValueError(f'Monthly iAstro portrait missing: {portrait.name}')
+    uri = 'data:image/png;base64,' + base64.b64encode(portrait.read_bytes()).decode()
+    # Same layout as the site, with local system fonts so publication never
+    # depends on Google Fonts/Fontshare availability. All dimensions are CSS.
+    css = COVER_CSS + '''
+    *{box-sizing:border-box}html,body{margin:0;padding:0;background:#FFFCF8;
+    overflow:hidden;font-family:Arial,sans-serif}
+    .podcast-cover{width:3000px;height:3000px;border:0}
+    '''
+    return ('<!doctype html><html lang="fr"><meta charset="utf-8">'
+            '<title>Le Podcast IA</title><style>' + css + '</style>'
+            + cover(day, kind, seconds, uri) + '</html>')
+
+
+def render(root, episodes):
+    """Render missing covers only; never overwrite an already linked image."""
+    plans = []
+    for episode in episodes:
+        for kind in ('short', 'full'):
+            track = episode[kind]
+            relative = f'/assets/podcast/archive/{episode["date"]}/{kind}-cover-v1.jpg'
+            target = root / relative.lstrip('/')
+            if track.get('image'):
+                if track['image'] != relative or not target.is_file():
+                    raise ValueError(f'Invalid permanent cover: {relative}')
+                if hashlib.sha256(target.read_bytes()).hexdigest() != track.get('image_sha256'):
+                    raise ValueError(f'Published cover has changed: {relative}')
+                continue
+            if target.exists():
+                raise ValueError(f'Untracked cover already exists: {relative}')
+            # Validate all monthly sources before writing anything.
+            plans.append((track, relative, target,
+                          layout(root, episode['date'], kind, track['seconds'])))
+    if not plans:
+        return
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch()
+        try:
+            page = browser.new_page(viewport={'width': 3000, 'height': 3000},
+                                    device_scale_factor=1)
+            page.route('**/*', lambda route: route.abort())
+            for track, relative, target, html in plans:
+                page.set_content(html, wait_until='load')
+                page.evaluate('''async () => {
+                    await document.fonts.ready;
+                    await Promise.all([...document.images].map(img => img.decode()));
+                }''')
+                result = page.screenshot(type='jpeg', quality=92)
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(result)
+                track.update(image=relative, image_sha256=hashlib.sha256(result).hexdigest())
+        finally:
+            browser.close()
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
+    args = parser.parse_args()
+    path = args.root / 'assets/podcast/episodes.json'
+    manifest = json.loads(path.read_text())
+    render(args.root, manifest['episodes'])
+    path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
