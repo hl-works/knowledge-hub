@@ -36,7 +36,10 @@ main:has(.sunday){max-width:1120px;padding-inline:24px}
 .sunday .speech{position:relative;isolation:isolate;align-self:flex-start;width:fit-content;max-width:94%;margin:0;padding:16px 30px 35px;text-align:center;font:500 18px/1.35 var(--font-body);text-wrap:pretty}
 .sunday .speech.right{align-self:flex-end}.sunday .balloon-outline{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible;fill:var(--c-white);stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
 .sunday .speech.right .balloon-outline{transform:scaleX(-1)}
-.sunday .speech strong{display:block;font:700 10px/1.3 var(--font-body);letter-spacing:.04em;text-transform:none;margin:0 0 5px}
+.sunday .speaker-accessible{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.sunday .voice-iastro{font-family:var(--font-mono);font-weight:500;padding-inline:25px}
+.sunday .voice-iastro .speech-text{font-style:normal}
+.sunday .voice-iastro .balloon-outline{fill:var(--c-platinum)}
 .sunday .speech-text{position:relative;display:block;font-style:italic}
 .sunday .scene-note{padding:20px 4px 0}.sunday .scene-note h3{font-size:18px;line-height:1.3;margin:0 0 8px;display:flex;align-items:baseline;gap:10px}.sunday .scene-number{font:12px 'IBM Plex Mono',monospace;color:var(--sunday-accent)}
 .sunday .scene-note p{font-size:17px;line-height:1.65;margin:0}.sunday .source{font-size:14px;line-height:1.6;border-top:1px solid var(--border);padding-top:18px;margin-top:32px}.sunday .source a{display:inline-block;padding-block:8px}
@@ -91,8 +94,12 @@ def render(ep,base,dimensions,preview=False):
             bubbles=[]
             for line in p['dialogue']:
                 speaker=line['speaker'].replace('Iastro','iAstro')
-                side=line.get('side','left')
-                bubbles.append(f'<p class="speech {e(side)}"><svg class="balloon-outline" viewBox="0 0 320 140" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M160 4 C252 4 314 17 314 57 C314 98 262 116 113 116 C102 124 90 131 75 136 C83 125 87 118 87 112 C36 104 6 85 6 57 C6 19 67 4 160 4 Z"/></svg><strong>{e(speaker)}</strong><span class="speech-text">{e(line["text"])}</span></p>')
+                is_iastro=line['speaker'] in ('Iastro', 'iAstro')
+                side='right' if is_iastro else 'left' if line['speaker']=='Hugo' else line.get('side','left')
+                voice='voice-iastro' if is_iastro else 'voice-hugo'
+                contour=('M28 8 H292 L312 26 V94 L294 112 H112 L76 135 L86 112 H28 L8 94 V26 Z' if is_iastro
+                         else 'M160 4 C252 4 314 17 314 57 C314 98 262 116 113 116 C102 124 90 131 75 136 C83 125 87 118 87 112 C36 104 6 85 6 57 C6 19 67 4 160 4 Z')
+                bubbles.append(f'<p class="speech {side} {voice}"><svg class="balloon-outline" viewBox="0 0 320 140" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="{contour}"/></svg><span class="speaker-accessible">{e(speaker)} : </span><span class="speech-text">{e(line["text"])}</span></p>')
             scenes.append(f'<figure class="scene" id="{e(nid)}-case-{pi+1}" tabindex="-1"><div class="panel"><div class="speech-track">{"".join(bubbles)}</div>{art(p,base,dimensions)}</div><figcaption class="scene-note"><h3><span class="scene-number">{pi+1:02d}/{len(panels):02d}</span>{e(p["explanation"]["title"])}</h3><p>{e(p["explanation"]["text"])}</p></figcaption></figure>')
         src=' · '.join(f'<a href="{e(s["url"])}">{e(s["publisher"])} — annonce du {e(s["published_at"][8:])}/{e(s["published_at"][5:7])}</a>' for s in n['sources'])
         if ni<len(ep['news'])-1:
