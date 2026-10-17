@@ -1,0 +1,738 @@
+{
+  "id": "2026-W40",
+  "status": "draft",
+  "title": "L’atelier ne dort plus",
+  "period_start": "2026-09-28",
+  "period_end": "2026-10-04",
+  "publication_date": "2026-10-17",
+  "wardrobe_month": 10,
+  "format": "webtoon",
+  "reader_variant": "story",
+  "approval": {
+    "editorial": false,
+    "art": false,
+    "publish": false
+  },
+  "cast_ids": [
+    "hugo",
+    "iastro"
+  ],
+  "reader_description": "Un laboratoire fermé, une affiche à retoucher, un assistant qui veille et une voix trop théâtrale. Quatre nouvelles de l’IA vues depuis l’atelier.",
+  "correction_note": "Numéro rétrospectif · scènes et textes à relire avant publication.",
+  "downloads": {},
+  "news": [
+    {
+      "id": "argon",
+      "title": "Le laboratoire des gros nœuds",
+      "fact": "Google annonce Gemini 4 Argon le 30 septembre : raisonnement prolongé, logiciel et cyberdéfense. Déploiement initial auprès de défenseurs de confiance via Fairwind ; pas de disponibilité grand public cette semaine.",
+      "brand_id": "google",
+      "model_label": "Gemini 4 Argon",
+      "intro": {
+        "title": "Le laboratoire des gros nœuds",
+        "summary": "Google annonce Gemini 4 Argon pour les problèmes complexes. Son premier accès est réservé à des spécialistes de la cyberdéfense sélectionnés."
+      },
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "publisher": "Google",
+          "title": "Introducing Gemini 4 Argon",
+          "published_at": "2026-09-30",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    },
+    {
+      "id": "sonnet",
+      "title": "Encore une petite retouche",
+      "fact": "Anthropic lance Sonnet 5.5 le 28 septembre. Gain annoncé de vitesse de génération supérieur à 30 %, coût par tâche jusqu’à 30 % plus bas ; prix par token inchangé. Ne pas transformer ces résultats fournisseur en garantie universelle.",
+      "brand_id": "anthropic",
+      "model_label": "Claude Sonnet 5.5",
+      "intro": {
+        "title": "Encore une petite retouche",
+        "summary": "Sonnet 5.5 arrive pour accélérer les tâches courantes et les allers-retours. L’atelier se transforme en studio de création, avec une dernière retouche… évidemment."
+      },
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "publisher": "Anthropic",
+          "title": "Introducing Claude Sonnet 5.5",
+          "published_at": "2026-09-28",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    },
+    {
+      "id": "dots",
+      "title": "Qui travaille pendant la pause ?",
+      "fact": "Annonce du 29 septembre : agent persistant doté d’un ordinateur cloud, alimenté par GPT-6 Astra. Déploiement progressif Pro et Business Premium ; à ce lancement Pro exclut EEE, Suisse et Royaume-Uni, Enterprise bêta administrée.",
+      "brand_id": "openai",
+      "model_label": "Dots",
+      "intro": {
+        "title": "Qui travaille pendant la pause ?",
+        "summary": "OpenAI présente les dots, des agents qui peuvent poursuivre un objectif entre deux conversations. Il faut leur donner un cadre, des accès et un travail à vérifier."
+      },
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-dots/",
+          "publisher": "OpenAI",
+          "title": "Introducing dots",
+          "published_at": "2026-09-29",
+          "consulted_at": "2026-10-17"
+        },
+        {
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "publisher": "OpenAI",
+          "title": "ChatGPT release notes — Meet your dot (availability at launch)",
+          "published_at": "2026-09-29",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    },
+    {
+      "id": "eleven",
+      "title": "La voix du petit-déjeuner",
+      "fact": "Eleven v4 et sa variante Turbo lancés le 28 septembre. Expression, rythme, intention et dialogues sont mis en avant. Article mis à jour le 12 octobre : ne pas reprendre les fonctions détaillées non datables au lancement ni les comparatifs chiffrés.",
+      "brand_id": "elevenlabs",
+      "model_label": "Eleven v4",
+      "intro": {
+        "title": "La voix du petit-déjeuner",
+        "summary": "ElevenLabs lance Eleven v4, une synthèse vocale plus expressive. Le ton et le rythme comptent presque autant que les mots : Hugo s’en aperçoit au micro."
+      },
+      "sources": [
+        {
+          "url": "https://elevenlabs.io/blog/eleven-v4",
+          "publisher": "ElevenLabs",
+          "title": "Introducing Eleven v4, our most emotive model",
+          "published_at": "2026-09-28",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "title": "Le laboratoire des gros nœuds",
+      "image": "art/2026-W40/argon-v1.png",
+      "alt": "Hugo porte une énorme boule de câbles emmêlés devant iAstro.",
+      "news_ids": [
+        "argon"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "C’est juste un petit souci de câblage.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un modèle pour les problèmes longs",
+        "text": "Google présente Gemini 4 Argon le 30 septembre. Il vise les travaux complexes qui demandent de maintenir un raisonnement sur plusieurs étapes."
+      }
+    },
+    {
+      "title": "Le laboratoire des gros nœuds",
+      "image": "art/2026-W40/argon-v1.png",
+      "alt": "iAstro indique un laboratoire bleu derrière une porte vitrée avec lecteur de badge.",
+      "news_ids": [
+        "argon"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Le nouveau labo est là. Mais il faut un badge.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une porte encore limitée",
+        "text": "L’accès initial passe par le programme Fairwind, auprès de spécialistes de la cyberdéfense sélectionnés. Ce n’est pas une sortie disponible pour tous dans l’application Gemini."
+      }
+    },
+    {
+      "title": "Le laboratoire des gros nœuds",
+      "image": "art/2026-W40/argon-v1.png",
+      "alt": "Vue de dessus : les personnages suivent une piste cyan parmi les câbles sur un grand établi.",
+      "news_ids": [
+        "argon"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Tu suis quel fil, là ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Comprendre l’ensemble",
+        "text": "Google met en avant le travail sur des logiciels et des dossiers professionnels complexes. Notre labyrinthe de câbles représente les dépendances qu’il faut démêler avant d’agir."
+      }
+    },
+    {
+      "title": "Le laboratoire des gros nœuds",
+      "image": "art/2026-W40/argon-v1.png",
+      "alt": "iAstro inspecte un connecteur défectueux à la loupe tandis que Hugo l’éclaire.",
+      "news_ids": [
+        "argon"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Celui qui explique pourquoi rien ne s’allume.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Trouver et réparer",
+        "text": "La cyberdéfense est un premier terrain d’application annoncé. Google décrit un modèle capable d’aider à trouver, vérifier et corriger des vulnérabilités logicielles."
+      }
+    },
+    {
+      "title": "Le laboratoire des gros nœuds",
+      "image": "art/2026-W40/argon-v1.png",
+      "alt": "iAstro présente un badge visiteur ; Hugo attend devant l’entrée du laboratoire.",
+      "news_ids": [
+        "argon"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Donc je ne peux pas l’essayer ce soir ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Annonce et disponibilité sont distinctes",
+        "text": "À la fin de cette semaine, un accès plus large reste prévu pour plus tard. Les capacités décrites par Google ne valent donc pas encore essai libre pour chacun."
+      }
+    },
+    {
+      "title": "Le laboratoire des gros nœuds",
+      "image": "art/2026-W40/argon-v1.png",
+      "alt": "Le gros problème est résolu, mais Hugo sort de sa poche un câble de téléphone entièrement noué.",
+      "news_ids": [
+        "argon"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "En attendant, on a déjà un beau sujet d’étude.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Ce qu’il faut retenir",
+        "text": "Le cap annoncé est une IA qui tient des tâches longues et difficiles. Pour décider de l’utiliser, il faudra encore regarder l’accès réel et ses résultats sur ton propre besoin."
+      }
+    },
+    {
+      "title": "Encore une petite retouche",
+      "image": "art/2026-W40/sonnet-v1.png",
+      "alt": "Hugo montre fièrement une affiche de formes géométriques de travers ; iAstro paraît sceptique.",
+      "news_ids": [
+        "sonnet"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "C’est terminé. Enfin… presque.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une nouvelle version du quotidien",
+        "text": "Anthropic présente Sonnet 5.5 le 28 septembre. Le modèle vise notamment les tâches bien délimitées : documents, tableaux, présentations, code et création visuelle."
+      }
+    },
+    {
+      "title": "Encore une petite retouche",
+      "image": "art/2026-W40/sonnet-v1.png",
+      "alt": "iAstro réorganise les formes sur une table de dessin pendant que Hugo tient un chronomètre.",
+      "news_ids": [
+        "sonnet"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Je remets deux ou trois choses à leur place.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Moins d’attente annoncée",
+        "text": "Anthropic annonce une génération plus rapide que Sonnet 5. Le bénéfice recherché est concret : attendre moins longtemps entre une demande et la proposition suivante."
+      }
+    },
+    {
+      "title": "Encore une petite retouche",
+      "image": "art/2026-W40/sonnet-v1.png",
+      "alt": "Hugo et iAstro échangent rapidement des feuilles corrigées dans l’atelier.",
+      "news_ids": [
+        "sonnet"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Un peu plus à gauche. Non, l’autre gauche.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Travailler par petits retours",
+        "text": "Une première version sert souvent à préciser ce qu’on veut vraiment. Notre conseil : donne un retour précis à chaque tour, au lieu de demander seulement « fais mieux »."
+      }
+    },
+    {
+      "title": "Encore une petite retouche",
+      "image": "art/2026-W40/sonnet-v1.png",
+      "alt": "Deux affiches ordonnées, un crayon et une petite pile de pièces sont disposés sur l’établi.",
+      "news_ids": [
+        "sonnet"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On a corrigé sans refaire toute l’affiche.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Coût par tâche, pas prix du mot",
+        "text": "Anthropic annonce jusqu’à 30 % de coût en moins par tâche, avec moins de tokens utilisés. Le tarif par token reste inchangé : ce sont deux mesures différentes."
+      }
+    },
+    {
+      "title": "Encore une petite retouche",
+      "image": "art/2026-W40/sonnet-v1.png",
+      "alt": "Hugo repère un arbre à l’envers sur l’affiche ; iAstro rit en le désignant.",
+      "news_ids": [
+        "sonnet"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Cet arbre pousse à l’envers ou c’est un concept ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Plus vite ne veut pas dire parfait",
+        "text": "Une réponse plus rapide peut encore contenir une erreur. Garde une vérification finale du contenu, des chiffres et de ce que le document doit réellement montrer."
+      }
+    },
+    {
+      "title": "Encore une petite retouche",
+      "image": "art/2026-W40/sonnet-v1.png",
+      "alt": "L’affiche est enfin droite, mais tout l’atelier penche ; le duo observe un niveau à bulle.",
+      "news_ids": [
+        "sonnet"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "L’affiche est droite. Pour l’atelier, c’est un autre devis.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le bon périmètre",
+        "text": "Un outil efficace aide surtout quand le résultat attendu est clair. Sonnet est présenté pour ces travaux courants ; les projets les plus complexes restent un autre terrain."
+      }
+    },
+    {
+      "title": "Qui travaille pendant la pause ?",
+      "image": "art/2026-W40/dots-v1.png",
+      "alt": "Hugo fatigué tente de tenir une pile de cartes de rappel ; iAstro l’observe.",
+      "news_ids": [
+        "dots"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Si je pose un rappel pour lire mes rappels, ça compte ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un agent qui suit un objectif",
+        "text": "OpenAI présente les dots le 29 septembre. Ils sont conçus pour poursuivre un travail entre les conversations, avec leur propre ordinateur dans le cloud."
+      }
+    },
+    {
+      "title": "Qui travaille pendant la pause ?",
+      "image": "art/2026-W40/dots-v1.png",
+      "alt": "iAstro présente une petite sphère rose lumineuse à côté d’un bureau miniature.",
+      "news_ids": [
+        "dots"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On va lui donner UNE mission pour commencer.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un cadre à définir",
+        "text": "Un dot peut utiliser les applications que tu connectes pour avancer vers un objectif. Notre conseil : précise ce qu’il doit préparer et ce qu’il doit te soumettre."
+      }
+    },
+    {
+      "title": "Qui travaille pendant la pause ?",
+      "image": "art/2026-W40/dots-v1.png",
+      "alt": "Hugo dort dans un fauteuil pendant que la sphère trie les cartes de rappel, sous le regard de iAstro.",
+      "news_ids": [
+        "dots"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Je ferme les yeux deux minutes…",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Continuer entre les échanges",
+        "text": "Le changement annoncé est la continuité : le travail peut avancer sans une nouvelle demande à chaque étape. La petite sphère de notre histoire est une métaphore de cet agent."
+      }
+    },
+    {
+      "title": "Qui travaille pendant la pause ?",
+      "image": "art/2026-W40/dots-v1.png",
+      "alt": "Au matin, la sphère présente des cartes classées et une enveloppe ; Hugo fait signe d’attendre.",
+      "news_ids": [
+        "dots"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "C’est prêt. On relit avant d’envoyer.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Préparer n’est pas tout autoriser",
+        "text": "Un objectif clair ne suffit pas à définir toutes les permissions. Pour une entreprise, distingue la préparation d’un résultat et les actions qui engagent quelqu’un, comme un envoi."
+      }
+    },
+    {
+      "title": "Qui travaille pendant la pause ?",
+      "image": "art/2026-W40/dots-v1.png",
+      "alt": "Hugo approuve du pouce, iAstro désigne un tampon de validation, la sphère attend près de l’enveloppe.",
+      "news_ids": [
+        "dots"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "D’accord pour celle-ci. Le reste attend.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un accès progressif",
+        "text": "Le lancement vise certains comptes Pro et Business Premium, avec une bêta Enterprise. L’accès Pro exclut alors notamment l’Espace économique européen : attention si tu es en France."
+      }
+    },
+    {
+      "title": "Qui travaille pendant la pause ?",
+      "image": "art/2026-W40/dots-v1.png",
+      "alt": "Hugo s’endort avec son café ; la sphère soutient la tasse et iAstro lui apporte une couverture.",
+      "news_ids": [
+        "dots"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Cette fois, c’est toi qui passes en veille.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une aide à piloter",
+        "text": "Notre lecture : déléguer un suivi peut libérer du temps, à condition de pouvoir relire le travail. Le meilleur premier essai reste une mission limitée dont tu sais évaluer le résultat."
+      }
+    },
+    {
+      "title": "La voix du petit-déjeuner",
+      "image": "art/2026-W40/eleven-v1.png",
+      "alt": "Hugo lit sans entrain devant le micro, tandis que iAstro bâille.",
+      "news_ids": [
+        "eleven"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Bonjour. Voici… les informations. Voilà.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un texte prend une voix",
+        "text": "ElevenLabs lance Eleven v4 le 28 septembre. Le modèle transforme un texte en parole, avec un accent mis sur l’émotion et la manière de le dire."
+      }
+    },
+    {
+      "title": "La voix du petit-déjeuner",
+      "image": "art/2026-W40/eleven-v1.png",
+      "alt": "iAstro tourne un bouton et prend une pose théâtrale, sous le regard surpris de Hugo.",
+      "news_ids": [
+        "eleven"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On peut essayer avec un peu de vie ?",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Donner une intention",
+        "text": "ElevenLabs met en avant une meilleure interprétation du ton et du contexte. Une narration peut être posée, enthousiaste ou dramatique, selon l’effet recherché."
+      }
+    },
+    {
+      "title": "La voix du petit-déjeuner",
+      "image": "art/2026-W40/eleven-v1.png",
+      "alt": "En contre-plongée, Hugo joue une scène épique au micro ; iAstro le dirige avec une baguette.",
+      "news_ids": [
+        "eleven"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Dans un monde… où tout peut basculer…",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Diriger plutôt que seulement lire",
+        "text": "Le travail ressemble davantage à une direction de voix. Notre conseil : préciser l’intention et les passages à souligner, puis écouter ce que cela produit réellement."
+      }
+    },
+    {
+      "title": "La voix du petit-déjeuner",
+      "image": "art/2026-W40/eleven-v1.png",
+      "alt": "iAstro demande de parler plus doucement ; Hugo se penche vers le micro pour chuchoter.",
+      "news_ids": [
+        "eleven"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Très bien. Maintenant, sans réveiller les voisins.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le rythme change le sens",
+        "text": "Une pause, une accélération ou une voix plus douce changent la perception d’une phrase. La nouveauté vise cette expressivité, pas uniquement la prononciation des mots."
+      }
+    },
+    {
+      "title": "La voix du petit-déjeuner",
+      "image": "art/2026-W40/eleven-v1.png",
+      "alt": "Vue de dessus : Hugo et iAstro comparent des prises au casque devant des formes d’ondes.",
+      "news_ids": [
+        "eleven"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Celle-ci sonne juste. On garde cette prise.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Écouter avant de publier",
+        "text": "Pour un podcast ou une explication audio, le contrôle final reste une écoute. Vérifie les noms, les respirations et l’intention : une belle voix peut aussi mal raconter."
+      }
+    },
+    {
+      "title": "La voix du petit-déjeuner",
+      "image": "art/2026-W40/eleven-v1.png",
+      "alt": "Hugo parle solennellement au micro pendant que iAstro lui présente une simple tartine froide.",
+      "news_ids": [
+        "eleven"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "C’était juste pour annoncer que la tartine est froide.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "L’émotion doit servir le propos",
+        "text": "Notre chute force volontairement le trait : une voix de bande-annonce n’est pas utile partout. Le bon ton reste celui qui rend ton message plus clair."
+      }
+    }
+  ]
+}
