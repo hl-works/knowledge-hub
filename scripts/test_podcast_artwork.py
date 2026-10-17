@@ -27,6 +27,21 @@ class ArtworkTests(unittest.TestCase):
             artwork.layout(ROOT, '2027-01-01', 'full', 442)
 
     @unittest.skipUnless(os.environ.get('PODCAST_RENDER_TEST') == '1', 'Chromium integration runs in CI')
+    def test_unpublished_daily_pair_and_full_only(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            before = (ROOT / 'assets/podcast/episodes.json').read_bytes()
+            artwork.render_daily(ROOT, output, '2026-10-17', 91, 443)
+            prepared = json.loads((output / 'artwork.json').read_text())
+            for kind in ('short', 'full'):
+                self.assertEqual(prepared[kind]['image_sha256'],
+                                 hashlib.sha256((output / f'{kind}-cover.jpg').read_bytes()).hexdigest())
+                self.assertTrue((output / f'{kind}-cover.png').is_file())
+            artwork.render_daily(ROOT, output / 'solo', '2026-10-17', 0, 443)
+            self.assertFalse((output / 'solo/short-cover.jpg').exists())
+            self.assertEqual((ROOT / 'assets/podcast/episodes.json').read_bytes(), before)
+
+    @unittest.skipUnless(os.environ.get('PODCAST_RENDER_TEST') == '1', 'Chromium integration runs in CI')
     def test_month_rollover_and_preserved_artwork(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
