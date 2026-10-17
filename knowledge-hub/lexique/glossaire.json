@@ -6,7 +6,7 @@
       "IA",
       "intelligence artificielle"
     ],
-    "definition": "Des logiciels capables de tâches qui demandaient un cerveau humain (comprendre, décider, créer). L'« IA classique » est spécialisée ; l'IA générative, elle, est polyvalente.",
+    "definition": "Des systèmes informatiques capables de tâches comme reconnaître, prédire, générer ou planifier. Leurs capacités et leur fiabilité dépendent de leur conception et du contexte.",
     "guides": [
       {
         "label": "C'est quoi l'IA et un LLM",
@@ -21,7 +21,8 @@
       {
         "label": "tout le stack HL Group"
       }
-    ]
+    ],
+    "category": "bases"
   },
   {
     "id": "ia-generative",
@@ -42,7 +43,8 @@
         "label": "Knowledge Hub (rédigé avec l'IA)",
         "url": "/knowledge-hub/journal/knowledge-hub.html"
       }
-    ]
+    ],
+    "category": "bases"
   },
   {
     "id": "llm-grand-modele-de-langage",
@@ -68,7 +70,8 @@
         "label": "Bot de veille (un LLM rédige le digest)",
         "url": "/knowledge-hub/veille-ia/"
       }
-    ]
+    ],
+    "category": "bases"
   },
   {
     "id": "token",
@@ -87,7 +90,8 @@
         "label": "Combien ça coûte (à venir)"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "bases"
   },
   {
     "id": "hallucination",
@@ -107,7 +111,8 @@
         "url": "/knowledge-hub/guides/lia-pour-un-commercant.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "qualite"
   },
   {
     "id": "prompt",
@@ -128,7 +133,8 @@
         "url": "/knowledge-hub/guides/principes-facon-karpathy.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "bases"
   },
   {
     "id": "multimodal",
@@ -147,7 +153,8 @@
         "url": "/knowledge-hub/guides/cest-quoi-claude.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "bases"
   },
   {
     "id": "poids-ouverts-open-weights",
@@ -157,7 +164,7 @@
       "open weights",
       "modèle ouvert"
     ],
-    "definition": "Un modèle qu'on peut télécharger et héberger soi-même (ex. Llama, Mistral), par opposition aux modèles « fermés » accessibles seulement via un service.",
+    "definition": "Un modèle dont les paramètres entraînés sont accessibles pour téléchargement et utilisation selon une licence. Cela ne signifie pas forcément que les données ou le code d’entraînement sont ouverts.",
     "guides": [
       {
         "label": "C'est quoi l'IA et un LLM",
@@ -167,7 +174,8 @@
         "label": "Mes données sont-elles safe (à venir)"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "modeles"
   },
   {
     "id": "anthropic",
@@ -186,7 +194,8 @@
         "url": "/knowledge-hub/guides/principes-facon-karpathy.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "acteurs"
   },
   {
     "id": "claude",
@@ -194,7 +203,7 @@
     "aliases": [
       "Claude"
     ],
-    "definition": "L'assistant IA d'Anthropic, décliné en plusieurs tailles (Opus, Sonnet, Haiku) et plusieurs produits (Chat, Cowork, Code).",
+    "definition": "La famille de modèles et l’assistant d’Anthropic. Claude s’utilise notamment en conversation, avec Cowork, Claude Code ou Claude Design.",
     "guides": [
       {
         "label": "C'est quoi Claude",
@@ -209,7 +218,15 @@
       {
         "label": "Cobra, Haute Fidélité, Knowledge Hub"
       }
-    ]
+    ],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Anthropic · modèles / models",
+        "url": "https://platform.claude.com/docs/en/models/overview"
+      }
+    ],
+    "verified": "2026-10-17"
   },
   {
     "id": "opus-sonnet-haiku",
@@ -219,22 +236,29 @@
       "Sonnet",
       "Haiku"
     ],
-    "definition": "Les trois tailles de Claude : le plus puissant (Opus), l'équilibré (Sonnet), le rapide (Haiku). On choisit selon la tâche.",
+    "definition": "Des familles de modèles Claude aux compromis différents de capacités, rapidité et coût. Le catalogue comprend aussi Fable ; vérifier la version avant de comparer.",
     "guides": [
       {
         "label": "C'est quoi Claude",
         "url": "/knowledge-hub/guides/cest-quoi-claude.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "Anthropic · modèles / models",
+        "url": "https://platform.claude.com/docs/en/models/overview"
+      }
+    ],
+    "verified": "2026-10-17"
   },
   {
     "id": "claude-chat-cowork-code",
     "terme": "Claude Chat / Cowork / Code",
     "aliases": [
-      "Claude Chat",
-      "Claude Cowork",
-      "Claude Code"
+      "Claude Chat / Cowork / Code",
+      "Claude Chat"
     ],
     "definition": "Trois façons d'utiliser Claude : discuter (Chat), déléguer un travail de bureau (Cowork), agir sur des fichiers et des projets (Code).",
     "guides": [
@@ -248,7 +272,8 @@
         "label": "Double Claude Code (Cobra / HL)",
         "url": "/knowledge-hub/journal/double-claude-code.html"
       }
-    ]
+    ],
+    "category": "outils"
   },
   {
     "id": "terminal",
@@ -257,14 +282,15 @@
       "terminal",
       "ligne de commande"
     ],
-    "definition": "La fenêtre où l'on tape des commandes au lieu de cliquer. Ça impressionne, mais ça s'utilise en copier-coller.",
+    "definition": "Une interface pour exécuter des commandes sur un ordinateur. Avant de lancer une commande proposée par une IA, comprendre quels fichiers ou services elle affecte.",
     "guides": [
       {
         "label": "Chat, Cowork ou Code",
         "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "developpement"
   },
   {
     "id": "api",
@@ -272,7 +298,7 @@
     "aliases": [
       "API"
     ],
-    "definition": "Un tuyau programmé qui relie deux logiciels. C'est l'une des façons de connecter un service à Claude, de manière automatisée.",
+    "definition": "Une interface qui permet à un logiciel de demander des données ou des actions à un autre service, selon des règles et des droits définis.",
     "guides": [
       {
         "label": "C'est quoi un MCP",
@@ -288,7 +314,8 @@
         "label": "Bot de veille (API Claude)",
         "url": "/knowledge-hub/veille-ia/"
       }
-    ]
+    ],
+    "category": "donnees"
   },
   {
     "id": "mcp-model-context-protocol",
@@ -297,7 +324,7 @@
       "MCP",
       "Model Context Protocol"
     ],
-    "definition": "Un standard ouvert créé par Anthropic : une « prise universelle » pour brancher Claude à des outils (Shopify, Drive, Gmail…) sans intégration sur-mesure.",
+    "definition": "Un protocole ouvert pour relier des applications IA à des données et outils. Il standardise les échanges ; les autorisations et l’intégration restent à configurer.",
     "guides": [
       {
         "label": "C'est quoi un MCP",
@@ -317,7 +344,15 @@
         "label": "Boutique Shopify Haute Fidélité",
         "url": "/knowledge-hub/haute-fidelite/"
       }
-    ]
+    ],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "Model Context Protocol",
+        "url": "https://modelcontextprotocol.io/docs/getting-started/intro"
+      }
+    ],
+    "verified": "2026-10-17"
   },
   {
     "id": "agent-ia",
@@ -327,7 +362,7 @@
       "agent autonome",
       "agent"
     ],
-    "definition": "Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — au lieu de simplement répondre.",
+    "definition": "Un système qui utilise un modèle et des outils pour poursuivre un objectif en plusieurs étapes, avec un périmètre d’action et des contrôles définis.",
     "guides": [
       {
         "label": "C'est quoi un agent IA",
@@ -351,7 +386,15 @@
         "label": "Bot de veille IA",
         "url": "/knowledge-hub/veille-ia/"
       }
-    ]
+    ],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "OpenAI · Tools",
+        "url": "https://developers.openai.com/api/docs/guides/tools"
+      }
+    ],
+    "verified": "2026-10-17"
   },
   {
     "id": "github",
@@ -359,7 +402,7 @@
     "aliases": [
       "GitHub"
     ],
-    "definition": "Un espace en ligne où vit ton projet avec tout son historique ; une fois branché, les mises à jour se déploient toutes seules.",
+    "definition": "Une plateforme pour héberger des dépôts Git et collaborer sur du code. Tests et déploiements peuvent y être automatisés lorsqu’ils sont configurés.",
     "guides": [
       {
         "label": "C'est quoi GitHub",
@@ -371,7 +414,8 @@
         "label": "Ce Knowledge Hub",
         "url": "/knowledge-hub/journal/knowledge-hub.html"
       }
-    ]
+    ],
+    "category": "developpement"
   },
   {
     "id": "depot-repo",
@@ -381,14 +425,22 @@
       "repo",
       "repository"
     ],
-    "definition": "Le « dossier » d'un projet sur GitHub, avec l'ensemble de ses fichiers et de son historique.",
+    "definition": "Un ensemble de fichiers suivi avec un historique de versions. Un dépôt Git peut être local ou hébergé sur une plateforme comme GitHub.",
     "guides": [
       {
         "label": "C'est quoi GitHub",
         "url": "/knowledge-hub/guides/cest-quoi-github.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "developpement",
+    "sources": [
+      {
+        "label": "Git · glossary",
+        "url": "https://git-scm.com/docs/gitglossary"
+      }
+    ],
+    "verified": "2026-10-17"
   },
   {
     "id": "commit",
@@ -396,14 +448,22 @@
     "aliases": [
       "commit"
     ],
-    "definition": "Une version enregistrée et datée d'un projet sur GitHub. On peut toujours y revenir.",
+    "definition": "Un enregistrement de changements dans l’historique Git, avec un identifiant et un message. Il aide à comprendre, comparer et retrouver des versions du projet.",
     "guides": [
       {
         "label": "C'est quoi GitHub",
         "url": "/knowledge-hub/guides/cest-quoi-github.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "developpement",
+    "sources": [
+      {
+        "label": "Git · glossary",
+        "url": "https://git-scm.com/docs/gitglossary"
+      }
+    ],
+    "verified": "2026-10-17"
   },
   {
     "id": "cron",
@@ -424,7 +484,8 @@
         "label": "Bot Telegram de veille",
         "url": "/knowledge-hub/journal/bot-telegram-veille-hifi.html"
       }
-    ]
+    ],
+    "category": "agents"
   },
   {
     "id": "rss",
@@ -449,7 +510,8 @@
         "label": "Bot de veille IA",
         "url": "/knowledge-hub/veille-ia/"
       }
-    ]
+    ],
+    "category": "donnees"
   },
   {
     "id": "bot-canal-telegram",
@@ -471,7 +533,8 @@
         "label": "Bot de veille IA (abonnable)",
         "url": "/knowledge-hub/veille-ia/"
       }
-    ]
+    ],
+    "category": "outils"
   },
   {
     "id": "claude-md",
@@ -496,7 +559,8 @@
         "label": "Système d'instructions Claude",
         "url": "/knowledge-hub/journal/systeme-instructions-claude-md.html"
       }
-    ]
+    ],
+    "category": "agents"
   },
   {
     "id": "compound-engineering",
@@ -504,7 +568,7 @@
     "aliases": [
       "compound engineering"
     ],
-    "definition": "Méthode (popularisée par Kieran Klaassen et Dan Shipper, chez Every) où chaque leçon devient une règle réutilisable : ton système s'améliore tout seul à chaque session.",
+    "definition": "Une méthode qui transforme les retours d’expérience en consignes, outils ou tests réutilisables. L’amélioration dépend des corrections réellement conservées et appliquées.",
     "guides": [
       {
         "label": "Compound Engineering",
@@ -515,7 +579,8 @@
         "url": "/knowledge-hub/guides/ecrire-un-bon-claude-md.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "agents"
   },
   {
     "id": "vibe-coding",
@@ -534,7 +599,8 @@
         "url": "/knowledge-hub/guides/chat-cowork-code-terminal.html"
       }
     ],
-    "projets": []
+    "projets": [],
+    "category": "developpement"
   },
   {
     "id": "seo",
@@ -559,7 +625,8 @@
         "label": "Refonte GTM cobra.fr",
         "url": "/knowledge-hub/journal/gtm-refonte-cobra.html"
       }
-    ]
+    ],
+    "category": "donnees"
   },
   {
     "id": "geo",
@@ -579,6 +646,1254 @@
         "label": "Ce Knowledge Hub (llms.txt, JSON-LD)",
         "url": "/knowledge-hub/journal/knowledge-hub.html"
       }
-    ]
+    ],
+    "category": "donnees"
+  },
+  {
+    "id": "openai",
+    "terme": "OpenAI",
+    "aliases": [
+      "OpenAI",
+      "Open AI"
+    ],
+    "definition": "L’organisation qui développe notamment les modèles GPT, ChatGPT et Codex. Le fournisseur, l’application et le modèle désignent trois niveaux différents.",
+    "guides": [],
+    "projets": [],
+    "category": "acteurs",
+    "sources": [
+      {
+        "label": "OpenAI · ChatGPT",
+        "url": "https://learn.chatgpt.com/docs/use-chatgpt"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "chatgpt",
+    "terme": "ChatGPT",
+    "aliases": [
+      "ChatGPT",
+      "Chat GPT"
+    ],
+    "definition": "L’outil d’OpenAI pour discuter, rechercher, analyser et créer avec l’IA. Ses possibilités dépendent du modèle choisi, des outils disponibles et des accès accordés.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "OpenAI · ChatGPT",
+        "url": "https://learn.chatgpt.com/docs/use-chatgpt"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "chatgpt-work",
+    "terme": "ChatGPT Work",
+    "aliases": [
+      "ChatGPT Work"
+    ],
+    "definition": "Une façon de déléguer un travail à ChatGPT jusqu’à un livrable à relire : analyse, document, présentation ou recherche, avec les outils autorisés.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "OpenAI · ChatGPT",
+        "url": "https://learn.chatgpt.com/docs/use-chatgpt"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "codex",
+    "terme": "Codex",
+    "aliases": [
+      "Codex",
+      "OpenAI Codex"
+    ],
+    "definition": "L’agent d’OpenAI pour travailler sur des projets : comprendre les fichiers, modifier du code, exécuter des tests et préparer des résultats vérifiables. Il utilise un modèle GPT.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "OpenAI · ChatGPT",
+        "url": "https://learn.chatgpt.com/docs/use-chatgpt"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "gpt",
+    "terme": "GPT",
+    "aliases": [
+      "GPT"
+    ],
+    "definition": "Une famille de modèles d’OpenAI. GPT désigne le moteur ; ChatGPT et Codex sont des façons de l’utiliser avec une interface et des outils.",
+    "guides": [],
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "OpenAI · GPT",
+        "url": "https://developers.openai.com/api/docs/guides/latest-model"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "gpt-6-astra",
+    "terme": "Astra (GPT-6 Astra)",
+    "aliases": [
+      "GPT-6 Astra",
+      "Astra",
+      "gpt-6-astra"
+    ],
+    "definition": "Un modèle d’OpenAI destiné aux tâches complexes de raisonnement, de code et de recherche. À distinguer de Project Astra, le projet de Google DeepMind.",
+    "guides": [],
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "OpenAI · GPT-6 Astra",
+        "url": "https://developers.openai.com/api/docs/models/gpt-6-astra"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "gpt-sol-luna",
+    "terme": "Sol / Luna (GPT)",
+    "aliases": [
+      "GPT-6.1 Sol",
+      "GPT-6 Sol",
+      "GPT-6 Luna"
+    ],
+    "definition": "Des variantes de GPT : Sol vise un équilibre entre capacités, rapidité et coût ; Luna privilégie les tâches ciblées et rapides. Les versions et accès évoluent.",
+    "guides": [],
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "OpenAI · GPT",
+        "url": "https://developers.openai.com/api/docs/guides/latest-model"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "claude-code",
+    "terme": "Claude Code",
+    "aliases": [
+      "Claude Code"
+    ],
+    "definition": "L’agent de développement d’Anthropic. Il explore un projet, modifie des fichiers et utilise des outils pour construire, tester ou corriger du logiciel.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Anthropic · Claude Code",
+        "url": "https://code.claude.com/docs/en/overview"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "claude-cowork",
+    "terme": "Claude Cowork",
+    "aliases": [
+      "Claude Cowork",
+      "Cowork"
+    ],
+    "definition": "L’espace de Claude pour déléguer des tâches de travail, notamment sur des fichiers et documents, avec les accès que l’utilisateur autorise.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Anthropic · Claude Cowork",
+        "url": "https://claude.com/product/cowork"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "claude-design",
+    "terme": "Claude Design",
+    "aliases": [
+      "Claude Design"
+    ],
+    "definition": "Le produit d’Anthropic pour concevoir des maquettes, prototypes, présentations et supports visuels par conversation. Les propositions se retouchent et peuvent être transmises à Claude Code.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "Anthropic · Claude Design",
+        "url": "https://www.anthropic.com/news/claude-design-anthropic-labs"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "claude-fable",
+    "terme": "Fable (Claude)",
+    "aliases": [
+      "Claude Fable"
+    ],
+    "definition": "Une famille de modèles Claude figurant dans le catalogue Anthropic, aux côtés d’Opus, Sonnet et Haiku. Ce nom désigne un modèle, pas une application de design.",
+    "guides": [],
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "Anthropic · modèles / models",
+        "url": "https://platform.claude.com/docs/en/models/overview"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "google-deepmind",
+    "terme": "Google DeepMind",
+    "aliases": [
+      "Google DeepMind",
+      "DeepMind"
+    ],
+    "definition": "L’équipe de recherche et développement IA de Google, à l’origine notamment de modèles Gemini et du projet d’assistant multimodal Project Astra.",
+    "guides": [],
+    "projets": [],
+    "category": "acteurs",
+    "sources": [
+      {
+        "label": "Google DeepMind · Project Astra",
+        "url": "https://deepmind.google/models/project-astra/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "gemini",
+    "terme": "Gemini",
+    "aliases": [
+      "Gemini"
+    ],
+    "definition": "Le nom d’une famille de modèles de Google et de son application d’assistance. Préciser « modèle Gemini » ou « application Gemini » évite les confusions.",
+    "guides": [],
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "Google DeepMind · Gemini",
+        "url": "https://deepmind.google/models/gemini/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "project-astra",
+    "terme": "Project Astra (Google)",
+    "aliases": [
+      "Project Astra",
+      "Projet Astra"
+    ],
+    "definition": "Le projet de recherche de Google DeepMind sur un assistant qui comprend notamment la voix, la vidéo et l’environnement. Certaines capacités alimentent Gemini Live.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Google DeepMind · Project Astra",
+        "url": "https://deepmind.google/models/project-astra/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "mistral-ai",
+    "terme": "Mistral AI",
+    "aliases": [
+      "Mistral AI",
+      "Mistral"
+    ],
+    "definition": "L’entreprise française qui développe des modèles et produits d’IA, dont Mistral Vibe. Il faut vérifier la licence de chaque modèle avant de parler d’open source.",
+    "guides": [],
+    "projets": [],
+    "category": "acteurs",
+    "sources": [
+      {
+        "label": "Mistral AI · Vibe",
+        "url": "https://mistral.ai/products/vibe/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "mistral-vibe",
+    "terme": "Mistral Vibe / Le Chat",
+    "aliases": [
+      "Mistral Vibe",
+      "Le Chat"
+    ],
+    "definition": "Le produit de Mistral qui réunit l’assistant de travail, auparavant nommé Le Chat, et un agent de code. Un exemple de nom de produit qui évolue.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Mistral AI · Vibe",
+        "url": "https://mistral.ai/products/vibe/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "gemini-notebook",
+    "terme": "Gemini Notebook / NotebookLM",
+    "aliases": [
+      "Gemini Notebook",
+      "NotebookLM"
+    ],
+    "definition": "L’outil de Google, auparavant NotebookLM, pour explorer un ensemble de sources, poser des questions et produire des synthèses, notamment audio. Les réponses restent à vérifier.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Google · Gemini Notebook",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "perplexity",
+    "terme": "Perplexity",
+    "aliases": [
+      "Perplexity"
+    ],
+    "definition": "Un outil de recherche qui synthétise des informations et affiche des liens sources. Une citation permet de vérifier une réponse ; elle ne garantit pas son exactitude.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Perplexity · documentation",
+        "url": "https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "cursor",
+    "terme": "Cursor",
+    "aliases": [
+      "Cursor"
+    ],
+    "definition": "Un environnement et agent de développement assisté par IA pour comprendre un projet, écrire du code, corriger des erreurs et relire des changements.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Cursor · documentation",
+        "url": "https://cursor.com/docs"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "github-copilot",
+    "terme": "GitHub Copilot",
+    "aliases": [
+      "GitHub Copilot"
+    ],
+    "definition": "L’assistant de développement de GitHub : suggestions de code, conversation, aide à la revue et fonctions agentiques selon le contexte. À distinguer des autres produits nommés Copilot.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "GitHub · Copilot",
+        "url": "https://docs.github.com/en/copilot/get-started/about-github-copilot"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "elevenlabs",
+    "terme": "ElevenLabs",
+    "aliases": [
+      "ElevenLabs",
+      "Eleven Labs"
+    ],
+    "definition": "Une plateforme de création audio et de voix IA, avec synthèse vocale, transcription et outils de voix. Elle intervient dans la fabrication du Podcast iA.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "ElevenLabs · documentation",
+        "url": "https://elevenlabs.io/docs/overview/intro"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "hugging-face",
+    "terme": "Hugging Face",
+    "aliases": [
+      "Hugging Face"
+    ],
+    "definition": "Une plateforme pour partager et découvrir des modèles, jeux de données et démonstrations. Chaque ressource possède ses propres conditions d’utilisation.",
+    "guides": [],
+    "projets": [],
+    "category": "acteurs",
+    "sources": [
+      {
+        "label": "Hugging Face · Hub",
+        "url": "https://huggingface.co/docs/hub/en/index"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "ollama",
+    "terme": "Ollama",
+    "aliases": [
+      "Ollama"
+    ],
+    "definition": "Un outil pour exécuter des modèles sur sa machine, avec aussi des options cloud. Les besoins en mémoire et les usages autorisés dépendent du modèle.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Ollama · documentation",
+        "url": "https://docs.ollama.com/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "modele-ia",
+    "terme": "Modèle IA",
+    "aliases": [
+      "modèle IA",
+      "AI model"
+    ],
+    "definition": "Le système entraîné qui transforme une entrée en prédiction ou en contenu. Une application peut combiner plusieurs modèles et outils.",
+    "guides": [],
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "Google · Machine Learning Glossary",
+        "url": "https://developers.google.com/machine-learning/glossary"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "machine-learning",
+    "terme": "Machine learning",
+    "aliases": [
+      "machine learning",
+      "apprentissage automatique"
+    ],
+    "definition": "L’apprentissage de régularités à partir de données, pour réaliser une tâche sans écrire à la main toutes les règles de décision.",
+    "guides": [],
+    "projets": [],
+    "category": "bases",
+    "sources": [
+      {
+        "label": "Google · Machine Learning Glossary",
+        "url": "https://developers.google.com/machine-learning/glossary"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "entrainement",
+    "terme": "Entraînement",
+    "aliases": [
+      "entraînement",
+      "training"
+    ],
+    "definition": "La phase où les paramètres d’un modèle sont ajustés à partir de données. Elle se distingue de son utilisation quotidienne pour répondre.",
+    "guides": [],
+    "projets": [],
+    "category": "bases",
+    "sources": [
+      {
+        "label": "Google · Machine Learning Glossary",
+        "url": "https://developers.google.com/machine-learning/glossary"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "inference",
+    "terme": "Inférence",
+    "aliases": [
+      "inférence",
+      "inference"
+    ],
+    "definition": "Le fait d’utiliser un modèle déjà entraîné pour produire une réponse ou une prédiction à partir d’une nouvelle entrée.",
+    "guides": [],
+    "projets": [],
+    "category": "bases",
+    "sources": [
+      {
+        "label": "Google · Machine Learning Glossary",
+        "url": "https://developers.google.com/machine-learning/glossary"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "fenetre-contexte",
+    "terme": "Fenêtre de contexte",
+    "aliases": [
+      "fenêtre de contexte",
+      "context window"
+    ],
+    "definition": "La quantité d’informations qu’un modèle peut traiter dans une requête : instructions, conversation, documents et réponse. Une grande fenêtre ne garantit pas une bonne compréhension.",
+    "guides": [],
+    "projets": [],
+    "category": "bases",
+    "sources": [
+      {
+        "label": "OpenAI · Conversation state",
+        "url": "https://developers.openai.com/api/docs/guides/conversation-state"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "memoire",
+    "terme": "Mémoire d’un assistant",
+    "aliases": [
+      "mémoire d’un assistant",
+      "assistant memory"
+    ],
+    "definition": "Des informations conservées et réutilisées entre des échanges. La mémoire dépend de l’application ; elle diffère du contexte présent et des connaissances acquises à l’entraînement.",
+    "guides": [],
+    "projets": [],
+    "category": "bases",
+    "sources": [
+      {
+        "label": "OpenAI · Conversation state",
+        "url": "https://developers.openai.com/api/docs/guides/conversation-state"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "raisonnement",
+    "terme": "Raisonnement / effort de réflexion",
+    "aliases": [
+      "reasoning effort",
+      "effort de réflexion",
+      "raisonnement"
+    ],
+    "definition": "Le travail supplémentaire qu’un modèle consacre à une tâche complexe. Un effort plus élevé peut augmenter le délai et le coût sans assurer une réponse juste.",
+    "guides": [],
+    "projets": [],
+    "category": "modeles",
+    "sources": [
+      {
+        "label": "OpenAI · Reasoning",
+        "url": "https://developers.openai.com/api/docs/guides/reasoning"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "rag",
+    "terme": "RAG",
+    "aliases": [
+      "RAG",
+      "retrieval augmented generation"
+    ],
+    "definition": "Chercher des informations dans des documents, puis les donner au modèle pour construire sa réponse. Utile pour exploiter une base interne sans réentraîner le modèle.",
+    "guides": [],
+    "projets": [],
+    "category": "donnees",
+    "sources": [
+      {
+        "label": "OpenAI · Retrieval",
+        "url": "https://developers.openai.com/api/docs/guides/retrieval"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "embedding",
+    "terme": "Embedding",
+    "aliases": [
+      "embedding",
+      "embeddings"
+    ],
+    "definition": "Une représentation numérique d’un contenu qui permet de comparer des proximités de sens. Elle sert notamment à retrouver des passages pertinents.",
+    "guides": [],
+    "projets": [],
+    "category": "donnees",
+    "sources": [
+      {
+        "label": "OpenAI · Retrieval",
+        "url": "https://developers.openai.com/api/docs/guides/retrieval"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "base-vectorielle",
+    "terme": "Base vectorielle",
+    "aliases": [
+      "base vectorielle",
+      "vector database"
+    ],
+    "definition": "Un stockage et un moteur de recherche pour des représentations numériques de contenus. Une brique fréquente des systèmes de recherche sémantique et de RAG.",
+    "guides": [],
+    "projets": [],
+    "category": "donnees",
+    "sources": [
+      {
+        "label": "OpenAI · Retrieval",
+        "url": "https://developers.openai.com/api/docs/guides/retrieval"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "fine-tuning",
+    "terme": "Fine-tuning",
+    "aliases": [
+      "fine-tuning",
+      "fine tuning"
+    ],
+    "definition": "Un entraînement complémentaire sur des exemples choisis pour adapter un modèle à un comportement. Ajouter des documents à une conversation n’est pas du fine-tuning.",
+    "guides": [],
+    "projets": [],
+    "category": "donnees",
+    "sources": [
+      {
+        "label": "OpenAI · Model optimization",
+        "url": "https://developers.openai.com/api/docs/guides/model-optimization"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "evals",
+    "terme": "Évaluations (evals)",
+    "aliases": [
+      "evals",
+      "évaluations IA"
+    ],
+    "definition": "Des tests sur des cas représentatifs pour mesurer la qualité d’un système IA. Ils servent à comparer les versions et repérer les régressions.",
+    "guides": [],
+    "projets": [],
+    "category": "qualite",
+    "sources": [
+      {
+        "label": "OpenAI · Evaluation",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "benchmark",
+    "terme": "Benchmark",
+    "aliases": [
+      "benchmark",
+      "benchmarks"
+    ],
+    "definition": "Un ensemble de tests utilisé pour comparer des systèmes. Un bon score sur ces tests ne suffit pas à prouver la qualité sur ton propre métier.",
+    "guides": [],
+    "projets": [],
+    "category": "qualite",
+    "sources": [
+      {
+        "label": "OpenAI · Evaluation",
+        "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "prompt-systeme",
+    "terme": "Prompt système",
+    "aliases": [
+      "prompt système",
+      "system prompt"
+    ],
+    "definition": "Des instructions qui cadrent le rôle et le comportement de l’assistant. Elles complètent la demande de l’utilisateur dans la hiérarchie prévue par le produit.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "OpenAI · Prompt engineering",
+        "url": "https://developers.openai.com/api/docs/guides/prompt-engineering"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "few-shot",
+    "terme": "Few-shot prompting",
+    "aliases": [
+      "few-shot",
+      "few shot"
+    ],
+    "definition": "Donner quelques exemples du résultat attendu dans la consigne. Cela aide à préciser le format ou la tâche, sans entraîner de nouveau le modèle.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "OpenAI · Prompt engineering",
+        "url": "https://developers.openai.com/api/docs/guides/prompt-engineering"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "tool-calling",
+    "terme": "Tool calling / appel d’outil",
+    "aliases": [
+      "tool calling",
+      "function calling",
+      "appel d’outil"
+    ],
+    "definition": "Le modèle demande l’exécution d’une fonction : chercher, calculer ou lire un fichier. Le logiciel hôte exécute l’action autorisée et lui renvoie le résultat.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "OpenAI · Tools",
+        "url": "https://developers.openai.com/api/docs/guides/tools"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "connecteur",
+    "terme": "Connecteur",
+    "aliases": [
+      "connecteur",
+      "connector"
+    ],
+    "definition": "Une intégration qui donne accès à un service ou à ses données, dans les limites des autorisations accordées. Lire et modifier sont des droits différents.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "Model Context Protocol",
+        "url": "https://modelcontextprotocol.io/docs/getting-started/intro"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "skill",
+    "terme": "Skill / compétence",
+    "aliases": [
+      "skill",
+      "skills",
+      "SKILL.md"
+    ],
+    "definition": "Un ensemble réutilisable d’instructions, parfois accompagné de fichiers et de scripts, pour apprendre à un agent comment réaliser une tâche particulière.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "Agent Skills",
+        "url": "https://agentskills.io/home"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "plugin",
+    "terme": "Plugin",
+    "aliases": [
+      "plugin",
+      "plugins"
+    ],
+    "definition": "Une extension qui regroupe des capacités supplémentaires : outils, connexions ou instructions. Son contenu et ses permissions dépendent de l’application qui l’accueille.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "OpenAI · Plugins",
+        "url": "https://learn.chatgpt.com/docs/plugins"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "agents-md",
+    "terme": "AGENTS.md",
+    "aliases": [
+      "AGENTS.md"
+    ],
+    "definition": "Un fichier de consignes pour les agents qui travaillent sur un projet : organisation, commandes, tests et conventions. Un complément au README destiné aux humains.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "AGENTS.md",
+        "url": "https://agents.md/"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "sous-agent",
+    "terme": "Sous-agent",
+    "aliases": [
+      "sous-agent",
+      "subagent"
+    ],
+    "definition": "Un agent auquel un autre agent confie une sous-tâche. Il faut définir son périmètre et réunir ses résultats avec ceux du travail principal.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "Cursor · documentation",
+        "url": "https://cursor.com/docs"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "orchestration",
+    "terme": "Orchestration",
+    "aliases": [
+      "orchestration"
+    ],
+    "definition": "L’organisation des étapes, outils et agents d’un travail : qui intervient, dans quel ordre, avec quelles données et quels points de contrôle.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "OpenAI · Tools",
+        "url": "https://developers.openai.com/api/docs/guides/tools"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "computer-use",
+    "terme": "Computer use",
+    "aliases": [
+      "computer use",
+      "utilisation de l’ordinateur"
+    ],
+    "definition": "La capacité d’un agent à interagir avec une interface : lire l’écran, cliquer et saisir. Les droits et confirmations restent nécessaires pour les actions sensibles.",
+    "guides": [],
+    "projets": [],
+    "category": "agents",
+    "sources": [
+      {
+        "label": "OpenAI · Computer use",
+        "url": "https://developers.openai.com/api/docs/guides/tools-computer-use"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "prompt-injection",
+    "terme": "Prompt injection",
+    "aliases": [
+      "prompt injection",
+      "injection de prompt"
+    ],
+    "definition": "Des instructions trompeuses placées dans un contenu que l’agent consulte, pour détourner sa tâche. Une page ou un document doit rester une donnée, pas une autorisation.",
+    "guides": [],
+    "projets": [],
+    "category": "qualite",
+    "sources": [
+      {
+        "label": "OpenAI · Agent safety",
+        "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "garde-fous",
+    "terme": "Garde-fous (guardrails)",
+    "aliases": [
+      "garde-fous",
+      "guardrails"
+    ],
+    "definition": "Des limites et contrôles autour d’un système IA : accès réduits, vérifications de sortie et validations avant certaines actions. Aucun garde-fou isolé n’est infaillible.",
+    "guides": [],
+    "projets": [],
+    "category": "qualite",
+    "sources": [
+      {
+        "label": "OpenAI · Agent safety",
+        "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "validation-humaine",
+    "terme": "Validation humaine",
+    "aliases": [
+      "validation humaine",
+      "human in the loop"
+    ],
+    "definition": "Une personne vérifie un résultat ou autorise une action avant son exécution. Le point de validation doit préciser ce qui sera fait et avec quelles données.",
+    "guides": [],
+    "projets": [],
+    "category": "qualite",
+    "sources": [
+      {
+        "label": "OpenAI · Agent safety",
+        "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "sortie-structuree",
+    "terme": "Sortie structurée / JSON",
+    "aliases": [
+      "sortie structurée",
+      "structured output",
+      "JSON"
+    ],
+    "definition": "Une réponse organisée selon un schéma de données plutôt qu’en texte libre. Pratique pour les logiciels ; un format valide ne garantit pas des valeurs exactes.",
+    "guides": [],
+    "projets": [],
+    "category": "donnees",
+    "sources": [
+      {
+        "label": "OpenAI · Structured outputs",
+        "url": "https://developers.openai.com/api/docs/guides/structured-outputs"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "tts",
+    "terme": "Synthèse vocale (TTS)",
+    "aliases": [
+      "TTS",
+      "text to speech",
+      "synthèse vocale"
+    ],
+    "definition": "Transformer un texte en voix. Pour un podcast, le rendu dépend aussi de l’écriture, du rythme, de la prononciation et de l’écoute de contrôle.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "OpenAI · Text to speech",
+        "url": "https://developers.openai.com/api/docs/guides/text-to-speech"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "stt",
+    "terme": "Transcription (STT)",
+    "aliases": [
+      "STT",
+      "speech to text",
+      "transcription"
+    ],
+    "definition": "Transformer un enregistrement parlé en texte. Les noms propres, le bruit et plusieurs voix peuvent provoquer des erreurs à corriger.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "OpenAI · Transcription",
+        "url": "https://developers.openai.com/api/docs/guides/speech-to-text"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "ocr",
+    "terme": "OCR",
+    "aliases": [
+      "OCR",
+      "reconnaissance optique"
+    ],
+    "definition": "Extraire du texte depuis une image ou un document numérisé. Reconnaître les caractères et comprendre le sens du document sont deux tâches différentes.",
+    "guides": [],
+    "projets": [],
+    "category": "donnees",
+    "sources": [
+      {
+        "label": "OpenAI · Images and vision",
+        "url": "https://developers.openai.com/api/docs/guides/images-vision"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "generation-image",
+    "terme": "Génération d’images",
+    "aliases": [
+      "génération d’images",
+      "image generation"
+    ],
+    "definition": "Créer une image à partir d’instructions et, selon l’outil, d’images de référence. La cohérence d’un personnage exige des références et des corrections suivies.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "OpenAI · Image generation",
+        "url": "https://developers.openai.com/api/docs/guides/image-generation"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "inpainting",
+    "terme": "Inpainting / retouche locale",
+    "aliases": [
+      "inpainting",
+      "retouche locale"
+    ],
+    "definition": "Modifier une zone d’une image en conservant le reste autant que possible. Un masque indique généralement la partie à retravailler.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "OpenAI · Image generation",
+        "url": "https://developers.openai.com/api/docs/guides/image-generation"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "iastro",
+    "terme": "iAstro",
+    "aliases": [
+      "iAstro"
+    ],
+    "definition": "Le personnage androïde créé pour la Veille IA de Hugo : partenaire dans les comics et repère visuel du podcast. Un personnage éditorial, pas un modèle d’IA.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "Knowledge Hub · Hugo × iAstro",
+        "url": "/knowledge-hub/journal/veille-podcast-comics-iastro-chatgpt.html"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "design-system",
+    "terme": "Design system",
+    "aliases": [
+      "design system",
+      "système de design"
+    ],
+    "definition": "Un ensemble partagé de règles et composants visuels : couleurs, typographies, espacements et éléments d’interface. Il rend les créations cohérentes d’un support à l’autre.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "Anthropic · Claude Design",
+        "url": "https://www.anthropic.com/news/claude-design-anthropic-labs"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "prototype",
+    "terme": "Prototype",
+    "aliases": [
+      "prototype",
+      "prototypage"
+    ],
+    "definition": "Une version qui permet d’essayer une idée ou un parcours avant sa réalisation complète. Un prototype visuellement convaincant n’est pas forcément un produit prêt à publier.",
+    "guides": [],
+    "projets": [],
+    "category": "creation",
+    "sources": [
+      {
+        "label": "Anthropic · Claude Design",
+        "url": "https://www.anthropic.com/news/claude-design-anthropic-labs"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "open-source",
+    "terme": "Open source",
+    "aliases": [
+      "open source",
+      "open-source"
+    ],
+    "definition": "Du logiciel distribué sous une licence permettant notamment l’utilisation, l’étude, la modification et la redistribution. Code visible, gratuité et poids ouverts ne suffisent pas à eux seuls.",
+    "guides": [],
+    "projets": [],
+    "category": "developpement",
+    "sources": [
+      {
+        "label": "Open Source Initiative",
+        "url": "https://opensource.org/osd"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "branche",
+    "terme": "Branche Git",
+    "aliases": [
+      "branche Git",
+      "git branch"
+    ],
+    "definition": "Une ligne de travail dans l’historique Git, pour préparer un changement avant intégration.",
+    "guides": [],
+    "projets": [],
+    "category": "developpement",
+    "sources": [
+      {
+        "label": "Git · glossary",
+        "url": "https://git-scm.com/docs/gitglossary"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "worktree",
+    "terme": "Worktree",
+    "aliases": [
+      "worktree",
+      "worktrees"
+    ],
+    "definition": "Un dossier de travail supplémentaire lié au même dépôt Git. Utile pour avancer sur plusieurs branches sans mélanger les fichiers en cours de modification.",
+    "guides": [],
+    "projets": [],
+    "category": "developpement",
+    "sources": [
+      {
+        "label": "Git · glossary",
+        "url": "https://git-scm.com/docs/gitglossary"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "pull-request",
+    "terme": "Pull request (PR)",
+    "aliases": [
+      "pull request",
+      "pull requests"
+    ],
+    "definition": "Une proposition de changements à relire avant intégration. Elle rassemble les différences, les échanges et les contrôles disponibles autour d’une modification.",
+    "guides": [],
+    "projets": [],
+    "category": "developpement",
+    "sources": [
+      {
+        "label": "GitHub · Copilot",
+        "url": "https://docs.github.com/en/copilot/get-started/about-github-copilot"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "diff",
+    "terme": "Diff",
+    "aliases": [
+      "diff"
+    ],
+    "definition": "La comparaison entre deux versions d’un fichier ou d’un projet : ce qui a été ajouté, modifié ou supprimé. Une base de la revue de code.",
+    "guides": [],
+    "projets": [],
+    "category": "developpement",
+    "sources": [
+      {
+        "label": "Git · glossary",
+        "url": "https://git-scm.com/docs/gitglossary"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "api-vs-abonnement",
+    "terme": "API ou abonnement ?",
+    "aliases": [
+      "API ou abonnement",
+      "API or subscription"
+    ],
+    "definition": "Un abonnement donne accès à une application selon ses limites. Une API permet à un logiciel d’appeler un service ; ses droits et sa facturation peuvent être distincts.",
+    "guides": [],
+    "projets": [],
+    "category": "donnees",
+    "sources": [
+      {
+        "label": "OpenAI · Pricing",
+        "url": "https://learn.chatgpt.com/docs/pricing"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "deep-research",
+    "terme": "Deep research",
+    "aliases": [
+      "deep research",
+      "recherche approfondie"
+    ],
+    "definition": "Un mode de recherche approfondie qui explore plusieurs sources et prépare une synthèse. Il faut relire les citations, les dates et les conclusions proposées.",
+    "guides": [],
+    "projets": [],
+    "category": "outils",
+    "sources": [
+      {
+        "label": "Perplexity · documentation",
+        "url": "https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity"
+      }
+    ],
+    "verified": "2026-10-17"
+  },
+  {
+    "id": "ancrage-sources",
+    "terme": "Ancrage dans les sources (grounding)",
+    "aliases": [
+      "grounding",
+      "ancrage dans les sources"
+    ],
+    "definition": "Construire une réponse à partir de documents ou résultats identifiés. Conserver les références aide à distinguer les faits trouvés des déductions du modèle.",
+    "guides": [],
+    "projets": [],
+    "category": "qualite",
+    "sources": [
+      {
+        "label": "OpenAI · Retrieval",
+        "url": "https://developers.openai.com/api/docs/guides/retrieval"
+      }
+    ],
+    "verified": "2026-10-17"
   }
 ]

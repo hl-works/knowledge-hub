@@ -1637,33 +1637,99 @@ LEXIQUE — LES TERMES DE L'IA, DÉFINIS SIMPLEMENT
 URL : https://hl-consulting.tech/knowledge-hub/lexique/
 ================================================================
 
-- Intelligence artificielle (IA) : Des logiciels capables de tâches qui demandaient un cerveau humain (comprendre, décider, créer). L'« IA classique » est spécialisée ; l'IA générative, elle, est polyvalente.
+- Intelligence artificielle (IA) : Des systèmes informatiques capables de tâches comme reconnaître, prédire, générer ou planifier. Leurs capacités et leur fiabilité dépendent de leur conception et du contexte.
 - IA générative : Une IA qui produit du contenu neuf (texte, image, code) à partir d'une simple consigne, au lieu d'exécuter une seule tâche programmée.
 - LLM (grand modèle de langage) : Le moteur des assistants comme Claude ou ChatGPT : un modèle entraîné sur d'énormes quantités de texte, qui prédit la suite la plus plausible de ce qu'on lui écrit.
 - Token : L'unité de base que lit et produit un LLM : un bout de mot. La longueur des échanges et leur coût se mesurent en tokens.
 - Hallucination : Quand un LLM invente une réponse fausse avec aplomb. D'où la règle de base : vérifier les faits, chiffres et références.
 - Prompt : La consigne qu'on donne à l'IA. Un bon prompt — clair, avec le contexte et l'objectif — change tout le résultat.
 - Multimodal : Capable de traiter plusieurs types d'entrées — texte, image, audio — pas seulement du texte.
-- Poids ouverts (open weights) : Un modèle qu'on peut télécharger et héberger soi-même (ex. Llama, Mistral), par opposition aux modèles « fermés » accessibles seulement via un service.
+- Poids ouverts (open weights) : Un modèle dont les paramètres entraînés sont accessibles pour téléchargement et utilisation selon une licence. Cela ne signifie pas forcément que les données ou le code d’entraînement sont ouverts.
 - Anthropic : Le laboratoire américain qui crée Claude, centré sur la fiabilité et la sécurité des modèles.
-- Claude : L'assistant IA d'Anthropic, décliné en plusieurs tailles (Opus, Sonnet, Haiku) et plusieurs produits (Chat, Cowork, Code).
-- Opus / Sonnet / Haiku : Les trois tailles de Claude : le plus puissant (Opus), l'équilibré (Sonnet), le rapide (Haiku). On choisit selon la tâche.
+- Claude : La famille de modèles et l’assistant d’Anthropic. Claude s’utilise notamment en conversation, avec Cowork, Claude Code ou Claude Design.
+- Opus / Sonnet / Haiku : Des familles de modèles Claude aux compromis différents de capacités, rapidité et coût. Le catalogue comprend aussi Fable ; vérifier la version avant de comparer.
 - Claude Chat / Cowork / Code : Trois façons d'utiliser Claude : discuter (Chat), déléguer un travail de bureau (Cowork), agir sur des fichiers et des projets (Code).
-- Terminal : La fenêtre où l'on tape des commandes au lieu de cliquer. Ça impressionne, mais ça s'utilise en copier-coller.
-- API : Un tuyau programmé qui relie deux logiciels. C'est l'une des façons de connecter un service à Claude, de manière automatisée.
-- MCP (Model Context Protocol) : Un standard ouvert créé par Anthropic : une « prise universelle » pour brancher Claude à des outils (Shopify, Drive, Gmail…) sans intégration sur-mesure.
-- Agent IA : Claude à qui on confie un objectif et les moyens d'agir seul, en boucle, jusqu'au résultat — au lieu de simplement répondre.
-- GitHub : Un espace en ligne où vit ton projet avec tout son historique ; une fois branché, les mises à jour se déploient toutes seules.
-- Dépôt (repo) : Le « dossier » d'un projet sur GitHub, avec l'ensemble de ses fichiers et de son historique.
-- Commit : Une version enregistrée et datée d'un projet sur GitHub. On peut toujours y revenir.
+- Terminal : Une interface pour exécuter des commandes sur un ordinateur. Avant de lancer une commande proposée par une IA, comprendre quels fichiers ou services elle affecte.
+- API : Une interface qui permet à un logiciel de demander des données ou des actions à un autre service, selon des règles et des droits définis.
+- MCP (Model Context Protocol) : Un protocole ouvert pour relier des applications IA à des données et outils. Il standardise les échanges ; les autorisations et l’intégration restent à configurer.
+- Agent IA : Un système qui utilise un modèle et des outils pour poursuivre un objectif en plusieurs étapes, avec un périmètre d’action et des contrôles définis.
+- GitHub : Une plateforme pour héberger des dépôts Git et collaborer sur du code. Tests et déploiements peuvent y être automatisés lorsqu’ils sont configurés.
+- Dépôt (repo) : Un ensemble de fichiers suivi avec un historique de versions. Un dépôt Git peut être local ou hébergé sur une plateforme comme GitHub.
+- Commit : Un enregistrement de changements dans l’historique Git, avec un identifiant et un message. Il aide à comprendre, comparer et retrouver des versions du projet.
 - Cron : Un minuteur qui lance une tâche automatiquement à intervalle régulier (ex. tous les matins à 7 h).
 - RSS : Un format standard pour récupérer automatiquement les nouveaux articles d'un site. La brique de base d'une veille.
 - Bot / Canal Telegram : Un programme qui publie des messages sur Telegram ; un canal public est suivable par n'importe qui via un simple lien.
 - CLAUDE.md : Un fichier que Claude lit au démarrage : ton, conventions, pièges. Il évite de tout réexpliquer à chaque conversation.
-- Compound Engineering : Méthode (popularisée par Kieran Klaassen et Dan Shipper, chez Every) où chaque leçon devient une règle réutilisable : ton système s'améliore tout seul à chaque session.
+- Compound Engineering : Une méthode qui transforme les retours d’expérience en consignes, outils ou tests réutilisables. L’amélioration dépend des corrections réellement conservées et appliquées.
 - Vibe coding : Programmer en décrivant son intention en langage normal et en laissant l'IA générer le code. Terme popularisé par Andrej Karpathy.
 - SEO : L'art d'être bien classé par les moteurs de recherche (Google…).
 - GEO : L'équivalent du SEO pour les IA : optimiser ses contenus pour être **cité** par les assistants (ChatGPT, Claude, Perplexity). C'est l'objectif de ce site.
+- OpenAI : L’organisation qui développe notamment les modèles GPT, ChatGPT et Codex. Le fournisseur, l’application et le modèle désignent trois niveaux différents.
+- ChatGPT : L’outil d’OpenAI pour discuter, rechercher, analyser et créer avec l’IA. Ses possibilités dépendent du modèle choisi, des outils disponibles et des accès accordés.
+- ChatGPT Work : Une façon de déléguer un travail à ChatGPT jusqu’à un livrable à relire : analyse, document, présentation ou recherche, avec les outils autorisés.
+- Codex : L’agent d’OpenAI pour travailler sur des projets : comprendre les fichiers, modifier du code, exécuter des tests et préparer des résultats vérifiables. Il utilise un modèle GPT.
+- GPT : Une famille de modèles d’OpenAI. GPT désigne le moteur ; ChatGPT et Codex sont des façons de l’utiliser avec une interface et des outils.
+- Astra (GPT-6 Astra) : Un modèle d’OpenAI destiné aux tâches complexes de raisonnement, de code et de recherche. À distinguer de Project Astra, le projet de Google DeepMind.
+- Sol / Luna (GPT) : Des variantes de GPT : Sol vise un équilibre entre capacités, rapidité et coût ; Luna privilégie les tâches ciblées et rapides. Les versions et accès évoluent.
+- Claude Code : L’agent de développement d’Anthropic. Il explore un projet, modifie des fichiers et utilise des outils pour construire, tester ou corriger du logiciel.
+- Claude Cowork : L’espace de Claude pour déléguer des tâches de travail, notamment sur des fichiers et documents, avec les accès que l’utilisateur autorise.
+- Claude Design : Le produit d’Anthropic pour concevoir des maquettes, prototypes, présentations et supports visuels par conversation. Les propositions se retouchent et peuvent être transmises à Claude Code.
+- Fable (Claude) : Une famille de modèles Claude figurant dans le catalogue Anthropic, aux côtés d’Opus, Sonnet et Haiku. Ce nom désigne un modèle, pas une application de design.
+- Google DeepMind : L’équipe de recherche et développement IA de Google, à l’origine notamment de modèles Gemini et du projet d’assistant multimodal Project Astra.
+- Gemini : Le nom d’une famille de modèles de Google et de son application d’assistance. Préciser « modèle Gemini » ou « application Gemini » évite les confusions.
+- Project Astra (Google) : Le projet de recherche de Google DeepMind sur un assistant qui comprend notamment la voix, la vidéo et l’environnement. Certaines capacités alimentent Gemini Live.
+- Mistral AI : L’entreprise française qui développe des modèles et produits d’IA, dont Mistral Vibe. Il faut vérifier la licence de chaque modèle avant de parler d’open source.
+- Mistral Vibe / Le Chat : Le produit de Mistral qui réunit l’assistant de travail, auparavant nommé Le Chat, et un agent de code. Un exemple de nom de produit qui évolue.
+- Gemini Notebook / NotebookLM : L’outil de Google, auparavant NotebookLM, pour explorer un ensemble de sources, poser des questions et produire des synthèses, notamment audio. Les réponses restent à vérifier.
+- Perplexity : Un outil de recherche qui synthétise des informations et affiche des liens sources. Une citation permet de vérifier une réponse ; elle ne garantit pas son exactitude.
+- Cursor : Un environnement et agent de développement assisté par IA pour comprendre un projet, écrire du code, corriger des erreurs et relire des changements.
+- GitHub Copilot : L’assistant de développement de GitHub : suggestions de code, conversation, aide à la revue et fonctions agentiques selon le contexte. À distinguer des autres produits nommés Copilot.
+- ElevenLabs : Une plateforme de création audio et de voix IA, avec synthèse vocale, transcription et outils de voix. Elle intervient dans la fabrication du Podcast iA.
+- Hugging Face : Une plateforme pour partager et découvrir des modèles, jeux de données et démonstrations. Chaque ressource possède ses propres conditions d’utilisation.
+- Ollama : Un outil pour exécuter des modèles sur sa machine, avec aussi des options cloud. Les besoins en mémoire et les usages autorisés dépendent du modèle.
+- Modèle IA : Le système entraîné qui transforme une entrée en prédiction ou en contenu. Une application peut combiner plusieurs modèles et outils.
+- Machine learning : L’apprentissage de régularités à partir de données, pour réaliser une tâche sans écrire à la main toutes les règles de décision.
+- Entraînement : La phase où les paramètres d’un modèle sont ajustés à partir de données. Elle se distingue de son utilisation quotidienne pour répondre.
+- Inférence : Le fait d’utiliser un modèle déjà entraîné pour produire une réponse ou une prédiction à partir d’une nouvelle entrée.
+- Fenêtre de contexte : La quantité d’informations qu’un modèle peut traiter dans une requête : instructions, conversation, documents et réponse. Une grande fenêtre ne garantit pas une bonne compréhension.
+- Mémoire d’un assistant : Des informations conservées et réutilisées entre des échanges. La mémoire dépend de l’application ; elle diffère du contexte présent et des connaissances acquises à l’entraînement.
+- Raisonnement / effort de réflexion : Le travail supplémentaire qu’un modèle consacre à une tâche complexe. Un effort plus élevé peut augmenter le délai et le coût sans assurer une réponse juste.
+- RAG : Chercher des informations dans des documents, puis les donner au modèle pour construire sa réponse. Utile pour exploiter une base interne sans réentraîner le modèle.
+- Embedding : Une représentation numérique d’un contenu qui permet de comparer des proximités de sens. Elle sert notamment à retrouver des passages pertinents.
+- Base vectorielle : Un stockage et un moteur de recherche pour des représentations numériques de contenus. Une brique fréquente des systèmes de recherche sémantique et de RAG.
+- Fine-tuning : Un entraînement complémentaire sur des exemples choisis pour adapter un modèle à un comportement. Ajouter des documents à une conversation n’est pas du fine-tuning.
+- Évaluations (evals) : Des tests sur des cas représentatifs pour mesurer la qualité d’un système IA. Ils servent à comparer les versions et repérer les régressions.
+- Benchmark : Un ensemble de tests utilisé pour comparer des systèmes. Un bon score sur ces tests ne suffit pas à prouver la qualité sur ton propre métier.
+- Prompt système : Des instructions qui cadrent le rôle et le comportement de l’assistant. Elles complètent la demande de l’utilisateur dans la hiérarchie prévue par le produit.
+- Few-shot prompting : Donner quelques exemples du résultat attendu dans la consigne. Cela aide à préciser le format ou la tâche, sans entraîner de nouveau le modèle.
+- Tool calling / appel d’outil : Le modèle demande l’exécution d’une fonction : chercher, calculer ou lire un fichier. Le logiciel hôte exécute l’action autorisée et lui renvoie le résultat.
+- Connecteur : Une intégration qui donne accès à un service ou à ses données, dans les limites des autorisations accordées. Lire et modifier sont des droits différents.
+- Skill / compétence : Un ensemble réutilisable d’instructions, parfois accompagné de fichiers et de scripts, pour apprendre à un agent comment réaliser une tâche particulière.
+- Plugin : Une extension qui regroupe des capacités supplémentaires : outils, connexions ou instructions. Son contenu et ses permissions dépendent de l’application qui l’accueille.
+- AGENTS.md : Un fichier de consignes pour les agents qui travaillent sur un projet : organisation, commandes, tests et conventions. Un complément au README destiné aux humains.
+- Sous-agent : Un agent auquel un autre agent confie une sous-tâche. Il faut définir son périmètre et réunir ses résultats avec ceux du travail principal.
+- Orchestration : L’organisation des étapes, outils et agents d’un travail : qui intervient, dans quel ordre, avec quelles données et quels points de contrôle.
+- Computer use : La capacité d’un agent à interagir avec une interface : lire l’écran, cliquer et saisir. Les droits et confirmations restent nécessaires pour les actions sensibles.
+- Prompt injection : Des instructions trompeuses placées dans un contenu que l’agent consulte, pour détourner sa tâche. Une page ou un document doit rester une donnée, pas une autorisation.
+- Garde-fous (guardrails) : Des limites et contrôles autour d’un système IA : accès réduits, vérifications de sortie et validations avant certaines actions. Aucun garde-fou isolé n’est infaillible.
+- Validation humaine : Une personne vérifie un résultat ou autorise une action avant son exécution. Le point de validation doit préciser ce qui sera fait et avec quelles données.
+- Sortie structurée / JSON : Une réponse organisée selon un schéma de données plutôt qu’en texte libre. Pratique pour les logiciels ; un format valide ne garantit pas des valeurs exactes.
+- Synthèse vocale (TTS) : Transformer un texte en voix. Pour un podcast, le rendu dépend aussi de l’écriture, du rythme, de la prononciation et de l’écoute de contrôle.
+- Transcription (STT) : Transformer un enregistrement parlé en texte. Les noms propres, le bruit et plusieurs voix peuvent provoquer des erreurs à corriger.
+- OCR : Extraire du texte depuis une image ou un document numérisé. Reconnaître les caractères et comprendre le sens du document sont deux tâches différentes.
+- Génération d’images : Créer une image à partir d’instructions et, selon l’outil, d’images de référence. La cohérence d’un personnage exige des références et des corrections suivies.
+- Inpainting / retouche locale : Modifier une zone d’une image en conservant le reste autant que possible. Un masque indique généralement la partie à retravailler.
+- iAstro : Le personnage androïde créé pour la Veille IA de Hugo : partenaire dans les comics et repère visuel du podcast. Un personnage éditorial, pas un modèle d’IA.
+- Design system : Un ensemble partagé de règles et composants visuels : couleurs, typographies, espacements et éléments d’interface. Il rend les créations cohérentes d’un support à l’autre.
+- Prototype : Une version qui permet d’essayer une idée ou un parcours avant sa réalisation complète. Un prototype visuellement convaincant n’est pas forcément un produit prêt à publier.
+- Open source : Du logiciel distribué sous une licence permettant notamment l’utilisation, l’étude, la modification et la redistribution. Code visible, gratuité et poids ouverts ne suffisent pas à eux seuls.
+- Branche Git : Une ligne de travail dans l’historique Git, pour préparer un changement avant intégration.
+- Worktree : Un dossier de travail supplémentaire lié au même dépôt Git. Utile pour avancer sur plusieurs branches sans mélanger les fichiers en cours de modification.
+- Pull request (PR) : Une proposition de changements à relire avant intégration. Elle rassemble les différences, les échanges et les contrôles disponibles autour d’une modification.
+- Diff : La comparaison entre deux versions d’un fichier ou d’un projet : ce qui a été ajouté, modifié ou supprimé. Une base de la revue de code.
+- API ou abonnement ? : Un abonnement donne accès à une application selon ses limites. Une API permet à un logiciel d’appeler un service ; ses droits et sa facturation peuvent être distincts.
+- Deep research : Un mode de recherche approfondie qui explore plusieurs sources et prépare une synthèse. Il faut relire les citations, les dates et les conclusions proposées.
+- Ancrage dans les sources (grounding) : Construire une réponse à partir de documents ou résultats identifiés. Conserver les références aide à distinguer les faits trouvés des déductions du modèle.
 
 
 ================================================================
