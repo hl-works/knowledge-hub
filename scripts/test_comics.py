@@ -50,8 +50,16 @@ class ComicsTests(unittest.TestCase):
                 ep['status']='approved';f.write_text(json.dumps(ep));b.build()
                 self.assertEqual(json.loads((b.ROOT/'latest.json').read_text())['id'],'2026-W42')
                 before=(b.ROOT/'2026-W42/index.html').read_bytes();b.build();self.assertEqual(before,(b.ROOT/'2026-W42/index.html').read_bytes())
+                original_shell=b.shell
+                try:
+                    b.shell=lambda *args,**kwargs: original_shell(*args,**kwargs).replace('</head>','<style>/* Reader UI refresh */</style></head>')
+                    with self.assertRaises(ValueError):b.build()
+                    b.build(refresh_reader=True)
+                    self.assertIn('Reader UI refresh',(b.ROOT/'2026-W42/index.html').read_text())
+                finally:b.shell=original_shell
                 ep['title']='Changed';f.write_text(json.dumps(ep))
                 with self.assertRaises(ValueError):b.build()
+                with self.assertRaises(ValueError):b.build(refresh_reader=True)
             finally:b.ROOT,b.REPO=oldroot,oldrepo
     def test_public_figure_attribution(self):
         ep=self.fixture();ep['cast_ids']=['hugo','iastro','alexandr-wang']

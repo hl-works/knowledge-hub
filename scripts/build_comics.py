@@ -7,6 +7,7 @@ import html
 import json
 import re
 import math
+import hashlib
 import comics_reader
 
 REPO = Path(__file__).resolve().parents[1]
@@ -150,9 +151,9 @@ def render_episode(ep, preview=False):
     return f'<p class="kicker">{esc(ep["id"])} · {esc(ep["period_start"])} → {esc(ep["period_end"])}</p><h2>{esc(ep["title"])}</h2><p>{esc(ep.get("correction_note", ""))}</p><div style="{GRID}">{"".join(panels)}</div><section><h2>Sources</h2><ol>{sources}</ol>{downloads}</section>'
 
 def home(episodes, en=False):
-    heading = 'iAstro Sunday.<br>Your Sunday comic.' if en else 'iAstro Sunday.<br>Le comic du dimanche.'
+    heading = 'iAstro Sunday.'
     desc = 'Four to seven big stories, a little perspective, and our recurring duo.' if en else 'Quatre à sept grandes infos, un peu de recul et notre duo pour raconter la semaine.'
-    content = f'<section style="padding-block:48px 32px;border-bottom:3px solid var(--border-strong)"><p class="kicker">Hugo × Iastro · {"Weekly comic" if en else "Le rendez-vous hebdo"}</p><h1 style="font-size:clamp(2.6rem,6vw,5.3rem);margin-top:16px;max-width:18ch">{heading}</h1><p class="lead" style="font-size:1.25rem;max-width:48ch">{desc}</p><a class="btn btn--primary" href="#episode">{"Read the comic" if en else "Lire la BD"} ↓</a></section><section id="episode">'
+    content = f'<section style="padding-block:32px 24px;border-bottom:3px solid var(--border-strong)"><p class="kicker" style="text-transform:none">Hugo × iAstro · {"Weekly comic" if en else "Le comic du dimanche"}</p><h1 style="font-size:clamp(2rem,5vw,3rem);margin-top:12px;text-transform:none">{heading}</h1></section><section id="episode">'
     if episodes:
         content += render_episode(episodes[-1])
         if en: content = content.replace('<section id="episode">','<section id="episode"><p lang="en">This episode is available in French.</p>')
@@ -168,7 +169,10 @@ def home(episodes, en=False):
     content += f'</section><aside style="padding:24px 0;border-top:1px solid var(--border)"><p class="caption"><a href="{BASE}kit/">{"Character studio: poses, expressions and twelve outfits" if en else "L’atelier : poses, expressions et douze tenues"}</a></p></aside>'
     return shell('iAstro Sunday — Hugo × Iastro — '+('The week in AI comics' if en else 'La semaine IA en BD'),desc,content,'en' if en else 'fr')
 
-def build(check=False):
+def editorial_fingerprint(ep):
+    return hashlib.sha256(json.dumps(ep, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+def build(check=False, refresh_reader=False):
     episodes=[]
     for p in sorted((ROOT/'episodes').glob('*.json')):
         ep=json.loads(p.read_text())
@@ -183,7 +187,12 @@ def build(check=False):
             content=render_episode(ep)
             if lang=='en': content='<p>This episode is available in French.</p>'+content
             page=shell(ep['title'],ep['title'],f'<section>{content}</section>',lang,ep['id']+'/')
-            if dest.exists() and dest.read_text()!=page: raise ValueError(f'Archive immutable: create a revision instead of replacing {ep["id"]}')
+            fingerprint=f'<meta name="comic-editorial-sha256" content="{editorial_fingerprint(ep)}">'
+            page=page.replace('</head>',fingerprint+'</head>')
+            if dest.exists() and dest.read_text()!=page:
+                # A reader update may change the UI, never the approved episode data.
+                if not refresh_reader or fingerprint not in dest.read_text():
+                    raise ValueError(f'Archive immutable: create a revision instead of replacing {ep["id"]}')
             rendered.append((dest,page))
     if not check:
         rendered.extend([(ROOT/'index.html',home(episodes)),(REPO/'knowledge-hub/en/comics/index.html',home(episodes,True))])
@@ -208,8 +217,9 @@ def build_preview(episode_id):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--check',action='store_true')
     parser.add_argument('--preview', metavar='YYYY-Www', help='Render a draft without publishing it')
+    parser.add_argument('--refresh-reader', action='store_true', help='Refresh reader UI only when the published editorial fingerprint is unchanged')
     args=parser.parse_args()
     if args.preview:
         if args.check: parser.error('--preview and --check are separate operations')
         build_preview(args.preview)
-    else: build(args.check)
+    else: build(args.check, args.refresh_reader)
