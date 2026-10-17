@@ -82,3 +82,9 @@ Recette locale : 28 écrans parcourus, quatre accès directs à 320 px sans déb
 Hugo demande explicitement la mise en production de la version présentée. Le numéro 2026-W41 est approuvé et publié sous `/knowledge-hub/comics/2026-W41/`, référencé par `latest.json`, le sommaire, le moteur de recherche et le sitemap. Les anciennes adresses du pilote redirigent vers ce numéro. Le Kiosque IA réunit Le Radar iA, Le Podcast iA et iAstro Sunday. Les paragraphes de préparation ci-dessus décrivent l’historique ; ils ne remplacent pas cet état. Les rétrospectives restent des pistes non publiées.
 
 Apple Podcasts, Spotify et le flux RSS podcast constituent le prochain lot : aucun compte ouvert ni distribution activée ici.
+
+## Navigation mobile — 17 octobre 2026
+
+Le lecteur conserve le swipe et la lecture verticale. Son sommaire utilise des cartes sur une colonne, un départ explicite et une reprise de la case en cours (pendant la visite). Les commandes précédent/suivant restent en bas de l’écran, avec une progression par histoire. Le changement d’histoire et la fin du numéro sont annoncés explicitement. Le mode vertical conserve la position et met à jour le lien de la case.
+
+Une mise à jour technique du lecteur peut désormais utiliser `python3 scripts/build_comics.py --refresh-reader`. Elle exige que l’empreinte SHA-256 des données éditoriales soit identique à celle de l’archive publiée. Toute modification du scénario, des sources, des images référencées ou de l’approbation exige toujours une nouvelle révision. Pour le numéro W41 existant, l’empreinte a été ajoutée après vérification de l’identité entre le HTML publié et son générateur d’origine. Aucun dessin ni dialogue n’a changé.
