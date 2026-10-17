@@ -106,7 +106,7 @@ def build():
         if en:content=content.replace('<div class="kiosk">','<div class="kiosk"><p class="kiosk-note" lang="en">The editorial editions, comics and audio below are currently available in French.</p>',1)
         page=shell(title,intro,content,lang,root_path='/knowledge-hub/immersion-ia/')
         page=re.sub(r'<header style=.*?</header>',site_header(en),page,flags=re.S)
-        page=page.replace('</body>','<script src="/knowledge-hub/search.js?v=20260601d" defer></script><script src="/assets/podcast/player.js?v=20261016b" defer></script><script>document.addEventListener("play",event=>{if(event.target.tagName==="AUDIO")document.querySelectorAll("audio").forEach(a=>{if(a!==event.target)a.pause();});},true);</script></body>')
+        page=page.replace('</body>','<script src="/knowledge-hub/search.js?v=20260601d" defer></script><script src="/assets/podcast/player.js?v=20261017c" defer></script><script>document.addEventListener("play",event=>{if(event.target.tagName==="AUDIO")document.querySelectorAll("audio").forEach(a=>{if(a!==event.target)a.pause();});},true);</script></body>')
         page=page.replace('Hugo × Iastro · Dessins générés par IA. Direction éditoriale : Hugo Lahutte.','Le Kiosque IA · Hugo Lahutte.').replace('Hugo × Iastro · AI-generated artwork. Editorial direction: Hugo Lahutte.','Le Kiosque IA · Hugo Lahutte.')
         dest=ROOT/prefix.lstrip('/')/'immersion-ia/index.html';dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
     # Stable, exact-size HTML layouts for browser export. No dates/durations baked into art.
