@@ -21,6 +21,10 @@ on:
       - "knowledge-hub/**.html"
       - "!landing-lab/**"
       - "knowledge-hub/veille-ia/feed.json"
+      - "assets/podcast/latest.json"
+      - "assets/podcast/episodes.json"
+      - "knowledge-hub/comics/episodes/*.json"
+      - "scripts/build_home_media.py"
       - "knowledge-hub/lexique/*.json"
       - "knowledge-hub/en/lexique/*.json"
       - "atlas-asie/**.html"
@@ -47,6 +51,7 @@ jobs:
       - name: Régénérer les artefacts
         run: |
           python3 scripts/build_veille_static.py
+          python3 scripts/build_home_media.py
           python3 scripts/build_llms_full.py
           python3 scripts/build_feeds.py
           python3 scripts/build_atlas_static.py
