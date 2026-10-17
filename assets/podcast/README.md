@@ -77,11 +77,20 @@ retouche éditoriale sans changement de GUID ou d'enclosure.
 5. Observer un premier épisode visible sur Spotify, puis l'arrivée du suivant.
    Effectuer aussi la soumission Apple Podcasts et son contrôle séparément.
 
-État avant soumission : contact confirmé, flux initial construit avec six Débriefs
-du 12 au 17 octobre et tests locaux réussis, dont un export des vrais fichiers
-du 17 octobre rejoué sans doublon. Aucun rattachement aux plateformes n'est
-établi par ces fichiers. Ne pas annoncer une distribution automatisée avant
-la vérification d'un deuxième épisode réellement propagé.
+État vérifié le 17 octobre 2026 : six Débriefs du 12 au 17 octobre visibles sur
+[Spotify](https://open.spotify.com/show/10f9eIN4y5iCxx0hc17FUK) et
+[Apple Podcasts](https://podcasts.apple.com/us/podcast/le-podcast-ia/id6823971009?l=fr).
+Les deux pages publiques proposent de suivre l’émission. Le site FR/EN affiche
+les deux liens au-dessus des lecteurs ; le producteur les ajoute aux prochains
+audios Telegram, avec le site comme accès de secours. L’auditeur confirme
+l’abonnement dans son application. Le Flash reste sur le site et Telegram.
+
+La prononciation « I. A. » a été validée à l’écoute par Hugo le 17 octobre et
+intégrée au producteur. Contrôle restant : l’arrivée de la prochaine édition
+après ces modifications, du producteur jusqu’aux deux plateformes. Ne pas
+confondre l’import des six archives avec ce contrôle de propagation quotidienne.
+Évolutions à cadrer : titre définitif, voix originale d’iAstro, portraits des
+neuf autres mois, puis promotion LinkedIn et X. Pas de campagne sociale activée.
 
 Repli : retirer l'appel au générateur du bridge pour arrêter l'alimentation du
 flux, en conservant le dernier RSS, les MP3 datés et leurs GUID. Ne pas supprimer
