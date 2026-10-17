@@ -28,19 +28,22 @@ main:has(.sunday){max-width:1120px;padding-inline:24px}
 .sunday .brand-logo img{width:100%;height:100%;object-fit:contain}.sunday .eyebrow{font:12px/1.5 'IBM Plex Mono',monospace;color:var(--sunday-accent);margin:0 0 8px}
 .sunday .story-heading h2{font:900 clamp(1.8rem,5vw,2.9rem)/1.08 'Archivo',sans-serif;margin:0 0 14px;max-width:720px}.sunday .story-summary{grid-column:1/-1;font-size:18px;line-height:1.55;margin:0;max-width:730px}
 .sunday .scenes{display:grid;grid-template-columns:1fr 1fr;gap:32px 24px;align-items:start}
+.sunday .scene:focus,.sunday .story:focus,.sunday .contents:focus{outline:none}
 .sunday .scene{min-width:0;margin:0;scroll-margin-top:84px}
 .sunday .panel{border:2px solid var(--ink);background:var(--paper);color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
-.sunday .speech-track{display:flex;flex-direction:column;gap:12px;padding:14px 14px 22px;position:relative;z-index:1;background:var(--paper)}
-.sunday .speech{font:700 18px/1.35 'Satoshi',system-ui,sans-serif;position:relative;background:var(--c-white);border:2px solid var(--ink);border-radius:48% 46% 44% 40% / 20px 22px 20px 22px;padding:12px 18px;margin:0;max-width:94%;align-self:flex-start}
-.sunday .speech.right{align-self:flex-end}.sunday .speech:after{content:'';position:absolute;bottom:-12px;left:28px;width:16px;height:20px;background:var(--c-white);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:skewY(35deg)}
-.sunday .speech.right:after{left:auto;right:28px;transform:skewY(-35deg);border-right:0;border-left:2px solid var(--ink)}
-.sunday .speech strong{display:block;text-transform:none;font:700 11px/1.2 'IBM Plex Mono',monospace;margin-bottom:4px}
+/* A single vector outline joins the balloon and its curved tail. Text stays HTML. */
+.sunday .speech-track{display:flex;flex-direction:column;gap:4px;padding:12px 16px 8px;position:relative;z-index:1;background:var(--paper)}
+.sunday .speech{position:relative;isolation:isolate;align-self:flex-start;width:fit-content;max-width:94%;margin:0;padding:16px 30px 35px;text-align:center;font:500 18px/1.35 var(--font-body);text-wrap:pretty}
+.sunday .speech.right{align-self:flex-end}.sunday .balloon-outline{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible;fill:var(--c-white);stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.sunday .speech.right .balloon-outline{transform:scaleX(-1)}
+.sunday .speech strong{display:block;font:700 10px/1.3 var(--font-body);letter-spacing:.04em;text-transform:none;margin:0 0 5px}
+.sunday .speech-text{position:relative;display:block;font-style:italic}
 .sunday .scene-note{padding:20px 4px 0}.sunday .scene-note h3{font-size:18px;line-height:1.3;margin:0 0 8px;display:flex;align-items:baseline;gap:10px}.sunday .scene-number{font:12px 'IBM Plex Mono',monospace;color:var(--sunday-accent)}
 .sunday .scene-note p{font-size:17px;line-height:1.65;margin:0}.sunday .source{font-size:14px;line-height:1.6;border-top:1px solid var(--border);padding-top:18px;margin-top:32px}.sunday .source a{display:inline-block;padding-block:8px}
 .sunday .story-end{display:flex;justify-content:space-between;gap:16px;align-items:center;border-block:2px solid var(--text);padding:16px 0;margin-top:20px;flex-wrap:wrap}
 .sunday .story-end a{min-height:48px;display:flex;align-items:center;font-size:15px;font-weight:700}.sunday .story-end .next{background:var(--text);color:var(--bg);padding:12px 18px;text-decoration:none}
 .sunday .endnote{font-size:14px;line-height:1.6;border-top:1px solid var(--border);padding-top:20px}.sunday .readbar .bar-label{font-size:12px;color:var(--text-muted)}
-@media(max-width:699px){main:has(.sunday){padding-inline:16px}main:has(.sunday)>section{padding-block:18px}.sunday .contents-grid,.sunday .scenes{grid-template-columns:1fr}.sunday .scenes{gap:36px}.sunday .story-heading{grid-template-columns:52px 1fr;gap:12px}.sunday .brand-logo{width:52px;height:52px;padding:8px}.sunday .story-summary{grid-column:1/-1;font-size:17px}.sunday .story-heading h2{font-size:29px}.sunday .readbar{gap:10px;margin-bottom:26px}.sunday .readbar .bar-label{display:none}.sunday .readbar select{font-size:13px;padding-left:8px}.sunday .story{margin-bottom:56px}.sunday .story-heading{margin-bottom:20px}.sunday .speech{font-size:18px}.sunday .speech-track{padding:12px 12px 20px}.sunday .contents{margin-bottom:26px}.sunday .dek{font-size:17px}.sunday .edition{font-size:11px}.sunday .story-end .next{max-width:100%}.sunday .scene-note p{font-size:18px;line-height:1.6}
+@media(max-width:699px){main:has(.sunday){padding-inline:16px}main:has(.sunday)>section{padding-block:18px}.sunday .contents-grid,.sunday .scenes{grid-template-columns:1fr}.sunday .scenes{gap:36px}.sunday .story-heading{grid-template-columns:52px 1fr;gap:12px}.sunday .brand-logo{width:52px;height:52px;padding:8px}.sunday .story-summary{grid-column:1/-1;font-size:17px}.sunday .story-heading h2{font-size:29px}.sunday .readbar{gap:10px;margin-bottom:26px}.sunday .readbar .bar-label{display:none}.sunday .readbar select{font-size:13px;padding-left:8px}.sunday .story{margin-bottom:56px}.sunday .story-heading{margin-bottom:20px}.sunday .speech{font-size:18px}.sunday .speech-track{padding:10px 10px 6px}.sunday .contents{margin-bottom:26px}.sunday .dek{font-size:17px}.sunday .edition{font-size:11px}.sunday .story-end .next{max-width:100%}.sunday .scene-note p{font-size:18px;line-height:1.6}
 body:has(.sunday)>header{padding:12px 16px!important;gap:8px!important}body:has(.sunday)>header nav{gap:12px!important;font-size:12px}body:has(.sunday)>header nav>a:nth-child(2){display:none}body:has(.sunday)>header .nav__wordmark{font-size:15px}body:has(.sunday)>header button{min-height:44px;font-size:11px;padding:8px}}
 [data-theme="dark"] .sunday{--sunday-accent:var(--c-sunset)}
 @media print{.sunday .readbar,.sunday .contents,.sunday .story-end,body:has(.sunday)>header{display:none}.sunday .scene{break-inside:avoid}.sunday .scenes{grid-template-columns:1fr 1fr}.sunday .story{break-before:page}}
@@ -89,7 +92,7 @@ def render(ep,base,dimensions,preview=False):
             for line in p['dialogue']:
                 speaker=line['speaker'].replace('Iastro','iAstro')
                 side=line.get('side','left')
-                bubbles.append(f'<p class="speech {e(side)}"><strong>{e(speaker)}</strong>{e(line["text"])}</p>')
+                bubbles.append(f'<p class="speech {e(side)}"><svg class="balloon-outline" viewBox="0 0 320 140" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M160 4 C252 4 314 17 314 57 C314 98 262 116 113 116 C102 124 90 131 75 136 C83 125 87 118 87 112 C36 104 6 85 6 57 C6 19 67 4 160 4 Z"/></svg><strong>{e(speaker)}</strong><span class="speech-text">{e(line["text"])}</span></p>')
             scenes.append(f'<figure class="scene" id="{e(nid)}-case-{pi+1}" tabindex="-1"><div class="panel"><div class="speech-track">{"".join(bubbles)}</div>{art(p,base,dimensions)}</div><figcaption class="scene-note"><h3><span class="scene-number">{pi+1:02d}/{len(panels):02d}</span>{e(p["explanation"]["title"])}</h3><p>{e(p["explanation"]["text"])}</p></figcaption></figure>')
         src=' · '.join(f'<a href="{e(s["url"])}">{e(s["publisher"])} — annonce du {e(s["published_at"][8:])}/{e(s["published_at"][5:7])}</a>' for s in n['sources'])
         if ni<len(ep['news'])-1:
