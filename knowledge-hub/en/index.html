@@ -124,7 +124,7 @@
       <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Search (press /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
       <li><a href="how-to/">Method</a></li>
       <li><a href="guides/">Guides</a></li>
-      <li class="home-news-nav"><a href="/knowledge-hub/en/#a-la-une">AI watch</a><details><summary aria-label="AI news shortcuts">⌄</summary><div class="home-news-menu"><a href="/knowledge-hub/en/#podcasts">Le Podcast iA<small>Listen to Le Flash or Le Débrief</small></a><a href="/knowledge-hub/en/comics/2026-W41/">iAstro Sunday<small>Open the latest comic</small></a><a href="/knowledge-hub/en/veille-ia/">Written AI news<small>The news and its sources</small></a></div></details></li>
+      <li class="home-news-nav"><a href="/knowledge-hub/en/#a-la-une">AI watch</a><details><summary aria-label="AI news shortcuts">⌄</summary><div class="home-news-menu"><a href="/knowledge-hub/en/#podcasts">Le Podcast iA<small>Listen to Le Flash or Le Débrief</small></a><a href="/knowledge-hub/en/comics/2026-W41-r2/">iAstro Sunday<small>Open the latest comic</small></a><a href="/knowledge-hub/en/veille-ia/">Written AI news<small>The news and its sources</small></a></div></details></li>
       <li><a href="#projets">Projects</a></li>
       <li><a href="journal/">Journal</a></li>
       <li><a href="#contact">Connect</a></li>
@@ -145,11 +145,8 @@
     <p class="kicker">Build in public · Method &amp; logbook</p>
     <h1>I build<br>with Claude.</h1>
     <hr class="rule--accent">
-    <p class="lead">More and more people ask me how I work with AI. Instead of repeating myself, I document everything here: my method, my config files, my projects, and the details of what I'm building — session by session.</p>
-    <div class="btn-row">
-      <a class="btn btn--primary" href="how-to/">Start with the method →</a>
-      <a class="btn btn--ghost" href="a-propos/">Who I am</a>
-    </div>
+    <p class="lead">My method, my projects and what I build with AI. To keep up: a daily podcast and a Sunday comic.</p>
+    <div class="btn-row"><a class="btn btn--primary" href="#podcasts">Listen to the podcast ↓</a><a class="btn btn--ghost" href="/knowledge-hub/en/comics/2026-W41-r2/">Read the comic →</a></div>
     <div class="meta">
       <div class="stat"><b id="stat-sessions">66</b><span>Documented sessions</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Active projects</span></div>
@@ -170,9 +167,9 @@
     </div><div class="home-media-links"><a href="/knowledge-hub/en/immersion-ia/#podcasts">All episodes →</a><a href="/assets/podcast/feed.xml">Subscribe to the podcast ↗</a></div></article>
     <article class="home-media-card" id="comic" aria-labelledby="home-comic-title">
       <div class="home-comic-top"><div><p class="kicker">Read · the Sunday comic</p><h3 id="home-comic-title">iAstro Sunday</h3></div><span class="home-media-date">Hugo × iAstro</span></div>
-      <a class="home-comic-art" href="/knowledge-hub/en/comics/2026-W41/" aria-label="Read the latest comic"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" width="1536" height="1024" style="width:300.0%;height:200.0%;left:-0.0%;top:-0.0%;object-fit:fill" alt="Un énorme moteur orange dans une caisse attend devant la porte de l’atelier ; Hugo est stupéfait."></a>
-      <p class="home-media-date">5 October 2026 – 11 October 2026</p><p class="home-comic-title" lang="fr">L’atelier passe à la vitesse supérieure</p>
-      <div class="home-media-links"><a class="btn btn--primary" href="/knowledge-hub/en/comics/2026-W41/">Read the latest issue →</a><a href="/knowledge-hub/en/comics/">All issues →</a></div>
+      <a class="home-comic-art" href="/knowledge-hub/en/comics/2026-W41-r2/" aria-label="Read the latest comic"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" width="1536" height="1024" style="width:300.0%;height:auto;left:-0.0%;top:-60.000000000000014%" alt="Un énorme moteur orange dans une caisse attend devant la porte de l’atelier ; Hugo est stupéfait."></a>
+      <p class="home-media-date">5–11 October 2026</p><p class="home-comic-title" lang="fr">L’atelier passe à la vitesse supérieure</p>
+      <div class="home-media-links"><a class="btn btn--primary" href="/knowledge-hub/en/comics/2026-W41-r2/">Read the latest issue →</a><a href="/knowledge-hub/en/comics/">All issues →</a></div>
     </article>
   </div>
   <div class="home-media-foot"><span>Podcasts and comics in French · synthetic voice, AI-generated illustrations.</span><a href="https://t.me/VeilleIA_HL">Le Radar iA on Telegram ↗</a></div>
@@ -507,6 +504,6 @@ document.querySelectorAll('.home-news-nav details').forEach(menu=>{
   menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.open=false;}));
 });
 </script>
-<script src="/assets/podcast/player.js?v=20261016b" defer></script>
+<script src="/assets/podcast/player.js?v=20261017c" defer></script>
 </body>
 </html>

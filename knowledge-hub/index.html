@@ -124,7 +124,7 @@
       <li class="nav__search"><button type="button" class="nav__icon" data-search-open aria-label="Rechercher (touche /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></li>
       <li><a href="how-to/">Méthode</a></li>
       <li><a href="guides/">Guides</a></li>
-      <li class="home-news-nav"><a href="/knowledge-hub/#a-la-une">Veille IA</a><details><summary aria-label="Accès directs à la veille IA">⌄</summary><div class="home-news-menu"><a href="/knowledge-hub/#podcasts">Le Podcast iA<small>Écouter le Flash ou le Débrief</small></a><a href="/knowledge-hub/comics/2026-W41/">iAstro Sunday<small>Ouvrir le dernier comic</small></a><a href="/knowledge-hub/veille-ia/">La veille écrite<small>Les nouvelles et leurs sources</small></a></div></details></li>
+      <li class="home-news-nav"><a href="/knowledge-hub/#a-la-une">Veille IA</a><details><summary aria-label="Accès directs à la veille IA">⌄</summary><div class="home-news-menu"><a href="/knowledge-hub/#podcasts">Le Podcast iA<small>Écouter le Flash ou le Débrief</small></a><a href="/knowledge-hub/comics/2026-W41-r2/">iAstro Sunday<small>Ouvrir le dernier comic</small></a><a href="/knowledge-hub/veille-ia/">La veille écrite<small>Les nouvelles et leurs sources</small></a></div></details></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="journal/">Journal</a></li>
       <li><a href="#contact">Échanger</a></li>
@@ -147,11 +147,8 @@
     <p class="kicker">Build in public · Méthode &amp; journal de bord</p>
     <h1>Je construis<br>avec Claude.</h1>
     <hr class="rule--accent">
-    <p class="lead">De plus en plus de gens me demandent comment je travaille avec l'IA. Plutôt que de répéter, je documente tout ici : ma méthode, mes fichiers de config, mes projets, et le détail de ce que je construis — session après session.</p>
-    <div class="btn-row">
-      <a class="btn btn--primary" href="how-to/">Commencer par la méthode →</a>
-      <a class="btn btn--ghost" href="a-propos/">Qui je suis</a>
-    </div>
+    <p class="lead">Ma méthode, mes projets et ce que je construis avec l’IA. Et pour garder le fil : un podcast chaque jour, un comic le dimanche.</p>
+    <div class="btn-row"><a class="btn btn--primary" href="#podcasts">Écouter le podcast ↓</a><a class="btn btn--ghost" href="/knowledge-hub/comics/2026-W41-r2/">Lire le comic →</a></div>
     <div class="meta">
       <div class="stat"><b id="stat-sessions">66</b><span>Sessions documentées</span></div>
       <div class="stat"><b id="stat-projects">4</b><span>Projets actifs</span></div>
@@ -172,9 +169,9 @@
     </div><div class="home-media-links"><a href="/knowledge-hub/immersion-ia/#podcasts">Tous les épisodes →</a><a href="/assets/podcast/feed.xml">S’abonner au podcast ↗</a></div></article>
     <article class="home-media-card" id="comic" aria-labelledby="home-comic-title">
       <div class="home-comic-top"><div><p class="kicker">À lire · le comic du dimanche</p><h3 id="home-comic-title">iAstro Sunday</h3></div><span class="home-media-date">Hugo × iAstro</span></div>
-      <a class="home-comic-art" href="/knowledge-hub/comics/2026-W41/" aria-label="Lire le dernier comic"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" width="1536" height="1024" style="width:300.0%;height:200.0%;left:-0.0%;top:-0.0%;object-fit:fill" alt="Un énorme moteur orange dans une caisse attend devant la porte de l’atelier ; Hugo est stupéfait."></a>
-      <p class="home-media-date">5 octobre 2026 – 11 octobre 2026</p><p class="home-comic-title" lang="fr">L’atelier passe à la vitesse supérieure</p>
-      <div class="home-media-links"><a class="btn btn--primary" href="/knowledge-hub/comics/2026-W41/">Lire le dernier numéro →</a><a href="/knowledge-hub/comics/">Tous les numéros →</a></div>
+      <a class="home-comic-art" href="/knowledge-hub/comics/2026-W41-r2/" aria-label="Lire le dernier comic"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" width="1536" height="1024" style="width:300.0%;height:auto;left:-0.0%;top:-60.000000000000014%" alt="Un énorme moteur orange dans une caisse attend devant la porte de l’atelier ; Hugo est stupéfait."></a>
+      <p class="home-media-date">5–11 octobre 2026</p><p class="home-comic-title" lang="fr">L’atelier passe à la vitesse supérieure</p>
+      <div class="home-media-links"><a class="btn btn--primary" href="/knowledge-hub/comics/2026-W41-r2/">Lire le dernier numéro →</a><a href="/knowledge-hub/comics/">Tous les numéros →</a></div>
     </article>
   </div>
   <div class="home-media-foot"><span>Podcasts et comics en français · voix de synthèse, dessins générés par IA.</span><a href="https://t.me/VeilleIA_HL">Le Radar iA sur Telegram ↗</a></div>
@@ -534,6 +531,6 @@ document.querySelectorAll('.home-news-nav details').forEach(menu=>{
   menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.open=false;}));
 });
 </script>
-<script src="/assets/podcast/player.js?v=20261016b" defer></script>
+<script src="/assets/podcast/player.js?v=20261017c" defer></script>
 </body>
 </html>

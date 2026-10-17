@@ -5,6 +5,7 @@ import re
 from datetime import date
 from html import escape as e
 from pathlib import Path
+from comics_catalog import current_editions
 
 ROOT = Path(__file__).resolve().parents[1]
 START = '<!-- home-media:start -->'
@@ -44,7 +45,7 @@ def human_date(value, en=False):
 def latest_comic():
     episodes = [json.loads(p.read_text()) for p in (ROOT/'knowledge-hub/comics/episodes').glob('*.json')]
     approved = [ep for ep in episodes if ep.get('status') == 'approved' and all(ep.get('approval', {}).get(k) is True for k in ('editorial','art','publish')) and (ROOT/f'knowledge-hub/comics/{ep["id"]}/index.html').is_file()]
-    return max(approved, key=lambda ep: (ep['period_end'], ep.get('publication_date',''), ep['id']))
+    return current_editions(approved)[-1]
 
 def build():
     latest = json.loads((ROOT/'assets/podcast/latest.json').read_text())
@@ -52,7 +53,15 @@ def build():
     panel = next((p for p in comic['panels'] if 'mistral' in p['news_ids']), comic['panels'][0])
     crop = panel.get('crop', {'x':0,'y':0,'w':1,'h':1})
     # Preserve the panel's actual crop; the link opens the full reader.
-    image_style = f'width:{100/crop["w"]}%;height:{100/crop["h"]}%;left:{-100*crop["x"]/crop["w"]}%;top:{-100*crop["y"]/crop["h"]}%;object-fit:fill'
+    image_path = ROOT/'knowledge-hub/comics'/panel['image']
+    with image_path.open('rb') as image_file:
+        png_header = image_file.read(24)
+    if png_header[:8] != b'\x89PNG\r\n\x1a\n':
+        raise ValueError('Comic teaser requires a PNG panel')
+    image_width = int.from_bytes(png_header[16:20], 'big')
+    image_height = int.from_bytes(png_header[20:24], 'big')
+    top = 50 - 100 * (crop['y'] + crop['h']/2) * image_height/image_width * 2.2/crop['w']
+    image_style = f'width:{100/crop["w"]}%;height:auto;left:{-100*crop["x"]/crop["w"]}%;top:{top}%'
     for en in (False, True):
         prefix='/knowledge-hub/'+('en/' if en else '')
         path=ROOT/(prefix.lstrip('/')+'index.html')
@@ -65,7 +74,8 @@ def build():
         for kind, label in (('short','Le Flash'),('full','Le Débrief')):
             t=latest[kind];timing=f'{t["seconds"]//60}′ {t["seconds"]%60:02d}″'
             tracks+=f'<div class="home-media-track"><label id="podcast-{kind}-title" for="podcast-{kind}">{label}<span id="podcast-{kind}-duration">{timing}</span></label><audio id="podcast-{kind}" controls preload="none" src="{e(t["src"])}?v={e(latest.get("version", latest["date"]))}" aria-labelledby="podcast-{kind}-title"></audio></div>'
-        period=f'{human_date(comic["period_start"],en)} – {human_date(comic["period_end"],en)}'
+        start_label = str(date.fromisoformat(comic['period_start']).day) if comic['period_start'][:7] == comic['period_end'][:7] else human_date(comic['period_start'],en)
+        period=f'{start_label}–{human_date(comic["period_end"],en)}'
         content=f'''{START}
 <section id="a-la-une" class="home-media" aria-labelledby="home-media-title"><div class="container">
   <div class="home-media-head"><div><p class="kicker">{tr('Les rendez-vous IA de Hugo','Hugo’s AI editions')}</p><h2 id="home-media-title">{tr('Une voix pour suivre. Des histoires pour comprendre.','Listen to keep up. Read to understand.')}</h2></div><a href="{prefix}veille-ia/">{tr('Toute la veille écrite →','All AI news →')}</a></div>
@@ -93,6 +103,13 @@ def build():
             if not hero:raise ValueError(f'Home hero missing in {path}')
             raw=raw[:hero.end()]+'\n\n'+content+raw[hero.end():]
         raw=raw.replace('<section class="hero">','<section class="hero home-intro">',1)
+        hero=re.search(r'<section class="hero home-intro">.*?</section>',raw,re.S)
+        hero_html=hero.group()
+        intro=tr('Ma méthode, mes projets et ce que je construis avec l’IA. Et pour garder le fil : un podcast chaque jour, un comic le dimanche.', 'My method, my projects and what I build with AI. To keep up: a daily podcast and a Sunday comic.')
+        hero_html=re.sub(r'<p class="lead">.*?</p>', '<p class="lead">'+intro+'</p>',hero_html,flags=re.S)
+        actions=f'<div class="btn-row"><a class="btn btn--primary" href="#podcasts">{tr("Écouter le podcast ↓", "Listen to the podcast ↓")}</a><a class="btn btn--ghost" href="{comic_url}">{tr("Lire le comic →", "Read the comic →")}</a></div>'
+        hero_html=re.sub(r'<div class="btn-row">.*?</div>',lambda _:actions,hero_html,flags=re.S)
+        raw=raw[:hero.start()]+hero_html+raw[hero.end():]
         # Retire the old intermediate Kiosque callout; retain the written-news teaser.
         raw=re.sub(r'\s*<aside class="callout"[^>]*>\s*<p class="kicker">Le Kiosque IA</p>.*?</aside>','',raw,flags=re.S)
         nav=f'''<li class="home-news-nav"><a href="{prefix}#a-la-une">{tr('Veille IA','AI watch')}</a><details><summary aria-label="{tr('Accès directs à la veille IA','AI news shortcuts')}">⌄</summary><div class="home-news-menu"><a href="{prefix}#podcasts">Le Podcast iA<small>{tr('Écouter le Flash ou le Débrief','Listen to Le Flash or Le Débrief')}</small></a><a href="{comic_url}">iAstro Sunday<small>{tr('Ouvrir le dernier comic','Open the latest comic')}</small></a><a href="{prefix}veille-ia/">{tr('La veille écrite','Written AI news')}<small>{tr('Les nouvelles et leurs sources','The news and its sources')}</small></a></div></details></li>'''

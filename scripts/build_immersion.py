@@ -5,6 +5,7 @@ from pathlib import Path
 from html import escape as e
 from urllib.parse import urljoin
 from build_comics import shell
+from build_home_media import CSS as HOME_MEDIA_CSS, JS as HOME_NAV_JS
 from comics_catalog import current_editions, period
 from podcast_design import cover,COVER_CSS,duration
 from telegram_design import phone, PHONE_CSS
@@ -106,6 +107,8 @@ def build():
         if en:content=content.replace('<div class="kiosk">','<div class="kiosk"><p class="kiosk-note" lang="en">The editorial editions, comics and audio below are currently available in French.</p>',1)
         page=shell(title,intro,content,lang,root_path='/knowledge-hub/immersion-ia/')
         page=re.sub(r'<header style=.*?</header>',site_header(en),page,flags=re.S)
+        page=page.replace('</head>', '<style>'+HOME_MEDIA_CSS+'</style></head>')
+        page=page.replace('</body>', '<script>'+HOME_NAV_JS+'</script></body>')
         page=page.replace('</body>','<script src="/knowledge-hub/search.js?v=20260601d" defer></script><script src="/assets/podcast/player.js?v=20261017c" defer></script><script>document.addEventListener("play",event=>{if(event.target.tagName==="AUDIO")document.querySelectorAll("audio").forEach(a=>{if(a!==event.target)a.pause();});},true);</script></body>')
         page=page.replace('Hugo × Iastro · Dessins générés par IA. Direction éditoriale : Hugo Lahutte.','Le Kiosque IA · Hugo Lahutte.').replace('Hugo × Iastro · AI-generated artwork. Editorial direction: Hugo Lahutte.','Le Kiosque IA · Hugo Lahutte.')
         dest=ROOT/prefix.lstrip('/')/'immersion-ia/index.html';dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
