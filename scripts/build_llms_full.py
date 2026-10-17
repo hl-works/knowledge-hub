@@ -21,7 +21,7 @@ BAR = "=" * 64
 
 HEADER_FR = """# Knowledge Hub — Hugo Lahutte (version étendue)
 
-> Journal de bord et méthode de Hugo Lahutte, qui construit ses projets et son contenu avec Claude. Build in public.
+> Journal de bord et méthode de Hugo Lahutte, qui construit ses projets et son contenu avec Claude et ChatGPT. Build in public.
 
 Auteur : Hugo Lahutte — hugo@hl-consulting.tech — DG de Cobra, éditeur de Haute Fidélité, fondateur de HL Consulting.
 Localisation : Chennevières-sur-Marne, Île-de-France, France.
@@ -33,7 +33,7 @@ Document généré automatiquement depuis le contenu du site (scripts/build_llms
 
 HEADER_EN = """# Knowledge Hub — Hugo Lahutte (extended version)
 
-> Hugo Lahutte's worklog and method — building his projects and content with Claude. Build in public.
+> Hugo Lahutte's worklog and method — building his projects and content with Claude and ChatGPT. Build in public.
 
 Author: Hugo Lahutte — hugo@hl-consulting.tech — CEO of Cobra, publisher of Haute Fidélité, founder of HL Consulting.
 Location: Chennevières-sur-Marne, Île-de-France, France.
@@ -166,6 +166,7 @@ def build(lang: str) -> None:
     url_prefix = BASE if lang == "fr" else BASE + "/en"
     out = [(HEADER_FR if lang == "fr" else HEADER_EN).format(date=date.today().isoformat())]
 
+    out.append(page_section(prefix / "immersion-ia" / "index.html", f"{url_prefix}/immersion-ia/", lang))
     out.append(page_section(prefix / "how-to" / "index.html", f"{url_prefix}/how-to/", lang))
     for slug in guide_order(prefix / "guides" / "index.html"):
         out.append(page_section(prefix / "guides" / slug, f"{url_prefix}/guides/{slug}", lang))

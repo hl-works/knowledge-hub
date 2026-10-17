@@ -26,6 +26,10 @@ on:
       - "knowledge-hub/comics/episodes/*.json"
       - "scripts/build_home_media.py"
       - "scripts/build_lexique.py"
+      - "scripts/build_immersion.py"
+      - "scripts/veille_experience.py"
+      - "scripts/build_seo.py"
+      - "scripts/audit_seo.py"
       - "knowledge-hub/lexique/*.json"
       - "knowledge-hub/en/lexique/*.json"
       - "atlas-asie/**.html"
@@ -55,13 +59,16 @@ jobs:
           python3 scripts/build_home_media.py
           python3 scripts/build_immersion.py
           python3 scripts/build_lexique.py
+          python3 scripts/build_seo.py
           python3 scripts/build_llms_full.py
           python3 scripts/build_feeds.py
           python3 scripts/build_atlas_static.py
           python3 scripts/update_home_videos.py
           python3 scripts/update_home_magazine.py
       - name: Vérifier la cohérence
-        run: python3 scripts/check_site_health.py
+        run: |
+          python3 scripts/check_site_health.py
+          python3 scripts/audit_seo.py --check
       - name: Commit si diff
         run: |
           git config user.name "github-actions[bot]"
