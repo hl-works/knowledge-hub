@@ -1641,6 +1641,63 @@ URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 
 
 ================================================================
+FROM NEWS WATCH TO MEDIA: WHAT WE BUILT WITH CHATGPT
+URL: https://hl-consulting.tech/knowledge-hub/en/journal/veille-podcast-comics-iastro-chatgpt.html
+Published: 2026-10-17
+================================================================
+
+Short and long podcasts, Sunday comics, iAstro and design: how our news watch is evolving, with a method that can be adapted to other subjects.
+
+← Journal
+Behind the scenes · AI watch
+From news watch to media: what we built with ChatGPT
+Short and long podcasts, Sunday comics, iAstro and design: how our news watch is evolving, with a method that can be adapted to other subjects.
+ChatGPT · Codex·October 17, 2026The duo’s October reference, from our visual kit.
+agentdesigndatadocen-prodperso
+Context: a news watch that learns from use
+The original need was simple: follow AI news without spending my day opening tabs. A process for collecting, selecting and summarizing information already fed the website and Telegram. That first version, documented in a case study, provided the foundation.
+The next step came from using it. Some days I have time to read; on others I would rather listen to a short briefing. At the weekend, I want something more lively that helps me step back. With ChatGPT and Codex, we revisited the design to develop several formats with a shared identity and more direct access.
+This story covers that new stage: short and long podcasts, the Sunday comic, the creation of iAstro and the design work connecting them. The news watch existed before this project; its evolution is what we built together.
+What we built
+1. Writing for listening: Le Flash and Le Débrief
+Adding audio takes more than having a voice read the text. We need to decide what deserves airtime, make transitions natural and avoid a list of announcements without explanations. We organized Le Podcast iA around two needs: Le Flash for a quick overview, and Le Débrief for a few minutes of context and implications.
+The work covers the whole experience: scripts, synthesized speech, pronunciation, covers, dates and durations, the website player and the archive. A small example: the French initials “IA” could sound distinct in Le Flash yet run together in a sentence in Le Débrief. Details like this need an audio sample and listening, as well as a correct script.
+Daily production and feed updates are automated. Both editions are available on the website and Telegram; the podcast RSS feed carries Le Débrief. Published episodes retain their references so ongoing improvements do not break the archive.
+Two formats with a shared visual identity. Dated covers connect the audio editions to iAstro’s world.
+2. Sunday stories that bring the news to life
+The comic offers a different pace. In iAstro Sunday, my illustrated character and iAstro explore the week’s topics through short stories. The completed editions feature four topics, each developed over six panels. The aim is to offer a situation to understand, a reaction, sometimes a smile, then return to the facts.
+We worked on scripts, expressions, poses, backgrounds and transitions between panels. An announcement can become a machine to try or a problem to untangle in L’atelier des possibles, our illustrated world. These scenes are fiction or metaphor; explanations and source links lead back to the real information.
+The reader changed along the way too. Speech bubbles and character names took up too much room on a phone. We simplified the presentation, kept Hugo on the left and iAstro on the right, distinguished their voices through typography and brought the dialogue closer to the artwork. A short explanation below each panel helps readers understand what the story illustrates.
+3. Creating iAstro and a consistent world
+iAstro became the project’s recurring character: an expressive little android with a human face and cyan and violet accents. Creating him involved specific choices and successive corrections to his silhouette, face, gaze, gestures, clothing and relationship with my character. He needed to remain recognizable from one scene to the next.
+We assembled character, expression and pose references, then a wardrobe covering all twelve months. Seasons change the outfits without changing the duo’s identity. These references help keep new drawings consistent rather than redefining the characters for every episode.
+A research sheet preserved in the visual kit. It predates the name iAstro and shows the work on expressions and character consistency. Explore the kit, in French →
+4. Designing the entire journey
+Design also includes how people find the content. We gave each recurring format a clear role: Le Radar iA for written news, Le Podcast iA for audio and iAstro Sunday for comics. Names, covers and the character help people recognize each format.
+We also reworked the home pages. Knowledge Hub remains the home of methods, guides, projects and their stories. A banner gives direct access to Telegram, the podcast and the comic. The dedicated AI watch page brings the formats and content together, making it easier to reach something to read or listen to without navigating through several intermediate pages.
+How we worked with ChatGPT
+I provide the direction, references and feedback. ChatGPT helps me clarify an idea, structure a story and explore visual proposals; with Codex, we integrate the elements into the website and check the result. The work happens through conversation, around versions I can see, read or listen to.
+Decisions become clearer through testing: a head tilted too far, an outfit drifting away from its reference, an unclear date, dialogue taking too much vertical space on mobile, a home page mixing different purposes. A correction becomes a rule retained in the project references. That helps improve the next version without starting over.
+Our working loop: an intention → a first version → a real trial → precise feedback → a reusable rule. Editorial choices and approvals remain mine; AI speeds up proposals, production and checks.
+Broadening the sources with subscriber feedback
+My friend Simon Fourticq, a Telegram subscriber, suggested broadening the news watch’s information sources. His idea directly informs the next stage: looking beyond familiar circles and bringing more perspectives together.
+This requires careful selection. An official blog documents an announcement; a technical community can shed light on its limits; a demonstration can help explain its use. Several versions of the same press release do not provide independent confirmation. More sources should bring more context and traceable links, rather than simply a noisier feed.
+That suggestion also illustrates why Telegram matters to this project: subscribers can help shape the product, its topics and its formats.
+A method that can be adapted to any subject
+AI happens to be the topic of this news watch. The design can be applied elsewhere: HiFi, commerce, research, local life or industry news. The workflow is transferable. Sources, terminology, selection criteria and verification need to match the domain.
+- Define the audience. What questions do readers want answered? How much time do they have?
+- Select and cross-check sources. Keep dates, links and the limits of what is known.
+- Make an editorial selection. Explain why a topic matters, then adapt that material to each format.
+- Give each recurring format an identity. A voice, a presentation and, when useful, an illustrated world.
+- Publish, observe and improve. Test reading and listening, gather feedback and preserve useful corrections.
+A written summary, a short audio bulletin, an in-depth briefing and a comic are possibilities. Each project should choose the formats that actually help its audience.
+Results and next steps
+The written news watch, both audio formats, the first comics and the redesigned pages are available. iAstro now connects these recurring editions. Work continues on the character’s voice, source selection and the experience of each format.
+Today, Telegram has one shared subscription. Eventually, I want everyone to choose written news, audio or the Sunday comic, and combine all three if they wish. Those subscription choices still need to be implemented.
+Explore the AI watch →Follow on Telegram ↗
+
+
+================================================================
 A CENTRAL "BRAIN" SO WE STOP HANDING OUT THE SERVER KEYS TO EVERYONE
 URL: https://hl-consulting.tech/knowledge-hub/en/journal/brain-central-acces-roles.html
 Published: 2026-09-19

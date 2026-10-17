@@ -69,7 +69,7 @@ def build_journal_feed() -> None:
     xml = rss(
         "Journal — Hugo Lahutte",
         f"{BASE}/",
-        "Sessions documentées : comment Hugo Lahutte construit avec Claude (Odoo, Shopify, agents, méthode).",
+        "Sessions documentées : comment Hugo Lahutte construit avec Claude, ChatGPT et Codex (projets, design, agents, méthode).",
         items,
     )
     (ROOT / "feed.xml").write_text(xml, encoding="utf-8")

@@ -4,7 +4,7 @@
 
 Author: Hugo Lahutte (hugo@hl-consulting.tech) — LinkedIn: https://www.linkedin.com/in/hugo-lahutte · X: https://x.com/hugolh_ai
 
-Last updated: 2026-09-19
+Last updated: 2026-10-17
 
 ## Method
 
@@ -60,7 +60,9 @@ Last updated: 2026-09-19
 - [HiFi Lovers](https://hl-consulting.tech/knowledge-hub/en/hifi-lovers/): neo-retro audiophile brand.
 - [Personal](https://hl-consulting.tech/knowledge-hub/en/perso/): side projects and experiments.
 
-## Journal (66 entries)
+## Journal (67 entries)
+
+- [From news watch to media: what we built with ChatGPT](https://hl-consulting.tech/knowledge-hub/en/journal/veille-podcast-comics-iastro-chatgpt.html): Short and long podcasts, Sunday comics, iAstro and design: how our news watch is evolving, with a method that can be adapted to other subjects.
 
 - [A central "Brain" so we stop handing out the server keys to everyone](https://hl-consulting.tech/knowledge-hub/en/journal/brain-central-acces-roles.html): To create a product in Odoo through an agent, you used to need an SSH key on the server — so either Hugo did everything, or broad, untraceable access got handed out. A central service (the "Brain") now holds the secrets server-side and exposes business capabilities behind a token → an identity → a role (read / prepare / write / publish), logging who did what. Two surfaces (a command-line skill + a protected internal web page), guardrails carried over from the legacy tool (anti-duplicate reconciliation before any creation, never auto-published), 3 accesses distributed: two people add and deploy their own capabilities without going back through Hugo.
 - [Growth: replacing ten dashboards with an action queue](https://hl-consulting.tech/knowledge-hub/en/journal/growth-centre-actions.html): Loose ideas at the end of the week, a weekend with ChatGPT and Codex, then Growth running in production by Tuesday. Data, BigQuery, the application and a reusable agentic core were built to turn facts into approved actions.
