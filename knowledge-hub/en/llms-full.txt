@@ -1611,33 +1611,99 @@ GLOSSARY — AI TERMS, PLAINLY DEFINED
 URL: https://hl-consulting.tech/knowledge-hub/en/lexique/
 ================================================================
 
-- Artificial intelligence (AI) : Software capable of tasks that used to require a human brain (understanding, deciding, creating). "Classical AI" is specialized; generative AI is versatile.
+- Artificial intelligence (AI) : Computer systems that recognize, predict, generate or plan. Capabilities and reliability depend on their design and the context.
 - Generative AI : An AI that produces new content (text, image, code) from a simple instruction, instead of executing a single programmed task.
 - LLM (large language model) : The engine behind assistants like Claude or ChatGPT: a model trained on enormous amounts of text that predicts the most plausible continuation of what you type.
 - Token : The basic unit an LLM reads and produces: a chunk of a word. The length of exchanges and their cost are measured in tokens.
 - Hallucination : When an LLM confidently invents a false answer. Hence the basic rule: verify facts, numbers, and references.
 - Prompt : The instruction you give the AI. A good prompt — clear, with context and goal — changes everything about the result.
 - Multimodal : Capable of processing multiple types of input — text, image, audio — not just text.
-- Open weights : A model you can download and self-host (e.g. Llama, Mistral), as opposed to "closed" models accessible only via a service.
+- Open weights : A model whose trained parameters can be downloaded and used under a license. Training data and code are not necessarily open.
 - Anthropic : The American lab that creates Claude, focused on model reliability and safety.
-- Claude : Anthropic's AI assistant, available in multiple sizes (Opus, Sonnet, Haiku) and multiple products (Chat, Cowork, Code).
-- Opus / Sonnet / Haiku : Claude's three tiers: the most powerful (Opus), the balanced one (Sonnet), the fast one (Haiku). You pick based on the task.
+- Claude : Anthropic’s model family and assistant, used through conversation, Cowork, Claude Code or Claude Design.
+- Opus / Sonnet / Haiku : Claude model families with different capability, speed and cost tradeoffs. The catalog also includes Fable; check versions before comparing.
 - Claude Chat / Cowork / Code : Three ways to use Claude: chat (Chat), delegate office work (Cowork), act on files and projects (Code).
-- Terminal : The window where you type commands instead of clicking. Looks scary, but it runs on copy-paste.
-- API : A programmed pipe connecting two pieces of software. It's one of the ways to connect a service to Claude, in an automated way.
-- MCP (Model Context Protocol) : An open standard created by Anthropic: a "universal plug" to connect Claude to tools (Shopify, Drive, Gmail…) without custom integration.
-- AI agent : Claude given a goal and the means to act on its own, in a loop, until it delivers — instead of just responding.
-- GitHub : An online space where your project lives with its full history; once connected, updates deploy themselves.
-- Repository (repo) : The "folder" of a project on GitHub, with all its files and history.
-- Commit : A saved, timestamped version of a project on GitHub. You can always go back to it.
+- Terminal : An interface for executing commands on a computer. Before running an AI-proposed command, understand which files or services it affects.
+- API : An interface for software to request data or actions from another service under defined rules and permissions.
+- MCP (Model Context Protocol) : An open protocol connecting AI applications to data and tools. It standardizes communication; permissions and integrations still need configuration.
+- AI agent : A system using a model and tools to pursue a goal across multiple steps, within a defined scope and controls.
+- GitHub : A platform for hosting Git repositories and collaborating on code. Tests and deployments can be automated when configured.
+- Repository (repo) : Files tracked with version history. A Git repository can be local or hosted on a platform such as GitHub.
+- Commit : A record of changes in Git history, with an identifier and message, helping explain, compare and retrieve project versions.
 - Cron : A timer that launches a task automatically at regular intervals (e.g. every morning at 7am).
 - RSS : A standard format for automatically pulling new articles from a site. The basic building block of any monitoring setup.
 - Bot / Telegram channel : A program that posts messages on Telegram; a public channel is followable by anyone via a simple link.
 - CLAUDE.md : A file Claude reads at startup: tone, conventions, pitfalls. It saves you from re-explaining everything every conversation.
-- Compound Engineering : A method (popularized by Kieran Klaassen and Dan Shipper, at Every) where each lesson becomes a reusable rule: your system improves itself with every session.
+- Compound Engineering : A method that turns lessons learned into reusable instructions, tools or tests. Improvement depends on corrections actually being retained and applied.
 - Vibe coding : Programming by describing your intent in plain language and letting AI generate the code. Term popularized by Andrej Karpathy.
 - SEO : The art of ranking well in search engines (Google…).
 - GEO : The SEO equivalent for AI: optimizing your content to be **cited** by assistants (ChatGPT, Claude, Perplexity). That's the goal of this site.
+- OpenAI : The organization behind GPT models, ChatGPT and Codex. Provider, application and model describe different layers.
+- ChatGPT : OpenAI’s tool for conversation, research, analysis and creation with AI. Capabilities depend on the selected model, available tools and granted access.
+- ChatGPT Work : A way to delegate work to ChatGPT through to a reviewable result: analysis, documents, presentations or research using authorized tools.
+- Codex : OpenAI’s agent for project work: understanding files, editing code, running tests and preparing reviewable results. It uses a GPT model.
+- GPT : A family of OpenAI models. GPT is the engine; ChatGPT and Codex provide interfaces and tools for using it.
+- Astra (GPT-6 Astra) : An OpenAI model for complex reasoning, coding and research tasks. Distinct from Project Astra, Google DeepMind’s project.
+- Sol / Luna (GPT) : GPT variants: Sol balances capability, speed and cost; Luna targets focused, fast tasks. Versions and access change over time.
+- Claude Code : Anthropic’s coding agent. It explores a project, edits files and uses tools to build, test or fix software.
+- Claude Cowork : Claude’s workspace for delegating work, including tasks involving files and documents, within the access authorized by the user.
+- Claude Design : Anthropic’s product for creating designs, prototypes, presentations and visual materials through conversation. Results can be refined and handed to Claude Code.
+- Fable (Claude) : A Claude model family listed alongside Opus, Sonnet and Haiku in Anthropic’s catalog. This is a model name, not a design application.
+- Google DeepMind : Google’s AI research and development organization, behind Gemini models and the multimodal assistant research project Project Astra.
+- Gemini : The name of Google’s model family and assistant application. Specify “Gemini model” or “Gemini app” to distinguish the two.
+- Project Astra (Google) : Google DeepMind’s research project exploring an assistant that understands voice, video and its surroundings. Some capabilities feed into Gemini Live.
+- Mistral AI : The French company developing AI models and products including Mistral Vibe. Check each model’s license before calling it open source.
+- Mistral Vibe / Le Chat : Mistral’s product combining a work assistant, formerly Le Chat, with a coding agent. An example of product naming evolving over time.
+- Gemini Notebook / NotebookLM : Google’s tool, formerly NotebookLM, for exploring sources, asking questions and producing summaries, including audio. Answers still need checking.
+- Perplexity : A search tool that synthesizes information and provides source links. Citations make answers checkable; they do not guarantee accuracy.
+- Cursor : An AI development environment and coding agent for understanding projects, writing code, fixing errors and reviewing changes.
+- GitHub Copilot : GitHub’s development assistant: code suggestions, chat, review assistance and agent capabilities depending on context. Distinct from other products named Copilot.
+- ElevenLabs : An AI audio and voice platform with speech synthesis, transcription and voice tools. It is used in the Podcast iA production process.
+- Hugging Face : A platform for sharing and discovering models, datasets and demonstrations. Each resource has its own terms of use.
+- Ollama : A tool for running models on your machine, with cloud options too. Memory requirements and permitted uses depend on the model.
+- AI model : A trained system that turns input into predictions or content. One application can combine multiple models and tools.
+- Machine learning : Learning patterns from data to perform a task without manually writing every decision rule.
+- Training : The phase when model parameters are adjusted using data. Distinct from everyday use to produce responses.
+- Inference : Using an already trained model to produce an answer or prediction from new input.
+- Context window : The amount of information a model can process in one request: instructions, conversation, documents and response. A large window does not guarantee understanding.
+- Assistant memory : Information saved and reused across interactions. Memory depends on the application and differs from current context and knowledge acquired during training.
+- Reasoning effort : Additional model work on a complex task. Higher effort can increase time and cost without ensuring a correct answer.
+- RAG : Retrieve information from documents, then provide it to a model to build an answer. Useful for internal knowledge without retraining.
+- Embedding : A numerical representation of content used to compare semantic similarity, notably to retrieve relevant passages.
+- Vector database : Storage and search for numerical content representations. A common component of semantic search and RAG systems.
+- Fine-tuning : Additional training on selected examples to adapt model behavior. Adding documents to a conversation is not fine-tuning.
+- Evaluations (evals) : Tests on representative cases that measure AI system quality, compare versions and detect regressions.
+- Benchmark : A set of tests used to compare systems. A strong score does not by itself establish quality for your own work.
+- System prompt : Instructions defining the assistant’s role and behavior. They complement user requests within the product’s instruction hierarchy.
+- Few-shot prompting : Including a few examples of the desired result in a prompt to clarify the format or task without retraining.
+- Tool calling : The model requests a function such as search, calculation or file reading. Host software executes an authorized action and returns its result.
+- Connector : An integration providing access to a service or its data within granted permissions. Reading and editing require different rights.
+- Skill : Reusable instructions, sometimes bundled with files and scripts, that teach an agent how to perform a particular task.
+- Plugin : An extension bundling additional capabilities such as tools, connections or instructions. Contents and permissions depend on the host application.
+- AGENTS.md : An instruction file for agents working on a project: structure, commands, tests and conventions. Complements the human-facing README.
+- Subagent : An agent delegated a subtask by another agent. Its scope must be defined and its results combined with the main work.
+- Orchestration : Organizing a workflow’s steps, tools and agents: who acts, in which order, using which data and checkpoints.
+- Computer use : An agent’s ability to interact with an interface by reading screens, clicking and typing. Sensitive actions still need appropriate permissions and confirmation.
+- Prompt injection : Misleading instructions in content an agent reads, intended to redirect its task. A page or document is data, not authorization.
+- Guardrails : Limits and controls around AI systems: restricted access, output checks and approvals before certain actions. No individual safeguard is infallible.
+- Human review : A person checks a result or approves an action before execution. The review should specify the action and data involved.
+- Structured output / JSON : A response following a data schema rather than free text. Useful for software; valid formatting does not guarantee correct values.
+- Text to speech (TTS) : Turning text into speech. Podcast quality also depends on writing, pacing, pronunciation and listening checks.
+- Speech to text (STT) : Turning recorded speech into text. Names, noise and multiple speakers can introduce errors requiring correction.
+- OCR : Extracting text from an image or scanned document. Recognizing characters and understanding a document’s meaning are different tasks.
+- Image generation : Creating an image from instructions and, depending on the tool, reference images. Character consistency requires references and iterative corrections.
+- Inpainting : Editing a region of an image while preserving the rest as much as possible. A mask usually identifies the target area.
+- iAstro : The android character created for Hugo’s AI watch: comic partner and podcast visual identity. An editorial character, not an AI model.
+- Design system : Shared visual rules and components: colors, typography, spacing and interface elements. They make designs consistent across formats.
+- Prototype : A version used to test an idea or journey before full implementation. A convincing prototype is not necessarily a production-ready product.
+- Open source : Software licensed for use, study, modification and redistribution. Visible code, free access and open weights alone do not establish open-source status.
+- Git branch : A line of work in Git history for preparing changes before integration.
+- Worktree : An additional working directory linked to the same Git repository, useful for working on branches without mixing in-progress file changes.
+- Pull request (PR) : A proposal of changes for review before integration, collecting diffs, discussion and available checks for a change.
+- Diff : A comparison of file or project versions showing additions, changes and deletions. A foundation for code review.
+- API or subscription? : A subscription provides application access within limits. An API lets software call a service; permissions and billing may be separate.
+- Deep research : A research mode that explores multiple sources and prepares a synthesis. Citations, dates and conclusions still need review.
+- Grounding in sources : Building an answer from identifiable documents or results. Keeping references helps distinguish retrieved facts from model inferences.
 
 
 ================================================================

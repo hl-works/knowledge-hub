@@ -157,3 +157,7 @@ Correction demandée par Hugo le 17 octobre 2026 : ces deux espaces ont des rôl
 - Évolution demandée, à réaliser côté Telegram : permettre de choisir et combiner news texte, podcast court et comic du dimanche. Aucun sélecteur fictif sur le site ; la gestion de ces préférences nécessite son propre chantier.
 
 Régénération : `python3 scripts/build_home_media.py`, puis `python3 scripts/build_immersion.py`. Le premier ne doit ajouter aucun lecteur audio à l’accueil KH.
+
+### Lexique élargi (17 octobre 2026)
+
+Les glossaires JSON FR/EN restent les sources des définitions et des infobulles. Chaque entrée a une catégorie ; les nouvelles fiches incluent une source et une date de vérification. `python3 scripts/build_lexique.py` régénère les deux pages en HTML statique, le balisage DefinedTermSet et les filtres (recherche sans accents, catégories, index alphabétique, liens directs conservés). Le workflow quotidien exécute ce générateur avant `build_llms_full.py`. Après ajout de termes, garder les deux JSON alignés et actualiser les mots-clés de la fiche lexique dans les deux index de recherche.
