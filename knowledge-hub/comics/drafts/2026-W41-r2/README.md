@@ -6,7 +6,7 @@ Brouillon éditorial, non publié. La demande de Hugo porte sur une lecture mobi
 
 Défilement vertical natif ; deux colonnes au-dessus de 699 px. Sommaire visuel de quatre sujets, barre supérieure compacte et sélecteur natif, liens de continuation dans le flux. Aucun défilement horizontal obligatoire, barre inférieure fixe ou changement automatique de hauteur. Le retour navigateur restaure la position précédente. Les ancres peuvent cibler un sujet ou une case. Sans JavaScript, le contenu et les liens du sommaire restent accessibles.
 
-Les bulles sont composées en HTML dans le cadre de la case, avec un espace réservé au-dessus du dessin pour ne masquer aucun visage. Texte des bulles et explications mobile à 18 px. Un paragraphe de deux phrases environ sous chaque case explique le fait, un exemple ou une limite. Les exemples de l’atelier sont fictifs ; les liens primaires figurent sous chaque histoire. Les dates de consultation des quatre annonces ont été actualisées après lecture le 17 octobre.
+Après retour de Hugo, les dialogues sont composés en HTML sans bulles ni noms visibles : Hugo à gauche en italique, iAstro à droite en monospace. Ils occupent une bande compacte au-dessus du dessin, sans masquer les visages. Dialogues et explications mobile à 18 px. Un paragraphe de deux phrases environ sous chaque case explique le fait, un exemple ou une limite. Les exemples de l’atelier sont fictifs ; les liens primaires figurent sous chaque histoire. Les dates de consultation des quatre annonces ont été actualisées après lecture le 17 octobre.
 
 ## Références consultées
 
