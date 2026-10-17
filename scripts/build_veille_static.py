@@ -126,6 +126,9 @@ def render_home(lang: str) -> str:
 
 def inject_home(page: Path, home_html: str) -> None:
     src = page.read_text(encoding="utf-8")
+    if HOME_START not in src and 'class="kh-veille-push"' in src:
+        print(f"{page.relative_to(ROOT)} : bannière vers la Veille IA dédiée (pas de flux sur KH)")
+        return
     if HOME_START not in src:
         raise SystemExit(f"{page} : marqueurs veille-home introuvables")
     block = f"{HOME_START}\n{home_html}\n{HOME_END}"

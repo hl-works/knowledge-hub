@@ -5,13 +5,15 @@ from pathlib import Path
 from html import escape as e
 from urllib.parse import urljoin
 from build_comics import shell
-from build_home_media import CSS as HOME_MEDIA_CSS, JS as HOME_NAV_JS
 from comics_catalog import current_editions, period
 from podcast_design import cover,COVER_CSS,duration
 from telegram_design import phone, PHONE_CSS
 ROOT=Path(__file__).resolve().parents[1]
 CSS='''
 #main{scroll-margin-top:130px}
+.veille-subscription{display:flex;justify-content:space-between;align-items:center;gap:20px;background:var(--surface);border-left:4px solid var(--c-red);padding:20px 24px;margin:24px 0 0}.veille-subscription strong{font-size:1.1rem}.veille-subscription p{margin:6px 0 0;font-size:.9rem}.veille-subscription .btn{flex:none;font-size:.75rem}
+@media(max-width:640px){.veille-subscription{flex-direction:column;align-items:flex-start;padding:18px}.veille-subscription .btn{max-width:100%}}
+
 .kiosk section{padding-block:48px}.kiosk .kiosk-hero{padding-block:24px 12px;border-bottom:0}
 .kiosk-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
 .kiosk-hero h1{font-size:clamp(1.8rem,3.5vw,3rem);max-width:none;line-height:1.1;margin:16px 0 12px}
@@ -65,6 +67,7 @@ def site_header(en):
         return 'href="'+(urljoin(prefix,url) if not url.startswith(('/', 'https:','http:','mailto:')) else url)+'"'
     header=re.sub(r'href="([^"]*)"',absolute,header)
     header=header.replace('href="/knowledge-hub/en/" hreflang="en"','href="/knowledge-hub/en/immersion-ia/" hreflang="en"').replace('href="/knowledge-hub/" hreflang="fr"','href="/knowledge-hub/immersion-ia/" hreflang="fr"')
+    header=header.replace('href="'+prefix+'immersion-ia/">', 'href="'+prefix+'immersion-ia/" aria-current="page">')
     return header
 
 def episode_card(ep,kind,live=False):
@@ -87,15 +90,16 @@ def build():
     comic_image = '/knowledge-hub/comics/' + comic_panel['image']
     for lang in ('fr','en'):
         en=lang=='en';prefix='/knowledge-hub/'+('en/' if en else '')
-        intro='The daily signal. A voice to follow. A comic on Sunday.' if en else 'Le signal du jour. Une voix pour suivre. Un comic le dimanche.'
-        title='Le Kiosque IA — Le Radar iA, Le Podcast iA & iAstro Sunday'
-        content='<style>'+CSS+COVER_CSS+PHONE_CSS+'</style><div class="kiosk"><section class="kiosk-hero"><div class="kiosk-meta"><span>Knowledge Hub / Le Kiosque IA</span><span>'+('Read · Listen · Explore' if en else 'Lire · Écouter · Explorer')+'</span></div><div class="kiosk-intro"><div><h1>'+('Stay curious. <em>Keep up.</em>' if en else 'Garde le fil. <em>Reste curieux.</em>')+'</h1><p>'+intro+'</p></div><span class="kiosk-signature">Une sélection de Hugo Lahutte ↗</span></div></section>'
+        intro='AI news selected by Hugo: text updates, a daily podcast and a Sunday comic.' if en else 'L’actualité IA sélectionnée par Hugo : les news en texte, le podcast quotidien et le comic du dimanche.'
+        title='Veille IA — News, podcasts et iAstro Sunday · Hugo Lahutte'
+        content='<style>'+CSS+COVER_CSS+PHONE_CSS+'</style><div class="kiosk"><section class="kiosk-hero"><div class="kiosk-meta"><span>Knowledge Hub / Veille IA</span><span>'+('Read · Listen · Explore' if en else 'Lire · Écouter · Explorer')+'</span></div><div class="kiosk-intro"><div><h1>'+('AI watch.<br><em>Read. Listen. Explore.</em>' if en else 'Veille IA.<br><em>À lire. À écouter. À suivre.</em>')+'</h1><p>'+intro+'</p></div><span class="kiosk-signature">Une sélection de Hugo Lahutte ↗</span></div></section>'
         radar_preview='<span class="format-preview format-telegram" aria-hidden="true">'+'<span class="telegram-device">'+phone()+'</span><span class="telegram-wordmark">Telegram<small>La veille dans ta poche</small></span></span>'
         podcast_preview='<span class="format-preview" aria-hidden="true"><img class="format-portrait" src="/assets/podcast/art/iastro-'+latest['date'][5:7]+'-v1.png" alt="" width="1254" height="1254"></span>'
-        comic_preview='<span class="format-preview" aria-hidden="true"><span class="format-comic"><img src="/knowledge-hub/comics/art/2026-W41/mistral-v1.png" alt="" width="1536" height="1024"></span></span>'
-        formats=[('https://t.me/VeilleIA_HL','01 / SUR TELEGRAM','Le Radar iA','La veille quotidienne, directement sur Telegram.','Rejoindre la chaîne ↗',radar_preview),('#podcasts','02 / À ÉCOUTER','Le Podcast iA','Le Flash ou Le Débrief, à ton rythme.','Écouter les épisodes ↓',podcast_preview),('#sunday','03 / LE DIMANCHE','iAstro Sunday','La semaine IA en comic, avec Hugo et iAstro.','Découvrir le comic ↓',comic_preview)]
-        content+='<nav class="kiosk-formats" aria-label="Les trois rendez-vous">'+''.join(f'<a class="format-card" href="{anchor}" aria-label="{e(title)} — {e(action)}">{preview}<span class="format-copy"><span class="format-eyebrow">{eyebrow}</span><strong class="format-title">{title}</strong><span class="format-description">{description}</span><span class="format-action">{action}</span></span></a>' for anchor,eyebrow,title,description,action,preview in formats)+'</nav>'
         comic_url = prefix + 'comics/' + comic_latest['id'] + '/'
+        comic_preview='<span class="format-preview" aria-hidden="true"><span class="format-comic"><img src="'+comic_image+'" alt="" width="1536" height="1024"></span></span>'
+        formats=[('https://t.me/VeilleIA_HL','01 / SUR TELEGRAM','Le Radar iA','La veille quotidienne, directement sur Telegram.','Rejoindre la chaîne ↗',radar_preview),('#podcasts','02 / À ÉCOUTER','Le Podcast iA','Le Flash ou Le Débrief, à ton rythme.','Écouter les épisodes ↓',podcast_preview),(comic_url,'03 / LE DIMANCHE','iAstro Sunday','La semaine IA en comic, avec Hugo et iAstro.','Lire le dernier numéro →',comic_preview)]
+        content+='<nav class="kiosk-formats" aria-label="Les trois rendez-vous">'+''.join(f'<a class="format-card" href="{anchor}" aria-label="{e(title)} — {e(action)}">{preview}<span class="format-copy"><span class="format-eyebrow">{eyebrow}</span><strong class="format-title">{title}</strong><span class="format-description">{description}</span><span class="format-action">{action}</span></span></a>' for anchor,eyebrow,title,description,action,preview in formats)+'</nav>'
+        content+='<aside class="veille-subscription"><div><strong>'+('One Telegram subscription.' if en else 'Un seul abonnement Telegram.')+'</strong><p>'+('Follow all three formats through the same channel.' if en else 'Retrouve les trois rendez-vous sur le même canal.')+'</p></div><a class="btn btn--primary" href="https://t.me/VeilleIA_HL">'+('Join on Telegram ↗' if en else 'S’abonner sur Telegram ↗')+'</a></aside>'
         week_links = ''.join(f'<a href="{prefix}comics/{ep["id"]}/" style="display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--border-strong);font-size:14px">{e(period(ep))}</a>' for ep in reversed(comic_editions))
         content+=f'<section id="sunday" class="kiosk-feature"><div><p class="kicker">03 / Le comic du dimanche</p><h2>iAstro<br>Sunday<span style="color:var(--c-red)">.</span></h2><span class="kiosk-tag">Hugo × iAstro · {e(period(comic_latest))}</span><p class="lead">Les grandes nouvelles de l’IA prennent vie dans l’atelier. Une histoire à la fois, avec ses dessins, ses explications et ses sources.</p><a class="btn btn--primary" href="{comic_url}">Lire le dernier numéro →</a><p class="kiosk-note">Chaque semaine · en français · {len(comic_latest["news"])} histoires · lecture mobile</p><a href="{prefix}comics/">Tous les numéros et les archives →</a><nav aria-label="Choisir une semaine de comics" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">{week_links}</nav></div><a class="kiosk-comic" href="{comic_url}" aria-label="Lire iAstro Sunday du {e(period(comic_latest))}"><img src="{comic_image}" width="1536" height="1024" alt="{e(comic_panel["alt"].replace("Iastro","iAstro"))}"><span class="kiosk-comic-caption">{e(comic_latest["title"])}</span></a></section>'
         content+='<section id="podcasts" class="radio-section"><div class="kiosk-section-head"><div><p class="kicker">02 / L’actualité IA à écouter</p><h2>Le Podcast iA<span style="color:var(--c-red)">.</span></h2></div><p>Deux formats. Le même regard curieux.</p></div><div id="daily-podcast"><p class="kiosk-meta">Dernière édition · <time id="podcast-date">'+latest['date']+'</time></p><div id="podcast-tracks" class="radio-latest">'+''.join(episode_card(latest,k,True) for k in ('short','full'))+'</div><p id="podcast-fallback" hidden><a href="https://t.me/VeilleIA_HL">Retrouver les audios sur Telegram →</a></p></div><p class="kiosk-note">Audio en français, avec une voix de synthèse. iAstro change de tenue au fil des mois.</p><div class="radio-archive"><h3>À réécouter</h3>'
@@ -103,14 +107,15 @@ def build():
             content+=f'<details><summary><span>{ep["date"][8:10]}.{ep["date"][5:7]}.{ep["date"][:4]}</span><span class="radio-duration">Flash {duration(ep["short"]["seconds"])} / Débrief {duration(ep["full"]["seconds"])}</span></summary><div class="radio-latest">'+''.join(episode_card(ep,k) for k in ('short','full'))+'</div></details>'
         content+='</div></section><section id="radar"><div class="kiosk-section-head"><div><p class="kicker">01 / La veille quotidienne sur Telegram</p><h2>Le Radar iA<span style="color:var(--c-red)">.</span></h2></div><a href="'+prefix+'veille-ia/">Toute la veille et ses sources →</a></div><ol class="kiosk-news">'
         for i,n in enumerate(news,1):content+=f'<li><span class="news-number">{i:02d}</span><div><h3><a href="{e(n["tweet_url"])}">{e(n["titre_fr"])}</a></h3><p>{e(n["resume_fr"][:200])}{"…" if len(n["resume_fr"])>200 else ""}</p></div><time datetime="{last}">{last[8:10]}.{last[5:7]}</time></li>'
-        content+='</ol><p><a class="btn btn--primary" href="https://t.me/VeilleIA_HL">Rejoindre Le Radar iA sur Telegram ↗</a></p><p class="kiosk-note">Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.</p></section><div class="kiosk-foot"><strong>LE KIOSQUE IA</strong><a href="https://t.me/VeilleIA_HL">Recevoir la veille sur Telegram ↗</a><a href="'+prefix+'">Retour au Knowledge Hub →</a></div></div>'
+        content+='</ol><p><a class="btn btn--primary" href="https://t.me/VeilleIA_HL">Rejoindre Le Radar iA sur Telegram ↗</a></p><p class="kiosk-note">Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.</p></section><div class="kiosk-foot"><strong>VEILLE IA</strong><a href="https://t.me/VeilleIA_HL">Recevoir la veille sur Telegram ↗</a><a href="'+prefix+'">Retour au Knowledge Hub →</a></div></div>'
         if en:content=content.replace('<div class="kiosk">','<div class="kiosk"><p class="kiosk-note" lang="en">The editorial editions, comics and audio below are currently available in French.</p>',1)
+        # Put the daily audio before the weekly comic while retaining direct anchors.
+        comic_section=re.search(r'<section id="sunday".*?</section>',content,re.S).group()
+        content=content.replace(comic_section,'',1).replace('<section id="radar">',comic_section+'<section id="radar">',1)
         page=shell(title,intro,content,lang,root_path='/knowledge-hub/immersion-ia/')
         page=re.sub(r'<header style=.*?</header>',site_header(en),page,flags=re.S)
-        page=page.replace('</head>', '<style>'+HOME_MEDIA_CSS+'</style></head>')
-        page=page.replace('</body>', '<script>'+HOME_NAV_JS+'</script></body>')
         page=page.replace('</body>','<script src="/knowledge-hub/search.js?v=20260601d" defer></script><script src="/assets/podcast/player.js?v=20261017c" defer></script><script>document.addEventListener("play",event=>{if(event.target.tagName==="AUDIO")document.querySelectorAll("audio").forEach(a=>{if(a!==event.target)a.pause();});},true);</script></body>')
-        page=page.replace('Hugo × Iastro · Dessins générés par IA. Direction éditoriale : Hugo Lahutte.','Le Kiosque IA · Hugo Lahutte.').replace('Hugo × Iastro · AI-generated artwork. Editorial direction: Hugo Lahutte.','Le Kiosque IA · Hugo Lahutte.')
+        page=page.replace('Hugo × Iastro · Dessins générés par IA. Direction éditoriale : Hugo Lahutte.','Veille IA · Hugo Lahutte.').replace('Hugo × Iastro · AI-generated artwork. Editorial direction: Hugo Lahutte.','Veille IA · Hugo Lahutte.')
         dest=ROOT/prefix.lstrip('/')/'immersion-ia/index.html';dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
     # Stable, exact-size HTML layouts for browser export. No dates/durations baked into art.
     layouts=ROOT/'assets/podcast/cover-layouts';layouts.mkdir(exist_ok=True)

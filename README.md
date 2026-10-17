@@ -145,3 +145,15 @@ python3 -m http.server 8000   # puis http://localhost:8000
 ---
 
 © 2026 Hugo Lahutte — Build in public avec Claude. Contact : hugo@hl-consulting.tech
+
+
+### Accueil KH et espace Veille IA
+
+Correction demandée par Hugo le 17 octobre 2026 : ces deux espaces ont des rôles distincts.
+- `/knowledge-hub/` : orientation vers la méthode, les guides, les projets et le journal. La Veille IA y apparaît uniquement dans une bannière de promotion avec trois accès directs.
+- `/knowledge-hub/immersion-ia/` : accueil de la Veille IA (news, podcasts et iAstro Sunday), destination du bouton « Veille IA » sur l’accueil KH. Les lecteurs audio et les éditions vivent ici.
+- `/knowledge-hub/veille-ia/` : archives de la veille écrite et sources ; les flux JSON/RSS conservent leurs URLs.
+- Abonnement actuel commun : `https://t.me/VeilleIA_HL`. Ne pas présenter trois abonnements indépendants comme déjà disponibles.
+- Évolution demandée, à réaliser côté Telegram : permettre de choisir et combiner news texte, podcast court et comic du dimanche. Aucun sélecteur fictif sur le site ; la gestion de ces préférences nécessite son propre chantier.
+
+Régénération : `python3 scripts/build_home_media.py`, puis `python3 scripts/build_immersion.py`. Le premier ne doit ajouter aucun lecteur audio à l’accueil KH.
