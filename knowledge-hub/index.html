@@ -16,7 +16,7 @@
 
 <!-- Open Graph / réseaux -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hugo Lahutte — Knowledge Hub">
+<meta property="og:title" content="Construire avec Claude et ChatGPT — Knowledge Hub">
 <meta property="og:description" content="La méthode, les guides et les projets de Hugo Lahutte : des retours de terrain pour construire avec Claude et ChatGPT. Retrouvez aussi la Veille IA, ses podcasts et ses comics.">
 <meta property="og:url" content="https://hl-consulting.tech/knowledge-hub/">
 <meta property="og:locale" content="fr_FR">
@@ -100,6 +100,7 @@
 .kh-paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:32px}.kh-path{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid var(--border);text-decoration:none;min-width:0;background:var(--bg)}.kh-path:hover{border-color:var(--c-red);background:var(--surface)}.kh-path small{font:11px var(--font-mono);color:var(--c-red)}.kh-path strong{font:800 1.25rem var(--font-display)}.kh-path span{font-size:.85rem;line-height:1.45;color:var(--text-muted)}
 .kh-veille-push{padding:12px 0 40px;scroll-margin-top:100px}.kh-veille-banner{border:1px solid var(--border-strong);border-left:5px solid var(--c-red);background:var(--surface);padding:24px;display:grid;grid-template-columns:76px 1fr;gap:20px}.kh-veille-banner>img{width:76px;height:76px;object-fit:contain;background:var(--c-white)}.kh-veille-heading{display:flex;justify-content:space-between;gap:20px;align-items:center}.kh-veille-heading h2{font-size:1.65rem;line-height:1.15;text-transform:none;margin:0}.kh-veille-heading .kicker{font-size:.65rem;margin-bottom:6px}.kh-veille-heading>a{font-size:.8rem;white-space:nowrap}.kh-veille-formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;grid-column:1/-1;border-top:1px solid var(--border);padding-top:16px}.kh-veille-formats a{font-size:.9rem;text-decoration:none;font-weight:700;display:block}.kh-veille-formats a:hover{color:var(--c-red)}.kh-veille-formats small{display:block;font-size:.75rem;line-height:1.5;font-weight:400;color:var(--text-muted);margin-top:4px}.kh-veille-banner .caption{grid-column:1/-1;margin:0;font-size:.75rem}.kh-growth{padding:24px 0 40px}.kh-growth .container{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}.kh-growth h2{font-size:clamp(1.7rem,3vw,2.5rem);text-transform:none;line-height:1.1;margin:12px 0 16px}.kh-growth img{width:100%;height:330px;object-fit:cover;object-position:top;border:1px solid var(--border)}.kh-growth p{font-size:1rem;line-height:1.6}.kh-growth .caption{font-size:.75rem}.kh-growth .btn{margin-top:16px}
 .kh-path:focus-visible,.kh-veille-banner a:focus-visible{outline:3px solid var(--c-red);outline-offset:4px}
+.kh-veille-formats .format-number{display:block;font:11px var(--font-mono);color:var(--c-red);margin-bottom:6px}.kh-veille-banner .caption a{font-weight:700;color:var(--text)}.home-recent .author span{display:inline-block;padding:4px 8px;font-size:.75rem}.kh-growth img{object-fit:contain;background:var(--surface)}
 @media(min-width:761px) and (max-width:1100px){.nav{flex-wrap:wrap;gap:12px}.nav>nav{width:100%}.nav__links{justify-content:space-between;gap:12px}}
 @media(max-width:760px){.kh-intro{padding:28px 0 16px}.kh-intro-top{grid-template-columns:1fr;gap:24px}.kh-intro h1{font-size:2.65rem}.kh-intro .lead{font-size:1rem}.kh-paths{grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.kh-path{padding:16px;gap:8px}.kh-path strong{font-size:1.05rem}.kh-path span{font-size:.8rem}.kh-veille-banner{padding:18px;grid-template-columns:54px 1fr;gap:14px}.kh-veille-banner>img{width:54px;height:54px}.kh-veille-heading{display:block}.kh-veille-heading h2{font-size:1.35rem}.kh-veille-heading>a{display:inline-block;margin-top:10px;white-space:normal}.kh-veille-formats{grid-template-columns:1fr;gap:14px}.kh-veille-formats a{min-height:44px}.kh-growth .container{grid-template-columns:1fr;gap:24px}}
 </style>
@@ -133,14 +134,14 @@
 <main id="main">
 
 <!-- ===== HERO ===== -->
-<section class="kh-intro"><div class="container"><div class="kh-intro-top"><div><p class="kicker">Knowledge Hub · Hugo Lahutte</p><h1>Je construis avec<br><em>Claude et ChatGPT.</em></h1></div><div><p class="lead">Des idées aux projets, avec Claude, ChatGPT et leurs outils, Claude Code et Codex. Je partage ma méthode, des guides et les coulisses de ce que je construis : ce qui fonctionne, ce qui coince et ce que j’en retiens.</p><div class="btn-row"><a class="btn btn--primary" href="how-to/">Découvrir ma méthode →</a><a class="btn btn--ghost" href="#projets">Voir les projets</a></div><p class="caption"><b id="stat-sessions">67</b> sessions documentées · des projets réels, des retours concrets.</p><p class="caption"><a href="lexique/">Découvrir le lexique de l’IA →</a></p></div></div><nav class="kh-paths" aria-label="Explorer le Knowledge Hub"><a class="kh-path" href="how-to/"><small>01 / La méthode</small><strong>Commencer ↗</strong><span>Mon organisation, mes outils et mes fichiers de contexte.</span></a><a class="kh-path" href="guides/"><small>02 / Les guides</small><strong>Comprendre ↗</strong><span>Des explications claires, du premier repère au cas concret.</span></a><a class="kh-path" href="#projets"><small>03 / Les projets</small><strong>Voir le terrain ↗</strong><span>Commerce, audio, outils métier : ce que je construis vraiment.</span></a><a class="kh-path" href="journal/"><small>04 / Le journal</small><strong>Suivre les chantiers ↗</strong><span>Les décisions, les essais et les leçons, session après session.</span></a></nav></div></section>
+<section class="kh-intro"><div class="container"><div class="kh-intro-top"><div><p class="kicker">Knowledge Hub · Hugo Lahutte</p><h1>Je construis avec<br><em>Claude et ChatGPT.</em></h1></div><div><p class="lead">Je construis des outils métier, des contenus et des expériences avec Claude et ChatGPT, notamment Claude Code et Codex. Ici, je partage ma méthode, mes projets et ce que j’en apprends, pour que tu puisses t’en servir à ton tour.</p><div class="btn-row"><a class="btn btn--primary" href="how-to/">Découvrir ma méthode →</a><a class="btn btn--ghost" href="#projets">Voir les projets</a></div><p class="caption"><b id="stat-sessions">67</b> sessions documentées · des projets réels, des retours concrets.</p><p class="caption"><a href="lexique/">Découvrir le lexique de l’IA →</a></p></div></div><nav class="kh-paths" aria-label="Explorer le Knowledge Hub"><a class="kh-path" href="how-to/"><small>01 / La méthode</small><strong>Commencer ↗</strong><span>Mon organisation, mes outils et mes fichiers de contexte.</span></a><a class="kh-path" href="guides/"><small>02 / Les guides</small><strong>Comprendre ↗</strong><span>Des explications claires, du premier repère au cas concret.</span></a><a class="kh-path" href="#projets"><small>03 / Les projets</small><strong>Voir le terrain ↗</strong><span>Commerce, audio, outils métier : ce que je construis vraiment.</span></a><a class="kh-path" href="journal/"><small>04 / Le journal</small><strong>Suivre les chantiers ↗</strong><span>Les décisions, les essais et les leçons, session après session.</span></a></nav></div></section>
 
 <!-- home-media:start -->
-<section id="a-la-une" class="kh-veille-push" aria-labelledby="kh-veille-title"><div class="container"><aside class="kh-veille-banner"><img src="/assets/podcast/art/iastro-10-v1.png" alt="iAstro" width="76" height="76"><div class="kh-veille-heading"><div><p class="kicker">À suivre aussi · la Veille IA</p><h2 id="kh-veille-title">L’actualité IA, en trois rendez-vous.</h2></div><a href="/knowledge-hub/immersion-ia/">Découvrir la Veille IA →</a></div><nav class="kh-veille-formats" aria-label="Les trois formats de la Veille IA"><a href="https://t.me/VeilleIA_HL" target="_blank" rel="noopener noreferrer">Les news sur Telegram ↗<small>Le Radar iA · les nouvelles à retenir.</small></a><a href="/knowledge-hub/immersion-ia/#podcasts">Écouter le podcast →<small>Le Flash et le Débrief · chaque jour.</small></a><a href="/knowledge-hub/comics/2026-W41-r2/">Lire le comic du dimanche →<small>iAstro Sunday · Hugo × iAstro.</small></a></nav><p class="caption">Un abonnement commun sur Telegram pour suivre les trois rendez-vous.</p></aside></div></section>
+<section id="a-la-une" class="kh-veille-push" aria-labelledby="kh-veille-title"><div class="container"><aside class="kh-veille-banner"><img src="/assets/podcast/art/iastro-10-v1.png" alt="iAstro" width="76" height="76"><div class="kh-veille-heading"><div><p class="kicker">À suivre aussi · la Veille IA</p><h2 id="kh-veille-title">L’actualité IA, en trois rendez-vous.</h2></div><a href="/knowledge-hub/immersion-ia/">Découvrir la Veille IA →</a></div><nav class="kh-veille-formats" aria-label="Les trois formats de la Veille IA"><a href="/knowledge-hub/immersion-ia/#radar"><span class="format-number">01 / À lire</span>Le Radar iA →<small>Les nouvelles à retenir, leurs dates et leurs sources.</small></a><a href="/knowledge-hub/immersion-ia/#podcasts"><span class="format-number">02 / À écouter</span>Le Podcast iA →<small>Le Flash et le Débrief · chaque jour.</small></a><a href="/knowledge-hub/comics/2026-W41-r2/"><span class="format-number">03 / Le dimanche</span>iAstro Sunday →<small>La semaine en comic, avec Hugo et iAstro.</small></a></nav><p class="caption">Un abonnement commun pour les trois rendez-vous. <a href="https://t.me/VeilleIA_HL" target="_blank" rel="noopener noreferrer">S’abonner sur Telegram ↗</a></p></aside></div></section>
 <!-- home-media:end -->
 
 <!-- ===== NOUVEAU — actualité du moment (à rafraîchir à chaque grosse nouveauté) ===== -->
-<section id="nouveau" class="kh-growth"><div class="container"><div><p class="kicker">Dans les coulisses · une étude de cas</p><h2>Comment notre veille devient un média.</h2><p>Avec ChatGPT et Codex : un podcast court et long, les comics du dimanche, la création d’iAstro et tout un travail de design. Les coulisses d’une veille qui s’améliore — et d’une méthode adaptable à d’autres sujets.</p><a class="btn btn--primary" href="journal/veille-podcast-comics-iastro-chatgpt.html">Lire le retour d’expérience →</a></div><figure><img src="/knowledge-hub/comics/kit/assets/characters/duo-reference-v2.png" alt="Fiche de recherche du duo Hugo et iAstro" loading="lazy" decoding="async"><figcaption class="caption">Hugo × iAstro · les recherches de personnages.</figcaption></figure></div></section>
+
 
 
 
@@ -156,7 +157,7 @@
         <h2>Les projets</h2>
       </div>
     </div>
-    <p class="prose" style="margin-top:var(--space-6);">Tout est cohérent : une même méthode (Claude, ChatGPT + fichiers de contexte) appliquée à un même terrain — le <strong>commerce de l'audio / vidéo haut de gamme</strong> et les outils qui le font tourner. Le dev (Cobra) alimente les boutiques, les boutiques nourrissent la communauté (HiFi Lovers), et le perso sert de laboratoire.</p>
+    <p class="prose" style="margin-top:var(--space-6);">Une même méthode, plusieurs terrains : <strong>commerce, presse, outils métier et expériences personnelles</strong>. Mon quotidien dans l’audio nourrit ces projets ; les façons de cadrer, construire et vérifier avec l’IA peuvent s’appliquer à bien d’autres sujets.</p>
     <hr class="rule" style="margin:var(--space-6) 0 var(--space-8);">
     <div class="card-grid">
       <a class="card" href="hl-os/">
@@ -172,9 +173,9 @@
         <span class="card__foot">Voir le projet →</span>
       </a>
       <a class="card" href="haute-fidelite/">
-        <span class="card__kicker">E-commerce · Audio</span>
-        <span class="card__title">Haute-Fidélité</span>
-        <span class="card__desc">La boutique d'électronique audio haut de gamme. Catalogue, fiches, tunnel d'achat.</span>
+        <span class="card__kicker">Presse · Édition</span>
+        <span class="card__title">Haute Fidélité</span>
+        <span class="card__desc">Le magazine consacré à la HiFi : édition papier et numérique, contenus, abonnements et outils de gestion.</span>
         <span class="card__foot">Voir le projet →</span>
       </a>
       <a class="card" href="hifi-lovers/">
@@ -194,12 +195,15 @@
 </section>
 
 <!-- ===== JOURNAL teaser ===== -->
+
+
+<section id="nouveau" class="kh-growth"><div class="container"><div><p class="kicker">Dans les coulisses · une étude de cas</p><h2>Comment notre veille devient un média.</h2><p>Avec ChatGPT et Codex : un podcast court et long, les comics du dimanche, la création d’iAstro et tout un travail de design. Les coulisses d’une veille qui s’améliore — et d’une méthode adaptable à d’autres sujets.</p><a class="btn btn--primary" href="journal/veille-podcast-comics-iastro-chatgpt.html">Lire le retour d’expérience →</a></div><figure><img src="/knowledge-hub/comics/kit/assets/characters/duo-reference-v2.png" alt="Fiche de recherche du duo Hugo et iAstro" loading="lazy" decoding="async"><figcaption class="caption">Hugo × iAstro · les recherches de personnages.</figcaption></figure></div></section>
 <section id="journal-teaser">
   <div class="container">
     <div class="section-head">
       <div>
         <p class="kicker">Le détail, daté</p>
-        <h2>Journal</h2>
+        <h2>Les dernières sessions</h2>
       </div>
       <a href="journal/">Toutes les entrées →</a>
     </div>
@@ -208,99 +212,33 @@
       <input id="journal-search-input" type="search" name="q" placeholder="Rechercher dans les 67 sessions (Odoo, Shopify, SFTP, agent…)" aria-label="Rechercher dans le journal" autocomplete="off">
     </form>
     <hr class="rule" style="margin:var(--space-6) 0 0;">
-    <ul class="entry-list">
-      <li class="entry" data-tags="agent design data doc en-prod perso"><time datetime="2026-10-17">2026-10-17</time><div><h3 class="entry__title"><a href="journal/veille-podcast-comics-iastro-chatgpt.html">De la veille au média : ce que nous avons construit avec ChatGPT</a></h3><p class="entry__excerpt">Podcast court et long, comics du dimanche, création d’iAstro et design : les coulisses d’une veille qui s’améliore, avec une méthode réutilisable sur d’autres sujets.</p><div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="design" href="/knowledge-hub/journal/?tag=design">design</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="doc" href="/knowledge-hub/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a><a class="tag" data-tag="perso" href="/knowledge-hub/journal/?tag=perso">perso</a></div></div><div class="author"><span class="author--chatgpt" style="background:var(--c-violet);color:var(--c-white);padding:4px 8px;font-size:.75rem;">ChatGPT · Codex</span></div></li>
-      <li class="entry">
+    <ul class="entry-list home-recent"><li class="entry" data-tags="cobra infra agent en-prod">
         <time datetime="2026-09-19">2026-09-19</time>
         <div>
-          <h3 class="entry__title"><a href="journal/brain-central-acces-roles.html">Un « Brain » central pour arrêter de donner les clés du serveur à tout le monde</a></h3>
-          <p class="entry__excerpt">Pour créer un produit dans Odoo via un agent, il fallait une clé SSH sur le serveur — donc soit Hugo faisait tout, soit on distribuait des accès larges et intraçables. Un service central (le « Brain ») détient désormais les secrets côté serveur et expose des capacités métier derrière un jeton → une identité → un rôle (lecture / préparation / écriture / mise en ligne), en journalisant qui a fait quoi. Deux surfaces (skill en ligne de commande + page web interne protégée), garde-fous repris de l'historique (rapprochement anti-doublon avant création, jamais de publication automatique), 3 accès distribués : deux personnes ajoutent et déploient leurs propres capacités sans repasser par Hugo.</p>
-          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+          <h3 class="entry__title"><a href="/knowledge-hub/journal/brain-central-acces-roles.html">Un « Brain » central pour arrêter de donner les clés du serveur à tout le monde</a></h3>
+          <p class="entry__excerpt">Donner aux agents et aux équipes des accès adaptés à leur rôle, sans distribuer les clés du serveur.</p>
+          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
       </li>
-      <li class="entry">
+<li class="entry" data-tags="cobra data marketing agent strat en-prod">
         <time datetime="2026-09-01">2026-09-01</time>
         <div>
-          <h3 class="entry__title"><a href="journal/growth-centre-actions.html">Growth : remplacer dix tableaux de bord par une file d'actions</a></h3>
-          <p class="entry__excerpt">Des idées jetées en l'air en fin de semaine, un week-end avec ChatGPT et Codex, puis Growth en production le mardi. Data, BigQuery, application et cœur agentique réutilisable ont été construits pour transformer les faits en actions validées.</p>
-          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="marketing" href="/knowledge-hub/journal/?tag=marketing">marketing</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+          <h3 class="entry__title"><a href="/knowledge-hub/journal/growth-centre-actions.html">Growth : remplacer dix tableaux de bord par une file d'actions</a></h3>
+          <p class="entry__excerpt">Avec ChatGPT et Codex, transformer les données dispersées en actions concrètes à valider.</p>
+          <div class="tags"><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="marketing" href="/knowledge-hub/journal/?tag=marketing">marketing</a><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
-        <div class="author"><span class="author--chatgpt" style="background:var(--c-violet);color:var(--c-white);">ChatGPT · Codex</span></div>
+        <div class="author"><span class="author--chatgpt" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;background:var(--c-violet);color:var(--c-white);">ChatGPT · Codex</span></div>
       </li>
-      <li class="entry">
+<li class="entry" data-tags="cobra agent infra doc en-prod">
         <time datetime="2026-08-28">2026-08-28</time>
         <div>
-          <h3 class="entry__title"><a href="journal/cdc-odoo-ia-verifie-avant-de-coder.html">L'IA ne code pas ma demande, elle vérifie ce qu'elle suppose</a></h3>
-          <p class="entry__excerpt">Les demandes d'évolution Odoo arrivaient en une ligne — sans où, sans quoi au clic, sans « ce qui ne doit pas bouger ». Une chaîne interne les cadre : formulaire guidé (8 champs, dictée possible), dépôt de captures et d'une vidéo transcrite automatiquement, puis une relecture IA en deux passes — elle pose des questions structurées, le serveur les vérifie dans la vraie base Odoo en lecture seule, l'IA conclut. Elle a requalifié une demande de dev en dix minutes de paramétrage, et vu qu'une solution ne supprimait pas les appels fournisseur qu'elle prétendait éviter. ~100 s et quelques centimes par relecture.</p>
-          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="doc" href="/knowledge-hub/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
+          <h3 class="entry__title"><a href="/knowledge-hub/journal/cdc-odoo-ia-verifie-avant-de-coder.html">L'IA ne code pas ma demande, elle vérifie ce qu'elle suppose</a></h3>
+          <p class="entry__excerpt">Faire vérifier une demande dans la vraie base Odoo avant de décider s’il faut coder ou simplement paramétrer.</p>
+          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="doc" href="/knowledge-hub/journal/?tag=doc">doc</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a><a class="tag tag--vert" data-tag="cobra" href="/knowledge-hub/journal/?tag=cobra" style="border-style:dashed;">Cobra</a></div>
         </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-08-10">2026-08-10</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/veille-hifi-bot-repare-elargi.html">Veille HiFi : le bot quotidien réparé, élargi (30 → 64 sources) et fiabilisé</a></h3>
-          <p class="entry__excerpt">Le bot de veille HiFi quotidienne (Telegram) était bloqué depuis le 15 juin — le modèle d'IA codé en dur avait atteint sa fin de vie. Réparé (modèle désormais choisi automatiquement, la veille ne peut plus casser à une mise à jour), fortement élargi (30 → 64 sources : presse FR spé et grand public, Europe, Reddit, forums Head-Fi/diyAudio, YouTube) et fiabilisé (envoi HTML, dédoublonnage, alerte si une source meurt 3 jours, mémoire ~1 mois, coût plafonné ~3-4 €/mois). Validé en prod : 125 articles → 123 sujets → 4 messages Telegram sans erreur.</p>
-          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--hl">Claude · HL</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-08-07">2026-08-07</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/suivi-prix-alignement-concurrentiel-auto.html">Suivi des prix &amp; alignement concurrentiel automatique</a></h3>
-          <p class="entry__excerpt">On ne pouvait pas surveiller à la main des centaines de références face à Darty, Boulanger, Fnac ou Son-Vidéo. Un moteur de règles dans Odoo (cobra_price_rules) lit les prix concurrents livrés par Wiser plusieurs fois par jour et calcule un prix cible — meilleur concurrent valide, borné par une marge minimale. Deux modes : observation (simule) puis live (applique et pousse sur Shopify), le passage en live restant une décision humaine. Garde-fous : jamais de vente à perte, offres aberrantes (< 60 % de notre prix) ignorées, normalisation paire/pièce. 6 familles en live, ~300 prix réalignés ; le reste s'ajuste seul à chaque MAJ Wiser.</p>
-          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-08-07">2026-08-07</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/app-tarifs-fournisseurs-maj-produits.html">Une app qui lit les tarifs fournisseurs à ma place</a></h3>
-          <p class="entry__excerpt">Chaque tarif fournisseur (PDF ou mail « nouveauté ») demandait un traitement manuel : lire, retrouver le produit dans Odoo, vérifier EAN/SKU, saisir prix d'achat et de vente. Une app interne (« MAJ &amp; Création Produits ») automatise le pipeline : upload PDF ou surveillance d'une boîte mail en lecture seule, extraction EAN/SKU/prix via un modèle Claude, matching sur la base Odoo, détection de doublons avant création, validation humaine systématique et traçabilité. Garde-fou volontaire : aucun produit créé n'est publié en ligne automatiquement.</p>
-          <div class="tags"><a class="tag" data-tag="agent" href="/knowledge-hub/journal/?tag=agent">agent</a><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="email" href="/knowledge-hub/journal/?tag=email">email</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-08-07">2026-08-07</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/refonte-prix-variantes-decouverte-test.html">Une refonte du système de prix découverte en la testant</a></h3>
-          <p class="entry__excerpt">Une refonte du système de prix par variante se préparait depuis des semaines. En testant l'app de mise à jour des tarifs, un écart entre le prix écrit dans Odoo et le prix synchronisé côté site marchand a révélé que la refonte était déjà en prod — sans confirmation formelle. Chaque variante a désormais son propre prix de vente, ce qui élimine le risque de contamination entre variantes. L'app a été corrigée pour écrire sur le nouveau champ, et le sujet remonté au prestataire ERP. Leçon : tester en réel plutôt que se fier à la doc.</p>
-          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-07-13">2026-07-13</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/statut-commandes-clients-facture-paye-livre.html">Statut des commandes clients : facturé, payé, livré — trois badges au lieu d'un</a></h3>
-          <p class="entry__excerpt">Rien ne distinguait clairement « la facture est partie », « le client a payé » et « la marchandise est livrée ». Trois badges indépendants (Facturation / Paiement / Livraison) remplacent le statut fusionné : code couleur, taux d'acompte affiché, bascule automatique reste à encaisser → reste à livrer, lignes livrées grisées. Transposé du module fournisseurs déjà en place ; deux bugs de calcul latents corrigés au passage.</p>
-          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="design" href="/knowledge-hub/journal/?tag=design">design</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-07-13">2026-07-13</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/cobra-app-store-industrialisation.html">Le « Cobra App Store » continue de s'industrialiser</a></h3>
-          <p class="entry__excerpt">Synthèse sur 5 sessions : le hub d'apps internes de Cobra passe, en quelques semaines, de « quelques apps critiques isolées » à un vrai petit écosystème standardisé — header identique partout, connexion Odoo partagée, rafraîchissement sur cron commun. Deux incidents (une version écrasée, un cron sans ses variables d'environnement) rattrapés en minutes grâce à la discipline sauvegarde/comparaison avant chaque déploiement.</p>
-          <div class="tags"><a class="tag" data-tag="infra" href="/knowledge-hub/journal/?tag=infra">infra</a><a class="tag" data-tag="strat" href="/knowledge-hub/journal/?tag=strat">strat</a><a class="tag" data-tag="meta" href="/knowledge-hub/journal/?tag=meta">meta</a><a class="tag" data-tag="en-cours" href="/knowledge-hub/journal/?tag=en-cours">en-cours</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-      <li class="entry">
-        <time datetime="2026-07-12">2026-07-12</time>
-        <div>
-          <h3 class="entry__title"><a href="journal/refonte-systeme-prix-cobra-price.html">Refonte du système de prix Odoo (cobra_price) : une seule source de vérité</a></h3>
-          <p class="entry__excerpt">Le modèle de prix Odoo était empilé et fragile : pricelist web auto-calculée, listes superposées, TVA à 20 % codée en dur, marge à 0 dès qu'un produit sortait de stock. Un champ unique cobra_price devient LA source de vérité via un override de _price_compute — coût et marge recalculés, prix barrés conformes Omnibus, sync Shopify immédiate. 6 modules touchés, ~7 300 produits migrés, avec un vrai suivi post-prod (bug d'affichage corrigé le jour même, 492 produits en promo repoussés).</p>
-          <div class="tags"><a class="tag" data-tag="odoo-dev" href="/knowledge-hub/journal/?tag=odoo-dev">odoo-dev</a><a class="tag" data-tag="shopify" href="/knowledge-hub/journal/?tag=shopify">shopify</a><a class="tag" data-tag="data" href="/knowledge-hub/journal/?tag=data">data</a><a class="tag" data-tag="en-prod" href="/knowledge-hub/journal/?tag=en-prod">en-prod</a></div>
-        </div>
-        <div class="author"><span class="author--cobra">Claude · Cobra</span></div>
-      </li>
-    </ul>
+        <div class="author"><span class="author--hl" style="display:inline-block;font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:2px;">Claude · HL</span></div>
+      </li></ul>
     <p class="caption" style="margin-top:var(--space-4);"><a id="journal-count-link" href="journal/">67 entrées au total — filtrer par tag dans le journal →</a></p>
   </div>
 </section>
@@ -331,7 +269,7 @@
   "itemListElement": [
     {"@type": "SiteNavigationElement", "position": 1, "name": "Méthode", "url": "https://hl-consulting.tech/knowledge-hub/how-to/"},
     {"@type": "SiteNavigationElement", "position": 2, "name": "Guides", "url": "https://hl-consulting.tech/knowledge-hub/guides/"},
-    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hl-consulting.tech/knowledge-hub/veille-ia/"},
+    {"@type": "SiteNavigationElement", "position": 3, "name": "Veille IA", "url": "https://hl-consulting.tech/knowledge-hub/immersion-ia/"},
     {"@type": "SiteNavigationElement", "position": 4, "name": "Lexique", "url": "https://hl-consulting.tech/knowledge-hub/lexique/"},
     {"@type": "SiteNavigationElement", "position": 5, "name": "À propos", "url": "https://hl-consulting.tech/knowledge-hub/a-propos/"},
     {"@type": "SiteNavigationElement", "position": 6, "name": "Journal", "url": "https://hl-consulting.tech/knowledge-hub/journal/"}
