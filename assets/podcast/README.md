@@ -114,10 +114,10 @@ sont conservées et leur SHA-256 est contrôlé. Ajouter une image ne modifie ni
 les MP3, ni les GUID, ni les URLs audio des épisodes existants.
 
 Octobre, novembre et décembre sont prêts. **Les portraits de janvier à septembre
-restent à produire avant leur première utilisation.** Un portrait manquant ou
-un échec du rendu arrête le bridge avant son commit : le flux précédent reste
-intact ; le job affiche l’erreur. Cela ne supprime pas l’audio déjà envoyé sur
-Telegram. Ne pas prétendre à une autonomie annuelle tant que ces neuf portraits
+restent à produire avant leur première utilisation.** Le renderer signale un portrait manquant ou un échec. Dans la chaîne
+quotidienne, ces erreurs sont désormais rattrapées par le producteur : les
+audios vérifiés partent sans pochette dédiée et sont publiés dans le RSS.
+La couverture générale de l’émission reste disponible. Ne pas prétendre à une autonomie annuelle tant que ces neuf portraits
 ne sont pas disponibles. Les anciens exports PNG 1080 sont conservés, mais ne
 sont pas les images RSS (minimum Apple : 1400 px).
 
@@ -161,3 +161,19 @@ le générateur de RSS conserve ces images exactes sans les redessiner.
 Les archives déjà distribuées ne sont pas réécrites. Le changement concerne
 les prochains audios. La réception effective de la miniature Telegram doit
 être distinguée des tests de préparation et des réponses de l’API.
+
+
+### Priorité à l’audio — correction demandée par Hugo
+
+**Une panne de pochette ne doit jamais, à elle seule, bloquer un audio valide.**
+Le producteur `veille-ia` tente le rendu et l’intégration ; en cas d’échec, il
+restaure les MP3 originaux vérifiés, omet la miniature Telegram et poursuit
+l’export RSS sans `item/itunes:image`. `artwork_status=unavailable` conserve la
+trace du repli. Le téléchargement du modèle graphique et l’installation du
+renderer sont eux aussi facultatifs et bornés en durée. Aucun appel à une IA
+d’image n’est nécessaire pour la composition quotidienne des couvertures.
+
+Les contrôles d’intégrité audio, durée, destination, archives immuables et
+absence de réessai automatique après timeout ambigu restent obligatoires.
+Ne pas réintroduire un blocage de diffusion pour une image absente. Les tests
+du producteur couvrent le chemin illustré et le chemin sans image jusqu’au RSS.
