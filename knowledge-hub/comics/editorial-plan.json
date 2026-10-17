@@ -232,9 +232,9 @@
       "end": "2026-09-27",
       "entry_count": 59,
       "proposed_title": "Les agents font leurs courses",
-      "status": "selection_prepared",
-      "editorial_approved": false,
-      "publication_approved": false,
+      "status": "approved_for_publication",
+      "editorial_approved": true,
+      "publication_approved": true,
       "topics": [
         {
           "title": "Shopify intègre le paiement agentique avec Muse via Shop Pay",
@@ -268,7 +268,13 @@
           "archive_author": "@OpenAI",
           "verification": "archive_only_primary_source_check_required"
         }
-      ]
+      ],
+      "draft_manifest": "episodes/2026-W39.json",
+      "draft_url": "/knowledge-hub/comics/drafts/2026-W39/",
+      "draft_prepared_on": "2026-10-17",
+      "verification_note": "Original topics below are archive suggestions. The dated, consulted primary sources and final editorial selection are in the draft manifest. Four stories, six new panels each; not approved for publication.",
+      "publication_authorized_on": "2026-10-17",
+      "published_manifest": "episodes/2026-W39.json"
     },
     {
       "week": "2026-W40",
@@ -276,9 +282,9 @@
       "end": "2026-10-04",
       "entry_count": 63,
       "proposed_title": "Des assistants qui restent de garde",
-      "status": "selection_prepared",
-      "editorial_approved": false,
-      "publication_approved": false,
+      "status": "approved_for_publication",
+      "editorial_approved": true,
+      "publication_approved": true,
       "topics": [
         {
           "title": "Google lance Gemini 4 Argon, son nouveau modèle de pointe",
@@ -312,7 +318,13 @@
           "archive_author": "@venturetwins",
           "verification": "archive_only_primary_source_check_required"
         }
-      ]
+      ],
+      "draft_manifest": "episodes/2026-W40.json",
+      "draft_url": "/knowledge-hub/comics/drafts/2026-W40/",
+      "draft_prepared_on": "2026-10-17",
+      "verification_note": "Original topics below are archive suggestions. The dated, consulted primary sources and final editorial selection are in the draft manifest. Four stories, six new panels each; not approved for publication.",
+      "publication_authorized_on": "2026-10-17",
+      "published_manifest": "episodes/2026-W40.json"
     },
     {
       "week": "2026-W41",
@@ -320,9 +332,9 @@
       "end": "2026-10-11",
       "entry_count": 46,
       "proposed_title": "L’atelier passe à la vitesse supérieure",
-      "status": "pilot_pending_review",
-      "editorial_approved": false,
-      "publication_approved": false,
+      "status": "approved_for_publication",
+      "editorial_approved": true,
+      "publication_approved": true,
       "topics": [
         {
           "title": "OpenAI lance GPT-6 et l'« Intelligent UI » dans ChatGPT",
@@ -356,7 +368,9 @@
           "archive_author": "@GoogleDeepMind",
           "verification": "archive_only_primary_source_check_required"
         }
-      ]
+      ],
+      "publication_authorized_on": "2026-10-17",
+      "published_manifest": "episodes/2026-W41-r2.json"
     }
   ]
 }

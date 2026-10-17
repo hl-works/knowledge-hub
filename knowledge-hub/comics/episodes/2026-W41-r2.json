@@ -1,0 +1,768 @@
+{
+  "id": "2026-W41-r2",
+  "status": "approved",
+  "title": "L’atelier passe à la vitesse supérieure",
+  "period_start": "2026-10-05",
+  "period_end": "2026-10-11",
+  "publication_date": "2026-10-17",
+  "wardrobe_month": 10,
+  "format": "webtoon",
+  "approval": {
+    "editorial": true,
+    "art": true,
+    "publish": true,
+    "by": "Hugo",
+    "reference": "Accord explicite dans cette conversation le 17 octobre 2026 : « Et publie-moi les différents strips sur la page HLH Consulting. Passe-les-moi directement en prod pour que je puisse voir comment tu navigues d’une journée à une autre, avec les dates, et comment je peux facilement les revoir. »"
+  },
+  "cast_ids": [
+    "hugo",
+    "iastro"
+  ],
+  "news": [
+    {
+      "id": "gpt6",
+      "title": "La réponse sort du cadre",
+      "fact": "GPT-6 et Intelligent UI élargissent l’accès dans ChatGPT, avec des réponses combinant texte, éléments visuels et interfaces interactives. Les premiers modèles GPT-6 existaient déjà en septembre.",
+      "sources": [
+        {
+          "url": "https://openai.com/index/gpt-6-for-everyone/",
+          "publisher": "OpenAI",
+          "title": "GPT-6 and Intelligent UI for everyone",
+          "published_at": "2026-10-07",
+          "consulted_at": "2026-10-17"
+        }
+      ],
+      "brand_id": "openai",
+      "model_label": "GPT‑6",
+      "intro": {
+        "title": "ChatGPT sort du pavé de texte",
+        "summary": "OpenAI élargit l’accès à GPT-6 dans ChatGPT. Avec Intelligent UI, une réponse peut devenir un petit outil interactif."
+      }
+    },
+    {
+      "id": "haiku",
+      "title": "La petite machine aux grandes tournées",
+      "fact": "Haiku 5.5 sort le 7 octobre : modèle rapide pour tâches courtes et répétitives. Anthropic annonce environ 75 % de coût en moins en moyenne par rapport à Haiku 4.5, avec des conditions tarifaires et de tokenisation. Les plus gros modèles restent adaptés aux tâches complexes.",
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude-haiku-5-5",
+          "publisher": "Anthropic",
+          "title": "Introducing Claude Haiku 5.5",
+          "published_at": "2026-10-07",
+          "consulted_at": "2026-10-17"
+        }
+      ],
+      "brand_id": "anthropic",
+      "model_label": "Haiku 5.5",
+      "intro": {
+        "title": "Le bon moteur pour la bonne tâche",
+        "summary": "Anthropic lance Haiku 5.5, un petit modèle pour les travaux rapides et répétitifs. L’idée : adapter le coût à la tâche."
+      }
+    },
+    {
+      "id": "mistral",
+      "title": "Un Chonk à la porte",
+      "fact": "Mistral Large 4, surnommé Le Chonk, arrive en préversion API le 6 octobre. Modèle multimodal ; poids annoncés pour la fin octobre, pas encore disponibles au moment de cette semaine. Ne pas reprendre les paramètres actifs : les pages officielles divergent entre 49 et 52 milliards.",
+      "sources": [
+        {
+          "url": "https://mistral.ai/news/mistral-large-4/",
+          "publisher": "Mistral",
+          "title": "Introducing Mistral Large 4",
+          "published_at": "2026-10-06",
+          "consulted_at": "2026-10-17"
+        }
+      ],
+      "brand_id": "mistral",
+      "model_label": "Large 4",
+      "intro": {
+        "title": "Le Chonk frappe à la porte",
+        "summary": "Mistral Large 4 arrive en version d’essai le 6 octobre. Surnommé « Le Chonk », il traite du texte et des images."
+      }
+    },
+    {
+      "id": "synthid",
+      "title": "Le détective et la citrouille",
+      "fact": "Le 7 octobre, SynthID Detector est ouvert à tous mondialement en anglais. Détection du filigrane SynthID dans image, vidéo ou audio provenant d’outils compatibles. Ne pas présenter un résultat négatif comme une preuve de création humaine ni l’outil comme détecteur universel de faux.",
+      "sources": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/",
+          "publisher": "Google DeepMind",
+          "title": "Making it easier to identify AI-generated content globally",
+          "published_at": "2026-10-07",
+          "consulted_at": "2026-10-17"
+        }
+      ],
+      "brand_id": "google",
+      "model_label": "SynthID",
+      "intro": {
+        "title": "Une citrouille, une loupe et un doute",
+        "summary": "Google ouvre SynthID Detector à tous, en anglais. Il recherche une signature d’IA dans les images, vidéos et sons compatibles."
+      }
+    }
+  ],
+  "panels": [
+    {
+      "title": "La réponse sort du cadre",
+      "image": "art/2026-W41/gpt6-v1.png",
+      "alt": "Hugo, bouche ouverte, est empêtré dans un rouleau de papier au milieu de l’atelier.",
+      "news_ids": [
+        "gpt6"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "J’ai demandé un plan de soirée. Pas de me transformer en momie !",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une réponse à manipuler",
+        "text": "Le 7 octobre, OpenAI présente une façon plus visuelle de répondre dans ChatGPT. Le texte peut être accompagné de graphiques et de commandes interactives."
+      }
+    },
+    {
+      "title": "La réponse sort du cadre",
+      "image": "art/2026-W41/gpt6-v1.png",
+      "alt": "De profil, Iastro ouvre un ordinateur dont la lumière éclaire son visage.",
+      "news_ids": [
+        "gpt6"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Attends. Cette fois, tu vas pouvoir toucher aux boutons.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Directement dans le chat",
+        "text": "Ces éléments restent dans la conversation. Selon la question, ChatGPT peut afficher des boutons, un formulaire ou un schéma à explorer."
+      }
+    },
+    {
+      "title": "La réponse sort du cadre",
+      "image": "art/2026-W41/gpt6-v1.png",
+      "alt": "Par-dessus l’épaule de Hugo, on voit son doigt agir sur un curseur illustré de citrouilles.",
+      "news_ids": [
+        "gpt6"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Huit invités… Allez, douze. On aime vivre dangereusement.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Faire varier une hypothèse",
+        "text": "Un calculateur permet, par exemple, de modifier une valeur et d’observer le résultat. Imagine le même principe pour préparer une réception en ajustant le nombre d’invités."
+      }
+    },
+    {
+      "title": "La réponse sort du cadre",
+      "image": "art/2026-W41/gpt6-v1.png",
+      "alt": "Hugo s’émerveille devant une représentation lumineuse de la table des invités.",
+      "news_ids": [
+        "gpt6"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Tout le monde tient à table ! Même celui qui ne répond jamais.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Ce que ça peut t’apporter",
+        "text": "Pour une équipe, l’intérêt serait de comparer plusieurs scénarios sans relire un long pavé. Exemple : discuter d’un budget en faisant varier ses hypothèses."
+      }
+    },
+    {
+      "title": "La réponse sort du cadre",
+      "image": "art/2026-W41/gpt6-v1.png",
+      "alt": "Hugo et Iastro comparent un carnet et l’écran pour vérifier le plan.",
+      "news_ids": [
+        "gpt6"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On vérifie les chiffres avant d’inviter tout le quartier.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le joli ne prouve rien",
+        "text": "Notre conseil : vérifier les données et le calcul derrière l’interface. Une présentation convaincante ne suffit pas à rendre une réponse exacte."
+      }
+    },
+    {
+      "title": "La réponse sort du cadre",
+      "image": "art/2026-W41/gpt6-v1.png",
+      "alt": "Iastro tend un vrai balai à Hugo, qui espérait ranger avec un bouton.",
+      "news_ids": [
+        "gpt6"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Et le bouton pour ranger ?",
+          "side": "left"
+        },
+        {
+          "speaker": "Iastro",
+          "text": "Il est au bout du balai.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un outil, pas une baguette",
+        "text": "L’annonce concerne l’expérience Chat de ChatGPT ; elle ne change pas les modèles de Work ou Codex. Dans notre atelier, le rangement reste une autre histoire."
+      }
+    },
+    {
+      "title": "La petite machine aux grandes tournées",
+      "image": "art/2026-W41/haiku-v1.png",
+      "alt": "Hugo a installé une grue gigantesque pour déplacer une minuscule enveloppe.",
+      "news_ids": [
+        "haiku"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Pour une enveloppe, j’ai pris la grue. On n’est jamais trop prudent.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Tout ne réclame pas le plus gros",
+        "text": "Le 7 octobre, Anthropic lance Haiku 5.5 pour les tâches courtes et fréquentes. Pense notamment aux résumés, aux recherches ciblées ou au classement."
+      }
+    },
+    {
+      "title": "La petite machine aux grandes tournées",
+      "image": "art/2026-W41/haiku-v1.png",
+      "alt": "Iastro présente une petite charrette rouge chargée de courrier.",
+      "news_ids": [
+        "haiku"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Une charrette, ça marche aussi. Et ça rentre dans le budget.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un rôle bien délimité",
+        "text": "Ce modèle vise les usages sensibles au prix et à la rapidité. Il peut aussi assister un modèle plus puissant sur une partie du travail."
+      }
+    },
+    {
+      "title": "La petite machine aux grandes tournées",
+      "image": "art/2026-W41/haiku-v1.png",
+      "alt": "Iastro court entre les bacs de tri avec sa charrette, sous l’œil de Hugo.",
+      "news_ids": [
+        "haiku"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Déjà fini ? Je n’ai même pas eu le temps de superviser.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un exemple côté entreprise",
+        "text": "On pourrait lui confier un premier tri de demandes clients, avec des catégories précises. Les cas ambigus seraient ensuite relus par quelqu’un de l’équipe."
+      }
+    },
+    {
+      "title": "La petite machine aux grandes tournées",
+      "image": "art/2026-W41/haiku-v1.png",
+      "alt": "Le duo compare des pièces et deux bocaux sur l’établi.",
+      "news_ids": [
+        "haiku"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Il reste des pièces. C’est rare, un projet qui fait ça.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une économie à vérifier",
+        "text": "Anthropic annonce environ 75 % de coût en moins en moyenne face à Haiku 4.5. Le résultat dépend des requêtes et de la façon dont elles sont comptées."
+      }
+    },
+    {
+      "title": "La petite machine aux grandes tournées",
+      "image": "art/2026-W41/haiku-v1.png",
+      "alt": "La petite charrette s’arrête devant un énorme bloc ; le crochet de la grue descend.",
+      "news_ids": [
+        "haiku"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Bon. Pour le caillou, on ressort la grue.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Garder une solution pour le difficile",
+        "text": "Anthropic recommande encore ses grands modèles pour les travaux complexes en plusieurs étapes. Notre conseil : comparer la qualité sur tes propres exemples, pas seulement le prix."
+      }
+    },
+    {
+      "title": "La petite machine aux grandes tournées",
+      "image": "art/2026-W41/haiku-v1.png",
+      "alt": "Hugo tient un mug démesuré, Iastro propose de l’aider avec le crochet de la grue.",
+      "news_ids": [
+        "haiku"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Finalement, on n’avait pas besoin de cette grue.",
+          "side": "left"
+        },
+        {
+          "speaker": "Iastro",
+          "text": "Si. Pour ton café.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Choisir selon le travail",
+        "text": "La charrette et la grue représentent deux besoins différents. Pour ton activité, commence par nommer la tâche et le niveau d’erreur acceptable avant de choisir le modèle."
+      }
+    },
+    {
+      "title": "Un Chonk à la porte",
+      "image": "art/2026-W41/mistral-v1.png",
+      "alt": "Un énorme moteur orange dans une caisse attend devant la porte de l’atelier ; Hugo est stupéfait.",
+      "news_ids": [
+        "mistral"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "J’avais coché « petit colis ».",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un nouveau grand modèle",
+        "text": "Mistral vise des usages variés : du code, des documents et des tâches en plusieurs étapes. Pour une entreprise, la bonne question reste ce qu’il réussit sur son travail réel."
+      }
+    },
+    {
+      "title": "Un Chonk à la porte",
+      "image": "art/2026-W41/mistral-v1.png",
+      "alt": "Iastro examine le connecteur du moteur et Hugo observe ses engrenages.",
+      "news_ids": [
+        "mistral"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Pour commencer, on le branche. On déménagera l’atelier après.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un essai à distance",
+        "text": "La première version se teste via le service de Mistral, avec une API : une connexion qu’un logiciel utilise pour lui envoyer des demandes."
+      }
+    },
+    {
+      "title": "Un Chonk à la porte",
+      "image": "art/2026-W41/mistral-v1.png",
+      "alt": "Le duo présente au moteur une carte illustrée et une carte couverte de lignes abstraites.",
+      "news_ids": [
+        "mistral"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Il lit mes notes et regarde mes images ?",
+          "side": "left"
+        },
+        {
+          "speaker": "Iastro",
+          "text": "Même ton plan de bricolage.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Texte et images ensemble",
+        "text": "Le modèle peut analyser des documents, des graphiques et des images. Un usage à explorer serait de croiser une illustration technique avec son explication écrite."
+      }
+    },
+    {
+      "title": "Un Chonk à la porte",
+      "image": "art/2026-W41/mistral-v1.png",
+      "alt": "Hugo tente de pousser la machine vers la porte ; Iastro l’arrête.",
+      "news_ids": [
+        "mistral"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Pousse un peu, il va passer !",
+          "side": "left"
+        },
+        {
+          "speaker": "Iastro",
+          "text": "On n’en est pas encore à l’installation.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Tester ne veut pas dire installer",
+        "text": "Pendant cette semaine du 5 au 11 octobre, les fichiers du modèle ne sont pas encore disponibles. L’accès au service et l’installation chez soi sont deux étapes distinctes."
+      }
+    },
+    {
+      "title": "Un Chonk à la porte",
+      "image": "art/2026-W41/mistral-v1.png",
+      "alt": "Un long câble relie le portable à la machine restée dehors ; un coffre fermé et un calendrier évoquent l’attente.",
+      "news_ids": [
+        "mistral"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Pour l’instant, on garde la rallonge.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "La suite annoncée",
+        "text": "Mistral prévoit de publier les poids du modèle fin octobre. Ce sont les fichiers nécessaires pour l’exécuter sur une infrastructure adaptée ; la sortie reste alors à venir."
+      }
+    },
+    {
+      "title": "Un Chonk à la porte",
+      "image": "art/2026-W41/mistral-v1.png",
+      "alt": "Hugo mesure la porte, Iastro mesure la machine ; ils échangent un regard résigné.",
+      "news_ids": [
+        "mistral"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Bonne nouvelle : j’ai trouvé le problème.",
+          "side": "left"
+        },
+        {
+          "speaker": "Iastro",
+          "text": "La porte ?",
+          "side": "right"
+        },
+        {
+          "speaker": "Hugo",
+          "text": "L’atelier.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Prévoir aussi la place autour",
+        "text": "Notre conseil : avant un hébergement interne, évaluer le matériel, les compétences et le coût d’exploitation. Disposer des fichiers ne transforme pas un grand modèle en application légère."
+      }
+    },
+    {
+      "title": "Le détective et la citrouille",
+      "image": "art/2026-W41/synthid-v1.png",
+      "alt": "Hugo montre sur son téléphone une citrouille apparemment en lévitation.",
+      "news_ids": [
+        "synthid"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Une citrouille volante. Même le jardin s’est mis à l’IA ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Commencer par une question",
+        "text": "Une image surprenante ne dit pas comment elle a été fabriquée. Avant de la partager, on peut chercher des indices sur son origine."
+      }
+    },
+    {
+      "title": "Le détective et la citrouille",
+      "image": "art/2026-W41/synthid-v1.png",
+      "alt": "Iastro, loupe à la main, examine l’écran avec Hugo.",
+      "news_ids": [
+        "synthid"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Je sors la loupe. La version qui ne fait pas semblant.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un outil accessible au public",
+        "text": "Le 7 octobre, Google étend SynthID Detector au monde entier, en anglais. On lui soumet un fichier pour rechercher un marquage SynthID."
+      }
+    },
+    {
+      "title": "Le détective et la citrouille",
+      "image": "art/2026-W41/synthid-v1.png",
+      "alt": "Une lumière cyan révèle un motif discret sur une carte illustrée : métaphore du filigrane.",
+      "news_ids": [
+        "synthid"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Ce qu’on cherche, c’est une signature. Pas un air suspect.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une marque imperceptible",
+        "text": "Certains outils de Google et de ses partenaires insèrent un filigrane invisible dans leurs créations. Le détecteur cherche cette marque dans les images, vidéos ou sons."
+      }
+    },
+    {
+      "title": "Le détective et la citrouille",
+      "image": "art/2026-W41/synthid-v1.png",
+      "alt": "Hugo brandit une photo sans marque visible, Iastro garde un air interrogatif.",
+      "news_ids": [
+        "synthid"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Pas de signature. Donc ma citrouille vole vraiment !",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "L’absence de marque ne suffit pas",
+        "text": "Un résultat négatif ne prouve pas qu’un humain a créé le contenu. Une autre IA peut avoir produit un fichier sans cette signature."
+      }
+    },
+    {
+      "title": "Le détective et la citrouille",
+      "image": "art/2026-W41/synthid-v1.png",
+      "alt": "Iastro montre le jardin : Hugo quitte son écran pour regarder autour de lui.",
+      "news_ids": [
+        "synthid"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Ou alors… on regarde aussi par la fenêtre ?",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Croiser les indices",
+        "text": "Notre conseil : retrouver la source, regarder le contexte et chercher d’autres éléments de confirmation. SynthID apporte un indice ; il ne tranche pas toutes les questions de vérité."
+      }
+    },
+    {
+      "title": "Le détective et la citrouille",
+      "image": "art/2026-W41/synthid-v1.png",
+      "alt": "Le duo découvre la citrouille suspendue par une ficelle à une branche.",
+      "news_ids": [
+        "synthid"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "C’était une ficelle.",
+          "side": "left"
+        },
+        {
+          "speaker": "Iastro",
+          "text": "Une technologie qui a encore de l’avenir.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "L’origine n’est pas toute l’histoire",
+        "text": "Même une vraie photo peut mettre en scène une illusion. Notre citrouille rappelle pourquoi il faut distinguer la fabrication d’une image de ce qu’elle prétend montrer."
+      }
+    }
+  ],
+  "downloads": {},
+  "correction_note": "Nouvelle version du numéro du 5–11 octobre : dialogues sans bulles, explications sous les cases et navigation mobile.",
+  "reader_variant": "story",
+  "reader_description": "Quatre nouvelles de l’IA, racontées dans l’atelier. Un peu de pagaille, des explications et un Chonk qui ne passe pas la porte."
+}

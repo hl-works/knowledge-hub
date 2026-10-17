@@ -59,3 +59,13 @@ Retour de Hugo sur les noms : employer **Le Radar iA** pour le texte, **Le Podca
 
 
 Publication autorisée par Hugo le 16 octobre 2026 : « OK, tu passes en prod, s’il te plaît, sur HL Consulting ». Cet accord concerne le Kiosque, les podcasts existants et le premier numéro W41 présentés. L’accord est enregistré dans le manifeste W41 ; il ne vaut pas publication des rétrospectives ou automatisation des prochains numéros.
+
+## Bulles — correction de Hugo, 17 octobre 2026
+
+Ne pas afficher les noms des personnages dans les bulles. Les bulles de Hugo sont toujours alignées à gauche, celles de iAstro toujours à droite, dans l’ordre du dialogue. Hugo : contour arrondi et lettrage souple. iAstro : contour légèrement anguleux et typographie dédiée, droite, reconnaissable. Garder le nom du locuteur uniquement en texte masqué visuellement pour les lecteurs d’écran. Cette convention porte sur les bulles ; elle ne modifie pas les illustrations approuvées.
+
+Dernier ajustement demandé par Hugo : privilégier le dialogue en texte sans bulle, pour réduire la hauteur occupée sur mobile. Garder Hugo aligné à gauche en italique et iAstro à droite en typo monospace droite, sans noms visibles. Cette correction remplace les contours arrondis/anguleux de la consigne précédente.
+
+## Accord de publication — 17 octobre 2026
+
+Hugo demande « Passe-les-moi directement en prod » pour les trois numéros présentés : W39, W40 et W41-r2. Cet accord couvre ces textes et dessins, leur publication sur HL Consulting et la navigation datée entre les semaines. Il ne vaut pas automatisation des futurs numéros. Le catalogue montre une seule édition par semaine (dernière révision approuvée), triée par période couverte, pas par date de fabrication.

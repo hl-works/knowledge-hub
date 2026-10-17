@@ -1,0 +1,733 @@
+{
+  "id": "2026-W39",
+  "status": "approved",
+  "title": "Choisir le bon outil",
+  "period_start": "2026-09-21",
+  "period_end": "2026-09-27",
+  "publication_date": "2026-10-17",
+  "wardrobe_month": 9,
+  "format": "webtoon",
+  "reader_variant": "story",
+  "approval": {
+    "editorial": true,
+    "art": true,
+    "publish": true,
+    "by": "Hugo",
+    "reference": "Accord explicite dans cette conversation le 17 octobre 2026 : « Et publie-moi les différents strips sur la page HLH Consulting. Passe-les-moi directement en prod pour que je puisse voir comment tu navigues d’une journée à une autre, avec les dates, et comment je peux facilement les revoir. »"
+  },
+  "cast_ids": [
+    "hugo",
+    "iastro"
+  ],
+  "reader_description": "Des modèles à choisir, une horloge à réparer, un panier à remplir et les mains dans la pâte. Quatre nouvelles de l’IA vues depuis l’atelier.",
+  "correction_note": "Édition rétrospective préparée le 17 octobre 2026.",
+  "downloads": {},
+  "news": [
+    {
+      "id": "sol-luna",
+      "title": "Pas besoin d’un tracteur pour une lettre",
+      "fact": "Le 22 septembre, Sol et Luna arrivent dans ChatGPT Work, Codex et l’API. Ils complètent Astra avec un compromis capacité, vitesse et coût. Ne pas confondre ce lancement avec l’arrivée dans le Chat grand public, survenue en octobre.",
+      "brand_id": "openai",
+      "model_label": "GPT‑6 Sol & Luna",
+      "intro": {
+        "title": "Pas besoin d’un tracteur pour une lettre",
+        "summary": "OpenAI lance Sol et Luna, deux modèles GPT‑6 pensés pour travailler plus vite et à moindre coût. Le bon choix dépend de la tâche."
+      },
+      "sources": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+          "publisher": "OpenAI",
+          "title": "Introducing GPT-6 Sol and Luna",
+          "published_at": "2026-09-22",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    },
+    {
+      "id": "opus",
+      "title": "La grosse réparation",
+      "fact": "Anthropic présente Opus 5.5 le 22 septembre pour le code et les longues tâches complexes. Les gains annoncés sont ceux du fournisseur ; la capacité de vérification ne garantit pas un résultat exact.",
+      "brand_id": "anthropic",
+      "model_label": "Claude Opus 5.5",
+      "intro": {
+        "title": "La grosse réparation",
+        "summary": "Claude Opus 5.5 vise les travaux complexes qui demandent plusieurs étapes et du jugement. Dans l’atelier, une vieille horloge sert de test."
+      },
+      "sources": [
+        {
+          "url": "https://www.anthropic.com/claude-opus-5-5",
+          "publisher": "Anthropic",
+          "title": "Introducing Claude Opus 5.5",
+          "published_at": "2026-09-22",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    },
+    {
+      "id": "muse",
+      "title": "L’assistant passe à la caisse",
+      "fact": "Le récapitulatif officiel de Connect, publié le 24 septembre au sujet de l’événement du 23, annonce des connecteurs marchands et Shop Pay/PayPal pour Muse. Le catalogue Shopify était déjà accessible. Ne pas affirmer que toutes les boutiques ou tous les pays sont immédiatement éligibles.",
+      "brand_id": "shopify",
+      "model_label": "Shop Pay × Muse",
+      "intro": {
+        "title": "L’assistant passe à la caisse",
+        "summary": "À Connect, Meta annonce Shop Pay parmi les moyens de paiement de Muse. L’assistant rapproche la recherche d’un produit et son achat."
+      },
+      "sources": [
+        {
+          "url": "https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/",
+          "publisher": "Meta",
+          "title": "The Biggest News From Connect 2026",
+          "published_at": "2026-09-24",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    },
+    {
+      "id": "voice",
+      "title": "Les mains dans la pâte",
+      "fact": "Notes de version du 23 septembre : plugins dans Voice web/iOS/Android ; Voice dans Work web/mobile pour documents, présentations, tableaux et outils, avec permissions et accès du compte. Une tâche inachevée peut continuer en texte à la fin de l’appel.",
+      "brand_id": "openai",
+      "model_label": "ChatGPT Voice",
+      "intro": {
+        "title": "Les mains dans la pâte",
+        "summary": "ChatGPT Voice peut utiliser des applications connectées. Dans Work, une demande orale peut aussi lancer la création d’un document ou d’un tableau."
+      },
+      "sources": [
+        {
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "publisher": "OpenAI",
+          "title": "ChatGPT release notes — Use plugins in Voice and get work done by speaking",
+          "published_at": "2026-09-23",
+          "consulted_at": "2026-10-17"
+        }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "title": "Pas besoin d’un tracteur pour une lettre",
+      "image": "art/2026-W39/sol-luna-v1.png",
+      "alt": "Hugo présente un immense tracteur jaune pour transporter une minuscule enveloppe ; iAstro le regarde, stupéfait.",
+      "news_ids": [
+        "sol-luna"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Pour livrer cette lettre, j’ai pris le plus puissant.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une famille s’agrandit",
+        "text": "Sol et Luna complètent GPT‑6 Astra le 22 septembre. OpenAI les présente comme des options plus rapides et économiques pour de nombreux travaux."
+      }
+    },
+    {
+      "title": "Pas besoin d’un tracteur pour une lettre",
+      "image": "art/2026-W39/sol-luna-v1.png",
+      "alt": "iAstro présente un petit vélo violet et un vélo cargo cyan près du tracteur.",
+      "news_ids": [
+        "sol-luna"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Tu sais qu’on a aussi des vélos ?",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Choisir selon le travail",
+        "text": "Un modèle puissant n’est pas automatiquement le meilleur choix pour tout. Comme pour un véhicule, la charge à transporter compte autant que la taille du moteur."
+      }
+    },
+    {
+      "title": "Pas besoin d’un tracteur pour une lettre",
+      "image": "art/2026-W39/sol-luna-v1.png",
+      "alt": "De profil, iAstro transporte une enveloppe à vélo sur le chemin du jardin.",
+      "news_ids": [
+        "sol-luna"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Pour un petit trajet, ça suffit largement.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Commencer par le besoin",
+        "text": "Notre conseil : essaie d’abord une tâche courte et bien définie, comme classer quelques demandes. Vérifie le résultat avant de confier un travail plus difficile."
+      }
+    },
+    {
+      "title": "Pas besoin d’un tracteur pour une lettre",
+      "image": "art/2026-W39/sol-luna-v1.png",
+      "alt": "Hugo et iAstro chargent des cartons sur le vélo cargo.",
+      "news_ids": [
+        "sol-luna"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Et pour les cartons, on change de monture.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Garder plusieurs options",
+        "text": "Sol et Luna proposent d’autres équilibres que le grand modèle Astra. Le choix se juge sur ton travail réel : qualité obtenue, temps d’attente et coût."
+      }
+    },
+    {
+      "title": "Pas besoin d’un tracteur pour une lettre",
+      "image": "art/2026-W39/sol-luna-v1.png",
+      "alt": "Les deux personnages comparent des itinéraires dessinés et de petites piles de pièces sur une table.",
+      "news_ids": [
+        "sol-luna"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On compare le trajet. Pas la taille des roues.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un lancement précis",
+        "text": "À cette date, Sol et Luna arrivent dans Work, Codex et l’API. Ce n’est pas encore leur déploiement dans le Chat classique, qui viendra en octobre."
+      }
+    },
+    {
+      "title": "Pas besoin d’un tracteur pour une lettre",
+      "image": "art/2026-W39/sol-luna-v1.png",
+      "alt": "Hugo roule à vélo tandis que iAstro arrose des fleurs plantées dans le godet du tracteur.",
+      "news_ids": [
+        "sol-luna"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Bon. Le tracteur a trouvé sa vraie vocation.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le gros outil garde sa place",
+        "text": "L’idée n’est pas de tout confier au plus petit modèle. C’est de réserver les ressources les plus coûteuses aux tâches qui en profitent vraiment."
+      }
+    },
+    {
+      "title": "La grosse réparation",
+      "image": "art/2026-W39/opus-v1.png",
+      "alt": "Hugo ouvre une horloge ancienne et une cascade de rouages tombe à ses pieds.",
+      "news_ids": [
+        "opus"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Je voulais juste changer l’heure…",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Des tâches qui durent",
+        "text": "Anthropic lance Opus 5.5 le 22 septembre. Le modèle vise notamment les projets complexes, où il faut comprendre un ensemble avant de modifier une pièce."
+      }
+    },
+    {
+      "title": "La grosse réparation",
+      "image": "art/2026-W39/opus-v1.png",
+      "alt": "iAstro examine les mécanismes de l’horloge à la loupe.",
+      "news_ids": [
+        "opus"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Commence par poser le tournevis.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Regarder avant de corriger",
+        "text": "Une migration de code ou un audit exige de relier plusieurs éléments. Anthropic met en avant une meilleure capacité à raisonner et à se vérifier dans ce type de travail."
+      }
+    },
+    {
+      "title": "La grosse réparation",
+      "image": "art/2026-W39/opus-v1.png",
+      "alt": "Vue de dessus : les personnages trient les engrenages sur un établi, près d’un croquis.",
+      "news_ids": [
+        "opus"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Ces trois pièces étaient sûrement en trop.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Découper le problème",
+        "text": "Dans notre histoire, trier les rouages rend la réparation compréhensible. Pour un vrai projet, demander un diagnostic et un plan permet aussi de repérer un mauvais départ."
+      }
+    },
+    {
+      "title": "La grosse réparation",
+      "image": "art/2026-W39/opus-v1.png",
+      "alt": "iAstro remet un engrenage en place pendant que Hugo contrôle le pendule.",
+      "news_ids": [
+        "opus"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Ou alors, elles servaient à quelque chose.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Contrôler en chemin",
+        "text": "Une bonne démarche alterne action et vérification. Demande des preuves adaptées au travail : tests pour un logiciel, rapprochement avec les documents pour une analyse."
+      }
+    },
+    {
+      "title": "La grosse réparation",
+      "image": "art/2026-W39/opus-v1.png",
+      "alt": "Les deux personnages observent l’horloge remise en état, avec espoir.",
+      "news_ids": [
+        "opus"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Elle marche ! On peut lui faire confiance ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une amélioration annoncée",
+        "text": "Anthropic annonce aussi un coût moyen par tâche réduit par rapport à Opus 5. Ce résultat dépend du travail effectué : il ne remplace pas ton propre essai."
+      }
+    },
+    {
+      "title": "La grosse réparation",
+      "image": "art/2026-W39/opus-v1.png",
+      "alt": "Le coucou de l’horloge attrape le biscuit de Hugo, sous le regard amusé de iAstro.",
+      "news_ids": [
+        "opus"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Pour l’heure, oui. Pour ton biscuit, non.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le dernier contrôle reste utile",
+        "text": "Un outil peut réussir l’essentiel et laisser passer un détail. Relis ce qui compte avant de livrer : le modèle plus capable n’est toujours pas infaillible."
+      }
+    },
+    {
+      "title": "L’assistant passe à la caisse",
+      "image": "art/2026-W39/muse-v1.png",
+      "alt": "Hugo croule sous des catalogues tandis que iAstro tient une petite liste de courses illustrée.",
+      "news_ids": [
+        "muse"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Je voulais un arrosoir. J’ai reçu une bibliothèque.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "De la recherche à l’achat",
+        "text": "Muse est l’agent personnel de Meta, lancé plus tôt en septembre. À Connect, Meta annonce de nouveaux partenaires marchands et l’ajout de Shop Pay et PayPal pour payer."
+      }
+    },
+    {
+      "title": "L’assistant passe à la caisse",
+      "image": "art/2026-W39/muse-v1.png",
+      "alt": "Au marché, iAstro compare deux arrosoirs sous le regard de Hugo.",
+      "news_ids": [
+        "muse"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On va déjà comparer deux modèles.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un catalogue déjà présent",
+        "text": "L’accès au catalogue Shopify existait au lancement de Muse. La nouvelle annoncée cette semaine concerne notamment les moyens de paiement et l’élargissement des connexions aux enseignes."
+      }
+    },
+    {
+      "title": "L’assistant passe à la caisse",
+      "image": "art/2026-W39/muse-v1.png",
+      "alt": "Hugo montre des images de produits et sa bourse pour préciser son besoin.",
+      "news_ids": [
+        "muse"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Pour une plante. Et avec un petit budget.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Bien formuler son besoin",
+        "text": "Pour un acheteur, le point de départ peut devenir une demande à un assistant. Dans notre exemple : préciser l’usage, la taille et le budget évite une sélection absurde."
+      }
+    },
+    {
+      "title": "L’assistant passe à la caisse",
+      "image": "art/2026-W39/muse-v1.png",
+      "alt": "iAstro présente un arrosoir et un terminal de paiement ; Hugo lève un doigt pour vérifier.",
+      "news_ids": [
+        "muse"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On regarde le total avant de dire oui.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le paiement entre dans la conversation",
+        "text": "Shop Pay relie ici le parcours de Muse à une solution de paiement. Une annonce de partenariat ne signifie pas que chaque boutique et chaque pays y a déjà accès."
+      }
+    },
+    {
+      "title": "L’assistant passe à la caisse",
+      "image": "art/2026-W39/muse-v1.png",
+      "alt": "Hugo lit le reçu pendant que iAstro range l’achat.",
+      "news_ids": [
+        "muse"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Le bon prix, la bonne taille… je vérifie.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Ce que ça change pour un marchand",
+        "text": "Notre lecture : une fiche produit doit pouvoir répondre clairement aux questions d’un acheteur accompagné par une IA. Dimensions, variantes et conditions de livraison deviennent d’autant plus utiles."
+      }
+    },
+    {
+      "title": "L’assistant passe à la caisse",
+      "image": "art/2026-W39/muse-v1.png",
+      "alt": "Un arrosoir immense domine la toute petite plante du jardin ; Hugo semble embarrassé.",
+      "news_ids": [
+        "muse"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Tu avais bien dit UNE plante ?",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "L’achat reste une décision",
+        "text": "Réduire les étapes peut rendre un achat plus simple. Mais un assistant ne devine pas tout : un produit bien payé peut encore être mal choisi."
+      }
+    },
+    {
+      "title": "Les mains dans la pâte",
+      "image": "art/2026-W39/voice-v1.png",
+      "alt": "Hugo pétrit du pain, les mains couvertes de farine, à côté d’un téléphone et de iAstro.",
+      "news_ids": [
+        "voice"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Quelqu’un peut répondre ? J’ai les mains occupées.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Parler pour faire avancer un travail",
+        "text": "Le 23 septembre, OpenAI étend les outils utilisables avec Voice. La conversation vocale peut faire appel aux applications connectées disponibles pour ton compte."
+      }
+    },
+    {
+      "title": "Les mains dans la pâte",
+      "image": "art/2026-W39/voice-v1.png",
+      "alt": "Hugo parle vers le téléphone sans le toucher ; iAstro écoute.",
+      "news_ids": [
+        "voice"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Tu peux parler. Le téléphone n’a pas besoin de farine.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Au-delà d’une simple discussion",
+        "text": "Dans Work sur le web et mobile, la voix peut lancer des tâches. Par exemple, demander un document, une présentation ou un tableau, sans tout dicter au clavier."
+      }
+    },
+    {
+      "title": "Les mains dans la pâte",
+      "image": "art/2026-W39/voice-v1.png",
+      "alt": "Gros plan sur un téléphone montrant un calendrier et une enveloppe, loin des doigts farinés.",
+      "news_ids": [
+        "voice"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Prépare-moi un petit planning.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Les accès restent ceux du compte",
+        "text": "La voix n’ouvre pas toutes les applications d’un coup. Les connexions, autorisations et limites existantes continuent de s’appliquer, avec un accès à Work requis pour ses fonctions."
+      }
+    },
+    {
+      "title": "Les mains dans la pâte",
+      "image": "art/2026-W39/voice-v1.png",
+      "alt": "iAstro montre une fiche propre à Hugo, qui poursuit son pétrissage.",
+      "news_ids": [
+        "voice"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Je te montre le résultat avant de continuer.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Garder une trace écrite",
+        "text": "Tu peux suivre les réponses écrites dans la conversation. Notre conseil : relis les détails importants, surtout une date, un destinataire ou une consigne mal entendue."
+      }
+    },
+    {
+      "title": "Les mains dans la pâte",
+      "image": "art/2026-W39/voice-v1.png",
+      "alt": "Hugo vérifie l’écran du téléphone tandis que iAstro regarde une recette.",
+      "news_ids": [
+        "voice"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Ah oui. Le pain, c’est ce soir. Pas demain.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "La tâche peut se poursuivre",
+        "text": "Une tâche inachevée dans Work peut continuer en texte après l’appel vocal. Tu peux donc commencer en parlant, puis reprendre avec une vérification à l’écran."
+      }
+    },
+    {
+      "title": "Les mains dans la pâte",
+      "image": "art/2026-W39/voice-v1.png",
+      "alt": "Le pain est réussi, mais la farine couvre la cuisine ; iAstro tient un balai.",
+      "news_ids": [
+        "voice"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Pour nettoyer la cuisine, il reste un outil manuel.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Utile quand les mains sont prises",
+        "text": "La voix offre une autre manière de piloter le travail numérique. Notre duo rappelle seulement qu’une tâche terminée à l’écran ne range pas encore l’atelier."
+      }
+    }
+  ]
+}

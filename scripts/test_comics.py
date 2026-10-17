@@ -108,7 +108,41 @@ class ComicsTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):b.validate(ep)
                 with self.assertRaises(AssertionError):b.build_preview('../../bad')
             finally:b.ROOT,b.REPO=oldroot,oldrepo
+    def test_story_reader_preserves_text_and_requires_explanations(self):
+        ep=json.loads((b.ROOT/'episodes/2026-W41-r2.json').read_text())
+        ep['status']='draft'
+        ep['approval']={'editorial':False,'art':False,'publish':False}
+        b.validate(ep,preview=True)
+        out=b.render_episode(ep,preview=True)
+        self.assertEqual(out.count('class="scene"'),24)
+        self.assertEqual(out.count('class="scene-note"'),24)
+        self.assertEqual(out.count('class="story"'),4)
+        self.assertIn('href="#info-mistral"',out)
+        self.assertNotIn('reader-pager',out)
+        ep['panels'][0]['explanation']['text']='<script>alert(1)</script>'
+        self.assertIn('&lt;script&gt;',b.render_episode(ep,preview=True))
+        del ep['panels'][0]['explanation']
+        with self.assertRaises(AssertionError):b.validate(ep,preview=True)
+
     def test_escape_dialogue(self):
         out=b.panel(1,'Test','',[('Hugo','<script>alert(1)</script>')]);self.assertNotIn('<script>',out)
+
+    def test_week_catalog_prefers_revision_and_chronology(self):
+        def edition(id, start, end, published):
+            return {'id':id,'period_start':start,'period_end':end,'publication_date':published}
+        old=edition('2026-W39','2026-09-21','2026-09-27','2026-10-20')
+        middle=edition('2026-W40','2026-09-28','2026-10-04','2026-10-17')
+        first=edition('2026-W41','2026-10-05','2026-10-11','2026-10-16')
+        revision=dict(first,id='2026-W41-r2')
+        later_revision=dict(first,id='2026-W41-r10')
+        editions=b.comics_catalog.current_editions([first,later_revision,old,revision,middle])
+        self.assertEqual([ep['id'] for ep in editions],['2026-W39','2026-W40','2026-W41-r10'])
+        top,bottom=b.comics_catalog.navigation(middle,editions,b.BASE)
+        self.assertIn('21–27 septembre 2026',bottom)
+        self.assertIn('5–11 octobre 2026',bottom)
+        self.assertIn('rel="prev" href="/knowledge-hub/comics/2026-W39/"',bottom)
+        self.assertIn('rel="next" href="/knowledge-hub/comics/2026-W41-r10/"',bottom)
+        self.assertNotIn('/2026-W41-r2/',top)
+        self.assertIn('aria-current="page"',top)
 
 if __name__=='__main__':unittest.main()

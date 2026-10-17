@@ -9,6 +9,8 @@ BRANDS={
     'anthropic':('Anthropic','anthropic.png'),
     'mistral':('Mistral','mistral.svg'),
     'google':('Google DeepMind','google.png'),
+    'shopify':('Shopify × Meta','shopify.svg'),
+    'elevenlabs':('ElevenLabs','elevenlabs.svg'),
 }
 
 

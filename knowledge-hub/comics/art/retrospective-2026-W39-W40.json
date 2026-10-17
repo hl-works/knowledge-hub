@@ -1,0 +1,35 @@
+{
+  "prepared_on": "2026-10-17",
+  "scope": [
+    "2026-W39",
+    "2026-W40"
+  ],
+  "review_collection": "/knowledge-hub/comics/drafts/",
+  "existing_issue": "2026-W41-r2",
+  "new_artwork": "8 six-panel grids / 48 new scenes",
+  "render_command": "python3 scripts/build_comics_previews.py",
+  "editorial_notes": [
+    "Each story’s manifest contains its consulted primary sources. Archived Telegram/feed summaries were discovery aids, not treated as verified facts.",
+    "The Shopify CEO’s X post could not be read directly (HTTP 403). The Muse/Shop Pay story uses Meta’s September 24 official recap of the September 23 Connect event instead.",
+    "The ElevenLabs launch article was updated October 12. The retrospective uses its core September 28 launch claims and avoids later detailed features and quantified benchmarks.",
+    "Dots availability includes the launch restriction on Pro accounts in the EEA, Switzerland and UK, checked against the dated release notes.",
+    "Hugo left in italic / iAstro right in monospace. No visible speaker names or speech balloons; explanatory text below each scene.",
+    "New issues are drafts, editorial/art/publication approval fields remain false. The published W41 archive is untouched."
+  ],
+  "checks": [
+    "All eight new art grids visually reviewed, full sources/prompts and image hashes recorded in each week’s production.json.",
+    "Reader validated at 320 and 390 CSS pixels; desktop collection at 1440 pixels.",
+    "13 existing comic tests and site health check pass."
+  ],
+  "publication_authorization": {
+    "by": "Hugo",
+    "date": "2026-10-17",
+    "scope": [
+      "2026-W39",
+      "2026-W40",
+      "2026-W41-r2"
+    ],
+    "reference": "Passe-les-moi directement en prod",
+    "note": "The earlier draft notes record the state at generation. Approval is now recorded in the episode manifests."
+  }
+}

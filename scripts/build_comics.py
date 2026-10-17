@@ -9,6 +9,8 @@ import re
 import math
 import hashlib
 import comics_reader
+import comics_story_reader
+import comics_catalog
 
 REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO / 'knowledge-hub/comics'
@@ -57,6 +59,15 @@ def validate(ep, preview=False):
     for character in speakers.values():
         assert character['reference_asset_ids'], 'A cast member needs a visual reference before appearing'
         assert all(a in ASSETS for a in character['reference_asset_ids']), 'Missing cast asset'
+    assert ep.get('reader_variant', 'classic') in ('classic', 'story'), 'Unknown reader variant'
+    if ep.get('reader_variant') == 'story':
+        assert ep.get('format') == 'webtoon', 'Story reader requires webtoon panels'
+        for news in ep['news']:
+            assert news.get('brand_id') in comics_reader.BRANDS and news.get('model_label'), 'Story brand required'
+            assert all(news.get('intro', {}).get(k, '').strip() for k in ('title', 'summary')), 'Story opening required'
+        for p in ep['panels']:
+            assert all(p.get('explanation', {}).get(k, '').strip() for k in ('title', 'text')), 'Each scene needs an explanation'
+            assert all(line.get('side', 'left') in ('left', 'right') for line in p['dialogue']), 'Invalid balloon position'
     covered = set()
     assert ep['panels'], 'An episode needs artwork and dialogue'
     assert ep.get('format', 'standard') in ('standard', 'webtoon'), 'Unknown reading format'
@@ -135,7 +146,8 @@ def render_episode(ep, preview=False):
         def dimensions(path):
             data = local_file(path).read_bytes()
             return int.from_bytes(data[16:20], 'big'), int.from_bytes(data[20:24], 'big')
-        return comics_reader.render(ep, BASE, dimensions, preview)
+        renderer = comics_story_reader if ep.get('reader_variant') == 'story' else comics_reader
+        return renderer.render(ep, BASE, dimensions, preview)
     panels = []
     for i,p in enumerate(ep['panels']):
         data = local_file(p['image']).read_bytes()
@@ -151,6 +163,14 @@ def render_episode(ep, preview=False):
     return f'<p class="kicker">{esc(ep["id"])} · {esc(ep["period_start"])} → {esc(ep["period_end"])}</p><h2>{esc(ep["title"])}</h2><p>{esc(ep.get("correction_note", ""))}</p><div style="{GRID}">{"".join(panels)}</div><section><h2>Sources</h2><ol>{sources}</ol>{downloads}</section>'
 
 def home(episodes, en=False):
+    if episodes:
+        editions = comics_catalog.current_editions(episodes)
+        def dimensions(path):
+            data = local_file(path).read_bytes()
+            return int.from_bytes(data[16:20], 'big'), int.from_bytes(data[20:24], 'big')
+        base = BASE.replace('/knowledge-hub/', '/knowledge-hub/en/') if en else BASE
+        content = comics_catalog.archive(editions, base, BASE, dimensions, en)
+        return shell('iAstro Sunday — Tous les numéros', 'Les nouvelles de l’IA en comics, avec Hugo et iAstro. Choisis une semaine dans les archives.', content, 'en' if en else 'fr').replace('Hugo × Iastro', 'Hugo × iAstro')
     heading = 'iAstro Sunday.'
     desc = 'Four to seven big stories, a little perspective, and our recurring duo.' if en else 'Quatre à sept grandes infos, un peu de recul et notre duo pour raconter la semaine.'
     content = f'<section style="padding-block:32px 24px;border-bottom:3px solid var(--border-strong)"><p class="kicker" style="text-transform:none">Hugo × iAstro · {"Weekly comic" if en else "Le comic du dimanche"}</p><h1 style="font-size:clamp(2rem,5vw,3rem);margin-top:12px;text-transform:none">{heading}</h1></section><section id="episode">'
@@ -179,16 +199,23 @@ def build(check=False, refresh_reader=False):
         if ep.get('status')=='approved': episodes.append(validate(ep))
         elif ep.get('status') not in ('draft','template'): raise ValueError(f'Unknown status in {p}')
     assert len({e['id'] for e in episodes})==len(episodes), 'Duplicate episode ID'
-    episodes.sort(key=lambda e:(e['publication_date'],e['id']))
+    episodes.sort(key=lambda e:(e['period_start'],int(e['id'].partition('-r')[2] or 1)))
+    editions = comics_catalog.current_editions(episodes)
     rendered=[]
     for ep in episodes:
         for lang in ('fr','en'):
             dest=ROOT/ep['id']/'index.html' if lang=='fr' else REPO/'knowledge-hub/en/comics'/ep['id']/'index.html'
             content=render_episode(ep)
+            base = BASE.replace('/knowledge-hub/', '/knowledge-hub/en/') if lang == 'en' else BASE
+            top, bottom = comics_catalog.navigation(ep, editions, base)
+            current = next(item for item in editions if item['period_start'] == ep['period_start'])
+            if current['id'] != ep['id']:
+                top += f'<p>Une version plus récente de ce numéro est disponible : <a href="{base+esc(current["id"])}/">lire la version actuelle</a>.</p>'
+            content = top + content + bottom
             if lang=='en': content='<p>This episode is available in French.</p>'+content
             page=shell(ep['title'],ep['title'],f'<section>{content}</section>',lang,ep['id']+'/')
             fingerprint=f'<meta name="comic-editorial-sha256" content="{editorial_fingerprint(ep)}">'
-            page=page.replace('</head>',fingerprint+'</head>')
+            page=page.replace('</head>',fingerprint+'</head>').replace('Hugo × Iastro', 'Hugo × iAstro')
             if dest.exists() and dest.read_text()!=page:
                 # A reader update may change the UI, never the approved episode data.
                 if not refresh_reader or fingerprint not in dest.read_text():
@@ -196,9 +223,18 @@ def build(check=False, refresh_reader=False):
             rendered.append((dest,page))
     if not check:
         rendered.extend([(ROOT/'index.html',home(episodes)),(REPO/'knowledge-hub/en/comics/index.html',home(episodes,True))])
+        # Keep shared preview links useful after Hugo approves their publication.
+        for ep in episodes:
+            for lang in ('fr', 'en'):
+                folder = ROOT if lang == 'fr' else REPO/'knowledge-hub/en/comics'
+                if (folder/'drafts'/ep['id']/'index.html').exists():
+                    url = (BASE if lang == 'fr' else BASE.replace('/knowledge-hub/', '/knowledge-hub/en/')) + ep['id'] + '/'
+                    page = shell(ep['title'], 'Ce numéro est maintenant publié.', f'<section><p>Ce numéro est publié.</p><a href="{url}">Lire le comic →</a></section>', lang, ep['id']+'/')
+                    page = page.replace('</head>', f'<meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url={url}"></head>')
+                    rendered.append((folder/'drafts'/ep['id']/'index.html', page))
         for dest,page in rendered:
             dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
-        latest={'id':episodes[-1]['id'],'url':BASE+episodes[-1]['id']+'/'} if episodes else None
+        latest={'id':editions[-1]['id'],'url':BASE+editions[-1]['id']+'/'} if editions else None
         (ROOT/'latest.json').write_text(json.dumps(latest,indent=2)+'\n')
     print(f'OK: {len(episodes)} approved episodes; 12 monthly references; FR/EN reader.' + (' Validation only.' if check else ' Files prepared locally.'))
 
@@ -209,7 +245,7 @@ def build_preview(episode_id):
         content = render_episode(ep, preview=True)
         if lang == 'en': content = '<p>This draft comic is available in French.</p>'+content
         page = shell('Pilote — '+ep['title'], 'Brouillon du comic hebdomadaire à relire.', '<section>'+content+'</section>', lang, f'drafts/{episode_id}/')
-        page = page.replace('</head>', '<meta name="robots" content="noindex,nofollow"></head>')
+        page = page.replace('</head>', '<meta name="robots" content="noindex,nofollow"></head>').replace('Hugo × Iastro', 'Hugo × iAstro')
         dest = ROOT/'drafts'/episode_id/'index.html' if lang == 'fr' else REPO/'knowledge-hub/en/comics/drafts'/episode_id/'index.html'
         dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
     print(f'OK: draft preview {episode_id}; latest and published archives unchanged.')
