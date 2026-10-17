@@ -8,6 +8,7 @@ from build_comics import shell
 from comics_catalog import current_editions, period
 from podcast_design import cover,COVER_CSS,duration
 from telegram_design import phone, PHONE_CSS
+import veille_experience as experience
 ROOT=Path(__file__).resolve().parents[1]
 CSS='''
 #main{scroll-margin-top:130px}
@@ -92,7 +93,7 @@ def podcast_subscriptions(en=False):
 def build():
     archive=json.loads((ROOT/'assets/podcast/episodes.json').read_text())['episodes']
     latest=json.loads((ROOT/'assets/podcast/latest.json').read_text())
-    feed=json.loads((ROOT/'knowledge-hub/veille-ia/feed.json').read_text());last=max(x['date'] for x in feed);news=sorted([x for x in feed if x['date']==last],key=lambda x:-x.get('score',0))[:3]
+    feed=json.loads((ROOT/'knowledge-hub/veille-ia/feed.json').read_text());last=max(x['date'] for x in feed);news=experience.recent_news(feed)
     comic_root = ROOT/'knowledge-hub/comics'
     comic_editions = current_editions([ep for path in (comic_root/'episodes').glob('*.json') if (ep := json.loads(path.read_text())).get('status') == 'approved'])
     comic_latest = comic_editions[-1]
@@ -101,13 +102,13 @@ def build():
     for lang in ('fr','en'):
         en=lang=='en';prefix='/knowledge-hub/'+('en/' if en else '')
         intro='AI news selected by Hugo: text updates, a daily podcast and a Sunday comic.' if en else 'L’actualité IA sélectionnée par Hugo : les news en texte, le podcast quotidien et le comic du dimanche.'
-        title='Veille IA — News, podcasts et iAstro Sunday · Hugo Lahutte'
-        content='<style>'+CSS+COVER_CSS+PHONE_CSS+'</style><div class="kiosk"><section class="kiosk-hero"><div class="kiosk-meta"><span>Knowledge Hub / Veille IA</span><span>'+('Read · Listen · Explore' if en else 'Lire · Écouter · Explorer')+'</span></div><div class="kiosk-intro"><div><h1>'+('AI watch.<br><em>Read. Listen. Explore.</em>' if en else 'Veille IA.<br><em>À lire. À écouter. À suivre.</em>')+'</h1><p>'+intro+'</p></div><span class="kiosk-signature">Une sélection de Hugo Lahutte ↗</span></div></section>'
+        title='AI watch: news, podcasts and comics' if en else 'Veille IA : Radar, podcasts et comics'
+        content='<style>'+CSS+COVER_CSS+PHONE_CSS+experience.CSS+'</style><div class="kiosk"><section class="kiosk-hero"><div class="kiosk-meta"><span>Knowledge Hub / Veille IA</span><span>'+('Read · Listen · Explore' if en else 'Lire · Écouter · Explorer')+'</span></div><div class="kiosk-intro"><div><h1>'+('AI watch.<br><em>Read. Listen. Explore.</em>' if en else 'Veille IA.<br><em>À lire. À écouter. À suivre.</em>')+'</h1><p>'+intro+'</p></div><span class="kiosk-signature">Une sélection de Hugo Lahutte ↗</span></div></section>'
         radar_preview='<span class="format-preview format-telegram" aria-hidden="true">'+'<span class="telegram-device">'+phone()+'</span><span class="telegram-wordmark">Telegram<small>La veille dans ta poche</small></span></span>'
         podcast_preview='<span class="format-preview" aria-hidden="true"><img class="format-portrait" src="/assets/podcast/art/iastro-'+latest['date'][5:7]+'-v1.png" alt="" width="1254" height="1254"></span>'
         comic_url = prefix + 'comics/' + comic_latest['id'] + '/'
         comic_preview='<span class="format-preview" aria-hidden="true"><span class="format-comic"><img src="'+comic_image+'" alt="" width="1536" height="1024"></span></span>'
-        formats=[('https://t.me/VeilleIA_HL','01 / SUR TELEGRAM','Le Radar iA','La veille quotidienne, directement sur Telegram.','Rejoindre la chaîne ↗',radar_preview),('#podcasts','02 / À ÉCOUTER','Le Podcast iA','Le Flash ou Le Débrief, à ton rythme.','Écouter les épisodes ↓',podcast_preview),(comic_url,'03 / LE DIMANCHE','iAstro Sunday','La semaine IA en comic, avec Hugo et iAstro.','Lire le dernier numéro →',comic_preview)]
+        formats=[('#radar','01 / À LIRE','Le Radar iA','La veille quotidienne, directement sur Telegram.','Lire les dernières infos ↓',radar_preview),('#podcasts','02 / À ÉCOUTER','Le Podcast iA','Le Flash ou Le Débrief, à ton rythme.','Écouter les épisodes ↓',podcast_preview),('#sunday','03 / LE DIMANCHE','iAstro Sunday','La semaine IA en comic, avec Hugo et iAstro.','Découvrir le comic ↓',comic_preview)]
         content+='<nav class="kiosk-formats" aria-label="Les trois rendez-vous">'+''.join(f'<a class="format-card" href="{anchor}" aria-label="{e(title)} — {e(action)}">{preview}<span class="format-copy"><span class="format-eyebrow">{eyebrow}</span><strong class="format-title">{title}</strong><span class="format-description">{description}</span><span class="format-action">{action}</span></span></a>' for anchor,eyebrow,title,description,action,preview in formats)+'</nav>'
         content+='<aside class="veille-subscription"><div><strong>'+('One Telegram subscription.' if en else 'Un seul abonnement Telegram.')+'</strong><p>'+('Follow all three formats through the same channel.' if en else 'Retrouve les trois rendez-vous sur le même canal.')+'</p></div><a class="btn btn--primary" href="https://t.me/VeilleIA_HL">'+('Join on Telegram ↗' if en else 'S’abonner sur Telegram ↗')+'</a></aside>'
         week_links = ''.join(f'<a href="{prefix}comics/{ep["id"]}/" style="display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--border-strong);font-size:14px">{e(period(ep))}</a>' for ep in reversed(comic_editions))
@@ -116,17 +117,31 @@ def build():
         for ep in archive:
             content+=f'<details><summary><span>{ep["date"][8:10]}.{ep["date"][5:7]}.{ep["date"][:4]}</span><span class="radio-duration">Flash {duration(ep["short"]["seconds"])} / Débrief {duration(ep["full"]["seconds"])}</span></summary><div class="radio-latest">'+''.join(episode_card(ep,k) for k in ('short','full'))+'</div></details>'
         content+='</div></section><section id="radar"><div class="kiosk-section-head"><div><p class="kicker">01 / La veille quotidienne sur Telegram</p><h2>Le Radar iA<span style="color:var(--c-red)">.</span></h2></div><a href="'+prefix+'veille-ia/">Toute la veille et ses sources →</a></div><ol class="kiosk-news">'
-        for i,n in enumerate(news,1):content+=f'<li><span class="news-number">{i:02d}</span><div><h3><a href="{e(n["tweet_url"])}">{e(n["titre_fr"])}</a></h3><p>{e(n["resume_fr"][:200])}{"…" if len(n["resume_fr"])>200 else ""}</p></div><time datetime="{last}">{last[8:10]}.{last[5:7]}</time></li>'
+        content+=experience.radar_items(news)
         content+='</ol><p><a class="btn btn--primary" href="https://t.me/VeilleIA_HL">Rejoindre Le Radar iA sur Telegram ↗</a></p><p class="kiosk-note">Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.</p></section><div class="kiosk-foot"><strong>VEILLE IA</strong><a href="https://t.me/VeilleIA_HL">Recevoir la veille sur Telegram ↗</a><a href="'+prefix+'">Retour au Knowledge Hub →</a></div></div>'
         if en:content=content.replace('<div class="kiosk">','<div class="kiosk"><p class="kiosk-note" lang="en">The editorial editions, comics and audio below are currently available in French.</p>',1)
-        # Put the daily audio before the weekly comic while retaining direct anchors.
-        comic_section=re.search(r'<section id="sunday".*?</section>',content,re.S).group()
-        content=content.replace(comic_section,'',1).replace('<section id="radar">',comic_section+'<section id="radar">',1)
+        # The DOM, keyboard order and visual order all follow 01 / 02 / 03.
+        sections = []
+        for section_id in ('radar', 'podcasts', 'sunday'):
+            section = re.search(r'<section id="' + section_id + r'".*?</section>', content, re.S).group()
+            content = content.replace(section, '', 1)
+            sections.append(section)
+        content = content.replace('<div class="kiosk-foot">', ''.join(sections) + experience.editorial_context(en, prefix) + '<div class="kiosk-foot">', 1)
+        radar_intro = ('Models, agents, research and practical uses: six recent items, with dates and source links.' if en else 'Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.')
+        content = content.replace('<ol class="kiosk-news">', '<p class="radar-intro">' + radar_intro + '</p><p class="radar-date">' + ('Latest selection: ' if en else 'Dernière sélection : ') + '<time datetime="' + last + '">' + last + '</time></p><ol class="kiosk-news">')
+        if en: content = experience.english_interface(content)
+        content += experience.invitation(en)
         page=shell(title,intro,content,lang,root_path='/knowledge-hub/immersion-ia/')
+        page=page.replace('</head>', '<link rel="alternate" type="application/rss+xml" title="Le Radar iA" href="/knowledge-hub/veille-ia/feed.xml"><link rel="alternate" type="application/rss+xml" title="Le Podcast iA" href="/assets/podcast/feed.xml"></head>')
         page=re.sub(r'<header style=.*?</header>',site_header(en),page,flags=re.S)
         page=page.replace('</body>','<script src="/knowledge-hub/search.js?v=20260601d" defer></script><script src="/assets/podcast/player.js?v=20261017c" defer></script><script>document.addEventListener("play",event=>{if(event.target.tagName==="AUDIO")document.querySelectorAll("audio").forEach(a=>{if(a!==event.target)a.pause();});},true);</script></body>')
         page=page.replace('Hugo × Iastro · Dessins générés par IA. Direction éditoriale : Hugo Lahutte.','Veille IA · Hugo Lahutte.').replace('Hugo × Iastro · AI-generated artwork. Editorial direction: Hugo Lahutte.','Veille IA · Hugo Lahutte.')
-        dest=ROOT/prefix.lstrip('/')/'immersion-ia/index.html';dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
+        page = page.replace('</body>', '<script src="/knowledge-hub/immersion-ia/follow.js?v=20261017a" defer></script></body>')
+        page = page.replace('<img class="cover-portrait"', '<img loading="lazy" decoding="async" class="cover-portrait"')
+        page = page.replace('<img src="' + comic_image + '" width=', '<img loading="lazy" decoding="async" src="' + comic_image + '" width=')
+        page = experience.structured_data(page, en, news, latest, comic_url)
+        page = experience.external_tabs(page)
+        dest=ROOT/prefix.lstrip('/')/'immersion-ia/index.html' ;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
     # Stable, exact-size HTML layouts for browser export. No dates/durations baked into art.
     layouts=ROOT/'assets/podcast/cover-layouts';layouts.mkdir(exist_ok=True)
     for ep in archive:

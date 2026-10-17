@@ -67,6 +67,20 @@ jobs:
             [[ "$candidate" != *".."* && "$candidate" != en/* && "$candidate" != coffre/* \
               && "$candidate" != "404.html" && "$candidate" != */_template.html ]] || continue
             [[ -f "knowledge-hub/$candidate" ]] || { echo "Page absente: $candidate" >&2; exit 1; }
+            if [[ "$manual_request" == false ]]; then
+              # A reviewed bilingual change already contains its English update.
+              if ! git diff --quiet HEAD~1 HEAD -- "knowledge-hub/en/$candidate"; then
+                continue
+              fi
+              # Sharing metadata and link attributes need no paid retranslation.
+              if python3 scripts/translation_needed.py "$candidate"; then
+                :
+              else
+                status=$?
+                [[ "$status" == 2 ]] || exit "$status"
+                continue
+              fi
+            fi
             files+=("$candidate")
           done
           printf 'Pages détectées :\n%s\n' "${files[*]:-aucune}"

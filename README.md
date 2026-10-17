@@ -161,3 +161,10 @@ Régénération : `python3 scripts/build_home_media.py`, puis `python3 scripts/b
 ### Lexique élargi (17 octobre 2026)
 
 Les glossaires JSON FR/EN restent les sources des définitions et des infobulles. Chaque entrée a une catégorie ; les nouvelles fiches incluent une source et une date de vérification. `python3 scripts/build_lexique.py` régénère les deux pages en HTML statique, le balisage DefinedTermSet et les filtres (recherche sans accents, catégories, index alphabétique, liens directs conservés). Le workflow quotidien exécute ce générateur avant `build_llms_full.py`. Après ajout de termes, garder les deux JSON alignés et actualiser les mots-clés de la fiche lexique dans les deux index de recherche.
+### Veille IA et contrôle SEO (18 octobre 2026)
+
+La page `immersion-ia/` suit l’ordre Radar, Podcast, Comic. Son générateur conserve six actualités récentes dédupliquées, avec leurs dates individuelles et leurs sources, puis explique la méthode éditoriale. Les médias restent en français dans l’interface anglaise. Les liens externes s’ouvrent dans un nouvel onglet ; la navigation interne reste dans le même onglet.
+
+L’invitation Telegram / X / LinkedIn apparaît après 30 secondes de lecture avec l’onglet visible. Elle ne prend pas le focus, attend la fermeture d’une recherche ouverte, ne s’affiche qu’une fois par session et reste masquée sept jours après fermeture ou clic. Aucun suivi d’audience ni permission de notification n’est ajouté. `node scripts/test_follow.cjs` vérifie ces comportements.
+
+`python3 scripts/build_seo.py` complète les métadonnées publiques, répare les correspondances FR/EN et conserve les liens externes sécurisés. `python3 scripts/audit_seo.py --check` contrôle toutes les pages du sitemap, leurs liens internes, images, balises, langues et données structurées. Les deux pages de l’ancienne édition W41, figées et remplacées par W41-r2, sont les seules exceptions connues pour le H1 ; les archives publiées ne sont pas réécrites. La reconstruction automatique lance ce contrôle. Les corrections de liens/balisage et les versions EN fournies dans le même changement ne déclenchent pas de retraduction payante.
