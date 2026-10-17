@@ -108,6 +108,20 @@ class ComicsTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):b.validate(ep)
                 with self.assertRaises(AssertionError):b.build_preview('../../bad')
             finally:b.ROOT,b.REPO=oldroot,oldrepo
+    def test_story_reader_preserves_text_and_requires_explanations(self):
+        ep=json.loads((b.ROOT/'episodes/2026-W41-r2.json').read_text())
+        b.validate(ep,preview=True)
+        out=b.render_episode(ep,preview=True)
+        self.assertEqual(out.count('class="scene"'),24)
+        self.assertEqual(out.count('class="scene-note"'),24)
+        self.assertEqual(out.count('class="story"'),4)
+        self.assertIn('href="#info-mistral"',out)
+        self.assertNotIn('reader-pager',out)
+        ep['panels'][0]['explanation']['text']='<script>alert(1)</script>'
+        self.assertIn('&lt;script&gt;',b.render_episode(ep,preview=True))
+        del ep['panels'][0]['explanation']
+        with self.assertRaises(AssertionError):b.validate(ep,preview=True)
+
     def test_escape_dialogue(self):
         out=b.panel(1,'Test','',[('Hugo','<script>alert(1)</script>')]);self.assertNotIn('<script>',out)
 

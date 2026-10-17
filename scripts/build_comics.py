@@ -9,6 +9,7 @@ import re
 import math
 import hashlib
 import comics_reader
+import comics_story_reader
 
 REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO / 'knowledge-hub/comics'
@@ -57,6 +58,15 @@ def validate(ep, preview=False):
     for character in speakers.values():
         assert character['reference_asset_ids'], 'A cast member needs a visual reference before appearing'
         assert all(a in ASSETS for a in character['reference_asset_ids']), 'Missing cast asset'
+    assert ep.get('reader_variant', 'classic') in ('classic', 'story'), 'Unknown reader variant'
+    if ep.get('reader_variant') == 'story':
+        assert ep.get('format') == 'webtoon', 'Story reader requires webtoon panels'
+        for news in ep['news']:
+            assert news.get('brand_id') in comics_reader.BRANDS and news.get('model_label'), 'Story brand required'
+            assert all(news.get('intro', {}).get(k, '').strip() for k in ('title', 'summary')), 'Story opening required'
+        for p in ep['panels']:
+            assert all(p.get('explanation', {}).get(k, '').strip() for k in ('title', 'text')), 'Each scene needs an explanation'
+            assert all(line.get('side', 'left') in ('left', 'right') for line in p['dialogue']), 'Invalid balloon position'
     covered = set()
     assert ep['panels'], 'An episode needs artwork and dialogue'
     assert ep.get('format', 'standard') in ('standard', 'webtoon'), 'Unknown reading format'
@@ -135,7 +145,8 @@ def render_episode(ep, preview=False):
         def dimensions(path):
             data = local_file(path).read_bytes()
             return int.from_bytes(data[16:20], 'big'), int.from_bytes(data[20:24], 'big')
-        return comics_reader.render(ep, BASE, dimensions, preview)
+        renderer = comics_story_reader if ep.get('reader_variant') == 'story' else comics_reader
+        return renderer.render(ep, BASE, dimensions, preview)
     panels = []
     for i,p in enumerate(ep['panels']):
         data = local_file(p['image']).read_bytes()
@@ -209,7 +220,7 @@ def build_preview(episode_id):
         content = render_episode(ep, preview=True)
         if lang == 'en': content = '<p>This draft comic is available in French.</p>'+content
         page = shell('Pilote — '+ep['title'], 'Brouillon du comic hebdomadaire à relire.', '<section>'+content+'</section>', lang, f'drafts/{episode_id}/')
-        page = page.replace('</head>', '<meta name="robots" content="noindex,nofollow"></head>')
+        page = page.replace('</head>', '<meta name="robots" content="noindex,nofollow"></head>').replace('Hugo × Iastro', 'Hugo × iAstro')
         dest = ROOT/'drafts'/episode_id/'index.html' if lang == 'fr' else REPO/'knowledge-hub/en/comics/drafts'/episode_id/'index.html'
         dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(page)
     print(f'OK: draft preview {episode_id}; latest and published archives unchanged.')
