@@ -40,9 +40,10 @@ publier son contenu aveuglément. Le RSS de veille demeure un flux d'articles.
 ### Construction
 
 La couverture principale `show-cover-v1.jpg` (3000 × 3000, JPEG opaque) est
-déjà publiée. `show.json` contient les métadonnées de l'émission. L'adresse de
-contact doit être confirmée avant publication : elle sera visible dans le RSS
-et utilisée pour la vérification Spotify. Une valeur vide bloque la génération.
+déjà publiée. `show.json` contient les métadonnées de l'émission. Hugo a confirmé
+le contact professionnel `hugo@hl-consulting.tech` le 17 octobre 2026 : il est
+visible dans le RSS et utilisé pour la vérification Spotify. Une valeur vide
+bloque la génération.
 
 ```sh
 python3 scripts/build_podcast_feed.py --archive-latest
@@ -53,7 +54,7 @@ Prérequis local/CI : Python 3.9+ et ffprobe (ffmpeg). Sans `--archive-latest`,
 le script reconstruit seulement le RSS des archives existantes. Il n'appelle
 aucun service, ne génère pas de voix et n'envoie rien sur Telegram.
 
-Sortie prévue : `https://hl-consulting.tech/assets/podcast/feed.xml`.
+URL du flux : `https://hl-consulting.tech/assets/podcast/feed.xml`.
 Chaque enclosure pointe exclusivement sur `archive/YYYY-MM-DD/full.mp3`, avec
 sa taille réelle et le MIME `audio/mpeg`. Les durées et le codec sont vérifiés
 avec ffprobe. SHA-256 protège les fichiers archivés ; une régénération différente
@@ -76,8 +77,10 @@ retouche éditoriale sans changement de GUID ou d'enclosure.
 5. Observer un premier épisode visible sur Spotify, puis l'arrivée du suivant.
    Effectuer aussi la soumission Apple Podcasts et son contrôle séparément.
 
-État de ce lot : code préparé et tests locaux ; aucun rattachement aux plateformes
-n'est établi par ces fichiers. Ne pas annoncer une distribution automatisée avant
+État avant soumission : contact confirmé, flux initial construit avec six Débriefs
+du 12 au 17 octobre et tests locaux réussis, dont un export des vrais fichiers
+du 17 octobre rejoué sans doublon. Aucun rattachement aux plateformes n'est
+établi par ces fichiers. Ne pas annoncer une distribution automatisée avant
 la vérification d'un deuxième épisode réellement propagé.
 
 Repli : retirer l'appel au générateur du bridge pour arrêter l'alimentation du
