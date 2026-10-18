@@ -98,3 +98,21 @@ Chaque numéro propose « Tous les numéros », un choix de semaine par dates et
 Reconstruction : `python3 scripts/build_comics.py --refresh-reader`, puis `python3 scripts/build_immersion.py`. La première commande ne peut modifier l’éditorial d’une archive : son empreinte doit rester identique. Les archives, le catalogue et les liens sont générés par `scripts/comics_catalog.py`. Vérifications : `python3 scripts/test_comics.py`, `python3 scripts/build_comics.py --check`, `python3 scripts/check_site_health.py`.
 
 Retour arrière : rétablir le précédent commit de déploiement par un revert Git, sans force-push. Ne pas écraser les anciens dessins ni les épisodes. Les liens permanents déjà partagés doivent rester utilisables.
+
+
+## Édition du 18 octobre 2026 — W42
+
+Hugo a autorisé la préparation et la publication de cette édition, puis un push
+Telegram avec une couverture et le lien direct mobile. Le suivi ponctuel du
+18 octobre reprend cette instruction explicite ; les restrictions antérieures
+sur la publication sans accord ne bloquent pas ce numéro autorisé.
+Quatre histoires originales de six cases : GPT-6 Pro/agents parallèles, Shop MCP,
+Muse Spark Open, SPACE. Sources primaires consultées le 18 octobre, sélection
+arrêtée à 7 h (Europe/Paris). Les annonces postérieures à cette coupure ne sont
+pas couvertes. Textes, dessins et contrôles sont consignés dans le manifeste
+W42 et art/2026-W42/production.json. Aucun changement des voix du podcast.
+
+Le push utilise le bot existant de hl-works/veille-ia, workflow manuel
+iastro-sunday-w42.yml (PR 17), avec vérification publique, réservation durable
+avant envoi et reçu contenant le message ID. Un résultat ambigu ne doit jamais
+être rejoué automatiquement. Le prochain numéro nécessitera sa propre autorisation.

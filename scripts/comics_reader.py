@@ -11,6 +11,9 @@ BRANDS={
     'google':('Google DeepMind','google.png'),
     'shopify':('Shopify × Meta','shopify.svg'),
     'elevenlabs':('ElevenLabs','elevenlabs.svg'),
+    'shop':('Shopify','shopify.svg'),
+    'meta':('Meta','meta.png'),
+    'perplexity':('Perplexity','perplexity.png'),
 }
 
 
