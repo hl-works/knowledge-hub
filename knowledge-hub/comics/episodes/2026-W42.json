@@ -1,0 +1,734 @@
+{
+  "id": "2026-W42",
+  "status": "approved",
+  "title": "Plus d’autonomie, toujours un cadre",
+  "period_start": "2026-10-12",
+  "period_end": "2026-10-18",
+  "publication_date": "2026-10-18",
+  "wardrobe_month": 10,
+  "format": "webtoon",
+  "reader_variant": "story",
+  "approval": {
+    "editorial": true,
+    "art": true,
+    "publish": true,
+    "by": "Hugo",
+    "reference": "Autorisation explicite de production et publication du numéro du dimanche 18 octobre donnée dans cette conversation le 17 octobre, puis rappelée dans le suivi programmé du 18 octobre : préparer et publier 2026-W42, vérifier les sources, les dessins et la lecture mobile, puis annoncer le lien dans Le Radar iA. Cet accord porte sur cette édition produite selon la direction validée, pas sur une validation individuelle préalable de chaque nouveau dessin."
+  },
+  "cast_ids": [
+    "hugo",
+    "iastro"
+  ],
+  "reader_description": "Quatre nouvelles, quatre petites aventures : une équipe pour construire, un panier à valider, une IA à installer et un atelier à protéger.",
+  "correction_note": "Sélection arrêtée le dimanche 18 octobre 2026 à 7 h, heure de Paris. Les annonces ultérieures du dimanche ne sont pas incluses.",
+  "downloads": {},
+  "news": [
+    {
+      "id": "parallel",
+      "brand_id": "openai",
+      "model_label": "GPT-6 Pro · agents parallèles",
+      "title": "Une équipe dans la conversation",
+      "fact": "Le 16 octobre, OpenAI annonce des agents parallèles et un meilleur usage des outils dans GPT-6 Pro sur ChatGPT, en déploiement Pro.",
+      "intro": {
+        "title": "Une équipe dans la conversation",
+        "summary": "ChatGPT peut répartir une tâche entre plusieurs agents. Dans notre atelier, cela devient un chantier de nichoir… avec un client exigeant."
+      },
+      "sources": [
+        {
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "publisher": "OpenAI",
+          "title": "ChatGPT release notes — Updates to GPT-6 Pro model in ChatGPT",
+          "published_at": "2026-10-16",
+          "consulted_at": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "id": "shop",
+      "brand_id": "shop",
+      "model_label": "Shop MCP",
+      "title": "Le panier ne décide pas tout seul",
+      "fact": "Shopify lance Shop MCP le 13 octobre : recherche, panier, paiement Shop Pay confirmé par l’acheteur et suivi des commandes.",
+      "intro": {
+        "title": "Le panier ne décide pas tout seul",
+        "summary": "Shopify rapproche recherche et achat dans les assistants IA. Mais avant de payer, c’est toujours l’acheteur qui confirme."
+      },
+      "sources": [
+        {
+          "url": "https://shopify.dev/changelog/posts/add-shopping-and-shop-pay-checkout-to-any-agent-with-shop-mcp",
+          "publisher": "Shopify",
+          "title": "Add shopping and Shop Pay checkout to any agent with Shop MCP",
+          "published_at": "2026-10-13",
+          "consulted_at": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "id": "spark",
+      "brand_id": "meta",
+      "model_label": "Muse Spark Open",
+      "title": "L’IA emménage à l’atelier",
+      "fact": "Meta publie les poids de Muse Spark Open le 15 octobre, sous Muse Model License ; le fonctionnement local exige du matériel adapté.",
+      "intro": {
+        "title": "L’IA emménage à l’atelier",
+        "summary": "Meta rend téléchargeables les poids de Muse Spark Open. Plus de liberté d’installation, mais pas une IA géante dans n’importe quel petit ordinateur."
+      },
+      "sources": [
+        {
+          "url": "https://research.meta.ai/blog/muse-spark-open",
+          "publisher": "Meta",
+          "title": "Introducing Muse Spark Open",
+          "published_at": "2026-10-15",
+          "consulted_at": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "brand_id": "perplexity",
+      "model_label": "SPACE",
+      "title": "Expérimenter sans repeindre la maison",
+      "fact": "Perplexity ouvre le code de SPACE, son environnement isolé pour Computer, le 15 octobre ; isolation, contrôle des accès et reprise des sessions.",
+      "intro": {
+        "title": "Expérimenter sans repeindre la maison",
+        "summary": "Perplexity partage SPACE, l’environnement qui encadre le travail de ses agents. La bonne idée : laisser expérimenter sans donner les clés de toute la maison."
+      },
+      "sources": [
+        {
+          "url": "https://www.perplexity.ai/hub/blog/open-sourcing-space",
+          "publisher": "Perplexity",
+          "title": "Open-sourcing SPACE, the sandbox platform behind Computer",
+          "published_at": "2026-10-15",
+          "consulted_at": "2026-10-18"
+        }
+      ]
+    }
+  ],
+  "panels": [
+    {
+      "title": "Une équipe dans la conversation",
+      "image": "art/2026-W42/parallel-v1.png",
+      "alt": "Hugo est débordé par trois rouleaux de plans et un nichoir inachevé ; iAstro l’observe.",
+      "news_ids": [
+        "parallel"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Le plan, le matériel, le budget… J’ai deux mains !",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une tâche, plusieurs morceaux",
+        "text": "GPT-6 Pro peut désormais faire travailler plusieurs agents simultanément sur différentes parties d’une tâche. C’est l’évolution annoncée le 16 octobre."
+      }
+    },
+    {
+      "title": "Une équipe dans la conversation",
+      "image": "art/2026-W42/parallel-v1.png",
+      "alt": "iAstro répartit trois cartes de tâches dans des bacs sur l’établi, devant Hugo.",
+      "news_ids": [
+        "parallel"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On peut répartir le travail. Pas multiplier tes bras.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Décomposer avant de lancer",
+        "text": "Notre exemple : préparer un plan, une liste de fournitures et un budget. Ces trois postes illustrent la répartition du travail, pas une démonstration réelle."
+      }
+    },
+    {
+      "title": "Une équipe dans la conversation",
+      "image": "art/2026-W42/parallel-v1.png",
+      "alt": "Trois petits postes mécaniques préparent un dessin, du bois et un calcul pendant que le duo supervise.",
+      "news_ids": [
+        "parallel"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Tout ça avance en même temps ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Du travail en parallèle",
+        "text": "OpenAI annonce aussi des réponses plus rapides et un meilleur usage des outils et plugins. Les gains dépendront néanmoins du travail demandé."
+      }
+    },
+    {
+      "title": "Une équipe dans la conversation",
+      "image": "art/2026-W42/parallel-v1.png",
+      "alt": "Hugo et iAstro vérifient ensemble trois cartes de progression.",
+      "news_ids": [
+        "parallel"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Oui. Et tu peux voir ce que chacun a fait.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Suivre les résultats",
+        "text": "La conversation permet de suivre la progression des agents et d’ouvrir leurs tâches terminées. La répartition ne dispense pas de relire."
+      }
+    },
+    {
+      "title": "Une équipe dans la conversation",
+      "image": "art/2026-W42/parallel-v1.png",
+      "alt": "Le duo installe fièrement un petit nichoir dans le jardin d’automne.",
+      "news_ids": [
+        "parallel"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Bon. Là, les morceaux vont bien ensemble.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Vérifier l’ensemble",
+        "text": "Cette mise à jour se déploie auprès des utilisateurs Pro éligibles. En espace professionnel, son accès dépend aussi des réglages et du déploiement."
+      }
+    },
+    {
+      "title": "Une équipe dans la conversation",
+      "image": "art/2026-W42/parallel-v1.png",
+      "alt": "Un énorme pigeon s’installe sur le minuscule nichoir ; Hugo est stupéfait et iAstro sourit.",
+      "news_ids": [
+        "parallel"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Le client demande déjà une extension.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le besoin reste le point de départ",
+        "text": "Notre pigeon est une blague : multiplier les agents ne corrige pas un besoin mal dimensionné. Préciser le résultat attendu reste essentiel."
+      }
+    },
+    {
+      "title": "Le panier ne décide pas tout seul",
+      "image": "art/2026-W42/shop-v1.png",
+      "alt": "Hugo tient une tasse ébréchée, sous le regard curieux d’iAstro.",
+      "news_ids": [
+        "shop"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Il me faut juste une nouvelle tasse. Juste une.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une connexion pour acheter",
+        "text": "Shop MCP relie un agent au catalogue Shopify, au panier et au paiement. L’annonce du 13 octobre élargit les possibilités des assistants d’achat."
+      }
+    },
+    {
+      "title": "Le panier ne décide pas tout seul",
+      "image": "art/2026-W42/shop-v1.png",
+      "alt": "iAstro montre sur une tablette trois tasses différentes ; Hugo réfléchit.",
+      "news_ids": [
+        "shop"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Je te propose trois modèles. Tu choisis.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Chercher et comparer",
+        "text": "La recherche fonctionne sans clé API. L’assistant peut consulter les produits avant de constituer un panier chez le marchand qui les vend."
+      }
+    },
+    {
+      "title": "Le panier ne décide pas tout seul",
+      "image": "art/2026-W42/shop-v1.png",
+      "alt": "Un chariot imaginaire déborde de bottes, d’une fusée et d’une citrouille ; iAstro croise les bras.",
+      "news_ids": [
+        "shop"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Et cette fusée… elle va avec la tasse ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un panier n’est pas un besoin",
+        "text": "Les recommandations facilitent la découverte. Notre chariot débordant rappelle, avec humour, qu’il vaut mieux annoncer un budget et des critères avant de chercher."
+      }
+    },
+    {
+      "title": "Le panier ne décide pas tout seul",
+      "image": "art/2026-W42/shop-v1.png",
+      "alt": "iAstro fait un geste d’arrêt devant le panier affiché ; Hugo prend le temps de vérifier.",
+      "news_ids": [
+        "shop"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On vérifie le total avant de décoller.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Confirmer avant de payer",
+        "text": "Pour finaliser avec Shop Pay, l’acheteur confirme le total et le moyen de paiement. Une suggestion ne constitue donc pas une autorisation d’achat."
+      }
+    },
+    {
+      "title": "Le panier ne décide pas tout seul",
+      "image": "art/2026-W42/shop-v1.png",
+      "alt": "Hugo approuve uniquement une tasse bleue ; les achats superflus sont écartés.",
+      "news_ids": [
+        "shop"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Une tasse. Cette fois, c’est vraiment tout.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une commande chez le marchand",
+        "text": "Les commandes arrivent dans l’administration Shopify habituelle. Un acheteur connecté peut aussi retrouver ses commandes et leur suivi depuis l’agent."
+      }
+    },
+    {
+      "title": "Le panier ne décide pas tout seul",
+      "image": "art/2026-W42/shop-v1.png",
+      "alt": "Hugo boit dans sa tasse bleue ; iAstro transforme le carton de livraison en vaisseau spatial.",
+      "news_ids": [
+        "shop"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Parfait. Moi, je voulais surtout le carton.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Ce qu’un marchand peut préparer",
+        "text": "Notre conseil : vérifier que les fiches présentent clairement dimensions, disponibilité et variantes. Un assistant doit pouvoir comprendre ce que la boutique vend."
+      }
+    },
+    {
+      "title": "L’IA emménage à l’atelier",
+      "image": "art/2026-W42/spark-v1.png",
+      "alt": "Une immense caisse arrive devant le petit atelier ; Hugo s’enthousiasme et iAstro ouvre de grands yeux.",
+      "news_ids": [
+        "spark"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "J’ai commandé de l’autonomie. Ils ont livré du volume.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Les poids deviennent accessibles",
+        "text": "Le 15 octobre, Meta publie Muse Spark Open : un modèle multimodal destiné notamment au code et aux tâches d’agents sur plusieurs étapes."
+      }
+    },
+    {
+      "title": "L’IA emménage à l’atelier",
+      "image": "art/2026-W42/spark-v1.png",
+      "alt": "Le duo ouvre la caisse et découvre un gros moteur informatique accompagné d’un plan.",
+      "news_ids": [
+        "spark"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On peut récupérer le modèle. Pas seulement lui parler à distance.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Comprendre « poids ouverts »",
+        "text": "Les poids sont les paramètres appris du modèle. Leur téléchargement permet d’envisager une exécution et une adaptation sous sa propre responsabilité."
+      }
+    },
+    {
+      "title": "L’IA emménage à l’atelier",
+      "image": "art/2026-W42/spark-v1.png",
+      "alt": "Hugo approche un minuscule ordinateur portable de l’énorme machine ; iAstro le met en garde.",
+      "news_ids": [
+        "spark"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Mon petit portable va apprécier…",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le matériel compte",
+        "text": "Meta présente une configuration locale utilisant deux Mac Studio M5 Ultra. Cette annonce ne signifie pas que le modèle complet tourne sur tout ordinateur."
+      }
+    },
+    {
+      "title": "L’IA emménage à l’atelier",
+      "image": "art/2026-W42/spark-v1.png",
+      "alt": "Deux gros blocs informatiques argentés alimentent la machine ; Hugo paraît impressionné.",
+      "news_ids": [
+        "spark"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Disons qu’il va surtout apprécier de regarder.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Local ou hébergé",
+        "text": "Des plateformes proposent aussi le modèle via API. Télécharger les poids et utiliser un service hébergé correspondent à deux façons différentes d’y accéder."
+      }
+    },
+    {
+      "title": "L’IA emménage à l’atelier",
+      "image": "art/2026-W42/spark-v1.png",
+      "alt": "Hugo et iAstro examinent soigneusement le feuillet de conditions.",
+      "news_ids": [
+        "spark"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Et les petites lignes, elles sont ouvertes aussi ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Des conditions à lire",
+        "text": "Meta distribue les poids sous la Muse Model License, avec des conditions commerciales. « Poids ouverts » ne signifie pas « sans aucune restriction »."
+      }
+    },
+    {
+      "title": "L’IA emménage à l’atelier",
+      "image": "art/2026-W42/spark-v1.png",
+      "alt": "La machine remplit l’atelier ; Hugo et iAstro prennent leur thé dehors, assis sur de petits tabourets.",
+      "news_ids": [
+        "spark"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "L’IA est chez nous. Nous, on est dehors.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Le coût ne disparaît pas",
+        "text": "Notre atelier rempli exagère l’encombrement : reprendre la main sur l’hébergement implique aussi du matériel, de l’exploitation et de la maintenance."
+      }
+    },
+    {
+      "title": "Expérimenter sans repeindre la maison",
+      "image": "art/2026-W42/space-v1.png",
+      "alt": "iAstro agite un pinceau violet au-dessus de l’établi ; Hugo regarde la peinture avec inquiétude.",
+      "news_ids": [
+        "space"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Tu comptes tester cette peinture… sur mon établi ?",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Un espace pour les essais",
+        "text": "Perplexity publie le code de SPACE, déjà utilisé par Computer. Les développeurs peuvent étudier et adapter cet environnement d’exécution pour leurs propres agents."
+      }
+    },
+    {
+      "title": "Expérimenter sans repeindre la maison",
+      "image": "art/2026-W42/space-v1.png",
+      "alt": "iAstro et sa fusée miniature travaillent dans une cabine transparente, sous la surveillance de Hugo.",
+      "news_ids": [
+        "space"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "J’ai prévu un atelier dans l’atelier.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Isoler le travail",
+        "text": "Chaque espace fonctionne dans une petite machine virtuelle séparée. Notre cabine de peinture représente cette frontière entre une expérience et le système principal."
+      }
+    },
+    {
+      "title": "Expérimenter sans repeindre la maison",
+      "image": "art/2026-W42/space-v1.png",
+      "alt": "Hugo tient une clé à l’extérieur de la cabine et contrôle les accès pendant qu’iAstro peint.",
+      "news_ids": [
+        "space"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "Et les clés restent de mon côté.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.0,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Limiter les accès",
+        "text": "SPACE gère les accès réseau et les identifiants de plateforme à l’extérieur de cet espace. Les protections ne reposent pas uniquement sur les bonnes intentions du modèle."
+      }
+    },
+    {
+      "title": "Expérimenter sans repeindre la maison",
+      "image": "art/2026-W42/space-v1.png",
+      "alt": "Hugo observe des images de sauvegarde pendant qu’iAstro expérimente sur sa fusée.",
+      "news_ids": [
+        "space"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "On garde une photo avant chaque expérience.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.0,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Conserver des points de reprise",
+        "text": "Des instantanés enregistrent les fichiers et l’état de travail. Ils servent à reprendre après une interruption ou à explorer des variantes."
+      }
+    },
+    {
+      "title": "Expérimenter sans repeindre la maison",
+      "image": "art/2026-W42/space-v1.png",
+      "alt": "Le duo consulte l’image d’une version antérieure de la fusée pour reprendre proprement.",
+      "news_ids": [
+        "space"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Hugo",
+          "text": "La version d’avant était moins… violette.",
+          "side": "left"
+        }
+      ],
+      "crop": {
+        "x": 0.3333333333333333,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Revenir sur un essai",
+        "text": "Un environnement sauvegardé peut être restauré. Cela concerne son état interne ; ce n’est pas un bouton magique annulant toute action extérieure."
+      }
+    },
+    {
+      "title": "Expérimenter sans repeindre la maison",
+      "image": "art/2026-W42/space-v1.png",
+      "alt": "La cabine est couverte de peinture mais l’atelier reste propre ; Hugo tend une brosse à iAstro, taché de violet.",
+      "news_ids": [
+        "space"
+      ],
+      "dialogue": [
+        {
+          "speaker": "Iastro",
+          "text": "Atelier intact. Coiffure à revoir.",
+          "side": "right"
+        }
+      ],
+      "crop": {
+        "x": 0.6666666666666666,
+        "y": 0.5,
+        "w": 0.3333333333333333,
+        "h": 0.5
+      },
+      "layout": "standard",
+      "explanation": {
+        "title": "Une protection à entretenir",
+        "text": "L’ouverture du code facilite l’inspection. Elle ne garantit pas une sécurité parfaite : chaque équipe doit configurer, tester et maintenir ses propres protections."
+      }
+    }
+  ],
+  "cover": "art/2026-W42/cover-v1.png"
+}

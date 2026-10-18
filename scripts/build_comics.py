@@ -100,6 +100,8 @@ def validate(ep, preview=False):
             indexes = [i for i,p in enumerate(ep['panels']) if nid in p['news_ids']]
             assert 5 <= len(indexes) <= 6, 'A mobile story needs 5 or 6 panels'
             assert indexes == list(range(indexes[0],indexes[-1]+1)), 'Keep each story contiguous'
+    if ep.get('cover'):
+        local_file(ep['cover'])
     for value in ep.get('downloads', {}).values():
         if value:
             local_file(value)
@@ -214,6 +216,8 @@ def build(check=False, refresh_reader=False):
             content = top + content + bottom
             if lang=='en': content='<p>This episode is available in French.</p>'+content
             page=shell(ep['title'],ep['title'],f'<section>{content}</section>',lang,ep['id']+'/')
+            if ep.get('cover'):
+                page = page.replace(ORIGIN+BASE+'kit/assets/characters/duo-reference-v2.png', ORIGIN+BASE+esc(ep['cover']))
             fingerprint=f'<meta name="comic-editorial-sha256" content="{editorial_fingerprint(ep)}">'
             page=page.replace('</head>',fingerprint+'</head>').replace('Hugo × Iastro', 'Hugo × iAstro')
             if dest.exists() and dest.read_text()!=page:
