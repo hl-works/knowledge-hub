@@ -186,3 +186,22 @@ Les contrôles d’intégrité audio, durée, destination, archives immuables et
 absence de réessai automatique après timeout ambigu restent obligatoires.
 Ne pas réintroduire un blocage de diffusion pour une image absente. Les tests
 du producteur couvrent le chemin illustré et le chemin sans image jusqu’au RSS.
+
+## Rattrapage des 18 et 19 octobre — publication du 19 octobre 2026
+
+Hugo a demandé la publication sur le site et les plateformes uniquement,
+sans nouvel envoi Telegram. Le 18 provient du brief original et de l’aperçu
+vérifié du producteur (run `39208050260`). Le Flash du 19 provient de l’aperçu
+`39230914138` ; son Débrief conserve exactement le MP3 déjà envoyé ce matin
+(run `39209016304`, reçu Telegram conservé dans le producteur).
+
+Les quatre MP3 ont été contrôlés par empreinte et décodage complet, puis
+archivés avec leurs dates et pochettes préparées. Le RSS diffuse les deux
+Débriefs ; les deux Flash restent disponibles sur le site. Cette reprise
+manuelle n’invente aucun reçu Telegram et ne modifie pas le contrôle des envois
+du bridge quotidien. Les archives du 12 au 17 restent inchangées.
+
+Cause du 18 : surcharge HTTP 529 avant synthèse, corrigée par la PR producteur
+#18. Cause du 19 : structure de rôles invalide pour le Flash, puis paire
+incomplète non exportée ; la PR producteur #19 ajoute une correction bornée
+avant synthèse et rend l’édition incomplète visible comme une erreur.
