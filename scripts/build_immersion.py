@@ -44,6 +44,7 @@ CSS='''
 .radio-episode{min-width:0;display:grid;grid-template-columns:minmax(140px,.9fr) minmax(0,1fr);gap:20px;align-items:center;padding:0 0 28px}
 .radio-copy h3{font-size:1.4rem;margin-bottom:8px}.radio-copy p{font-size:.9rem;line-height:1.5;margin:8px 0}.radio-copy audio{width:100%;height:42px;margin-top:12px}
 .radio-duration{font-family:var(--font-mono);color:var(--text-muted);font-size:.8rem}
+.radio-spotify{margin:24px 0 32px;scroll-margin-top:100px}.radio-spotify h3{margin-bottom:8px}.radio-spotify iframe{display:block;width:100%;height:352px;border:0;border-radius:12px;margin-top:16px}
 .radio-archive{border-top:1px solid var(--border);padding-top:24px}.radio-archive h3{margin-bottom:16px}
 .radio-archive details{border-bottom:1px solid var(--border)}.radio-archive summary{display:flex;justify-content:space-between;gap:16px;cursor:pointer;padding:16px 0;min-height:48px;list-style:none}
 .radio-archive summary::after{content:'+';font-size:1.3rem}.radio-archive details[open] summary::after{content:'−'}
@@ -90,6 +91,16 @@ def podcast_subscriptions(en=False):
             '<a class="btn" href="https://podcasts.apple.com/us/podcast/le-podcast-ia/id6823971009?l=fr">Apple Podcasts ↗</a>'
             '</nav></aside>')
 
+def spotify_player(en=False):
+    title = 'Listen on Spotify' if en else 'Écouter sur Spotify'
+    note = 'Play the podcast here, or follow the show in Spotify.' if en else 'Écoute le podcast ici, ou retrouve-le dans Spotify pour suivre les prochains épisodes.'
+    frame_title = 'Le Podcast iA — Spotify player' if en else 'Le Podcast iA — lecteur Spotify'
+    link = 'Open in Spotify ↗' if en else 'Ouvrir dans Spotify ↗'
+    return (f'<div class="radio-spotify" id="spotify"><h3>{title}</h3><p>{note}</p>'
+            f'<iframe data-testid="embed-iframe" title="{frame_title}" src="https://open.spotify.com/embed/show/10f9eIN4y5iCxx0hc17FUK?utm_source=generator&amp;si=1a563695f7504a3f" width="100%" height="352" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>'
+            f'<p class="kiosk-note"><a href="https://open.spotify.com/show/10f9eIN4y5iCxx0hc17FUK">{link}</a></p></div>')
+
+
 def build():
     archive=json.loads((ROOT/'assets/podcast/episodes.json').read_text())['episodes']
     latest=json.loads((ROOT/'assets/podcast/latest.json').read_text())
@@ -115,7 +126,7 @@ def build():
         content+='<aside class="veille-subscription"><div><strong>'+('One Telegram subscription.' if en else 'Un seul abonnement Telegram.')+'</strong><p>'+('Follow all three formats through the same channel.' if en else 'Retrouve les trois rendez-vous sur le même canal.')+'</p></div><a class="btn btn--primary" href="https://t.me/VeilleIA_HL">'+('Join on Telegram ↗' if en else 'S’abonner sur Telegram ↗')+'</a></aside>'
         week_links = ''.join(f'<a href="{prefix}comics/{ep["id"]}/" style="display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--border-strong);font-size:14px">{e(period(ep))}</a>' for ep in reversed(comic_editions))
         content+=f'<section id="sunday" class="kiosk-feature"><div><p class="kicker">03 / Le comic du dimanche</p><h2>iAstro<br>Sunday<span style="color:var(--c-red)">.</span></h2><span class="kiosk-tag">Hugo × iAstro · {e(period(comic_latest))}</span><p class="lead">Les grandes nouvelles de l’IA prennent vie dans l’atelier. Une histoire à la fois, avec ses dessins, ses explications et ses sources.</p><a class="btn btn--primary" href="{comic_url}">Lire le dernier numéro →</a><p class="kiosk-note">Chaque semaine · en français · {len(comic_latest["news"])} histoires · lecture mobile</p><a href="{prefix}comics/">Tous les numéros et les archives →</a><nav aria-label="Choisir une semaine de comics" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">{week_links}</nav></div><a class="kiosk-comic" href="{comic_url}" aria-label="Lire iAstro Sunday du {e(period(comic_latest))}"><img src="{comic_image}" width="{comic_width}" height="{comic_height}" alt="{e(comic_alt)}"><span class="kiosk-comic-caption">{e(comic_latest["title"])}</span></a></section>'
-        content+='<section id="podcasts" class="radio-section"><div class="kiosk-section-head"><div><p class="kicker">02 / L’actualité IA à écouter</p><h2>Le Podcast iA<span style="color:var(--c-red)">.</span></h2></div><p>Deux formats. Le même regard curieux.</p></div>'+podcast_subscriptions(en)+'<div id="daily-podcast"><p class="kiosk-meta">Dernière édition · <time id="podcast-date">'+latest['date']+'</time></p><div id="podcast-tracks" class="radio-latest">'+''.join(episode_card(latest,k,True) for k in ('short','full'))+'</div><p id="podcast-fallback" hidden><a href="https://t.me/VeilleIA_HL">Retrouver les audios sur Telegram →</a></p></div><p class="kiosk-note">Audio en français, avec une voix de synthèse. iAstro change de tenue au fil des mois.</p><div class="radio-archive"><h3>À réécouter</h3>'
+        content+='<section id="podcasts" class="radio-section"><div class="kiosk-section-head"><div><p class="kicker">02 / L’actualité IA à écouter</p><h2>Le Podcast iA<span style="color:var(--c-red)">.</span></h2></div><p>Deux formats. Le même regard curieux.</p></div>'+podcast_subscriptions(en)+'<div id="daily-podcast"><p class="kiosk-meta">Dernière édition · <time id="podcast-date">'+latest['date']+'</time></p><div id="podcast-tracks" class="radio-latest">'+''.join(episode_card(latest,k,True) for k in ('short','full'))+'</div><p id="podcast-fallback" hidden><a href="https://t.me/VeilleIA_HL">Retrouver les audios sur Telegram →</a></p></div><p class="kiosk-note">Audio en français, avec une voix de synthèse. iAstro change de tenue au fil des mois.</p>'+spotify_player(en)+'<div class="radio-archive"><h3>À réécouter</h3>'
         for ep in archive:
             content+=f'<details><summary><span>{ep["date"][8:10]}.{ep["date"][5:7]}.{ep["date"][:4]}</span><span class="radio-duration">Flash {duration(ep["short"]["seconds"])} / Débrief {duration(ep["full"]["seconds"])}</span></summary><div class="radio-latest">'+''.join(episode_card(ep,k) for k in ('short','full'))+'</div></details>'
         content+='</div></section><section id="radar"><div class="kiosk-section-head"><div><p class="kicker">01 / La veille quotidienne sur Telegram</p><h2>Le Radar iA<span style="color:var(--c-red)">.</span></h2></div><a href="'+prefix+'veille-ia/">Toute la veille et ses sources →</a></div><ol class="kiosk-news">'
