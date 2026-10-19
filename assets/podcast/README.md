@@ -205,3 +205,18 @@ Cause du 18 : surcharge HTTP 529 avant synthèse, corrigée par la PR producteur
 #18. Cause du 19 : structure de rôles invalide pour le Flash, puis paire
 incomplète non exportée ; la PR producteur #19 ajoute une correction bornée
 avant synthèse et rend l’édition incomplète visible comme une erreur.
+
+## Rattrapages réservés aux plateformes
+
+`platform-episodes.json` contient les Débriefs dont la publication RSS a été
+explicitement autorisée sans nouvel envoi Telegram. Le 18 octobre 2026 est
+rattrapé ainsi, à la demande de Hugo le 19. Le MP3 approuvé et sa pochette sont
+hébergés sous leur URL datée ; aucun Flash ni dernier duo du site n'est remplacé.
+Le générateur fusionne ces entrées avec les archives quotidiennes pour le RSS
+seulement, avec les mêmes contrôles de fichier, durée, empreinte et GUID.
+Les dates en double sont refusées. L'arrivée des prochaines éditions quotidiennes
+ne doit pas retirer ces rattrapages du flux. Les reçus Telegram ne sont pas modifiés.
+
+Le rattrapage du site complète ensuite le 18 avec son Flash : l’entrée du
+18 passe de `platform-episodes.json` à la paire dans `episodes.json`. Le
+Débrief, sa pochette, son URL et son GUID restent exactement identiques.
