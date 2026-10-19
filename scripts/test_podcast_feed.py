@@ -120,6 +120,34 @@ class PodcastFeedTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'changed'):
             feed.build(self.root)
 
+    def test_platform_only_recovery_preserves_site_latest_and_future_delivery(self):
+        feed.build(self.root, archive=True)
+        original_latest = (self.folder / 'latest.json').read_bytes()
+        original_archive = (self.folder / 'episodes.json').read_bytes()
+        original_guid = self.xml().findtext('./channel/item/guid')
+        target = self.folder / 'archive/2026-10-18/full.mp3'
+        target.parent.mkdir(parents=True)
+        target.write_bytes(self.audio)
+        supplemental = {'episodes': [{'date': '2026-10-18', 'publication': 'platforms_only',
+            'full': {'src': '/assets/podcast/archive/2026-10-18/full.mp3', 'seconds': 1,
+                     'sha256': hashlib.sha256(self.audio).hexdigest()}}]}
+        feed.write_json(self.folder / 'platform-episodes.json', supplemental)
+        feed.build(self.root, archive=True)
+        self.assertEqual(len(self.xml().findall('./channel/item')), 2)
+        self.assertEqual((self.folder / 'latest.json').read_bytes(), original_latest)
+        self.assertEqual((self.folder / 'episodes.json').read_bytes(), original_archive)
+        self.assertEqual(self.xml().findall('./channel/item')[1].findtext('guid'), original_guid)
+        self.latest['date'] = '2026-10-19'
+        feed.write_json(self.folder / 'latest.json', self.latest)
+        feed.build(self.root, archive=True)
+        self.assertEqual(len(self.xml().findall('./channel/item')), 3)
+        self.assertEqual([e['date'] for e in feed.read_json(self.folder / 'episodes.json')['episodes']],
+                         ['2026-10-19', '2026-10-17'])
+        supplemental['episodes'][0]['date'] = '2026-10-19'
+        feed.write_json(self.folder / 'platform-episodes.json', supplemental)
+        with self.assertRaisesRegex(ValueError, 'duplicate'):
+            feed.build(self.root)
+
     def test_missing_contact_blocks_public_feed_before_archiving(self):
         show = feed.read_json(self.folder / 'show.json')
         show['email'] = None

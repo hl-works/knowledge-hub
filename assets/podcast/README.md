@@ -186,3 +186,14 @@ Les contrôles d’intégrité audio, durée, destination, archives immuables et
 absence de réessai automatique après timeout ambigu restent obligatoires.
 Ne pas réintroduire un blocage de diffusion pour une image absente. Les tests
 du producteur couvrent le chemin illustré et le chemin sans image jusqu’au RSS.
+
+## Rattrapages réservés aux plateformes
+
+`platform-episodes.json` contient les Débriefs dont la publication RSS a été
+explicitement autorisée sans nouvel envoi Telegram. Le 18 octobre 2026 est
+rattrapé ainsi, à la demande de Hugo le 19. Le MP3 approuvé et sa pochette sont
+hébergés sous leur URL datée ; aucun Flash ni dernier duo du site n'est remplacé.
+Le générateur fusionne ces entrées avec les archives quotidiennes pour le RSS
+seulement, avec les mêmes contrôles de fichier, durée, empreinte et GUID.
+Les dates en double sont refusées. L'arrivée des prochaines éditions quotidiennes
+ne doit pas retirer ces rattrapages du flux. Les reçus Telegram ne sont pas modifiés.
