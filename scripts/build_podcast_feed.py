@@ -118,7 +118,10 @@ def build(root=ROOT, archive=False, render_covers=False):
     if archive:
         archive_latest(root)
     manifest = read_json(folder / 'episodes.json')
-    episodes = manifest['episodes']
+    # Explicit platform-only recoveries do not replace the website's latest pair.
+    platform_manifest = folder / 'platform-episodes.json'
+    platform_episodes = read_json(platform_manifest)['episodes'] if platform_manifest.exists() else []
+    episodes = manifest['episodes'] + platform_episodes
     if not episodes or len({e['date'] for e in episodes}) != len(episodes):
         raise ValueError('Empty archive or duplicate episode date')
     if render_covers:
