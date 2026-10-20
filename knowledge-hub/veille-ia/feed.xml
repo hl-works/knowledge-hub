@@ -7,354 +7,354 @@
 <language>fr</language>
 <atom:link href="https://hl-consulting.tech/knowledge-hub/veille-ia/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>OpenAI cible les vieux langages : COBOL, Fortran, Visual Basic</title>
+<link>https://x.com/OpenAI/status/2112310345863930168</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-60640867</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>OpenAI annonce des avancées pour aider à comprendre, maintenir et moderniser les logiciels écrits dans des langages anciens (COBOL, Fortran, VB) encore utilisés par les banques, administrations et entreprises. L&#x27;idée : préserver la logique métier accumulée tout en modernisant les systèmes.</description>
+</item>
+<item>
+<title>Meta publie Muse Glimmer, un modèle 30B open-weight pour machines grand public</title>
+<link>https://x.com/AIatMeta/status/2112265822274302066</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-69280295</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>Meta dévoile un rapport technique sur Muse Glimmer, un modèle à poids ouverts de 30 milliards de paramètres pensé pour les tâches d&#x27;agents. Il tourne à vitesse utilisable sur un Mac ou PC avec un seul GPU grand public en précision 4-bit et se place en tête des modèles ouverts de taille comparable sur l&#x27;usage d&#x27;outils et la planification multi-étapes.</description>
+</item>
+<item>
+<title>Meta détaille Prometheus, son supercalculateur IA à l&#x27;échelle du gigawatt</title>
+<link>https://x.com/AIatMeta/status/2112245968750145561</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-27156535</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>Meta a entraîné ses modèles Muse, dont Muse Wonder, sur Prometheus, un cluster de centaines de milliers de GPU installé dans l&#x27;Ohio. L&#x27;entreprise met en avant des indicateurs de fiabilité élevés (plus de 85 % de rendement utile en pré-entraînement) malgré l&#x27;échelle.</description>
+</item>
+<item>
+<title>Un nouveau modèle vidéo signé fal et Black Forest Labs mise sur la vitesse</title>
+<link>https://x.com/venturetwins/status/2112260772906823958</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-95572506</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>Un nouveau modèle texte-vers-vidéo développé par fal et Black Forest Labs génère des clips en moins de 10 secondes, soit bien plus vite que les solutions concurrentes. La rapidité et le coût réduit rendent la génération vidéo plus accessible.</description>
+</item>
+<item>
+<title>Microsoft étend Project Perception pour sécuriser les agents IA</title>
+<link>https://x.com/satyanadella/status/2112168320946634932</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-70518622</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>Satya Nadella présente une extension de Project Perception : traiter les modèles comme un risque interne et placer les contrôles de sécurité en dehors du modèle lui-même. Objectif : évaluer en continu le risque des agents, adapter les permissions et contenir les menaces.</description>
+</item>
+<item>
+<title>Greptile lève 50 M$ en série B pour la revue de code par IA</title>
+<link>https://x.com/ycombinator/status/2112234482975846504</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-10430142</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>La startup Greptile (promotion YC W24) annonce une série B de 50 millions de dollars. Son outil analyse et teste plus de 1 % des pull requests ouvertes chaque jour sur GitHub et sert des milliers d&#x27;équipes, dont Nvidia et Coinbase, avec moins de 50 salariés.</description>
+</item>
+<item>
+<title>Perplexity intègre sa plateforme open source SPACE à Crusoe</title>
+<link>https://x.com/AravSrinivas/status/2112254336160108664</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-98826115</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>La plateforme de sandbox open source de Perplexity, SPACE, rejoindra les produits Managed AI de Crusoe, qui se positionne comme un cloud intégré (énergie, calcul et services). Un rapprochement entre fournisseurs d&#x27;infrastructure IA.</description>
+</item>
+<item>
+<title>Transformer des dépôts open source en services payants pour PME</title>
+<link>https://x.com/coreyganim/status/2112221620005699656</link>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-19-93426810</guid>
+<pubDate>Mon, 19 Oct 2026 08:00:00 +0000</pubDate>
+<description>Un fil détaille huit projets open source (emails de relance, automatisation de réseaux sociaux, standard téléphonique IA, OCR de factures vers la comptabilité, etc.) pouvant être revendus comme services à des artisans et petites entreprises, avec exemples de tarification. Les clients ne s&#x27;intéressent pas à l&#x27;IA mais au résultat.</description>
+</item>
+<item>
 <title>Grok ajoute le paiement via son assistant</title>
 <link>https://x.com/elonmusk/status/2111612315204272233</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-1149261</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-38511057</guid>
 <pubDate>Sun, 18 Oct 2026 08:00:00 +0000</pubDate>
 <description>xAI déploie une fonction permettant à son assistant Grok d&#x27;effectuer des paiements, l&#x27;utilisateur transmettant par exemple une photo de sa carte bancaire. Musk affirme que l&#x27;outil peut « se financer lui-même », tout en soulevant des questions de sécurité évidentes.</description>
 </item>
 <item>
 <title>LlamaIndex publie ExtractBench Pro</title>
 <link>https://x.com/jerryjliu0/status/2111622533162336427</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-30096274</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-51391123</guid>
 <pubDate>Sun, 18 Oct 2026 08:00:00 +0000</pubDate>
 <description>LlamaIndex présente ExtractBench Pro, un banc d&#x27;essai dédié à l&#x27;extraction d&#x27;informations dans les documents PDF les plus complexes, en cherchant le meilleur compromis précision/coût. Objectif affiché : accélérer le traitement documentaire des entreprises.</description>
 </item>
 <item>
 <title>Anthropic place 20% de ses actions dans un fonds d&#x27;intérêt public</title>
 <link>https://x.com/AnthropicAI/status/2111881963657412903</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-99280287</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-64502606</guid>
 <pubDate>Sun, 18 Oct 2026 08:00:00 +0000</pubDate>
 <description>Anthropic annonce la création d&#x27;un Public Benefit Fund, abondé au départ de 5% de ses actions et pouvant atteindre environ 20% au total. Les cofondateurs se sont par ailleurs engagés à donner 80% de leur participation. L&#x27;annonce intervient dans le contexte d&#x27;une possible entrée en Bourse.</description>
 </item>
 <item>
 <title>Perplexity Computer ajoute l&#x27;upload de fichiers aux chats secondaires</title>
 <link>https://x.com/AskPerplexity/status/2111887593214472380</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-54268202</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-70543865</guid>
 <pubDate>Sun, 18 Oct 2026 08:00:00 +0000</pubDate>
 <description>Perplexity permet désormais de joindre des fichiers dans les discussions annexes de son outil Computer, afin de poser une question de côté sans interrompre la tâche principale. Fonction accessible via la commande /ask pour tous les utilisateurs.</description>
 </item>
 <item>
 <title>Grandes entreprises bloquant les agents IA : analyse d&#x27;une guerre naissante</title>
 <link>https://x.com/gregisenberg/status/2111903028202852760</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-69794016</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-18-6858376</guid>
 <pubDate>Sun, 18 Oct 2026 08:00:00 +0000</pubDate>
 <description>Plusieurs grandes marques (Delta, Chase, Amazon) commencent à bloquer les agents IA, qui court-circuitent pubs et ventes additionnelles. L&#x27;analyse décrit une escalade probable vers des standards d&#x27;identité et de paiement pour agents, puis une concurrence pour les attirer. Enjeu concret pour le commerce en ligne.</description>
 </item>
 <item>
 <title>Un projet de loi IA attribué à Anthropic fuite et fait débat</title>
 <link>https://x.com/TheZvi/status/2111280886234886357</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-59417382</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-20863438</guid>
 <pubDate>Sat, 17 Oct 2026 08:00:00 +0000</pubDate>
 <description>Un brouillon de texte législatif présenté comme émanant d&#x27;Anthropic a fuité, suscitant des critiques : transparence renforcée mais mécanismes d&#x27;application affaiblis et clauses de préemption jugées problématiques. Des observateurs reprochent à Anthropic de privilégier ses propres risques politiques et commerciaux au détriment des risques catastrophiques.</description>
 </item>
 <item>
 <title>DeepSeek lance V4.1-Flash</title>
 <link>https://x.com/deepseek_ai/status/2111375640717033777</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-91846494</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-29820134</guid>
 <pubDate>Sat, 17 Oct 2026 08:00:00 +0000</pubDate>
 <description>DeepSeek met en ligne son modèle V4.1-Flash (version 1017), présenté comme une amélioration à la fois en performance et en coût : meilleurs scores, exécution plus rapide et réponses plus concises. Disponible sur le site, l&#x27;application et l&#x27;API.</description>
 </item>
 <item>
 <title>Replit fait d&#x27;OpenAI son partenaire privilégié</title>
 <link>https://x.com/amasad/status/2111494912562888939</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-6290044</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-11325602</guid>
 <pubDate>Sat, 17 Oct 2026 08:00:00 +0000</pubDate>
 <description>Replit indique que son agent de codage s&#x27;appuie désormais par défaut sur les modèles d&#x27;OpenAI, choisis pour leurs performances, leur coût et le partenariat. La plateforme reste toutefois ouverte à d&#x27;autres modèles, dont ceux d&#x27;Anthropic, au choix de l&#x27;utilisateur.</description>
 </item>
 <item>
 <title>Les acheteurs restent méfiants envers l&#x27;IA</title>
 <link>https://x.com/a16z/status/2111517644868538389</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-83205998</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-15325961</guid>
 <pubDate>Sat, 17 Oct 2026 08:00:00 +0000</pubDate>
 <description>Selon des données partagées par a16z, l&#x27;IA aide de plus en plus les Américains à faire leurs achats, mais 42 % ne lui font pas encore confiance pour finaliser un achat. Même dans les catégories populaires (vêtements, électronique, voyages), seul un quart environ laisserait l&#x27;IA choisir et acheter à leur place.</description>
 </item>
 <item>
 <title>Meta progresse sur les modèles à poids ouverts</title>
 <link>https://x.com/natolambert/status/2111461099140772137</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-22999882</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-17-92179215</guid>
 <pubDate>Sat, 17 Oct 2026 08:00:00 +0000</pubDate>
 <description>Nathan Lambert dresse un état des lieux des modèles américains à poids ouverts après une semaine forte pour Meta, qui semble se rapprocher du niveau de Claude sans encore combler l&#x27;écart. La question d&#x27;une vraie concurrence face à OpenAI et Anthropic reste ouverte.</description>
 </item>
 <item>
 <title>OpenAI améliore GPT-6 Astra Pro dans ChatGPT avec des agents en parallèle</title>
 <link>https://x.com/OpenAI/status/2111192259073094035</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-40914707</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-65122064</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>OpenAI annonce une mise à jour de GPT-6 Astra Pro dans ChatGPT : réponses plus rapides, meilleure utilisation des plugins et outils, et surtout la possibilité de lancer plusieurs agents en parallèle sur différentes parties d&#x27;une tâche, avec suivi de leur progression. Disponible pour les utilisateurs Pro.</description>
 </item>
 <item>
 <title>Vercel lance une boutique e-commerce prête pour les agents, avec Shopify en backend</title>
 <link>https://x.com/rauchg/status/2111174921678446595</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-34694302</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-58876175</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Vercel ouvre en disponibilité générale une solution de boutique en ligne basée sur Next.js et adossée à Shopify, présentée comme rapide et conçue pour être exploitable par des agents IA. Vercel a lancé sa propre boutique de merch pour démontrer l&#x27;outil.</description>
 </item>
 <item>
 <title>Gemini 4 Argon, nouveau modèle de pointe, arrive dans Perplexity</title>
 <link>https://x.com/AravSrinivas/status/2111111329536987234</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-50841252</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-26209949</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Google présente Gemini 4 Argon comme un modèle frontière établissant un nouveau record sur le benchmark de recherche approfondie WANDR. Il est désormais accessible aux abonnés Pro et Max de Perplexity, en modes recherche rapide et agent.</description>
 </item>
 <item>
 <title>Perplexity publie en open source ses Decision Models</title>
 <link>https://x.com/AravSrinivas/status/2111181956444827695</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-65640139</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-66152198</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Perplexity met à disposition deux nouveaux modèles ouverts : pplx-decider-flash-v1.2 (4 milliards de paramètres) et pplx-decider-v1.2 (27 milliards), à très bas coût par million de tokens. Ils sont disponibles via l&#x27;API Perplexity et en poids ouverts sur Hugging Face.</description>
 </item>
 <item>
 <title>Reflection publie Beam, un modèle open-weight disponible sur Vercel</title>
 <link>https://x.com/rauchg/status/2111178816731382110</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-67806209</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-94022652</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>La startup Reflection lance Beam, un modèle à poids ouverts d&#x27;origine américaine, désormais accessible gratuitement sur l&#x27;AI Gateway de Vercel pour alimenter des agents ou du code. Hugging Face a diffusé une présentation en direct par l&#x27;équipe.</description>
 </item>
 <item>
 <title>Meta Superintelligence Labs revendique ses premiers modèles frontière</title>
 <link>https://x.com/alexandr_wang/status/2111237499083252185</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-74911112</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-16353631</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Alexandr Wang célèbre un an de Meta Superintelligence Labs et la sortie de plusieurs modèles (Muse Wonder, Muse Spark), présentés comme la preuve que l&#x27;équipe a atteint son objectif d&#x27;un modèle frontière après les débuts décevants de Llama 4.</description>
 </item>
 <item>
 <title>Des agents Gemini 4 terminent Minecraft sans aide humaine</title>
 <link>https://x.com/GoogleDeepMind/status/2111127991401247033</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-6636892</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-191164</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Google DeepMind rapporte que quatre agents Gemini 4 Argon ont bouclé Minecraft depuis zéro en 27 heures, en écrivant près de 2 800 programmes, en se répartissant les tâches via chat et en déboguant collectivement, sans intervention humaine. Une démonstration de coordination multi-agents.</description>
 </item>
 <item>
 <title>Claude conçoit des circuits quantiques plus efficaces, selon Anthropic</title>
 <link>https://x.com/AnthropicAI/status/2111152183240511640</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-34136292</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-46299164</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Via son programme STEM Fellows, Anthropic affirme que Claude Mythos 5 a conçu, à partir d&#x27;instructions en langage courant, des circuits quantiques surpassant les meilleures publications, parfois d&#x27;un ordre de grandeur. De quoi potentiellement rapprocher certaines applications du calcul quantique.</description>
 </item>
 <item>
 <title>Arthur Mensch (Mistral) plaide pour une IA de pointe européenne</title>
 <link>https://x.com/arthurmensch/status/2110990492930314712</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-85067054</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-30403986</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Le PDG de Mistral s&#x27;oppose à l&#x27;idée, de plus en plus répandue en Europe, de laisser l&#x27;IA de pointe aux États-Unis et à la Chine. Il qualifie ce renoncement d&#x27;erreur fondamentale et défend la nécessité pour l&#x27;Europe de construire ses propres modèles.</description>
 </item>
 <item>
 <title>Microsoft met en avant son modèle de transcription MAI</title>
 <link>https://x.com/mustafasuleyman/status/2111116656215032068</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-23027802</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-70702671</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Mustafa Suleyman affirme que le modèle de transcription MAI de Microsoft est le plus précis et le plus utilisé sur OpenRouter, toutes langues et usages confondus, et le recommande pour les agents.</description>
 </item>
 <item>
 <title>Cursor : les agents cloud génèrent désormais des tableaux de bord interactifs</title>
 <link>https://x.com/cursor_ai/status/2111193957527146711</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-57095135</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-81425134</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Cursor permet à ses agents cloud de créer des canvas interactifs (tableaux de bord, rapports) pendant qu&#x27;ils travaillent, puis de partager le résultat fini sous forme de lien avec son équipe.</description>
 </item>
 <item>
 <title>Mistral Large 4 obtient de bons scores en ingénierie et astronomie</title>
 <link>https://x.com/MistralAI/status/2111056939841163336</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-93526844</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-8666775</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Mistral met en avant les performances de Mistral Large 4 sur STEMBench, un benchmark privé axé sur les sciences, où le modèle se distingue notamment en ingénierie et en astronomie.</description>
 </item>
 <item>
 <title>Plus d&#x27;un Américain sur trois a acheté suite à une recommandation d&#x27;IA</title>
 <link>https://x.com/a16z/status/2111196742872084902</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-15442310</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-65184712</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Selon des données d&#x27;a16z, plus d&#x27;un tiers des Américains ont acheté un produit sur recommandation d&#x27;une IA au cours de l&#x27;année écoulée, 44 % estiment que l&#x27;IA les aide à trouver un meilleur rapport qualité-prix, et 34 % paieraient plus cher si l&#x27;IA leur montrait le meilleur choix.</description>
 </item>
 <item>
 <title>Microsoft améliore les prévisions météo à 2-6 semaines par machine learning</title>
 <link>https://x.com/satyanadella/status/2111204941801128366</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-6492672</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-16-70678492</guid>
 <pubDate>Fri, 16 Oct 2026 08:00:00 +0000</pubDate>
 <description>Satya Nadella présente une recherche publiée dans Nature montrant que l&#x27;apprentissage automatique améliore les prévisions météo sur un horizon de deux à six semaines, historiquement difficile. Il y voit une illustration de l&#x27;intérêt des systèmes de vérification autour des modèles.</description>
 </item>
 <item>
 <title>Meta lance Muse Spark Open, son modèle open-weight le plus capable</title>
 <link>https://x.com/AIatMeta/status/2110779754274292212</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-27113982</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-22764522</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Meta Superintelligence Labs publie Muse Spark Open, présenté comme le modèle américain à poids ouverts le plus performant à ce jour. Il compte 816 milliards de paramètres (42 Md actifs), une fenêtre de contexte d&#x27;un million de tokens, est multimodal et taillé pour le code et les tâches d&#x27;agents de longue durée. Les poids sont disponibles et il tourne sur les nouveaux Mac Studio.</description>
 </item>
 <item>
 <title>Muse Wonder de Meta disponible dans Cursor</title>
 <link>https://x.com/cursor_ai/status/2110867556693430293</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-7886097</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-37723284</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Le modèle Muse Wonder de Meta est désormais accessible dans l&#x27;éditeur Cursor, avec un score de 46,1 % sur CursorBench, le meilleur de la gamme Muse. Tarif : 4 $/M de tokens en entrée et 20 $/M en sortie.</description>
 </item>
 <item>
 <title>Google ouvre l&#x27;accès anticipé à Gemini 4 Argon</title>
 <link>https://x.com/gregisenberg/status/2110870855378952314</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-78291944</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-9927804</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Google a donné un accès anticipé à Gemini 4 Argon, son nouveau modèle de pointe. Les premiers retours soulignent de solides capacités de rédaction, de génération de code et de création 3D/CAO (jusqu&#x27;à l&#x27;export de fichiers imprimables), avec des idées concrètes pour le marketing et des produits personnalisables sur e-commerce.</description>
 </item>
 <item>
 <title>OpenAI met à jour la voix de ChatGPT avec GPT-Live-1.1</title>
 <link>https://x.com/OpenAI/status/2110797830361436604</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-83114207</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-83664185</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>OpenAI déploie GPT-Live-1.1, qui améliore le mode vocal de ChatGPT, Codex et dots : nouvelles voix, meilleurs accents et moins de temps d&#x27;attente. Ajout de voix en français, allemand, hindi, espagnol mexicain, coréen et japonais, avec une arrivée prochaine dans l&#x27;API.</description>
 </item>
 <item>
 <title>Microsoft AI dévoile des modèles de base internes de 3 000 milliards de paramètres</title>
 <link>https://x.com/mustafasuleyman/status/2110766651344146564</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-15638216</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-70600021</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Mustafa Suleyman annonce que Microsoft AI dispose désormais de modèles de base pré-entraînés de pointe dans la catégorie des 3 000 milliards de paramètres, entièrement développés en interne. Les résultats du post-entraînement seront publiés prochainement.</description>
 </item>
 <item>
 <title>Mistral et le CERN s&#x27;associent pour un grand modèle de physique</title>
 <link>https://x.com/MistralAI/status/2110684732103041474</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-45861180</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-42402535</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Mistral et le CERN annoncent un partenariat pour explorer l&#x27;usage de l&#x27;IA à grande échelle en physique des particules. L&#x27;objectif : un Large Physics Model unique entraîné sur des milliards de collisions simulées.</description>
 </item>
 <item>
 <title>Google démontre la « culture d&#x27;états magiques » en informatique quantique</title>
 <link>https://x.com/sundarpichai/status/2110804295352488143</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-72319444</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-17662107</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>L&#x27;équipe Google Quantum AI a réalisé pour la première fois une « magic state cultivation » sur matériel physique, avec une réduction d&#x27;erreur de 40x sur le processeur Willow et une fidélité logique de 99,99 %. Résultat publié dans Science, une étape vers des ordinateurs quantiques corrigés d&#x27;erreurs.</description>
 </item>
 <item>
 <title>Perplexity publie en open source sa plateforme de sandbox SPACE</title>
 <link>https://x.com/perplexity_ai/status/2110778478312481167</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-31607369</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-13693382</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Perplexity open-source SPACE, la plateforme de bacs à sable qui exécute chaque tâche de Perplexity Computer. Chaque tâche d&#x27;agent reçoit sa propre micro-VM Firecracker, avec gestion des identifiants et du trafic sortant depuis l&#x27;extérieur de la VM. Disponible sous licence Apache 2.0.</description>
 </item>
 <item>
 <title>OpenAI élargit l&#x27;accès à GPT-Rosalind pour la recherche en biologie</title>
 <link>https://x.com/OpenAI/status/2110841898076418336</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-73232248</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-12512110</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>OpenAI lance un plan académique pour GPT-Rosalind afin d&#x27;aider les laboratoires scientifiques à intégrer l&#x27;IA dans la recherche en biologie, avec un accès sponsorisé pour les laboratoires éligibles d&#x27;universités américaines.</description>
 </item>
 <item>
 <title>Anthropic consacre 5 M$ à la communauté des mathématiques</title>
 <link>https://x.com/AnthropicAI/status/2110846112152105136</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-40015685</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-332395</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Anthropic engage 5 millions de dollars en financement, calcul et accès à Claude pour aider les mathématiciens à composer avec l&#x27;arrivée de l&#x27;IA. Le programme sera géré par la Simons Foundation via ateliers, conférences et cours.</description>
 </item>
 <item>
 <title>OpenAI contribue 5 M$ à une initiative mathématique de la Simons Foundation</title>
 <link>https://x.com/OpenAI/status/2110741355739963884</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-26595144</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-19664612</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>OpenAI verse 5 millions de dollars à une nouvelle initiative de la Simons Foundation pour aider les mathématiciens à examiner et prolonger les résultats produits par l&#x27;IA. Le fonds financera ateliers et programmes, avec un accès aux modèles et aux ressources de calcul.</description>
 </item>
 <item>
 <title>Krea 3 : édition d&#x27;images rapide et précise</title>
 <link>https://x.com/venturetwins/status/2110764542921982207</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-76252840</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-32010502</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Krea 3 est présenté en accès anticipé comme un outil rapide et précis pour éditer des images tout en préservant l&#x27;intégrité d&#x27;un produit ou d&#x27;une structure, avec un contrôle par cadres de délimitation. Démonstration : concevoir une maison à partir d&#x27;un croquis.</description>
 </item>
 <item>
 <title>Anthropic ouvre un accès de type employé à l&#x27;évaluateur METR</title>
 <link>https://x.com/AnthropicAI/status/2110784662071398807</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-22159724</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-71980079</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Anthropic détaille sa collaboration avec des évaluateurs tiers de sécurité et indique avoir accordé un accès « de type employé » à une équipe de METR pour auditer ses pratiques. Des discussions sont en cours avec plusieurs organisations.</description>
 </item>
 <item>
 <title>La distillation représenterait 5 à 7 % des revenus d&#x27;Anthropic</title>
 <link>https://x.com/simonw/status/2110721515130089787</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-66556150</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-75889872</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Selon des propos rapportés aux investisseurs, la distillation représenterait 5 à 7 % des revenus d&#x27;Anthropic. Rapporté au chiffre d&#x27;affaires du trimestre, cela signifierait que d&#x27;autres labos dépensent plus d&#x27;un demi-milliard de dollars pour distiller les modèles d&#x27;Anthropic.</description>
 </item>
 <item>
 <title>Nano Banana 2.1 arrive dans Perplexity Computer</title>
 <link>https://x.com/AskPerplexity/status/2110858858147324404</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-52383270</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-52620647</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Le modèle de génération d&#x27;images Nano Banana 2.1 est désormais disponible dans Perplexity Computer pour tous les utilisateurs.</description>
 </item>
 <item>
 <title>Shopify lance « app security check » pour sécuriser les apps marchandes</title>
 <link>https://x.com/ShopifyDevs/status/2110738092105814391</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-13786080</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-37612061</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Shopify introduit un outil, app security check, qui détecte les schémas de vulnérabilités courants dans les applications Shopify. Il s&#x27;exécute via l&#x27;AI Toolkit, dans une logique de renforcement de la confiance marchande.</description>
 </item>
 <item>
 <title>Snowflake : la réplication Postgres passe en disponibilité générale</title>
 <link>https://x.com/RamaswmySridhar/status/2110793154538717591</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-91570796</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-15-50059823</guid>
 <pubDate>Thu, 15 Oct 2026 08:00:00 +0000</pubDate>
 <description>Snowflake annonce la disponibilité générale du mirroring de données Postgres, permettant de faire circuler en continu les données transactionnelles fraîches vers Snowflake pour les connecter aux agents et aux applications sans outils de transfert séparés.</description>
 </item>
 <item>
 <title>Une étude Wharton peine à mesurer l&#x27;impact financier de l&#x27;IA</title>
 <link>https://x.com/GaryMarcus/status/2110174564189937772</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-89433362</guid>
+<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-83056193</guid>
 <pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
 <description>Selon une nouvelle étude de Wharton relayée par The Information, il reste très difficile de démontrer des impacts financiers concrets et mesurables des dépenses en IA. Un signal de prudence pour les dirigeants face aux promesses de retour sur investissement.</description>
-</item>
-<item>
-<title>Gemma au service de la détection de fraude à Singapour</title>
-<link>https://x.com/GoogleDeepMind/status/2110190101707858039</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-42481877</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>Google DeepMind et GovTech Singapour utilisent le modèle ouvert Gemma, affiné sur les tactiques d&#x27;arnaque locales, pour détecter en temps réel les fraudes par ingénierie sociale directement sur l&#x27;appareil, sans compromettre la vie privée.</description>
-</item>
-<item>
-<title>Google met en avant Gemini 4 Argon pour la science</title>
-<link>https://x.com/GoogleDeepMind/status/2110421861435879476</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-47441224</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>Google DeepMind affirme que son modèle Gemini 4 Argon contribue déjà à des avancées en informatique quantique, fusion nucléaire et conception de protéines. Une communication centrée sur les usages scientifiques du modèle.</description>
-</item>
-<item>
-<title>Anthropic ouvre un bureau à Singapour</title>
-<link>https://x.com/AnthropicAI/status/2110289695888511368</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-53051718</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>Anthropic installe son cinquième bureau en Asie-Pacifique à Singapour et signe un protocole d&#x27;accord avec le gouvernement local sur la sécurité et l&#x27;adoption responsable de l&#x27;IA.</description>
-</item>
-<item>
-<title>Mistral intègre l&#x27;équipe New Material</title>
-<link>https://x.com/MistralAI/status/2110377713525796942</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-3260741</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>Mistral AI annonce l&#x27;arrivée de New Material, une équipe orientée design, pour renforcer son travail sur l&#x27;IA destinée aux usages critiques.</description>
-</item>
-<item>
-<title>Shopify lance une API pour agents et apps consommateurs</title>
-<link>https://x.com/ShopifyDevs/status/2110456011488121112</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-19493610</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>Shopify ouvre une nouvelle API permettant aux développeurs de bâtir non seulement pour les marchands mais aussi pour les acheteurs et les agents IA, un signe de l&#x27;arrivée du commerce piloté par agents.</description>
-</item>
-<item>
-<title>Shopify Hydrogen passe en disponibilité générale</title>
-<link>https://x.com/ShopifyDevs/status/2110390655189189085</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-74908482</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>La nouvelle version d&#x27;Hydrogen, le framework de Shopify désormais agnostique, est officiellement disponible pour tous les développeurs après une phase de préversion lancée en juin.</description>
-</item>
-<item>
-<title>Perplexity propose des versions ultra-rapides de GPT-6 Astra et SOL 6.1</title>
-<link>https://x.com/perplexity_ai/status/2110415710073819389</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-28504885</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>Perplexity ajoute des variantes « ultrafast » de GPT-6 Astra et SOL 6.1 dans son outil Computer pour les abonnés Max, afin d&#x27;accélérer l&#x27;exécution des tâches longues.</description>
-</item>
-<item>
-<title>OpenAI: l&#x27;adoption des agents IA grimpe en Europe</title>
-<link>https://x.com/OpenAI/status/2110442001749659890</link>
-<guid isPermaLink="false">https://hl-consulting.tech/knowledge-hub/veille-ia/#2026-10-14-9300949</guid>
-<pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
-<description>Selon un rapport économique d&#x27;OpenAI, plus de la moitié des usages IA de ses clients entreprises en Europe implique désormais des agents, et le nombre d&#x27;utilisateurs PME y a été multiplié par huit.</description>
 </item>
 </channel>
 </rss>
