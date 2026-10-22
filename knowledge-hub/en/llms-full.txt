@@ -7,7 +7,7 @@ Location: Chennevières-sur-Marne, Île-de-France, France.
 Background: 17 years at Son-Vidéo.com (France's #1 HiFi/home cinema e-retailer) — purchasing, sales, commercial strategy, marketing/communications, partnerships; growth from €10M to €62M. Since 2024: CEO of Cobra (Oct. 2024), publisher & editorial director of Haute Fidélité (Jan. 2025, 30+ year reference magazine relaunched), founder of HL Consulting (Jul. 2024). Marketing lecturer at Creapole-ESDI. Passionate about music, cinema, and Japanese culture (Japan Expo 2004–2009).
 LinkedIn: https://www.linkedin.com/in/hugo-lahutte — X: https://x.com/hugolh_ai
 
-Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-10-21
+Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-10-22
 
 
 ================================================================
@@ -27,29 +27,29 @@ Le Radar iA.
 All updates and sources →Models, agents, research and practical uses: six recent items, with dates and source links.
 Latest selection: 2026-10-21
 - 0121.10.2026
+OpenAI découvre une faille critique dans PHP (php2shell)
+Dans le cadre de son initiative Patch the Planet, OpenAI affirme que ses modèles ont aidé à détecter une vulnérabilité majeure dans PHP, langage qui fait tourner environ 70% des sites web. Une coalition de mainteneurs et d'éditeurs de sécurité a préparé correctifs et mitigations avant la divulgation publique.
+Source : @OpenAI · openai · recherche · politique-ia
+- 0221.10.2026
+Anthropic lance Claude Duet en aperçu
+Anthropic ouvre une preview de Claude Duet, une appli où Claude agit comme agent proactif : il signale ce qui demande attention, exécute des tâches, continue à travailler en votre absence et vous consulte avant d'agir en votre nom.
+Source : @claudeai · anthropic · agents · produit
+- 0321.10.2026
+Les modèles d'OpenAI arrivent sur Google Cloud
+OpenAI intègre ses modèles de pointe et ses workflows agentiques Codex au Model Garden de Google Cloud, pour que les entreprises puissent les utiliser dans leur environnement existant.
+Source : @OpenAI · openai · google · produit
+- 0421.10.2026
 Google lance Gemini 4 Argon et revendique une demande massive
 Google annonce que son nouveau modèle Gemini 4 Argon a traité environ 25 000 milliards de tokens dans ses 72 premières heures. Le lancement illustre un retour en force de Google sur le terrain des grands modèles.
 Source : @OfficialLoganK · google · modeles · produit
-- 0221.10.2026
-Dario Amodei défend la stratégie de sécurité d'Anthropic
-Le PDG d'Anthropic répond en détail aux critiques sur ses choix de sécurité, en défendant sa stratégie de « course vers le haut » et en listant des décisions coûteuses commercialement (garde-fous bio, contrôles export, soutien à la régulation SB53).
-Source : @DarioAmodei · anthropic · politique-ia
-- 0320.10.2026
-Mistral présente Voxtral 3 et une API d'agents vocaux
-Mistral dévoile Voxtral 3, une suite de modèles de transcription et de synthèse vocale qui alimente une nouvelle API d'agents vocaux. Les modèles gèrent la diarisation et la détection de fin de tour, et peuvent tourner sur sa propre infrastructure ou celle du client.
-Source : @MistralAI · mistral · produit · service-client · automatisation
-- 0420.10.2026
-Perplexity Computer fonctionne entièrement en local sur Mac
-Perplexity permet désormais d'exécuter son agent Computer entièrement en local sur Mac : le modèle et l'agent tournent sur la machine, sans envoyer de données sensibles vers le cloud, et même sans connexion.
-Source : @perplexity_ai · produit · agents
-- 0520.10.2026
-DeepSeek ouvre son framework d'inférence DeepInfer
-DeepSeek publie en open source DeepInfer, son moteur d'inférence maison qui fait tourner DeepSeek-V4.1-Flash à grande échelle. L'objectif affiché est de réduire les coûts de calcul et la consommation d'énergie pour la communauté.
-Source : @deepseek_ai · open-source · modeles
-- 0620.10.2026
-OpenAI rachète Orchestra Bio pour accélérer la R&D pharmaceutique
-OpenAI acquiert Orchestra Bio, une plateforme qui coordonne le développement de médicaments, afin de la combiner à ses outils pour les sciences de la vie (Rosalind) et d'aider les nouveaux traitements à arriver plus vite.
-Source : @OpenAI · openai · recherche
+- 0521.10.2026
+Claude Duet permet de créer une boutique Shopify dans le chat
+Selon Harley Finkelstein, Claude Duet permet de passer d'une idée à une boutique Shopify directement dans la conversation, puis d'aider à la gérer. Un cas d'usage potentiellement intéressant pour les nouveaux entrepreneurs.
+Source : @harleyf · anthropic · agents · commerce · shopify
+- 0621.10.2026
+Shopify appelle à sécuriser les apps après la faille
+Face à la vague de vulnérabilités, Shopify a publié les étapes à suivre pour sécuriser les applications et préserver la confiance des marchands. Un rappel concret pour tout commerçant utilisant des apps tierces.
+Source : @ShopifyDevs · produit · commerce · shopify
 Follow Le Radar iA on Telegram ↗
 A selection from the daily watch. Follow the source links for context.
 02 / AI news in audio
