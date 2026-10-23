@@ -2,7 +2,7 @@
 (() => {
  const blue=[29,78,216],ink=[23,39,71],muted=[83,101,129],green=[0,137,57],red=[207,0,51];
  function create(sections, generatedAt=new Date()) {
-  if(!window.jspdf?.jsPDF || !window.GYMA_PDF_ASSETS) throw new Error('Le module PDF n’est pas chargé. Rechargez la page puis réessayez.');
+  if(!window.jspdf?.jsPDF || !window.GYMA_PDF_ASSETS) throw new Error('Le module PDF n’est pas chargé. Recharge la page puis réessaie.');
   const doc=new window.jspdf.jsPDF({unit:'mm',format:'a4',compress:true,putOnlyUsedFonts:true});
   doc.addFileToVFS('DejaVuSans.ttf',window.GYMA_PDF_ASSETS.font);
   doc.addFont('DejaVuSans.ttf','DejaVu','normal');doc.setFont('DejaVu','normal');
@@ -18,7 +18,7 @@
     doc.setFontSize(10);doc.setTextColor(...muted);doc.text('Cadrage du projet IA · GYMA',left,y);y+=7;
     doc.setFontSize(8.5);doc.text('Préparé le '+generatedAt.toLocaleString('fr-FR',{timeZone:'Europe/Paris'})+' (Paris)',left,y);y+=7;
     doc.text('Destinataire : Hugo · HL Consulting',left,y);y+=8;
-    doc.setFontSize(9);doc.text('Rubriques complètes : '+sections.filter(s=>s.fields.every(f=>f.value.trim())).length+' / '+sections.length+' · Réponses à confirmer lors de l’audit.',left,y);y+=13;}
+    doc.setFontSize(9);doc.text('Rubriques complètes : '+sections.filter(s=>s.fields.every(f=>f.value.trim())).length+' / '+sections.length+' · Points à préciser ensemble.',left,y);y+=13;}
   }
   function ensure(h){if(y+h>bottom){doc.addPage();header();}}
   function textBlock(value,size=10.5,color=ink,spacing=5.5){
