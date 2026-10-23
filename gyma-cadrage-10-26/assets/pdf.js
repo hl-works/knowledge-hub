@@ -18,7 +18,7 @@
     doc.setFontSize(10);doc.setTextColor(...muted);doc.text('Cadrage du projet IA · GYMA',left,y);y+=7;
     doc.setFontSize(8.5);doc.text('Préparé le '+generatedAt.toLocaleString('fr-FR',{timeZone:'Europe/Paris'})+' (Paris)',left,y);y+=7;
     doc.text('Destinataire : Hugo · HL Consulting',left,y);y+=8;
-    doc.setFontSize(9);doc.text('Réponses déclaratives à confirmer lors de l’audit.',left,y);y+=13;}
+    doc.setFontSize(9);doc.text('Rubriques complètes : '+sections.filter(s=>s.fields.every(f=>f.value.trim())).length+' / '+sections.length+' · Réponses à confirmer lors de l’audit.',left,y);y+=13;}
   }
   function ensure(h){if(y+h>bottom){doc.addPage();header();}}
   function textBlock(value,size=10.5,color=ink,spacing=5.5){
@@ -35,7 +35,7 @@
    doc.setTextColor(...blue);doc.setFontSize(13);heading.forEach(line=>{doc.text(line,left,y);y+=6;});y+=3;
    for(const field of section.fields){
     if(section.fields.length>1){ensure(18);textBlock(field.label,9,muted,5);}
-    textBlock(field.value);y+=4;
+    textBlock(field.value.trim() || 'À compléter',10.5,field.value.trim()?ink:muted);y+=4;
    }
    y+=6;
   }

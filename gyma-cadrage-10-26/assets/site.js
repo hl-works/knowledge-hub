@@ -14,15 +14,13 @@ if(form){
  const pct=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:1,minimumFractionDigits:1}).format(n)+' %';
  const presets={cloud:[135000,65000],local:[190000,75000],hybrid:[165000,82000]};
  function update(){
-  if(!form.checkValidity()){el('calc-error').hidden=false;el('calc-error').textContent='Corrigez les valeurs hors limites ou manquantes pour recalculer.';['tco','benefits','roi'].forEach(id=>el(id).textContent='—');el('payback').textContent='Calcul suspendu.';el('annual-gain').textContent='';el('sensitivity').textContent='Renseignez des hypothèses valides.';return;}
-  el('calc-error').hidden=true;
-  const I=+el('initial').value,A=+el('annual').value,H=+el('hours').value,R=+el('rate').value,Q=+el('adoption').value/100,O=+el('other').value,F=+el('ramp').value/100;
-  const G=H*12*R*Q+O,C=I+3*A,B=G*(F+2),N1=G*F-A,N=G-A;
-  el('tco').textContent=euro(C);el('benefits').textContent=euro(B);el('roi').textContent=C>0?pct((B-C)/C*100):'Non défini';
-  el('annual-gain').textContent='Gain annuel à régime établi : '+euro(G)+'.';
-  let months=I===0&&N1>=0?0:N1>0&&N1>=I?12*I/N1:N>0?12*(1+(I-N1)/N):Infinity;
-  el('payback').textContent=Number.isFinite(months)?(months===0?'Investissement nul ; solde non négatif dès le départ.':'Équilibre estimé après '+Math.ceil(months)+' mois'+(months>36?', hors horizon de 36 mois.':'.')):'Équilibre non atteint avec ces hypothèses.';
-  el('sensitivity').textContent=C>0?['Gains −30 % : '+pct((B*.7-C)/C*100),'Base : '+pct((B-C)/C*100),'Gains +30 % : '+pct((B*1.3-C)/C*100)].join(' · '):'ROI non défini lorsque le coût total est nul.';
+  const valid=form.checkValidity();el('calc-error').hidden=valid;
+  if(!valid){el('calc-error').textContent='Corrigez les valeurs hors limites ou manquantes pour recalculer.';el('tco').textContent='—';el('gain-target').textContent='—';el('roi-estimate').hidden=true;return;}
+  const I=+el('initial').value,A=+el('annual').value,F=+el('ramp').value/100,C=I+3*A;
+  el('tco').textContent=euro(C);el('gain-target').textContent=euro(C/(2+F))+' / an';
+  el('target-explanation').textContent='Gains annuels nécessaires à régime établi, avec '+el('ramp').value+' % des gains en année 1. Ce seuil ne prédit pas les gains de GYMA.';
+  const filled=el('observed-gain').value.trim()!=='';el('roi-estimate').hidden=!filled;
+  if(filled){const G=+el('observed-gain').value,B=G*(2+F);el('roi').textContent=C>0?pct((B-C)/C*100):'Non défini';el('roi-detail').textContent='Avec votre estimation de '+euro(G)+' par an, les gains cumulés sur 36 mois sont de '+euro(B)+'. Résultat fondé sur cette saisie, à valider par les pilotes.';}
  }
  el('scenario').addEventListener('change',()=>{const p=presets[el('scenario').value];el('initial').value=p[0];el('annual').value=p[1];update();});
  form.addEventListener('input',update);form.addEventListener('submit',e=>e.preventDefault());form.addEventListener('reset',()=>setTimeout(update,0));update();
