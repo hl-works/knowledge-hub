@@ -1,0 +1,52 @@
+HL CONSULTING × GYMA — DOSSIER DE CADRAGE, OCTOBRE 2026
+
+ADRESSE DE PUBLICATION
+https://hl-consulting.tech/gyma-cadrage-10-26/
+Accès libre sans connexion. Les réponses ne sont pas envoyées au serveur.
+
+LECTURE LOCALE
+Extraire le ZIP puis ouvrir index.html. Tous les fichiers utiles sont inclus.
+
+PAGES
+index.html : accueil de Pierre et questionnaire en huit rubriques.
+ia-quotidien.html : ChatGPT, Claude, Mistral ; usages et tarifs sourcés ; calcul par taille d’équipe.
+projets.html : six projets, livrables, prérequis, délais, budgets indicatifs et preuves attendues.
+vision.html : opportunités et niveaux de maturité.
+savoir-faire.html : cartographie et agent d’interview supervisé.
+usages.html : fabrication, R&D, qualité, service client, facturation.
+architectures.html : cloud privé UE, sur site, hybride et protection.
+organisation.html : HL, externe, interne, mixte et prérequis.
+couts.html : scénarios sur 36 mois et simulateur de ROI.
+roadmap.html : étapes et points de décision.
+sources.html : provenance, références et limites.
+dossier.html : version intégrale avec feuille d’impression A4.
+
+QUESTIONNAIRE PDF
+Pierre remplit les 13 champs répartis en huit rubriques, puis télécharge Reponses_Pierre_GYMA.pdf.
+Il peut écrire « À confirmer » ou « À décider ». Il renvoie lui-même ce PDF à Hugo.
+Le PDF est créé dans le navigateur. Aucun email n’est envoyé depuis le site.
+La conservation du brouillon dans le navigateur est facultative et révocable.
+
+IMPRESSION DU DOSSIER
+Ouvrir dossier.html puis Imprimer / PDF. Choisir A4 portrait, échelle 100 %,
+sans en-têtes/pieds de page du navigateur. Les détails sont développés à l’impression.
+
+COÛTS
+Prix publics des abonnements vérifiés le 23 octobre 2026, en dollars US ; conditions
+et tarifs français à confirmer à la commande. Les projets sont des hypothèses en euros HT,
+non des devis. Les devises ne sont ni converties ni additionnées dans ce dossier.
+
+PRÉSENTATION ET FICHIERS
+Corps principal : 19 px sur ordinateur, 18 px sur mobile ; blanc et bleu HL Consulting.
+Logo GYMA officiel local ; accents vert #008939 et rouge #CF0033.
+assets/site.css + assets/refinement.css : styles et impression.
+assets/site.js : navigation, impression et ROI.
+assets/subscriptions.js : calcul d’abonnements.
+assets/answers.js, pdf.js, pdf-assets.js, vendor/ : questionnaire et génération PDF locale.
+jsPDF 4.2.1 (MIT), police DejaVu Sans et licence jointes.
+ASSETS.txt décrit les sources des logos. Aucun logo officiel HL inventé.
+
+MISE À JOUR
+Les pages sont des HTML statiques. Lors d’un changement de contenu, actualiser aussi
+la version intégrale dossier.html. Les références locales sont relatives pour permettre
+la publication sous le chemin /gyma-cadrage-10-26/.
