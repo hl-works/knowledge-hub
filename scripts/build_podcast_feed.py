@@ -175,7 +175,11 @@ def build(root=ROOT, archive=False, render_covers=False):
         # not a claim about the original Telegram send time.
         published = datetime.combine(day, time(), ZoneInfo('Europe/Paris'))
         tag(item, 'pubDate', format_datetime(published))
-        tag(item, 'enclosure', url=BASE + expected, length=str(info['bytes']), type='audio/mpeg')
+        revision = track.get('audio_revision')
+        if revision and revision != info['sha256'][:16]:
+            raise ValueError('Audio revision must match the published audio checksum')
+        enclosure_url = BASE + expected + (f'?v={revision}' if revision else '')
+        tag(item, 'enclosure', url=enclosure_url, length=str(info['bytes']), type='audio/mpeg')
         tag(item, f'{{{ITUNES}}}duration', track['seconds'])
         tag(item, f'{{{ITUNES}}}explicit', 'false')
         tag(item, f'{{{ITUNES}}}episodeType', 'full')
