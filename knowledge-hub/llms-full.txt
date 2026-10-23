@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-22
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-23
 
 
 ================================================================
@@ -24,31 +24,31 @@ Une sélection de Hugo Lahutte ↗Un seul abonnement Telegram.Retrouve les trois
 S’abonner sur Telegram ↗01 / La veille quotidienne sur Telegram
 Le Radar iA.
 Toute la veille et ses sources →Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.
-Dernière sélection : 2026-10-21
-- 0121.10.2026
-OpenAI découvre une faille critique dans PHP (php2shell)
-Dans le cadre de son initiative Patch the Planet, OpenAI affirme que ses modèles ont aidé à détecter une vulnérabilité majeure dans PHP, langage qui fait tourner environ 70% des sites web. Une coalition de mainteneurs et d'éditeurs de sécurité a préparé correctifs et mitigations avant la divulgation publique.
-Source : @OpenAI · openai · recherche · politique-ia
-- 0221.10.2026
-Anthropic lance Claude Duet en aperçu
-Anthropic ouvre une preview de Claude Duet, une appli où Claude agit comme agent proactif : il signale ce qui demande attention, exécute des tâches, continue à travailler en votre absence et vous consulte avant d'agir en votre nom.
-Source : @claudeai · anthropic · agents · produit
-- 0321.10.2026
-Les modèles d'OpenAI arrivent sur Google Cloud
-OpenAI intègre ses modèles de pointe et ses workflows agentiques Codex au Model Garden de Google Cloud, pour que les entreprises puissent les utiliser dans leur environnement existant.
-Source : @OpenAI · openai · google · produit
-- 0421.10.2026
-Google lance Gemini 4 Argon et revendique une demande massive
-Google annonce que son nouveau modèle Gemini 4 Argon a traité environ 25 000 milliards de tokens dans ses 72 premières heures. Le lancement illustre un retour en force de Google sur le terrain des grands modèles.
-Source : @OfficialLoganK · google · modeles · produit
-- 0521.10.2026
-Claude Duet permet de créer une boutique Shopify dans le chat
-Selon Harley Finkelstein, Claude Duet permet de passer d'une idée à une boutique Shopify directement dans la conversation, puis d'aider à la gérer. Un cas d'usage potentiellement intéressant pour les nouveaux entrepreneurs.
-Source : @harleyf · anthropic · agents · commerce · shopify
-- 0621.10.2026
-Shopify appelle à sécuriser les apps après la faille
-Face à la vague de vulnérabilités, Shopify a publié les étapes à suivre pour sécuriser les applications et préserver la confiance des marchands. Un rappel concret pour tout commerçant utilisant des apps tierces.
-Source : @ShopifyDevs · produit · commerce · shopify
+Dernière sélection : 2026-10-23
+- 0123.10.2026
+Le modèle de décision de Perplexity tourne en local sur Mac
+Perplexity permet désormais d'exécuter son Decision Model entièrement en local sur Mac, sans que les données ne quittent la machine, grâce à des modèles compacts à poids ouverts.
+Source : @AravSrinivas · produit · open-source
+- 0223.10.2026
+Lancement de l'application Muse au Japon
+Alexandr Wang annonce le lancement de l'assistant Muse au Japon, désormais téléchargeable sur les boutiques d'applications. Le déploiement s'accompagne d'intégrations annoncées comme 1Password.
+Source : @alexandr_wang · produit · meta
+- 0322.10.2026
+Microsoft : son système de diagnostic médical MAI dépasse les médecins
+Microsoft annonce dans la revue Science que son système de diagnostic MAI est 1,7 fois plus précis que les médecins aux urgences, tout en réduisant le nombre d'examens et les coûts. Une avancée notable pour l'IA médicale.
+Source : @mustafasuleyman · recherche · produit
+- 0422.10.2026
+L'agent Claude Duet utilise Shop Pay
+Shopify confirme que l'agent Claude Duet peut désormais payer via Shop Pay, et ouvre cette capacité aux agents des développeurs. Un signal concret pour le commerce agentique où des IA réalisent des achats.
+Source : @ShopifyDevs · anthropic · shopify · commerce · agents
+- 0522.10.2026
+Les modèles Claude disponibles sur Google Cloud
+Anthropic rend ses modèles Claude généralement disponibles sur Google Cloud en version gérée, avec facturation et gestion des accès via l'infrastructure Google. Cela facilite l'adoption de Claude pour les entreprises déjà sur Google Cloud.
+Source : @claudeai · anthropic · google · produit
+- 0622.10.2026
+Claude passe en mode automatique par défaut
+À partir de la semaine prochaine, les sessions Claude (web, bureau, mobile) fonctionneront par défaut en mode auto pour les abonnés Pro, Max et Team : plutôt que de valider chaque étape, un contrôle automatisé bloque les actions risquées. Le mode manuel reste disponible.
+Source : @claudeai · anthropic · produit · agents
 Rejoindre Le Radar iA sur Telegram ↗
 Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.
 02 / L’actualité IA à écouter
