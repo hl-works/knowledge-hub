@@ -3,7 +3,7 @@
   "episodes": [
     {
       "date": "2026-10-23",
-      "version": "f06beca0c1149f0e",
+      "version": "ba5a1b7d78d56d81",
       "short": {
         "src": "/assets/podcast/archive/2026-10-23/short.mp3",
         "seconds": 101,
@@ -16,9 +16,14 @@
         "src": "/assets/podcast/archive/2026-10-23/full.mp3",
         "seconds": 482,
         "bytes": 9807920,
-        "sha256": "0ede41c2612a8ec64f4c43c4e0a1b66d89eecf480ce12ae38b9339c57550410f",
+        "sha256": "6cd737f2e06d6e8b422b2cb363cdd9856b8fcc2b016b55fe78954ecb073d6c5d",
         "image": "/assets/podcast/archive/2026-10-23/full-cover-v2.jpg",
-        "image_sha256": "64da8c46f10f65e8cff864a2845d2246f343689a7fdc15761f472a8d8c285d98"
+        "image_sha256": "64da8c46f10f65e8cff864a2845d2246f343689a7fdc15761f472a8d8c285d98",
+        "audio_revision": "6cd737f2e06d6e8b"
+      },
+      "revision": {
+        "reason": "Prononciation française iAstro : salutation validée du 17 réutilisée",
+        "previous_version": "f06beca0c1149f0e"
       }
     },
     {

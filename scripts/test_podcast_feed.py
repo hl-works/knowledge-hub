@@ -148,6 +148,22 @@ class PodcastFeedTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             feed.build(self.root)
 
+    def test_corrected_audio_changes_download_url_but_preserves_episode_identity(self):
+        feed.build(self.root, archive=True)
+        guid = self.xml().findtext('./channel/item/guid')
+        manifest = feed.read_json(self.folder / 'episodes.json')
+        track = manifest['episodes'][0]['full']
+        track['audio_revision'] = track['sha256'][:16]
+        feed.write_json(self.folder / 'episodes.json', manifest)
+        feed.build(self.root, archive=True)
+        self.assertEqual(self.xml().findtext('./channel/item/guid'), guid)
+        url = self.xml().find('./channel/item/enclosure').get('url')
+        self.assertTrue(url.endswith('/full.mp3?v=' + track['audio_revision']))
+        track['audio_revision'] = 'incorrect'
+        feed.write_json(self.folder / 'episodes.json', manifest)
+        with self.assertRaisesRegex(ValueError, 'revision'):
+            feed.build(self.root)
+
     def test_missing_contact_blocks_public_feed_before_archiving(self):
         show = feed.read_json(self.folder / 'show.json')
         show['email'] = None
