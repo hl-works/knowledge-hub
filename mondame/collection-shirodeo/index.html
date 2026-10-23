@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mondame — Shirodeo</title>
+<meta name="description" content="Mondame — dossier de collection, accès réservé.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0C0C0D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../mondame.css?v=20261023a">
+<link rel="stylesheet" href="../site.css?v=20261023a">
+</head>
+<body class="fond-noir">
+<section class="sc-noir-deep">
+  <div class="pw">
+    <div class="row mono"><a href="../"><span class="red">✳</span> Mondame — Collections</a><span>Dossier de collection</span></div>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <h1 class="display d-xxl">Shirodeo</h1>
+      <p style="max-width:520px;color:var(--soft)">Accès réservé. Le dossier complet de la collection s’ouvre avec le mot de passe transmis par Mondame.</p>
+    </div>
+    <div class="pw-forms">
+      <form data-gate autocomplete="off">
+        <label class="mono muted" for="pw">Accès réservé</label>
+        <div class="field"><input id="pw" type="password" name="password" placeholder="Mot de passe" required autofocus><button type="submit" aria-label="Entrer">→</button></div>
+        <div class="mono pw-msg" data-gate-msg aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<script src="../unlock.js?v=20261023a" defer></script>
+</body>
+</html>
