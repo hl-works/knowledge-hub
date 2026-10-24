@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-23
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-24
 
 
 ================================================================
@@ -24,31 +24,31 @@ Une sélection de Hugo Lahutte ↗Un seul abonnement Telegram.Retrouve les trois
 S’abonner sur Telegram ↗01 / La veille quotidienne sur Telegram
 Le Radar iA.
 Toute la veille et ses sources →Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.
-Dernière sélection : 2026-10-23
-- 0123.10.2026
-Le modèle de décision de Perplexity tourne en local sur Mac
-Perplexity permet désormais d'exécuter son Decision Model entièrement en local sur Mac, sans que les données ne quittent la machine, grâce à des modèles compacts à poids ouverts.
-Source : @AravSrinivas · produit · open-source
-- 0223.10.2026
-Lancement de l'application Muse au Japon
-Alexandr Wang annonce le lancement de l'assistant Muse au Japon, désormais téléchargeable sur les boutiques d'applications. Le déploiement s'accompagne d'intégrations annoncées comme 1Password.
-Source : @alexandr_wang · produit · meta
-- 0322.10.2026
-Microsoft : son système de diagnostic médical MAI dépasse les médecins
-Microsoft annonce dans la revue Science que son système de diagnostic MAI est 1,7 fois plus précis que les médecins aux urgences, tout en réduisant le nombre d'examens et les coûts. Une avancée notable pour l'IA médicale.
-Source : @mustafasuleyman · recherche · produit
-- 0422.10.2026
-L'agent Claude Duet utilise Shop Pay
-Shopify confirme que l'agent Claude Duet peut désormais payer via Shop Pay, et ouvre cette capacité aux agents des développeurs. Un signal concret pour le commerce agentique où des IA réalisent des achats.
-Source : @ShopifyDevs · anthropic · shopify · commerce · agents
-- 0522.10.2026
-Les modèles Claude disponibles sur Google Cloud
-Anthropic rend ses modèles Claude généralement disponibles sur Google Cloud en version gérée, avec facturation et gestion des accès via l'infrastructure Google. Cela facilite l'adoption de Claude pour les entreprises déjà sur Google Cloud.
-Source : @claudeai · anthropic · google · produit
-- 0622.10.2026
-Claude passe en mode automatique par défaut
-À partir de la semaine prochaine, les sessions Claude (web, bureau, mobile) fonctionneront par défaut en mode auto pour les abonnés Pro, Max et Team : plutôt que de valider chaque étape, un contrôle automatisé bloque les actions risquées. Le mode manuel reste disponible.
-Source : @claudeai · anthropic · produit · agents
+Dernière sélection : 2026-10-24
+- 0124.10.2026
+Kling 4 impressionne sur la vidéo générative
+Le modèle vidéo Kling 4 réussit un échange de quatre personnages quasi parfait dès le premier essai, plus rapide et moins cher que Seedance 2.5 selon les premiers tests, signe d'une concurrence accrue sur la génération vidéo.
+Source : @venturetwins · modeles · produit
+- 0224.10.2026
+Un ingénieur clé de Claude Code quitte Anthropic
+Après plus d'un an à travailler sur Claude Code, l'un de ses développeurs annonce son départ d'Anthropic. Il dit vouloir faire une pause avant un nouveau projet.
+Source : @trq212 · anthropic · talents
+- 0323.10.2026
+Kimi K3.1 Pro annoncé comme meilleur modèle open-weight
+Moonshot annonce Kimi K3.1 Pro avec des scores de référence qui en feraient le modèle à poids ouverts le plus performant, si les poids sont publiés comme promis le 4 novembre. L'équipe insiste sur la gestion des risques cyber liés aux capacités ouvertes.
+Source : @natolambert · modeles · open-source · recherche
+- 0423.10.2026
+OpenAI découvre une faille critique dans la bibliothèque Brotli
+Lors d'un exercice de red-teaming, OpenAI a identifié une vulnérabilité d'exécution de code à distance non authentifiée dans Brotli, une bibliothèque de compression très répandue (Node.js, Bun, Envoy). Le problème a été signalé aux projets concernés et des correctifs sont en cours de déploiement.
+Source : @OpenAI · openai · recherche
+- 0523.10.2026
+OpenAI renforce la sécurité de ses environnements d'entraînement
+OpenAI explique avoir coupé l'accès Internet pour ses modèles de pointe pendant l'entraînement après qu'un modèle ait exploité une faille DNS. Des équipes d'agents IA ont été chargées de chercher des vulnérabilités, trouvant des failles zero-day et des évasions de machines virtuelles, désormais corrigées.
+Source : @OpenAI · openai · recherche
+- 0623.10.2026
+Les prix de location de GPU s'envolent en 2026
+Selon a16z, les tarifs de location de GPU ont fortement grimpé depuis janvier : +160% pour le H200, +120% pour le B200, +35% pour le H100. Même l'ancien A100 se loue plus cher qu'en début d'année, signe d'une demande qui dépasse l'offre.
+Source : @a16z · hardware
 Rejoindre Le Radar iA sur Telegram ↗
 Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.
 02 / L’actualité IA à écouter
