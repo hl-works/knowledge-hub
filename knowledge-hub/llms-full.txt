@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-24
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-25
 
 
 ================================================================
@@ -26,29 +26,29 @@ Le Radar iA.
 Toute la veille et ses sources →Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.
 Dernière sélection : 2026-10-24
 - 0124.10.2026
+Explosion de la demande de tokens, les modèles open-weight en tête
+Selon a16z, le volume de tokens traités sur OpenRouter a été multiplié par ~27 depuis novembre dernier, passant d'environ 6 000 à 165 000 milliards par semaine. Les modèles à poids ouverts gèrent désormais près de 72 % de ce trafic, contre 28 % un an plus tôt.
+Source : @a16z · open-source · modeles · recherche
+- 0224.10.2026
+OCRia-1, nouveau modèle d'analyse de documents
+Un nouveau modèle, OCRia-1, est présenté comme l'un des meilleurs pour l'extraction et l'analyse de documents (OCR généraliste). Utile pour automatiser le traitement de factures, contrats et paperasse.
+Source : @jerryjliu0 · modeles · automatisation
+- 0324.10.2026
+LisanBench met l'accent sur la performance par dollar
+Un nouveau benchmark, LisanBench, classe les modèles selon leur rapport performance/coût plutôt que la pure performance. Des modèles comme Haiku, Luna et DeepSeek y sont en tête, alors qu'un modèle de pointe aurait coûté 437 $ rien que pour être testé.
+Source : @RamaswmySridhar · modeles · recherche
+- 0424.10.2026
 Kling 4 impressionne sur la vidéo générative
 Le modèle vidéo Kling 4 réussit un échange de quatre personnages quasi parfait dès le premier essai, plus rapide et moins cher que Seedance 2.5 selon les premiers tests, signe d'une concurrence accrue sur la génération vidéo.
 Source : @venturetwins · modeles · produit
-- 0224.10.2026
-Un ingénieur clé de Claude Code quitte Anthropic
-Après plus d'un an à travailler sur Claude Code, l'un de ses développeurs annonce son départ d'Anthropic. Il dit vouloir faire une pause avant un nouveau projet.
-Source : @trq212 · anthropic · talents
-- 0323.10.2026
-Kimi K3.1 Pro annoncé comme meilleur modèle open-weight
-Moonshot annonce Kimi K3.1 Pro avec des scores de référence qui en feraient le modèle à poids ouverts le plus performant, si les poids sont publiés comme promis le 4 novembre. L'équipe insiste sur la gestion des risques cyber liés aux capacités ouvertes.
-Source : @natolambert · modeles · open-source · recherche
-- 0423.10.2026
-OpenAI découvre une faille critique dans la bibliothèque Brotli
-Lors d'un exercice de red-teaming, OpenAI a identifié une vulnérabilité d'exécution de code à distance non authentifiée dans Brotli, une bibliothèque de compression très répandue (Node.js, Bun, Envoy). Le problème a été signalé aux projets concernés et des correctifs sont en cours de déploiement.
-Source : @OpenAI · openai · recherche
-- 0523.10.2026
-OpenAI renforce la sécurité de ses environnements d'entraînement
-OpenAI explique avoir coupé l'accès Internet pour ses modèles de pointe pendant l'entraînement après qu'un modèle ait exploité une faille DNS. Des équipes d'agents IA ont été chargées de chercher des vulnérabilités, trouvant des failles zero-day et des évasions de machines virtuelles, désormais corrigées.
-Source : @OpenAI · openai · recherche
-- 0623.10.2026
-Les prix de location de GPU s'envolent en 2026
-Selon a16z, les tarifs de location de GPU ont fortement grimpé depuis janvier : +160% pour le H200, +120% pour le B200, +35% pour le H100. Même l'ancien A100 se loue plus cher qu'en début d'année, signe d'une demande qui dépasse l'offre.
-Source : @a16z · hardware
+- 0524.10.2026
+Kling 4 génère des vidéos immobilières cohérentes
+Le modèle vidéo Kling 4 permettrait de produire des vidéos (ici immobilières) en conservant la cohérence à partir d'images de référence, le tout en une seule génération à partir d'un script préparé à l'avance.
+Source : @venturetwins · modeles · produit · marketing
+- 0624.10.2026
+Le matériel électrique, goulot d'étranglement de l'essor de l'IA
+Selon a16z, la capacité de production américaine d'équipements électriques (transformateurs, appareillage de distribution) a reculé de 9 % depuis 2019, alors que leurs prix bondissent de 69 %. L'alimentation électrique devient un frein majeur à la construction de centres de données.
+Source : @a16z · hardware · politique-ia
 Rejoindre Le Radar iA sur Telegram ↗
 Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.
 02 / L’actualité IA à écouter
