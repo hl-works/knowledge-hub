@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-26
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-27
 
 
 ================================================================
@@ -24,31 +24,31 @@ Une sélection de Hugo Lahutte ↗Un seul abonnement Telegram.Retrouve les trois
 S’abonner sur Telegram ↗01 / La veille quotidienne sur Telegram
 Le Radar iA.
 Toute la veille et ses sources →Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.
-Dernière sélection : 2026-10-25
-- 0125.10.2026
-OCRia-1 : un modèle SOTA pour l'extraction de documents
-LlamaIndex publie un rapport technique de 37 pages sur OCRia-1, son modèle de parsing de documents présenté comme état de l'art. Il revendique de meilleurs résultats que plusieurs modèles OCR open-weight majeurs et un décodage 2 à 4 fois plus rapide.
-Source : @jerryjliu0 · modeles · recherche · open-source · automatisation
-- 0225.10.2026
-HeyGen HyperFrames : générer une vidéo MP4 à partir d'une description
-La compétence HyperFrames de HeyGen arrive sur la marketplace de Perplexity Computer : elle transforme la description d'une vidéo en fichier MP4 fini, chaque scène étant du HTML facile à modifier. Les tâches associées sont gratuites jusqu'au 31 octobre dans une certaine limite de crédits.
-Source : @AskPerplexity · produit · marketing · automatisation
-- 0325.10.2026
-Interconnects : débat sur Kimi K3.1 et la sécurité des modèles ouverts
-Le podcast Interconnects revient sur une semaine agitée : la réception mitigée de Kimi K3.1 Pro malgré d'excellents benchmarks, les risques de cybersécurité liés aux modèles en poids ouverts, et la décision d'Anthropic de ne plus recruter de profils juniors.
-Source : @natolambert · modeles · open-source · politique-ia · anthropic
-- 0425.10.2026
-Claude Opus 5.5 pour générer des sites web distinctifs
-Ethan Mollick note une nette progression entre Opus 4.8 et Opus 5.5 : la génération d'un site statique au design distinctif, qui demandait auparavant beaucoup de retouches, est désormais largement réalisée par le modèle seul.
-Source : @emollick · anthropic · modeles · produit · no-code
-- 0525.10.2026
-Beeble SwitchX 2 : remplacement d'arrière-plan et relighting vidéo
-Un nouveau modèle, Beeble SwitchX 2, permet de remplacer l'arrière-plan et de réajuster l'éclairage d'une vidéo avec un rendu jugé très convaincant, y compris sur des scènes complexes à plusieurs personnages.
-Source : @venturetwins · modeles · produit · marketing
-- 0624.10.2026
-Explosion de la demande de tokens, les modèles open-weight en tête
-Selon a16z, le volume de tokens traités sur OpenRouter a été multiplié par ~27 depuis novembre dernier, passant d'environ 6 000 à 165 000 milliards par semaine. Les modèles à poids ouverts gèrent désormais près de 72 % de ce trafic, contre 28 % un an plus tôt.
-Source : @a16z · open-source · modeles · recherche
+Dernière sélection : 2026-10-26
+- 0126.10.2026
+OpenAI lance GPT-6.1 Terra, centré sur l'usage d'ordinateur
+OpenAI présente GPT-6.1 Terra, un modèle plus rapide et moins cher capable de comprendre un écran et d'agir dans les applications pour exécuter des tâches de bureau. L'entreprise met l'accent sur une utilisation autonome de l'ordinateur qui se rapproche du niveau humain en vitesse.
+Source : @OpenAI · openai · modeles · agents · automatisation
+- 0226.10.2026
+Anthropic dépose son dossier d'introduction en Bourse (S-1)
+Anthropic a déposé un formulaire S-1 auprès de la SEC en vue d'une entrée en Bourse au Nasdaq sous le symbole « ANT ». Le document révèle des chiffres inédits (forte croissance du revenu, rétention élevée) mais soulève aussi des débats, notamment l'absence des données du 3e trimestre.
+Source : @AnthropicAI · anthropic · politique-ia
+- 0326.10.2026
+OpenAI annonce trois découvertes scientifiques assistées par IA
+OpenAI revendique des avancées dans trois domaines : analyse harmonique en mathématiques, théorie de la complexité en informatique et théorie quantique des champs en physique. L'entreprise présente cela comme un signe que l'IA commence à aider la recherche fondamentale.
+Source : @gdb · openai · recherche
+- 0426.10.2026
+Cursor publie son Agent SDK
+Cursor met à disposition un SDK permettant de définir des agents sous forme de code, avec des prompts en Markdown et des outils en TypeScript. Il offre des évaluations intégrées et un déploiement sur infrastructure hébergée ou propre.
+Source : @cursor_ai · produit · agents · automatisation
+- 0526.10.2026
+Shopify avance sur la catégorisation automatique des produits
+Les équipes d'ingénierie de Shopify présentent des travaux visant à résoudre la catégorisation des produits, une étape jugée utile pour accélérer le commerce et faciliter la vie des marchands et des acheteurs.
+Source : @jessicarhertz · produit · commerce · shopify
+- 0626.10.2026
+Anthropic élargit Claude pour les associations
+Anthropic indique que plus de 25 000 organisations à but non lucratif utilisent désormais Claude et déploie un plugin dédié, co-conçu avec une trentaine d'entre elles, pour la collecte de fonds, le marketing et le recrutement.
+Source : @claudeai · anthropic · produit · marketing
 Rejoindre Le Radar iA sur Telegram ↗
 Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.
 02 / L’actualité IA à écouter
