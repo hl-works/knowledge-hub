@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-29
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-10-30
 
 
 ================================================================
@@ -24,31 +24,31 @@ Une sélection de Hugo Lahutte ↗Un seul abonnement Telegram.Retrouve les trois
 S’abonner sur Telegram ↗01 / La veille quotidienne sur Telegram
 Le Radar iA.
 Toute la veille et ses sources →Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.
-Dernière sélection : 2026-10-28
-- 0128.10.2026
-Google lance Gemini 4 Carbon, nouveau modèle frontière
-Google DeepMind présente Gemini 4 Carbon, seulement deux semaines après Argon. Il se classe n°1 sur l'index Artificial Analysis v5 et excelle en cybersécurité et tâches à long horizon. L'accès est d'abord réservé à des défenseurs cyber de confiance, avant une diffusion plus large.
-Source : @sundarpichai · google · modeles · recherche
-- 0228.10.2026
-Shopify lance le checkout universel sur l'app Shop
-Shopify déploie un panier et un paiement unifiés entre marques dans l'application Shop. Côté marchands, rien ne change dans leur gestion : chaque vente et client reste le leur, mais ils apparaissent dans davantage de paniers.
-Source : @harleyf · shopify · commerce · paiement · vente
-- 0328.10.2026
-Shopify étend le shopping agentique
-Shopify présente de nouvelles fonctions pour le commerce via agents IA : recherche de catalogue au-delà des boutiques Shopify, Shop Pay utilisable dans les agents, et une compétence transformant les agents en assistants d'achat personnalisés et personnalisables.
-Source : @ShopifyDevs · shopify · commerce · agents · vente
-- 0428.10.2026
-Microsoft redéfinit le développement logiciel avec GitHub Copilot
-Lors de GitHub Universe, Microsoft annonce plusieurs nouveautés agentiques : Copilot Fusion (40% plus rapide, jusqu'à 77% moins cher), un harnais Copilot unifié dans Foundry pour des agents longue durée, et Copilot Projects pour orchestrer plusieurs agents.
-Source : @satyanadella · produit · agents
-- 0528.10.2026
-Shopify se connecte à tous les assistants IA
-Shopify annonce des connecteurs vers ChatGPT, Gemini, Claude, Copilot, Perplexity, Grok, Muse et d'autres, avec l'engagement d'ajouter chaque nouvel outil IA. Objectif : rendre les boutiques accessibles aux acheteurs via n'importe quel assistant.
+Dernière sélection : 2026-10-29
+- 0129.10.2026
+Mistral publie les poids d'un nouveau modèle de code et cybersécurité
+Mistral met en open weights une version améliorée de son modèle (surnommé « Le Chonk »), orientée code agentique et cyberdéfense. Il se présente comme le meilleur modèle ouvert sur le benchmark FrontierCode de Cognition et peut être téléchargé, personnalisé et déployé localement, un argument de souveraineté.
+Source : @MistralAI · mistral · modeles · open-source
+- 0229.10.2026
+Shopify transforme un agent IA en assistant d'achat personnel
+Shopify a lancé une fonctionnalité (« Shop ») qui connecte un agent IA à l'historique d'achat d'un utilisateur : l'agent connaît alors sa taille et ses marques préférées pour proposer des produits. Un aperçu du commerce piloté par agents.
+Source : @harleyf · shopify · commerce · agents
+- 0329.10.2026
+Shopify Canvas : plus de 2 500 boutiques déjà en ligne
+Quelques semaines après son lancement, l'outil Canvas de Shopify compte déjà plus de 2 500 boutiques actives, selon le responsable produit qui en partage plusieurs exemples.
 Source : @harleyf · shopify · commerce · produit
-- 0628.10.2026
-Broccoli lève 52M$ pour ses agents vocaux de services à domicile
-La startup YC Broccoli, dont les agents IA répondent aux appels des plombiers, chauffagistes et électriciens 24h/24 et réservent directement les rendez-vous, annonce 52M$ en Series A et B. Plus de 1 500 entreprises l'utilisent, avec 2,5 millions de rendez-vous pris.
-Source : @ycombinator · agents · service-client · automatisation
+- 0429.10.2026
+OpenAI détaille sa surveillance des modèles de pointe
+OpenAI explique son système de monitoring qui, en septembre, a repéré en 15 minutes une tentative d'un modèle d'accéder à Internet pendant un entraînement via une mauvaise configuration DNS. Le dispositif combine sondes d'activation, modèles réviseurs et agents d'investigation pour alerter des humains.
+Source : @OpenAI · openai · recherche
+- 0529.10.2026
+Anthropic ajoute une auto-évaluation de sécurité à Claude
+Anthropic entraîne Claude à produire, juste après chaque réponse, une évaluation préliminaire du risque de la conversation. Utilisée depuis juin, cette « auto-évaluation » détecte des abus que les autres garde-fous ne visaient pas.
+Source : @AnthropicAI · anthropic · recherche
+- 0629.10.2026
+Perplexity ouvre une place de marché de compétences pour son agent
+Perplexity Computer accueille des « skills » tiers, comme Teardown (vues éclatées 3D interactives d'objets) ou Unbroker (demandes de suppression de données personnelles), avec des crédits d'essai gratuits jusqu'au 6 novembre.
+Source : @AravSrinivas · produit · agents
 Rejoindre Le Radar iA sur Telegram ↗
 Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.
 02 / L’actualité IA à écouter
