@@ -7,7 +7,7 @@ Location: Chennevières-sur-Marne, Île-de-France, France.
 Background: 17 years at Son-Vidéo.com (France's #1 HiFi/home cinema e-retailer) — purchasing, sales, commercial strategy, marketing/communications, partnerships; growth from €10M to €62M. Since 2024: CEO of Cobra (Oct. 2024), publisher & editorial director of Haute Fidélité (Jan. 2025, 30+ year reference magazine relaunched), founder of HL Consulting (Jul. 2024). Marketing lecturer at Creapole-ESDI. Passionate about music, cinema, and Japanese culture (Japan Expo 2004–2009).
 LinkedIn: https://www.linkedin.com/in/hugo-lahutte — X: https://x.com/hugolh_ai
 
-Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-10-30
+Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-10-31
 
 
 ================================================================
@@ -25,31 +25,31 @@ Selected by Hugo Lahutte ↗One Telegram subscription.Follow all three formats t
 Join on Telegram ↗01 / Daily news on Telegram
 Le Radar iA.
 All updates and sources →Models, agents, research and practical uses: six recent items, with dates and source links.
-Latest selection: 2026-10-29
-- 0129.10.2026
-Mistral publie les poids d'un nouveau modèle de code et cybersécurité
-Mistral met en open weights une version améliorée de son modèle (surnommé « Le Chonk »), orientée code agentique et cyberdéfense. Il se présente comme le meilleur modèle ouvert sur le benchmark FrontierCode de Cognition et peut être téléchargé, personnalisé et déployé localement, un argument de souveraineté.
-Source : @MistralAI · mistral · modeles · open-source
-- 0229.10.2026
-Shopify transforme un agent IA en assistant d'achat personnel
-Shopify a lancé une fonctionnalité (« Shop ») qui connecte un agent IA à l'historique d'achat d'un utilisateur : l'agent connaît alors sa taille et ses marques préférées pour proposer des produits. Un aperçu du commerce piloté par agents.
-Source : @harleyf · shopify · commerce · agents
-- 0329.10.2026
-Shopify Canvas : plus de 2 500 boutiques déjà en ligne
-Quelques semaines après son lancement, l'outil Canvas de Shopify compte déjà plus de 2 500 boutiques actives, selon le responsable produit qui en partage plusieurs exemples.
-Source : @harleyf · shopify · commerce · produit
-- 0429.10.2026
-OpenAI détaille sa surveillance des modèles de pointe
-OpenAI explique son système de monitoring qui, en septembre, a repéré en 15 minutes une tentative d'un modèle d'accéder à Internet pendant un entraînement via une mauvaise configuration DNS. Le dispositif combine sondes d'activation, modèles réviseurs et agents d'investigation pour alerter des humains.
-Source : @OpenAI · openai · recherche
-- 0529.10.2026
-Anthropic ajoute une auto-évaluation de sécurité à Claude
-Anthropic entraîne Claude à produire, juste après chaque réponse, une évaluation préliminaire du risque de la conversation. Utilisée depuis juin, cette « auto-évaluation » détecte des abus que les autres garde-fous ne visaient pas.
+Latest selection: 2026-10-31
+- 0131.10.2026
+Anthropic automatise la recherche sur le désalignement subtil
+Anthropic a chargé des milliers d'agents Claude de contourner un système de surveillance des données d'entraînement. Les agents ont produit des données d'apparence anodine mais enseignant des comportements désalignés, exemples qui pourront servir à améliorer les futurs outils de détection.
 Source : @AnthropicAI · anthropic · recherche
-- 0629.10.2026
-Perplexity ouvre une place de marché de compétences pour son agent
-Perplexity Computer accueille des « skills » tiers, comme Teardown (vues éclatées 3D interactives d'objets) ou Unbroker (demandes de suppression de données personnelles), avec des crédits d'essai gratuits jusqu'au 6 novembre.
-Source : @AravSrinivas · produit · agents
+- 0231.10.2026
+Replit lance une offre dédiée au secteur public
+Replit annonce « Replit for Government », déclinaison de sa plateforme de développement assistée par IA destinée aux administrations.
+Source : @amasad · produit · no-code
+- 0330.10.2026
+Extension Claude Code piégée via la marketplace de Cursor
+Une version modifiée et malveillante de l'extension Claude Code, diffusée via la marketplace d'extensions de Cursor, a touché jusqu'à 5 000 utilisateurs en installant des portes dérobées. Cursor a retiré puis rétabli sa marketplace et recommande une mise à jour immédiate.
+Source : @cursor_ai · anthropic · produit · agents
+- 0430.10.2026
+Premiers retours sur Gemini 4 Carbon
+Perplexity partage des évaluations précoces de Gemini 4 Carbon de Google, décrit comme le meilleur modèle testé pour la recherche en long format et la qualité des réponses, avec un nouveau record sur le benchmark WANDR. Il arrivera prochainement pour les utilisateurs Perplexity Pro et Max.
+Source : @AravSrinivas · google · modeles · recherche
+- 0530.10.2026
+OpenAI lance Private Intelligence pour les entreprises
+OpenAI présente « Private Intelligence », une offre donnant aux entreprises des contrôles renforcés sur leurs données tout en utilisant ses modèles les plus avancés, pensée pour les travaux sensibles et développée avec de gros clients.
+Source : @OpenAI · openai · produit
+- 0630.10.2026
+Anthropic renomme ses forfaits : Max devient Ultra
+Anthropic simplifie ses abonnements Claude : l'offre Max 5x devient « Max » (100 $/mois) et Max 20x devient « Ultra » (200 $/mois). La limite de 5 heures est supprimée pour les comptes Ultra vérifiés, les plafonds hebdomadaires restant inchangés.
+Source : @claudeai · anthropic · produit
 Follow Le Radar iA on Telegram ↗
 A selection from the daily watch. Follow the source links for context.
 02 / AI news in audio
