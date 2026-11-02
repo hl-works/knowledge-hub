@@ -18,7 +18,7 @@ if (toggle && menu) {
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.classList.contains('is-open')) closeMenu(true); });
   document.addEventListener('click', event => { if (!event.target.closest('.site-header')) closeMenu(); });
   document.addEventListener('focusin', event => { if (!event.target.closest('.site-header')) closeMenu(); });
-  matchMedia('(min-width: 851px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+  matchMedia('(min-width: 981px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 }
 // Arithmetic only: the installer supplies all dimensions, including manufacturer clearances.
 const measureForm = document.querySelector('#measure-form');
