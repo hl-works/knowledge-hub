@@ -55,7 +55,7 @@ if (batterySize) {
     const key = batterySize.value;
     const screened = screenToggle.getAttribute('aria-pressed') === 'true';
     const [capacity,modules,height,space] = variants[key];
-    const src = '../../assets/mur-nord-elevation' + (key === '13' ? '' : '-' + key) + (screened ? '-habillage' : '') + '.svg';
+    const src = '../../assets/mur-nord-elevation' + (key === '13' ? '' : '-' + key) + (screened ? '-habillage' : '') + '.svg?v=20261102-2';
     drawing.src = src;
     fullDrawing.href = src;
     drawing.alt = `Simulation cotée : batterie de ${capacity} kWh et onduleur à gauche ; deux Daikin et groupe Calypso à droite. ${screened ? 'Habillage vert visible.' : 'Équipements visibles.'}`;
