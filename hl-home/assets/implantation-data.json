@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-02",
+  "units": "mm",
+  "status": "Simulation géométrique, non exécutable : restriction de superposition Daikin",
+  "envelope": {
+    "width": 2800,
+    "height": 3600,
+    "depth": 1008,
+    "front_service": 1000
+  },
+  "pac": [
+    {
+      "model": "RZAG60A",
+      "width": 870,
+      "height": 734,
+      "depth": 373,
+      "base": 300,
+      "status": "variante demandée au devis, choix non confirmé"
+    },
+    {
+      "model": "3MXM68A",
+      "width": 974,
+      "height": 734,
+      "depth": 408,
+      "base": 1484,
+      "status": "demande de devis du 22/09/2026"
+    },
+    {
+      "model": "Calypso Split 270 L - unité extérieure",
+      "width": 735,
+      "height": 535,
+      "depth": 330,
+      "base": 2668,
+      "status": "lien confirmé par Hugo"
+    }
+  ],
+  "batteries": [
+    {
+      "key": "11",
+      "modules": 4,
+      "kwh": 11.04,
+      "height": 1228,
+      "max_mass_kg": 167,
+      "width": 585,
+      "depth": 298
+    },
+    {
+      "key": "13",
+      "modules": 5,
+      "kwh": 13.8,
+      "height": 1461,
+      "max_mass_kg": 205,
+      "width": 585,
+      "depth": 298
+    },
+    {
+      "key": "16",
+      "modules": 6,
+      "kwh": 16.56,
+      "height": 1694,
+      "max_mass_kg": 243,
+      "width": 585,
+      "depth": 298
+    }
+  ],
+  "inverter": {
+    "model": "Fronius Primo GEN24 6.0 Plus",
+    "width": 474,
+    "height": 530,
+    "depth": 165,
+    "status": "candidat de simulation, non acheté"
+  },
+  "sources": {
+    "daikin_multi": "https://www.daikin.eu/en_us/products/product.table.html/3MXM-A.html",
+    "daikin_cinema": "https://my.daikin.eu/content/dam/dauk/document-library/data-sheet/ac/split_skyair_r410a/MiniSkyAir/FFA-A9_RZAG-A_Datasheet_UKEPLEN20-1087.pdf",
+    "daikin_install": "https://www.daikin.eu/content/dam/document-library/Installer-reference-guide/ac/sky-air/rzag-a/RZAG-A_4PEN540076-1A_2018_11_Installer%20reference%20guide_English.pdf",
+    "atlantic": "https://www.atlantic.fr/Chauffer-l-eau/Chauffe-eau/Chauffe-eau-thermodynamique/Calypso-Split",
+    "vmc": "https://www.atlantic.fr/Ventiler-le-logement/Ventilation-de-tout-le-logement/Ventilation-simple-flux/VMC-hygroreglable/Hygrogenius",
+    "byd": "https://bydbatterybox.com/uploads/downloads/240819_BYD_Battery-Box_Premium_HVS%26HVM_Quick_Start_Guide_V2.8-66c307c11997f.pdf",
+    "compat": "https://bydbatterybox.com/uploads/downloads/261010_BYD_Battery_Box_Premium_HVS%26HVM_Compatible_Inverter_List_V2.22-6ac9d0a3b853b.pdf",
+    "fronius": "https://www.fronius.com/en/help-center/solar-energy/products/solar-inverters/gen24/primo-gen24-plus/fronius-primo-gen24-6-0-plus",
+    "fronius_install": "https://manuals.fronius.com/html/4204260302/en-US.html"
+  }
+}
