@@ -1,39 +1,7 @@
 {
   "date": "2026-11-02",
   "units": "mm",
-  "status": "Simulation géométrique, non exécutable : restriction de superposition Daikin",
-  "envelope": {
-    "width": 2800,
-    "height": 3600,
-    "depth": 1008,
-    "front_service": 1000
-  },
-  "pac": [
-    {
-      "model": "RZAG60A",
-      "width": 870,
-      "height": 734,
-      "depth": 373,
-      "base": 300,
-      "status": "variante demandée au devis, choix non confirmé"
-    },
-    {
-      "model": "3MXM68A",
-      "width": 974,
-      "height": 734,
-      "depth": 408,
-      "base": 1484,
-      "status": "demande de devis du 22/09/2026"
-    },
-    {
-      "model": "Calypso Split 270 L - unité extérieure",
-      "width": 735,
-      "height": 535,
-      "depth": 330,
-      "base": 2668,
-      "status": "lien confirmé par Hugo"
-    }
-  ],
+  "status": "Quatre groupes en une colonne confirmés par Hugo ; étude d’encombrement, installation non validée",
   "batteries": [
     {
       "key": "11",
@@ -71,14 +39,143 @@
     "status": "candidat de simulation, non acheté"
   },
   "sources": {
-    "daikin_multi": "https://www.daikin.eu/en_us/products/product.table.html/3MXM-A.html",
-    "daikin_cinema": "https://my.daikin.eu/content/dam/dauk/document-library/data-sheet/ac/split_skyair_r410a/MiniSkyAir/FFA-A9_RZAG-A_Datasheet_UKEPLEN20-1087.pdf",
-    "daikin_install": "https://www.daikin.eu/content/dam/document-library/Installer-reference-guide/ac/sky-air/rzag-a/RZAG-A_4PEN540076-1A_2018_11_Installer%20reference%20guide_English.pdf",
+    "daikin_multi": "https://www.daikin.eu/en_us/products/product.table.html/2mxf-a.html",
+    "daikin_cinema": "https://www.daikin.es/es_es/productos/product.table.html/RXM-A.html",
+    "daikin_install": "https://www.daikin.eu/content/dam/document-library/Installer-reference-guide/ac/split/2MXM-M%2C%202AMXM-M%2C%202AMXF-A%2C%202MXF-A_4PEN600463-2_2019_10_Installer%20reference%20guide_English.pdf",
     "atlantic": "https://www.atlantic.fr/Chauffer-l-eau/Chauffe-eau/Chauffe-eau-thermodynamique/Calypso-Split",
     "vmc": "https://www.atlantic.fr/Ventiler-le-logement/Ventilation-de-tout-le-logement/Ventilation-simple-flux/VMC-hygroreglable/Hygrogenius",
     "byd": "https://bydbatterybox.com/uploads/downloads/240819_BYD_Battery-Box_Premium_HVS%26HVM_Quick_Start_Guide_V2.8-66c307c11997f.pdf",
     "compat": "https://bydbatterybox.com/uploads/downloads/261010_BYD_Battery_Box_Premium_HVS%26HVM_Compatible_Inverter_List_V2.22-6ac9d0a3b853b.pdf",
     "fronius": "https://www.fronius.com/en/help-center/solar-energy/products/solar-inverters/gen24/primo-gen24-plus/fronius-primo-gen24-6-0-plus",
-    "fronius_install": "https://manuals.fronius.com/html/4204260302/en-US.html"
-  }
+    "fronius_install": "https://manuals.fronius.com/html/4204260302/en-US.html",
+    "daikin_rxa": "https://www.daikin.eu/content/dam/document-library/catalogues/ac/split/ftxa-bt/FTXA-BT%2C%20RXA-A%2C%20RXA-B_Product%20flyer_ECPEN21-052_English.pdf",
+    "daikin_rxm_install": "https://www.daikin.eu/content/dam/document-library/installation-manuals/ac/split/rxa-b8/RXA-B8.RXM50A9.RXM-A.ARXM50A9.ARXM60-71A.RXP50-71N9.RXF50D6V1B.RXF60-71D9.ARXF50A6V1B.ARXF60-71A9.RZAG-B_Installation%20manual_3PFR766062-2_French.pdf",
+    "daikin_rxa_modern": "https://catalogues.daikin.eu/flipbooks/EN/General_catalogue/04split/317/"
+  },
+  "archived_envelope": {
+    "width": 2800,
+    "height": 3600,
+    "depth": 1008,
+    "front_service": 1000,
+    "status": "Obsolète : anciennes références et réserves non dimensionnées"
+  },
+  "archived_pac": [
+    {
+      "model": "RZAG60A",
+      "width": 870,
+      "height": 734,
+      "depth": 373,
+      "base": 300,
+      "status": "variante demandée au devis, choix non confirmé"
+    },
+    {
+      "model": "3MXM68A",
+      "width": 974,
+      "height": 734,
+      "depth": 408,
+      "base": 1484,
+      "status": "demande de devis du 22/09/2026"
+    },
+    {
+      "model": "Calypso Split 270 L - unité extérieure",
+      "width": 735,
+      "height": 535,
+      "depth": 330,
+      "base": 2668,
+      "status": "lien confirmé par Hugo"
+    }
+  ],
+  "pac": [
+    {
+      "model": "RXM60A",
+      "width": 954,
+      "height": 734,
+      "depth": 401,
+      "mass_kg": 49,
+      "variant": "RXM60A5V1B : suffixe à confirmer",
+      "base": 150
+    },
+    {
+      "model": "RXA42B",
+      "width": 870,
+      "height": 734,
+      "depth": 373,
+      "mass_kg": 50,
+      "variant": "B2V1B : suffixe à confirmer ; B8/B9 plus larges",
+      "base": 1234
+    },
+    {
+      "model": "2MXF50A",
+      "width": 765,
+      "height": 550,
+      "depth": 285,
+      "mass_kg": 41,
+      "variant": "2MXF50A2V1B",
+      "base": 2318
+    },
+    {
+      "model": "Calypso Split 270 L · groupe extérieur",
+      "width": 735,
+      "height": 535,
+      "depth": 330,
+      "mass_kg": 24,
+      "variant": "Ballon intérieur distinct",
+      "base": 3218
+    }
+  ],
+  "bare_height_sum": 2553,
+  "studied_ground_clearance": 150,
+  "installed_height": null,
+  "quote": {
+    "manager": "Emmanuel Valente",
+    "amount_excl_tax_eur": 8915,
+    "items": [
+      {
+        "type": "Murale",
+        "model": "FTXA20CW"
+      },
+      {
+        "type": "Murale",
+        "model": "FTXA35CW"
+      },
+      {
+        "type": "Groupe extérieur · 2 sorties",
+        "model": "2MXF50A"
+      },
+      {
+        "type": "Murale · libellé reçu",
+        "model": "FTXA40CW"
+      },
+      {
+        "type": "Groupe extérieur",
+        "model": "RXA42B"
+      },
+      {
+        "type": "Gainable",
+        "model": "FDXM60F"
+      },
+      {
+        "type": "Groupe extérieur",
+        "model": "RXM60A"
+      }
+    ],
+    "source": "Liste communiquée par Hugo le 02/11/2026",
+    "includes_installation_in_list": true
+  },
+  "envelope": {
+    "width": 2800,
+    "height": 3800,
+    "depth": 1001,
+    "front_service": 1000,
+    "status": "hypothèse de simulation, pas minimum constructeur"
+  },
+  "geometry": {
+    "ground_clearance": 150,
+    "inter_unit_free": 300,
+    "support_illustrative_height": 50,
+    "top_of_equipment": 3753,
+    "top_open": true,
+    "frame_above_last_unit": 47
+  },
+  "layout_confirmed": "Les quatre groupes dans la même colonne"
 }
