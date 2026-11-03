@@ -340,7 +340,7 @@ function heUI(node){return HE_UI[heLocale(node)]||HE_UI.fr}
 function heNorm(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').replace(/\s+/g,' ').trim()}
 function heCardKey(card){return heNorm(card.dataset.brand||card.querySelector('.brand-head b')?.textContent)}
 function heFamilies(card){
- const n=heNorm(card.querySelector('.brand-head b')?.textContent);const out=[];
+ const n=heNorm(card.dataset.brand||card.querySelector('.brand-head b')?.textContent);const out=[];
  if(/yg acoustics|focal|bowers|jbl|tannoy|magico|stenheim|sonus faber|dali|raidho|vienna|fyne|ø audio|wilson/.test(n))out.push('speakers');
  if(/accuphase|luxman|dagostino|audio research|soulution|boulder|thrax|air tight|gryphon|musical fidelity|goldmund|mcintosh|naim/.test(n))out.push('electronics');
  if(/clearaudio|eversolo|esoteric|vpi|lumin|wadax|msb|techdas|phasemation|reed|reel|dcs|emm labs|ds audio|verdier|naim/.test(n))out.push('sources');
