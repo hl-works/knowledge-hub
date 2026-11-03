@@ -23,11 +23,15 @@ IMAGES = [
  ("08-sonus-faber", "https://stereo-box.it/cdn/shop/products/AIDA_Venge.jpg?v=1646046008&width=1240"),
  ("09-clearaudio", "https://cdn.mos.cms.futurecdn.net/CJxHVPYFZBoiTosrJ4Hmah.jpg"),
  ("10-magico", "https://nekoaudio.com/images/magico/m9_1.jpg"),
- ("11-gryphon", "https://www.auditorium.de/media/49/72/53/1770389387/auditorium-gryphon-apex-stereo-endverstaerker-294080-images-1.jpg?ts=1770389387"),
+ ("11-gryphon", "https://gryphon-audio.dk/wp-content/uploads/Apex-scaled-1-scaled.jpg"),
  ("12-dcs", "https://www.mirandahifi.com/cdn/shop/files/dcs-verese-system-stack-front_1500x1500_a8c3ff02-c98c-4c93-bd4d-da525d7bec0e.jpg?v=1755911424"),
  ("13-esoteric", "https://arsantiquaudio.com/5988-large_default/esoteric-grandioso-d1x-set.jpg")
 ]
 success,fail={},{}
+try:
+    previous=json.loads((OUT/'manifest.json').read_text()).get('images',{})
+except (OSError, ValueError):
+    previous={}
 for slug,url in IMAGES:
     target = OUT / (slug+".webp")
     try:
@@ -40,14 +44,22 @@ for slug,url in IMAGES:
         img.load()
         if img.width<250 or img.height<200:
             raise ValueError(f"too small {img.size}")
-        img=ImageOps.exif_transpose(img).convert("RGB")
+        img=ImageOps.exif_transpose(img).convert("RGBA")
+        background=Image.new("RGBA",img.size,"#f4f0ed")
+        img=Image.alpha_composite(background,img).convert("RGB")
         img.thumbnail((1200,850),Image.Resampling.LANCZOS)
         img.save(target,"WEBP",quality=83,method=6)
-        success[slug]={"file":"assets/products/"+target.name,"width":img.width,"height":img.height}
+        success[slug]={"file":"assets/products/"+target.name,"width":img.width,"height":img.height,"source":url}
         print("OK",slug,img.size,target.stat().st_size)
     except Exception as exc:
         fail[slug]=str(exc)[:240]
         print("FAIL",slug,fail[slug])
+        if slug in previous and target.exists():
+            with Image.open(target) as cached:
+                cached.verify()
+            success[slug]=previous[slug]
+            print("KEEP",slug,"previous validated image")
 (OUT/"manifest.json").write_text(json.dumps({"images":success,"failed":fail},indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 if not success:
     raise SystemExit("No product images downloaded; do not deploy empty gallery")
+
