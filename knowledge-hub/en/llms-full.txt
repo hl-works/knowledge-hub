@@ -7,7 +7,7 @@ Location: Chennevières-sur-Marne, Île-de-France, France.
 Background: 17 years at Son-Vidéo.com (France's #1 HiFi/home cinema e-retailer) — purchasing, sales, commercial strategy, marketing/communications, partnerships; growth from €10M to €62M. Since 2024: CEO of Cobra (Oct. 2024), publisher & editorial director of Haute Fidélité (Jan. 2025, 30+ year reference magazine relaunched), founder of HL Consulting (Jul. 2024). Marketing lecturer at Creapole-ESDI. Passionate about music, cinema, and Japanese culture (Japan Expo 2004–2009).
 LinkedIn: https://www.linkedin.com/in/hugo-lahutte — X: https://x.com/hugolh_ai
 
-Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-11-06
+Document generated automatically from the site content (scripts/build_llms_full.py). Last updated: 2026-11-07
 
 
 ================================================================
@@ -27,29 +27,29 @@ Le Radar iA.
 All updates and sources →Models, agents, research and practical uses: six recent items, with dates and source links.
 Latest selection: 2026-11-06
 - 0106.11.2026
+Meta déploie de nouveaux modèles Muse Wonder dans Muse et Meta AI
+Meta intègre des modèles spécialisés issus de Muse Wonder dans ses assistants Muse et Meta AI. Deux capacités sont mises en avant : « Active Memory » (mieux retenir les informations pertinentes dans le temps) et « Active Focus » (poursuivre un objectif malgré les obstacles), avec une réduction annoncée de 2,4x des oublis d'informations critiques.
+Source : @alexandr_wang · meta · modeles · produit
+- 0206.11.2026
+Mistral présente Voxtral 3 avec détection de fin de parole
+Mistral met en avant Voxtral 3, son modèle de transcription vocale, et sa fonction de détection de fin de tour de parole. L'objectif est d'aider les développeurs à créer des interfaces vocales plus réactives sans deviner quand l'utilisateur a fini de parler.
+Source : @MistralAI · mistral · modeles · produit · service-client
+- 0306.11.2026
+DeepMind : des agents IA repèrent des failles dans le RSA 1024 bits
+Google DeepMind publie des travaux montrant comment des agents IA, guidés par des humains, ont identifié deux faiblesses majeures dans d'anciens systèmes de chiffrement RSA à 1024 bits. Un signal sur l'usage de l'IA pour tester la sécurité cryptographique.
+Source : @GoogleDeepMind · google · recherche
+- 0406.11.2026
+Anthropic détaille la mémoire et le « rêve » de Claude
+Dans un billet technique, Anthropic explique comment Claude utilise un mécanisme de « rêve » pour organiser ce qu'il a appris, corriger ses erreurs et retrouver plus facilement les informations utiles. L'idée est de permettre au modèle d'apprendre de l'expérience.
+Source : @AnthropicAI · anthropic · recherche · modeles
+- 0506.11.2026
+OpenAI lance BioBasicsBench pour évaluer les agents en biologie
+OpenAI, avec la biotech Ligo, présente BioBasicsBench, un référentiel de 100 tâches issues d'expériences réelles pour tester si les agents IA savent interpréter des données de laboratoire, repérer des erreurs et reconnaître quand les preuves sont insuffisantes.
+Source : @OpenAI · openai · recherche · agents
+- 0606.11.2026
 La valorisation anticipée d'Anthropic reculerait fortement
 Selon Gary Marcus, la valorisation prospective d'Anthropic serait passée de 2 000 milliards à possiblement 1 000 milliards de dollars en quelques semaines, sur fond d'inquiétudes de marché autour du secteur IA.
 Source : @GaryMarcus · anthropic · politique-ia
-- 0205.11.2026
-OpenAI lance GPT-6 Cyber, modèle dédié à la cybersécurité
-OpenAI présente GPT-6 Cyber, un modèle spécialisé dans la recherche en sécurité, déjà utilisé pour analyser le noyau Linux et par des équipes chez Mozilla, Palo Alto Networks et Cisco. Il est d'abord réservé à des clients sélectionnés via le programme Daybreak Red.
-Source : @OpenAI · openai · modeles · recherche
-- 0305.11.2026
-Perplexity lance Teammates, des agents de travail autonomes
-Perplexity introduit « Teammates », des agents personnels qui exécutent des tâches de façon proactive à partir d'objectifs de haut niveau plutôt que de prompts, et peuvent collaborer entre eux et via Slack. Disponible pour les abonnés Max sur le web.
-Source : @perplexity_ai · produit · agents · automatisation
-- 0405.11.2026
-Google met à jour Gemini Omni 1.2 Flash pour la vidéo
-Google déploie Gemini Omni 1.2 Flash avec génération vidéo jusqu'à 15 secondes, meilleure cohérence des scènes, dialogues plus naturels et un prix réduit de 30 % (0,07 $/seconde en 720p). Disponible dans Flow, Google Vids, l'app Gemini et via l'API.
-Source : @GoogleAI · google · modeles · produit · marketing
-- 0505.11.2026
-Mistral enrichit Studio avec des agents gérés
-Mistral annonce des agents et applications gérés dans Mistral Studio, avec de nouvelles capacités pour les workflows, connexions entreprise, observabilité et évaluations. L'offre met l'accent sur un déploiement flexible et le contrôle des données.
-Source : @MistralAI · mistral · produit · agents · automatisation
-- 0605.11.2026
-Delaware envisage des entreprises dirigées par des agents IA
-Une proposition du Delaware permettrait de créer des entités juridiques (« AIC ») dont les affaires quotidiennes seraient gérées par un agent IA plutôt qu'un humain, pouvant posséder des biens et contracter des obligations. Mustafa Suleyman appelle à la prudence.
-Source : @mustafasuleyman · politique-ia · agents
 Follow Le Radar iA on Telegram ↗
 A selection from the daily watch. Follow the source links for context.
 02 / AI news in audio
