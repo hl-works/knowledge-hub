@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-11-11
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-11-12
 
 
 ================================================================
@@ -26,29 +26,29 @@ Le Radar iA.
 Toute la veille et ses sources →Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.
 Dernière sélection : 2026-11-11
 - 0111.11.2026
+Google lance l'API Gemini Decisions et le modèle Gemini Decision 1
+Google introduit un modèle spécialisé dans les choix fermés (oui/non, QCM jusqu'à 255 options, notation par grille), capable de traiter jusqu'à 1000 questions en une seule passe sur du texte, image, audio, vidéo et PDF. Tarif de 0,10 $ par million de tokens en entrée, sans coût de sortie, soit environ 5 fois moins cher que Flash-Lite.
+Source : @sundarpichai · google · modeles · produit · automatisation
+- 0211.11.2026
 Alibaba lance Qwen4 en préversion
 Alibaba annonce Qwen4, avec son modèle Qwen4-Max disponible en préversion via le Token Plan. L'accent est mis sur le codage, les capacités agentiques et le travail professionnel.
 Source : @Alibaba_Qwen · modeles · open-source · agents
-- 0210.11.2026
-OpenAI ouvre les profils d'entreprises dans ChatGPT
-OpenAI lance en bêta « Businesses in ChatGPT » : les entreprises peuvent revendiquer leur profil, gérer leurs informations et créer un agent pour répondre aux clients. Un équivalent possible du référencement, version chatbot.
-Source : @OpenAI · openai · produit · agents · commerce · service-client · vente
-- 0310.11.2026
-Google publie Gemini 4 Carbon
-Google déploie Gemini 4 Carbon, son modèle le plus puissant pour les tâches complexes de longue durée : ingénierie logicielle, cybersécurité, travail de connaissance et science. Disponible via API et pour les abonnés Ultra.
-Source : @GoogleDeepMind · google · modeles · agents
-- 0410.11.2026
-Shopify intègre les profils marchands dans ChatGPT
-Les marchands Shopify apparaissent déjà dans ChatGPT et peuvent désormais valider leurs informations, suivre comment les acheteurs les trouvent et ajouter leur propre agent pour conseiller les clients. Configuration depuis l'admin, vérification automatique.
-Source : @harleyf · produit · agents · shopify · commerce · service-client
-- 0510.11.2026
-Semaine chargée en IA : récap des annonces OpenAI, Anthropic, Meta, Google
-Tour d'horizon des annonces récentes : profils d'entreprises dans ChatGPT, suite bureautique de Claude, nouveaux modèles Fable 5.2 et Gemini 4 Carbon, puce TPU de Google, IPO d'Anthropic et engagements de Paris sur la sécurité de l'IA.
-Source : @rowancheung · openai · anthropic · google · meta · modeles
-- 0610.11.2026
-Anthropic lance le roadshow de son introduction en bourse
-Anthropic a ouvert la tournée des investisseurs pour son projet d'IPO, avec une possible cotation dans les prochains jours. L'entreprise aurait aussi franchi son propre seuil de sécurité sur les progrès pilotés par l'IA.
-Source : @AnthropicAI · anthropic · politique-ia
+- 0311.11.2026
+DeepMind dévoile AlphaGenome 2
+Google DeepMind annonce AlphaGenome 2, un modèle de séquences ADN qui prédit l'impact de variants génétiques selon les types cellulaires spécifiques. L'outil vise à mieux comprendre les causes de maladies complexes et est disponible pour la recherche académique via une API.
+Source : @demishassabis · google · recherche
+- 0411.11.2026
+Gemini Decision 1 disponible gratuitement dans l'API
+Logan Kilpatrick détaille la disponibilité du nouveau modèle de décision de Google : support natif de l'image, l'audio, la vidéo et du PDF, fenêtre de contexte de 256K et possibilité de poser 1000 questions. Accessible gratuitement à l'essai dans l'API.
+Source : @OfficialLoganK · google · produit · modeles
+- 0511.11.2026
+DeepMind prouve formellement la sécurité du protocole de Signal
+À l'aide de son cadre AlphaProof Code, Google DeepMind affirme avoir mathématiquement vérifié la sécurité du protocole cryptographique de Signal jusqu'au niveau du code, une première pour une IA appliquée à la vérification d'un système protégeant des milliards de messages.
+Source : @GoogleDeepMind · google · recherche
+- 0611.11.2026
+Nvidia montre GR00T 2 contrôlant des mains robotiques en temps réel
+Jim Fan présente GR00T 2, modèle de Nvidia pilotant des mains dextres pour réaliser une expérience de laboratoire de chimie de bout en bout, nettoyage compris. La démo est présentée en temps réel, sans accélération vidéo.
+Source : @DrJimFan · hardware · recherche
 Rejoindre Le Radar iA sur Telegram ↗
 Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.
 02 / L’actualité IA à écouter
