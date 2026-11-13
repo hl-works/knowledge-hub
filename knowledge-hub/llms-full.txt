@@ -7,7 +7,7 @@ Localisation : Chennevières-sur-Marne, Île-de-France, France.
 Parcours : 17 ans chez Son-Vidéo.com (n°1 français HiFi/home-cinéma en ligne) — achats, vente, stratégie commerciale, marketing/communication, partenariats ; croissance de 10 à 62 M€. Depuis 2024 : DG de Cobra (oct. 2024), éditeur & directeur de publication de Haute Fidélité (janv. 2025, magazine de référence 30+ ans relancé), fondateur de HL Consulting (juil. 2024). Enseignant marketing à Creapole-ESDI. Passionné de musique, cinéma et culture japonaise (Japan Expo 2004-2009).
 LinkedIn : https://www.linkedin.com/in/hugo-lahutte — X : https://x.com/hugolh_ai
 
-Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-11-12
+Document généré automatiquement depuis le contenu du site (scripts/build_llms_full.py). Dernière mise à jour : 2026-11-13
 
 
 ================================================================
@@ -24,31 +24,31 @@ Une sélection de Hugo Lahutte ↗Un seul abonnement Telegram.Retrouve les trois
 S’abonner sur Telegram ↗01 / La veille quotidienne sur Telegram
 Le Radar iA.
 Toute la veille et ses sources →Modèles, agents, recherche et usages concrets : six nouvelles récentes, avec leurs dates et leurs sources.
-Dernière sélection : 2026-11-11
-- 0111.11.2026
-Google lance l'API Gemini Decisions et le modèle Gemini Decision 1
-Google introduit un modèle spécialisé dans les choix fermés (oui/non, QCM jusqu'à 255 options, notation par grille), capable de traiter jusqu'à 1000 questions en une seule passe sur du texte, image, audio, vidéo et PDF. Tarif de 0,10 $ par million de tokens en entrée, sans coût de sortie, soit environ 5 fois moins cher que Flash-Lite.
-Source : @sundarpichai · google · modeles · produit · automatisation
-- 0211.11.2026
-Alibaba lance Qwen4 en préversion
-Alibaba annonce Qwen4, avec son modèle Qwen4-Max disponible en préversion via le Token Plan. L'accent est mis sur le codage, les capacités agentiques et le travail professionnel.
-Source : @Alibaba_Qwen · modeles · open-source · agents
-- 0311.11.2026
-DeepMind dévoile AlphaGenome 2
-Google DeepMind annonce AlphaGenome 2, un modèle de séquences ADN qui prédit l'impact de variants génétiques selon les types cellulaires spécifiques. L'outil vise à mieux comprendre les causes de maladies complexes et est disponible pour la recherche académique via une API.
-Source : @demishassabis · google · recherche
-- 0411.11.2026
-Gemini Decision 1 disponible gratuitement dans l'API
-Logan Kilpatrick détaille la disponibilité du nouveau modèle de décision de Google : support natif de l'image, l'audio, la vidéo et du PDF, fenêtre de contexte de 256K et possibilité de poser 1000 questions. Accessible gratuitement à l'essai dans l'API.
-Source : @OfficialLoganK · google · produit · modeles
-- 0511.11.2026
-DeepMind prouve formellement la sécurité du protocole de Signal
-À l'aide de son cadre AlphaProof Code, Google DeepMind affirme avoir mathématiquement vérifié la sécurité du protocole cryptographique de Signal jusqu'au niveau du code, une première pour une IA appliquée à la vérification d'un système protégeant des milliards de messages.
-Source : @GoogleDeepMind · google · recherche
-- 0611.11.2026
-Nvidia montre GR00T 2 contrôlant des mains robotiques en temps réel
-Jim Fan présente GR00T 2, modèle de Nvidia pilotant des mains dextres pour réaliser une expérience de laboratoire de chimie de bout en bout, nettoyage compris. La démo est présentée en temps réel, sans accélération vidéo.
-Source : @DrJimFan · hardware · recherche
+Dernière sélection : 2026-11-13
+- 0113.11.2026
+Un studio publicitaire décline un angle en dizaines de visuels avec GPT Images 2.6
+Un nouvel outil « explore an angle » génère, à partir d'un angle gagnant et d'une audience, des dizaines de publicités statiques en différents formats et styles visuels, en s'appuyant sur GPT Images 2.6.
+Source : @mikefutia · marketing · pub · produit
+- 0213.11.2026
+Tarification de Gemini 4 jugée confuse
+Des observateurs notent que la grille tarifaire de Gemini 4 manque de clarté : Argon et Carbon ont le même prix au token, Hydrogen n'offre que 25 % de remise, et les prix de Carbon/Argon doubleront le 1er décembre.
+Source : @simonw · google · modeles
+- 0312.11.2026
+Anthropic dépose son introduction en Bourse
+Anthropic a déposé son prospectus d'IPO auprès de la SEC. L'entreprise afficherait environ 17 Md$ de revenus trimestriels, une forte croissance des gros clients, mais aussi des coûts de calcul massifs. Le titre devrait coter sous le symbole $ANT autour du 18 novembre.
+Source : @AnthropicAI · anthropic · politique-ia
+- 0412.11.2026
+Google lance Gemini 4 Hydrogen, un modèle rapide et abordable
+Google ajoute Hydrogen à sa gamme Gemini 4 : un modèle optimisé pour la vitesse et le coût, destiné au codage quotidien et aux workflows agentiques. Il est déployé sur AI Studio, l'API Gemini, l'app, Search et les abonnements payants, avec quatre niveaux de « réflexion » ajustables.
+Source : @OfficialLoganK · google · modeles · produit
+- 0512.11.2026
+Anthropic lance Claude Meetings
+Claude peut désormais rejoindre un appel vidéo d'équipe et produire en direct des documents, tableaux blancs et autres artefacts pendant la réunion. En bêta sur les plans Team et Enterprise, pour l'instant limité à Google Meet.
+Source : @claudeai · anthropic · produit · agents · automatisation
+- 0612.11.2026
+Thinking Machines ouvre les poids d'Inkling 2 Small
+Thinking Machines publie les poids de son modèle Inkling 2 Small sous licence Apache 2.0 sur Hugging Face, permettant son usage et sa personnalisation libres.
+Source : @thinkymachines · modeles · open-source · recherche
 Rejoindre Le Radar iA sur Telegram ↗
 Une sélection issue de la veille quotidienne. Remonte aux sources pour approfondir.
 02 / L’actualité IA à écouter
