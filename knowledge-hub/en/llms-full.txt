@@ -1715,7 +1715,7 @@ The whole thing runs without a server: two GitHub Actions workflows (veille.yml 
 - Claude API (Anthropic) — editorial selection + neutral summaries. Model claude-opus-4-8 (switchable to claude-sonnet-4-6 to reduce cost). Key <ANTHROPIC_API_KEY>.
 - Telegram Bot API — digest push. Token <TELEGRAM_BOT_TOKEN>, channel t.me/VeilleIA_HL.
 - GitHub Actions — the scheduler (1 run/day) that orchestrates collect → summarize → 2 outputs.
-- GitHub (veille-ia) — engine + secrets. GitHub Pages (knowledge-hub) — the site.
+- GitHub (veille-ia) — engine + secrets. GitHub Pages (hl-consulting.tech) — the site.
 - feed.json — the data contract between the two repos (cumulative). seen.json — the deduplication memory.
 - Cross-repo bridge — at the end of the job, veille-ia commits and pushes feed.json to knowledge-hub via a dedicated PAT <KH_REPO_TOKEN>.
 🔒 No secrets ever published
@@ -3342,7 +3342,7 @@ Why two accounts
 - HL: personal projects, strategy, Knowledge Hub, HiFi Lovers, experiments
 Both can contribute to the same GitHub repo via structured session summaries in markdown → push → live.
 What changes
-The Knowledge Hub itself is the first project driven from the HL account. The hl-works/knowledge-hub repo is connected to claude.ai/code.
+The Knowledge Hub itself is the first project driven from the HL account. The hl-works/hl-consulting.tech repo is connected to claude.ai/code.
 "I have two Claudes. One knows Odoo 18 inside out and knows what every module on cobrason.odoo.com does. The other follows me on my personal projects and never mentions ERP. Both can write to the same journal."
 See also
 - Structuring the Claude "Odoo" project: ecosystem reference docs

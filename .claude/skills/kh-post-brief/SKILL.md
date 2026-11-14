@@ -1,6 +1,6 @@
 ---
 name: kh-post-brief
-description: Génère, en fin de session de travail, un brief Markdown prêt à publier sur le Knowledge Hub de Hugo Lahutte (hl-consulting.tech/knowledge-hub) — titre, verticale, auteur, tags de la liste blanche, statut, date, sections (contexte / ce qui a été fait / ce qui était difficile / stack / ce que ça illustre), visuels à joindre et garde-fous de sanitisation. À utiliser quand Hugo veut transformer une session (avec n'importe quelle IA) en entrée de journal KH. Le brief produit est ensuite collé à Claude Code sur le repo `hl-works/knowledge-hub`, qui publie l'entrée FR+EN et tout le maillage.
+description: Génère, en fin de session de travail, un brief Markdown prêt à publier sur le Knowledge Hub de Hugo Lahutte (hl-consulting.tech/knowledge-hub) — titre, verticale, auteur, tags de la liste blanche, statut, date, sections (contexte / ce qui a été fait / ce qui était difficile / stack / ce que ça illustre), visuels à joindre et garde-fous de sanitisation. À utiliser quand Hugo veut transformer une session (avec n'importe quelle IA) en entrée de journal KH. Le brief produit est ensuite collé à Claude Code sur le repo `hl-works/hl-consulting.tech`, qui publie l'entrée FR+EN et tout le maillage.
 ---
 
 # Brief pour une entrée du Knowledge Hub
@@ -8,7 +8,7 @@ description: Génère, en fin de session de travail, un brief Markdown prêt à 
 > **Portable.** Tout ce qui suit la ligne `═══` est autosuffisant : copie-le dans
 > l'IA de ton choix (ChatGPT, Gemini, un autre Claude…) à la fin d'une session de
 > travail, et elle produira le brief. Tu récupères le Markdown, tu le donnes à
-> Claude sur le repo `knowledge-hub`, et il publie (FR + EN + maillage + health).
+> Claude sur le repo `hl-consulting.tech`, et il publie (FR + EN + maillage + health).
 
 ## Comment ça marche (côté Hugo)
 
@@ -16,7 +16,7 @@ description: Génère, en fin de session de travail, un brief Markdown prêt à 
 2. L'IA te rend un brief Markdown rempli.
 3. Tu **attaches les captures/vidéos en fichiers** (bouton +, **pas** collées inline —
    sinon Claude ne peut pas les intégrer) et tu donnes le tout à Claude Code sur
-   `hl-works/knowledge-hub`.
+   `hl-works/hl-consulting.tech`.
 4. Claude crée l'entrée `journal/<slug>.html` (FR), sa jumelle `en/`, et met à jour
    index journal, teaser accueil, sitemap, `llms.txt`/`en`, `search-index` FR+EN,
    compteurs, `llms-full`, puis health check + PR.
