@@ -1715,7 +1715,7 @@ The whole thing runs without a server: two GitHub Actions workflows (veille.yml 
 - Claude API (Anthropic) — editorial selection + neutral summaries. Model claude-opus-4-8 (switchable to claude-sonnet-4-6 to reduce cost). Key <ANTHROPIC_API_KEY>.
 - Telegram Bot API — digest push. Token <TELEGRAM_BOT_TOKEN>, channel t.me/VeilleIA_HL.
 - GitHub Actions — the scheduler (1 run/day) that orchestrates collect → summarize → 2 outputs.
-- GitHub (veille-ia) — engine + secrets. GitHub Pages (hl-consulting.tech) — the site.
+- GitHub (veille-ia) — engine + secrets. GitHub Pages (knowledge-hub) — the site.
 - feed.json — the data contract between the two repos (cumulative). seen.json — the deduplication memory.
 - Cross-repo bridge — at the end of the job, veille-ia commits and pushes feed.json to knowledge-hub via a dedicated PAT <KH_REPO_TOKEN>.
 🔒 No secrets ever published
